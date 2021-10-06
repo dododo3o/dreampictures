@@ -1,4 +1,4 @@
 package com.example.dreampicturespring.vo;
 
-public class SellVO {
+public class SellVO{
 }
