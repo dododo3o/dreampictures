@@ -8,4 +8,6 @@ import java.util.List;
 
 public interface MembershiptblRepository extends JpaRepository<Membership,Long> {
         List<Membership> findByemail(String email);
+        Boolean existsByemail(String email);
+        Boolean existsBytel(String tel);
 }

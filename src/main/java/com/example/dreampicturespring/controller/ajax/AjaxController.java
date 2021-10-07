@@ -17,16 +17,14 @@ public class AjaxController {
 	@Autowired
 	MembershiptblRepository membershiptblRepository;
 
-
-	@RequestMapping(value="/ajaxStr",method=RequestMethod.GET, produces="application/text;charset=UTF-8")
+	@RequestMapping(value="/ajax_email_check",method=RequestMethod.GET, produces="application/text;charset=UTF-8")
 	@ResponseBody
-	public String ajaxString() {
-		int no = 1234;
-		String username="홍길동";
-		String tel = "010-1234-5678";
-		String addr = "서울시 마포구 백범로";
-		String jsonData = "{\"no\":\""+no+"\",\"username\":\""+username+"\"";
-		jsonData +=",\"tel\":\""+tel+"\",\"addr\":\""+addr+"\"}";
-		return jsonData;
-	}
+	public String email_check(String email) { return membershiptblRepository.existsByemail(email) ? "N" : "Y"; }
+
+	@RequestMapping(value="/ajax_tel_check",method=RequestMethod.GET, produces="application/text;charset=UTF-8")
+	@ResponseBody
+	public String tel_check(String tel) { return membershiptblRepository.existsBytel(tel) ? "N" : "Y"; }
+
+
+
 }
