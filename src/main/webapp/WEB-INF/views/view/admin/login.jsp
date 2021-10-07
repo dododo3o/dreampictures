@@ -21,7 +21,7 @@
     <div class="container">
         <div class="contents" style="grid-column: 5/9; margin-top: 85px">
             <div class="title" >관리자 로그인</div>
-            <form action="<%=conPath%>/admin" method="post">
+            <form action="<%=conPath%>/admin/main" method="post">
                 <div style="display: flex;user-select: auto;flex-direction: column;align-items: center;justify-content: space-evenly;height: 650px;">
                     <input type="text" placeholder="Login" class="is_login_input" />
                     <input type="text" placeholder="Password" class="is_login_input" />

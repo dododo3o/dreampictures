@@ -91,13 +91,19 @@ button{border-radius:8px; border:0; outline:0; color:var(--color-white); backgro
 
 .is_enroll{ height:45px; font-size:var(--font-size-lg);}
 
-.is_enroll_logo{width:350px; height:66px;  font-size: var(--font-size-xxxl);color:var(--color-chathams-blue); text-align: center;grid-column: 5/9;margin-top: 40px; margin-bottom: 10px}
+.is_enroll_logo{width:350px; height:66px;  font-size: var(--font-size-xxl);color:var(--color-chathams-blue); text-align: center;grid-column: 5/9;margin-top: 40px; margin-bottom: 10px}
 
 .is_enroll_button{height: 45px;font-size:var(--font-size-lg);}
 
 /* has */
 
 .has_flex_center{display: flex;justify-content: center;align-items: center;}
+
+.has_flex_column{display:flex; flex-direction:column;}
+
+.has_evenly{justify-content:space-evenly;}
+
+.has_between{justify-content:space-between;}
 
 .has_flex_center_cl{display: flex; flex-direction:column;justify-content: center;align-items: center;}
 
@@ -114,6 +120,8 @@ button{border-radius:8px; border:0; outline:0; color:var(--color-white); backgro
 .has_shadow{box-shadow: 0px 4px 4px 0px #0000004D;}
 
 .has_notice{display: flex; justify-content: space-around; font-size: var( --font-size-lg)}
+
+
 /* color */
 
 .has_black{color:var(--color-black);}
@@ -135,6 +143,10 @@ button{border-radius:8px; border:0; outline:0; color:var(--color-white); backgro
 .has_bg_turbo{background-color:var(--color-turbo);}
 
 .has_bg_white{background-color:var(--color-white);}
+
+.has_bg_light-cyan{background-color:var(--light-cyan);}
+
+.has_bg_bright-scarlt{background-color:var(--bright-scarlt);}
 
 /* font */
 .has_font-xs{font-size:var(--font-size-xs);}
@@ -186,3 +198,44 @@ input, textarea, select{border-radius:8px; outline:none;text-indent:10px;height:
 .card_img_avatar{width:39px; height:39px; background:url(photo/cardimg4.png); border-radius:50%;}
 
 .card_history{display: flex;justify-content: space-evenly; width: 100%;}
+
+.dealingcard{width:255px; height:446px; border-radius:4px; color:white; text-align:center;}
+
+.dealingcard>div{display:inline-block;}
+
+/*마이페이지*/
+
+.my_page{width:535px; height:580px; border-radius:30px;}
+
+.my_img{width:100px; height:100px; border-radius:50%; background:url(../uitility/photo/cardimg1.png);}
+
+.item:nth-child(1){flex-basis:100px;}
+
+.item:nth-child(2){flex-basis:150px}
+
+.item:nth-child(3){flex-basis:230px; text-align:center;}
+
+.item:nth-child(4){flex-basis:60px;}
+
+/*거래 내역*/
+
+.transactionHistory-item:nth-child(1){height:115px;}
+
+.transactionHistory-item:nth-child(2){height:335px;}
+
+.transactionHistory-item:nth-child(3){height:130px;}
+
+/*구매자 카드*/
+.is_buyer>div:not(.is_buyer div:first-child){width:255px; height:36px; line-height:36px;}
+
+.is_buyer_img{width:125px; height:125px; border-radius:50%; background:url(../uitility/photo/cardimg2.png);}
+
+/*판매자 카드*/
+.is_seller>div:not(.is_seller div:first-child){width:255px;}
+
+.is_seller>div:first-child{width:223px; height:170px; background:url(../uitility/photo/cardimg.png);}
+
+.is_seller>div:nth-child(3){height:120px; display:flex;}
+
+.is_seller>div:nth-child(3)>div:first-child{width:120px; border-radius:50%; background:url(../uitility/photo/cardimg.png);}
+
