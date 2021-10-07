@@ -1,8 +1,7 @@
 package com.example.dreampicturespring.controller.register;
 
-
-import com.example.dreampicturespring.entity.Membershiptbl;
-import com.example.dreampicturespring.repository.MemberRepository;
+import com.example.dreampicturespring.entity.Membership;
+import com.example.dreampicturespring.repository.MembershiptblRepository;
 import com.example.dreampicturespring.vo.RegisterVO;
 import com.example.dreampicturespring.constant.Msg;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,11 +15,11 @@ public class RegisterController {
 
 
     @Autowired
-    MemberRepository memberRepository;
+    MembershiptblRepository membershiptblRepository;
 
     @RequestMapping("/register1")
     public String register1(Model model){
-        Membershiptbl member = new Membershiptbl();
+        Membership member = new Membership();
         member.setEmail("tsets");
         member.setPwd("123132");
         member.setTel("12312313");
@@ -31,7 +30,12 @@ public class RegisterController {
         member.setNickname("1235kjkdsaf");
         member.setImg("/.../.../");
         member.setMemberStatus(0);
-        memberRepository.save(member);
+        membershiptblRepository.save(member);
+
+        System.out.println(membershiptblRepository.findById(45L));
+        System.out.println("=======================");
+        System.out.println(membershiptblRepository.findByemail("tsets"));
+
         return "view/register/register1";
     }
 
