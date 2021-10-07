@@ -1,8 +1,8 @@
 package com.example.dreampicturespring.controller.register;
 
 
+import com.example.dreampicturespring.entity.Membershiptbl;
 import com.example.dreampicturespring.repository.MemberRepository;
-import com.example.dreampicturespring.vo.Membershiptbl;
 import com.example.dreampicturespring.vo.RegisterVO;
 import com.example.dreampicturespring.constant.Msg;
 import org.springframework.beans.factory.annotation.Autowired;
