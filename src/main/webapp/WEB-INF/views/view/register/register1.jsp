@@ -29,7 +29,6 @@
             });
         });
     </script>
-
 </head>
 <body>
 <jsp:include page="../header_footer/header_not_login.jsp"></jsp:include>

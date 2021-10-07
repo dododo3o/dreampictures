@@ -34,7 +34,8 @@ public class RegisterController {
         membershiptblRepository.save(member);
 
         System.out.println(membershiptblRepository.findById(45L));
-
+        System.out.println("=======================");
+        System.out.println(membershiptblRepository.findByemail("tsets"));
 
         return "view/register/register1";
     }
