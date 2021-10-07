@@ -13,24 +13,35 @@ import java.time.LocalDateTime;
 @Table(name="membershiptbl")//sql의 테이블이름이기때문에 이름틀리면 나가리
 @Getter
 @Setter
-@ToString//모든데이터타입을 스트링을 바꿔줌
-public class Membershiptbl {
-    @Id //바로아래있는 멤버를 프라이머리키지정해준다.
-    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "MEM_SEQ")//맴버테이블의 시퀀스를 만들어준다.
-    @SequenceGenerator(sequenceName = "MEMBERSHIPSQ", allocationSize = 1, name = "MEM_SEQ")//시퀀스를 만들어주는데 오른쪽의 시퀀스 이름을 똑같이 맞춰야한다.
+
+@ToString
+public class Membership {
+    @Id
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "MEM_SEQ")
+    @SequenceGenerator(sequenceName = "MEMBERSHIPSQ", allocationSize = 1, name = "MEM_SEQ")
     private Long no_membership;
+    @Column
     private String email;
+    @Column
     private String pwd;
+    @Column
     private String tel;
+    @Column
     private String addr;
+    @Column(name = "detailaddr")
     private String detailAddr;
+    @Column
     private Integer zipcode;
+    @Column
     private String nickname;
+    @Column
     private String img;
+    @Column(name = "startdate")
     private LocalDateTime startDate;
+    @Column(name = "memberstatus")
     private Integer memberStatus;
 
-    public Membershiptbl(){
+    public Membership(){
         if(StringUtils.isEmpty(startDate)){
             this.startDate = LocalDateTime.now();
         }

@@ -29,7 +29,6 @@
             });
         });
     </script>
-
 </head>
 <body>
 <jsp:include page="../header_footer/header_not_login.jsp"></jsp:include>
@@ -55,23 +54,9 @@
                     <div class="has_flex_left">
                         <div>연락처 *<span class="has_chathams-blue">(- 하이픈 포함)</span></div>
                         <input type="text" class="is_login_input  has_width_full" name="phone" required="required" placeholder="핸드폰 번호" pattern="[0-9]{3}-[0-9]{4}-[0-9]{4}"/>
-
                     </div><button id="btn2" class='button is_primary'>인증하기</button>
                         <input type="submit" class='button is_login has_shadow has_flex_center has_width_full' value="다음 단계">
                     </div>
-                    <div class="has_flex_left">
-                    <div>비밀번호 *<span class="has_chathams-blue">(6~20 영문 대소문자, 숫자, 특수문자 꼭포함하여  6~20자)</span></div>
-                    <input type="password" class="is_login_input has_width_full" name="pw" placeholder="비밀번호" required="required" pattern="^(?=.*[A-Z])(?=.*[a-z])(?=.*[0-9])(?=.*[!@#$%^&*()_-+=[]{}~?:;`|/]).{6,20}$"/>
-                </div>
-                    <div class="has_flex_left">
-                    비밀번호 확인 *
-                    <input type="password" class="is_login_input  has_width_full" name="pwcheck" placeholder="비밀번호 확인" required="required" pattern="^(?=.*[A-Z])(?=.*[a-z])(?=.*[0-9])(?=.*[!@#$%^&*()_-+=[]{}~?:;`|/]).{6,20}$"/>
-                </div>
-                <div class="has_flex_left">
-                    <div>연락처 *<span class="has_chathams-blue">(- 하이픈 포함)</span></div>
-                    <input type="text" class="is_login_input  has_width_full" name="phone" required="required" placeholder="핸드폰 번호" pattern="[0-9]{3}-[0-9]{4}-[0-9]{4}"/>
-                </div>
-                    <input type="submit" class='button is_login has_shadow has_flex_center has_width_full'>
             </form>
         </div>
     </div>
