@@ -1,4 +1,4 @@
-package com.example.dreampicturespring.vo;
+package com.example.dreampicturespring.entity;
 
 import com.example.dreampicturespring.constant.MemberStatus;
 import lombok.Getter;
@@ -14,22 +14,25 @@ import java.time.LocalDateTime;
 @Getter
 @Setter
 @ToString
-public class Membershiptbl {
+public class Membership {
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "MEM_SEQ")
     @SequenceGenerator(sequenceName = "MEMBERSHIPSQ", allocationSize = 1, name = "MEM_SEQ")
-    private Long no_membershiptbl;
+    private Long no_membership;
     private String email;
     private String pwd;
     private String tel;
     private String addr;
+    @Column(name = "detailaddr")
     private String detailAddr;
     private Integer zipcode;
     private String nickname;
     private String img;
+    @Column(name = "startdate")
     private LocalDateTime startDate;
+    @Column(name = "memberstatus")
     private Integer memberStatus;
-    public Membershiptbl(){
+    public Membership(){
         if(StringUtils.isEmpty(startDate)){
             this.startDate = LocalDateTime.now();
         }
