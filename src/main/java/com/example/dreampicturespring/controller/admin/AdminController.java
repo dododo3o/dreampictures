@@ -9,9 +9,18 @@ import org.springframework.web.bind.annotation.RequestMapping;
 public class AdminController {
 
     @RequestMapping("/admin/login")
-    public String admin(Model model){ return "view/admin/login";}
+    public String admin_login(Model model){ return "view/admin/login";}
 
-    @RequestMapping("/admin/main")
-    public String admin_main(Model model){ return "view/admin/main";}
+    @RequestMapping("/admin/report")
+    public String admin_report(Model model){ return "view/admin/report";}
+
+    @RequestMapping("/admin/qa")
+    public String admin_qa(Model model){ return "view/admin/qa";}
+
+    @RequestMapping("/admin/blacklist")
+    public String admin_blacklist(Model model){ return "view/admin/blacklist";}
+
+    @RequestMapping("/admin/notice")
+    public String admin_notice(Model model){ return "view/admin/notice";}
 
 }

@@ -17,7 +17,7 @@
 <header class="has_bg_white">
     <div class="container">
         <div class="is_logo">
-            <a href="#">
+            <a href="/admin/qa">
                 <div class="is_logos"><i class="fas fa-palette fg-lg"></i>
                     <div>
                         <div><span>그</span><span class="has_albescent-white">림</span></div>
@@ -27,10 +27,10 @@
             </a>
         </div>
         <div class="navigation">
-            <a href='/admin/report' class='anchor'>신고내역</a>
             <a href='/admin/qa' class='anchor'>질문사항</a>
-            <a href='/admin/blacklist' class='anchor'>블랙리스트</a>
             <a href='/admin/notice' class='anchor'>공지사항</a>
+            <a href='/admin/report' class='anchor'>신고내역</a>
+            <a href='/admin/blacklist' class='anchor'>블랙리스트</a>
             <button class='button is_primary'>Logout</button>
         </div>
     </div>
