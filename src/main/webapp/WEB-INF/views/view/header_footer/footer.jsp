@@ -15,6 +15,7 @@
 </head>
 <body>
 <footer class="has_bg_river-bed">
+    <hr/>
     <div class="container">
         <div class="is_logo">
             <a href="">
