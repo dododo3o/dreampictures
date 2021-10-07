@@ -9,7 +9,7 @@ import javax.persistence.*;
 import java.time.LocalDateTime;
 
 @Entity
-@Table(name="qatbl")
+@Table(name="Qatbl")
 @Getter
 @Setter
 @ToString
@@ -18,15 +18,15 @@ public class Qatbl {
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "QA_SEQ")
     @SequenceGenerator(sequenceName = "QASQ", allocationSize = 1, name = "QA_SEQ")
     private Long no_qa;
-    private long no_membership;
+    private Long no_membership;
     private String title;
     private String content;
 
     @Column(name="writedate")
     private LocalDateTime writedate;
-    private int hit;
-    private int status;
-    private long no_reply;
+    private Long hit;
+    private Long status;
+    private Long no_reply;
 
     public Qatbl(){
         if(StringUtils.isEmpty(writedate)){
