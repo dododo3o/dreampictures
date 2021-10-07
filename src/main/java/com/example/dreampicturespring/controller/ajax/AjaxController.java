@@ -11,7 +11,6 @@ import java.util.List;
 
 @Controller
 public class AjaxController {
-
 	//서버에서 클라이언트로 오는 한글 설정!
 	@RequestMapping(value="/ajaxStr",method=RequestMethod.GET, produces="application/text;charset=UTF-8")
 	@ResponseBody
@@ -20,7 +19,6 @@ public class AjaxController {
 		String username="홍길동";
 		String tel = "010-1234-5678";
 		String addr = "서울시 마포구 백범로";
-		//데이터를 문자열로 만든다.
 		String jsonData = "{\"no\":\""+no+"\",\"username\":\""+username+"\"";
 		jsonData +=",\"tel\":\""+tel+"\",\"addr\":\""+addr+"\"}";
 		return jsonData;
