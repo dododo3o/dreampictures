@@ -41,20 +41,19 @@
                 </select>
                 <select class="has_width_half">
                     <option value="" disabled selected>테마</option>
-                    <option value="유화">유화</option>
-                    <option value="수채화">수채화</option>
-                    <option value="아크릴화">아크릴화</option>
-                    <option value="펜화">펜화</option>
-                    <option value="연필화">연필화</option>
-                    <option value="파스텔화">파스텔화</option>
-                    <option value="크레용화">크레용화</option>
-                    <option value="과슈화">과슈화</option>
+                    <option value="풍경">풍경</option>
+                    <option value="인물">인물</option>
+                    <option value="정물">정물</option>
+                    <option value="동물">동물</option>
+                    <option value="추상">추상</option>
+                    <option value="팝아트">팝아트</option>
+                    <option value="오브제">오브제</option>
                 </select>
             </div>
             <div style= "display: flex;justify-content: space-between;grid-column:1/9;">
-                <div><span class="has_chathams-blue">너비<br></span><input type="range" class="width_slider" name="img_width" min="1" max="100" value="50"/></div>
-                <div><span class="has_chathams-blue">높이<br></span><input type="range" class="width_slider" name="img_width" min="1" max="100" value="50"/></div>
-                <div><span class="has_chathams-blue">가격<br></span><input type="range" class="width_slider" name="img_width" min="1" max="100" value="50"/></div>
+                <div><span class="has_chathams-blue">너비  : (CM)<br></span><input type="range" class="width_slider" name="img_width" min="1" max="100" value="50"/></div>
+                <div><span class="has_chathams-blue">높이  : (CM)<br></span><input type="range" class="width_slider" name="img_width" min="1" max="100" value="50"/></div>
+                <div><span class="has_chathams-blue">가격  : (원)<br></span><input type="range" class="width_slider" name="img_width" min="1" max="100" value="50"/></div>
                 <div class="checkbox" style="display: flex;">
                     <input type="checkbox" style="margin-right:10px;"><label style="color: var(--color-chathams-blue);">거래완료 안보기</label>
                 </div>
