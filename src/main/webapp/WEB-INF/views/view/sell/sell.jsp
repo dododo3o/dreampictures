@@ -33,17 +33,6 @@
                     </div>
                     <div class="has_flex_space">
                         <select class="has_width_half">
-                            <option value="" disabled selected>테마</option>
-                            <option value="풍경">풍경</option>
-                            <option value="인물">인물</option>
-                            <option value="정물">정물</option>
-                            <option value="동물">동물</option>
-                            <option value="추상">추상</option>
-                            <option value="팝아트">팝아트</option>
-                            <option value="오브제">오브제</option>
-                        </select>
-
-                        <select class="has_width_half">
                             <option value="" disabled selected>화풍</option>
                             <option value="유화">유화</option>
                             <option value="수채화">수채화</option>
@@ -53,6 +42,17 @@
                             <option value="파스텔화">파스텔화</option>
                             <option value="크레용화">크레용화</option>
                             <option value="과슈화">과슈화</option>
+                        </select>
+
+                        <select class="has_width_half">
+                            <option value="" disabled selected>테마</option>
+                            <option value="풍경">풍경</option>
+                            <option value="인물">인물</option>
+                            <option value="정물">정물</option>
+                            <option value="동물">동물</option>
+                            <option value="추상">추상</option>
+                            <option value="팝아트">팝아트</option>
+                            <option value="오브제">오브제</option>
                         </select>
                     </div>
                     <div class="has_flex_space">
