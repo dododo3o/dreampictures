@@ -25,6 +25,8 @@ public class AjaxController {
 	@ResponseBody
 	public String tel_check(String tel) { return membershiptblRepository.existsBytel(tel) ? "N" : "Y"; }
 
-
+	@RequestMapping(value = "/ajax_nickname_check",method = RequestMethod.GET, produces ="application/text;charset=UTF-8")
+	@ResponseBody
+	public String nickname_check(String nickname){return membershiptblRepository.existsBynickname(nickname) ? "N" : "Y"; }
 
 }
