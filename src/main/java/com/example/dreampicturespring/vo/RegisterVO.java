@@ -5,6 +5,6 @@ import lombok.Data;
 @Data
 public class RegisterVO {
     private String email;
-    private String pw;
-    private String phone;
+    private String pwd;
+    private String tel;
 }

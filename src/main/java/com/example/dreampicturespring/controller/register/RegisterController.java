@@ -22,9 +22,13 @@ public class RegisterController {
     public String register1(){ return "view/register/register1"; }
 
     @RequestMapping("/register2")
-    public String register2(){ return "view/register/register2";}
+    public String register2(){
+
+        return "view/register/register2";}
 
 }
+
+
 //
 //        if(vo.getEmail().equals("iuttn123@gmail.com")){
 //                model.addAttribute("msg", Msg.EMAIL);
