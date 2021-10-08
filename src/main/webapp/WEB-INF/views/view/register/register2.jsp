@@ -77,6 +77,7 @@
 <jsp:include page="../header_footer/header_not_login.jsp"></jsp:include>
 <main class="has_bg_harp">
     <div class="container">
+<<<<<<< HEAD
         <div class="contents" style="grid-column: 5/9; margin-top: 30px; gap:30px;">
             <form action="<%=conPath%>/register3" method="post">
                 <div style="display: flex;user-select: auto;flex-direction: column;align-items: center;justify-content: space-evenly;height: 650px;">
@@ -101,6 +102,22 @@
                     </div>
                 </div>
             </form>
+=======
+        <form action="/register3" enctype="multipart/form-data" method="post"></form>
+        <div class="contents" style="grid-column: 5/9; margin-top: 85px; gap:30px;">
+            <div class="title">회원 가입</div>
+            <input type="text" class="is_login_input" name="addr" id="sample5_address" placeholder="주소" onclick="sample5_execDaumPostcode()"/>
+            <input type="text" class="is_login_input" name="detailAddr" placeholder="상세주소"/>
+            <div id="map" style="width:300px;height:150px;margin-top:10px;display:none"></div>
+            <input type="text" class="is_login_input" placeholder="닉네임 등록"/>
+            <img src="/resources/css/photo/darth.jpg" class="avatar_img" style="margin:0 auto"/>
+            <button class='button is_login has_shadow has_flex_center'>가입완료</button>
+        </div>
+        <div class="contents" style="grid-column: 9/10;margin-top: 335px;gap: 24.5px;">
+            <button class="button is_notification">인증 확인</button>
+            <label className="button is_notification input-file-button" for="input-file">이미지 등록</label>
+            <input type="file" id="input-file" style="display:none">
+>>>>>>> js
         </div>
     </div>
 </main>
