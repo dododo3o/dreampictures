@@ -40,6 +40,9 @@ public class Membership {
     private LocalDateTime startDate;
     @Column(name = "memberstatus")
     private Integer memberStatus;
+    @Column(name = "reported")
+    private Integer reported;
+
 
     public Membership(){
         if(StringUtils.isEmpty(startDate)){
