@@ -24,8 +24,6 @@ public class Carttbl {
     private Long totalprice;
 
     public Carttbl(){
-        if(StringUtils.isEmpty(writedate)){
-            this.writedate = LocalDateTime.now();
-        }
+        if(StringUtils.isEmpty(writedate)){ this.writedate = LocalDateTime.now();}
     }
 }

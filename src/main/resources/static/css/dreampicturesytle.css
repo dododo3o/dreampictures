@@ -174,7 +174,9 @@ button{border-radius:8px; border:0; outline:0; color:var(--color-white); backgro
 /* input textarea checkbox */
 option{font-size: var(--font-size-base);color: black;}
 
-input, textarea, select{border-radius:8px; outline:none;text-indent:10px;height:64px;border: 2px solid var(--color-jagged-ice); font-size: var(--font-size-lg);}
+input:not(input[type=file]), textarea, select{border-radius:8px; outline:none;text-indent:10px;height:64px;border: 2px solid var(--color-jagged-ice); font-size: var(--font-size-lg);}
+
+.input-file-button{padding: 6px 25px;background-color:var(--color-chathams-blue);border-radius: 4px;color: white;cursor: pointer;}
 
 .has_width_half{width: var(--width-size-half);}
 

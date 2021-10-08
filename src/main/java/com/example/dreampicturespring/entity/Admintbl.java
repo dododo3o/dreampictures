@@ -20,4 +20,11 @@ public class Admintbl {
     private Long no_admin;
     private String admin;
     private String adminpwd;
+
+    public Admintbl() {}
+
+    public Admintbl(String admin, String adminpwd) {
+        this.admin = admin;
+        this.adminpwd = adminpwd;
+    }
 }

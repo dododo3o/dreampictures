@@ -43,10 +43,18 @@ public class Membership {
     @Column(name = "reported")
     private Integer reported;
 
+    public Membership() { }
 
-    public Membership(){
-        if(StringUtils.isEmpty(startDate)){
-            this.startDate = LocalDateTime.now();
-        }
+    public Membership(String email, String pwd, String tel, String addr, String detatilAddr, Integer zipcode, String img){
+        this.email = email;
+        this.pwd = pwd;
+        this.tel = tel;
+        this.addr = addr;
+        this.detailAddr = detatilAddr;
+        this.zipcode = zipcode;
+        this.img = img;
+        this.memberStatus = 0;
+        this.reported = 0;
+        if(StringUtils.isEmpty(startDate)){ this.startDate = LocalDateTime.now();}
     }
 }

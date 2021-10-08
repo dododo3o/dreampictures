@@ -56,12 +56,13 @@
             <input type="text" class="is_login_input" placeholder="상세주소"/>
             <div id="map" style="width:300px;height:150px;margin-top:10px;display:none"></div>
             <input type="text" class="is_login_input" placeholder="닉네임 등록"/>
-            <img src="cardimg4.png" class="avatar_img" style="margin: 0 auto"/>
+            <img src="/resources/css/photo/darth.jpg" class="avatar_img" style="margin: 0 auto"/>
             <button class='button is_login has_shadow has_flex_center'>가입완료</button>
         </div>
         <div class="contents" style="grid-column: 9/10;margin-top: 335px;gap: 24.5px;">
             <button class="button is_notification">인증 확인</button>
-            <input type="button" class="button is_notification">이미지 등록</input>
+            <button className="button is_notification input-file-button" for="input-file" style="height:10%">이미지 등록</button>
+            <input type="file" id="input-file" style="display:none">
         </div>
     </div>
 </main>

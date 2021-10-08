@@ -7,5 +7,4 @@ public class RegisterVO {
     private String email;
     private String pw;
     private String phone;
-
 }

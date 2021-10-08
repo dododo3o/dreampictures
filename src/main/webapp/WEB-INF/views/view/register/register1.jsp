@@ -20,7 +20,6 @@
     <script>
         let emailChecked = false;
         let telChecked = false;
-
         $(()=>{
             $("#email_btn").click(function(){
                 let email = document.getElementById("email").value;
@@ -69,25 +68,23 @@
             <form action="<%=conPath%>/register2" method="post">
                 <div style="display: flex;user-select: auto;flex-direction: column;align-items: center;justify-content: space-evenly;height: 650px;">
                     <div class="title">회원 가입</div>
-                        <div class="has_flex_left">
-                            이메일*
-                            <input type="text" class="is_login_input  has_width_full" name="email" id="email" required="required" placeholder="이메일" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2, 4}$"/>
-                        </div>
+                        <div class="has_flex_left">이메일*<input type="text" class="is_login_input  has_width_full" id="email" required="required" placeholder="이메일" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2, 4}$"/></div>
                         <button id="email_btn" class='button is_primary'>인증하기</button>
                         <div class="has_flex_left">
-                        <div>비밀번호 *<span class="has_chathams-blue">(6~20 영문 대소문자, 숫자, 특수문자 꼭포함하여  6~20자)</span></div>
-                        <input type="password" class="is_login_input has_width_full" name="pw" placeholder="비밀번호" required="required" pattern="^(?=.*[A-Z])(?=.*[a-z])(?=.*[0-9])(?=.*[!@#$%^&*()_-+=[]{}~?:;`|/]).{6,20}$"/>
+                            <div>비밀번호 *<span class="has_chathams-blue">(6~20 영문 대소문자, 숫자, 특수문자 꼭포함하여  6~20자)</span>
+                        </div>
+                        <input type="password" class="is_login_input has_width_full"  placeholder="비밀번호" required="required" pattern="^(?=.*[A-Z])(?=.*[a-z])(?=.*[0-9])(?=.*[!@#$%^&*()_-+=[]{}~?:;`|/]).{6,20}$"/>
                     </div>
                         <div class="has_flex_left">
                         비밀번호 확인 *
-                        <input type="password" class="is_login_input  has_width_full" name="pwcheck" placeholder="비밀번호 확인" required="required" pattern="^(?=.*[A-Z])(?=.*[a-z])(?=.*[0-9])(?=.*[!@#$%^&*()_-+=[]{}~?:;`|/]).{6,20}$"/>
+                        <input type="password" class="is_login_input  has_width_full" placeholder="비밀번호 확인" required="required" pattern="^(?=.*[A-Z])(?=.*[a-z])(?=.*[0-9])(?=.*[!@#$%^&*()_-+=[]{}~?:;`|/]).{6,20}$"/>
                     </div>
                     <div class="has_flex_left">
                         <div>연락처 *<span class="has_chathams-blue">(- 하이픈 포함)</span></div>
-                        <input type="text" class="is_login_input  has_width_full" name="tel" id="tel" required="required" placeholder="핸드폰 번호" pattern="[0-9]{3}-[0-9]{4}-[0-9]{4}"/>
+                        <input type="text" class="is_login_input  has_width_full" id="tel" required="required" placeholder="핸드폰 번호" pattern="[0-9]{3}-[0-9]{4}-[0-9]{4}"/>
                     </div>
                         <button id="tel_btn" class='button is_primary'>인증하기</button>
-                        <input type="submit" class='button is_login has_shadow has_flex_center has_width_full' value="다음 단계" disabled>
+                        <input type="submit" class='button is_login has_shadow has_flex_center has_width_full'  value="다음 단계" disabled>
                     </div>
             </form>
         </div>
