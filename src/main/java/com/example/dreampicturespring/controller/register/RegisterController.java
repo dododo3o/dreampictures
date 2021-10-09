@@ -45,7 +45,6 @@ public class RegisterController {
         if (files != null) {
             for (int i = 0; i < files.size(); i++) {
                 MultipartFile mf = files.get(i);
-                System.out.println(mf.getOriginalFilename());
                 String fname = mf.getOriginalFilename();
                 if (fname != null && !fname.equals("")) {
                     File newfile = new File(path+"\\abc");
