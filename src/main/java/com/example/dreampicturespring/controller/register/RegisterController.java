@@ -29,10 +29,16 @@ public class RegisterController {
     public String register1(){ return "view/register/register1"; }
 
     @RequestMapping("/register2")
-    public String register2(HttpServletRequest request){
+    public String register2(){
+        return "view/register/register2";
+    }
+
+    @RequestMapping("/register3")
+    public String register3(HttpServletRequest request){
         String path = "D:\\dreampicture_spring\\src\\main\\resources\\user";
         MultipartHttpServletRequest mr = (MultipartHttpServletRequest)request;
         List<MultipartFile> files = mr.getFiles("filename");
+        System.out.println("asdadsadsad");
         List<String> fileList = new ArrayList<String>();//업로드된 파일명을 저장할 곳
         if(files!=null) {
             for(int i=0;i<files.size();i++) {
@@ -51,22 +57,11 @@ public class RegisterController {
                             if(!newFileObj.exists()) { break; }
                         }
                     }
-                    try {
-                        mf.transferTo(newFileObj);
-                    }catch(Exception e) {}
+                    try { mf.transferTo(newFileObj); }catch(Exception e) {}
                     fileList.add(newFileObj.getName());
                 }
             }
         }
         return "view/register/register2";
     }
-
 }
-
-
-//
-//        if(vo.getEmail().equals("iuttn123@gmail.com")){
-//                model.addAttribute("msg", Msg.EMAIL);
-//                model.addAttribute("url", "/register1");
-//                return "view/redirect/alert1";
-//                }

@@ -1,6 +1,5 @@
 package com.example.dreampicturespring.entity;
 
-import com.example.dreampicturespring.constant.MemberStatus;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
