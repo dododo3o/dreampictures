@@ -32,8 +32,8 @@
             </a>
         </div>
         <div class="navigation">
-            <a href='/sell' class='anchor'>Seller</a>
             <a href='/buy' class='anchor'>Buyer</a>
+            <a href='/login' class='anchor'>Seller</a>
             <a href='/notice' class='anchor'>Notice</a>
             <a href='/login' class='anchor has_aqua-island' id="mainMenu_login">Login</a>
             <button class='button is_primary'><a href="register1">Sign in</a></button>
