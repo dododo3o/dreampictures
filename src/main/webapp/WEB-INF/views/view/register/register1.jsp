@@ -100,6 +100,7 @@
                     $("#alert-danger").css('display', 'inline-block');
                 }
             }
+
         }
 
         //=====================다음 단계 버튼을 활성 시킬 조건들======================
@@ -117,6 +118,7 @@
                 alert('모든 인증을 완료해주세요.')
             }
         }
+
     </script>
 </head>
 <body>
@@ -163,6 +165,7 @@
 
                     <input type="submit" onclick="nextBtn_condition()" id="submit_btn"
                            class='button is_login has_shadow has_flex_center has_width_full' value="다음 단계">
+
                 </div>
             </form>
         </div>

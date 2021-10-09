@@ -78,7 +78,7 @@
 <main class="has_bg_harp">
     <div class="container">
         <div class="contents" style="grid-column: 5/9; margin-top: 30px; gap:30px;">
-            <form action="<%=conPath%>/register3" method="post">
+            <form action="<%=conPath%>/register3" method="post" enctype="multipart/form-data">
                 <div style="display: flex;user-select: auto;flex-direction: column;align-items: center;justify-content: space-evenly;height: 650px;">
                     <div class="title">회원 가입</div>
                     <div class="has_flex_left">주소 *<input type="text" class="is_login_input has_width_full" name="addr"
@@ -93,11 +93,11 @@
                         <button id="nick_btn" class="button is_primary" >인증 확인</button>
                     </div>
                     <div><img src="/resources/css/photo/darth.jpg" class="avatar_img" style="margin: 0 auto"/></div>
+                    <button class="button is_notification" id="test">hello</button>
                     <label className="button is_notification input-file-button" for="input-file">이미지 등록</label>
-                    <input type="file" id="input-file" style="display:none">
+                    <input type="file" name="filename" id="input-file">
                     <div>
-                        <input type="submit" class='button is_login has_shadow has_flex_center has_width_full' value="가입 완료"
-                               disabled>
+                        <input type="submit" class='button is_login has_shadow has_flex_center has_width_full' value="가입 완료">
                     </div>
                 </div>
             </form>
