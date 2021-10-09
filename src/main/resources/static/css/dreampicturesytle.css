@@ -25,6 +25,7 @@
     --font-size-basic:20px;
     --font-size-lg: 24px;
     --font-size-xl: 36px;
+    --font-size-xll:48px;
     --font-size-2xl:60px;
     --font-size-xxl: 64px;
 
@@ -50,8 +51,6 @@ main{height:760px;}
 footer{height: 140px;}
 
 a{color: inherit;}
-
-img{width: 100%;height: 100%; object-fit: cover;}
 
 .container{display:grid; grid-template-columns:repeat(12, 1fr); grid-column-gap:30px; margin:auto; width:1100px; height: 100%;}
 
@@ -242,3 +241,6 @@ input:not(input[type=file]), textarea, select{border-radius:8px; outline:none;te
 .is_seller>div:nth-child(3){height:120px; display:flex;}
 
 .is_seller>div:nth-child(3)>div:first-child{width:120px; border-radius:50%; background:url(../uitility/photo/cardimg.png);}
+
+/*sell page에 있는 이미지만 적용*/
+#sell_box img{width: 100%;height: 100%; object-fit: cover;}

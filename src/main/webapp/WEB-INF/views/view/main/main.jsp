@@ -7,14 +7,16 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Title</title>
-    <link rel="stylesheet" href="/resources/css/dreampicturesytle.css">
+<%--    <link rel="stylesheet" href="/resources/css/dreampicturesytle.css">--%>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
     <script src="https://kit.fontawesome.com/b14e6f064f.js" crossorigin="anonymous"></script>
 </head>
 <body>
+<A name="target">
 <jsp:include page="../header_footer/header_not_login.jsp"></jsp:include>
+</A>
 <main class="has_bg_harp">
     <div class="container has_bg_harp">
         <div class="has_flex_center"
@@ -22,30 +24,38 @@
             <div style="font-size: 58px;">
                 당신의 그림을<br />사고 팔고 싶어요.
             </div>
-            <div style="font-size: 20px;">여러분의 그림을 사고 싶은 분들이 많이 계실거에요!</div>
+            <div style="font-size: 22px;">여러분의 그림을 사고 싶은 분들이 많이 계실거에요!</div>
         </div>
         <div class="has_flex_center" style="grid-column: 6/13;">
             <img src="/resources/css/photo/main_img1.png" style="width: 630px;">
         </div>
     </div>
-    <div
-            style="position: absolute; width: 64px; height: 64px; left: 85%; top: 70%;">
-        <button style="position: fixed;" style="align-self: flex-end;"
+    <div  style="position: absolute; width: 64px; height: 64px; left: 81%; top: 78%;">
+        <A href="#target"><button style="position: fixed;" style="align-self: flex-end;"
                 class="button is_round">
             <i class="fas fa-arrow-up fa-lg"></i>
-        </button>
+        </button></A>
     </div>
 </main>
 <main>
     <div class="container">
-        <div class="has_flex_center" style="grid-column: 1/13;">
+        <div class="has_flex_center has_flex_column" style="grid-column: 1/7; gap:20px;">
+            <div style="line-height :80px; font-size:48px;text-align:center">
+                혹시 아티스트인가요?<br/>
+                작품의 사진, 이름, 형식, 가격<br/>
+                설명만 올려주세요.
+            </div>
+            <div style="color: var( --color-river-bed); font-size: 25px;">5가지 스텝만으로 당신의 작품을 상품으로 !</div>
+        </div>
+
+        <div style="grid-column: 7 / 13;;height: 100%;display: flex;user-select: auto;flex-direction: column;justify-content: center;">
             <img src="/resources/css/photo/main_img2.png">
         </div>
     </div>
 </main>
-<div class="has_bg_harp"style="height: 840px;">
+<div class="has_bg_harp" style="height: 840px;">
     <div class="container has_bg_harp">
-        <div class="has_flex_center" style="grid-column: 1/13;">
+        <div style="grid-column: 1/13; height: 300px;">
             <img src="/resources/css/photo/main_img3.png">
         </div>
     </div>
