@@ -12,6 +12,7 @@ import org.springframework.web.multipart.MultipartHttpServletRequest;
 
 import javax.servlet.http.HttpServletRequest;
 import java.io.File;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -27,44 +28,47 @@ public class RegisterController {
 
     @RequestMapping("/register1")
     public String register1() { return "view/register/register1"; }
+//
+//    @RequestMapping("/register2")
+//    public String register2(RegisterVO1 vo1) {
+//        vo.setEmail(vo1.getEmail());
+//        vo.setPwd(vo1.getPwd());
+//        vo.setTel(vo1.getTel());
+//        return "view/register/register2";
+//    }
 
     @RequestMapping("/register2")
-    public String register2(RegisterVO1 vo1) {
-        vo.setEmail(vo1.getEmail());
-        vo.setPwd(vo1.getPwd());
-        vo.setTel(vo1.getTel());
+    public String register2() {
         return "view/register/register2";
     }
 
     @RequestMapping("/register_success")
-    public String register_success(HttpServletRequest request) {
+    public String register_success(HttpServletRequest request) throws IOException {
         String path = "D:\\dreampicture_spring\\src\\main\\resources\\user";
+        File newfolder = new File(path+"\\"+"iuttn1234");
+        newfolder.mkdir();
+
+        File avatarfolder = new File(path+"\\"+"iuttn1234"+"\\avatarimg");
+        avatarfolder.mkdir();
+
+        File paintingfolder = new File(path+"\\"+"iuttn1234"+"\\paintingimg");
+        paintingfolder.mkdir();
+
+
         MultipartHttpServletRequest mr = (MultipartHttpServletRequest) request;
-        List<MultipartFile> files = mr.getFiles("filename");
-        List<String> fileList = new ArrayList<String>();
-        if (files != null) {
-            for (int i = 0; i < files.size(); i++) {
-                MultipartFile mf = files.get(i);
-                String filename = mf.getOriginalFilename();
-                if (filename != null && !filename.equals("")) {
-                    File newfile = new File(path+"\\"+vo.getEmail());
-                    File fileObj = new File(path, filename);
-                    File newFileObj = new File(path, filename);
-                    if (fileObj.exists()) {
-                        for (int num = 1; ; num++) {
-                            int point = filename.lastIndexOf(".");
-                            String orgFileName = filename.substring(0, point);
-                            String orgFileExt = filename.substring(point + 1);
-                            String newFileName = orgFileName + "(" + num + ")." + orgFileExt;
-                            newFileObj = new File(path, newFileName);
-                            if (!newFileObj.exists()) { break; }
-                        }
-                    }
-                    try { mf.transferTo(newFileObj); } catch (Exception e) { }
-                    fileList.add(newFileObj.getName());
-                }
-            }
-        }
+        MultipartFile avatarImg = mr.getFile("filename");
+
+
+        String fname = avatarImg.getOriginalFilename();
+        int point = fname.lastIndexOf(".");//마지막 점의 위치를 구해라
+        String orgFileExt = fname.substring(point+1);
+        String fixedFileName = "avatarimg."+orgFileExt;
+
+        path=path+"\\"+"iuttn1234"+"\\avatarimg";
+        File newFileObj = new File(path,fixedFileName);
+
+        try { avatarImg.transferTo(newFileObj); } catch (Exception e) { }
+
         return "view/login/login";
     }
 }

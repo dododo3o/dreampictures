@@ -78,7 +78,7 @@
 <main class="has_bg_harp">
     <div class="container">
         <div class="contents" style="grid-column: 5/9; margin-top: 30px; gap:30px;">
-            <form action="<%=conPath%>/register3" method="post" enctype="multipart/form-data">
+            <form action="<%=conPath%>/register_success" method="post" enctype="multipart/form-data">
                 <div style="display: flex;user-select: auto;flex-direction: column;align-items: center;justify-content: space-evenly;height: 650px;">
                     <div class="title">회원 가입</div>
                     <div class="has_flex_left">주소 *<input type="text" class="is_login_input has_width_full" name="addr"
