@@ -86,8 +86,7 @@
                                                           onclick="sample5_execDaumPostcode()"/></div>
                     <div class="has_flex_left">상세주소 *<input type="text" class="is_login_input has_width_full" name="detailAddr"
                                                             placeholder="상세주소"/></div>
-                    <div id="map" style="width:300px;height:150px;margin-top:10px;display:none"></div>
-                    <div class="has_flex_left">닉네임 등록 * <input type="text" id="nickname" class="is_login_input has_width_full"
+                    <div class="has_flex_left">닉네임 등록 * <input type="text" name="nickname" id="nickname" class="is_login_input has_width_full"
                                                                placeholder="닉네임 등록"/></div>
                     <div>
                         <button id="nick_btn" class="button is_primary" >인증 확인</button>

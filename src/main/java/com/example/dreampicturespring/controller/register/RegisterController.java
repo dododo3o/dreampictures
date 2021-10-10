@@ -23,27 +23,26 @@ public class RegisterController {
 
     @Autowired
     MembershiptblRepository membershiptblRepository;
-
     RegisterVO vo = new RegisterVO();
 
     @RequestMapping("/register1")
     public String register1() { return "view/register/register1"; }
-//
-//    @RequestMapping("/register2")
-//    public String register2(RegisterVO1 vo1) {
-//        vo.setEmail(vo1.getEmail());
-//        vo.setPwd(vo1.getPwd());
-//        vo.setTel(vo1.getTel());
-//        return "view/register/register2";
-//    }
 
     @RequestMapping("/register2")
-    public String register2() {
+    public String register2(RegisterVO1 vo1) {
+        vo.setEmail(vo1.getEmail());
+        vo.setPwd(vo1.getPwd());
+        vo.setTel(vo1.getTel());
         return "view/register/register2";
     }
 
     @RequestMapping("/register_success")
-    public String register_success(HttpServletRequest request) throws IOException {
+    public String register_success(HttpServletRequest request,RegisterVO2 vo2) throws IOException {
+
+        System.out.println(vo2.getAddr());
+        System.out.println(vo2.getDetailAddr());
+        System.out.println(vo2.getNickname());
+
         String path = "D:\\dreampicture_spring\\src\\main\\resources\\user";
         File newfolder = new File(path+"\\"+"iuttn1234");
         newfolder.mkdir();

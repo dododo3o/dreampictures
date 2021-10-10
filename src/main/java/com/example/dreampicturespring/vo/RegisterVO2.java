@@ -5,6 +5,6 @@ import lombok.Data;
 @Data
 public class RegisterVO2 {
     private String addr;
-    private String addrdetail;
-    private String img;
+    private String detailAddr;
+    private String nickname;
 }

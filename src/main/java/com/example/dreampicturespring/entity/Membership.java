@@ -30,8 +30,6 @@ public class Membership {
     @Column(name = "detailaddr")
     private String detailAddr;
     @Column
-    private Integer zipcode;
-    @Column
     private String nickname;
     @Column
     private String img;
@@ -44,13 +42,12 @@ public class Membership {
 
     public Membership() { }
 
-    public Membership(String email, String pwd, String tel, String addr, String detatilAddr, Integer zipcode, String img){
+    public Membership(String email, String pwd, String tel, String addr, String detatilAddr, String img){
         this.email = email;
         this.pwd = pwd;
         this.tel = tel;
         this.addr = addr;
         this.detailAddr = detatilAddr;
-        this.zipcode = zipcode;
         this.img = img;
         this.memberStatus = 0;
         this.reported = 0;
