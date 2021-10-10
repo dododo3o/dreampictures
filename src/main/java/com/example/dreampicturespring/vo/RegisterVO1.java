@@ -3,11 +3,8 @@ package com.example.dreampicturespring.vo;
 import lombok.Data;
 
 @Data
-public class RegisterVO {
+public class RegisterVO1 {
     private String email;
     private String pwd;
     private String tel;
-    private String addr;
-    private String addrdetail;
-    private String img;
 }
