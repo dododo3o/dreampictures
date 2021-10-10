@@ -13,26 +13,34 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
     <script src="https://kit.fontawesome.com/b14e6f064f.js" crossorigin="anonymous"></script>
+    <script
+            src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"
+            integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ=="
+            crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script>
 
+
+    </script>
 </head>
 <body>
 <jsp:include page="../header_footer/header_not_login.jsp"></jsp:include>
 <main class="has_bg_harp">
     <div class="container">
-
         <div class="contents" style="grid-column: 4/10; margin-top: 20px;">
-            <form>
+            <form action="<%=conPath%>/sell" method="post"  id="frm">
                 <div style="display: flex; flex-direction: column;gap: 20px;">
                     <div class="title">판매등록</div>
+
                     <div class="has_flex_space">
                         <img src="../../../uitility/photo.png" class="avatar_img"/>
-                        <button class='button is_enroll' style="width: 70%"><span
-                                style="padding-left: 10px;">사진 등록하기!</span></button>
+                        <button class='button is_enroll' style="width: 70%" id="enroll_btn">
+                            <span style="padding-left: 10px;">사진 등록하기!</span></button>
                     </div>
-                    <div class="has_flex_space"><input type="text" class="has_width_full" placeholder="작품명을 입력해주세요."/>
+
+                    <div class="has_flex_space"><input type="text" class="has_width_full" name="subject_txt" placeholder="작품명을 입력해주세요."/>
                     </div>
                     <div class="has_flex_space">
-                        <select class="has_width_half">
+                        <select class="has_width_half" name="style_select">
                             <option value="" disabled selected>화풍</option>
                             <option value="유화">유화</option>
                             <option value="수채화">수채화</option>
@@ -44,7 +52,7 @@
                             <option value="과슈화">과슈화</option>
                         </select>
 
-                        <select class="has_width_half">
+                        <select class="has_width_half" id="theme_select">
                             <option value="" disabled selected>테마</option>
                             <option value="풍경">풍경</option>
                             <option value="인물">인물</option>
@@ -56,14 +64,14 @@
                         </select>
                     </div>
                     <div class="has_flex_space">
-                        <input type="text" class="has_width_half" placeholder="높이(cm)" pattern="\d*" maxlength="3" max="200" min="0"/>
-                        <input type="text" class="has_width_half" placeholder="너비(cm)" pattern="\d*" maxlength="3" max="200" min="0"/></div>
+                        <input type="text" class="has_width_half" placeholder="높이(cm)" id="height_txt" pattern="\d*" maxlength="3" max="200" min="0"/>
+                        <input type="text" class="has_width_half" placeholder="너비(cm)"  id="width_txt" pattern="\d*" maxlength="3" max="200" min="0"/></div>
                     <div class="has_flex_space">
-                        <input type="text" class="has_width_half " placeholder="가격(원)[10만원 이하]" pattern="\d*" maxlength="6" min="0" max="100000"/>
-                        <input type="date" class="has_width_half " placeholder="제작년도"/>
+                        <input type="text" class="has_width_half " placeholder="가격(원)[10만원 이하]" id="price_txt" pattern="\d*" maxlength="6" min="0" max="100000"/>
+                        <input type="date" class="has_width_half " id="date_val" placeholder="제작년도"/>
                     </div>
                     <div class="has_flex_space">
-                        <textarea class="has_width_full" style="resize: none;" placeholder="작품을 설명해주세요.(250자 이내)" maxlength="250"></textarea></div>
+                        <textarea class="has_width_full" style="resize: none;" placeholder="작품을 설명해주세요.(250자 이내)" id="content_val" maxlength="250"></textarea></div>
                     <div class="has_flex_space">
                         <button class="button is_enroll_button has_width_full"><span>등록완료!</span></button>
                     </div>
@@ -72,6 +80,7 @@
         </div>
     </div>
 </main>
+
 <jsp:include page="../header_footer/footer.jsp"></jsp:include>
 </body>
 </html>

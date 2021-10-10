@@ -53,7 +53,7 @@
             <div style= "display: flex;justify-content: space-between;grid-column:1/9;">
                 <div><span class="has_chathams-blue">너비  : (CM)<br></span><input type="range" class="width_slider" name="img_width" min="1" max="100" value="50"/></div>
                 <div><span class="has_chathams-blue">높이  : (CM)<br></span><input type="range" class="width_slider" name="img_width" min="1" max="100" value="50"/></div>
-                <div><span class="has_chathams-blue">가격  : (원)<br></span><input type="range" class="width_slider" name="img_width" min="1" max="100" value="50"/></div>
+                <div><span class="has_chathams-blue">가격  : (원)<br></span><input type="range" class="width_slider" name="img_width" min="1" max="100000" value="50000"/></div>
                 <div class="checkbox" style="display: flex;">
                     <input type="checkbox" style="margin-right:10px;"><label style="color: var(--color-chathams-blue);">거래완료 안보기</label>
                 </div>
