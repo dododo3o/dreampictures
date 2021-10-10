@@ -27,14 +27,14 @@ public class RegisterController {
     RegisterVO vo = new RegisterVO();
 
     @RequestMapping("/register1")
-    public String register1() { return "view/register/register1"; }
+    public String register1() { return "guest/register/register1"; }
 
     @RequestMapping("/register2")
     public String register2(RegisterVO1 vo1) {
         vo.setEmail(vo1.getEmail());
         vo.setPwd(vo1.getPwd());
         vo.setTel(vo1.getTel());
-        return "view/register/register2";
+        return "guest/register/register2";
     }
 
     @RequestMapping("/register_success")
@@ -74,6 +74,6 @@ public class RegisterController {
 
         Membership membership = new Membership(vo);
         membershiptblRepository.save(membership);
-        return "view/login/login";
+        return "guest/login/login";
     }
 }

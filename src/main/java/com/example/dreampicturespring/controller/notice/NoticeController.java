@@ -9,6 +9,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 public class NoticeController {
 
     @RequestMapping("/notice")
-    public String notice(Model model){ return "view/notice/notice";}
+    public String notice(Model model){ return "user/notice/notice";}
 
 }
