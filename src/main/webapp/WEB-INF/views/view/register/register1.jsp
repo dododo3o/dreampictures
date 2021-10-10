@@ -90,7 +90,7 @@
                 if (pwd1 === pwd2) {
                     if (pwd1.match(pwdRegExp) == null) {
                         alert("비밀번호 형식에 맞추어 입력해주세요.");
-                    } else {ㄴ
+                    } else {
                         $("#alert-success").css('display', 'inline-block');
                         $("#alert-danger").css('display', 'none');
                     }
@@ -109,7 +109,7 @@
         function nextBtn_condition() {
             var pwd1 = $("#pwd").val();
             var pwd2 = $("#pwdChk").val();
-            var pwdRegExp = "^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[$@$!%*?&])[A-Za-z\d$@$!%*?&]{6,10}";
+            var pwdRegExp = /^(?=.*[a-zA-Z])((?=.*\d)|(?=.*\W)).{6,20}$/;
 
 
             if (telChecked === true && emailChecked === true && pwd1 === pwd2 && pwd2.match(pwdRegExp) != null) {
@@ -118,7 +118,6 @@
                 alert('모든 인증을 완료해주세요.')
             }
         }
-
     </script>
 </head>
 <body>
