@@ -9,5 +9,6 @@ public class RegisterVO {
     private String tel;
     private String addr;
     private String addrdetail;
+    private String nickname;
     private String img;
 }

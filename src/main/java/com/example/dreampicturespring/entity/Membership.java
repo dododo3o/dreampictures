@@ -1,5 +1,6 @@
 package com.example.dreampicturespring.entity;
 
+import com.example.dreampicturespring.vo.RegisterVO;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
@@ -40,7 +41,19 @@ public class Membership {
     @Column(name = "reported")
     private Integer reported;
 
-    public Membership() { }
+    public Membership() {}
+
+    public Membership(RegisterVO vo){
+        this.email = vo.getEmail();
+        this.pwd = vo.getPwd();
+        this.tel = vo.getTel();
+        this.addr = vo.getAddr();
+        this.detailAddr = vo.getAddrdetail();
+        this.img = vo.getImg();
+        this.memberStatus = 0;
+        this.reported = 0;
+        if(StringUtils.isEmpty(startDate)){ this.startDate = LocalDateTime.now();}
+    }
 
     public Membership(String email, String pwd, String tel, String addr, String detatilAddr, String img){
         this.email = email;

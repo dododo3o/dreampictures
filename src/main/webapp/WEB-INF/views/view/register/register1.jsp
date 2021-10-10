@@ -37,7 +37,7 @@
                         success: function (result) {
                             if (result == 'Y') {
                                 document.getElementById("email_btn").innerText = "인증완료";
-                                document.getElementById("email").setAttribute("disabled", true);
+                                // document.getElementById("email").setAttribute("disabled", true);
                                 document.getElementById("email_btn").setAttribute("disabled", true);
                                 document.getElementById("email_btn").style = "background-color:gray";
                                 emailChecked = true;
