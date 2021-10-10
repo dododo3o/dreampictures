@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 public class BuyController {
 
     @RequestMapping("/buy")
-    public String buy(Model model){ return "view/buy/buy";}
+    public String buy(Model model){ return "user/buy/buy";}
 
 
 

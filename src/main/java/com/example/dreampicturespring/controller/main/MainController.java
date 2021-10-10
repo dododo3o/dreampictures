@@ -19,7 +19,7 @@ public class MainController {
 
     @RequestMapping("/")
     public String root() throws Exception{
-        return "view/main/main";
+        return "guest/main/main";
     }
 
 }

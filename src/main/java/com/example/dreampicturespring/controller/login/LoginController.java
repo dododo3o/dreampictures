@@ -23,14 +23,17 @@ public class LoginController {
     MembershiptblRepository membershiptblRepository;
 
     @RequestMapping("/login")
-    public String login(Model model){ return "view/login/login";}
+    public String login(Model model){ return "guest/login/login";}
 
-    @RequestMapping(value = "/login_check",method = RequestMethod.GET, produces ="application/text;charset=UTF-8")
+    @RequestMapping(value = "/login_check",method = RequestMethod.POST, produces ="application/text;charset=UTF-8")
     @ResponseBody
     public ModelAndView login_check(LoginVO vo, HttpServletRequest request){
+        System.out.println(vo.getEmail());
         Membership membership = membershiptblRepository.findByemail(vo.getEmail());
+        System.out.println(membershiptblRepository.existsByemail(vo.getEmail()));
         ModelAndView mv = new ModelAndView();
-        mv.setViewName("view/redirect/alert1");
+        System.out.println(membership);
+        mv.setViewName("guest/redirect/alert1");
         mv.addObject("msg","회원정보를 다시 확인해주세요.");
         mv.addObject("url","/login");
         if(membership==null) return mv;
@@ -38,9 +41,10 @@ public class LoginController {
             if(membership.getPwd()!=vo.getPwd()) return mv;
             else{
                 mv.addObject("user",membership.getEmail());
-//                mv.addObject()
-
-                mv.setViewName("view/main/main");
+                HttpSession session =request.getSession();
+                session.setAttribute("logEmail",vo.getEmail()) ;
+                session.setAttribute("logStatus",'Y') ;
+                mv.setViewName("user/main/main");
                 return mv;
             }
         }
