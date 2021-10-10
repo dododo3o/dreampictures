@@ -34,7 +34,7 @@ public class RegisterController {
         vo.setEmail(vo1.getEmail());
         vo.setPwd(vo1.getPwd());
         vo.setTel(vo1.getTel());
-        System.out.println(vo1.getEmail());
+        System.out.println(vo1.getTel());
         return "view/register/register2";
     }
 
@@ -44,6 +44,7 @@ public class RegisterController {
         vo.setAddr(vo2.getAddr());
         vo.setAddrdetail(vo2.getDetailAddr());
         vo.setNickname(vo2.getNickname());
+        System.out.println(vo2.getNickname());
         vo.setImg("/resources/user/"+vo.getEmail());
 
         String path = "D:\\dreampicture_spring\\src\\main\\resources\\static\\user";
@@ -74,6 +75,7 @@ public class RegisterController {
 
         System.out.println("helllo");
         Membership membership = new Membership(vo);
+        membershiptblRepository.save(membership);
         return "view/login/login";
     }
 }
