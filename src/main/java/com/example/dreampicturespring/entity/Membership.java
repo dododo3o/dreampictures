@@ -49,6 +49,7 @@ public class Membership {
         this.tel = vo.getTel();
         this.addr = vo.getAddr();
         this.detailAddr = vo.getAddrdetail();
+        this.nickname = vo.getNickname();
         this.img = vo.getImg();
         this.memberStatus = 0;
         this.reported = 0;

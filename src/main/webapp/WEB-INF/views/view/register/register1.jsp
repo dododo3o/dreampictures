@@ -66,7 +66,7 @@
                         success: function (result) {
                             if (result == 'Y') {
                                 document.getElementById("tel_btn").innerText = "인증완료";
-                                document.getElementById("tel").setAttribute("disabled", true);
+                                // document.getElementById("tel").setAttribute("disabled", true);
                                 document.getElementById("tel_btn").setAttribute("disabled", true);
                                 document.getElementById("tel_btn").style = "background-color:gray";
                                 telChecked = true;
@@ -110,8 +110,6 @@
             var pwd1 = $("#pwd").val();
             var pwd2 = $("#pwdChk").val();
             var pwdRegExp = /^(?=.*[a-zA-Z])((?=.*\d)|(?=.*\W)).{6,20}$/;
-
-
             if (telChecked === true && emailChecked === true && pwd1 === pwd2 && pwd2.match(pwdRegExp) != null) {
                 document.getElementById('frm').submit();
             } else {
@@ -135,7 +133,7 @@
                     <div class="has_flex_left">
                         <div>비밀번호 *<span class="has_chathams-blue">(6~20 영문 대소문자, 숫자, 특수문자 꼭포함하여  6~20자)</span>
                         </div>
-                        <input type="password" class="pw is_login_input has_width_full" id="pwd" placeholder="비밀번호"
+                        <input type="password" class="pw is_login_input has_width_full" id="pwd" name="pwd" placeholder="비밀번호"
                                required="required"/>
                     </div>
                     <div class="has_flex_left">
