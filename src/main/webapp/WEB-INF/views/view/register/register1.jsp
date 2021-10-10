@@ -90,7 +90,7 @@
                 if (pwd1 === pwd2) {
                     if (pwd1.match(pwdRegExp) == null) {
                         alert("비밀번호 형식에 맞추어 입력해주세요.");
-                    } else {ㄴ
+                    } else {
                         $("#alert-success").css('display', 'inline-block');
                         $("#alert-danger").css('display', 'none');
                     }
