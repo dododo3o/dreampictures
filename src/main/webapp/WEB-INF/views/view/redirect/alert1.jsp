@@ -19,7 +19,7 @@
         var message = "${msg}";
         var url = "${url}";
         alert(message);
-        document.location.href = "/register1";
+        document.location.href = url;
     </script>
 </body>
 </html>

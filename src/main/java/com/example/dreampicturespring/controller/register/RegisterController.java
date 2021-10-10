@@ -34,7 +34,6 @@ public class RegisterController {
         vo.setEmail(vo1.getEmail());
         vo.setPwd(vo1.getPwd());
         vo.setTel(vo1.getTel());
-        System.out.println(vo1.getTel());
         return "view/register/register2";
     }
 
@@ -73,7 +72,6 @@ public class RegisterController {
         File newFileObj = new File(path,fixedFileName);
         try { avatarImg.transferTo(newFileObj); } catch (Exception e) { }
 
-        System.out.println("helllo");
         Membership membership = new Membership(vo);
         membershiptblRepository.save(membership);
         return "view/login/login";

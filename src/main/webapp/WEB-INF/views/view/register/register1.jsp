@@ -21,101 +21,101 @@
         let emailChecked = false;
         let telChecked = false;
 
-        verifyEmail = function () {
-            var emailVal = $("#email").val();
-            // 검증에 사용할 정규식 변수 regExp에 저장
-            var regExp = /^[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*.[a-zA-Z]{2,3}$/i;
-
-            if (emailVal.match(regExp) == null) {
-                alert('이메일 형식에 맞게 작성해주세요.');
-            } else {
-                $(() => {
-                    let email = document.getElementById("email").value;
-                    $.ajax({
-                        url: "/ajax_email_check",
-                        data: "email=" + email,
-                        success: function (result) {
-                            if (result == 'Y') {
-                                document.getElementById("email_btn").innerText = "인증완료";
-                                // document.getElementById("email").setAttribute("disabled", true);
-                                document.getElementById("email_btn").setAttribute("disabled", true);
-                                document.getElementById("email_btn").style = "background-color:gray";
-                                emailChecked = true;
-                                alert('인증되었습니다!')
-                                // if (emailChecked && telChecked) document.getElementById("next_btn").removeAttribute("disabled");
-                            }
-                        }
-                    });
-                });
-            }
-        };
-
-        //연락처 형식 검증
-        verifyTel = function () {
-            var telVal = $("#tel").val();
-            var telRegExp = /^[A-Za-z0-9]{6,12}$/;
-            // 검증에 사용할 정규식 변수 regExp에 저장
-            if (telVal.match(telRegExp) == null) {
-                alert('휴대폰 번호 형식에 맞게 작성해주세요.');
-            } else {
-                $(() => {
-                    let tel = document.getElementById("tel").value;
-                    $.ajax({
-                        url: "/ajax_tel_check",
-                        data: "tel=" + tel,
-                        success: function (result) {
-                            if (result == 'Y') {
-                                document.getElementById("tel_btn").innerText = "인증완료";
-                                // document.getElementById("tel").setAttribute("disabled", true);
-                                document.getElementById("tel_btn").setAttribute("disabled", true);
-                                document.getElementById("tel_btn").style = "background-color:gray";
-                                telChecked = true;
-                                alert("인증되었습니다!")
-                                // if (emailChecked && telChecked) document.getElementById("next_btn").removeAttribute("disabled");
-                            }
-                        }
-                    });
-                });
-            }
-        };
-
-        function passwordCheck() {
-            var pwd1 = $("#pwd").val();
-            var pwd2 = $("#pwdChk").val();
-            var pwdRegExp = /^(?=.*[a-zA-Z])((?=.*\d)|(?=.*\W)).{6,20}$/;
-
-            if (pwd1 !== '' && pwd2 === '') {
-
-            } else if (pwd1 !== "" || pwd2 !== "") {
-                if (pwd1 === pwd2) {
-                    if (pwd1.match(pwdRegExp) == null) {
-                        alert("비밀번호 형식에 맞추어 입력해주세요.");
-                    } else {
-                        $("#alert-success").css('display', 'inline-block');
-                        $("#alert-danger").css('display', 'none');
-                    }
-                } else {
-                    alert(" 비밀번호를 재확인해주세요.");
-                    $("#alert-success").css('display', 'none');
-                    $("#alert-danger").css('display', 'inline-block');
-                }
-            }
-
-        }
-
-        //=====================다음 단계 버튼을 활성 시킬 조건들======================
-        //인증하기가 모두 완료 되어야 함
-        //비밀번호가 일치해야함
-        function nextBtn_condition() {
-            var pwd1 = $("#pwd").val();
-            var pwd2 = $("#pwdChk").val();
-            var pwdRegExp = /^(?=.*[a-zA-Z])((?=.*\d)|(?=.*\W)).{6,20}$/;
-            if (telChecked === true && emailChecked === true && pwd1 === pwd2 && pwd2.match(pwdRegExp) != null) {
-                document.getElementById('frm').submit();
-            } else {
-                alert('모든 인증을 완료해주세요.')
-            }
-        }
+        // verifyEmail = function () {
+        //     var emailVal = $("#email").val();
+        //     // 검증에 사용할 정규식 변수 regExp에 저장
+        //     var regExp = /^[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*.[a-zA-Z]{2,3}$/i;
+        //
+        //     if (emailVal.match(regExp) == null) {
+        //         alert('이메일 형식에 맞게 작성해주세요.');
+        //     } else {
+        //         $(() => {
+        //             let email = document.getElementById("email").value;
+        //             $.ajax({
+        //                 url: "/ajax_email_check",
+        //                 data: "email=" + email,
+        //                 success: function (result) {
+        //                     if (result == 'Y') {
+        //                         document.getElementById("email_btn").innerText = "인증완료";
+        //                         // document.getElementById("email").setAttribute("disabled", true);
+        //                         document.getElementById("email_btn").setAttribute("disabled", true);
+        //                         document.getElementById("email_btn").style = "background-color:gray";
+        //                         emailChecked = true;
+        //                         alert('인증되었습니다!')
+        //                         // if (emailChecked && telChecked) document.getElementById("next_btn").removeAttribute("disabled");
+        //                     }
+        //                 }
+        //             });
+        //         });
+        //     }
+        // };
+        //
+        // //연락처 형식 검증
+        // verifyTel = function () {
+        //     var telVal = $("#tel").val();
+        //     var telRegExp = /^[A-Za-z0-9]{6,12}$/;
+        //     // 검증에 사용할 정규식 변수 regExp에 저장
+        //     if (telVal.match(telRegExp) == null) {
+        //         alert('휴대폰 번호 형식에 맞게 작성해주세요.');
+        //     } else {
+        //         $(() => {
+        //             let tel = document.getElementById("tel").value;
+        //             $.ajax({
+        //                 url: "/ajax_tel_check",
+        //                 data: "tel=" + tel,
+        //                 success: function (result) {
+        //                     if (result == 'Y') {
+        //                         document.getElementById("tel_btn").innerText = "인증완료";
+        //                         // document.getElementById("tel").setAttribute("disabled", true);
+        //                         document.getElementById("tel_btn").setAttribute("disabled", true);
+        //                         document.getElementById("tel_btn").style = "background-color:gray";
+        //                         telChecked = true;
+        //                         alert("인증되었습니다!")
+        //                         // if (emailChecked && telChecked) document.getElementById("next_btn").removeAttribute("disabled");
+        //                     }
+        //                 }
+        //             });
+        //         });
+        //     }
+        // };
+        //
+        // function passwordCheck() {
+        //     var pwd1 = $("#pwd").val();
+        //     var pwd2 = $("#pwdChk").val();
+        //     var pwdRegExp = /^(?=.*[a-zA-Z])((?=.*\d)|(?=.*\W)).{6,20}$/;
+        //
+        //     if (pwd1 !== '' && pwd2 === '') {
+        //
+        //     } else if (pwd1 !== "" || pwd2 !== "") {
+        //         if (pwd1 === pwd2) {
+        //             if (pwd1.match(pwdRegExp) == null) {
+        //                 alert("비밀번호 형식에 맞추어 입력해주세요.");
+        //             } else {
+        //                 $("#alert-success").css('display', 'inline-block');
+        //                 $("#alert-danger").css('display', 'none');
+        //             }
+        //         } else {
+        //             alert(" 비밀번호를 재확인해주세요.");
+        //             $("#alert-success").css('display', 'none');
+        //             $("#alert-danger").css('display', 'inline-block');
+        //         }
+        //     }
+        //
+        // }
+        //
+        // //=====================다음 단계 버튼을 활성 시킬 조건들======================
+        // //인증하기가 모두 완료 되어야 함
+        // //비밀번호가 일치해야함
+        // function nextBtn_condition() {
+        //     var pwd1 = $("#pwd").val();
+        //     var pwd2 = $("#pwdChk").val();
+        //     var pwdRegExp = /^(?=.*[a-zA-Z])((?=.*\d)|(?=.*\W)).{6,20}$/;
+        //     if (telChecked === true && emailChecked === true && pwd1 === pwd2 && pwd2.match(pwdRegExp) != null) {
+        //         document.getElementById('frm').submit();
+        //     } else {
+        //         alert('모든 인증을 완료해주세요.')
+        //     }
+        // }
     </script>
 </head>
 <body>

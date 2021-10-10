@@ -13,7 +13,6 @@ import java.time.LocalDateTime;
 @Table(name="membershiptbl")//sql의 테이블이름이기때문에 이름틀리면 나가리
 @Getter
 @Setter
-
 @ToString
 public class Membership {
     @Id
