@@ -1,10 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
          pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%
-    String greeting = request.getParameter("greeting");
-    String pageName = request.getParameter("pageName");
-%>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -37,10 +33,10 @@
         </div>
         <div class="navigation">
             <a href='/buy' class='anchor'>Buyer</a>
-            <a href='/sell' class='anchor'>Seller</a>
+            <a href='/login' class='anchor'>Seller</a>
             <a href='/notice' class='anchor'>Notice</a>
-            <a href='/logout' class='anchor has_aqua-island' id="mainMenu_login">Logout</a>
-            <button class='button is_primary'><a href="/mypage/+${user}">MyPage</a></button>
+            <a href='/login' class='anchor has_aqua-island' id="mainMenu_login">Login</a>
+            <button class='button is_primary'><a href="register1">Sign in</a></button>
         </div>
     </div>
 </header>
