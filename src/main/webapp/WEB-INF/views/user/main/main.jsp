@@ -15,7 +15,7 @@
 </head>
 <body>
 <jsp:include page="../header_footer/header_login.jsp">
-    <jsp:param name="greeting" value="안녕하세요." />
+    <jsp:param name="user" value="${user}"/>
     <jsp:param name="pageName" value="main.jsp" />
 </jsp:include>
 <main class="has_bg_harp">
