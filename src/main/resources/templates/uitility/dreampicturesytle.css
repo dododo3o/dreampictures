@@ -197,7 +197,7 @@ input, textarea, select{border-radius:8px; outline:none;text-indent:10px;height:
 
 .card_img{height:220px; width: 100%; background:url(photo/test.jpg);}
 
-.card_img_avatar{width:39px; height:39px; background:url(photo/cardimg4.png); border-radius:50%;}
+.card_img_avatar{width:39px; height:39px; background:url(photo/test.jpg); border-radius:50%;}
 
 .card_history{display: flex;justify-content: space-evenly; width: 100%;}
 
