@@ -15,11 +15,12 @@ public class BuyController {
     @RequestMapping("/buy")
     public ModelAndView buy(Model model, HttpServletRequest request){
         ModelAndView mv = new ModelAndView();
-        HttpSession session =request.getSession();
+        HttpSession session = request.getSession();
         System.out.println(session.getAttribute("logEmail"));
 
+
         if(session.getAttribute("logEmail")==null){
-            mv.setViewName("guest/buy/buy");
+            mv.setViewName("user/buy/buy");
             return mv;
         }
         else{
