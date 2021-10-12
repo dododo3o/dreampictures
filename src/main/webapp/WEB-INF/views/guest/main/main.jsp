@@ -14,9 +14,7 @@
     <script src="https://kit.fontawesome.com/b14e6f064f.js" crossorigin="anonymous"></script>
 </head>
 <body>
-<A name="target">
 <jsp:include page="../header_footer/header_not_login.jsp"></jsp:include>
-</A>
 <main class="has_bg_harp">
     <div class="container has_bg_harp">
         <div class="has_flex_center"

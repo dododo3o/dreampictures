@@ -23,7 +23,15 @@ public class LoginController {
     MembershiptblRepository membershiptblRepository;
 
     @RequestMapping("/login")
-    public String login(Model model){ return "guest/login/login";}
+    public String login(){ return "user/login/login";}
+
+    @RequestMapping("/logout")
+    public String logout(HttpServletRequest request){
+        HttpSession session =request.getSession();
+        session.invalidate();
+        return "user/main/main";
+    }
+
 
     @RequestMapping(value = "/login_check",method = RequestMethod.POST, produces ="application/text;charset=UTF-8")
     @ResponseBody
@@ -39,8 +47,8 @@ public class LoginController {
             else{
                 mv.addObject("user",membership.getEmail());
                 HttpSession session =request.getSession();
-                session.setAttribute("logEmail",vo.getEmail()) ;
-                session.setAttribute("logStatus",'Y') ;
+                session.setAttribute("logEmail",vo.getEmail());
+                session.setAttribute("logStatus","Y");
                 mv.setViewName("user/main/main");
                 return mv;
             }

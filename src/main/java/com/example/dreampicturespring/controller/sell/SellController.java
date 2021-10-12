@@ -17,11 +17,6 @@ public class SellController {
 
     @RequestMapping("/sell")
     public String sell(Model model, HttpServletRequest req){
-        String subject = req.getParameter("subject_txt");
-        String style = req.getParameter("style_select");
-        System.out.println(subject);
-        System.out.println(style);
-
-        return "view/sell/sell";
+        return "user/sell/sell";
     }
 }

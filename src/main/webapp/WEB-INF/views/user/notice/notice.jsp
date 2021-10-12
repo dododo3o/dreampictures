@@ -16,8 +16,14 @@
 
 </head>
 <body>
+<% if (session.getAttribute("logStatus")=="Y"){ %>
+<jsp:include page="../header_footer/header_login.jsp">
+    <jsp:param name="user" value="${user}"/>
+</jsp:include>
+<% } %>
+<% if (session.getAttribute("logStatus")==null){ %>
 <jsp:include page="../header_footer/header_not_login.jsp"></jsp:include>
-<main class="has_bg_harp">
+<% } %><main class="has_bg_harp">
     <div class="container">
         <div style="grid-column:1/3; display:flex;flex-direction: column; gap:20px; margin-top: 20px;">
             <div style="display: flex; ">
