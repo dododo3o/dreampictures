@@ -20,7 +20,7 @@
     <div class="container">
         <div style="grid-column:1/9;display: flex;flex-direction: column; gap:20px; justify-content: center; margin-top: 70px;">
             <div class="has_chathams-blue" style="font-size: 42px;">그림드림의 당신만의 그림찾기</div>
-            <form action="" >
+            <form >
                 <div  style="display: flex;" class="has_flex_space">
                     <input type="text" class="has_width_full"
                            placeholder="검색어를 입력해주세요." />
