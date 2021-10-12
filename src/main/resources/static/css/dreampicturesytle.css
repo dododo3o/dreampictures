@@ -220,6 +220,7 @@ input:not(input[type=file]), textarea, select{border-radius:8px; outline:none;te
 .is_login_input::placeholder{color:var(--color-alabaster);}
 
 /* card */
+.has_board_top_radius{border-top-right-radius: 8px;border-top-left-radius: 8px;}
 
 /*거래카드 베이스*/
 .transcationCard{height:450px;border-radius:4px;color:white;}
