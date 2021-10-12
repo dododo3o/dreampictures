@@ -31,11 +31,10 @@
 <% } %>
 <% if (session.getAttribute("logStatus")==null){ %>
 <jsp:include page="../header_footer/header_not_login.jsp"></jsp:include>
-<% } %><main class="has_bg_harp">
+<% } %>
 
 <main class="has_bg_harp">
     <div class="container">
-
         <div class="contents" style="grid-column: 4/10; margin-top: 20px;">
             <form action="<%=conPath%>/sell_success" method="post" onsubmit="return false" id="frm">
                 <div style="display: flex; flex-direction: column;gap: 20px;">

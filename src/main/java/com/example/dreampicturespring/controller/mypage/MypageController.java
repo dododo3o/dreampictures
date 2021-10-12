@@ -9,6 +9,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 public class MypageController {
 
     @RequestMapping("/mypage/{user}")
-    public String mypage(Model model){ return "guest/mypage/mypage";}
+    public String mypage(Model model){ return "user/mypage/mypage";}
 
 }

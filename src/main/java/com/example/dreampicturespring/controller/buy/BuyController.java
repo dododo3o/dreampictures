@@ -20,7 +20,7 @@ public class BuyController {
 
 
         if(session.getAttribute("logEmail")==null){
-            mv.setViewName("guest/buy/buy");
+            mv.setViewName("user/buy/buy");
             return mv;
         }
         else{

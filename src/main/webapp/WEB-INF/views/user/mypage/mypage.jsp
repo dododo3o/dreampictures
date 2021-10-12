@@ -52,16 +52,15 @@
             </nav>
             <section class="has_flex_center has_between has_font-base">
                 <button class='button is_round'><i class="fas fa-arrow-left fa-lg"></i></button>
-                <div class="card has_flex_space_bt_cl has_shadow" style="width: 45%;">
-                    <div style="height: 68.75%;"><img src="../../../uitility/photo/test.jpg" alt=""></div>
-                    <div class="card_history">
+                <div class="card has_flex_space_bt_cl has_shadow">
+                    <div><img src="/resources/css/photo/test.jpg" alt="" class="is_img_object-fit"></div>
+                    <div class="card_history" style=" display: flex;justify-content: space-evenly; width: 100%;flex-direction: row;align-items: center;">
                         <div class="card_img_avatar"></div>
                         <div>
-                            <div>Jenny Kim</div>
-                            <div>bitcamp University</div>
+                            <div style="font-size: 1.3em">Jenny Kim</div>
                         </div>
                     </div>
-                    <span>Darth Vader</span>
+                    <div style="margin-bottom: 20px; font-size: 1.5em;">Darth Vader</div>
                 </div>
                 <button class='button is_round'><i class="fas fa-arrow-right fa-lg"></i></button>
             </section>
@@ -71,6 +70,7 @@
                 <button class='button is_utility has_icon'><span>다스베이더</span><i class="fas fa-search"
                                                                                 style="padding-left: 50px"></i></button>
             </section>
+
 
         </div>
     </div>
