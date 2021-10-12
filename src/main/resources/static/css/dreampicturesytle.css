@@ -284,4 +284,5 @@ input:not(input[type=file]), textarea, select{border-radius:8px; outline:none;te
 
 .is_img_object-fit{width: 100%;height: 110%; object-fit: cover;}
 
+.is_img_avatar_object-fit{border-radius: 50%; width: 100%;height: 110%; object-fit: cover;}
 
