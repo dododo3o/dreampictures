@@ -32,6 +32,4 @@ public class AjaxController {
 	public String nickname_check(String nickname){return membershiptblRepository.existsBynickname(nickname) ? "N" : "Y"; }
 
 
-
-
 }
