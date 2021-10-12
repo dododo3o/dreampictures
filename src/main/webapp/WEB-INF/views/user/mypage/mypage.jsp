@@ -43,14 +43,14 @@
                 <button class='has_bg_dark-gray has_white button is_primary'>탈퇴 하기</button>
             </div>
         </div>
-        <div style="grid-column: 7/13; margin-top: 100px" class="my_page has_bg_white">
+        <div style="grid-column: 7/13; margin-top: 100px; font-size:0;" class="my_page has_bg_white">
             <nav class="transactionHistory-item">
                 <button class='button is_primary'>구매내역</button>
                 <button class='button is_primary'>판매내역</button>
                 <button class='button is_primary'>장바구니</button>
                 <button class='button is_primary'>질문하기</button>
             </nav>
-            <section class="has_flex_center has_between">
+            <section class="has_flex_center has_between has_font-base">
                 <button class='button is_round'><i class="fas fa-arrow-left fa-lg"></i></button>
                 <div class="card has_flex_space_bt_cl has_shadow" style="width: 45%;">
                     <div style="height: 68.75%;"><img src="../../../uitility/photo/test.jpg" alt=""></div>
@@ -65,7 +65,7 @@
                 </div>
                 <button class='button is_round'><i class="fas fa-arrow-right fa-lg"></i></button>
             </section>
-            <section style="justify-content:space-evenly" class="transactionHistory-item has_flex_center has_evenly">
+            <section style="margin-top:55px;" class="has_font-base has_flex_center has_evenly">
                 <button class="button is_utility has_icon"><span>날짜 선택</span><i class="far fa-calendar-alt"
                                                                                 style="padding-left: 60px"></i></button>
                 <button class='button is_utility has_icon'><span>다스베이더</span><i class="fas fa-search"

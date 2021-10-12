@@ -10,7 +10,7 @@ import java.time.LocalDateTime;
 
 @Entity//엔터티라고 선언해줘야함
 @Table(name="Admintbl")//sql의 테이블이름이기때문에 이름틀리면 나가리
-@Getter
+@Getter //lombok
 @Setter
 @ToString//모든데이터타입을 스트링을 바꿔줌
 public class Admintbl {
@@ -27,4 +27,5 @@ public class Admintbl {
         this.admin = admin;
         this.adminpwd = adminpwd;
     }
+
 }
