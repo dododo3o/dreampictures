@@ -24,7 +24,6 @@
 </script>
 </head>
 <body>
-<<<<<<< HEAD
 <% if (session.getAttribute("logStatus")=="Y"){ %>
 <jsp:include page="../header_footer/header_login.jsp">
     <jsp:param name="user" value="${user}"/>
@@ -33,11 +32,8 @@
 <% if (session.getAttribute("logStatus")==null){ %>
 <jsp:include page="../header_footer/header_not_login.jsp"></jsp:include>
 <% } %><main class="has_bg_harp">
-=======
-<jsp:include page="../header_footer/header_login.jsp"></jsp:include>
 
 <main class="has_bg_harp">
->>>>>>> hj
     <div class="container">
 
         <div class="contents" style="grid-column: 4/10; margin-top: 20px;">

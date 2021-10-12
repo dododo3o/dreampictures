@@ -15,13 +15,9 @@
     <script src="https://kit.fontawesome.com/b14e6f064f.js" crossorigin="anonymous"></script>
 </head>
 <body>
-<<<<<<< HEAD
 <jsp:include page="../header_footer/header_login.jsp">
     <jsp:param name="user" value="${user}"/>
 </jsp:include>
-=======
-<jsp:include page="../header_footer/header_login.jsp"></jsp:include>
->>>>>>> hj
 <div class="has_bg_harp">
     <div class="container">
         <div style="grid-column:1/9;display: flex;flex-direction: column; gap:20px; justify-content: center; margin-top: 70px;">
