@@ -270,9 +270,6 @@ input:not(input[type=file]), textarea, select{border-radius:8px; outline:none;te
 
 .is_seller>div:nth-child(3)>div:first-child{width:120px; border-radius:50%; background:url(../uitility/photo/cardimg.png);}
 
-/*sell page에 있는 이미지만 적용*/
-
-#sell_box img{width: 100%;height: 100%; object-fit: cover;}
 
 /*hover*/
 
@@ -281,3 +278,8 @@ input:not(input[type=file]), textarea, select{border-radius:8px; outline:none;te
 .hover_sign-btn:hover{transform:scale(1.1); transition:0.5s; cursor:pointer}
 
 .hover_top-btn:hover{transform:translateY(-25%); transition: 1s; cursor:pointer}
+
+/*sell page에 있는 이미지만 적용*/
+#sell_box img{width: 100%;height: 110%; object-fit: cover;}
+
+

@@ -15,13 +15,10 @@
     <script src="https://kit.fontawesome.com/b14e6f064f.js" crossorigin="anonymous"></script>
 </head>
 <body>
-<<<<<<< HEAD
 <jsp:include page="../header_footer/header_login.jsp">
     <jsp:param name="user" value="${user}"/>
 </jsp:include>
-=======
-<jsp:include page="../header_footer/header_login.jsp"></jsp:include>
->>>>>>> hj
+
 <div class="has_bg_harp">
     <div class="container">
         <div style="grid-column:1/9;display: flex;flex-direction: column; gap:20px; justify-content: center; margin-top: 70px;">
@@ -69,180 +66,86 @@
     <div class="container" id="sell_box" style="display: grid;grid-template-columns:repeat(4,1fr);grid-gap:1rem;">
         <div class="card has_flex_space_bt_cl has_shadow">
             <div><img src="/resources/css/photo/test.jpg" alt="" id="first"></div>
-            <div class="card_history">
+            <div class="card_history" style=" display: flex;justify-content: space-evenly; width: 100%;flex-direction: row;align-items: center;">
                 <div class="card_img_avatar"></div>
                 <div>
-                    <div>Jenny Kim</div>
-                    <div>bitcamp University</div>
+                    <div style="font-size: 1.3em">Jenny Kim</div>
                 </div>
             </div>
-            <span>Darth Vader</span>
+            <div style="margin-bottom: 20px; font-size: 1.5em;">Darth Vader</div>
+        </div>
+
+        <div class="card has_flex_space_bt_cl has_shadow">
+            <div><img src="/resources/css/photo/test.jpg" alt="" id="first"></div>
+            <div class="card_history" style=" display: flex;justify-content: space-evenly; width: 100%;flex-direction: row;align-items: center;">
+                <div class="card_img_avatar"></div>
+                <div>
+                    <div style="font-size: 1.3em">Jenny Kim</div>
+                </div>
+            </div>
+            <div style="margin-bottom: 20px; font-size: 1.5em;">Darth Vader</div>
         </div>
         <div class="card has_flex_space_bt_cl has_shadow">
-            <div class="card_img"></div>
-            <div class="card_history">
+            <div><img src="/resources/css/photo/test.jpg" alt="" id="first"></div>
+            <div class="card_history" style=" display: flex;justify-content: space-evenly; width: 100%;flex-direction: row;align-items: center;">
                 <div class="card_img_avatar"></div>
                 <div>
-                    <div>Jenny Kim</div>
-                    <div>bitcamp University</div>
+                    <div style="font-size: 1.3em">Jenny Kim</div>
                 </div>
             </div>
-            <span>Darth Vader</span>
+            <div style="margin-bottom: 20px; font-size: 1.5em;">Darth Vader</div>
         </div>
         <div class="card has_flex_space_bt_cl has_shadow">
-            <div class="card_img"></div>
-            <div class="card_history">
+            <div><img src="/resources/css/photo/test.jpg" alt="" id="first"></div>
+            <div class="card_history" style=" display: flex;justify-content: space-evenly; width: 100%;flex-direction: row;align-items: center;">
                 <div class="card_img_avatar"></div>
                 <div>
-                    <div>Jenny Kim</div>
-                    <div>bitcamp University</div>
+                    <div style="font-size: 1.3em">Jenny Kim</div>
                 </div>
             </div>
-            <span>Darth Vader</span>
+            <div style="margin-bottom: 20px; font-size: 1.5em;">Darth Vader</div>
         </div>
         <div class="card has_flex_space_bt_cl has_shadow">
-            <div class="card_img"></div>
-            <div class="card_history">
+            <div><img src="/resources/css/photo/test.jpg" alt="" id="first"></div>
+            <div class="card_history" style=" display: flex;justify-content: space-evenly; width: 100%;flex-direction: row;align-items: center;">
                 <div class="card_img_avatar"></div>
                 <div>
-                    <div>Jenny Kim</div>
-                    <div>bitcamp University</div>
+                    <div style="font-size: 1.3em">Jenny Kim</div>
                 </div>
             </div>
-            <span>Darth Vader</span>
+            <div style="margin-bottom: 20px; font-size: 1.5em;">Darth Vader</div>
         </div>
         <div class="card has_flex_space_bt_cl has_shadow">
-            <div class="card_img"></div>
-            <div class="card_history">
+            <div><img src="/resources/css/photo/test.jpg" alt="" id="first"></div>
+            <div class="card_history" style=" display: flex;justify-content: space-evenly; width: 100%;flex-direction: row;align-items: center;">
                 <div class="card_img_avatar"></div>
                 <div>
-                    <div>Jenny Kim</div>
-                    <div>bitcamp University</div>
+                    <div style="font-size: 1.3em">Jenny Kim</div>
                 </div>
             </div>
-            <span>Darth Vader</span>
+            <div style="margin-bottom: 20px; font-size: 1.5em;">Darth Vader</div>
         </div>
         <div class="card has_flex_space_bt_cl has_shadow">
-            <div class="card_img"></div>
-            <div class="card_history">
+            <div><img src="/resources/css/photo/test.jpg" alt="" id="first"></div>
+            <div class="card_history" style=" display: flex;justify-content: space-evenly; width: 100%;flex-direction: row;align-items: center;">
                 <div class="card_img_avatar"></div>
                 <div>
-                    <div>Jenny Kim</div>
-                    <div>bitcamp University</div>
+                    <div style="font-size: 1.3em">Jenny Kim</div>
                 </div>
             </div>
-            <span>Darth Vader</span>
+            <div style="margin-bottom: 20px; font-size: 1.5em;">Darth Vader</div>
         </div>
         <div class="card has_flex_space_bt_cl has_shadow">
-            <div class="card_img"></div>
-            <div class="card_history">
+            <div><img src="/resources/css/photo/test.jpg" alt=""></div>
+            <div class="card_history" style=" display: flex;justify-content: space-evenly; width: 100%;flex-direction: row;align-items: center;">
                 <div class="card_img_avatar"></div>
                 <div>
-                    <div>Jenny Kim</div>
-                    <div>bitcamp University</div>
+                    <div style="font-size: 1.3em">Jenny Kim</div>
                 </div>
             </div>
-            <span>Darth Vader</span>
+            <div style="margin-bottom: 20px; font-size: 1.5em;">Darth Vader</div>
         </div>
-        <div class="card has_flex_space_bt_cl has_shadow">
-            <div class="card_img"></div>
-            <div class="card_history">
-                <div class="card_img_avatar"></div>
-                <div>
-                    <div>Jenny Kim</div>
-                    <div>bitcamp University</div>
-                </div>
-            </div>
-            <span>Darth Vader</span>
-        </div>
-        <div class="card has_flex_space_bt_cl has_shadow">
-            <div class="card_img"></div>
-            <div class="card_history">
-                <div class="card_img_avatar"></div>
-                <div>
-                    <div>Jenny Kim</div>
-                    <div>bitcamp University</div>
-                </div>
-            </div>
-            <span>Darth Vader</span>
-        </div>
-        <div class="card has_flex_space_bt_cl has_shadow">
-            <div class="card_img"></div>
-            <div class="card_history">
-                <div class="card_img_avatar"></div>
-                <div>
-                    <div>Jenny Kim</div>
-                    <div>bitcamp University</div>
-                </div>
-            </div>
-            <span>Darth Vader</span>
-        </div>
-        <div class="card has_flex_space_bt_cl has_shadow">
-            <div class="card_img"></div>
-            <div class="card_history">
-                <div class="card_img_avatar"></div>
-                <div>
-                    <div>Jenny Kim</div>
-                    <div>bitcamp University</div>
-                </div>
-            </div>
-            <span>Darth Vader</span>
-        </div>
-        <div class="card has_flex_space_bt_cl has_shadow">
-            <div class="card_img"></div>
-            <div class="card_history">
-                <div class="card_img_avatar"></div>
-                <div>
-                    <div>Jenny Kim</div>
-                    <div>bitcamp University</div>
-                </div>
-            </div>
-            <span>Darth Vader</span>
-        </div>
-        <div class="card has_flex_space_bt_cl has_shadow">
-            <div class="card_img"></div>
-            <div class="card_history">
-                <div class="card_img_avatar"></div>
-                <div>
-                    <div>Jenny Kim</div>
-                    <div>bitcamp University</div>
-                </div>
-            </div>
-            <span>Darth Vader</span>
-        </div>
-        <div class="card has_flex_space_bt_cl has_shadow">
-            <div class="card_img"></div>
-            <div class="card_history">
-                <div class="card_img_avatar"></div>
-                <div>
-                    <div>Jenny Kim</div>
-                    <div>bitcamp University</div>
-                </div>
-            </div>
-            <span>Darth Vader</span>
-        </div>
-        <div class="card has_flex_space_bt_cl has_shadow">
-            <div class="card_img"></div>
-            <div class="card_history">
-                <div class="card_img_avatar"></div>
-                <div>
-                    <div>Jenny Kim</div>
-                    <div>bitcamp University</div>
-                </div>
-            </div>
-            <span>Darth Vader</span>
-        </div>
-        <div class="card has_flex_space_bt_cl has_shadow">
-            <div class="card_img"></div>
-            <div class="card_history">
-                <div class="card_img_avatar"></div>
-                <div>
-                    <div>Jenny Kim</div>
-                    <div>bitcamp University</div>
-                </div>
-            </div>
-            <span>Darth Vader</span>
-        </div>
+
     </div>
     <div class="container" style="display: flex;justify-content: center;margin-top:30px;padding-bottom: 30px;
 ">
