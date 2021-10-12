@@ -27,21 +27,29 @@
             <form action="<%=conPath%>/login_check" method="post" id="frm">
                 <div style="display: flex;user-select: auto;flex-direction: column;align-items: center;justify-content: space-evenly;height: 650px;">
                     <div class="title">로그인 화면</div>
-                    <input type="text" placeholder="Email" name="email" id="email" class="is_login_input"/>
-                    <input type="password" placeholder="Password" name="pwd" id="pwd" class="is_login_input"/>
-                    <div class="has_flex_center" style="justify-content: space-between;">
-                        <div class="has_flex_center">
-                            <input type="checkbox" id="login_check" style="height: 20px;"><label for="login_check"><span class="has_black has_font-xs">Remember me</span></label>
+                    <div class="has_flex_left"><input type="text" class="is_login_input has_width_full" name="email"
+                                                      id="email" required="required" placeholder="이메일"></div>
+                    <div class="has_flex_left"><input type="password" placeholder="Password" name="pwd" id="pwd"
+                                                      class="is_login_input has_width_full"/></div>
+                    <div class="has_flex_center" style="display: flex; width: 100%; justify-content: space-around;">
+                        <div>
+                            <input type="checkbox" id="login_check" style="height: 20px;">
+                            <span class="has_black has_font-xs">Remember me</span>
                         </div>
-                        <a href='' class="has_black">Forgot password?</a>
+                        <div><a href='#' class="has_black">Forgot password?</a></div>
                     </div>
-                    <input type="submit" class='button is_login has_shadow has_flex_center has_width_full' value="다음 단계">
-
-<%--                    <a href="/login_check"><button class='button is_login has_shadow has_width_full has_flex_center'><i class="fas fa-key"></i><span class="has_padding">로그인</span></button></a>--%>
-<%--                    <button class='button is_login has_shadow has_flex_center has_bg_turbo'><i--%>
-<%--                            class="fas fa-comment"></i></i></i><span class="has_padding">카카오톡 로그인</span></button>--%>
-<%--                    <button class='button is_login has_shadow has_flex_center has_bg_white'><i class="fab fa-google"></i><span--%>
-<%--                            class="has_padding">구글계정</span></button>--%>
+                    <input type="submit" class='button is_login has_shadow has_flex_center has_width_full'
+                           value="다음 단계">
+                    <a href="/login_check">
+                        <button class='button is_login has_shadow has_width_full has_flex_center'><i
+                                class="fas fa-key"></i><span class="has_padding">로그인</span></button>
+                    </a>
+                    <button class='button is_login has_shadow has_flex_center has_bg_turbo has_width_full'><i
+                            class="fas fa-comment"></i></i></i><span
+                            class="has_padding">카카오톡 로그인</span></button>
+                    <button class='button is_login has_shadow has_flex_center has_bg_white has_width_full'><i
+                            class="fab fa-google"></i><span
+                            class="has_padding">구글계정</span></button>
                 </div>
             </form>
         </div>
