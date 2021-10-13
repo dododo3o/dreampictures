@@ -7,7 +7,6 @@ import com.example.dreampicturespring.repository.PaintingRepository;
 import com.example.dreampicturespring.vo.CardVO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -24,7 +23,6 @@ public class BuyController {
     PaintingRepository paintingRepository;
     @Autowired
     MembershiptblRepository membershiptblRepository;
-
 
     @RequestMapping("/buy")
     public ModelAndView buy(HttpServletRequest request){
@@ -43,6 +41,4 @@ public class BuyController {
         mv.addObject("cardVOlist",cardVOList);
         return mv;
     }
-
-
 }

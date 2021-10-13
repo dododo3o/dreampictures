@@ -1,6 +1,5 @@
 package com.example.dreampicturespring.controller.sell;
 
-
 import com.example.dreampicturespring.entity.Membership;
 import com.example.dreampicturespring.entity.Paintingtbl;
 import com.example.dreampicturespring.repository.MembershiptblRepository;
@@ -34,11 +33,9 @@ public class SellController {
     @RequestMapping("/sell_success")
     public String sell(SellVO vo, HttpServletRequest req) throws IOException {
         String user = req.getSession().getAttribute("logEmail").toString();
-
         String path = "D:\\dreampicture_spring\\src\\main\\resources\\static\\user\\"+user+"\\paintingimg\\"+vo.getPname();
         File newPaintingFolder =  new File(path);
         newPaintingFolder.mkdir();
-
         MultipartHttpServletRequest mr = (MultipartHttpServletRequest)req;
         List<MultipartFile> files = mr.getFiles("filename");
         for(int i=0;i<files.size();i++) {

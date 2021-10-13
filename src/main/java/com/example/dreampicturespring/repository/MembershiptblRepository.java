@@ -10,7 +10,6 @@ public interface MembershiptblRepository extends JpaRepository<Membership,Long> 
         Boolean existsBytel(String tel);
         Boolean existsBynickname(String nickname);
 
-
 }
 
 
