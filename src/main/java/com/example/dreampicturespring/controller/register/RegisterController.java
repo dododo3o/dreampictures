@@ -45,7 +45,6 @@ public class RegisterController {
         vo.setImg("/resources/user/"+vo.getEmail());
 
         String path = "D:\\dreampicture_spring\\src\\main\\resources\\static\\user";
-        System.out.println(vo.getEmail());
         File newfolder = new File(path+"\\"+vo.getEmail());
         newfolder.mkdir();
 

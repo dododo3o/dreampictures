@@ -70,8 +70,6 @@
                 <button class='button is_utility has_icon'><span>다스베이더</span><i class="fas fa-search"
                                                                                 style="padding-left: 50px"></i></button>
             </section>
-
-
         </div>
     </div>
 </main>
