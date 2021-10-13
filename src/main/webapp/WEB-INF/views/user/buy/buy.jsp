@@ -14,13 +14,6 @@
     <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
     <script src="https://kit.fontawesome.com/b14e6f064f.js" crossorigin="anonymous"></script>
 </head>
-<script>
-    function searchOk() {
-        $("pname").click(() => {
-            console.log("안녕하세요");
-        });
-    }
-</script>
 <body>
 <jsp:include page="../header_footer/header_login.jsp">
     <jsp:param name="user" value="${user}"/>
@@ -38,24 +31,24 @@
             <div>
                 <select class="has_width_half" style="margin-right: 90px;">
                     <option value="" disabled selected>화풍</option>
-                    <option value="유화">유화</option>
-                    <option value="수채화">수채화</option>
-                    <option value="아크릴화">아크릴화</option>
-                    <option value="펜화">펜화</option>
-                    <option value="연필화">연필화</option>
-                    <option value="파스텔화">파스텔화</option>
-                    <option value="크레용화">크레용화</option>
-                    <option value="과슈화">과슈화</option>
+                    <option value="oils">유화</option>
+                    <option value="water">수채화</option>
+                    <option value="acrylic">아크릴화</option>
+                    <option value="pen">펜화</option>
+                    <option value="pencil">연필화</option>
+                    <option value="pastel">파스텔화</option>
+                    <option value="crayon">크레용화</option>
+                    <option value="gouache">과슈화</option>
                 </select>
                 <select class="has_width_half">
                     <option value="" disabled selected>테마</option>
-                    <option value="풍경">풍경</option>
-                    <option value="인물">인물</option>
-                    <option value="정물">정물</option>
-                    <option value="동물">동물</option>
-                    <option value="추상">추상</option>
-                    <option value="팝아트">팝아트</option>
-                    <option value="오브제">오브제</option>
+                    <option value="scenery">풍경</option>
+                    <option value="character">인물</option>
+                    <option value="still">정물</option>
+                    <option value="animal">동물</option>
+                    <option value="abstract">추상</option>
+                    <option value="popart">팝아트</option>
+                    <option value="objet">오브제</option>
                 </select>
             </div>
             <div style="display: flex;justify-content: space-between;grid-column:1/9;">

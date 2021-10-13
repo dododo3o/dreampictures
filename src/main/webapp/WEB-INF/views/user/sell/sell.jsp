@@ -13,7 +13,6 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
     <script src="https://kit.fontawesome.com/b14e6f064f.js" crossorigin="anonymous"></script>
-<<<<<<< HEAD
 <script>
     //====================등록 완료 버튼을 활성 시킬 조건들======================
     //모든 정보가 입력되어야 함
