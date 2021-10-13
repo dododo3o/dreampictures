@@ -1,6 +1,9 @@
 package com.example.dreampicturespring.controller.buy;
 
 
+import com.example.dreampicturespring.repository.MembershiptblRepository;
+import com.example.dreampicturespring.repository.PaintingRepository;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -12,22 +15,21 @@ import javax.servlet.http.HttpSession;
 @Controller
 public class BuyController {
 
+    @Autowired
+    PaintingRepository paintingRepository;
+    @Autowired
+    MembershiptblRepository membershiptblRepository;
+
+
     @RequestMapping("/buy")
-    public ModelAndView buy(Model model, HttpServletRequest request){
+    public ModelAndView buy(){
         ModelAndView mv = new ModelAndView();
-        HttpSession session = request.getSession();
-        System.out.println(session.getAttribute("logEmail"));
+        mv.setViewName("user/buy/buy");
+        System.out.println(paintingRepository.findbyno_painiting(1));
 
 
-        if(session.getAttribute("logEmail")==null){
-            mv.setViewName("user/buy/buy");
-            return mv;
-        }
-        else{
-            mv.setViewName("user/buy/buy");
-            mv.addObject("user",session.getAttribute("logEmail"));
-            return mv;
-        }
+
+        return mv;
     }
 
 }

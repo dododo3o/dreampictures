@@ -22,7 +22,6 @@
 <% if (session.getAttribute("logStatus")==null){ %>
 <jsp:include page="../header_footer/header_not_login.jsp"></jsp:include>
 <% } %>
-
 <main class="has_bg_harp">
     <div class="container has_bg_harp">
         <div class="has_flex_center"

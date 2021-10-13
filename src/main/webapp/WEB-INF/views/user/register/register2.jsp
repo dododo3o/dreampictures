@@ -30,7 +30,7 @@
                     success: function (result) {
                         if (result == 'Y') {
                             document.getElementById("nick_btn").innerText = "인증완료";
-                            document.getElementById("nickname").setAttribute("disabled", true);
+                            // document.getElementById("nickname").setAttribute("disabled", true);
                             document.getElementById("nick_btn").setAttribute("disabled", true);
                             document.getElementById("nick_btn").style = "background-color:gray";
                             nicknameChecked = true;
@@ -87,7 +87,7 @@
                         <button id="nick_btn" class="button is_primary" style="margin-top: 10px;margin-bottom: 10px">인증 확인</button>
                     </div>
                     <div><img src="/resources/css/photo/darth.jpg" class="avatar_img" style="margin: 0 auto"/></div>
-                    <div style="margin-top: 10px">이미지등록<input type="file" style="margin-left: 100px;margin-top: 10px"/></div>
+                    <div style="margin-top: 10px">이미지등록<input type="file" name="filename" style="margin-left: 100px;margin-top: 10px"/></div>
                     <div>
                         <input type="submit" class='button is_login has_shadow has_flex_center has_width_full' style="margin-top:20px" value="가입 완료">
                     </div>
