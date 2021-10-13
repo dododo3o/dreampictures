@@ -51,7 +51,6 @@
             position: new daum.maps.LatLng(37.537187, 127.005476),
             map: map
         });
-
         function sample5_execDaumPostcode() {
             new daum.Postcode({
                 oncomplete: function (data) {
@@ -80,16 +79,25 @@
             <form action="<%=conPath%>/register_success" method="post" enctype="multipart/form-data">
                 <div style="display: flex;user-select: auto;flex-direction: column;align-items: center;justify-content: space-evenly;height: 650px;">
                     <div class="title">회원 가입</div>
-                    <div class="has_flex_left">주소 *<input type="text" class="is_login_input has_width_full" name="addr" id="sample5_address" placeholder="주소" onclick="sample5_execDaumPostcode()"/></div>
-                    <div class="has_flex_left">상세주소 *<input type="text" class="is_login_input has_width_full" name="detailAddr" placeholder="상세주소"/></div>
-                    <div class="has_flex_left">닉네임 등록 * <input type="text" name="nickname" id="nickname" class="is_login_input has_width_full" placeholder="닉네임 등록"/></div>
+                    <div class="has_flex_left">주소 *<input type="text" class="is_login_input has_width_full" name="addr"
+                                                          id="sample5_address" placeholder="주소"
+                                                          onclick="sample5_execDaumPostcode()"/></div>
+                    <div class="has_flex_left">상세주소 *<input type="text" class="is_login_input has_width_full"
+                                                            name="detailAddr" placeholder="상세주소"/></div>
+                    <div class="has_flex_left">닉네임 등록 * <input type="text" name="nickname" id="nickname"
+                                                               class="is_login_input has_width_full"
+                                                               placeholder="닉네임 등록"/></div>
                     <div>
-                        <button id="nick_btn" class="button is_primary" style="margin-top: 10px;margin-bottom: 10px">인증 확인</button>
+                        <button id="nick_btn" class="button is_primary" style="margin-top: 10px;margin-bottom: 10px">인증
+                            확인
+                        </button>
                     </div>
                     <div><img src="/resources/css/photo/darth.jpg" class="avatar_img" style="margin: 0 auto"/></div>
-                    <div style="margin-top: 10px">이미지등록<input type="file" style="margin-left: 100px;margin-top: 10px"/></div>
+                    <div style="margin-top: 10px">이미지등록<input type="file" style="margin-left: 100px;margin-top: 10px"/>
+                    </div>
                     <div>
-                        <input type="submit" class='button is_login has_shadow has_flex_center has_width_full' style="margin-top:20px" value="가입 완료">
+                        <input type="submit" class='button is_login has_shadow has_flex_center has_width_full'
+                               style="margin-top:20px" value="가입 완료">
                     </div>
                 </div>
             </form>

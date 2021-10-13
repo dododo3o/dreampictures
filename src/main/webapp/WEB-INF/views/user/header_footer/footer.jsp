@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-         pageEncoding="UTF-8"%>
+         pageEncoding="UTF-8" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html lang="en">
@@ -36,7 +36,9 @@
             <a href="#" class="has_aqua-island">회사 소개</a> <a href="#" class="has_albescent-white">팀원 소개</a>
         </div>
         <div class="has_flex_space" style="grid-column: 10/12">
-            <a href="#" class="has_white has_font-xl"><i class="fab fa-youtube"></i></a> <a href="#" class="has_white has_font-xl"><i class="fab fa-facebook-square"></i></a>
+            <a href="#" class="has_white has_font-xl"><i class="fab fa-youtube"></i></a> <a href="#"
+                                                                                            class="has_white has_font-xl"><i
+                class="fab fa-facebook-square"></i></a>
             <a href="#" class="has_white has_font-xl"><i class="fab fa-instagram-square"></i></a>
         </div>
     </div>

@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-         pageEncoding="UTF-8"%>
+         pageEncoding="UTF-8" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <% String conPath = request.getContextPath(); %>
 <!DOCTYPE html>
@@ -21,11 +21,13 @@
         <div style="grid-column:1/3; display:flex;flex-direction: column; gap:20px; margin-top: 20px;">
             <div style="display: flex; ">
                 <span style=" color: var(--color-river-bed)"><i class="fas fa-bell fa-lg"></i></span>
-                <div style=" display:flex;align-items: center; margin-left: 10px; color: var(--color-river-bed)">공지사항</div>
+                <div style=" display:flex;align-items: center; margin-left: 10px; color: var(--color-river-bed)">공지사항
+                </div>
             </div>
             <div style="display: flex;">
                 <span style="color: var(--color-river-bed)"><i class="fas fa-question fa-lg"></i></span>
-                <div style=" display:flex;align-items: center; margin-left: 15px; color: var(--color-river-bed)">질문사항</div>
+                <div style=" display:flex;align-items: center; margin-left: 15px; color: var(--color-river-bed)">질문사항
+                </div>
             </div>
         </div>
 
@@ -54,7 +56,6 @@
                 <span class="has_notice">긴급공지사항</span>
             </div>
         </div>
-
         <div class="manager_card" style="grid-column: 6/9; ">
             <div class="card has_flex_space_bt_cl has_shadow" style="grid-column: 5/8">
                 <div class="card_img"></div>
@@ -67,7 +68,6 @@
                 </div>
                 <span class="has_notice">긴급공지사항</span>
             </div>
-
             <div class="card has_flex_space_bt_cl has_shadow" style="grid-column: 5/8">
                 <div class="card_img"></div>
                 <div class="card_history">
@@ -80,7 +80,6 @@
                 <span class="has_notice">긴급공지사항</span>
             </div>
         </div>
-
         <div class="manager_card" style="grid-column: 9/12; ">
             <div class="card has_flex_space_bt_cl has_shadow" style="grid-column: 5/8">
                 <div class="card_img"></div>
@@ -93,7 +92,6 @@
                 </div>
                 <span class="has_notice">긴급공지사항</span>
             </div>
-
             <div class="card has_flex_space_bt_cl has_shadow" style="grid-column: 5/8">
                 <div class="card_img"></div>
                 <div class="card_history">
@@ -106,8 +104,6 @@
                 <span class="has_notice">긴급공지사항</span>
             </div>
         </div>
-
-
     </div>
 </main>
 <jsp:include page="../header_footer/footer.jsp"></jsp:include>

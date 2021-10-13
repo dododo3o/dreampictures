@@ -23,7 +23,7 @@
 <jsp:include page="../header_footer/header_not_login.jsp"></jsp:include>
 <main class="has_bg_harp">
     <div class="container">
-        <div class="contents" style="grid-column: 5/9; margin-top: 85px">
+        <div class="contents" style="grid-column: 5/9; margin-top: 50px">
             <form action="<%=conPath%>/login_check" method="post" id="frm">
                 <div style="display: flex;user-select: auto;flex-direction: column;align-items: center;justify-content: space-evenly;height: 650px;">
                     <div class="title">로그인 화면</div>

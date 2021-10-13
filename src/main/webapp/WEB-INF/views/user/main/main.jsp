@@ -14,15 +14,14 @@
     <script src="https://kit.fontawesome.com/b14e6f064f.js" crossorigin="anonymous"></script>
 </head>
 <body>
-<% if (session.getAttribute("logStatus")=="Y"){ %>
+<% if (session.getAttribute("logStatus") == "Y") { %>
 <jsp:include page="../header_footer/header_login.jsp">
     <jsp:param name="user" value="${user}"/>
 </jsp:include>
 <% } %>
-<% if (session.getAttribute("logStatus")==null){ %>
+<% if (session.getAttribute("logStatus") == null) { %>
 <jsp:include page="../header_footer/header_not_login.jsp"></jsp:include>
 <% } %>
-
 <main class="has_bg_harp">
     <div class="container has_bg_harp">
         <div class="has_flex_center"
@@ -55,7 +54,6 @@
             </div>
             <div style="color: var( --color-river-bed); font-size: 25px;">5가지 스텝만으로 당신의 작품을 상품으로 !</div>
         </div>
-
         <div style="grid-column: 7 / 13;;height: 100%;display: flex;user-select: auto;flex-direction: column;justify-content: center;">
             <img src="/resources/css/photo/main_img2.png">
         </div>

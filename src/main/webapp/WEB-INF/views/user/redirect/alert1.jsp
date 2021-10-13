@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-         pageEncoding="UTF-8"%>
+         pageEncoding="UTF-8" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <% String conPath = request.getContextPath(); %>
 <!DOCTYPE html>
@@ -15,11 +15,11 @@
     <script src="https://kit.fontawesome.com/b14e6f064f.js" crossorigin="anonymous"></script>
 </head>
 <body>
-    <script type="text/javascript">
-        var message = "${msg}";
-        var url = "${url}";
-        alert(message);
-        document.location.href = url;
-    </script>
+<script type="text/javascript">
+    var message = "${msg}";
+    var url = "${url}";
+    alert(message);
+    document.location.href = url;
+</script>
 </body>
 </html>

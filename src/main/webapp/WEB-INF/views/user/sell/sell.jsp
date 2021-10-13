@@ -20,7 +20,6 @@
         //사진등록확인작업하기===========================
        document.getElementById('frm').submit();
     }
-
 </script>
 </head>
 <body>
@@ -32,7 +31,6 @@
 <% if (session.getAttribute("logStatus")==null){ %>
 <jsp:include page="../header_footer/header_not_login.jsp"></jsp:include>
 <% } %>
-
 <main class="has_bg_harp">
     <div class="container">
         <div class="contents" style="grid-column: 4/10; margin-top: 20px;">
@@ -40,7 +38,7 @@
                 <div style="display: flex; flex-direction: column;gap: 20px;">
                     <div class="title">판매등록</div>
                     <div class="has_flex_space">
-                        <img src="../../../uitility/photo.png" class="avatar_img"/>
+                        <img src="/resources/css/photo/photo.png" class="avatar_img"/>
                         <button class='button is_enroll' style="width: 70%"><span
                                 style="padding-left: 10px;">사진 등록하기!</span></button>
                     </div>

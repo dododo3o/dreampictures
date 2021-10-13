@@ -14,6 +14,13 @@
     <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
     <script src="https://kit.fontawesome.com/b14e6f064f.js" crossorigin="anonymous"></script>
 </head>
+<script>
+    function searchOk() {
+        $("pname").click(() => {
+            console.log("안녕하세요");
+        });
+    }
+</script>
 <body>
 <jsp:include page="../header_footer/header_login.jsp">
     <jsp:param name="user" value="${user}"/>
@@ -24,9 +31,8 @@
             <div class="has_chathams-blue" style="font-size: 42px;">그림드림의 당신만의 그림찾기</div>
             <form action="">
                 <div style="display: flex;" class="has_flex_space">
-                    <input type="text" class="has_width_full"
-                           placeholder="검색어를 입력해주세요."/>
-                    <button class='button is_notification'>선택완료</button>
+                    <input type="text" class="has_width_full" id="pname" placeholder="검색어를 입력해주세요."/>
+                    <button class='button is_notification' onclick="searchOk">선택완료</button>
                 </div>
             </form>
             <div>

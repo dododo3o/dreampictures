@@ -25,7 +25,6 @@
             var emailVal = $("#email").val();
             // 검증에 사용할 정규식 변수 regExp에 저장
             var regExp = /^[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*.[a-zA-Z]{2,3}$/i;
-
             if (emailVal.match(regExp) == null) {
                 alert('이메일 형식에 맞게 작성해주세요.');
             } else {
@@ -49,7 +48,6 @@
                 });
             }
         };
-
         //연락처 형식 검증
         verifyTel = function () {
             var telVal = $("#tel").val();
@@ -78,14 +76,11 @@
                 });
             }
         };
-
         function passwordCheck() {
             var pwd1 = $("#pwd").val();
             var pwd2 = $("#pwdChk").val();
             var pwdRegExp = /^(?=.*[a-zA-Z])((?=.*\d)|(?=.*\W)).{6,20}$/;
-
             if (pwd1 !== '' && pwd2 === '') {
-
             } else if (pwd1 !== "" || pwd2 !== "") {
                 if (pwd1 === pwd2) {
                     if (pwd1.match(pwdRegExp) == null) {
@@ -102,7 +97,6 @@
             }
 
         }
-
         //=====================다음 단계 버튼을 활성 시킬 조건들======================
         //인증하기가 모두 완료 되어야 함
         //비밀번호가 일치해야함
@@ -133,7 +127,8 @@
                     <div class="has_flex_left">
                         <div>비밀번호 *<span class="has_chathams-blue">(6~20 영문 대소문자, 숫자, 특수문자 꼭포함하여  6~20자)</span>
                         </div>
-                        <input type="password" class="pw is_login_input has_width_full" id="pwd" name="pwd" placeholder="비밀번호"
+                        <input type="password" class="pw is_login_input has_width_full" id="pwd" name="pwd"
+                               placeholder="비밀번호"
                                required="required"/>
                     </div>
                     <div class="has_flex_left">
@@ -162,7 +157,6 @@
 
                     <input type="submit" onclick="nextBtn_condition()" id="submit_btn"
                            class='button is_login has_shadow has_flex_center has_width_full' value="다음 단계">
-
                 </div>
             </form>
         </div>

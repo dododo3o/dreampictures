@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-         pageEncoding="UTF-8"%>
+         pageEncoding="UTF-8" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <% String conPath = request.getContextPath(); %>
 <!DOCTYPE html>
@@ -54,7 +54,8 @@
                 <button class='button is_round'><i class="fas fa-arrow-left fa-lg"></i></button>
                 <div class="card has_flex_space_bt_cl has_shadow">
                     <div><img src="/resources/css/photo/test.jpg" alt="" class="is_img_object-fit"></div>
-                    <div class="card_history" style=" display: flex;justify-content: space-evenly; width: 100%;flex-direction: row;align-items: center;">
+                    <div class="card_history"
+                         style=" display: flex;justify-content: space-evenly; width: 100%;flex-direction: row;align-items: center;">
                         <div class="card_img_avatar"></div>
                         <div>
                             <div style="font-size: 1.3em">Jenny Kim</div>
@@ -70,8 +71,6 @@
                 <button class='button is_utility has_icon'><span>다스베이더</span><i class="fas fa-search"
                                                                                 style="padding-left: 50px"></i></button>
             </section>
-
-
         </div>
     </div>
 </main>

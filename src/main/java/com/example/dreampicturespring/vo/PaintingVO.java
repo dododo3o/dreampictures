@@ -4,7 +4,7 @@ import lombok.Data;
 
 @Data
 public class PaintingVO {
-    private String subject;
+    private String pname;
     private String style;
     private String theme;
     private int width;
