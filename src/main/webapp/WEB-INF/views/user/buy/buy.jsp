@@ -84,78 +84,7 @@
             </div>
             <div style="margin-bottom: 20px; font-size: 1.5em;">Darth Vader</div>
         </div>
-        <div class="card has_flex_space_bt_cl has_shadow">
-            <div><img src="/resources/css/photo/test.jpg" alt="" class="is_img_object-fit has_board_top_radius"></div>
-            <div class="card_history" style="width: 100%;">
-                <img src="/resources/css/photo/test.jpg" alt="" style="border-radius: 50%; width: 65px">
-                <span style="font-size: 1.3em">Jenny Kim</span>
-            </div>
-            <div style="margin-bottom: 20px; font-size: 1.5em;">Darth Vader</div>
-        </div>
-        <div class="card has_flex_space_bt_cl has_shadow">
-            <div><img src="/resources/css/photo/test.jpg" alt="" class="is_img_object-fit has_board_top_radius"></div>
-            <div class="card_history" style="width: 100%;">
-                <img src="/resources/css/photo/test.jpg" alt="" style="border-radius: 50%; width: 65px">
-                <span style="font-size: 1.3em">Jenny Kim</span>
-            </div>
-            <div style="margin-bottom: 20px; font-size: 1.5em;">Darth Vader</div>
-        </div>
-        <div class="card has_flex_space_bt_cl has_shadow">
-            <div><img src="/resources/css/photo/test.jpg" alt="" class="is_img_object-fit has_board_top_radius"></div>
-            <div class="card_history" style="width: 100%;">
-                <img src="/resources/css/photo/test.jpg" alt="" style="border-radius: 50%; width: 65px">
-                <span style="font-size: 1.3em">Jenny Kim</span>
-            </div>
-            <div style="margin-bottom: 20px; font-size: 1.5em;">Darth Vader</div>
-        </div>
-        <div class="card has_flex_space_bt_cl has_shadow">
-            <div><img src="/resources/css/photo/test.jpg" alt="" class="is_img_object-fit has_board_top_radius"></div>
-            <div class="card_history" style="width: 100%;">
-                <img src="/resources/css/photo/test.jpg" alt="" style="border-radius: 50%; width: 65px">
-                <span style="font-size: 1.3em">Jenny Kim</span>
-            </div>
-            <div style="margin-bottom: 20px; font-size: 1.5em;">Darth Vader</div>
-        </div>
-        <div class="card has_flex_space_bt_cl has_shadow">
-            <div><img src="/resources/css/photo/test.jpg" alt="" class="is_img_object-fit has_board_top_radius"></div>
-            <div class="card_history" style="width: 100%;">
-                <img src="/resources/css/photo/test.jpg" alt="" style="border-radius: 50%; width: 65px">
-                <span style="font-size: 1.3em">Jenny Kim</span>
-            </div>
-            <div style="margin-bottom: 20px; font-size: 1.5em;">Darth Vader</div>
-        </div>
-        <div class="card has_flex_space_bt_cl has_shadow">
-            <div><img src="/resources/css/photo/test.jpg" alt="" class="is_img_object-fit has_board_top_radius"></div>
-            <div class="card_history" style="width: 100%;">
-                <img src="/resources/css/photo/test.jpg" alt="" style="border-radius: 50%; width: 65px">
-                <span style="font-size: 1.3em">Jenny Kim</span>
-            </div>
-            <div style="margin-bottom: 20px; font-size: 1.5em;">Darth Vader</div>
-        </div>
-        <div class="card has_flex_space_bt_cl has_shadow">
-            <div><img src="/resources/css/photo/test.jpg" alt="" class="is_img_object-fit has_board_top_radius"></div>
-            <div class="card_history" style="width: 100%;">
-                <img src="/resources/css/photo/test.jpg" alt="" style="border-radius: 50%; width: 65px">
-                <span style="font-size: 1.3em">Jenny Kim</span>
-            </div>
-            <div style="margin-bottom: 20px; font-size: 1.5em;">Darth Vader</div>
-        </div>
-        <div class="card has_flex_space_bt_cl has_shadow">
-            <div><img src="/resources/css/photo/test.jpg" alt="" class="is_img_object-fit has_board_top_radius"></div>
-            <div class="card_history" style="width: 100%;">
-                <img src="/resources/css/photo/test.jpg" alt="" style="border-radius: 50%; width: 65px">
-                <span style="font-size: 1.3em">Jenny Kim</span>
-            </div>
-            <div style="margin-bottom: 20px; font-size: 1.5em;">Darth Vader</div>
-        </div>
-        <div class="card has_flex_space_bt_cl has_shadow">
-            <div><img src="/resources/css/photo/test.jpg" alt="" class="is_img_object-fit has_board_top_radius"></div>
-            <div class="card_history" style="width: 100%;">
-                <img src="/resources/css/photo/test.jpg" alt="" style="border-radius: 50%; width: 65px">
-                <span style="font-size: 1.3em">Jenny Kim</span>
-            </div>
-            <div style="margin-bottom: 20px; font-size: 1.5em;">Darth Vader</div>
-        </div>
+
     </div>
     <div class="container" style="display: flex;justify-content: center;margin-top:30px;padding-bottom: 30px;
 ">
