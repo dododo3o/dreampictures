@@ -36,11 +36,11 @@
             </a>
         </div>
         <div class="navigation">
-            <a href='/buy' class='anchor'>Buyer</a>
-            <a href='/sell' class='anchor'>Seller</a>
-            <a href='/notice' class='anchor'>Notice</a>
-            <a href='/logout' class='anchor has_aqua-island' id="mainMenu_login">Logout</a>
-            <button class='button is_primary'><a href="/mypage/+${user}">MyPage</a></button>
+            <a href='/buy' class='anchor hover_header-btn'>Buyer</a>
+            <a href='/sell' class='anchor hover_header-btn'>Seller</a>
+            <a href='/notice' class='anchor hover_header-btn'>Notice</a>
+            <a href='/logout' class='anchor has_aqua-island hover_header-btn' id="mainMenu_login">Logout</a>
+            <button class='button is_primary hover_sign-btn'><a href="/mypage/+${user}">MyPage</a></button>
         </div>
     </div>
 </header>

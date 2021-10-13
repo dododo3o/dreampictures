@@ -27,11 +27,11 @@
             </a>
         </div>
         <div class="navigation">
-            <a href='/admin/qa' class='anchor'>질문사항</a>
-            <a href='/admin/notice' class='anchor'>공지사항</a>
-            <a href='/admin/report' class='anchor'>신고내역</a>
-            <a href='/admin/blacklist' class='anchor'>블랙리스트</a>
-            <button class='button is_primary'>Logout</button>
+            <a href='/admin/qa' class='anchor hover_header-btn'>질문사항</a>
+            <a href='/admin/notice' class='anchor hover_header-btn'>공지사항</a>
+            <a href='/admin/report' class='anchor hover_header-btn'>신고내역</a>
+            <a href='/admin/blacklist' class='anchor hover_header-btn'>블랙리스트</a>
+            <button class='button is_primary hover_sign-btn'>Logout</button>
         </div>
     </div>
 </header>
