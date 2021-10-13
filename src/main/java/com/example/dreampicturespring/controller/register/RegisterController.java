@@ -70,6 +70,7 @@ public class RegisterController {
 
         Membership membership = new Membership(vo);
         membershiptblRepository.save(membership);
+
         return "guest/login/login";
     }
 }
