@@ -8,6 +8,6 @@ public interface PaintingRepository extends JpaRepository<Paintingtbl,Long> {
     @Query(value = "select pname from Paintingtbl where Paintingtbl.no_membership = :id",nativeQuery = true)
     List<String> findbyno_painiting(@Param(value = "id") int id);
 
-    @Query(value = "select * from paintingtbl where width<=500 or height<=200 or style='oils' or theme='still' = :id",nativeQuery = true)
-    List<String>
+/*    @Query(value = "select * from paintingtbl where width<=500 or height<=200 or style='oils' or theme='still' = :id",nativeQuery = true)
+    List<String>*/
 }
