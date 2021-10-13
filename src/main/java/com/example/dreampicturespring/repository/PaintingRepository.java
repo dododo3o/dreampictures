@@ -12,6 +12,7 @@ import java.util.List;
 public interface PaintingRepository extends JpaRepository<Paintingtbl,Long> {
 
 
-    @Query(value = "select pname from Paintingtbl where Paintingtbl.no_membership = :id",nativeQuery = true)
-    List<String> findbyno_painiting(@Param(value = "id") int idLong);
+    @Query(value = "select membershiptbl.img, membershiptbl.nickname, paintingtbl.pname from paintingtbl, membershiptbl where paintingtbl.no_membership = membershiptbl.no_membership",nativeQuery = true)
+    List<String> findAllPainting_Desc();
+
 }
