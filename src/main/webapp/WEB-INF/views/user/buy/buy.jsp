@@ -15,9 +15,14 @@
     <script src="https://kit.fontawesome.com/b14e6f064f.js" crossorigin="anonymous"></script>
 </head>
 <body>
+<% if (session.getAttribute("logStatus")=="Y"){ %>
 <jsp:include page="../header_footer/header_login.jsp">
     <jsp:param name="user" value="${user}"/>
 </jsp:include>
+<% } %>
+<% if (session.getAttribute("logStatus")==null){ %>
+<jsp:include page="../header_footer/header_not_login.jsp"></jsp:include>
+<% } %>
 <div class="has_bg_harp">
     <div class="container">
         <div style="grid-column:1/9;display: flex;flex-direction: column; gap:20px; justify-content: center; margin-top: 70px;">
@@ -70,15 +75,16 @@
         </div>
     </div>
     <div class="container" style="display: grid;grid-template-columns:repeat(4,1fr);grid-gap:1rem;">
-        <div class="card has_flex_space_bt_cl has_shadow">
-            <div><img src="/resources/css/photo/test.jpg" alt="" class="is_img_object-fit has_board_top_radius"></div>
-            <div class="card_history" style="width: 100%;">
-                <img src="/resources/css/photo/test.jpg" alt="" style="border-radius: 50%; width: 65px">
-                <span style="font-size: 1.3em">Jenny Kim</span>
+        <c:forEach var="cardVOlist" items="${cardVOlist}">
+            <div class="card has_flex_space_bt_cl has_shadow">
+                <div><img src="${cardVOlist.paintingmimg}" alt="" class="is_img_object-fit has_board_top_radius"></div>
+                <div class="card_history" style="width: 100%;">
+                    <img src="${cardVOlist.avatarimg}" alt="" style="border-radius: 50%; width: 65px">
+                    <span style="font-size: 1.3em">${cardVOlist.nickname}</span>
+                </div>
+                <div style="margin-bottom: 20px; font-size: 1.5em;">${cardVOlist.pname}</div>
             </div>
-            <div style="margin-bottom: 20px; font-size: 1.5em;">Darth Vader</div>
-        </div>
-
+        </c:forEach>
     </div>
     <div class="container" style="display: flex;justify-content: center;margin-top:30px;padding-bottom: 30px;
 ">
