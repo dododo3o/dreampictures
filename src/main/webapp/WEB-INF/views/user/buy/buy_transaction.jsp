@@ -15,78 +15,51 @@
     <script src="https://kit.fontawesome.com/b14e6f064f.js" crossorigin="anonymous"></script>
 </head>
 <body>
-<% if (session.getAttribute("logStatus")=="Y"){ %>
+<% if (session.getAttribute("logStatus") == "Y") { %>
 <jsp:include page="../header_footer/header_login.jsp">
     <jsp:param name="user" value="${user}"/>
 </jsp:include>
 <% } %>
 <main class="has_bg_harp">
-
     <div class="container">
-
-        <div class="payment-page-artwork" style="border-bottom:1px solid black; height:750px; grid-column: 1/7;">
-            <h1 class="has_font-2xl has_dark-moderate-blue" style="margin:10px 0 25px 0;">결제페이지</h1>
-            <div>
-                <h2 class="has_font-xxl has_dark-moderate-blue" style="text-align:center; margin-bottom:10px;"><c:out value="${paymentVO.pname}"/></h2>
-                <img src="<c:out value="${paymentVO.paintingimg}"/>" alt="" class="artwork-img">
-            </div>
-            <div>
-                <ul>
-                    <li class="has_font-lg">가격: <c:out value="${paymentVO.price}"/></li>
-                    <li class="has_font-lg">높이: <c:out value="${paymentVO.height}"/> 넓이: <c:out value="${paymentVO.width}"/></li>
-                    <li class="has_font-lg">제작년도: <c:out value="${paymentVO.production}"/></li>
-                    <li>설명: <c:out value="${paymentVO.exp}"/></li>
-                </ul>
-            </div>
-        </div>
-
-        <div style="height:750px; grid-column: 7/13;">
-            <!--구매자 정보-->
-            <div style="margin-top:130px;" class="avatar">
-                <img src="<c:out value="${paymentVO.avatarimg}"/>" class="avatar_img"/>
-                <div class="avatar_name has_chathams-blue">
-                    "<c:out value="${paymentVO.nickname}"/>"
-                    <ul class="avatar_info">
-                        <li>이메일 : <c:out value="${paymentVO.email}"/></li>
-                        <li>번호 : <c:out value="${paymentVO.tel}"/></li>
-                    </ul>
+        <section style="grid-column:3/12; width:800px; margin-top:60px;">
+            <h1 class="has_font-xxl" style="margin-left:280px; margin-bottom: 40px;">구매완료</h1>
+            <div style="display:flex;">
+                <div class="has_bg_puce is_buyer-card">
+                    <div class="is_seller-card-img" style="background:url("<c:out value="${transactionVO.paintingimg}"/>");">
                 </div>
-            </div>
-            <!--배송지-->
-            <div style="margin:40px 0 0px 30px;">
-                <div style="margin-bottom:15px;"><span style="margin:0 20px 0 20px;" class="has_metallic-blue has_font-xl">배송지</span><button style="width:100px; height:40px;" class="button has_font-base">수정</button></div>
-                <div style="width:90%; border:3px solid #495057; height:40px; border-radius:8px; line-height:40px;"><a style="margin-left:15px; color:#495057;" href="#"><c:out value="${paymentVO.addr}"/></a></div>
-            </div>
-            <!--결제수단-->
-            <div  style="margin:30px 0 0 30px;">
-                <p class="has_font-xl has_metallic-blue" style="margin:0 0 25px 0;">결제수단</p>
-                <!--카드결제-->
-                <div class="has_flex_center has_between">
-                    <div class="icon-card has_bg_middle-blue-green credit-card">
-                        <div style="margin-top:20px;"><i class="far fa-credit-card has_font-xxl has_metallic-blue"></i></div>
-                        <div><i class="fas fa-check has_font-xl has_puce"></i></div>
-                        <p class="has_metallic-blue has_font-lg">카드결제</p>
-                    </div>
-                    <!--휴대폰 결제-->
-                    <div class="icon-card has_bg_middle-blue-green credit-card">
-                        <div style="margin:20px 0 36px;"><i class="fas fa-mobile-alt has_font-xxl has_white"></i></div>
-                        <p class="has_white has_font-lg">휴대폰결제</p>
-                    </div>
-                    <!--드림페이-->
-                    <div class="icon-card has_bg_middle-blue-green credit-card">
-                        <div style="margin:20px 0 36px 0;"><i class="fas fa-palette has_font-xxl has_white"></i></div>
-                        <p class="has_font-lg has_white">드림페이</p>
-                    </div>
+                <div class="has_font-xl "><c:out value="${transactionVO.pname}"/></div>
+                <div style="display:flex; margin-top: 20px;">
+                    <div class="is_round is_seller-face" style="background:url("<c:out value="${transactionVO.avatarimg}"/>");">
                 </div>
+                <div class="has_font-xl"><c:out value="${transactionVO.nickname}"/></div>
             </div>
-            <!--버튼-->
-            <div style="margin:20px 0 0 30px;" class="has_flex_center has_between">
-                <a href="/buy_picture/"><button style="width:320px; height:60px;" class="button has_font-sm has_bg_dark-moderate-blue has_white">구매하기</button></a>
-                <a href="/buy_picture/<c:out value="${paymentVO.no_painting}"/>"><button style="width:140px; height:60px;" class="has_font-sm button has_bg_dark-moderate-blue has_white">뒤로가기</button></a>
-            </div>
+            <p class="has_font-base" style="margin-top: 20px;"><c:out value="${transactionVO.transactionDate}"/></p>
+        </section>
+    </div>
+    <div style="margin:0 70px;">
+        <i style="font-size:120px; margin-top: 130px;" class="fas fa-hands-helping has_font-2xl"></i>
+        <div>
+            <button style="width:150px;">확인</button>
         </div>
     </div>
+    <div class="has_bg_pink is_buyer-card">
+        <div class="is_buyer-card-img" style="background:url("<c:out value="${transactionVO.buyer_avatarimg}"/>");"></div>
+        <div></div>
+        <ul>
+            <c:out value="${transactionVO.paintingimg}"/>
+            <c:out value="${transactionVO.buyer_avatarimg}"/>
+            <li style="margin-top:35px;" class="has_font-xl has_white"><c:out value="${transactionVO.buyer_nickname}"/></li>
+            <li style="margin-top:25px;" class="has_font-lg has_white"><c:out value="${transactionVO.buyer_email}"/></li>
+            <li style="margin-top:10px;" class="has_font-base has_white"><c:out value="${transactionVO.buyer_tel}"/></li>
+            <li style="margin-top:10px;" class="has_white"><c:out value="${transactionVO.buyer_addr}"/></li>
+        </ul>
+        <button class="button" style="margin-top:30px; width:185px; height:30px;">구매 내역</button>
+    </div>
+    </div>
+    </section>
+    </div>
 </main>
-
+<jsp:include page="../header_footer/footer.jsp"></jsp:include>
 </body>
 </html>

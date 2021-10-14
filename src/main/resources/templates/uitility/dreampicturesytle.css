@@ -56,7 +56,7 @@ main{height:760px;}
 
 footer{height: 140px;}
 
-a{color: inherit; text-decoration: none;}
+a{color: inherit;}
 
 .container{display:grid; grid-template-columns:repeat(12, 1fr); grid-column-gap:30px; margin:auto; width:1100px; height: 100%;}
 
@@ -258,29 +258,24 @@ input:not(input[type=file]), textarea, select{border-radius:8px; outline:none;te
 .transactionHistory-item>button{width:133px;}
 
 /*구매자 카드*/
-.is_buyer>div:not(.is_buyer div:first-child){width:255px; height:36px; line-height:36px;}
+.is_buyer-card{width:250px; height:446px; text-align:center;}
 
-.is_buyer_img{width:125px; height:125px; border-radius:50%; background:url(../uitility/photo/cardimg2.png);}
+.is_buyer-card-img{display:inline-block; margin-top:55px; border-radius:50%; width:125px; height:125px; background:url(../uitility/photo/KakaoTalk_20211009_162025619.jpg);}
 
 /*판매자 카드*/
-.is_seller>div:not(.is_seller div:first-child){width:255px;}
 
-.is_seller>div:first-child{width:223px; height:170px; background:url(../uitility/photo/cardimg.png);}
+.is_seller-card-img{width:230px; height:200px; margin:10px 10px;}
 
-.is_seller>div:nth-child(3){height:120px; display:flex;}
-
-.is_seller>div:nth-child(3)>div:first-child{width:120px; border-radius:50%; background:url(../uitility/photo/cardimg.png);}
+.is_seller-face{border-radius:50%; width:120px; height:120px; }
 
 /*아이콘*/
 .icon-card{text-align:center; border-radius:8px; width:140px; height:170px;}
-
-.credit-card{}
 
 /*결제 페이지*/
 
 .payment-page-artwork>div:last-child>ul>li{margin-top:10px;}
 
-.artwork-img{height: 350px;width: 100%;object-fit: contain;}
+.artwork-img{height:350px; background:url(photo/darth.jpg)}
 
 /*hover*/
 
