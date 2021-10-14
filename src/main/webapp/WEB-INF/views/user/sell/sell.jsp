@@ -99,9 +99,8 @@
                 <div class="has_flex_space">
                     <input type="submit" class="button is_enroll_button has_width_full" value="등록완료">
                 </div>
+            </form>
         </div>
-        </form>
-    </div>
     </div>
 </main>
 <jsp:include page="../header_footer/footer.jsp"></jsp:include>

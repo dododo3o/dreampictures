@@ -9,7 +9,6 @@ public interface MembershiptblRepository extends JpaRepository<Membershiptbl,Lon
         Boolean existsByemail(String email);
         Boolean existsBytel(String tel);
         Boolean existsBynickname(String nickname);
-
 }
 
 

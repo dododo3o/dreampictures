@@ -8,6 +8,7 @@ import com.example.dreampicturespring.repository.PaintingRepository;
 import com.example.dreampicturespring.vo.CardVO;
 import com.example.dreampicturespring.vo.PaintingVO;
 import com.example.dreampicturespring.vo.PaymentVO;
+import com.example.dreampicturespring.vo.TransactionVO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -78,6 +79,25 @@ public class BuyController {
         Membershiptbl membershipTBL = membershiptblRepository.findByemail((String) session.getAttribute("logEmail"));
         PaymentVO paymentVO = new PaymentVO(paintingTBL,membershipTBL);
         mv.addObject("paymentVO",paymentVO);
+        return mv;
+    }
+
+    @RequestMapping("/buy_transaction/{no_painting}")
+    public ModelAndView buy_transaction(HttpServletRequest request, @PathVariable String no_painting) {
+        ModelAndView mv = new ModelAndView();
+        mv.setViewName("user/buy/buy_transaction");
+        HttpSession session =request.getSession();
+        if(session.getAttribute("logStatus") == null){
+            mv.setViewName("user/login/login");
+            return mv;
+        }
+        Optional<Paintingtbl> PTBL = paintingRepository.findById(Long.parseLong(no_painting));
+        Paintingtbl paintingTBL = PTBL.get();
+        Optional<Membershiptbl> sellerMembershipTBL = membershiptblRepository.findById((paintingTBL.getNo_membership()));
+        Membershiptbl sellerMembershiptbl = sellerMembershipTBL.get();
+        Membershiptbl buyerMembershipTBL = membershiptblRepository.findByemail((String) session.getAttribute("logEmail"));
+        TransactionVO transactionVO = new TransactionVO(paintingTBL,sellerMembershiptbl,buyerMembershipTBL);
+        mv.addObject("transactionVO",transactionVO);
         return mv;
     }
 }
