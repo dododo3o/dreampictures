@@ -13,6 +13,12 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
     <script src="https://kit.fontawesome.com/b14e6f064f.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" type="text/css" href="semantic/dist/semantic.min.css">
+    <script
+            src="https://code.jquery.com/jquery-3.1.1.min.js"
+            integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
+            crossorigin="anonymous"></script>
+    <script src="semantic/dist/semantic.min.js"></script>
 </head>
 <body>
 <% if (session.getAttribute("logStatus")=="Y"){ %>
@@ -77,12 +83,16 @@
         <c:forEach var="cardVOlist" items="${cardVOlist}">
             <a href="/buy_picture/${cardVOlist.no_painting}">
             <div class="card has_flex_space_bt_cl has_shadow">
-                <div><img src="${cardVOlist.paintingmimg}" alt="" class="is_img_object-fit has_board_top_radius"></div>
-                <div class="card_history" style="width: 100%;">
-                    <img src="${cardVOlist.avatarimg}" alt="" style="border-radius: 50%; width: 65px">
-                    <span style="font-size: 1.3em">${cardVOlist.nickname}</span>
+                <div class="card_history" style="justify-content: space-around;">
+                <img src="${cardVOlist.avatarimg}" alt="" style="border-radius: 50%; width: 2em;height: 2em;object-fit: cover;">
+                <div style="display: flex; flex-direction: column;align-items: center;">
+                    <div style="font-size: 1em">${cardVOlist.nickname}</div>
+                    <div style="font-size: 1em;">${cardVOlist.pname}</div>
                 </div>
-                <div style="margin-bottom: 20px; font-size: 1.5em;">${cardVOlist.pname}</div>
+
+            </div>
+                <div><img src="${cardVOlist.paintingmimg}" alt="" class="is_img_object-fit"></div>
+
             </div>
             </a>
         </c:forEach>
