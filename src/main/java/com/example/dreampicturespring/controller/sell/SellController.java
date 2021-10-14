@@ -28,7 +28,7 @@ public class SellController {
     public String sell() { return "user/sell/sell"; }
 
     @RequestMapping("/sell_success")
-    public String sell(SellVO vo, HttpServletRequest req) throws IOException {
+    public String sell_success(SellVO vo, HttpServletRequest req) throws IOException {
         String user = req.getSession().getAttribute("logEmail").toString();
         String path = "D:\\dreampicture_spring\\src\\main\\resources\\static\\user\\"+user+"\\paintingimg\\"+vo.getPname();
         File newPaintingFolder =  new File(path);

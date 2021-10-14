@@ -37,7 +37,7 @@ public class LoginController {
     public ModelAndView login_check(LoginVO vo, HttpServletRequest request){
         Membershiptbl membershiptbl = membershiptblRepository.findByemail(vo.getEmail());
         ModelAndView mv = new ModelAndView();
-        mv.setViewName("guest/redirect/alert1");
+        mv.setViewName("user/redirect/alert1");
         mv.addObject("msg","회원정보를 다시 확인해주세요.");
         mv.addObject("url","/login");
         if(membershiptbl ==null) return mv;
