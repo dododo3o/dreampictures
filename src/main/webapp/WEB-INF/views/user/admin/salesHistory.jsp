@@ -15,75 +15,219 @@
     <script src="https://kit.fontawesome.com/b14e6f064f.js" crossorigin="anonymous"></script>
 </head>
 <body>
-<% if (session.getAttribute("logStatus")=="Y"){ %>
-<jsp:include page="../header_footer/header_login.jsp">
-    <jsp:param name="user" value="${user}"/>
-</jsp:include>
-<% } %>
-<% if (session.getAttribute("logStatus")==null){ %>
-<jsp:include page="../header_footer/header_not_login.jsp"></jsp:include>
-<% } %>
+<jsp:include page="../header_footer/header_admin.jsp"></jsp:include>
 <div class="has_bg_harp">
     <div class="container">
         <div style="grid-column:1/9;display: flex;flex-direction: column; gap:20px; justify-content: center; margin-top: 70px;">
-            <div class="has_chathams-blue" style="font-size: 42px;">그림드림의 당신만의 그림찾기</div>
+            <div class="has_chathams-blue" style="font-size: 42px;">기간별 판매내역</div>
             <form action="">
-                <div style="display: flex;" class="has_flex_space">
-                    <input type="text" class="has_width_full" id="pname" placeholder="검색어를 입력해주세요."/>
-                    <button class='button is_notification' onclick="searchOk">선택완료</button>
+                <div style="display: flex;margin-bottom: 50px" class="has_flex_space">
+                    <select class="has_width_full" style="margin-right: 30px;">
+                        <option value="" disabled selected>기간설정</option>
+                        <option value="1week">1주</option>
+                        <option value="1month">1개월</option>
+                        <option value="3month">3개월</option>
+                        <option value="6month">6개월</option>
+                        <option value="1year">1년</option>
+                    </select>
+                    <button class='button is_notification' onclick="searchOk">검색</button>
                 </div>
             </form>
-            <div>
-                <select class="has_width_half" style="margin-right: 90px;">
-                    <option value="" disabled selected>화풍</option>
-                    <option value="oils">유화</option>
-                    <option value="water">수채화</option>
-                    <option value="acrylic">아크릴화</option>
-                    <option value="pen">펜화</option>
-                    <option value="pencil">연필화</option>
-                    <option value="pastel">파스텔화</option>
-                    <option value="crayon">크레용화</option>
-                    <option value="gouache">과슈화</option>
-                </select>
-                <select class="has_width_half">
-                    <option value="" disabled selected>테마</option>
-                    <option value="scenery">풍경</option>
-                    <option value="character">인물</option>
-                    <option value="still">정물</option>
-                    <option value="animal">동물</option>
-                    <option value="abstract">추상</option>
-                    <option value="popart">팝아트</option>
-                    <option value="objet">오브제</option>
-                </select>
-            </div>
-            <div style="display: flex;justify-content: space-between;grid-column:1/9;">
-                <div><span class="has_chathams-blue">너비  : (CM)<br></span><input type="range" class="width_slider"
-                                                                                 name="img_width" min="1" max="100"
-                                                                                 value="50"/></div>
-                <div><span class="has_chathams-blue">높이  : (CM)<br></span><input type="range" class="width_slider"
-                                                                                 name="img_width" min="1" max="100"
-                                                                                 value="50"/></div>
-                <div><span class="has_chathams-blue">가격  : (원)<br></span><input type="range" class="width_slider"
-                                                                                name="img_width" min="1" max="100"
-                                                                                value="50"/></div>
-                <div class="checkbox" style="display: flex;">
-                    <input type="checkbox" style="margin-right:10px;"><label style="color: var(--color-chathams-blue);">거래완료
-                    안보기</label>
+
+            <div class="container" style="display: grid;grid-template-columns:repeat(4,1fr);grid-gap:1rem;">
+                <div class="card has_flex_space_bt_cl has_shadow">
+                    <div class="card_img"></div>
+                    <div class="card_history">
+                        <div class="card_img_avatar"></div>
+                        <div>
+                            <div>Jenny Kim</div>
+                            <div>bitcamp University</div>
+                        </div>
+                    </div>
+                    <span>Darth Vader</span>
+                </div>
+                <div class="card has_flex_space_bt_cl has_shadow">
+                    <div class="card_img"></div>
+                    <div class="card_history">
+                        <div class="card_img_avatar"></div>
+                        <div>
+                            <div>Jenny Kim</div>
+                            <div>bitcamp University</div>
+                        </div>
+                    </div>
+                    <span>Darth Vader</span>
+                </div>
+                <div class="card has_flex_space_bt_cl has_shadow">
+                    <div class="card_img"></div>
+                    <div class="card_history">
+                        <div class="card_img_avatar"></div>
+                        <div>
+                            <div>Jenny Kim</div>
+                            <div>bitcamp University</div>
+                        </div>
+                    </div>
+                    <span>Darth Vader</span>
+                </div>
+                <div class="card has_flex_space_bt_cl has_shadow">
+                    <div class="card_img"></div>
+                    <div class="card_history">
+                        <div class="card_img_avatar"></div>
+                        <div>
+                            <div>Jenny Kim</div>
+                            <div>bitcamp University</div>
+                        </div>
+                    </div>
+                    <span>Darth Vader</span>
+                </div>
+                <div class="card has_flex_space_bt_cl has_shadow">
+                    <div class="card_img"></div>
+                    <div class="card_history">
+                        <div class="card_img_avatar"></div>
+                        <div>
+                            <div>Jenny Kim</div>
+                            <div>bitcamp University</div>
+                        </div>
+                    </div>
+                    <span>Darth Vader</span>
+                </div>
+                <div class="card has_flex_space_bt_cl has_shadow">
+                    <div class="card_img"></div>
+                    <div class="card_history">
+                        <div class="card_img_avatar"></div>
+                        <div>
+                            <div>Jenny Kim</div>
+                            <div>bitcamp University</div>
+                        </div>
+                    </div>
+                    <span>Darth Vader</span>
+                </div>
+                <div class="card has_flex_space_bt_cl has_shadow">
+                    <div class="card_img"></div>
+                    <div class="card_history">
+                        <div class="card_img_avatar"></div>
+                        <div>
+                            <div>Jenny Kim</div>
+                            <div>bitcamp University</div>
+                        </div>
+                    </div>
+                    <span>Darth Vader</span>
+                </div>
+                <div class="card has_flex_space_bt_cl has_shadow">
+                    <div class="card_img"></div>
+                    <div class="card_history">
+                        <div class="card_img_avatar"></div>
+                        <div>
+                            <div>Jenny Kim</div>
+                            <div>bitcamp University</div>
+                        </div>
+                    </div>
+                    <span>Darth Vader</span>
+                </div>
+                <div class="card has_flex_space_bt_cl has_shadow">
+                    <div class="card_img"></div>
+                    <div class="card_history">
+                        <div class="card_img_avatar"></div>
+                        <div>
+                            <div>Jenny Kim</div>
+                            <div>bitcamp University</div>
+                        </div>
+                    </div>
+                    <span>Darth Vader</span>
+                </div>
+                <div class="card has_flex_space_bt_cl has_shadow">
+                    <div class="card_img"></div>
+                    <div class="card_history">
+                        <div class="card_img_avatar"></div>
+                        <div>
+                            <div>Jenny Kim</div>
+                            <div>bitcamp University</div>
+                        </div>
+                    </div>
+                    <span>Darth Vader</span>
+                </div>
+                <div class="card has_flex_space_bt_cl has_shadow">
+                    <div class="card_img"></div>
+                    <div class="card_history">
+                        <div class="card_img_avatar"></div>
+                        <div>
+                            <div>Jenny Kim</div>
+                            <div>bitcamp University</div>
+                        </div>
+                    </div>
+                    <span>Darth Vader</span>
+                </div>
+                <div class="card has_flex_space_bt_cl has_shadow">
+                    <div class="card_img"></div>
+                    <div class="card_history">
+                        <div class="card_img_avatar"></div>
+                        <div>
+                            <div>Jenny Kim</div>
+                            <div>bitcamp University</div>
+                        </div>
+                    </div>
+                    <span>Darth Vader</span>
+                </div>
+                <div class="card has_flex_space_bt_cl has_shadow">
+                    <div class="card_img"></div>
+                    <div class="card_history">
+                        <div class="card_img_avatar"></div>
+                        <div>
+                            <div>Jenny Kim</div>
+                            <div>bitcamp University</div>
+                        </div>
+                    </div>
+                    <span>Darth Vader</span>
+                </div>
+                <div class="card has_flex_space_bt_cl has_shadow">
+                    <div class="card_img"></div>
+                    <div class="card_history">
+                        <div class="card_img_avatar"></div>
+                        <div>
+                            <div>Jenny Kim</div>
+                            <div>bitcamp University</div>
+                        </div>
+                    </div>
+                    <span>Darth Vader</span>
+                </div>
+                <div class="card has_flex_space_bt_cl has_shadow">
+                    <div class="card_img"></div>
+                    <div class="card_history">
+                        <div class="card_img_avatar"></div>
+                        <div>
+                            <div>Jenny Kim</div>
+                            <div>bitcamp University</div>
+                        </div>
+                    </div>
+                    <span>Darth Vader</span>
+                </div>
+                <div class="card has_flex_space_bt_cl has_shadow">
+                    <div class="card_img"></div>
+                    <div class="card_history">
+                        <div class="card_img_avatar"></div>
+                        <div>
+                            <div>Jenny Kim</div>
+                            <div>bitcamp University</div>
+                        </div>
+                    </div>
+                    <span>Darth Vader</span>
                 </div>
             </div>
+
+
+
         </div>
     </div>
     <div class="container" style="display: grid;grid-template-columns:repeat(4,1fr);grid-gap:1rem;">
         <c:forEach var="cardVOlist" items="${cardVOlist}">
             <a href="/buy_picture/${cardVOlist.no_painting}">
-            <div class="card has_flex_space_bt_cl has_shadow">
-                <div><img src="${cardVOlist.paintingmimg}" alt="" class="is_img_object-fit has_board_top_radius"></div>
-                <div class="card_history" style="width: 100%;">
-                    <img src="${cardVOlist.avatarimg}" alt="" style="border-radius: 50%; width: 65px">
-                    <span style="font-size: 1.3em">${cardVOlist.nickname}</span>
+                <div class="card has_flex_space_bt_cl has_shadow">
+                    <div><img src="${cardVOlist.paintingmimg}" alt="" class="is_img_object-fit has_board_top_radius"></div>
+                    <div class="card_history" style="width: 100%;">
+                        <img src="${cardVOlist.avatarimg}" alt="" style="border-radius: 50%; width: 65px">
+                        <span style="font-size: 1.3em">${cardVOlist.nickname}</span>
+                    </div>
+                    <div style="margin-bottom: 20px; font-size: 1.5em;">${cardVOlist.pname}</div>
                 </div>
-                <div style="margin-bottom: 20px; font-size: 1.5em;">${cardVOlist.pname}</div>
-            </div>
             </a>
         </c:forEach>
     </div>
@@ -110,6 +254,7 @@
         </div>
     </div>
 </div>
+
 <jsp:include page="../header_footer/footer.jsp"></jsp:include>
 </body>
 </html>
