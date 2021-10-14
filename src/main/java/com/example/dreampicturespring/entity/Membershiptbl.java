@@ -14,7 +14,7 @@ import java.time.LocalDateTime;
 @Getter
 @Setter
 @ToString
-public class Membership {
+public class Membershiptbl {
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "MEM_SEQ")
     @SequenceGenerator(sequenceName = "MEMBERSHIPSQ", allocationSize = 1, name = "MEM_SEQ")
@@ -40,9 +40,9 @@ public class Membership {
     @Column(name = "reported")
     private Integer reported;
 
-    public Membership() {}
+    public Membershiptbl() {}
 
-    public Membership(RegisterVO vo){
+    public Membershiptbl(RegisterVO vo){
         this.email = vo.getEmail();
         this.pwd = vo.getPwd();
         this.tel = vo.getTel();
@@ -55,7 +55,7 @@ public class Membership {
         if(StringUtils.isEmpty(startDate)){ this.startDate = LocalDateTime.now();}
     }
 
-    public Membership(String email, String pwd, String tel, String addr, String detatilAddr, String img){
+    public Membershiptbl(String email, String pwd, String tel, String addr, String detatilAddr, String img){
         this.email = email;
         this.pwd = pwd;
         this.tel = tel;

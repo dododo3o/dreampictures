@@ -193,7 +193,7 @@ button{border-radius:8px; border:0; outline:0; color:var(--color-white); backgro
 /* avatar */
 .avatar {display: flex;justify-content: space-around;width: 445px;align-items: center;}
 
-.avatar_img {width: 120px;height: 120px;border-radius: 70%;}
+.avatar_img {width: 120px;height: 120px;border-radius: 70%; object-fit: cover;}
 
 .avatar_name {width: 200px;font-size: var(--font-size-lg);}
 
@@ -271,6 +271,16 @@ input:not(input[type=file]), textarea, select{border-radius:8px; outline:none;te
 
 .is_seller>div:nth-child(3)>div:first-child{width:120px; border-radius:50%; background:url(../uitility/photo/cardimg.png);}
 
+/*아이콘*/
+.icon-card{text-align:center; border-radius:8px; width:140px; height:170px;}
+
+.credit-card{}
+
+/*결제 페이지*/
+
+.payment-page-artwork>div:last-child>ul>li{margin-top:10px;}
+
+.artwork-img{height:350px; background:url(photo/darth.jpg)}
 
 /*hover*/
 

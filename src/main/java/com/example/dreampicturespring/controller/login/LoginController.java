@@ -1,12 +1,11 @@
 package com.example.dreampicturespring.controller.login;
 
 
-import com.example.dreampicturespring.entity.Membership;
+import com.example.dreampicturespring.entity.Membershiptbl;
 import com.example.dreampicturespring.repository.MembershiptblRepository;
 import com.example.dreampicturespring.vo.LoginVO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -36,16 +35,16 @@ public class LoginController {
     @RequestMapping(value = "/login_check",method = RequestMethod.POST, produces ="application/text;charset=UTF-8")
     @ResponseBody
     public ModelAndView login_check(LoginVO vo, HttpServletRequest request){
-        Membership membership = membershiptblRepository.findByemail(vo.getEmail());
+        Membershiptbl membershiptbl = membershiptblRepository.findByemail(vo.getEmail());
         ModelAndView mv = new ModelAndView();
-        mv.setViewName("guest/redirect/alert1");
+        mv.setViewName("user/redirect/alert1");
         mv.addObject("msg","회원정보를 다시 확인해주세요.");
         mv.addObject("url","/login");
-        if(membership==null) return mv;
+        if(membershiptbl ==null) return mv;
         else{
-            if(!membership.getPwd().equals(vo.getPwd())) return mv;
+            if(!membershiptbl.getPwd().equals(vo.getPwd())) return mv;
             else{
-                mv.addObject("user",membership.getEmail());
+                mv.addObject("user", membershiptbl.getEmail());
                 HttpSession session =request.getSession();
                 session.setAttribute("logEmail",vo.getEmail());
                 session.setAttribute("logStatus","Y");
