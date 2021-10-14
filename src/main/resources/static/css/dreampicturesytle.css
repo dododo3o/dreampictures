@@ -262,10 +262,15 @@ input:not(input[type=file]), textarea, select{border-radius:8px; outline:none;te
 
 .is_buyer_img{width:125px; height:125px; border-radius:50%; background:url(../uitility/photo/cardimg2.png);}
 
+/*구매자 카드*/     /*여기수정햇음*/
+.is_buyer-card{/*grid-column:1/4;*/ height:446px; text-align:center;}
+/*경로수정*/
+.is_buyer-card-img{display:inline-block; margin-top:55px; border-radius:50%; width:125px; height:125px; background:url(photo/darth.jpg);}
+
 /*판매자 카드*/
 .is_seller>div:not(.is_seller div:first-child){width:255px;}
 
-.is_seller>div:first-child{width:223px; height:170px; background:url(../uitility/photo/cardimg.png);}
+.is_seller>div:first-child{width:223px; height:170px; background:url(static/css/photo/cardimg.png);}
 
 .is_seller>div:nth-child(3){height:120px; display:flex;}
 
