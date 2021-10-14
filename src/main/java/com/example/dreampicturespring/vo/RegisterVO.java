@@ -1,5 +1,6 @@
 package com.example.dreampicturespring.vo;
 
+import com.example.dreampicturespring.entity.Membershiptbl;
 import lombok.Data;
 
 @Data
@@ -14,7 +15,7 @@ public class RegisterVO {
 
     public RegisterVO(){}
 
-    public RegisterVO(Membership ms){
+    public RegisterVO(Membershiptbl ms){
         this.email=ms.getEmail();
         this.pwd = ms.getPwd();
         this.tel = ms.getTel();

@@ -25,7 +25,7 @@ public class MypageController {
     public ModelAndView changeInfo(HttpServletRequest req) {
         ModelAndView mv = new ModelAndView();
         String user = (String) req.getSession().getAttribute("logEmail");
-        Membership ms = membershiptblRepository.findByemail(user);
+        Membershiptbl ms = membershiptblRepository.findByemail(user);
         RegisterVO vo = new RegisterVO(ms);
         mv.addObject("memberVO",vo);
         mv.setViewName("user/mypage/changeInfo");
