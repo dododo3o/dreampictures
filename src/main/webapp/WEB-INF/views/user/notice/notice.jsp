@@ -24,102 +24,32 @@
 <% if (session.getAttribute("logStatus") == null) { %>
 <jsp:include page="../header_footer/header_not_login.jsp"></jsp:include>
 <% } %>
-<main class="has_bg_harp" style="height: auto;">
-    <div class="container">
-        <div style="grid-column:1/3; display:flex;flex-direction: column; gap:20px; margin-top: 20px;">
-            <div style="display: flex; ">
+<main class="has_bg_harp" style="height: auto;" >
+    <div class="container" style="padding-bottom: 20px">
+        <div style="grid-column:1/3; display:flex;flex-direction: column; gap:40px; padding-top: 20px; background-color: #a2b0b36e">
+            <div style="display: flex;justify-content: space-evenly; ">
                 <span style=" color: var(--color-river-bed)"><i class="fas fa-bell fa-lg"></i></span>
                 <div style=" display:flex;align-items: center; margin-left: 10px; color: var(--color-river-bed)">공지사항
                 </div>
             </div>
-            <div style="display: flex;">
+            <div style="display: flex;justify-content: space-evenly;">
                 <span style="color: var(--color-river-bed)"><i class="fas fa-question fa-lg"></i></span>
                 <div style=" display:flex;align-items: center; margin-left: 15px; color: var(--color-river-bed)">질문사항
                 </div>
             </div>
         </div>
-        <div class="manager_card" style="grid-column: 3/6; ">
-            <div class="card has_flex_space_bt_cl has_shadow" style="grid-column: 5/8">
-                <div class="card_img"></div>
-                <div class="card_history">
-                    <div class="card_img_avatar"></div>
-                    <div>
-                        <div>Manager</div>
-                        <div>bitcamp University</div>
+        <div class="manager_card"
+             style="grid-column: 3/12; display: grid;grid-template-columns:repeat(3,1fr);grid-gap:1.3rem; height: 100%">
+            <a href="/buy_picture/${cardVOlist.no_painting}">
+                <div class="card has_flex_space_bt_cl has_shadow">
+                    <div><img src="${cardVOlist.paintingmimg}" alt="" class="is_img_object-fit has_board_top_radius"></div>
+                    <div class="card_history" style="width: 100%;">
+                        <img src="${cardVOlist.avatarimg}" alt="" style="border-radius: 50%; width: 65px">
+                        <span style="font-size: 1.3em">${cardVOlist.nickname}</span>
                     </div>
+                    <div style="margin-bottom: 20px; font-size: 1.5em;">${cardVOlist.pname}</div>
                 </div>
-                <span class="has_notice">긴급공지사항</span>
-            </div>
-            <div class="card has_flex_space_bt_cl has_shadow" style="grid-column: 5/8">
-                <div class="card_img"></div>
-                <div class="card_history">
-                    <div class="card_img_avatar"></div>
-                    <div>
-                        <div>Manager</div>
-                        <div>bitcamp University</div>
-                    </div>
-                </div>
-                <span class="has_notice">긴급공지사항</span>
-            </div>
-        </div>
-        <div class="manager_card" style="grid-column: 6/9; ">
-            <div class="card has_flex_space_bt_cl has_shadow" style="grid-column: 5/8">
-                <div class="card_img"></div>
-                <div class="card_history">
-                    <div class="card_img_avatar"></div>
-                    <div>
-                        <div>Manager</div>
-                        <div>bitcamp University</div>
-                    </div>
-                </div>
-                <span class="has_notice">긴급공지사항</span>
-            </div>
-            <div class="card has_flex_space_bt_cl has_shadow" style="grid-column: 5/8">
-                <div class="card_img"></div>
-                <div class="card_history">
-                    <div class="card_img_avatar"></div>
-                    <div>
-                        <div>Manager</div>
-                        <div>bitcamp University</div>
-                    </div>
-                </div>
-                <span class="has_notice">긴급공지사항</span>
-            </div>
-        </div>
-        <div class="manager_card" style="grid-column: 9/12; ">
-            <div class="card has_flex_space_bt_cl has_shadow" style="grid-column: 5/8">
-                <div class="card_img"></div>
-                <div class="card_history">
-                    <div class="card_img_avatar"></div>
-                    <div>
-                        <div>Manager</div>
-                        <div>bitcamp University</div>
-                    </div>
-                </div>
-                <span class="has_notice">긴급공지사항</span>
-            </div>
-            <div class="card has_flex_space_bt_cl has_shadow" style="grid-column: 5/8">
-                <div class="card_img"></div>
-                <div class="card_history">
-                    <div class="card_img_avatar"></div>
-                    <div>
-                        <div>Manager</div>
-                        <div>bitcamp University</div>
-                    </div>
-                </div>
-                <span class="has_notice">긴급공지사항</span>
-            </div>
-            <div class="card has_flex_space_bt_cl has_shadow" style="grid-column: 5/8">
-                <div class="card_img"></div>
-                <div class="card_history">
-                    <div class="card_img_avatar"></div>
-                    <div>
-                        <div>Manager</div>
-                        <div>bitcamp University</div>
-                    </div>
-                </div>
-                <span class="has_notice">긴급공지사항</span>
-            </div>
+            </a>
         </div>
     </div>
 </main>

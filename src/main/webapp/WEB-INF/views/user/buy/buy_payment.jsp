@@ -81,7 +81,7 @@
             </div>
             <!--버튼-->
             <div style="margin:20px 0 0 30px;" class="has_flex_center has_between">
-                <a href="/buy_picture/"><button style="width:320px; height:60px;" class="button has_font-sm has_bg_dark-moderate-blue has_white">구매하기</button></a>
+                <a href="/buy_transaction/<c:out value="${paymentVO.no_painting}"/>"><button style="width:320px; height:60px;" class="button has_font-sm has_bg_dark-moderate-blue has_white">구매하기</button></a>
                 <a href="/buy_picture/<c:out value="${paymentVO.no_painting}"/>"><button style="width:140px; height:60px;" class="has_font-sm button has_bg_dark-moderate-blue has_white">뒤로가기</button></a>
             </div>
         </div>
