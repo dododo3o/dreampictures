@@ -280,7 +280,7 @@ input:not(input[type=file]), textarea, select{border-radius:8px; outline:none;te
 
 .payment-page-artwork>div:last-child>ul>li{margin-top:10px;}
 
-.artwork-img{height:350px; background:url(photo/darth.jpg)}
+.artwork-img{height: 350px;width: 100%;object-fit: contain;}
 
 /*hover*/
 

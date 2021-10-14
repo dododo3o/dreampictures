@@ -7,6 +7,7 @@ import com.example.dreampicturespring.repository.MembershiptblRepository;
 import com.example.dreampicturespring.repository.PaintingRepository;
 import com.example.dreampicturespring.vo.CardVO;
 import com.example.dreampicturespring.vo.PaintingVO;
+import com.example.dreampicturespring.vo.PaymentVO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -14,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -62,10 +64,20 @@ public class BuyController {
         return mv;
     }
 
-    @RequestMapping("/buy_payment")
-    public ModelAndView buy_payment(HttpServletRequest request) {
+    @RequestMapping("/buy_payment/{no_painting}")
+    public ModelAndView buy_payment(HttpServletRequest request, @PathVariable String no_painting) {
         ModelAndView mv = new ModelAndView();
         mv.setViewName("user/buy/buy_payment");
+        HttpSession session =request.getSession();
+        if(session.getAttribute("logStatus") == null){
+            mv.setViewName("user/login/login");
+            return mv;
+        }
+        Optional<Paintingtbl> PTBL = paintingRepository.findById(Long.parseLong(no_painting));
+        Paintingtbl paintingTBL = PTBL.get();
+        Membershiptbl membershipTBL = membershiptblRepository.findByemail((String) session.getAttribute("logEmail"));
+        PaymentVO paymentVO = new PaymentVO(paintingTBL,membershipTBL);
+        mv.addObject("paymentVO",paymentVO);
         return mv;
     }
 }

@@ -23,17 +23,12 @@ public class MypageController {
 
     @RequestMapping("/changeInfo")
     public ModelAndView changeInfo(HttpServletRequest req) {
-
         ModelAndView mv = new ModelAndView();
-
-        RegisterVO regVo = new RegisterVO();
         String user = (String) req.getSession().getAttribute("logEmail");
         Membershiptbl ms = membershiptblRepository.findByemail(user);
-        mv.addObject("memberVO",ms);
+        RegisterVO vo = new RegisterVO(ms);
+        mv.addObject("memberVO",vo);
         mv.setViewName("user/mypage/changeInfo");
-
-
-
         return mv;
     }
 

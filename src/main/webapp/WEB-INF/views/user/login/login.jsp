@@ -38,8 +38,6 @@
                         </div>
                         <div><a href='#' class="has_black">Forgot password?</a></div>
                     </div>
-                    <input type="submit" class='button is_login has_shadow has_flex_center has_width_full'
-                           value="다음 단계">
                     <a href="/login_check">
                         <button class='button is_login has_shadow has_width_full has_flex_center'><i
                                 class="fas fa-key"></i><span class="has_padding">로그인</span></button>

@@ -87,6 +87,6 @@
         </div>
     </div>
 </main>
-<jsp:include page="../header_footer/footer.jsp"></jsp:include>
+
 </body>
 </html>
