@@ -52,7 +52,7 @@
 <% if (session.getAttribute("logStatus")==null){ %>
 <jsp:include page="../header_footer/header_not_login.jsp"></jsp:include>
 <% } %>
-<main class="has_bg_harp" style="height: 70%">
+<main class="has_bg_harp" style="height: 100%">
     <div class="container">
         <div class="contents" style="grid-column: 4/10; margin-top: 20px;">
             <form action="<%=conPath%>/sell_success" method="post" enctype="multipart/form-data">
