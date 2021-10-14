@@ -14,6 +14,20 @@
     <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
     <script src="https://kit.fontawesome.com/b14e6f064f.js" crossorigin="anonymous"></script>
 
+    <link rel="stylesheet" type="text/css"
+          href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.13/semantic.min.css">
+    <script
+            src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"
+            integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ=="
+            crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script>
+        <script
+            src="https://code.jquery.com/jquery-3.1.1.min.js"
+            integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
+            crossorigin="anonymous">
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.13/semantic.js"></script>
+
 </head>
 <body>
 <jsp:include page="../header_footer/header_not_login.jsp"></jsp:include>
@@ -39,92 +53,83 @@
         </div>
     </div>
     <div class="container" style="display: grid;grid-template-columns:repeat(4,1fr);grid-gap:1rem;">
-        <div class="has_bg_pink is_buyer-card">
-            <div class="is_buyer-card-img"></div>
-            <ul>
-                <li style="margin-top:35px;" class="has_font-xl has_white">Lim hyunhae</li>
-                <li style="margin-top:25px;" class="has_font-lg has_white">bitcamp@gmail.com</li>
-                <li style="margin-top:10px;" class="has_font-base has_white">010-1234-1234</li>
-                <li style="margin-top:10px;" class="has_white">서울 마포구 백범로1길 10</li>
-            </ul>
-            <button class="button" style="margin-top:30px; width:185px; height:30px;">신고 내역</button>
-        </div>
-        <div class="has_bg_pink is_buyer-card">
-            <div class="is_buyer-card-img"></div>
-            <ul>
-                <li style="margin-top:35px;" class="has_font-xl has_white">Lim hyunhae</li>
-                <li style="margin-top:25px;" class="has_font-lg has_white">bitcamp@gmail.com</li>
-                <li style="margin-top:10px;" class="has_font-base has_white">010-1234-1234</li>
-                <li style="margin-top:10px;" class="has_white">서울 마포구 백범로1길 10</li>
-            </ul>
-            <button class="button" style="margin-top:30px; width:185px; height:30px;">신고 내역</button>
-        </div>
-        <div class="has_bg_pink is_buyer-card">
-            <div class="is_buyer-card-img"></div>
-            <ul>
-                <li style="margin-top:35px;" class="has_font-xl has_white">Lim hyunhae</li>
-                <li style="margin-top:25px;" class="has_font-lg has_white">bitcamp@gmail.com</li>
-                <li style="margin-top:10px;" class="has_font-base has_white">010-1234-1234</li>
-                <li style="margin-top:10px;" class="has_white">서울 마포구 백범로1길 10</li>
-            </ul>
-            <button class="button" style="margin-top:30px; width:185px; height:30px;">신고 내역</button>
-        </div>
-        <div class="has_bg_pink is_buyer-card">
-            <div class="is_buyer-card-img"></div>
-            <ul>
-                <li style="margin-top:35px;" class="has_font-xl has_white">Lim hyunhae</li>
-                <li style="margin-top:25px;" class="has_font-lg has_white">bitcamp@gmail.com</li>
-                <li style="margin-top:10px;" class="has_font-base has_white">010-1234-1234</li>
-                <li style="margin-top:10px;" class="has_white">서울 마포구 백범로1길 10</li>
-            </ul>
-            <button class="button" style="margin-top:30px; width:185px; height:30px;">신고 내역</button>
-        </div>
-        <div class="has_bg_pink is_buyer-card">
-            <div class="is_buyer-card-img"></div>
-            <ul>
-                <li style="margin-top:35px;" class="has_font-xl has_white">Lim hyunhae</li>
-                <li style="margin-top:25px;" class="has_font-lg has_white">bitcamp@gmail.com</li>
-                <li style="margin-top:10px;" class="has_font-base has_white">010-1234-1234</li>
-                <li style="margin-top:10px;" class="has_white">서울 마포구 백범로1길 10</li>
-            </ul>
-            <button class="button" style="margin-top:30px; width:185px; height:30px;">신고 내역</button>
-        </div>
-        <div class="has_bg_pink is_buyer-card">
-            <div class="is_buyer-card-img"></div>
-            <ul>
-                <li style="margin-top:35px;" class="has_font-xl has_white">Lim hyunhae</li>
-                <li style="margin-top:25px;" class="has_font-lg has_white">bitcamp@gmail.com</li>
-                <li style="margin-top:10px;" class="has_font-base has_white">010-1234-1234</li>
-                <li style="margin-top:10px;" class="has_white">서울 마포구 백범로1길 10</li>
-            </ul>
-            <button class="button" style="margin-top:30px; width:185px; height:30px;">신고 내역</button>
-        </div>
-        <div class="has_bg_pink is_buyer-card">
-            <div class="is_buyer-card-img"></div>
-            <ul>
-                <li style="margin-top:35px;" class="has_font-xl has_white">Lim hyunhae</li>
-                <li style="margin-top:25px;" class="has_font-lg has_white">bitcamp@gmail.com</li>
-                <li style="margin-top:10px;" class="has_font-base has_white">010-1234-1234</li>
-                <li style="margin-top:10px;" class="has_white">서울 마포구 백범로1길 10</li>
-            </ul>
-            <button class="button" style="margin-top:30px; width:185px; height:30px;">신고 내역</button>
-        </div>
-        <div class="has_bg_pink is_buyer-card">
-            <div class="is_buyer-card-img"></div>
-            <ul>
-                <li style="margin-top:35px;" class="has_font-xl has_white">Lim hyunhae</li>
-                <li style="margin-top:25px;" class="has_font-lg has_white">bitcamp@gmail.com</li>
-                <li style="margin-top:10px;" class="has_font-base has_white">010-1234-1234</li>
-                <li style="margin-top:10px;" class="has_white">서울 마포구 백범로1길 10</li>
-            </ul>
-            <button class="button" style="margin-top:30px; width:185px; height:30px;">신고 내역</button>
-        </div>
-        <div class="has_bg_pink is_buyer-card">
-            <div class="is_buyer-card-img"></div>
-            <ul>
-                <li style="margin-top:35px;" class="has_font-xl has_white">Lim hyunhae</li>
-                <li style="margin-top:25px;" class="has_font-lg has_white">bitcamp@gmail.com</li>
-                <li style="margin-top:10px;" class="has_font-base has_white">010-1234-1234</li>
+
+<div class="has_bg_pink is_buyer-card">
+    <div class="is_buyer-card-img"></div>
+    <ul>
+        <li style="margin-top:35px;" class="has_font-xl has_white">Lim hyunhae</li>
+        <li style="margin-top:25px;" class="has_font-lg has_white">bitcamp@gmail.com</li>
+        <li style="margin-top:10px;" class="has_font-base has_white">010-1234-1234</li>
+        <li style="margin-top:10px;" class="has_white">서울 마포구 백범로1길 10</li>
+    </ul>
+    <button class="button" style="margin-top:30px; width:185px; height:30px;">신고 내역</button>
+</div>
+<div class="has_bg_pink is_buyer-card">
+    <div class="is_buyer-card-img"></div>
+    <ul>
+        <li style="margin-top:35px;" class="has_font-xl has_white">Lim hyunhae</li>
+        <li style="margin-top:25px;" class="has_font-lg has_white">bitcamp@gmail.com</li>
+        <li style="margin-top:10px;" class="has_font-base has_white">010-1234-1234</li>
+        <li style="margin-top:10px;" class="has_white">서울 마포구 백범로1길 10</li>
+    </ul>
+    <button class="button" style="margin-top:30px; width:185px; height:30px;">신고 내역</button>
+</div>
+<div class="has_bg_pink is_buyer-card">
+    <div class="is_buyer-card-img"></div>
+    <ul>
+        <li style="margin-top:35px;" class="has_font-xl has_white">Lim hyunhae</li>
+        <li style="margin-top:25px;" class="has_font-lg has_white">bitcamp@gmail.com</li>
+        <li style="margin-top:10px;" class="has_font-base has_white">010-1234-1234</li>
+        <li style="margin-top:10px;" class="has_white">서울 마포구 백범로1길 10</li>
+    </ul>
+    <button class="button" style="margin-top:30px; width:185px; height:30px;">신고 내역</button>
+</div>
+<div class="has_bg_pink is_buyer-card">
+    <div class="is_buyer-card-img"></div>
+    <ul>
+        <li style="margin-top:35px;" class="has_font-xl has_white">Lim hyunhae</li>
+        <li style="margin-top:25px;" class="has_font-lg has_white">bitcamp@gmail.com</li>
+        <li style="margin-top:10px;" class="has_font-base has_white">010-1234-1234</li>
+        <li style="margin-top:10px;" class="has_white">서울 마포구 백범로1길 10</li>
+    </ul>
+    <button class="button" style="margin-top:30px; width:185px; height:30px;">신고 내역</button>
+</div>
+<div class="has_bg_pink is_buyer-card">
+    <div class="is_buyer-card-img"></div>
+    <ul>
+        <li style="margin-top:35px;" class="has_font-xl has_white">Lim hyunhae</li>
+        <li style="margin-top:25px;" class="has_font-lg has_white">bitcamp@gmail.com</li>
+        <li style="margin-top:10px;" class="has_font-base has_white">010-1234-1234</li>
+        <li style="margin-top:10px;" class="has_white">서울 마포구 백범로1길 10</li>
+    </ul>
+    <button class="button" style="margin-top:30px; width:185px; height:30px;">신고 내역</button>
+</div>
+<div class="has_bg_pink is_buyer-card">
+    <div class="is_buyer-card-img"></div>
+    <ul>
+        <li style="margin-top:35px;" class="has_font-xl has_white">Lim hyunhae</li>
+        <li style="margin-top:25px;" class="has_font-lg has_white">bitcamp@gmail.com</li>
+        <li style="margin-top:10px;" class="has_font-base has_white">010-1234-1234</li>
+        <li style="margin-top:10px;" class="has_white">서울 마포구 백범로1길 10</li>
+    </ul>
+    <button class="button" style="margin-top:30px; width:185px; height:30px;">신고 내역</button>
+</div>
+<div class="has_bg_pink is_buyer-card">
+    <div class="is_buyer-card-img"></div>
+    <ul>
+        <li style="margin-top:35px;" class="has_font-xl has_white">Lim hyunhae</li>
+        <li style="margin-top:25px;" class="has_font-lg has_white">bitcamp@gmail.com</li>
+        <li style="margin-top:10px;" class="has_font-base has_white">010-1234-1234</li>
+        <li style="margin-top:10px;" class="has_white">서울 마포구 백범로1길 10</li>
+    </ul>
+    <button class="button" style="margin-top:30px; width:185px; height:30px;">신고 내역</button>
+</div>
+<div class="has_bg_pink is_buyer-card">
+    <div class="is_buyer-card-img"></div>
+    <ul>
+        <li style="margin-top:35px;" class="has_font-xl has_white">Lim hyunhae</li>
+        <li style="margin-top:25px;" class="has_font-lg has_white">bitcamp@gmail.com</li>
+        <li style="margin-top:10px;" class="hs_font-base has_white">010-1234-1234</li>
                 <li style="margin-top:10px;" class="has_white">서울 마포구 백범로1길 10</li>
             </ul>
             <button class="button" style="margin-top:30px; width:185px; height:30px;">신고 내역</button>
