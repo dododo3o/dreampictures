@@ -26,19 +26,31 @@ public class BuyController {
 
     @RequestMapping("/buy")
     public ModelAndView buy(HttpServletRequest request){
+
+        final int CARDSPERPAGE = 16;
+        int cardNum = 0;
+
+
         ModelAndView mv = new ModelAndView();
+
         mv.setViewName("user/buy/buy");
         List<CardVO> cardVOList = new ArrayList<>();
         System.out.println(membershiptblRepository.findByemail("iuttn1234@naver.comads"));
         Membership membership = membershiptblRepository.findByemail("iuttn1234@naver.comads");
         membershiptblRepository.save(membership);
         List<String> list = paintingRepository.findAllPainting_Desc();
+
         for(String card : list){
             List<String> obj = Arrays.asList(card.split(","));
             CardVO vo = new CardVO(obj.get(0)+"/avatarimg/avatarimg.jpg",obj.get(0)+"/paintingimg/"+obj.get(2)+"/0.jpg",obj.get(1),obj.get(2));
             cardVOList.add(vo);
+            cardNum++;
         }
+
+        int pageNum = cardNum%CARDSPERPAGE+1;
+
         mv.addObject("cardVOlist",cardVOList);
+        mv.addObject("pageNum",pageNum);
         return mv;
     }
 }
