@@ -57,10 +57,15 @@ public class BuyController {
         Paintingtbl paintingTBL = PTBL.get();
         Optional<Membershiptbl> MTBL = membershiptblRepository.findById(paintingTBL.getNo_membership());
         Membershiptbl membershipTBL = MTBL.get();
-
         PaintingVO paintingVO = new PaintingVO(paintingTBL,membershipTBL);
         mv.addObject("paintingVO",paintingVO);
+        return mv;
+    }
 
+    @RequestMapping("/buy_payment")
+    public ModelAndView buy_payment(HttpServletRequest request) {
+        ModelAndView mv = new ModelAndView();
+        mv.setViewName("user/buy/buy_payment");
         return mv;
     }
 }

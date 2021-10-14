@@ -75,7 +75,7 @@
     </div>
     <div class="container" style="display: grid;grid-template-columns:repeat(4,1fr);grid-gap:1rem;">
         <c:forEach var="cardVOlist" items="${cardVOlist}">
-            <a href="/buy_picture/${cardVOlist}">
+            <a href="/buy_picture/${cardVOlist.no_painting}">
             <div class="card has_flex_space_bt_cl has_shadow">
                 <div><img src="${cardVOlist.paintingmimg}" alt="" class="is_img_object-fit has_board_top_radius"></div>
                 <div class="card_history" style="width: 100%;">

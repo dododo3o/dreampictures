@@ -52,8 +52,8 @@
                 </ul>
             </div>
             <div style="display: flex; justify-content: space-between;">
-                <button class='button is_large is_buy'>구매하기</button>
-                <button class='button is_large' style="width: 160px; background-color:var(--color-aqua-island);">뒤로가기</button>
+                <a href="/buy_payment"><button class='button is_large is_buy'>구매하기</button></a>
+                <a href="/buy"><button class='button is_large' style="width: 160px; background-color:var(--color-aqua-island);">뒤로가기</button></a>
             </div>
         </div>
     </div>
