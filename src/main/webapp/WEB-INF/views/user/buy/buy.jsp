@@ -13,14 +13,27 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
     <script src="https://kit.fontawesome.com/b14e6f064f.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" type="text/css"
+          href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.13/semantic.min.css">
+    <script
+            src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"
+            integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ=="
+            crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script>
+    <script
+            src="https://code.jquery.com/jquery-3.1.1.min.js"
+            integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
+            crossorigin="anonymous">
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.13/semantic.js"></script>
 </head>
 <body>
-<% if (session.getAttribute("logStatus")=="Y"){ %>
+<% if (session.getAttribute("logStatus") == "Y") { %>
 <jsp:include page="../header_footer/header_login.jsp">
     <jsp:param name="user" value="${user}"/>
 </jsp:include>
 <% } %>
-<% if (session.getAttribute("logStatus")==null){ %>
+<% if (session.getAttribute("logStatus") == null) { %>
 <jsp:include page="../header_footer/header_not_login.jsp"></jsp:include>
 <% } %>
 <div class="has_bg_harp">
@@ -76,14 +89,15 @@
     <div class="container" style="display: grid;grid-template-columns:repeat(4,1fr);grid-gap:1rem;">
         <c:forEach var="cardVOlist" items="${cardVOlist}">
             <a href="/buy_picture/${cardVOlist.no_painting}">
-            <div class="card has_flex_space_bt_cl has_shadow">
-                <div><img src="${cardVOlist.paintingmimg}" alt="" class="is_img_object-fit has_board_top_radius"></div>
-                <div class="card_history" style="width: 100%;">
-                    <img src="${cardVOlist.avatarimg}" alt="" style="border-radius: 50%; width: 65px">
-                    <span style="font-size: 1.3em">${cardVOlist.nickname}</span>
+                <div class="card has_flex_space_bt_cl has_shadow">
+                    <div><img src="${cardVOlist.paintingmimg}" alt="" class="is_img_object-fit has_board_top_radius">
+                    </div>
+                    <div class="card_history" style="width: 100%;">
+                        <img src="${cardVOlist.avatarimg}" alt="" style="border-radius: 50%; width: 65px">
+                        <span style="font-size: 1.3em">${cardVOlist.nickname}</span>
+                    </div>
+                    <div style="margin-bottom: 20px; font-size: 1.5em;">${cardVOlist.pname}</div>
                 </div>
-                <div style="margin-bottom: 20px; font-size: 1.5em;">${cardVOlist.pname}</div>
-            </div>
             </a>
         </c:forEach>
     </div>
@@ -103,6 +117,12 @@
             <button class='button is_pagination'>8</button>
             <button class='button is_pagination'>9</button>
             <button class='button is_pagination'>10</button>
+            <button class="ui primary button">
+                Save
+            </button>
+            <button class="ui button">
+                Discard
+            </button>
             <button class='button is_pagination'>
                 <i class="fas fa-arrow-right"></i>
             </button>

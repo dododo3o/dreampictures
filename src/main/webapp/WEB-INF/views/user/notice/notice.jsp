@@ -24,7 +24,7 @@
 <% if (session.getAttribute("logStatus") == null) { %>
 <jsp:include page="../header_footer/header_not_login.jsp"></jsp:include>
 <% } %>
-<main class="has_bg_harp">
+<main class="has_bg_harp" style="height: auto;">
     <div class="container">
         <div style="grid-column:1/3; display:flex;flex-direction: column; gap:20px; margin-top: 20px;">
             <div style="display: flex; ">
@@ -87,6 +87,17 @@
             </div>
         </div>
         <div class="manager_card" style="grid-column: 9/12; ">
+            <div class="card has_flex_space_bt_cl has_shadow" style="grid-column: 5/8">
+                <div class="card_img"></div>
+                <div class="card_history">
+                    <div class="card_img_avatar"></div>
+                    <div>
+                        <div>Manager</div>
+                        <div>bitcamp University</div>
+                    </div>
+                </div>
+                <span class="has_notice">긴급공지사항</span>
+            </div>
             <div class="card has_flex_space_bt_cl has_shadow" style="grid-column: 5/8">
                 <div class="card_img"></div>
                 <div class="card_history">
