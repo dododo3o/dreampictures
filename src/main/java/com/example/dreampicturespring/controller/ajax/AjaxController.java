@@ -1,21 +1,11 @@
 package com.example.dreampicturespring.controller.ajax;
 
-import com.example.dreampicturespring.constant.Path;
-import com.example.dreampicturespring.entity.Membership;
-import com.example.dreampicturespring.entity.Paintingtbl;
 import com.example.dreampicturespring.repository.MembershiptblRepository;
-import com.example.dreampicturespring.repository.PaintingRepository;
-import com.example.dreampicturespring.vo.LoginVO;
-import com.example.dreampicturespring.vo.PaintingVO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.servlet.ModelAndView;
-
-import javax.servlet.http.HttpServletRequest;
-import java.util.List;
 
 @Controller
 public class AjaxController {

@@ -193,7 +193,7 @@ button{border-radius:8px; border:0; outline:0; color:var(--color-white); backgro
 /* avatar */
 .avatar {display: flex;justify-content: space-around;width: 445px;align-items: center;}
 
-.avatar_img {width: 120px;height: 120px;border-radius: 70%;}
+.avatar_img {width: 120px;height: 120px;border-radius: 70%; object-fit: cover;}
 
 .avatar_name {width: 200px;font-size: var(--font-size-lg);}
 

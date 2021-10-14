@@ -1,6 +1,6 @@
 package com.example.dreampicturespring.controller.register;
 
-import com.example.dreampicturespring.entity.Membership;
+import com.example.dreampicturespring.entity.Membershiptbl;
 import com.example.dreampicturespring.repository.MembershiptblRepository;
 import com.example.dreampicturespring.vo.RegisterVO;
 import com.example.dreampicturespring.vo.RegisterVO1;
@@ -14,8 +14,6 @@ import org.springframework.web.multipart.MultipartHttpServletRequest;
 import javax.servlet.http.HttpServletRequest;
 import java.io.File;
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
 
 @Controller
 public class RegisterController {
@@ -68,8 +66,8 @@ public class RegisterController {
         File newFileObj = new File(path,fixedFileName);
         try { avatarImg.transferTo(newFileObj); } catch (Exception e) { }
 
-        Membership membership = new Membership(vo);
-        membershiptblRepository.save(membership);
+        Membershiptbl membershiptbl = new Membershiptbl(vo);
+        membershiptblRepository.save(membershiptbl);
         return "guest/login/login";
     }
 }
