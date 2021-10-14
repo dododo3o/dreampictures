@@ -89,15 +89,18 @@
     <div class="container" style="display: grid;grid-template-columns:repeat(4,1fr);grid-gap:1rem;">
         <c:forEach var="cardVOlist" items="${cardVOlist}">
             <a href="/buy_picture/${cardVOlist.no_painting}">
-                <div class="card has_flex_space_bt_cl has_shadow">
-                    <div><img src="${cardVOlist.paintingmimg}" alt="" class="is_img_object-fit has_board_top_radius">
-                    </div>
-                    <div class="card_history" style="width: 100%;">
-                        <img src="${cardVOlist.avatarimg}" alt="" style="border-radius: 50%; width: 65px">
-                        <span style="font-size: 1.3em">${cardVOlist.nickname}</span>
-                    </div>
-                    <div style="margin-bottom: 20px; font-size: 1.5em;">${cardVOlist.pname}</div>
+            <div class="card has_flex_space_bt_cl has_shadow">
+                <div class="card_history" style="justify-content: space-around;">
+                <img src="${cardVOlist.avatarimg}" alt="" style="border-radius: 50%; width: 2em;height: 2em;object-fit: cover;">
+                <div style="display: flex; flex-direction: column;align-items: center;">
+                    <div style="font-size: 1em">${cardVOlist.nickname}</div>
+                    <div style="font-size: 1em;">${cardVOlist.pname}</div>
                 </div>
+
+            </div>
+                <div><img src="${cardVOlist.paintingmimg}" alt="" class="is_img_object-fit"></div>
+
+            </div>
             </a>
         </c:forEach>
     </div>
