@@ -1,15 +1,12 @@
 package com.example.dreampicturespring.controller.sell;
 
-
-import com.example.dreampicturespring.entity.Membership;
+import com.example.dreampicturespring.entity.Membershiptbl;
 import com.example.dreampicturespring.entity.Paintingtbl;
 import com.example.dreampicturespring.repository.MembershiptblRepository;
 import com.example.dreampicturespring.repository.PaintingRepository;
-import com.example.dreampicturespring.vo.PaintingVO;
 import com.example.dreampicturespring.vo.SellVO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.multipart.MultipartHttpServletRequest;
@@ -17,7 +14,6 @@ import org.springframework.web.multipart.MultipartHttpServletRequest;
 import javax.servlet.http.HttpServletRequest;
 import java.io.File;
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.List;
 
 @Controller
@@ -32,13 +28,11 @@ public class SellController {
     public String sell() { return "user/sell/sell"; }
 
     @RequestMapping("/sell_success")
-    public String sell(SellVO vo, HttpServletRequest req) throws IOException {
+    public String sell_success(SellVO vo, HttpServletRequest req) throws IOException {
         String user = req.getSession().getAttribute("logEmail").toString();
-
         String path = "D:\\dreampicture_spring\\src\\main\\resources\\static\\user\\"+user+"\\paintingimg\\"+vo.getPname();
         File newPaintingFolder =  new File(path);
         newPaintingFolder.mkdir();
-
         MultipartHttpServletRequest mr = (MultipartHttpServletRequest)req;
         List<MultipartFile> files = mr.getFiles("filename");
         for(int i=0;i<files.size();i++) {
@@ -51,7 +45,7 @@ public class SellController {
             File newFileObj = new File(path,fixedFileName);
             try {mf.transferTo(newFileObj);}catch (Exception e){}
         }
-        Membership ms = membershiptblRepository.findByemail(user);
+        Membershiptbl ms = membershiptblRepository.findByemail(user);
         Paintingtbl paintingtbl = new Paintingtbl(vo,ms.getNo_membership());
         paintingRepository.save(paintingtbl);
 

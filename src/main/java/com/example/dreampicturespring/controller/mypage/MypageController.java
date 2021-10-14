@@ -1,7 +1,7 @@
 package com.example.dreampicturespring.controller.mypage;
 
 
-import com.example.dreampicturespring.entity.Membership;
+import com.example.dreampicturespring.entity.Membershiptbl;
 import com.example.dreampicturespring.repository.MembershiptblRepository;
 import com.example.dreampicturespring.vo.RegisterVO;
 import org.springframework.beans.factory.annotation.Autowired;

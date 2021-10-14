@@ -14,13 +14,6 @@
     <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
     <script src="https://kit.fontawesome.com/b14e6f064f.js" crossorigin="anonymous"></script>
 </head>
-<script>
-    function searchOk() {
-        $("pname").click(() => {
-            console.log("안녕하세요");
-        });
-    }
-</script>
 <body>
 <% if (session.getAttribute("logStatus")=="Y"){ %>
 <jsp:include page="../header_footer/header_login.jsp">
@@ -43,24 +36,24 @@
             <div>
                 <select class="has_width_half" style="margin-right: 90px;">
                     <option value="" disabled selected>화풍</option>
-                    <option value="유화">유화</option>
-                    <option value="수채화">수채화</option>
-                    <option value="아크릴화">아크릴화</option>
-                    <option value="펜화">펜화</option>
-                    <option value="연필화">연필화</option>
-                    <option value="파스텔화">파스텔화</option>
-                    <option value="크레용화">크레용화</option>
-                    <option value="과슈화">과슈화</option>
+                    <option value="oils">유화</option>
+                    <option value="water">수채화</option>
+                    <option value="acrylic">아크릴화</option>
+                    <option value="pen">펜화</option>
+                    <option value="pencil">연필화</option>
+                    <option value="pastel">파스텔화</option>
+                    <option value="crayon">크레용화</option>
+                    <option value="gouache">과슈화</option>
                 </select>
                 <select class="has_width_half">
                     <option value="" disabled selected>테마</option>
-                    <option value="풍경">풍경</option>
-                    <option value="인물">인물</option>
-                    <option value="정물">정물</option>
-                    <option value="동물">동물</option>
-                    <option value="추상">추상</option>
-                    <option value="팝아트">팝아트</option>
-                    <option value="오브제">오브제</option>
+                    <option value="scenery">풍경</option>
+                    <option value="character">인물</option>
+                    <option value="still">정물</option>
+                    <option value="animal">동물</option>
+                    <option value="abstract">추상</option>
+                    <option value="popart">팝아트</option>
+                    <option value="objet">오브제</option>
                 </select>
             </div>
             <div style="display: flex;justify-content: space-between;grid-column:1/9;">
@@ -82,6 +75,7 @@
     </div>
     <div class="container" style="display: grid;grid-template-columns:repeat(4,1fr);grid-gap:1rem;">
         <c:forEach var="cardVOlist" items="${cardVOlist}">
+            <a href="/buy_picture/${cardVOlist.no_painting}">
             <div class="card has_flex_space_bt_cl has_shadow">
                 <div><img src="${cardVOlist.paintingmimg}" alt="" class="is_img_object-fit has_board_top_radius"></div>
                 <div class="card_history" style="width: 100%;">
@@ -90,6 +84,7 @@
                 </div>
                 <div style="margin-bottom: 20px; font-size: 1.5em;">${cardVOlist.pname}</div>
             </div>
+            </a>
         </c:forEach>
     </div>
     <div class="container" style="display: flex;justify-content: center;margin-top:30px;padding-bottom: 30px;
