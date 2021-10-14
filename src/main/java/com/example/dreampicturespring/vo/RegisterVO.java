@@ -1,6 +1,5 @@
 package com.example.dreampicturespring.vo;
 
-import com.example.dreampicturespring.entity.Membership;
 import lombok.Data;
 
 @Data
