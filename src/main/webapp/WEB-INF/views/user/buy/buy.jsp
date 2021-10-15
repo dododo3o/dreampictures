@@ -68,7 +68,8 @@
                                                                                                                 name="img_width" min="1" max="2s00"
                                                                                                                 value="50" oninput="document.getElementById('heightVal').innerHTML=this.value;"/></div>
                 <div><span class="has_chathams-blue">가격  : <span id="priceVal"></span>(원)<br></span><input type="range" class="width_slider"
-
+                                                                                                           name="img_width" min="1" max="100000"
+                                                                                                           value="1000" oninput="document.getElementById('priceVal').innerHTML=this.value;"/></div>
                     <div class="checkbox" style="display: flex;">
                     <input type="checkbox" style="margin-right:10px;"><label style="color: var(--color-chathams-blue);">거래완료
                     안보기</label>
@@ -84,8 +85,10 @@
                     <img src="${cardVOlist.avatarimg}"
                          style="border-radius: 50%; width: 3em;height: 3em;object-fit: cover;">
                 </div>
+
                 <div class="image">
                     <img src="${cardVOlist.paintingmimg}" style="object-fit: cover; height: 250px">
+
                 </div>
                 <div class="content">
                     <span class="right floated">

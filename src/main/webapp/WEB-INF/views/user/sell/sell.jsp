@@ -26,9 +26,9 @@
         function setThumbnail(event) {
             var reader = new FileReader();
 
-            reader.onload = function(event) {
+            reader.onload = function (event) {
                 var ex_img = document.getElementById("image_section");
-                if(ex_img !== null){
+                if (ex_img !== null) {
                     ex_img.parentNode.removeChild(ex_img);
                 }
 
@@ -44,12 +44,12 @@
     </script>
 </head>
 <body>
-<% if (session.getAttribute("logStatus")=="Y"){ %>
+<% if (session.getAttribute("logStatus") == "Y") { %>
 <jsp:include page="../header_footer/header_login.jsp">
     <jsp:param name="user" value="${user}"/>
 </jsp:include>
 <% } %>
-<% if (session.getAttribute("logStatus")==null){ %>
+<% if (session.getAttribute("logStatus") == null) { %>
 <jsp:include page="../header_footer/header_not_login.jsp"></jsp:include>
 <% } %>
 <main class="has_bg_harp">
@@ -58,11 +58,14 @@
             <form action="<%=conPath%>/sell_success" method="post" enctype="multipart/form-data">
                 <div style="display: flex; flex-direction: column;gap: 20px;">
                     <div class="title">판매등록</div>
-                    <div style="display: flex; align-items: center" id="image_container;" >
-                        <div class="avatar_img" id="preview_image" style="height: 130px;"/></div>
-                    <div>이미지등록<input type="file" onchange="setThumbnail(event);" name="filename" id="image" style="margin-left: 100px;margin-top: 10px"/></div>
+                    <div style="display: flex; align-items: center" id="image_container;">
+                        <div class="avatar_img" id="preview_image" style="height: 130px;"/>
+                    </div>
+                    <div>이미지등록<input type="file" onchange="setThumbnail(event);" name="filename" id="image"
+                                     style="margin-left: 100px;margin-top: 10px"/></div>
                 </div>
-                    <div class="ui input focus"><input type="text"class="has_width_full" name="pname" placeholder="작품명을 입력해주세요."></div>
+                <div class="ui input"><input type="text" class="has_width_full" name="pname"
+                                             placeholder="작품명을 입력해주세요."></div>
                 <div class="has_flex_space">
                     <select class="has_width_half" name="style">
                         <option disabled selected>화풍</option>
@@ -87,14 +90,19 @@
                     </select>
                 </div>
                 <div class="has_flex_space">
-                    <input type="text" class="has_width_half" name="height" placeholder="높이(cm)" pattern="\d*" maxlength="3" max="200" min="0"/>
-                    <input type="text" class="has_width_half" name="width" placeholder="너비(cm)" pattern="\d*" maxlength="3" max="200" min="0"/></div>
+                    <input type="text" class="has_width_half" name="height" placeholder="높이(cm)" pattern="\d*"
+                           maxlength="3" max="200" min="0"/>
+                    <input type="text" class="has_width_half" name="width" placeholder="너비(cm)" pattern="\d*"
+                           maxlength="3" max="200" min="0"/>
+                </div>
                 <div class="has_flex_space">
-                    <input type="text" class="has_width_half " name="price" placeholder="가격(원)[10만원 이하]" pattern="\d*" maxlength="6" min="0" max="100000"/>
+                    <input type="text" class="has_width_half" name="price" placeholder="가격(원)[10만원 이하]" pattern="\d*"
+                           maxlength="6" min="0" max="100000"/>
                     <input type="date" class="has_width_half " name="production" placeholder="제작년도"/>
                 </div>
                 <div class="has_flex_space">
-                    <textarea class="has_width_full" name="exp" style="resize: none;" placeholder="작품을 설명해주세요.(250자 이내)" maxlength="250"></textarea></div>
+                    <textarea class="has_width_full" name="exp" style="resize: none;" placeholder="작품을 설명해주세요.(250자 이내)"
+                              maxlength="250"></textarea></div>
                 <div class="has_flex_space">
                     <input type="submit" class="button is_enroll_button has_width_full" value="등록완료">
                 </div>
