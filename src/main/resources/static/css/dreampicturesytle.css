@@ -70,6 +70,8 @@ button{border-radius:8px; border:0; outline:0; color:var(--color-white); backgro
 
 .navigation{display: grid;grid-template-columns: repeat(5,1fr);grid-column: 5/13; grid-gap: 1rem;justify-items: center;align-items:center;}
 
+.navigation2{display: grid;grid-template-columns: repeat(6,1fr);grid-column: 5/13; grid-gap: 1rem;justify-items: center;align-items:center;}
+
 .title{color:var(--color-chathams-blue);font-size: var(--font-size-xxl);}
 
 .paintingTitle{color:var(--color-chathams-blue);font-size: var(--font-size-2xl);}
