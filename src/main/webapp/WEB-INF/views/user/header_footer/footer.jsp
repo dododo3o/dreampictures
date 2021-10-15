@@ -36,8 +36,9 @@
                 </div>
             </a>
         </div>
-        <div class="has_flex_space has_font-base" style="grid-column: 3/5">
+        <div class="has_flex_space has_font-base" style="grid-column: 3/6">
             <a href="#" class="has_aqua-island">회사 소개</a> <a href="#" class="has_albescent-white">팀원 소개</a>
+            <a href="/admin/login" class="has_aqua-island">관리자로그인</a>
         </div>
         <div class="has_flex_space" style="grid-column: 10/12">
             <a href="#" class="has_white has_font-xl"><i class="fab fa-youtube"></i></a> <a href="#"
