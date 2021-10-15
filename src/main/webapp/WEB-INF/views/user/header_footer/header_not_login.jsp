@@ -25,7 +25,7 @@
                 <div class="is_logos">
                     <i class="fas fa-palette fg-lg"></i>
                     <div>
-                        <div>
+                        <div style="margin-bottom: 14px;">
                             <span>그</span><span class="has_albescent-white">림</span>
                         </div>
                         <div>
