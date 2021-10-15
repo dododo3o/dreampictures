@@ -7,7 +7,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Title</title>
-    <link rel="stylesheet" href="/resources/css/dreampicturesytle.css">
+    <link rel="stylesheet" href="/resources/static/css/dreampicturesytle.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
@@ -24,13 +24,13 @@
             <a href="/admin/qa">
                 <div class="is_logos"><i class="fas fa-palette fg-lg"></i>
                     <div>
-                        <div><span>그</span><span class="has_albescent-white">림</span></div>
+                        <div style="margin-bottom:14px;"><span>그</span><span class="has_albescent-white">림</span></div>
                         <div><span class="has_albescent-white">드</span><span>림</span></div>
                     </div>
                 </div>
             </a>
         </div>
-        <div class="navigation">
+        <div class="navigation2">
             <a href='/admin/qa' class='anchor hover_header-btn'>질문사항</a>
             <a href='/admin/notice' class='anchor hover_header-btn'>공지사항</a>
             <a href='/admin/salesHistory' class='anchor hover_header-btn'>판매내역</a>
