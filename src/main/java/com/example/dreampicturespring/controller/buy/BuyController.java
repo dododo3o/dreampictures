@@ -32,7 +32,7 @@ public class BuyController {
 
     @RequestMapping("/buy")
     public ModelAndView buy(HttpServletRequest request){
-        final int CARDSPERPAGE = 16;
+        final int CARDSPERPAGE = 15;
         int cardNum = 0,pageNum;
         ModelAndView mv = new ModelAndView();
 
@@ -44,8 +44,7 @@ public class BuyController {
             cardVOList.add(vo);
             cardNum++;
         }
-        pageNum = cardNum%CARDSPERPAGE+1;
-
+        pageNum = cardNum/CARDSPERPAGE+1;
         mv.setViewName("user/buy/buy");
         mv.addObject("cardVOlist",cardVOList);
         mv.addObject("pageNum",pageNum);

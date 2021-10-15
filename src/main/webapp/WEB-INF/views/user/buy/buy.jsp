@@ -12,34 +12,24 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
-    <link rel="stylesheet" type="text/css"
-          href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.13/semantic.min.css">
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.13/semantic.min.css">
     <script src="https://kit.fontawesome.com/b14e6f064f.js" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"
-            integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ=="
-            crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-    <script src="https://code.jquery.com/jquery-3.1.1.min.js"
-            integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.13/semantic.js"></script>
     <script>
         showModal = function () {
-            let pname = document.getElementById("pname").value;
-            let style = document.getElementById("style").value;
-            let theme = document.getElementById("theme").value;
-            let width = document.getElementById("width").value;
-            let height = document.getElementById("height").value;
-            let price = document.getElementById("price").value;
-            console.log(pname);
-            console.log(style);
-            console.log(theme);
-            console.log(width);
-            console.log(price);
-            console.log(height);
-
             $(() => {
+                let pname = document.getElementById("pname").value;
+                let style = document.getElementById("style").value;
+                let theme = document.getElementById("theme").value;
+                let width = document.getElementById("width").value;
+                let height = document.getElementById("height").value;
+                let price = document.getElementById("price").value;
+                let status = document.getElementById("status").checked == true ? 1 : 0;
                 $.ajax({
                     url: "/ajax_picture_finder",
-                    data: "pname=" + pname + "&search=" + search + "&style=" + style + "&theme=" + theme + "&width=" + width + "&height=" + height + "&price=" + price,
+                    data: "pname=" + pname + "&style=" + style + "&theme=" + theme + "&width=" + width + "&height=" + height + "&price=" + price + "&status=" + status,
                     success: function (result) {
                         if (result == 'Y') {
                             alert('인증되었습니다!')
@@ -101,20 +91,18 @@
 
                 <div><span class="has_chathams-blue">최대너비  : <span id="widthVal">200</span>(CM)<br></span><input
                         type="range" class="width_slider"
-                        id="width" min="1" max="200" step="10"
+                        id="width" min="0" max="200" step="10"
                         value="200" oninput="document.getElementById('widthVal').innerHTML=this.value;"/></div>
                 <div><span class="has_chathams-blue">최대높이  :  <span id="heightVal">200</span>(CM)<br></span><input
                         type="range" class="width_slider"
-                        id="height" min="1" max="200" step="10"
+                        id="height" min="0" max="200" step="10"
                         value="200" oninput="document.getElementById('heightVal').innerHTML=this.value;"/></div>
                 <div><span class="has_chathams-blue">최대가격  : <span id="priceVal">100000</span>(원)<br></span><input
                         type="range" class="width_slider"
-                        id="price" min="1" max="100000" step="1000"
+                        id="price" min="0" max="100000" step="1000"
                         value="100000" oninput="document.getElementById('priceVal').innerHTML=this.value;"/></div>
                 <div class="checkbox" style="display: flex;">
-                    <input type="checkbox" style="margin-right:10px;"><label style="color: var(--color-chathams-blue);">거래완료
-                    안보기</label>
-
+                    <input type="checkbox" id="status" style="margin-right:10px;"><label style="color: var(--color-chathams-blue);">거래완료 안보기</label>
                 </div>
             </div>
         </div>
@@ -128,18 +116,13 @@
                     <img src="${cardVOlist.avatarimg}"
                          style="border-radius: 50%; width: 3em;height: 3em;object-fit: cover;">
                 </div>
-
                 <div class="image">
                     <img src="${cardVOlist.paintingmimg}" style="object-fit: cover; height: 250px">
-
                 </div>
                 <div class="content">
                     <span class="right floated">
-                      <i class="heart outline like icon"></i>
-                      17 likes
-                    </span>
-                    <i class="comment icon"></i>
-                    3 comments
+                      <i class="heart outline like icon"></i>17 likes</span>
+                    <i class="comment icon"></i>3 comments
                 </div>
                 <div class="extra content">
                     <div class="ui large transparent left icon input">
@@ -160,16 +143,9 @@
                     <i class="left arrow icon"></i>
                 </div>
             </div>
-            <button class='button is_pagination'>1</button>
-            <button class='button is_pagination'>2</button>
-            <button class='button is_pagination'>3</button>
-            <button class='button is_pagination'>4</button>
-            <button class='button is_pagination'>5</button>
-            <button class='button is_pagination'>6</button>
-            <button class='button is_pagination'>7</button>
-            <button class='button is_pagination'>8</button>
-            <button class='button is_pagination'>9</button>
-            <button class='button is_pagination'>10</button>
+            <c:forEach var="i" begin="1" end="${pageNum}" >
+                <button class='button is_pagination'>${i}</button>
+            </c:forEach>
             <div class="ui animated button" tabindex="0"
                  style="color:var(--color-white);background-color: var(--color-chathams-blue);">
                 <div class="visible content">Next</div>

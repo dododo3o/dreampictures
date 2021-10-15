@@ -130,7 +130,12 @@ button{border-radius:8px; border:0; outline:0; color:var(--color-white); backgro
 
 .has_flex_end{display: flex;flex-direction: column;align-items: flex-end;}
 
+.has_flex_row{display: flex;flex-direction: row;justify-content: space-around;}
+
 .has_padding{padding:10px;}
+
+.has_margin{margin: 10px;}
+
 
 .has_icon{font-size:var(--font-size-base)}
 
@@ -206,14 +211,19 @@ button{border-radius:8px; border:0; outline:0; color:var(--color-white); backgro
 
 /* input textarea checkbox */
 option{font-size: var(--font-size-base);color: black;}
-
-input:not(input[type=file]), textarea, select{border-radius:8px; outline:none;text-indent:10px;height:64px;border: 2px solid var(--color-jagged-ice); font-size: var(--font-size-lg);}
+input:not(input[type=file]), input[type=textarea], select{border-radius:8px; outline:none;text-indent:10px;height:64px;border: 2px solid var(--color-jagged-ice); font-size: var(--font-size-lg);}
 
 .input-file-button{padding: 6px 25px;background-color:var(--color-chathams-blue);border-radius: 4px;color: white;cursor: pointer;}
+
+.input_textarea{border-radius:8px; outline:none;border: 2px solid var( --color-dark-gray);}
 
 .has_width_half{width: var(--width-size-half);}
 
 .has_width_full{width: var(--width-size-full);}
+
+.has_width_100{width: 100%}
+
+.has_height_80{height: 80%}
 
 .checkbox{align-items: center;}
 
