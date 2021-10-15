@@ -89,30 +89,42 @@
     </div>
     <div class="container" style="height: 100%;">
         <div class="has_flex_column" style="grid-column:1/3; gap:40px; height: 100%; padding-top: 30px; background-color: #a2b0b36e">
-            <a href="#" class="has_evenly" onmouseover="mouseOver()" onmouseout="mouseOut()" style=" padding-top: 10px; padding-bottom: 10px;" id="noticeLink">
-                <span id="menuIcon" style=" color: var(--color-river-bed)"><i class="fas fa-bell fa-lg"></i></span>
-                <div id="menuFont" style="display:flex;align-items: center; margin-left: 10px; color: var(--color-river-bed)">공지사항
-                </div>
-            </a>
-            <a href="#" class="has_evenly" onmouseover="mouseOver2()"  onmouseout="mouseOut2()"style=" padding-top: 10px; padding-bottom: 10px;" id="noticeLink2">
-                <span id="menuIcon2" style=" color: var(--color-river-bed)"><i class="fas fa-question fa-lg"></i></span>
-                <div id="menuFont2" style="display:flex;align-items: center; margin-left: 10px; color: var(--color-river-bed)">질문사항
-                </div>
-            </a>
-        </div>
-        <div class="has_flex_end" style="grid-column: 3/13; flex-wrap: wrap; margin-top: 20px;" onclick="showModal()">
-            <div class="ui vertical animated button" tabindex="0">
+<%--            <a href="#" class="has_evenly" onmouseover="mouseOver()" onmouseout="mouseOut()" style=" padding-top: 10px; padding-bottom: 10px;" id="noticeLink">--%>
+<%--                <span id="menuIcon" style=" color: var(--color-river-bed)"><i class="fas fa-bell fa-lg"></i></span>--%>
+<%--                <div id="menuFont" style="display:flex;align-items: center; margin-left: 10px; color: var(--color-river-bed)">공지사항--%>
+<%--                </div>--%>
+<%--            </a>--%>
+<%--            <a href="#" class="has_evenly" onmouseover="mouseOver2()"  onmouseout="mouseOut2()"style=" padding-top: 10px; padding-bottom: 10px;" id="noticeLink2">--%>
+<%--                <span id="menuIcon2" style=" color: var(--color-river-bed)"><i class="fas fa-question fa-lg"></i></span>--%>
+<%--                <div id="menuFont2" style="display:flex;align-items: center; margin-left: 10px; color: var(--color-river-bed)">질문사항--%>
+<%--                </div>--%>
+<%--            </a>--%>
+            <div class="ui vertical animated button" tabindex="0" onclick="showModal()">
                 <div class="hidden content">질문하기</div>
                 <div class="visible content">
                     <i class="question circle icon"></i>
                 </div>
             </div>
-<%--            <button class="is_primary has_flex_center"  onclick="showModal()" style=" margin-top: 20px;">--%>
-<%--                <span style="color: var(--color-river-bed)"><i class="fas fa-pencil-alt fa-lg"></i></span>--%>
-<%--                <div class="has_flex_center" style=" margin-left: 15px; color: var(--color-river-bed); font-size: 30px;">--%>
-<%--                    질문하기--%>
-<%--                </div>--%>
-<%--            </button>--%>
+            <div class="ui vertical animated button" tabindex="0" onclick="showModal()">
+                <div class="hidden content">질문하기</div>
+                <div class="visible content">
+                    <i class="question circle icon"></i>
+                </div>
+            </div>
+            <div class="ui vertical animated button" tabindex="0" onclick="showModal()">
+                <div class="hidden content">질문하기</div>
+                <div class="visible content">
+                    <i class="question circle icon"></i>
+                </div>
+            </div>
+        </div>
+        <div class="has_flex_end" style="grid-column: 3/13; flex-wrap: wrap; margin-top: 20px;">
+            <div class="ui vertical animated button" tabindex="0" onclick="showModal()">
+                <div class="hidden content">질문하기</div>
+                <div class="visible content">
+                    <i class="question circle icon"></i>
+                </div>
+            </div>
             <div class="manager_card" style="display: grid;grid-template-columns:repeat(3,1fr);grid-gap:1rem;width: 100%;">
                 <div class="ui card" style="height: 100%; margin: 0 auto;">
                     <div class="content">
