@@ -31,11 +31,11 @@
             </a>
         </div>
         <div class="navigation2">
-            <a href='/admin/qa' class='anchor hover_header-btn'>질문사항</a>
-            <a href='/admin/notice' class='anchor hover_header-btn'>공지사항</a>
-            <a href='/admin/salesHistory' class='anchor hover_header-btn'>판매내역</a>
-            <a href='/admin/report' class='anchor hover_header-btn'>신고내역</a>
-            <a href='/admin/blacklist' class='anchor hover_header-btn'>블랙리스트</a>
+
+            <a href='/admin/noticeManagement' class='anchor hover_header-btn'>공지사항관리</a>
+            <a href='/admin/salesHistory' class='anchor hover_header-btn'>판매관리</a>
+            <a href='/admin/reportManagement' class='anchor hover_header-btn'>신고관리</a>
+
             <button class='button is_primary hover_sign-btn'><a href="/admin/logout">Logout</a></button>
         </div>
     </div>
