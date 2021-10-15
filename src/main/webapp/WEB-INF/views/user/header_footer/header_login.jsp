@@ -11,7 +11,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Title</title>
-    <link rel="stylesheet" href="/resources/css/dreampicturesytle.css">
+    <link rel="stylesheet" href="/resources/static/css/dreampicturesytle.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
@@ -23,13 +23,13 @@
 </head>
 <body>
 <header class="has_bg_white">
-    <div class="container">
+    <div class="container" >
         <div class="is_logo">
             <a href="/">
                 <div class="is_logos">
                     <i class="fas fa-palette fg-lg"></i>
                     <div>
-                        <div>
+                        <div style="margin-bottom:14px;">
                             <span>그</span><span class="has_albescent-white">림</span>
                         </div>
                         <div>
