@@ -21,10 +21,10 @@
     <div class="container">
         <div class="contents" style="grid-column: 5/9; margin-top: 85px">
             <div class="title">관리자 로그인</div>
-            <form action="<%=conPath%>/admin/main" method="post">
+            <form action="<%=conPath%>/admin/login_check" method="post">
                 <div style="display: flex;user-select: auto;flex-direction: column;align-items: center;justify-content: space-evenly;height: 650px;">
-                    <input type="text" placeholder="Login" class="is_login_input"/>
-                    <input type="text" placeholder="Password" class="is_login_input"/>
+                    <input type="text" placeholder="Login" name="admin" class="is_login_input"/>
+                    <input type="text" placeholder="Password"  name="adminpwd" class="is_login_input"/>
                     <button class='button is_login has_shadow'>
                         <input type="submit" class='button is_login has_shadow has_flex_center has_width_full'
                                value="로그인">

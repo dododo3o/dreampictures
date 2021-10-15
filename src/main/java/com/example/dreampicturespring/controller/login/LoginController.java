@@ -35,12 +35,14 @@ public class LoginController {
     @RequestMapping(value = "/login_check",method = RequestMethod.POST, produces ="application/text;charset=UTF-8")
     @ResponseBody
     public ModelAndView login_check(LoginVO vo, HttpServletRequest request){
-        Membershiptbl membershiptbl = membershiptblRepository.findByemail(vo.getEmail());
         ModelAndView mv = new ModelAndView();
-        mv.setViewName("user/redirect/alert1");
-        mv.addObject("msg","회원정보를 다시 확인해주세요.");
-        mv.addObject("url","/login");
-        if(membershiptbl ==null) return mv;
+        Membershiptbl membershiptbl = membershiptblRepository.findByemail(vo.getEmail());
+        if(membershiptbl ==null){
+            mv.setViewName("user/redirect/alert1");
+            mv.addObject("msg","회원정보를 다시 확인해주세요.");
+            mv.addObject("url","/login");
+            return mv;
+        }
         else{
             if(!membershiptbl.getPwd().equals(vo.getPwd())) return mv;
             else{

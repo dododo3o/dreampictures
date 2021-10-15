@@ -86,7 +86,7 @@
                          style="border-radius: 50%; width: 3em;height: 3em;object-fit: cover;">
                 </div>
                 <div class="image">
-                    <a href="/buy_picture/${cardVOlist.no_painting}"><img src="${cardVOlist.paintingmimg}" style="object-fit: cover; height: 250px"></a>
+                    <img src="${cardVOlist.paintingmimg}" style="object-fit: cover; height: 250px">
                 </div>
                 <div class="content">
                     <span class="right floated">
