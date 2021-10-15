@@ -12,8 +12,45 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.13/semantic.min.css">
     <script src="https://kit.fontawesome.com/b14e6f064f.js" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.13/semantic.js"></script>
+    <script>
+        //a태그 마우스오버1
+        function mouseOver(){
+            document.getElementById('noticeLink').style.backgroundColor="gray";
+            document.getElementById('menuFont').style.color="white";
+            document.getElementById('menuIcon').style.color="white";
+        }
+        //a태그 마우스오버
+        function mouseOver2(){
+            document.getElementById('noticeLink2').style.backgroundColor="gray";
+            document.getElementById('menuFont2').style.color="white";
+            document.getElementById('menuIcon2').style.color="white";
+        }
 
+        //a태그 마우스아웃
+        function mouseOut(){
+            document.getElementById('noticeLink').style.backgroundColor="rgba(255,255,255,0)";
+            document.getElementById('menuFont').style.color="var(--color-river-bed)";
+            document.getElementById('menuIcon').style.color="var(--color-river-bed)";
+        }
+        //a태그 마우스아웃2
+        function mouseOut2(){
+            document.getElementById('noticeLink2').style.backgroundColor="rgba(255,255,255,0)";
+            document.getElementById('menuFont2').style.color="var(--color-river-bed)";
+            document.getElementById('menuIcon2').style.color="var(--color-river-bed)";
+        }
+
+        function modal(){
+            document.getElementById("modaldiv")
+        }
+    </script>
+    <script type = "text/javascript" >
+        showModal = function () {$('.ui.modal').modal('show');};
+    </script>
 </head>
 <body>
 <% if (session.getAttribute("logStatus") == "Y") { %>
@@ -24,35 +61,172 @@
 <% if (session.getAttribute("logStatus") == null) { %>
 <jsp:include page="../header_footer/header_not_login.jsp"></jsp:include>
 <% } %>
-<main class="has_bg_harp">
-    <div class="container" style="padding-bottom: 20px">
-        <div style="grid-column:1/3; display:flex;flex-direction: column; gap:40px; padding-top: 20px; background-color: #a2b0b36e">
-            <div style="display: flex;justify-content: space-evenly; ">
-                <span style=" color: var(--color-river-bed)"><i class="fas fa-bell fa-lg"></i></span>
-                <div style=" display:flex;align-items: center; margin-left: 10px; color: var(--color-river-bed)">공지사항
+<main class="has_bg_harp" style="height: 100%;">
+    <div class="ui modal">
+        <i class="close icon"></i>
+        <div class="header">
+            Profile Picture
+        </div>
+        <div class="image content">
+            <div class="ui medium image">
+                <img src="/images/avatar/large/chris.jpg">
+            </div>
+            <div class="description">
+                <div class="ui header">We've auto-chosen a profile image for you.</div>
+                <p>We've grabbed the following image from the <a href="https://www.gravatar.com" target="_blank">gravatar</a> image associated with your registered e-mail address.</p>
+                <p>Is it okay to use this photo?</p>
+            </div>
+        </div>
+        <div class="actions">
+            <div class="ui black deny button">
+                Nope
+            </div>
+            <div class="ui positive right labeled icon button">
+                Yep, that's me
+                <i class="checkmark icon"></i>
+            </div>
+        </div>
+    </div>
+    <div class="container" style="height: 100%;">
+        <div class="has_flex_column" style="grid-column:1/3; gap:40px; height: 100%; padding-top: 30px; background-color: #a2b0b36e">
+<%--            <a href="#" class="has_evenly" onmouseover="mouseOver()" onmouseout="mouseOut()" style=" padding-top: 10px; padding-bottom: 10px;" id="noticeLink">--%>
+<%--                <span id="menuIcon" style=" color: var(--color-river-bed)"><i class="fas fa-bell fa-lg"></i></span>--%>
+<%--                <div id="menuFont" style="display:flex;align-items: center; margin-left: 10px; color: var(--color-river-bed)">공지사항--%>
+<%--                </div>--%>
+<%--            </a>--%>
+<%--            <a href="#" class="has_evenly" onmouseover="mouseOver2()"  onmouseout="mouseOut2()"style=" padding-top: 10px; padding-bottom: 10px;" id="noticeLink2">--%>
+<%--                <span id="menuIcon2" style=" color: var(--color-river-bed)"><i class="fas fa-question fa-lg"></i></span>--%>
+<%--                <div id="menuFont2" style="display:flex;align-items: center; margin-left: 10px; color: var(--color-river-bed)">질문사항--%>
+<%--                </div>--%>
+<%--            </a>--%>
+            <div class="ui vertical animated button" tabindex="0" onclick="showModal()">
+                <div class="hidden content">질문하기</div>
+                <div class="visible content">
+                    <i class="question circle icon"></i>
                 </div>
             </div>
-            <div style="display: flex;justify-content: space-evenly;">
-                <span style="color: var(--color-river-bed)"><i class="fas fa-question fa-lg"></i></span>
-                <div style=" display:flex;align-items: center; margin-left: 15px; color: var(--color-river-bed)">질문사항
+            <div class="ui vertical animated button" tabindex="0" onclick="showModal()">
+                <div class="hidden content">질문하기</div>
+                <div class="visible content">
+                    <i class="question circle icon"></i>
+                </div>
+            </div>
+            <div class="ui vertical animated button" tabindex="0" onclick="showModal()">
+                <div class="hidden content">질문하기</div>
+                <div class="visible content">
+                    <i class="question circle icon"></i>
                 </div>
             </div>
         </div>
-        <div class="manager_card"
-             style="grid-column: 3/12; display: grid;grid-template-columns:repeat(3,1fr);grid-gap:1.3rem; height: 100%">
-            <a href="/buy_picture/${cardVOlist.no_painting}">
-                <div class="card has_flex_space_bt_cl has_shadow">
-                    <div><img src="${cardVOlist.paintingmimg}" alt="" class="is_img_object-fit has_board_top_radius"></div>
-                    <div class="card_history" style="width: 100%;">
-                        <img src="${cardVOlist.avatarimg}" alt="" style="border-radius: 50%; width: 65px">
-                        <span style="font-size: 1.3em">${cardVOlist.nickname}</span>
-                    </div>
-                    <div style="margin-bottom: 20px; font-size: 1.5em;">${cardVOlist.pname}</div>
+        <div class="has_flex_end" style="grid-column: 3/13; flex-wrap: wrap; margin-top: 20px;">
+            <div class="ui vertical animated button" tabindex="0" onclick="showModal()">
+                <div class="hidden content">질문하기</div>
+                <div class="visible content">
+                    <i class="question circle icon"></i>
                 </div>
-            </a>
+            </div>
+            <div class="manager_card" style="display: grid;grid-template-columns:repeat(3,1fr);grid-gap:1rem;width: 100%;">
+                <div class="ui card" style="height: 100%; margin: 0 auto;">
+                    <div class="content">
+                        <div class="right floated meta">14h</div>
+                        <img src="${cardVOlist.avatarimg}"
+                             style="border-radius: 50%; width: 3em;height: 3em;object-fit: cover;">
+                    </div>
+                    <div class="image">
+                        <img src="/resources/user/qwer/paintingimg/bitcamp/0.jpg" style="object-fit: cover; height: 250px"></a>
+                    </div>
+                    <div class="content">
+                    <span class="right floated">
+                      <i class="heart outline like icon"></i>
+                      17 likes
+                    </span>
+                        <i class="comment icon"></i>
+                        3 comments
+                    </div>
+                    <div class="extra content">
+                        <div class="ui large transparent left icon input">
+                            <i class="heart outline icon"></i>
+                            <input type="text" placeholder="Add Comment...">
+                        </div>
+                    </div>
+                </div>
+                <div class="ui card" style="height: 100%; margin: 0 auto;">
+                    <div class="content">
+                        <div class="right floated meta">14h</div>
+                        <img src="${cardVOlist.avatarimg}"
+                             style="border-radius: 50%; width: 3em;height: 3em;object-fit: cover;">
+                    </div>
+                    <div class="image">
+                        <img src="/resources/user/qwer/paintingimg/bitcamp/0.jpg" style="object-fit: cover; height: 250px"></a>
+                    </div>
+                    <div class="content">
+                    <span class="right floated">
+                      <i class="heart outline like icon"></i>
+                      17 likes
+                    </span>
+                        <i class="comment icon"></i>
+                        3 comments
+                    </div>
+                    <div class="extra content">
+                        <div class="ui large transparent left icon input">
+                            <i class="heart outline icon"></i>
+                            <input type="text" placeholder="Add Comment...">
+                        </div>
+                    </div>
+                </div>
+                <div class="ui card" style="height: 100%; margin: 0 auto;">
+                    <div class="content">
+                        <div class="right floated meta">14h</div>
+                        <img src="${cardVOlist.avatarimg}"
+                             style="border-radius: 50%; width: 3em;height: 3em;object-fit: cover;">
+                    </div>
+                    <div class="image">
+                        <img src="/resources/user/qwer/paintingimg/bitcamp/0.jpg" style="object-fit: cover; height: 250px"></a>
+                    </div>
+                    <div class="content">
+                    <span class="right floated">
+                      <i class="heart outline like icon"></i>
+                      17 likes
+                    </span>
+                        <i class="comment icon"></i>
+                        3 comments
+                    </div>
+                    <div class="extra content">
+                        <div class="ui large transparent left icon input">
+                            <i class="heart outline icon"></i>
+                            <input type="text" placeholder="Add Comment...">
+                        </div>
+                    </div>
+                </div>
+                <div class="ui card" style="height: 100%; margin: 0 auto;">
+                    <div class="content">
+                        <div class="right floated meta">14h</div>
+                        <img src="${cardVOlist.avatarimg}"
+                             style="border-radius: 50%; width: 3em;height: 3em;object-fit: cover;">
+                    </div>
+                    <div class="image">
+                        <img src="/resources/user/qwer/paintingimg/bitcamp/0.jpg" style="object-fit: cover; height: 250px"></a>
+                    </div>
+                    <div class="content">
+                    <span class="right floated">
+                      <i class="heart outline like icon"></i>
+                      17 likes
+                    </span>
+                        <i class="comment icon"></i>
+                        3 comments
+                    </div>
+                    <div class="extra content">
+                        <div class="ui large transparent left icon input">
+                            <i class="heart outline icon"></i>
+                            <input type="text" placeholder="Add Comment...">
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 </main>
+
 <jsp:include page="../header_footer/footer.jsp"></jsp:include>
 </body>
 </html>

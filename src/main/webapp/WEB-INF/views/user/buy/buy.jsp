@@ -61,16 +61,15 @@
                 </select>
             </div>
             <div style="display: flex;justify-content: space-between;grid-column:1/9;">
-                <div><span class="has_chathams-blue">너비  : (CM)<br></span><input type="range" class="width_slider"
-                                                                                 name="img_width" min="1" max="100"
-                                                                                 value="50"/></div>
-                <div><span class="has_chathams-blue">높이  : (CM)<br></span><input type="range" class="width_slider"
-                                                                                 name="img_width" min="1" max="100"
-                                                                                 value="50"/></div>
-                <div><span class="has_chathams-blue">가격  : (원)<br></span><input type="range" class="width_slider"
-                                                                                name="img_width" min="1" max="100"
-                                                                                value="50"/></div>
-                <div class="checkbox" style="display: flex;">
+                <div><span class="has_chathams-blue">최대너비  : <span id="widthVal"></span>(CM)<br></span><input type="range" class="width_slider"
+                                                                                                              name="img_width" min="1" max="200"
+                                                                                                              value="50" oninput="document.getElementById('widthVal').innerHTML=this.value;"/></div>
+                <div><span class="has_chathams-blue">최대높이  :  <span id="heightVal"></span>(CM)<br></span><input type="range" class="width_slider"
+                                                                                                                name="img_width" min="1" max="2s00"
+                                                                                                                value="50" oninput="document.getElementById('heightVal').innerHTML=this.value;"/></div>
+                <div><span class="has_chathams-blue">가격  : <span id="priceVal"></span>(원)<br></span><input type="range" class="width_slider"
+
+                    <div class="checkbox" style="display: flex;">
                     <input type="checkbox" style="margin-right:10px;"><label style="color: var(--color-chathams-blue);">거래완료
                     안보기</label>
                 </div>
@@ -85,8 +84,8 @@
                     <img src="${cardVOlist.avatarimg}"
                          style="border-radius: 50%; width: 3em;height: 3em;object-fit: cover;">
                 </div>
-                <div class="image" >
-                    <a href="/buy_picture/${cardVOlist.no_painting}"><img src="${cardVOlist.paintingmimg}" style="object-fit: cover; height: 250px"></a>
+                <div class="image">
+                    <img src="${cardVOlist.paintingmimg}" style="object-fit: cover; height: 250px">
                 </div>
                 <div class="content">
                     <span class="right floated">
