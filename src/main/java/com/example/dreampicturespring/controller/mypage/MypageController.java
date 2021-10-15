@@ -37,5 +37,9 @@ public class MypageController {
         return "user/mypage/mypage";
     }
 
+    @RequestMapping("/pay")
+    public String pay() {
+        return "user/mypage/pay";
+    }
 
 }
