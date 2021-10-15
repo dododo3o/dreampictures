@@ -52,18 +52,17 @@
 <% if (session.getAttribute("logStatus")==null){ %>
 <jsp:include page="../header_footer/header_not_login.jsp"></jsp:include>
 <% } %>
-<main class="has_bg_harp" style="height: 100%">
+<main class="has_bg_harp">
     <div class="container">
-        <div class="contents" style="grid-column: 4/10; margin-top: 20px;">
+        <div class="contents" style="grid-column: 4/10;justify-content: space-around ">
             <form action="<%=conPath%>/sell_success" method="post" enctype="multipart/form-data">
                 <div style="display: flex; flex-direction: column;gap: 20px;">
                     <div class="title">판매등록</div>
-                    <div style="display: flex;"id="image_container" >
+                    <div style="display: flex; align-items: center" id="image_container;" >
                         <div class="avatar_img" id="preview_image" style="height: 130px;"/></div>
-                    <div style="margin-top: 10px">이미지등록<input type="file" onchange="setThumbnail(event);" name="filename" id="image" style="margin-left: 100px;margin-top: 10px"/></div>
+                    <div>이미지등록<input type="file" onchange="setThumbnail(event);" name="filename" id="image" style="margin-left: 100px;margin-top: 10px"/></div>
                 </div>
-                <div class="has_flex_space"><input type="text" class="has_width_full" name="pname" placeholder="작품명을 입력해주세요."/>
-                </div>
+                    <div class="ui input focus"><input type="text"class="has_width_full" name="pname" placeholder="작품명을 입력해주세요."></div>
                 <div class="has_flex_space">
                     <select class="has_width_half" name="style">
                         <option disabled selected>화풍</option>

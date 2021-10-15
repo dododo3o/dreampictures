@@ -24,7 +24,7 @@
 <% if (session.getAttribute("logStatus") == null) { %>
 <jsp:include page="../header_footer/header_not_login.jsp"></jsp:include>
 <% } %>
-<main class="has_bg_harp" style="height: auto;" >
+<main class="has_bg_harp">
     <div class="container" style="padding-bottom: 20px">
         <div style="grid-column:1/3; display:flex;flex-direction: column; gap:40px; padding-top: 20px; background-color: #a2b0b36e">
             <div style="display: flex;justify-content: space-evenly; ">
