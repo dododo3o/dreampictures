@@ -48,7 +48,6 @@
                 });
             }
         };
-        //연락처 형식 검증
         verifyTel = function () {
             var telVal = $("#tel").val();
             var telRegExp = /^[A-Za-z0-9]{6,12}$/;
@@ -97,9 +96,6 @@
             }
 
         }
-        //=====================다음 단계 버튼을 활성 시킬 조건들======================
-        //인증하기가 모두 완료 되어야 함
-        //비밀번호가 일치해야함
         function nextBtn_condition() {
             var pwd1 = $("#pwd").val();
             var pwd2 = $("#pwdChk").val();

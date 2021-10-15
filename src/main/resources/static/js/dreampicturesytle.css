@@ -1,5 +1,6 @@
 :root {
     /* Color */
+    /* Color */
     --color-gray: #848484;
     --color-alabaster: #F9F9F9;
     --color-harp:#E7F0F0;
@@ -30,6 +31,7 @@
     --font-size-basic:20px;
     --font-size-lg: 24px;
     --font-size-xl: 36px;
+    --font-size-xll:48px;
     --font-size-2xl:60px;
     --font-size-xxl: 64px;
 
@@ -42,6 +44,8 @@
 
 *{font-family: 'BMHANNAPro';text-decoration:none; list-style: none;margin:0;padding:0}
 
+input[type=password]{font-family: -apple-system;}
+
 html{font-size: var(--font-size-base);}
 
 body{height:100vh;}
@@ -52,7 +56,7 @@ main{height:760px;}
 
 footer{height: 140px;}
 
-img{width: 100%;height: 100%; object-fit: cover;}
+a{color: inherit; text-decoration: none;}
 
 .container{display:grid; grid-template-columns:repeat(12, 1fr); grid-column-gap:30px; margin:auto; width:1100px; height: 100%;}
 
@@ -60,11 +64,11 @@ img{width: 100%;height: 100%; object-fit: cover;}
 
 /* button navigation logo */
 
-.button{border-radius:8px; border:0; outline:0; color:var(--color-white); background-color:var(--color-aqua-island);}
+button{border-radius:8px; border:0; outline:0; color:var(--color-white); background-color:var(--color-aqua-island);}
 
 .anchor{font-size:var(--font-size-base); color:var(--color-gray);}
 
-.navigation{display: grid;grid-template-columns: repeat(5,1fr);grid-column: 6/13; grid-gap: 1rem;justify-items: center;align-items:center;}
+.navigation{display: grid;grid-template-columns: repeat(6,1fr);grid-column: 5/13; grid-gap: 1rem;justify-items: center;align-items:center;}
 
 .title{color:var(--color-chathams-blue);font-size: var(--font-size-xxl);}
 
@@ -118,16 +122,23 @@ img{width: 100%;height: 100%; object-fit: cover;}
 
 .has_flex_space_cl{display: flex; flex-direction:column;justify-content: space-evenly;align-items: center;}
 
-.has_flex_space_bt_cl{display: flex; flex-direction:column;justify-content: space-between;align-items: center;}
+.has_flex_space_bt_cl{display: flex; flex-direction:column;align-items: center;}
+
+.has_flex_left{display: flex;flex-direction: column;align-content: center;align-items: flex-start; gap:10px;}
+
+.has_flex_end{display: flex;flex-direction: column;align-items: flex-end;}
+
+.has_flex_row{display: flex;flex-direction: row;justify-content: space-around;}
 
 .has_padding{padding:10px;}
+
+.has_margin{margin: 10px;}
 
 .has_icon{font-size:var(--font-size-base)}
 
 .has_shadow{box-shadow: 0px 4px 4px 0px #0000004D;}
 
 .has_notice{display: flex; justify-content: space-around; font-size: var( --font-size-lg)}
-
 
 /* color */
 
@@ -171,8 +182,8 @@ img{width: 100%;height: 100%; object-fit: cover;}
 
 .has_bg_pink{background-color:var(--color-pink);}
 
-
 /* font */
+
 .has_font-xs{font-size:var(--font-size-xs);}
 
 .has_font-sm{font-size:var(--font-size-sm);}
@@ -183,30 +194,34 @@ img{width: 100%;height: 100%; object-fit: cover;}
 
 .has_font-xl{font-size:var(--font-size-xl);}
 
-.has_font-2XL{font-size:var(--font-size-2xl);}
-
 .has_font-xxl{font-size:var(--font-size-xxl);}
 
 /* avatar */
 .avatar {display: flex;justify-content: space-around;width: 445px;align-items: center;}
 
-.avatar_img {width: 120px;height: 120px;border-radius: 70%;}
+.avatar_img {width: 120px;height: 120px;border-radius: 70%; object-fit: cover;}
 
 .avatar_name {width: 200px;font-size: var(--font-size-lg);}
 
-.avatar_info {font-size: var(--font-size-base);color: gray; padding-left: 0;}
-
-.avatar_info>li{margin-top:5px;}
+.avatar_info {font-size: var(--font-size-base);color: gray;padding-left: 0;}
 
 
 /* input textarea checkbox */
 option{font-size: var(--font-size-base);color: black;}
 
-input, textarea, select{border-radius:8px; outline:none;text-indent:10px;height:64px;border: 2px solid var(--color-jagged-ice); font-size: var(--font-size-lg);}
+input:not(input[type=file]), input[type=textarea], select{border-radius:8px; outline:none;text-indent:10px;height:64px;border: 2px solid var(--color-jagged-ice); font-size: var(--font-size-lg);}
+
+.input-file-button{padding: 6px 25px;background-color:var(--color-chathams-blue);border-radius: 4px;color: white;cursor: pointer;}
+
+.input_textarea{border-radius:8px; outline:none;border: 2px solid var( --color-dark-gray);}
 
 .has_width_half{width: var(--width-size-half);}
 
 .has_width_full{width: var(--width-size-full);}
+
+.has_width_100{width: 100%}
+
+.has_height_80{height: 80%}
 
 .checkbox{align-items: center;}
 
@@ -217,17 +232,18 @@ input, textarea, select{border-radius:8px; outline:none;text-indent:10px;height:
 .is_login_input::placeholder{color:var(--color-alabaster);}
 
 /* card */
+.has_board_top_radius{border-top-right-radius: 8px;border-top-left-radius: 8px;}
 
 /*거래카드 베이스*/
 .transcationCard{height:450px;border-radius:4px;color:white;}
 
-.card{height:320px; border-radius: 8px; background-color: var(--color-alabaster);}
+.card{height:320px; border-radius: 4px; background-color: var(--color-alabaster);}
 
 .card_img{height:220px; width: 100%; background:url(photo/test.jpg);}
 
 .card_img_avatar{width:39px; height:39px; background:url(photo/cardimg4.png); border-radius:50%;}
 
-.card_history{display: flex;justify-content: space-evenly; width: 100%;}
+.card_history{display: flex;justify-content: space-evenly; width: 100%; align-items: center;}
 
 .dealingcard{width:255px; height:446px; border-radius:4px; color:white; text-align:center;}
 
@@ -235,9 +251,9 @@ input, textarea, select{border-radius:8px; outline:none;text-indent:10px;height:
 
 /*마이페이지*/
 
-.my_page{width:535px; height:580px; border-radius:30px; color:#505050;}
+.my_page{width:535px; height:580px; border-radius:30px;}
 
-.my_img{width:100px; height:100px; border-radius:50%; background:url(../uitility/photo/HyunjungBrother..png);}
+.my_img{width:100px; height:100px; border-radius:50%; background:url(photo/photo.png);}
 
 .item:nth-child(1){flex-basis:100px;}
 
@@ -249,38 +265,51 @@ input, textarea, select{border-radius:8px; outline:none;text-indent:10px;height:
 
 /*거래 내역*/
 
-.transactionHistory-item:nth-child(1){margin-bottom:70px;}
+.transactionHistory-item{margin-bottom:70px;}
 
-.transactionHistory-item:nth-child(1)>button{width:133px;}
+.transactionHistory-item>button{width:133px;}
 
-.transactionHistory-item:nth-child(2){}
+/*구매자 카드*/
+.is_buyer>div:not(.is_buyer div:first-child){width:255px; height:36px; line-height:36px;}
 
-.transactionHistory-item:nth-child(3){margin-top:60px;}
+.is_buyer_img{width:125px; height:125px; border-radius:50%; background:url(../uitility/photo/cardimg2.png);}
 
 /*구매자 카드*/     /*여기수정햇음*/
 .is_buyer-card{/*grid-column:1/4;*/ height:446px; text-align:center;}
-                                                                                                                /*경로수정*/
-.is_buyer-card-img{display:inline-block; margin-top:55px; border-radius:50%; width:125px; height:125px;}
+/*경로수정*/
+.is_buyer-card-img{display:inline-block; margin-top:55px; border-radius:50%; width:125px; height:125px; background:url(photo/darth.jpg);}
 
 /*판매자 카드*/
 .is_seller>div:not(.is_seller div:first-child){width:255px;}
 
-.is_seller>div:first-child{width:223px; height:170px; background:url(../uitility/photo/cardimg.png);}
+.is_seller>div:first-child{width:223px; height:170px; background:url(static/css/photo/cardimg.png);}
 
 .is_seller>div:nth-child(3){height:120px; display:flex;}
 
 .is_seller>div:nth-child(3)>div:first-child{width:120px; border-radius:50%; background:url(../uitility/photo/cardimg.png);}
 
-/*결제 페이지*/
-
-.payment-page-artwork>div:last-child>ul>li{margin-top:10px;}
-
-.artwork-img{height:350px; background:url(photo/darth.jpg)}
-
-/* 아이콘 */
+/*아이콘*/
 .icon-card{text-align:center; border-radius:8px; width:140px; height:170px;}
 
 .credit-card{}
 
-/*구매자 카드*/
+/*결제 페이지*/
 
+.payment-page-artwork>div:last-child>ul>li{margin-top:10px;}
+
+.artwork-img{height: 350px;width: 100%;object-fit: contain;}
+
+/*hover*/
+
+.hover_header-btn:hover{transform:scale(1.2); color:#91D0D7CC; transition:0.5s; cursor:pointer}
+
+.hover_sign-btn:hover{transform:scale(1.1); transition:0.5s; cursor:pointer}
+
+.hover_top-btn:hover{transform:translateY(-25%); transition: 1s; cursor:pointer}
+
+/*sell page에 있는 이미지만 적용*/
+#sell_box img{width: 100%;height: 110%; object-fit: cover;}
+
+.is_img_object-fit{width: 260px;height: 230px;object-fit: cover}
+
+.is_img_avatar_object-fit{border-radius: 50%; width: 100%;height: 110%; object-fit: cover;}

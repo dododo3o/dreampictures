@@ -64,41 +64,42 @@
 <main class="has_bg_harp" style="height: 100%;">
     <div class="ui modal">
         <i class="close icon"></i>
-        <div class="header">
-            Profile Picture
+        <div class="header" style="background-color: var(--color-aqua-island)">
+            질문사항
         </div>
-        <div class="image content">
-            <div class="ui medium image">
-                <img src="/images/avatar/large/chris.jpg">
+        <div class="description has_flex_row" style="justify-content: flex-start;">
+            <div class="ui medium has_flex_column" style="background-color: #a6bbc347; align-items: flex-start;padding-left: 10px;">
+                <div class="has_flex_center"> <input type="radio" value="question1">question1 question1 question1 question1 question1 </div>
+                <div class="has_flex_center"> <input type="radio" value="question2">question2 question2 question2 question2 question2 </div>
+                <div class="has_flex_center">  <input type="radio" value="question3"> question3 question3 question3 question3 question3  question3 question3</div>
             </div>
-            <div class="description">
-                <div class="ui header">We've auto-chosen a profile image for you.</div>
-                <p>We've grabbed the following image from the <a href="https://www.gravatar.com" target="_blank">gravatar</a> image associated with your registered e-mail address.</p>
-                <p>Is it okay to use this photo?</p>
+            <div class="description has_margin has_width_100">
+                <div class="ui header">질문을 구체적으로 작성해주세요!</div>
+                <textarea class="has_width_100 has_height_80 input_textarea" placeholder="질문사항을 작성해주세요." style="resize: none;"></textarea>
             </div>
         </div>
-        <div class="actions">
-            <div class="ui black deny button">
-                Nope
-            </div>
-            <div class="ui positive right labeled icon button">
-                Yep, that's me
+        <div class="actions" style="background-color: var(--color-aqua-island)">
+            <div class="ui positive right labeled icon button" style="background-color: var(--color-metallic-blue)">
+                올리기
                 <i class="checkmark icon"></i>
             </div>
         </div>
     </div>
+
+
+
     <div class="container" style="height: 100%;">
         <div class="has_flex_column" style="grid-column:1/3; gap:40px; height: 100%; padding-top: 30px; background-color: #a2b0b36e">
-<%--            <a href="#" class="has_evenly" onmouseover="mouseOver()" onmouseout="mouseOut()" style=" padding-top: 10px; padding-bottom: 10px;" id="noticeLink">--%>
-<%--                <span id="menuIcon" style=" color: var(--color-river-bed)"><i class="fas fa-bell fa-lg"></i></span>--%>
-<%--                <div id="menuFont" style="display:flex;align-items: center; margin-left: 10px; color: var(--color-river-bed)">공지사항--%>
-<%--                </div>--%>
-<%--            </a>--%>
-<%--            <a href="#" class="has_evenly" onmouseover="mouseOver2()"  onmouseout="mouseOut2()"style=" padding-top: 10px; padding-bottom: 10px;" id="noticeLink2">--%>
-<%--                <span id="menuIcon2" style=" color: var(--color-river-bed)"><i class="fas fa-question fa-lg"></i></span>--%>
-<%--                <div id="menuFont2" style="display:flex;align-items: center; margin-left: 10px; color: var(--color-river-bed)">질문사항--%>
-<%--                </div>--%>
-<%--            </a>--%>
+            <%--            <a href="#" class="has_evenly" onmouseover="mouseOver()" onmouseout="mouseOut()" style=" padding-top: 10px; padding-bottom: 10px;" id="noticeLink">--%>
+            <%--                <span id="menuIcon" style=" color: var(--color-river-bed)"><i class="fas fa-bell fa-lg"></i></span>--%>
+            <%--                <div id="menuFont" style="display:flex;align-items: center; margin-left: 10px; color: var(--color-river-bed)">공지사항--%>
+            <%--                </div>--%>
+            <%--            </a>--%>
+            <%--            <a href="#" class="has_evenly" onmouseover="mouseOver2()"  onmouseout="mouseOut2()"style=" padding-top: 10px; padding-bottom: 10px;" id="noticeLink2">--%>
+            <%--                <span id="menuIcon2" style=" color: var(--color-river-bed)"><i class="fas fa-question fa-lg"></i></span>--%>
+            <%--                <div id="menuFont2" style="display:flex;align-items: center; margin-left: 10px; color: var(--color-river-bed)">질문사항--%>
+            <%--                </div>--%>
+            <%--            </a>--%>
             <div class="ui vertical animated button" tabindex="0" onclick="showModal()">
                 <div class="hidden content">질문하기</div>
                 <div class="visible content">
