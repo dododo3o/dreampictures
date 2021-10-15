@@ -27,7 +27,8 @@
         <div class="has_flex_center"
              style="grid-column: 1/6; flex-direction: column; gap: 40px;">
             <div style="font-size: 58px;">
-                당신의 그림을<br/>사고 팔고 싶어요.
+                <div style="margin-bottom: 20px">당신의 그림을</div>
+                <br><div>사고 팔고 싶어요.</div>
             </div>
             <div style="font-size: 22px;">여러분의 그림을 사고 싶은 분들이 많이 계실거에요!</div>
         </div>

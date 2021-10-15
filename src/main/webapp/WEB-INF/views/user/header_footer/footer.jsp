@@ -26,7 +26,7 @@
                 <div class="is_logos">
                     <i class="fas fa-palette fg-lg"></i>
                     <div>
-                        <div>
+                        <div style="margin-bottom:14px;">
                             <span>그</span><span class="has_albescent-white">림</span>
                         </div>
                         <div>
@@ -36,7 +36,7 @@
                 </div>
             </a>
         </div>
-        <div class="has_flex_space" style="grid-column: 3/5">
+        <div class="has_flex_space has_font-base" style="grid-column: 3/5">
             <a href="#" class="has_aqua-island">회사 소개</a> <a href="#" class="has_albescent-white">팀원 소개</a>
         </div>
         <div class="has_flex_space" style="grid-column: 10/12">
