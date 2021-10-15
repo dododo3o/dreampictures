@@ -36,7 +36,7 @@
             <a href='/admin/salesHistory' class='anchor hover_header-btn'>판매내역</a>
             <a href='/admin/report' class='anchor hover_header-btn'>신고내역</a>
             <a href='/admin/blacklist' class='anchor hover_header-btn'>블랙리스트</a>
-            <button class='button is_primary hover_sign-btn'>Logout</button>
+            <button class='button is_primary hover_sign-btn'><a href="/admin/logout">Logout</a></button>
         </div>
     </div>
 </header>

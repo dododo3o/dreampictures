@@ -29,10 +29,7 @@ public class AdminController {
     @RequestMapping("/admin/login_check")
     public ModelAndView admin_login_check(LoginAdminVO vo, HttpServletRequest request){
         ModelAndView mv = new ModelAndView();
-        System.out.println(vo.getAdmin());
-        System.out.println(vo.getAdminpwd());
         String adminPwd = adminRepository.findByadminID(vo.getAdmin());
-        System.out.println(adminPwd);
         if(adminPwd ==null){
             mv.setViewName("user/redirect/alert1");
             mv.addObject("msg","관리자 정보를 다시 확인해주세요.");
@@ -50,6 +47,14 @@ public class AdminController {
             }
         }
     }
+
+    @RequestMapping("/admin/logout")
+    public String logout(HttpServletRequest request){
+        HttpSession session =request.getSession();
+        session.invalidate();
+        return "user/admin/login";
+    }
+
 
     @RequestMapping("/admin/report")
     public String admin_report(Model model){ return "user/admin/report";}

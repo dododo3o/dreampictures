@@ -12,6 +12,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.13/semantic.min.css">
     <script src="https://kit.fontawesome.com/b14e6f064f.js" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
@@ -43,6 +44,12 @@
             document.getElementById('menuIcon2').style.color="var(--color-river-bed)";
         }
 
+        function modal(){
+            document.getElementById("modaldiv")
+        }
+    </script>
+    <script type = "text/javascript" >
+        showModal = function () {$('.ui.modal').modal('show');};
     </script>
 </head>
 <body>
@@ -55,6 +62,31 @@
 <jsp:include page="../header_footer/header_not_login.jsp"></jsp:include>
 <% } %>
 <main class="has_bg_harp" style="height: 100%;">
+    <div class="ui modal">
+        <i class="close icon"></i>
+        <div class="header">
+            Profile Picture
+        </div>
+        <div class="image content">
+            <div class="ui medium image">
+                <img src="/images/avatar/large/chris.jpg">
+            </div>
+            <div class="description">
+                <div class="ui header">We've auto-chosen a profile image for you.</div>
+                <p>We've grabbed the following image from the <a href="https://www.gravatar.com" target="_blank">gravatar</a> image associated with your registered e-mail address.</p>
+                <p>Is it okay to use this photo?</p>
+            </div>
+        </div>
+        <div class="actions">
+            <div class="ui black deny button">
+                Nope
+            </div>
+            <div class="ui positive right labeled icon button">
+                Yep, that's me
+                <i class="checkmark icon"></i>
+            </div>
+        </div>
+    </div>
     <div class="container" style="height: 100%;">
         <div class="has_flex_column" style="grid-column:1/3; gap:40px; height: 100%; padding-top: 30px; background-color: #a2b0b36e">
             <a href="#" class="has_evenly" onmouseover="mouseOver()" onmouseout="mouseOut()" style=" padding-top: 10px; padding-bottom: 10px;" id="noticeLink">
@@ -62,24 +94,26 @@
                 <div id="menuFont" style="display:flex;align-items: center; margin-left: 10px; color: var(--color-river-bed)">공지사항
                 </div>
             </a>
-
             <a href="#" class="has_evenly" onmouseover="mouseOver2()"  onmouseout="mouseOut2()"style=" padding-top: 10px; padding-bottom: 10px;" id="noticeLink2">
                 <span id="menuIcon2" style=" color: var(--color-river-bed)"><i class="fas fa-question fa-lg"></i></span>
                 <div id="menuFont2" style="display:flex;align-items: center; margin-left: 10px; color: var(--color-river-bed)">질문사항
                 </div>
             </a>
-
         </div>
-        <div class="has_flex_end" style="grid-column: 3/13; flex-wrap: wrap;">
-
-            <button class="is_primary has_flex_center" style=" margin-top: 20px;">
-                <span style="color: var(--color-river-bed)"><i class="fas fa-pencil-alt fa-lg"></i></span>
-                <div class="has_flex_center " style=" margin-left: 15px; color: var(--color-river-bed); font-size: 30px;">
-                    질문하기
+        <div class="has_flex_end" style="grid-column: 3/13; flex-wrap: wrap; margin-top: 20px;" onclick="showModal()">
+            <div class="ui vertical animated button" tabindex="0">
+                <div class="hidden content">질문하기</div>
+                <div class="visible content">
+                    <i class="question circle icon"></i>
                 </div>
-            </button>
-            <div class="manager_card"
-                 style="display: grid;grid-template-columns:repeat(3,1fr);grid-gap:1rem;width: 100%;">
+            </div>
+<%--            <button class="is_primary has_flex_center"  onclick="showModal()" style=" margin-top: 20px;">--%>
+<%--                <span style="color: var(--color-river-bed)"><i class="fas fa-pencil-alt fa-lg"></i></span>--%>
+<%--                <div class="has_flex_center" style=" margin-left: 15px; color: var(--color-river-bed); font-size: 30px;">--%>
+<%--                    질문하기--%>
+<%--                </div>--%>
+<%--            </button>--%>
+            <div class="manager_card" style="display: grid;grid-template-columns:repeat(3,1fr);grid-gap:1rem;width: 100%;">
                 <div class="ui card" style="height: 100%; margin: 0 auto;">
                     <div class="content">
                         <div class="right floated meta">14h</div>
@@ -180,6 +214,7 @@
         </div>
     </div>
 </main>
+
 <jsp:include page="../header_footer/footer.jsp"></jsp:include>
 </body>
 </html>
