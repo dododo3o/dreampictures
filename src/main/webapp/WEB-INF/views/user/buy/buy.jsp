@@ -18,6 +18,9 @@
     <script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.13/semantic.js"></script>
     <script>
+        function buypainting(num) {
+            location.href ="http://localhost:8080/buy_picture/"+num;
+        }
         showModal = function () {
             $(() => {
                 let pname = document.getElementById("pname").value;
@@ -54,18 +57,16 @@
         <div style="grid-column:1/9;display: flex;flex-direction: column; gap:20px; justify-content: center; margin-top: 70px;">
             <div class="has_chathams-blue" style="font-size: 42px;">그림드림의 당신만의 그림찾기</div>
             <form action="">
-                <div style="display: flex;" class="has_flex_space">
-                    <input type="text" class="has_width_full" id="pname" placeholder="검색어를 입력해주세요."/>
-                    <div class="ui vertical animated button" tabindex="0" onclick="showModal()">
-                        <div class="hidden content">선택완료</div>
-                        <div class="visible content">
-                            <i class="question circle icon"></i>
-                        </div>
-                    </div>
+                <div class="ui action input">
+                    <input type="text" style="font-family: 'BMHANNAPro'; font-size: 1.5em;" placeholder="검색어를 입력해주세요">
+                    <button class=" ui blue icon button">
+                        <i class="search icon"></i>
+                    </button>
                 </div>
             </form>
             <div>
-                <select class="has_width_half" style="margin-right: 90px;" id="style">
+                <select style="font-family: 'BMHANNAPro'; font-size: 1.5em;" class="has_width_half"
+                        style="margin-right: 90px;" id="style">
                     <option value="" disabled selected>화풍</option>
                     <option value="oils">유화</option>
                     <option value="water">수채화</option>
@@ -76,7 +77,7 @@
                     <option value="crayon">크레용화</option>
                     <option value="gouache">과슈화</option>
                 </select>
-                <select class="has_width_half" id="theme">
+                <select style="font-family: 'BMHANNAPro'; font-size: 1.5em;" class="has_width_half" id="theme">
                     <option value="" disabled selected>테마</option>
                     <option value="scenery">풍경</option>
                     <option value="character">인물</option>
@@ -88,7 +89,6 @@
                 </select>
             </div>
             <div style="display: flex;justify-content: space-between;grid-column:1/9;">
-
                 <div><span class="has_chathams-blue">최대너비  : <span id="widthVal">200</span>(CM)<br></span><input
                         type="range" class="width_slider"
                         id="width" min="0" max="200" step="10"
@@ -113,11 +113,10 @@
             <div class="ui card" style="height: 100%; margin: 0 auto;">
                 <div class="content">
                     <div class="right floated meta">14h</div>
-                    <img src="${cardVOlist.avatarimg}"
-                         style="border-radius: 50%; width: 3em;height: 3em;object-fit: cover;">
+                    <img src="${cardVOlist.avatarimg}"  style="border-radius: 50%; width: 3em;height: 3em;object-fit: cover;">
                 </div>
                 <div class="image">
-                    <img src="${cardVOlist.paintingmimg}" style="object-fit: cover; height: 250px">
+                    <img src="${cardVOlist.paintingmimg}" onclick="buypainting(${cardVOlist.no_painting});" style="object-fit: cover; height: 250px">
                 </div>
                 <div class="content">
                     <span class="right floated">
@@ -133,8 +132,7 @@
             </div>
         </c:forEach>
     </div>
-    <div class="container" style="display: flex;justify-content: center;margin-top:30px;padding-bottom: 30px;
-">
+    <div class="container" style="display: flex;justify-content: center;margin-top:30px;padding-bottom: 30px;">
         <div>
             <div class="ui animated button" tabindex="0"
                  style="color:var(--color-white);background-color: var(--color-chathams-blue);">
