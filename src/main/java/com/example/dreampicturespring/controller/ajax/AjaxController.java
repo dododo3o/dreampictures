@@ -27,6 +27,19 @@ public class AjaxController {
 	@ResponseBody
 	public String nickname_check(String nickname){return membershiptblRepository.existsBynickname(nickname) ? "N" : "Y"; }
 
+	@RequestMapping(value = "/ajax_picture_finder",method = RequestMethod.GET, produces ="application/text;charset=UTF-8")
+	@ResponseBody
+	public String picture_finder(String pname,String search,String style,String theme,String width,String height,String price){
+		System.out.println(pname);
+		System.out.println(search);
+		System.out.println(style);
+		System.out.println(theme);
+		System.out.println(width);
+		System.out.println(height);
+		System.out.println(price);
+		return "Y"; }
+
+
 //	@RequestMapping(value = "/ajax_style_check",method = RequestMethod.GET, produces = "application/text;charset=UTF-8")
 //	@ResponseBody
 //	public String style_check(PaintingVO paintingVO){

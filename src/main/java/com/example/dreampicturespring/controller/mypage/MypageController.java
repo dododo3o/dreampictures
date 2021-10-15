@@ -3,6 +3,7 @@ package com.example.dreampicturespring.controller.mypage;
 
 import com.example.dreampicturespring.entity.Membershiptbl;
 import com.example.dreampicturespring.repository.MembershiptblRepository;
+import com.example.dreampicturespring.vo.MypageVO;
 import com.example.dreampicturespring.vo.RegisterVO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -18,15 +19,22 @@ public class MypageController {
     MembershiptblRepository membershiptblRepository;
 
     @RequestMapping("/mypage/{user}")
-    public String mypage(Model model){ return "user/mypage/mypage";
+    public ModelAndView mypage(HttpServletRequest req){
+        ModelAndView mv = new ModelAndView();
+        String user = (String) req.getSession().getAttribute("logEmail");
+        Membershiptbl membership = membershiptblRepository.findByemail(user);
+        MypageVO vo = new MypageVO(membership);
+        mv.addObject("mypageVO",vo);
+        mv.setViewName("user/mypage/mypage");
+        return mv;
     }
 
     @RequestMapping("/changeInfo")
     public ModelAndView changeInfo(HttpServletRequest req) {
         ModelAndView mv = new ModelAndView();
         String user = (String) req.getSession().getAttribute("logEmail");
-        Membershiptbl ms = membershiptblRepository.findByemail(user);
-        RegisterVO vo = new RegisterVO(ms);
+        Membershiptbl membership = membershiptblRepository.findByemail(user);
+        RegisterVO vo = new RegisterVO(membership);
         mv.addObject("memberVO",vo);
         mv.setViewName("user/mypage/changeInfo");
         return mv;
