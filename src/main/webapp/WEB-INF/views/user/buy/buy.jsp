@@ -31,9 +31,10 @@
                     url: "/ajax_picture_finder",
                     data: "pname=" + pname + "&style=" + style + "&theme=" + theme + "&width=" + width + "&height=" + height + "&price=" + price + "&status=" + status,
                     success: function (result) {
-                        if (result == 'Y') {
-                            alert('인증되었습니다!')
-                        }
+                        console.log(result);
+                        var container = document.getElementById("container");
+                        while ( container.hasChildNodes() ) { container.removeChild( container.firstChild ); }
+                        $("#container").html(result);
                     }
                 });
             });
@@ -107,14 +108,12 @@
             </div>
         </div>
     </div>
-    <div class="container"
-         style="display: grid;grid-template-columns: repeat(5,1fr);;grid-gap:1rem;justify-content: space-around;">
+    <div class="container" id="container" style="display: grid;grid-template-columns: repeat(5,1fr);;grid-gap:1rem;justify-content: space-around;">
         <c:forEach var="cardVOlist" items="${cardVOlist}">
             <div class="ui card" style="height: 100%; margin: 0 auto;">
                 <div class="content">
                     <div class="right floated meta">14h</div>
-                    <img src="${cardVOlist.avatarimg}"
-                         style="border-radius: 50%; width: 3em;height: 3em;object-fit: cover;">
+                    <img src="${cardVOlist.avatarimg}" style="border-radius: 50%; width: 3em;height: 3em;object-fit: cover;">
                 </div>
                 <div class="image">
                     <img src="${cardVOlist.paintingmimg}" style="object-fit: cover; height: 250px">
