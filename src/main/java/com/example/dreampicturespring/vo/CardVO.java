@@ -1,5 +1,6 @@
 package com.example.dreampicturespring.vo;
 
+import com.example.dreampicturespring.entity.Membershiptbl;
 import com.example.dreampicturespring.entity.Paintingtbl;
 import lombok.Data;
 
@@ -19,13 +20,12 @@ public class CardVO {
         this.nickname = nickname;
         this.pname = pname;
     }
-    public CardVO(Paintingtbl paintingtbl){
-//        this.no_painting = Long.toString(paintingtbl.getNo_painting());
-//        this.avatarimg = paintingtbl.get;
-//        this.paintingmimg = paintingmimg;
-//        this.nickname = nickname;
-//        this.pname = pname;
-
+    public CardVO(Paintingtbl paintingtbl, Membershiptbl membershiptbl){
+        this.no_painting = Long.toString(paintingtbl.getNo_painting());
+        this.avatarimg = membershiptbl.getImg()+"/avatarimg/avatarimg.jpg";
+        this.paintingmimg = membershiptbl.getImg()+"/paintingimg/"+paintingtbl.getPname()+"/0.jpg";
+        this.nickname = membershiptbl.getNickname();
+        this.pname = paintingtbl.getPname();
     }
 
 }

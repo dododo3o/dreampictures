@@ -37,8 +37,10 @@ public class Membershiptbl {
     private LocalDateTime startDate;
     @Column(name = "memberstatus")
     private Integer memberStatus;
-    @Column(name = "reported")
-    private Integer reported;
+    @Column(name = "report")
+    private Integer report;
+    @Column(name = "dreampay")
+    private Integer dreampay;
 
     public Membershiptbl() {}
 
@@ -51,7 +53,8 @@ public class Membershiptbl {
         this.nickname = vo.getNickname();
         this.img = vo.getImg();
         this.memberStatus = 0;
-        this.reported = 0;
+        this.report = 0;
+        this.dreampay = 0;
         if(StringUtils.isEmpty(startDate)){ this.startDate = LocalDateTime.now();}
     }
 
@@ -63,7 +66,8 @@ public class Membershiptbl {
         this.detailAddr = detatilAddr;
         this.img = img;
         this.memberStatus = 0;
-        this.reported = 0;
+        this.report = 0;
+        this.dreampay = 0;
         if(StringUtils.isEmpty(startDate)){ this.startDate = LocalDateTime.now();}
     }
 }

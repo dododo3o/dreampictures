@@ -10,6 +10,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.multipart.MultipartHttpServletRequest;
+import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.HttpServletRequest;
 import java.io.File;
@@ -23,12 +24,15 @@ public class SellController {
     @Autowired
     MembershiptblRepository membershiptblRepository;
 
+    @RequestMapping("/test")
+    public String test() { return "user/test"; }
+
 
     @RequestMapping("/sell")
     public String sell() { return "user/sell/sell"; }
 
     @RequestMapping("/sell_success")
-    public String sell_success(SellVO vo, HttpServletRequest req) throws IOException {
+    public ModelAndView sell_success(SellVO vo, HttpServletRequest req) throws IOException {
         String user = req.getSession().getAttribute("logEmail").toString();
         String path = "D:\\dreampicture_spring\\src\\main\\resources\\static\\user\\"+user+"\\paintingimg\\"+vo.getPname();
         File newPaintingFolder =  new File(path);
@@ -49,6 +53,11 @@ public class SellController {
         Paintingtbl paintingtbl = new Paintingtbl(vo,ms.getNo_membership());
         paintingRepository.save(paintingtbl);
 
-        return "user/buy/buy";
+        ModelAndView mv = new ModelAndView();
+        mv.setViewName("redirect:/");
+
+        return mv;
     }
+
+
 }

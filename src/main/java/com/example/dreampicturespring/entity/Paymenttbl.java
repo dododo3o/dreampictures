@@ -28,14 +28,6 @@ public class Paymenttbl {
     @Column(name="cardcompony")
     private String cardcompony;
 
-    @Column(name="cardnum")
-    private int cardnum;
-
-    @Column(name="cvcnum")
-    private int cvcnum;
-
-    private String VALIDTHRU;
-
     private Long no_membership;
 
     private Long no_order;
