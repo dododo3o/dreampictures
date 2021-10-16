@@ -1,0 +1,643 @@
+/* 회원가입 */
+CREATE TABLE membershiptbl (
+	no_membership NUMBER NOT NULL, /* 회원가입고유번호 */
+	email VARCHAR2(255) NOT NULL, /* 이메일 */
+	pwd VARCHAR2(255) NOT NULL, /* 비밀번호 */
+	tel VARCHAR2(255) NOT NULL, /* 휴대폰 */
+	addr VARCHAR2(255) NOT NULL, /* 주소 */
+	detailaddr VARCHAR2(100) NOT NULL, /* 상세주소 */
+	nickname VARCHAR2(255) NOT NULL, /* 닉네임 */
+	img VARCHAR2(255), /* 이미지 */
+	startdate DATE DEFAULT sysdate NOT NULL, /* 등록일 */
+	memberstatus NUMBER DEFAULT 0 NOT NULL, /* 회원상태 */
+	report NUMBER DEFAULT 0 NOT NULL, /* 신고당한횟수 */
+	dreampay NUMBER DEFAULT 0
+ NOT NULL /* 드림페이 */
+);
+
+COMMENT ON TABLE membershiptbl IS '회원가입';
+
+COMMENT ON COLUMN membershiptbl.no_membership IS '회원가입고유번호';
+
+COMMENT ON COLUMN membershiptbl.email IS '이메일';
+
+COMMENT ON COLUMN membershiptbl.pwd IS '비밀번호';
+
+COMMENT ON COLUMN membershiptbl.tel IS '휴대폰';
+
+COMMENT ON COLUMN membershiptbl.addr IS '주소';
+
+COMMENT ON COLUMN membershiptbl.detailaddr IS '상세주소';
+
+COMMENT ON COLUMN membershiptbl.nickname IS '닉네임';
+
+COMMENT ON COLUMN membershiptbl.img IS '이미지';
+
+COMMENT ON COLUMN membershiptbl.startdate IS '등록일';
+
+COMMENT ON COLUMN membershiptbl.memberstatus IS '가입0 탈퇴1블랙2';
+
+COMMENT ON COLUMN membershiptbl.report IS '5회이상 블랙';
+
+COMMENT ON COLUMN membershiptbl.dreampay IS '디폴트0';
+
+CREATE UNIQUE INDEX PK_membershiptbl
+	ON membershiptbl (
+		no_membership ASC
+	);
+
+CREATE UNIQUE INDEX UIX_membershiptbl
+	ON membershiptbl (
+		email ASC
+	);
+
+ALTER TABLE membershiptbl
+	ADD
+		CONSTRAINT PK_membershiptbl
+		PRIMARY KEY (
+			no_membership
+		);
+
+ALTER TABLE membershiptbl
+	ADD
+		CONSTRAINT UK_membershiptbl
+		UNIQUE (
+			email
+		);
+
+/* 카트 */
+CREATE TABLE carttbl (
+	no_cart NUMBER NOT NULL, /* 카트고유번호 */
+	no_membership NUMBER NOT NULL, /* 회원가입고유번호 */
+	no_painting NUMBER NOT NULL, /* 그림고유번호 */
+	writedate DATE DEFAULT sysdate NOT NULL, /* 카트등록일 */
+	totalprice NUMBER DEFAULT 0 NOT NULL /* 총가격 */
+);
+
+COMMENT ON TABLE carttbl IS '카트';
+
+COMMENT ON COLUMN carttbl.no_cart IS '카트고유번호';
+
+COMMENT ON COLUMN carttbl.no_membership IS '회원가입고유번호';
+
+COMMENT ON COLUMN carttbl.no_painting IS '그림고유번호';
+
+COMMENT ON COLUMN carttbl.writedate IS '카트등록일';
+
+COMMENT ON COLUMN carttbl.totalprice IS '총가격';
+
+CREATE UNIQUE INDEX PK_carttbl
+	ON carttbl (
+		no_cart ASC
+	);
+
+ALTER TABLE carttbl
+	ADD
+		CONSTRAINT PK_carttbl
+		PRIMARY KEY (
+			no_cart
+		);
+
+/* 관리자 */
+CREATE TABLE admintbl (
+	no_admin NUMBER NOT NULL, /* 관리자고유번호 */
+	adminid VARCHAR2(255) NOT NULL, /* 아이디 */
+	adminpwd VARCHAR2(255) NOT NULL /* 비밀번호 */
+);
+
+COMMENT ON TABLE admintbl IS '관리자';
+
+COMMENT ON COLUMN admintbl.no_admin IS '관리자고유번호';
+
+COMMENT ON COLUMN admintbl.adminid IS '아이디';
+
+COMMENT ON COLUMN admintbl.adminpwd IS '비밀번호';
+
+CREATE UNIQUE INDEX PK_admintbl
+	ON admintbl (
+		no_admin ASC
+	);
+
+ALTER TABLE admintbl
+	ADD
+		CONSTRAINT PK_admintbl
+		PRIMARY KEY (
+			no_admin
+		);
+
+/* 그림 */
+CREATE TABLE paintingtbl (
+	no_painting NUMBER NOT NULL, /* 그림고유번호 */
+	pname VARCHAR2(255) NOT NULL, /* 그림이름 */
+	theme VARCHAR2(255) NOT NULL, /* 테마 */
+	width NUMBER NOT NULL, /* 너비 */
+	height NUMBER NOT NULL, /* 높이 */
+	price NUMBER NOT NULL, /* 가격 */
+	style VARCHAR2(255) NOT NULL, /* 화풍 */
+	writedate DATE DEFAULT sysdate NOT NULL, /* 등록일 */
+	production DATE NOT NULL, /* 제작년도 */
+	exp VARCHAR2(255) NOT NULL, /* 그림설명 */
+	status NUMBER DEFAULT 0 NOT NULL, /* 상태 */
+	no_membership NUMBER NOT NULL /* 회원가입고유번호 */
+);
+
+COMMENT ON TABLE paintingtbl IS '그림';
+
+COMMENT ON COLUMN paintingtbl.no_painting IS '그림고유번호';
+
+COMMENT ON COLUMN paintingtbl.pname IS '그림이름';
+
+COMMENT ON COLUMN paintingtbl.theme IS '테마';
+
+COMMENT ON COLUMN paintingtbl.width IS '너비';
+
+COMMENT ON COLUMN paintingtbl.height IS '높이';
+
+COMMENT ON COLUMN paintingtbl.price IS '가격';
+
+COMMENT ON COLUMN paintingtbl.style IS '화풍';
+
+COMMENT ON COLUMN paintingtbl.writedate IS '등록일';
+
+COMMENT ON COLUMN paintingtbl.production IS '제작년도';
+
+COMMENT ON COLUMN paintingtbl.exp IS '그림설명';
+
+COMMENT ON COLUMN paintingtbl.status IS '정상0 판매완료1 배송중2 배송완료3 일시정지4';
+
+COMMENT ON COLUMN paintingtbl.no_membership IS '회원가입고유번호';
+
+CREATE UNIQUE INDEX PK_paintingtbl
+	ON paintingtbl (
+		no_painting ASC
+	);
+
+ALTER TABLE paintingtbl
+	ADD
+		CONSTRAINT PK_paintingtbl
+		PRIMARY KEY (
+			no_painting
+		);
+
+/* 주문 */
+CREATE TABLE ordertbl (
+	no_order NUMBER NOT NULL, /* 주문고유번호 */
+	orderdate DATE DEFAULT sysdate NOT NULL, /* 주문날짜 */
+	orderstatus NUMBER NOT NULL, /* 주문상태 */
+	no_painting NUMBER NOT NULL, /* 그림고유번호 */
+	no_membership NUMBER NOT NULL, /* 회원가입고유번호 */
+	totalprice NUMBER NOT NULL /* 총가격 */
+);
+
+COMMENT ON TABLE ordertbl IS '주문';
+
+COMMENT ON COLUMN ordertbl.no_order IS '주문고유번호';
+
+COMMENT ON COLUMN ordertbl.orderdate IS '주문날짜';
+
+COMMENT ON COLUMN ordertbl.orderstatus IS '주문상태';
+
+COMMENT ON COLUMN ordertbl.no_painting IS '그림고유번호';
+
+COMMENT ON COLUMN ordertbl.no_membership IS '회원가입고유번호';
+
+COMMENT ON COLUMN ordertbl.totalprice IS '총가격';
+
+CREATE UNIQUE INDEX PK_ordertbl
+	ON ordertbl (
+		no_order ASC
+	);
+
+ALTER TABLE ordertbl
+	ADD
+		CONSTRAINT PK_ordertbl
+		PRIMARY KEY (
+			no_order
+		);
+
+/* 공지사항 */
+CREATE TABLE noticetbl (
+	no_notice NUMBER NOT NULL, /* 공지사항고유번호 */
+	title VARCHAR2(255) NOT NULL, /* 제목 */
+	content VARCHAR2(1000) NOT NULL, /* 공지사항 */
+	writedate DATE DEFAULT sysdate
+ NOT NULL, /* 작성일 */
+	hit NUMBER DEFAULT
+0 NOT NULL, /* 조회수 */
+	status NUMBER DEFAULT 0 NOT NULL, /* 상태 */
+	no_admin NUMBER NOT NULL /* 관리자고유번호 */
+);
+
+COMMENT ON TABLE noticetbl IS '공지사항';
+
+COMMENT ON COLUMN noticetbl.no_notice IS '공지사항고유번호';
+
+COMMENT ON COLUMN noticetbl.title IS '제목';
+
+COMMENT ON COLUMN noticetbl.content IS '공지사항';
+
+COMMENT ON COLUMN noticetbl.writedate IS '작성일';
+
+COMMENT ON COLUMN noticetbl.hit IS '조회수';
+
+COMMENT ON COLUMN noticetbl.status IS '상태';
+
+COMMENT ON COLUMN noticetbl.no_admin IS '관리자고유번호';
+
+CREATE UNIQUE INDEX PK_noticetbl
+	ON noticetbl (
+		no_notice ASC
+	);
+
+ALTER TABLE noticetbl
+	ADD
+		CONSTRAINT PK_noticetbl
+		PRIMARY KEY (
+			no_notice
+		);
+
+/* 질문사항 */
+CREATE TABLE qatbl (
+	no_qa NUMBER NOT NULL, /* 질문고유번호 */
+	no_membership NUMBER NOT NULL, /* 회원가입고유번호 */
+	title VARCHAR2(255) NOT NULL, /* 제목 */
+	content VARCHAR2(500) NOT NULL, /* 질문사항 */
+	writedate DATE DEFAULT sysdate NOT NULL, /* 작성일 */
+	hit NUMBER DEFAULT 0 NOT NULL, /* 조회수 */
+	status NUMBER DEFAULT 0 NOT NULL, /* 상태 */
+	no_reply NUMBER NOT NULL /* 댓글고유번호 */
+);
+
+COMMENT ON TABLE qatbl IS '질문사항';
+
+COMMENT ON COLUMN qatbl.no_qa IS '질문고유번호';
+
+COMMENT ON COLUMN qatbl.no_membership IS '회원가입고유번호';
+
+COMMENT ON COLUMN qatbl.title IS '제목';
+
+COMMENT ON COLUMN qatbl.content IS '질문사항';
+
+COMMENT ON COLUMN qatbl.writedate IS '작성일';
+
+COMMENT ON COLUMN qatbl.hit IS '조회수';
+
+COMMENT ON COLUMN qatbl.status IS '상태';
+
+COMMENT ON COLUMN qatbl.no_reply IS '댓글고유번호';
+
+CREATE UNIQUE INDEX PK_qatbl
+	ON qatbl (
+		no_qa ASC
+	);
+
+ALTER TABLE qatbl
+	ADD
+		CONSTRAINT PK_qatbl
+		PRIMARY KEY (
+			no_qa
+		);
+
+/* 댓글 */
+CREATE TABLE replytbl (
+	no_reply NUMBER NOT NULL, /* 댓글고유번호 */
+	reply VARCHAR2(500) NOT NULL, /* 댓글 */
+	writedate DATE DEFAULT sysdate NOT NULL, /* 날짜 */
+	no_admin NUMBER NOT NULL /* 관리자고유번호 */
+);
+
+COMMENT ON TABLE replytbl IS '댓글';
+
+COMMENT ON COLUMN replytbl.no_reply IS '댓글고유번호';
+
+COMMENT ON COLUMN replytbl.reply IS '댓글';
+
+COMMENT ON COLUMN replytbl.writedate IS '날짜';
+
+COMMENT ON COLUMN replytbl.no_admin IS '관리자고유번호';
+
+CREATE UNIQUE INDEX PK_replytbl
+	ON replytbl (
+		no_reply ASC
+	);
+
+ALTER TABLE replytbl
+	ADD
+		CONSTRAINT PK_replytbl
+		PRIMARY KEY (
+			no_reply
+		);
+
+/* 결제 */
+CREATE TABLE paymenttbl (
+	no_payment NUMBER NOT NULL, /* 결제고유번호 */
+	paymentprice NUMBER DEFAULT 0 NOT NULL, /* 결제금액 */
+	paymentdate DATE DEFAULT sysdate NOT NULL, /* 결제일 */
+	cardcompany VARCHAR2(100) NOT NULL, /* 카드사 */
+	no_membership NUMBER NOT NULL, /* 회원가입고유번호 */
+	no_order NUMBER NOT NULL, /* 주문고유번호 */
+	no_cart NUMBER NOT NULL /* 카트고유번호 */
+);
+
+COMMENT ON TABLE paymenttbl IS '결제';
+
+COMMENT ON COLUMN paymenttbl.no_payment IS '결제고유번호';
+
+COMMENT ON COLUMN paymenttbl.paymentprice IS '결제금액';
+
+COMMENT ON COLUMN paymenttbl.paymentdate IS '결제일';
+
+COMMENT ON COLUMN paymenttbl.cardcompany IS '카드사';
+
+COMMENT ON COLUMN paymenttbl.no_membership IS '회원가입고유번호';
+
+COMMENT ON COLUMN paymenttbl.no_order IS '주문고유번호';
+
+COMMENT ON COLUMN paymenttbl.no_cart IS '카트고유번호';
+
+CREATE UNIQUE INDEX PK_paymenttbl
+	ON paymenttbl (
+		no_payment ASC
+	);
+
+ALTER TABLE paymenttbl
+	ADD
+		CONSTRAINT PK_paymenttbl
+		PRIMARY KEY (
+			no_payment
+		);
+
+/* 신고 */
+CREATE TABLE reporttbl (
+	no_report NUMBER NOT NULL, /* 신고자고유번호 */
+	no_membership NUMBER NOT NULL, /* 회원가입고유번호 */
+	no_painting NUMBER NOT NULL /* 그림고유번호 */
+);
+
+COMMENT ON TABLE reporttbl IS '신고';
+
+COMMENT ON COLUMN reporttbl.no_report IS '신고자고유번호';
+
+COMMENT ON COLUMN reporttbl.no_membership IS '원고';
+
+COMMENT ON COLUMN reporttbl.no_painting IS '피고';
+
+CREATE UNIQUE INDEX PK_reporttbl
+	ON reporttbl (
+		no_report ASC
+	);
+
+ALTER TABLE reporttbl
+	ADD
+		CONSTRAINT PK_reporttbl
+		PRIMARY KEY (
+			no_report
+		);
+
+/* 좋아요 */
+CREATE TABLE liketbl (
+	no_like NUMBER DEFAULT 0 NOT NULL, /* 좋아요고유번호 */
+	no_membership NUMBER NOT NULL, /* 회원가입고유번호 */
+	likepainting NUMBER DEFAULT 0 NOT NULL, /* 좋아요 */
+	no_painting NUMBER NOT NULL /* 그림고유번호 */
+);
+
+COMMENT ON TABLE liketbl IS '좋아요';
+
+COMMENT ON COLUMN liketbl.no_like IS '좋아요고유번호';
+
+COMMENT ON COLUMN liketbl.no_membership IS '회원가입고유번호';
+
+COMMENT ON COLUMN liketbl.likepainting IS '0은 기본 1은 올라감';
+
+COMMENT ON COLUMN liketbl.no_painting IS '그림고유번호';
+
+CREATE UNIQUE INDEX PK_liketbl
+	ON liketbl (
+		no_like ASC
+	);
+
+ALTER TABLE liketbl
+	ADD
+		CONSTRAINT PK_liketbl
+		PRIMARY KEY (
+			no_like
+		);
+
+/* 코멘트 */
+CREATE TABLE commentstbl (
+	no_comment NUMBER DEFAULT 0 NOT NULL, /* 코멘트고유번호 */
+	no_membership NUMBER NOT NULL, /* 회원가입고유번호 */
+	comments VARCHAR2(500), /* 코멘트 */
+	no_painting NUMBER NOT NULL /* 그림고유번호 */
+);
+
+COMMENT ON TABLE commentstbl IS '코멘트';
+
+COMMENT ON COLUMN commentstbl.no_comment IS '코멘트고유번호';
+
+COMMENT ON COLUMN commentstbl.no_membership IS '회원가입고유번호';
+
+COMMENT ON COLUMN commentstbl.comments IS '코멘트';
+
+COMMENT ON COLUMN commentstbl.no_painting IS '그림고유번호';
+
+CREATE UNIQUE INDEX PK_commentstbl
+	ON commentstbl (
+		no_comment ASC
+	);
+
+ALTER TABLE commentstbl
+	ADD
+		CONSTRAINT PK_commentstbl
+		PRIMARY KEY (
+			no_comment
+		);
+
+ALTER TABLE carttbl
+	ADD
+		CONSTRAINT FK_membershiptbl_TO_carttbl
+		FOREIGN KEY (
+			no_membership
+		)
+		REFERENCES membershiptbl (
+			no_membership
+		);
+
+ALTER TABLE carttbl
+	ADD
+		CONSTRAINT FK_paintingtbl_TO_carttbl
+		FOREIGN KEY (
+			no_painting
+		)
+		REFERENCES paintingtbl (
+			no_painting
+		);
+
+ALTER TABLE paintingtbl
+	ADD
+		CONSTRAINT FK_membershiptbl_TO_paintingtbl
+		FOREIGN KEY (
+			no_membership
+		)
+		REFERENCES membershiptbl (
+			no_membership
+		);
+
+ALTER TABLE ordertbl
+	ADD
+		CONSTRAINT FK_paintingtbl_TO_ordertbl
+		FOREIGN KEY (
+			no_painting
+		)
+		REFERENCES paintingtbl (
+			no_painting
+		);
+
+ALTER TABLE ordertbl
+	ADD
+		CONSTRAINT FK_membershiptbl_TO_ordertbl
+		FOREIGN KEY (
+			no_membership
+		)
+		REFERENCES membershiptbl (
+			no_membership
+		);
+
+ALTER TABLE noticetbl
+	ADD
+		CONSTRAINT FK_admintbl_TO_noticetbl
+		FOREIGN KEY (
+			no_admin
+		)
+		REFERENCES admintbl (
+			no_admin
+		);
+
+ALTER TABLE qatbl
+	ADD
+		CONSTRAINT FK_membershiptbl_TO_qatbl
+		FOREIGN KEY (
+			no_membership
+		)
+		REFERENCES membershiptbl (
+			no_membership
+		);
+
+ALTER TABLE qatbl
+	ADD
+		CONSTRAINT FK_replytbl_TO_qatbl
+		FOREIGN KEY (
+			no_reply
+		)
+		REFERENCES replytbl (
+			no_reply
+		);
+
+ALTER TABLE replytbl
+	ADD
+		CONSTRAINT FK_admintbl_TO_replytbl
+		FOREIGN KEY (
+			no_admin
+		)
+		REFERENCES admintbl (
+			no_admin
+		);
+
+ALTER TABLE paymenttbl
+	ADD
+		CONSTRAINT FK_membershiptbl_TO_paymenttbl
+		FOREIGN KEY (
+			no_membership
+		)
+		REFERENCES membershiptbl (
+			no_membership
+		);
+
+ALTER TABLE paymenttbl
+	ADD
+		CONSTRAINT FK_ordertbl_TO_paymenttbl
+		FOREIGN KEY (
+			no_order
+		)
+		REFERENCES ordertbl (
+			no_order
+		);
+
+ALTER TABLE paymenttbl
+	ADD
+		CONSTRAINT FK_carttbl_TO_paymenttbl
+		FOREIGN KEY (
+			no_cart
+		)
+		REFERENCES carttbl (
+			no_cart
+		);
+
+ALTER TABLE reporttbl
+	ADD
+		CONSTRAINT FK_membershiptbl_TO_reporttbl
+		FOREIGN KEY (
+			no_membership
+		)
+		REFERENCES membershiptbl (
+			no_membership
+		);
+
+ALTER TABLE reporttbl
+	ADD
+		CONSTRAINT FK_paintingtbl_TO_reporttbl
+		FOREIGN KEY (
+			no_painting
+		)
+		REFERENCES paintingtbl (
+			no_painting
+		);
+
+ALTER TABLE liketbl
+	ADD
+		CONSTRAINT FK_membershiptbl_TO_liketbl
+		FOREIGN KEY (
+			no_membership
+		)
+		REFERENCES membershiptbl (
+			no_membership
+		);
+
+ALTER TABLE liketbl
+	ADD
+		CONSTRAINT FK_paintingtbl_TO_liketbl
+		FOREIGN KEY (
+			no_painting
+		)
+		REFERENCES paintingtbl (
+			no_painting
+		);
+
+ALTER TABLE commentstbl
+	ADD
+		CONSTRAINT FK_membershiptbl_TO_commentstbl
+		FOREIGN KEY (
+			no_membership
+		)
+		REFERENCES membershiptbl (
+			no_membership
+		);
+
+ALTER TABLE commentstbl
+	ADD
+		CONSTRAINT FK_paintingtbl_TO_commentstbl
+		FOREIGN KEY (
+			no_painting
+		)
+		REFERENCES paintingtbl (
+			no_painting
+		);
+
+CREATE SEQUENCE ADMINSQ
+INCREMENT BY 1
+START WITH 1
+MINVALUE 1
+MAXVALUE 999999999999
+NOCYCLE
+CACHE;
