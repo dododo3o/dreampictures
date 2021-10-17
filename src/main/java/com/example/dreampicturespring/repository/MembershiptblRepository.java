@@ -6,9 +6,9 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 
-public interface MembershiptblRepository extends JpaRepository<Membershiptbl,Long> {
+public interface MembershiptblRepository extends JpaRepository<Membershiptbl,Integer> {
         @Override
-        Membershiptbl getById(Long aLong);
+        Membershiptbl getById(Integer aInteger);
         Membershiptbl findByemail(String email);
         Boolean existsByemail(String email);
         Boolean existsBytel(String tel);

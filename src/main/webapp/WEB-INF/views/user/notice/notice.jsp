@@ -50,6 +50,19 @@
     </script>
     <script type = "text/javascript" >
         showModal = function () {$('.ui.modal').modal('show');};
+        requestQA = function () {
+            $(() => {
+                let question = document.getElementById("question").value;
+                let status = 0; //0~4 까지 질문 종류
+                $.ajax({
+                    url: "/ajax_request_QA",
+                    data: "question="+question+"&status="+status,
+                    success: function (result) {
+                        document.location.href = "/notice";
+                    }
+                });
+            });
+        };
     </script>
 </head>
 <body>
@@ -73,33 +86,20 @@
                     <button class="ui button">구매/판매</button>
                     <button class="ui button">가격 정책</button>
                     <button class="ui button">계정 인증</button>
-                    <button class="ui button ">그 외 질문</button>
+                    <button class="ui button">그 외 질문</button>
                 </div>
-                <textarea></textarea>
+                <textarea id="question"></textarea>
             </div>
         </div>
         <div class="actions" style="background-color: #95afc0">
-            <div class="ui positive right labeled icon button" style="background-color: var(--color-metallic-blue)">
+            <div class="ui positive right labeled icon button" style="background-color: var(--color-metallic-blue)" onclick="requestQA()">
                 올리기
                 <i class="checkmark icon"></i>
             </div>
         </div>
     </div>
-
-
-
     <div class="container" style="height: 100%;">
         <div class="has_flex_column" style="grid-column:1/3; gap:40px; height: 100%; padding-top: 30px; background-color: #a2b0b36e">
-            <%--            <a href="#" class="has_evenly" onmouseover="mouseOver()" onmouseout="mouseOut()" style=" padding-top: 10px; padding-bottom: 10px;" id="noticeLink">--%>
-            <%--                <span id="menuIcon" style=" color: var(--color-river-bed)"><i class="fas fa-bell fa-lg"></i></span>--%>
-            <%--                <div id="menuFont" style="display:flex;align-items: center; margin-left: 10px; color: var(--color-river-bed)">공지사항--%>
-            <%--                </div>--%>
-            <%--            </a>--%>
-            <%--            <a href="#" class="has_evenly" onmouseover="mouseOver2()"  onmouseout="mouseOut2()"style=" padding-top: 10px; padding-bottom: 10px;" id="noticeLink2">--%>
-            <%--                <span id="menuIcon2" style=" color: var(--color-river-bed)"><i class="fas fa-question fa-lg"></i></span>--%>
-            <%--                <div id="menuFont2" style="display:flex;align-items: center; margin-left: 10px; color: var(--color-river-bed)">질문사항--%>
-            <%--                </div>--%>
-            <%--            </a>--%>
             <div class="ui vertical animated button" tabindex="0" onclick="showModal()">
                 <div class="hidden content">질문하기</div>
                 <div class="visible content">
@@ -127,14 +127,15 @@
                 </div>
             </div>
             <div class="manager_card" style="display: grid;grid-template-columns:repeat(3,1fr);grid-gap:1rem;width: 100%;">
-                <div class="ui card" style="height: 100%; margin: 0 auto;">
+                <c:forEach var="noticeVOList" items="${noticeVOList}">
+                    <div class="ui card" style="height: 100%; margin: 0 auto;">
                     <div class="content">
                         <div class="right floated meta">14h</div>
-                        <img src="${cardVOlist.avatarimg}"
-                             style="border-radius: 50%; width: 3em;height: 3em;object-fit: cover;">
+                        <span>${noticeVOList.content}</span>
+                        <img src="${noticeVOList.avatarimg}" style="border-radius: 50%; width: 3em;height: 3em;object-fit: cover;">
                     </div>
                     <div class="image">
-                        <img src="/resources/user/qwer/paintingimg/bitcamp/0.jpg" style="object-fit: cover; height: 250px"></a>
+                        <img src="${noticeVOList.paintingmimg}" style="object-fit: cover; height: 250px"></a>
                     </div>
                     <div class="content">
                     <span class="right floated">
@@ -151,78 +152,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="ui card" style="height: 100%; margin: 0 auto;">
-                    <div class="content">
-                        <div class="right floated meta">14h</div>
-                        <img src="${cardVOlist.avatarimg}"
-                             style="border-radius: 50%; width: 3em;height: 3em;object-fit: cover;">
-                    </div>
-                    <div class="image">
-                        <img src="/resources/user/qwer/paintingimg/bitcamp/0.jpg" style="object-fit: cover; height: 250px"></a>
-                    </div>
-                    <div class="content">
-                    <span class="right floated">
-                      <i class="heart outline like icon"></i>
-                      17 likes
-                    </span>
-                        <i class="comment icon"></i>
-                        3 comments
-                    </div>
-                    <div class="extra content">
-                        <div class="ui large transparent left icon input">
-                            <i class="heart outline icon"></i>
-                            <input type="text" placeholder="Add Comment...">
-                        </div>
-                    </div>
-                </div>
-                <div class="ui card" style="height: 100%; margin: 0 auto;">
-                    <div class="content">
-                        <div class="right floated meta">14h</div>
-                        <img src="${cardVOlist.avatarimg}"
-                             style="border-radius: 50%; width: 3em;height: 3em;object-fit: cover;">
-                    </div>
-                    <div class="image">
-                        <img src="/resources/user/qwer/paintingimg/bitcamp/0.jpg" style="object-fit: cover; height: 250px"></a>
-                    </div>
-                    <div class="content">
-                    <span class="right floated">
-                      <i class="heart outline like icon"></i>
-                      17 likes
-                    </span>
-                        <i class="comment icon"></i>
-                        3 comments
-                    </div>
-                    <div class="extra content">
-                        <div class="ui large transparent left icon input">
-                            <i class="heart outline icon"></i>
-                            <input type="text" placeholder="Add Comment...">
-                        </div>
-                    </div>
-                </div>
-                <div class="ui card" style="height: 100%; margin: 0 auto;">
-                    <div class="content">
-                        <div class="right floated meta">14h</div>
-                        <img src="${cardVOlist.avatarimg}"
-                             style="border-radius: 50%; width: 3em;height: 3em;object-fit: cover;">
-                    </div>
-                    <div class="image">
-                        <img src="/resources/user/qwer/paintingimg/bitcamp/0.jpg" style="object-fit: cover; height: 250px"></a>
-                    </div>
-                    <div class="content">
-                    <span class="right floated">
-                      <i class="heart outline like icon"></i>
-                      17 likes
-                    </span>
-                        <i class="comment icon"></i>
-                        3 comments
-                    </div>
-                    <div class="extra content">
-                        <div class="ui large transparent left icon input">
-                            <i class="heart outline icon"></i>
-                            <input type="text" placeholder="Add Comment...">
-                        </div>
-                    </div>
-                </div>
+                </c:forEach>
             </div>
         </div>
     </div>

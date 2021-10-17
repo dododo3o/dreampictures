@@ -10,7 +10,7 @@ import java.util.List;
 
 @Data
 public class PaintingVO {
-    private Long no_painting;
+    private Integer no_painting;
     private String pname;
     private String paintingimg;
     private String avatarimg;

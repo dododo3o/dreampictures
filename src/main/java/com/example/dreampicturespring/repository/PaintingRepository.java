@@ -7,7 +7,7 @@ import org.springframework.data.repository.query.Param;
 
 import java.util.List;
 
-public interface PaintingRepository extends JpaRepository<Paintingtbl, Long> {
+public interface PaintingRepository extends JpaRepository<Paintingtbl, Integer> {
     @Query(value = "select paintingtbl.no_painting,membershiptbl.img,membershiptbl.nickname,paintingtbl.pname from paintingtbl, membershiptbl where paintingtbl.no_membership = membershiptbl.no_membership", nativeQuery = true)
     List<String> findAllPainting_Desc();
 

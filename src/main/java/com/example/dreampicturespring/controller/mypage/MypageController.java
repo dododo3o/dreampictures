@@ -48,13 +48,13 @@ public class MypageController {
     public String charge() { return "user/mypage/charge";}
 
     @RequestMapping("/charge_money")
-    public String charge_money(Long amount,HttpServletRequest request) {
+    public String charge_money(Integer amount,HttpServletRequest request) {
         System.out.println(amount);
         HttpSession session =request.getSession();
         if(session.getAttribute("logStatus") == null){ return "user/login/login"; }
         Membershiptbl membershipTBL = membershiptblRepository.findByemail((String) session.getAttribute("logEmail"));
         System.out.println(membershipTBL);
-        membershiptblRepository.UpdateDreampay(Long.toString(amount),Long.toString(membershipTBL.getNo_membership()));
+        membershiptblRepository.UpdateDreampay(Integer.toString(amount),Integer.toString(membershipTBL.getNo_membership()));
         return "user/mypage/charge";}
 
     @RequestMapping("/changeSuccess")

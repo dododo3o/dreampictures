@@ -17,7 +17,7 @@ public class Admintbl {
     @Id //바로아래있는 멤버를 프라이머리키지정해준다.
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "ADMIN_SEQ")//맴버테이블의 시퀀스를 만들어준다.
     @SequenceGenerator(sequenceName = "ADMINSQ", allocationSize = 1, name = "ADMIN_SEQ")//시퀀스를 만들어주는데 오른쪽의 시퀀스 이름을 똑같이 맞춰야한다.
-    private Long no_admin;
+    private Integer no_admin;
     private String admin;
     private String adminpwd;
 

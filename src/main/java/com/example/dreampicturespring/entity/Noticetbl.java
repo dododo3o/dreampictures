@@ -17,13 +17,13 @@ public class Noticetbl {
     @Id //바로아래있는 멤버를 프라이머리키지정해준다.
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "Notice_SEQ")//맴버테이블의 시퀀스를 만들어준다.
     @SequenceGenerator(sequenceName = "NoticeSQ", allocationSize = 1, name = "Notice_SEQ")//시퀀스를 만들어주는데 오른쪽의 시퀀스 이름을 똑같이 맞춰야한다.
-    private Long no_notice;
+    private Integer no_notice;
     private String title;
     private String content;
     private LocalDateTime writedate;
-    private Long hit;
-    private Long status;
-    private Long no_admin;
+    private Integer hit;
+    private Integer status;
+    private Integer no_admin;
 
     public Noticetbl(){
         if(StringUtils.isEmpty(writedate)){

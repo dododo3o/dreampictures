@@ -31,7 +31,7 @@ public class BuyController {
     MembershiptblRepository membershiptblRepository;
 
     @RequestMapping("/buy")
-    public ModelAndView buy(HttpServletRequest request){
+    public ModelAndView buy(){
         final int CARDSPERPAGE = 15;
         int cardNum = 0,pageNum;
         ModelAndView mv = new ModelAndView();
@@ -55,7 +55,7 @@ public class BuyController {
     public ModelAndView buy_picture(HttpServletRequest request, @PathVariable String no_painting) {
         ModelAndView mv = new ModelAndView();
         mv.setViewName("user/buy/buy_picture");
-        Optional<Paintingtbl> PTBL = paintingRepository.findById(Long.parseLong(no_painting));
+        Optional<Paintingtbl> PTBL = paintingRepository.findById(Integer.parseInt(no_painting));
         Paintingtbl paintingTBL = PTBL.get();
         Optional<Membershiptbl> MTBL = membershiptblRepository.findById(paintingTBL.getNo_membership());
         Membershiptbl membershipTBL = MTBL.get();
@@ -73,7 +73,7 @@ public class BuyController {
             mv.setViewName("user/login/login");
             return mv;
         }
-        Optional<Paintingtbl> PTBL = paintingRepository.findById(Long.parseLong(no_painting));
+        Optional<Paintingtbl> PTBL = paintingRepository.findById(Integer.parseInt(no_painting));
         Paintingtbl paintingTBL = PTBL.get();
         Membershiptbl membershipTBL = membershiptblRepository.findByemail((String) session.getAttribute("logEmail"));
         PaymentVO paymentVO = new PaymentVO(paintingTBL,membershipTBL);
@@ -90,7 +90,7 @@ public class BuyController {
             mv.setViewName("user/login/login");
             return mv;
         }
-        Optional<Paintingtbl> PTBL = paintingRepository.findById(Long.parseLong(no_painting));
+        Optional<Paintingtbl> PTBL = paintingRepository.findById(Integer.parseInt(no_painting));
         Paintingtbl paintingTBL = PTBL.get();
         Optional<Membershiptbl> sellerMembershipTBL = membershiptblRepository.findById((paintingTBL.getNo_membership()));
         Membershiptbl sellerMembershiptbl = sellerMembershipTBL.get();

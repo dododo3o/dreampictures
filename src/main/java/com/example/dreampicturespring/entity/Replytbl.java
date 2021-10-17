@@ -17,7 +17,7 @@ public class Replytbl {
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "REPLY_SEQ")
     @SequenceGenerator(sequenceName = "REPLYSQ", allocationSize = 1, name = "REPLY_SEQ")
-    private long no_reply;
+    private Integer no_reply;
     private String reply;
 
     @Column(name="writedate")

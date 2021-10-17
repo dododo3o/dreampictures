@@ -18,7 +18,7 @@ public class Membershiptbl {
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "MEM_SEQ")
     @SequenceGenerator(sequenceName = "MEMBERSHIPSQ", allocationSize = 1, name = "MEM_SEQ")
-    private Long no_membership;
+    private Integer no_membership;
     @Column
     private String email;
     @Column

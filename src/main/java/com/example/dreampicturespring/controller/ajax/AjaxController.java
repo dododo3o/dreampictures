@@ -2,8 +2,11 @@ package com.example.dreampicturespring.controller.ajax;
 
 import com.example.dreampicturespring.entity.Membershiptbl;
 import com.example.dreampicturespring.entity.Paintingtbl;
+import com.example.dreampicturespring.entity.Qatbl;
+import com.example.dreampicturespring.entity.Replytbl;
 import com.example.dreampicturespring.repository.MembershiptblRepository;
 import com.example.dreampicturespring.repository.PaintingRepository;
+import com.example.dreampicturespring.repository.QaRepository;
 import com.example.dreampicturespring.vo.CardVO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -14,6 +17,8 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -25,6 +30,9 @@ public class AjaxController {
 	MembershiptblRepository membershiptblRepository;
 	@Autowired
 	PaintingRepository paintingRepository;
+	@Autowired
+	QaRepository qaRepository;
+
 
 	@RequestMapping(value="/ajax_email_check",method=RequestMethod.GET, produces="application/text;charset=UTF-8")
 	@ResponseBody
@@ -51,12 +59,19 @@ public class AjaxController {
 		return "user/ajax/picture_find";
 	}
 
-	@RequestMapping(value = "/ajax_mypage_",method = RequestMethod.GET, produces ="application/text;charset=UTF-8")
-	public String mypage_charge(){
+	@RequestMapping(value = "/ajax_request_QA",method = RequestMethod.GET, produces ="application/text;charset=UTF-8")
+	public String request_QA(HttpServletRequest request, String question, Integer status){
+		System.out.println(question);
+		System.out.println(status);
 
+		HttpSession session = request.getSession();
+		Membershiptbl membershipTBL = membershiptblRepository.findByemail((String) session.getAttribute("logEmail"));
 
+		//todo 리플테이블 재작성
+		Qatbl qatbl = new Qatbl(membershipTBL, question, status);
+		qaRepository.save(qatbl);
 
-		return "user/ajax/mypage_charge";
+		return "redirect:/buy";
 	}
 
 
@@ -64,5 +79,16 @@ public class AjaxController {
 	private String makeNotNull(String target){
 		if(StringUtils.isEmpty(target)) return target = null;
 		return target;
+	}
+	private String makeTitle(Integer status){
+		switch (status){
+			case 0: return "운영정책";
+			case 1: return "구매/판매";
+			case 2: return "가격정책";
+			case 3: return "계정인증";
+			case 4: return "그 외 질문";
+			default: return "";
+		}
+
 	}
 }

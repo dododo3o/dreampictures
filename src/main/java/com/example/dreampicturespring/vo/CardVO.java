@@ -21,7 +21,7 @@ public class CardVO {
         this.pname = pname;
     }
     public CardVO(Paintingtbl paintingtbl, Membershiptbl membershiptbl){
-        this.no_painting = Long.toString(paintingtbl.getNo_painting());
+        this.no_painting = Integer.toString(paintingtbl.getNo_painting());
         this.avatarimg = membershiptbl.getImg()+"/avatarimg/avatarimg.jpg";
         this.paintingmimg = membershiptbl.getImg()+"/paintingimg/"+paintingtbl.getPname()+"/0.jpg";
         this.nickname = membershiptbl.getNickname();
