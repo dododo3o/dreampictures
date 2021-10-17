@@ -63,22 +63,22 @@
 <% } %>
 <main class="has_bg_harp" style="height: 100%;">
     <div class="ui modal">
-        <i class="close icon"></i>
-        <div class="header" style="background-color: var(--color-aqua-island)">
-            질문사항
+        <div class="header">
+            질문 사항
         </div>
-        <div class="description has_flex_row" style="justify-content: flex-start;">
-            <div class="ui medium has_flex_column" style="background-color: #a6bbc347; align-items: flex-start;padding-left: 10px;">
-                <div class="has_flex_center"> <input type="radio" value="question1">question1 question1 question1 question1 question1 </div>
-                <div class="has_flex_center"> <input type="radio" value="question2">question2 question2 question2 question2 question2 </div>
-                <div class="has_flex_center">  <input type="radio" value="question3"> question3 question3 question3 question3 question3  question3 question3</div>
-            </div>
-            <div class="description has_margin has_width_100">
-                <div class="ui header">질문을 구체적으로 작성해주세요!</div>
-                <textarea class="has_width_100 has_height_80 input_textarea" placeholder="질문사항을 작성해주세요." style="resize: none;"></textarea>
+        <div class="ui form">
+            <div class="field">
+                <div class="five ui buttons">
+                    <button class="ui button">운영 정책</button>
+                    <button class="ui button">구매/판매</button>
+                    <button class="ui button">가격 정책</button>
+                    <button class="ui button">계정 인증</button>
+                    <button class="ui button ">그 외 질문</button>
+                </div>
+                <textarea></textarea>
             </div>
         </div>
-        <div class="actions" style="background-color: var(--color-aqua-island)">
+        <div class="actions" style="background-color: #95afc0">
             <div class="ui positive right labeled icon button" style="background-color: var(--color-metallic-blue)">
                 올리기
                 <i class="checkmark icon"></i>

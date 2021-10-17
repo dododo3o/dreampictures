@@ -58,13 +58,19 @@
         <div style="grid-column:1/9;display: flex;flex-direction: column; gap:20px; justify-content: center; margin-top: 70px;">
             <div class="has_chathams-blue" style="font-size: 42px;">그림드림의 당신만의 그림찾기</div>
             <form action="">
-                <div class="ui action input">
-                    <input type="text" style="font-family: 'BMHANNAPro'; font-size: 1.5em;" placeholder="검색어를 입력해주세요">
-                    <button class=" ui blue icon button">
-                        <i class="search icon"></i>
-                    </button>
+                <div style="display: flex;" class="has_flex_space">
+                    <input type="text" class="has_width_full" id="pname" placeholder="검색어를 입력해주세요."/>
+                    <div class="ui vertical animated button" tabindex="0" onclick="showModal()">
+                        <div class="hidden content">선택완료</div>
+                        <div class="visible content">
+                            <i class="question circle icon"></i>
+                        </div>
+                    </div>
                 </div>
             </form>
+            <button class=" ui blue icon button" onclick="showModal()">
+                <i class="search icon"></i>찾기
+            </button>
             <div>
                 <select style="font-family: 'BMHANNAPro'; font-size: 1.5em;" class="has_width_half"
                         style="margin-right: 90px;" id="style">

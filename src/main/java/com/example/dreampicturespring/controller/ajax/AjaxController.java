@@ -39,7 +39,7 @@ public class AjaxController {
 	public String nickname_check(String nickname){return membershiptblRepository.existsBynickname(nickname) ? "N" : "Y"; }
 
 	@RequestMapping(value = "/ajax_picture_finder",method = RequestMethod.GET, produces ="application/text;charset=UTF-8")
-	public String picture_finder(Model model, String pname, String style, String theme, Integer width, Integer height, Integer price, Integer status){
+	public String picture_find(Model model, String pname, String style, String theme, Integer width, Integer height, Integer price, Integer status){
 
 		List<Paintingtbl> paintingtbls = paintingRepository.findPainting(makeNotNull(pname),makeNotNull(style),makeNotNull(theme),width,height,price);
 		List<Membershiptbl> membershiptbls = new ArrayList<>();
@@ -48,8 +48,18 @@ public class AjaxController {
 		for(int i=0;i<paintingtbls.size();i++){ membershiptbls.add(membershiptblRepository.getById(paintingtbls.get(i).getNo_membership())); }
 		for(int i=0;i<paintingtbls.size();i++){ CardVO vo = new CardVO(paintingtbls.get(i),membershiptbls.get(i));cardVOList.add(vo);}
 		model.addAttribute("cardVOlist",cardVOList);
-		return "user/viewAjax";
+		return "user/ajax/picture_find";
 	}
+
+	@RequestMapping(value = "/ajax_mypage_",method = RequestMethod.GET, produces ="application/text;charset=UTF-8")
+	public String mypage_charge(){
+
+
+
+		return "user/ajax/mypage_charge";
+	}
+
+
 
 	private String makeNotNull(String target){
 		if(StringUtils.isEmpty(target)) return target = null;

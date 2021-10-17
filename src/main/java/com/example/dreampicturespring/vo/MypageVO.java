@@ -11,6 +11,7 @@ public class MypageVO {
     private String addr;
     private String email;
     private String tel;
+    private Integer dreampay;
 
     public MypageVO() { }
     public MypageVO(Membershiptbl membershiptbl) {
@@ -19,6 +20,7 @@ public class MypageVO {
         this.addr = membershiptbl.getAddr();
         this.email = membershiptbl.getEmail();
         this.tel = membershiptbl.getTel();
+        this.dreampay = membershiptbl.getDreampay();
     }
 
 }
