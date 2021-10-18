@@ -3,12 +3,10 @@ package com.example.dreampicturespring.controller.buy;
 
 import com.example.dreampicturespring.entity.Membershiptbl;
 import com.example.dreampicturespring.entity.Paintingtbl;
+import com.example.dreampicturespring.repository.CommentRepository;
 import com.example.dreampicturespring.repository.MembershiptblRepository;
 import com.example.dreampicturespring.repository.PaintingRepository;
-import com.example.dreampicturespring.vo.CardVO;
-import com.example.dreampicturespring.vo.PaintingVO;
-import com.example.dreampicturespring.vo.PaymentVO;
-import com.example.dreampicturespring.vo.TransactionVO;
+import com.example.dreampicturespring.vo.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -29,6 +27,8 @@ public class BuyController {
     PaintingRepository paintingRepository;
     @Autowired
     MembershiptblRepository membershiptblRepository;
+    @Autowired
+    CommentRepository commentRepository;
 
     @RequestMapping("/buy")
     public ModelAndView buy(){
@@ -44,8 +44,24 @@ public class BuyController {
             cardVOList.add(vo);
             cardNum++;
         }
+
+        List<String> comments = commentRepository.findCommenttbl(21);
+        List<CommentVO> commentVOlist = new ArrayList<>();
+        for(String commnet : comments){
+            List<String> obj = Arrays.asList(commnet.split(","));
+            Membershiptbl membershiptb = membershiptblRepository.getById(Integer.parseInt(obj.get(1)));
+            CommentVO commentVO = new CommentVO();
+            commentVO.setAvatarimg(membershiptb.getImg()+"/avatarimg/avatarimg.jpg");
+            commentVO.setAuthor(membershiptb.getNickname());
+            commentVO.setDate("1H");
+            commentVO.setComments(obj.get(0));
+            commentVOlist.add(commentVO);
+        }
+
+
         pageNum = cardNum/CARDSPERPAGE+1;
         mv.setViewName("user/buy/buy");
+        mv.addObject("commentVOlist",commentVOlist);
         mv.addObject("cardVOlist",cardVOList);
         mv.addObject("pageNum",pageNum);
         return mv;

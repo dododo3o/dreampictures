@@ -34,7 +34,6 @@
                     url: "/ajax_picture_finder",
                     data: "pname=" + pname + "&style=" + style + "&theme=" + theme + "&width=" + width + "&height=" + height + "&price=" + price + "&status=" + status,
                     success: function (result) {
-                        console.log(result);
                         var container = document.getElementById("container");
                         while ( container.hasChildNodes() ) { container.removeChild( container.firstChild ); }
                         $("#container").html(result);
@@ -42,6 +41,23 @@
                 });
             });
         };
+
+        showCommentModal = function (no_painting) {
+            $(() => {
+                $.ajax({
+                    url: "/ajax_comment_finder",
+                    data: "no_painting=" + no_painting,
+                    success: function (result) {
+                        var container = document.getElementById("commentModal");
+                        while ( container.hasChildNodes() ) { container.removeChild( container.firstChild ); }
+                        $("#commentModal").html(result);
+                        $('.ui.tiny.modal').modal('show');
+                    }
+                });
+            });
+        };
+
+        // addComment = function () {$('.ui.tiny.modal').modal('show');};
     </script>
 </head>
 <body>
@@ -54,6 +70,24 @@
 <jsp:include page="../header_footer/header_not_login.jsp"></jsp:include>
 <% } %>
 <div class="has_bg_harp">
+        <div class="ui tiny modal" id="commentModal">
+            <c:forEach var="commentVOlist" items="${commentVOlist}">
+            <div class="ui comments">
+                <div class="comment">
+                    <a class="avatar">
+                        <img src="${commentVOlist.avatarimg}">
+                    </a>
+                    <div class="content">
+                        <a class="author">${commentVOlist.author}</a>
+                        <div class="metadata">
+                            <div class="date">${commentVOlist.date}</div>
+                        </div>
+                        <div class="text">${commentVOlist.comments}</div>
+                    </div>
+                </div>
+            </div>
+            </c:forEach>
+        </div>
     <div class="container">
         <div style="grid-column:1/9;display: flex;flex-direction: column; gap:20px; justify-content: center; margin-top: 70px;">
             <div class="has_chathams-blue" style="font-size: 42px;">그림드림의 당신만의 그림찾기</div>
@@ -127,7 +161,7 @@
                 <div class="content">
                     <span class="right floated">
                       <i class="heart outline like icon"></i>17 likes</span>
-                    <i class="comment icon"></i>3 comments
+                    <span onclick="showCommentModal(${cardVOlist.no_painting})"><i class="comment icon"></i>3</span>
                 </div>
                 <div class="extra content">
                     <div class="ui large transparent left icon input">
@@ -140,8 +174,7 @@
     </div>
     <div class="container" style="display: flex;justify-content: center;margin-top:30px;padding-bottom: 30px;">
         <div>
-            <div class="ui animated button" tabindex="0"
-                 style="color:var(--color-white);background-color: var(--color-chathams-blue);">
+            <div class="ui animated button" tabindex="0" style="color:var(--color-white);background-color: var(--color-chathams-blue);">
                 <div class="visible content">Perv</div>
                 <div class="hidden content">
                     <i class="left arrow icon"></i>
