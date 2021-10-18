@@ -12,44 +12,52 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
-    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.13/semantic.min.css">
+    <link rel="stylesheet" type="text/css"
+          href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.13/semantic.min.css">
     <script src="https://kit.fontawesome.com/b14e6f064f.js" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-    <script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"
+            integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ=="
+            crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://code.jquery.com/jquery-3.1.1.min.js"
+            integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.13/semantic.js"></script>
     <script>
         //a태그 마우스오버1
-        function mouseOver(){
-            document.getElementById('noticeLink').style.backgroundColor="gray";
-            document.getElementById('menuFont').style.color="white";
-            document.getElementById('menuIcon').style.color="white";
+        function mouseOver() {
+            document.getElementById('noticeLink').style.backgroundColor = "gray";
+            document.getElementById('menuFont').style.color = "white";
+            document.getElementById('menuIcon').style.color = "white";
         }
+
         //a태그 마우스오버
-        function mouseOver2(){
-            document.getElementById('noticeLink2').style.backgroundColor="gray";
-            document.getElementById('menuFont2').style.color="white";
-            document.getElementById('menuIcon2').style.color="white";
+        function mouseOver2() {
+            document.getElementById('noticeLink2').style.backgroundColor = "gray";
+            document.getElementById('menuFont2').style.color = "white";
+            document.getElementById('menuIcon2').style.color = "white";
         }
 
         //a태그 마우스아웃
-        function mouseOut(){
-            document.getElementById('noticeLink').style.backgroundColor="rgba(255,255,255,0)";
-            document.getElementById('menuFont').style.color="var(--color-river-bed)";
-            document.getElementById('menuIcon').style.color="var(--color-river-bed)";
-        }
-        //a태그 마우스아웃2
-        function mouseOut2(){
-            document.getElementById('noticeLink2').style.backgroundColor="rgba(255,255,255,0)";
-            document.getElementById('menuFont2').style.color="var(--color-river-bed)";
-            document.getElementById('menuIcon2').style.color="var(--color-river-bed)";
+        function mouseOut() {
+            document.getElementById('noticeLink').style.backgroundColor = "rgba(255,255,255,0)";
+            document.getElementById('menuFont').style.color = "var(--color-river-bed)";
+            document.getElementById('menuIcon').style.color = "var(--color-river-bed)";
         }
 
-        function modal(){
+        //a태그 마우스아웃2
+        function mouseOut2() {
+            document.getElementById('noticeLink2').style.backgroundColor = "rgba(255,255,255,0)";
+            document.getElementById('menuFont2').style.color = "var(--color-river-bed)";
+            document.getElementById('menuIcon2').style.color = "var(--color-river-bed)";
+        }
+
+        function modal() {
             document.getElementById("modaldiv")
         }
     </script>
-    <script type = "text/javascript" >
-        showModal = function () {$('.ui.modal').modal('show');};
+    <script type="text/javascript">
+        showModal = function () {
+            $('.ui.modal').modal('show');
+        };
     </script>
 </head>
 <body>
@@ -68,14 +76,22 @@
             질문사항
         </div>
         <div class="description has_flex_row" style="justify-content: flex-start;">
-            <div class="ui medium has_flex_column" style="background-color: #a6bbc347; align-items: flex-start;padding-left: 10px;">
-                <div class="has_flex_center"> <input type="radio" value="question1">question1 question1 question1 question1 question1 </div>
-                <div class="has_flex_center"> <input type="radio" value="question2">question2 question2 question2 question2 question2 </div>
-                <div class="has_flex_center">  <input type="radio" value="question3"> question3 question3 question3 question3 question3  question3 question3</div>
+            <div class="ui medium has_flex_column"
+                 style="background-color: #a6bbc347; align-items: flex-start;padding-left: 10px;">
+                <div class="has_flex_center"><input type="radio" value="question1">question1 question1 question1
+                    question1 question1
+                </div>
+                <div class="has_flex_center"><input type="radio" value="question2">question2 question2 question2
+                    question2 question2
+                </div>
+                <div class="has_flex_center"><input type="radio" value="question3"> question3 question3 question3
+                    question3 question3 question3 question3
+                </div>
             </div>
             <div class="description has_margin has_width_100">
                 <div class="ui header">질문을 구체적으로 작성해주세요!</div>
-                <textarea class="has_width_100 has_height_80 input_textarea" placeholder="질문사항을 작성해주세요." style="resize: none;"></textarea>
+                <textarea class="has_width_100 has_height_80 input_textarea" placeholder="질문사항을 작성해주세요."
+                          style="resize: none;"></textarea>
             </div>
         </div>
         <div class="actions" style="background-color: var(--color-aqua-island)">
@@ -85,11 +101,9 @@
             </div>
         </div>
     </div>
-
-
-
     <div class="container" style="height: 100%;">
-        <div class="has_flex_column" style="grid-column:1/3; gap:40px; height: 100%; padding-top: 30px; background-color: #a2b0b36e">
+        <div class="has_flex_column"
+             style="grid-column:1/3; gap:40px; height: 100%; padding-top: 30px; background-color: #a2b0b36e">
             <%--            <a href="#" class="has_evenly" onmouseover="mouseOver()" onmouseout="mouseOut()" style=" padding-top: 10px; padding-bottom: 10px;" id="noticeLink">--%>
             <%--                <span id="menuIcon" style=" color: var(--color-river-bed)"><i class="fas fa-bell fa-lg"></i></span>--%>
             <%--                <div id="menuFont" style="display:flex;align-items: center; margin-left: 10px; color: var(--color-river-bed)">공지사항--%>
@@ -126,7 +140,8 @@
                     <i class="question circle icon"></i>
                 </div>
             </div>
-            <div class="manager_card" style="display: grid;grid-template-columns:repeat(3,1fr);grid-gap:1rem;width: 100%;">
+            <div class="manager_card"
+                 style="display: grid;grid-template-columns:repeat(3,1fr);grid-gap:1rem;width: 100%;">
                 <div class="ui card" style="height: 100%; margin: 0 auto;">
                     <div class="content">
                         <div class="right floated meta">14h</div>
@@ -134,7 +149,8 @@
                              style="border-radius: 50%; width: 3em;height: 3em;object-fit: cover;">
                     </div>
                     <div class="image">
-                        <img src="/resources/user/qwer/paintingimg/bitcamp/0.jpg" style="object-fit: cover; height: 250px"></a>
+                        <img src="/resources/user/qwer/paintingimg/bitcamp/0.jpg"
+                             style="object-fit: cover; height: 250px"></a>
                     </div>
                     <div class="content">
                     <span class="right floated">
@@ -158,7 +174,8 @@
                              style="border-radius: 50%; width: 3em;height: 3em;object-fit: cover;">
                     </div>
                     <div class="image">
-                        <img src="/resources/user/qwer/paintingimg/bitcamp/0.jpg" style="object-fit: cover; height: 250px"></a>
+                        <img src="/resources/user/qwer/paintingimg/bitcamp/0.jpg"
+                             style="object-fit: cover; height: 250px"></a>
                     </div>
                     <div class="content">
                     <span class="right floated">
@@ -182,7 +199,8 @@
                              style="border-radius: 50%; width: 3em;height: 3em;object-fit: cover;">
                     </div>
                     <div class="image">
-                        <img src="/resources/user/qwer/paintingimg/bitcamp/0.jpg" style="object-fit: cover; height: 250px"></a>
+                        <img src="/resources/user/qwer/paintingimg/bitcamp/0.jpg"
+                             style="object-fit: cover; height: 250px"></a>
                     </div>
                     <div class="content">
                     <span class="right floated">
@@ -206,7 +224,8 @@
                              style="border-radius: 50%; width: 3em;height: 3em;object-fit: cover;">
                     </div>
                     <div class="image">
-                        <img src="/resources/user/qwer/paintingimg/bitcamp/0.jpg" style="object-fit: cover; height: 250px"></a>
+                        <img src="/resources/user/qwer/paintingimg/bitcamp/0.jpg"
+                             style="object-fit: cover; height: 250px"></a>
                     </div>
                     <div class="content">
                     <span class="right floated">
