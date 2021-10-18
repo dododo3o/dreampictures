@@ -40,19 +40,19 @@
                         <div style="user-select: auto; display: flex;">
                             <i class="users icon" style="user-select: auto;"></i>
                             <div class="content" style="user-select: auto;">
-                                닉네임 :
+                                닉네임 : <c:out value="${mypageVO.nickname}"/>
                             </div>
                         </div>
                         <div style="user-select: auto; display: flex;">
                             <i class="mail icon" style="user-select: auto;"></i>
                             <div class="content" style="user-select: auto;">
-                                이메일 :
+                                이메일 : <c:out value="${mypageVO.email}"/>
                             </div>
                         </div>
                         <div style="user-select: auto; display: flex;">
                             <i class="phone icon" style="user-select: auto;"></i>
                             <div class="content" style="user-select: auto;">
-                                연락처 :
+                                연락처 : <c:out value="${mypageVO.tel}"/>
                             </div>
                         </div>
                     </div>
@@ -61,7 +61,7 @@
                         Shipping Address
                     </font></font></div>
                     <div class="has_flex_column" style="">
-                        <input type="text" style="" id="address_input" value="쥬소~~~~~~~~~">
+                        <input type="text" style="" id="address_input" value="<c:out value="${mypageVO.addr}"/>">
                     </div>
                     <div class="ui horizontal divider"><font style="vertical-align: inherit;"><font
                             style="vertical-align: inherit;">
@@ -71,13 +71,13 @@
                         <div style="user-select: auto; display: flex;">
                             <i class="hourglass half icon" style="user-select: auto;"></i>
                             <div class="content" style="user-select: auto;">
-                                현재 포인트 :
+                                현재 포인트 : <%--todo--%>
                             </div>
                         </div>
                         <div style="user-select: auto; display: flex;">
                             <i class="hourglass outline icon" style="user-select: auto;"></i>
                             <div class="content" style="user-select: auto;">
-                                결제 후 포인트 :
+                                결제 후 포인트 : <%--todo--%>
                             </div>
                         </div>
                     </div>
@@ -110,7 +110,6 @@
                     <img src="<c:out value="${paintingVO.paintingimg}"/>"
                          style="width:300px;height: 300px;border-radius: 5%;">
                 </div>
-
             </div><!--왼쪽div-->
         </div>
     </div>
