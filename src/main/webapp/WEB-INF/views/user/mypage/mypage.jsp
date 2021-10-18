@@ -35,12 +35,12 @@
 </head>
 <body>
 <jsp:include page="../header_footer/header_login.jsp"></jsp:include>
-<main class="has_bg_harp">
+<main class="has_bg_harp" style="height: 100%;">
     <div id = "container" class="container">
         <div style="grid-column:1/3; display:flex;flex-direction: column; gap:40px; padding-top: 20px; background-color: #a2b0b36e">
             <div style="display: flex;justify-content: space-evenly; ">
                 <span style=" color: var(--color-river-bed)"><i class="fas fa-bell fa-lg"></i></span>
-                <div style=" display:flex;align-items: center; margin-left: 10px; color: var(--color-river-bed)"><a href="mypage12.html">개인정보</a></div>
+                <div style=" display:flex;align-items: center; margin-left: 10px; color: var(--color-river-bed)"><a href="mypage12.html">My Page</a></div>
             </div>
             <div style="display: flex;justify-content: space-evenly;">
                 <span style="color: var(--color-river-bed)"><i class="fas fa-question fa-lg"></i></span>
@@ -55,28 +55,28 @@
                 <div style=" display:flex;align-items: center; margin-left: 15px; color: var(--color-river-bed)">질문내역</div>
             </div>
         </div>
-        <div style="grid-column:4/12; height:700px; background-color:white; text-align: center; margin-top:15px; border-radius:8px;">
-            <div class="ui segments">
-                <div style="font-size:30px; text-align: center;" class="ui segment">
-                    <p>마이페이지</p>
+        <div style="grid-column:4/12; text-align: center; margin-top:15px; border-radius:8px; display: flex;">
+            <div class="ui segments" style=" background-color: white; height: 88%;">
+                <div style="font-size:2em; text-align: center;" class="ui segment">
+                    <p>My Page</p>
                 </div>
                 <div class="ui segment">
-                    <div  class="has_flex_center" style="font-size:60px;">
+                    <div  class="has_flex_center" style="font-size:2em;">
                         <img class="ui avatar image" src="<c:out value="${mypageVO.avatarimg}"/>">
                         <span style="color:black"><c:out value="${mypageVO.nickname}"/></span>
                     </div>
                 </div>
                 <div  class="ui segment">
-                    <p style="font-size:25px;"><i class="truck icon"></i> 포인트 <p style="font-size:20px;"><c:out value="${mypageVO.dreampay}"/></p></p>
+                    <p style="font-size:2em;"><i class="truck icon"></i> 포인트 <p style="font-size:20px;"><c:out value="${mypageVO.dreampay}"/></p></p>
                 </div>
                 <div  class="ui segment">
-                    <p style="font-size:25px;"><i class="truck icon"></i> 배송지 <p style="font-size:20px;"><c:out value="${mypageVO.addr}"/></p></p>
+                    <p style="font-size:2em;"><i class="truck icon"></i> 배송지 <p style="font-size:20px;"><c:out value="${mypageVO.addr}"/></p></p>
                 </div>
                 <div class="ui segment">
-                    <p style="font-size:25px;"><i class="envelope icon"></i> e-mail <p style="font-size:20px;"><c:out value="${mypageVO.email}"/></p></p>
+                    <p style="font-size:2em;"><i class="envelope icon"></i> e-mail <p style="font-size:20px;"><c:out value="${mypageVO.email}"/></p></p>
                 </div>
                 <div class="ui segment">
-                    <p style="font-size:25px;"><i class="phone icon"></i> phone <p style="font-size:20px;"><c:out value="${mypageVO.tel}"/></p></p>
+                    <p style="font-size:2em;"><i class="phone icon"></i> phone <p style="font-size:20px;"><c:out value="${mypageVO.tel}"/></p></p>
                 </div>
                 <div class="ui segment">
                     <p style="display:flex; justify-content: space-evenly;">
