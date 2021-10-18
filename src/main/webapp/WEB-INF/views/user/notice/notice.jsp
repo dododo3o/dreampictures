@@ -54,15 +54,17 @@
             document.getElementById("modaldiv")
         }
     </script>
-    <script type = "text/javascript" >
-        showModal = function () {$('.ui.modal').modal('show');};
+    <script type="text/javascript">
+        showModal = function () {
+            $('.ui.modal').modal('show');
+        };
         requestQA = function () {
             $(() => {
                 let question = document.getElementById("question").value;
                 let status = 0; //0~4 까지 질문 종류
                 $.ajax({
                     url: "/ajax_request_QA",
-                    data: "question="+question+"&status="+status,
+                    data: "question=" + question + "&status=" + status,
                     success: function (result) {
                         document.location.href = "/notice";
                     }
@@ -98,7 +100,8 @@
             </div>
         </div>
         <div class="actions" style="background-color: #95afc0">
-            <div class="ui positive right labeled icon button" style="background-color: var(--color-metallic-blue)" onclick="requestQA()">
+            <div class="ui positive right labeled icon button" style="background-color: var(--color-metallic-blue)"
+                 onclick="requestQA()">
                 올리기
                 <i class="checkmark icon"></i>
             </div>
@@ -132,32 +135,34 @@
                     <i class="question circle icon"></i>
                 </div>
             </div>
-            <div class="manager_card" style="display: grid;grid-template-columns:repeat(3,1fr);grid-gap:1rem;width: 100%;">
+            <div class="manager_card"
+                 style="display: grid;grid-template-columns:repeat(3,1fr);grid-gap:1rem;width: 100%;">
                 <c:forEach var="noticeVOList" items="${noticeVOList}">
                     <div class="ui card" style="height: 100%; margin: 0 auto;">
-                    <div class="content">
-                        <div class="right floated meta">14h</div>
-                        <span>${noticeVOList.content}</span>
-                        <img src="${noticeVOList.avatarimg}" style="border-radius: 50%; width: 3em;height: 3em;object-fit: cover;">
-                    </div>
-                    <div class="image">
-                        <img src="${noticeVOList.paintingmimg}" style="object-fit: cover; height: 250px"></a>
-                    </div>
-                    <div class="content">
+                        <div class="content">
+                            <div class="right floated meta">14h</div>
+                            <span>${noticeVOList.content}</span>
+                            <img src="${noticeVOList.avatarimg}"
+                                 style="border-radius: 50%; width: 3em;height: 3em;object-fit: cover;">
+                        </div>
+                        <div class="image">
+                            <img src="${noticeVOList.paintingmimg}" style="object-fit: cover; height: 250px"></a>
+                        </div>
+                        <div class="content">
                     <span class="right floated">
                       <i class="heart outline like icon"></i>
                       17 likes
                     </span>
-                        <i class="comment icon"></i>
-                        3 comments
-                    </div>
-                    <div class="extra content">
-                        <div class="ui large transparent left icon input">
-                            <i class="heart outline icon"></i>
-                            <input type="text" placeholder="Add Comment...">
+                            <i class="comment icon"></i>
+                            3 comments
+                        </div>
+                        <div class="extra content">
+                            <div class="ui large transparent left icon input">
+                                <i class="heart outline icon"></i>
+                                <input type="text" placeholder="Add Comment...">
+                            </div>
                         </div>
                     </div>
-                </div>
                 </c:forEach>
             </div>
         </div>
