@@ -25,8 +25,7 @@
         function buypainting(num) {
             location.href = "http://localhost:8080/buy_picture/" + num;
         }
-        showModal = function ()
-        {
+        showModal = function () {
             $(() => {
                 let pname = document.getElementById("pname").value;
                 let style = document.getElementById("style").value;
@@ -62,7 +61,19 @@
                 });
             });
         };
-        "addComment()"
+        addComment = function (no_painting) {
+            $(() => {
+                let text = document.getElementById(no_painting).value;
+                let no_paint = no_painting;
+                $.ajax({
+                    url: "/ajax_comment_add",
+                    data: "comment=" + text + "&no_painting=" + no_paint,
+                    success: function (result) {
+                        //todo
+                    }
+                });
+            });
+        };
     </script>
 </head>
 <body>
@@ -166,9 +177,9 @@
                 <div class="extra content">
                     <div class="ui large transparent left icon input" style="display: flex;">
                         <i class="heart outline icon"></i>
-                        <input type="text" placeholder="Add Comment..." maxlength='20' style="font-size: 0.8em"/>
+                        <input type="text" id ="${cardVOlist.no_painting}" placeholder="Add Comment..." maxlength='20' style="font-size: 0.8em"/>
                     </div>
-                    <button class="ui blue icon button" onclick="addComment()" style="float: right; font-size: 0.8em;">Add</button>
+                    <button class="ui blue icon button" onclick="addComment(${cardVOlist.no_painting})" style="float: right; font-size: 0.8em;">Add</button>
                 </div>
             </div>
         </c:forEach>
