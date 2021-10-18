@@ -39,186 +39,30 @@
             </form>
 
             <div class="container" style="display: grid;grid-template-columns:repeat(4,1fr);grid-gap:1rem;">
-                <div class="card has_flex_space_bt_cl has_shadow">
-                    <div class="card_img"></div>
-                    <div class="card_history">
-                        <div class="card_img_avatar"></div>
-                        <div>
-                            <div>Jenny Kim</div>
-                            <div>bitcamp University</div>
+                <c:forEach var="cardVOlist" items="${cardVOlist}">
+                    <div class="ui card" style="height: 100%; margin: 0 auto;">
+                        <div class="content">
+                            <div class="right floated meta">14h</div>
+                            <img src="${cardVOlist.avatarimg}"
+                                 style="border-radius: 50%; width: 3em;height: 3em;object-fit: cover;">
+                        </div>
+                        <div class="image">
+                            <img src="${cardVOlist.paintingmimg}" style="object-fit: cover; height: 250px">
+                        </div>
+                        <div class="content">
+                    <span class="right floated">
+                      <i class="heart outline like icon"></i>17 likes</span>
+                            <i class="comment icon"></i>3 comments
+                        </div>
+                        <div class="extra content">
+                            <div class="ui large transparent left icon input">
+                                <i class="heart outline icon"></i>
+                                <input type="text" placeholder="Add Comment...">
+                            </div>
                         </div>
                     </div>
-                    <span>Darth Vader</span>
-                </div>
-                <div class="card has_flex_space_bt_cl has_shadow">
-                    <div class="card_img"></div>
-                    <div class="card_history">
-                        <div class="card_img_avatar"></div>
-                        <div>
-                            <div>Jenny Kim</div>
-                            <div>bitcamp University</div>
-                        </div>
-                    </div>
-                    <span>Darth Vader</span>
-                </div>
-                <div class="card has_flex_space_bt_cl has_shadow">
-                    <div class="card_img"></div>
-                    <div class="card_history">
-                        <div class="card_img_avatar"></div>
-                        <div>
-                            <div>Jenny Kim</div>
-                            <div>bitcamp University</div>
-                        </div>
-                    </div>
-                    <span>Darth Vader</span>
-                </div>
-                <div class="card has_flex_space_bt_cl has_shadow">
-                    <div class="card_img"></div>
-                    <div class="card_history">
-                        <div class="card_img_avatar"></div>
-                        <div>
-                            <div>Jenny Kim</div>
-                            <div>bitcamp University</div>
-                        </div>
-                    </div>
-                    <span>Darth Vader</span>
-                </div>
-                <div class="card has_flex_space_bt_cl has_shadow">
-                    <div class="card_img"></div>
-                    <div class="card_history">
-                        <div class="card_img_avatar"></div>
-                        <div>
-                            <div>Jenny Kim</div>
-                            <div>bitcamp University</div>
-                        </div>
-                    </div>
-                    <span>Darth Vader</span>
-                </div>
-                <div class="card has_flex_space_bt_cl has_shadow">
-                    <div class="card_img"></div>
-                    <div class="card_history">
-                        <div class="card_img_avatar"></div>
-                        <div>
-                            <div>Jenny Kim</div>
-                            <div>bitcamp University</div>
-                        </div>
-                    </div>
-                    <span>Darth Vader</span>
-                </div>
-                <div class="card has_flex_space_bt_cl has_shadow">
-                    <div class="card_img"></div>
-                    <div class="card_history">
-                        <div class="card_img_avatar"></div>
-                        <div>
-                            <div>Jenny Kim</div>
-                            <div>bitcamp University</div>
-                        </div>
-                    </div>
-                    <span>Darth Vader</span>
-                </div>
-                <div class="card has_flex_space_bt_cl has_shadow">
-                    <div class="card_img"></div>
-                    <div class="card_history">
-                        <div class="card_img_avatar"></div>
-                        <div>
-                            <div>Jenny Kim</div>
-                            <div>bitcamp University</div>
-                        </div>
-                    </div>
-                    <span>Darth Vader</span>
-                </div>
-                <div class="card has_flex_space_bt_cl has_shadow">
-                    <div class="card_img"></div>
-                    <div class="card_history">
-                        <div class="card_img_avatar"></div>
-                        <div>
-                            <div>Jenny Kim</div>
-                            <div>bitcamp University</div>
-                        </div>
-                    </div>
-                    <span>Darth Vader</span>
-                </div>
-                <div class="card has_flex_space_bt_cl has_shadow">
-                    <div class="card_img"></div>
-                    <div class="card_history">
-                        <div class="card_img_avatar"></div>
-                        <div>
-                            <div>Jenny Kim</div>
-                            <div>bitcamp University</div>
-                        </div>
-                    </div>
-                    <span>Darth Vader</span>
-                </div>
-                <div class="card has_flex_space_bt_cl has_shadow">
-                    <div class="card_img"></div>
-                    <div class="card_history">
-                        <div class="card_img_avatar"></div>
-                        <div>
-                            <div>Jenny Kim</div>
-                            <div>bitcamp University</div>
-                        </div>
-                    </div>
-                    <span>Darth Vader</span>
-                </div>
-                <div class="card has_flex_space_bt_cl has_shadow">
-                    <div class="card_img"></div>
-                    <div class="card_history">
-                        <div class="card_img_avatar"></div>
-                        <div>
-                            <div>Jenny Kim</div>
-                            <div>bitcamp University</div>
-                        </div>
-                    </div>
-                    <span>Darth Vader</span>
-                </div>
-                <div class="card has_flex_space_bt_cl has_shadow">
-                    <div class="card_img"></div>
-                    <div class="card_history">
-                        <div class="card_img_avatar"></div>
-                        <div>
-                            <div>Jenny Kim</div>
-                            <div>bitcamp University</div>
-                        </div>
-                    </div>
-                    <span>Darth Vader</span>
-                </div>
-                <div class="card has_flex_space_bt_cl has_shadow">
-                    <div class="card_img"></div>
-                    <div class="card_history">
-                        <div class="card_img_avatar"></div>
-                        <div>
-                            <div>Jenny Kim</div>
-                            <div>bitcamp University</div>
-                        </div>
-                    </div>
-                    <span>Darth Vader</span>
-                </div>
-                <div class="card has_flex_space_bt_cl has_shadow">
-                    <div class="card_img"></div>
-                    <div class="card_history">
-                        <div class="card_img_avatar"></div>
-                        <div>
-                            <div>Jenny Kim</div>
-                            <div>bitcamp University</div>
-                        </div>
-                    </div>
-                    <span>Darth Vader</span>
-                </div>
-                <div class="card has_flex_space_bt_cl has_shadow">
-                    <div class="card_img"></div>
-                    <div class="card_history">
-                        <div class="card_img_avatar"></div>
-                        <div>
-                            <div>Jenny Kim</div>
-                            <div>bitcamp University</div>
-                        </div>
-                    </div>
-                    <span>Darth Vader</span>
-                </div>
+                </c:forEach>
             </div>
-
-
-
         </div>
     </div>
     <div class="container" style="display: grid;grid-template-columns:repeat(4,1fr);grid-gap:1rem;">
@@ -238,22 +82,23 @@
     <div class="container" style="display: flex;justify-content: center;margin-top:30px;padding-bottom: 30px;
 ">
         <div>
-            <button class='button is_pagination'>
-                <i class="fas fa-arrow-left"></i>
-            </button>
-            <button class='button is_pagination'>1</button>
-            <button class='button is_pagination'>2</button>
-            <button class='button is_pagination'>3</button>
-            <button class='button is_pagination'>4</button>
-            <button class='button is_pagination'>5</button>
-            <button class='button is_pagination'>6</button>
-            <button class='button is_pagination'>7</button>
-            <button class='button is_pagination'>8</button>
-            <button class='button is_pagination'>9</button>
-            <button class='button is_pagination'>10</button>
-            <button class='button is_pagination'>
-                <i class="fas fa-arrow-right"></i>
-            </button>
+            <div class="ui animated button" tabindex="0"
+                 style="color:var(--color-white);background-color: var(--color-chathams-blue);">
+                <div class="visible content">Perv</div>
+                <div class="hidden content">
+                    <i class="left arrow icon"></i>
+                </div>
+            </div>
+            <c:forEach var="i" begin="1" end="${pageNum}" >
+                <button class='button is_pagination'>${i}</button>
+            </c:forEach>
+            <div class="ui animated button" tabindex="0"
+                 style="color:var(--color-white);background-color: var(--color-chathams-blue);">
+                <div class="visible content">Next</div>
+                <div class="hidden content">
+                    <i class="right arrow icon"></i>
+                </div>
+            </div>
             <br>
         </div>
     </div>
