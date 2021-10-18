@@ -39,7 +39,6 @@
                     url: "/ajax_picture_finder",
                     data: "pname=" + pname + "&style=" + style + "&theme=" + theme + "&width=" + width + "&height=" + height + "&price=" + price + "&status=" + status,
                     success: function (result) {
-                        console.log(result);
                         var container = document.getElementById("container");
                         while (container.hasChildNodes()) {
                             container.removeChild(container.firstChild);
@@ -49,7 +48,44 @@
                 });
             });
         };
+        showCommentModal = function (no_painting) {
+            $(() => {
+                $.ajax({
+                    url: "/ajax_comment_finder",
+                    data: "no_painting=" + no_painting,
+                    success: function (result) {
+                        var container = document.getElementById("commentModal");
+                        while ( container.hasChildNodes() ) { container.removeChild( container.firstChild ); }
+                        $("#commentModal").html(result);
+                        $('.ui.tiny.modal').modal('show');
+                    }
+                });
+            });
+        };
     </script>
+    <link rel="stylesheet" href="https://unpkg.com/flickity@2/dist/flickity.min.css">
+    <script src="https://unpkg.com/flickity@2/dist/flickity.pkgd.min.js"></script>
+    <style>
+        .carousel {
+            background: #EEE;
+        }
+        .carousel-cell {
+            width: 66%;
+            height: 200px;
+            margin-right: 10px;
+            background: #8C8;
+            border-radius: 5px;
+            counter-increment: carousel-cell;
+        }
+        .carousel-cell:before {
+            display: block;
+            text-align: center;
+            content: counter(carousel-cell);
+            line-height: 200px;
+            font-size: 80px;
+            color: white;
+        }
+    </style>
 </head>
 <body>
 <% if (session.getAttribute("logStatus") == "Y") { %>
@@ -61,6 +97,24 @@
 <jsp:include page="../header_footer/header_not_login.jsp"></jsp:include>
 <% } %>
 <div class="has_bg_harp">
+        <div class="ui tiny modal" id="commentModal">
+            <c:forEach var="commentVOlist" items="${commentVOlist}">
+            <div class="ui comments">
+                <div class="comment">
+                    <a class="avatar">
+                        <img src="${commentVOlist.avatarimg}">
+                    </a>
+                    <div class="content">
+                        <a class="author">${commentVOlist.author}</a>
+                        <div class="metadata">
+                            <div class="date">${commentVOlist.date}</div>
+                        </div>
+                        <div class="text">${commentVOlist.comments}</div>
+                    </div>
+                </div>
+            </div>
+            </c:forEach>
+        </div>
     <div class="container">
         <div style="grid-column:1/9;display: flex;flex-direction: column; gap:20px; justify-content: center; margin-top: 70px;">
             <div class="has_chathams-blue" style="font-size: 42px;">그림드림의 당신만의 그림찾기</div>

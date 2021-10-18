@@ -4,10 +4,12 @@ import com.example.dreampicturespring.entity.Membershiptbl;
 import com.example.dreampicturespring.entity.Paintingtbl;
 import com.example.dreampicturespring.entity.Qatbl;
 import com.example.dreampicturespring.entity.Replytbl;
+import com.example.dreampicturespring.repository.CommentRepository;
 import com.example.dreampicturespring.repository.MembershiptblRepository;
 import com.example.dreampicturespring.repository.PaintingRepository;
 import com.example.dreampicturespring.repository.QaRepository;
 import com.example.dreampicturespring.vo.CardVO;
+import com.example.dreampicturespring.vo.CommentVO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -32,6 +34,8 @@ public class AjaxController {
 	PaintingRepository paintingRepository;
 	@Autowired
 	QaRepository qaRepository;
+	@Autowired
+	CommentRepository commentRepository;
 
 
 	@RequestMapping(value="/ajax_email_check",method=RequestMethod.GET, produces="application/text;charset=UTF-8")
@@ -74,6 +78,25 @@ public class AjaxController {
 		return "redirect:/buy";
 	}
 
+	@RequestMapping(value = "/ajax_comment_finder",method = RequestMethod.GET, produces ="application/text;charset=UTF-8")
+	public String comment_finder(Model model, Integer no_painting){
+		List<String> comments = commentRepository.findCommenttbl(no_painting);
+		List<CommentVO> commentVOlist = new ArrayList<>();
+
+
+		for(String commnet : comments){
+			List<String> obj = Arrays.asList(commnet.split(","));
+			Membershiptbl membershiptb = membershiptblRepository.getById(Integer.parseInt(obj.get(1)));
+			CommentVO commentVO = new CommentVO();
+			commentVO.setAvatarimg(membershiptb.getImg()+"/avatarimg/avatarimg.jpg");
+			commentVO.setAuthor(membershiptb.getNickname());
+			commentVO.setDate("1H");
+			commentVO.setComments(obj.get(0));
+			commentVOlist.add(commentVO);
+		}
+		model.addAttribute("commentVOlist",commentVOlist);
+		return "user/ajax/comment_find";
+	}
 
 
 	private String makeNotNull(String target){

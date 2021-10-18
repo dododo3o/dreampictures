@@ -316,3 +316,5 @@ input:not(input[type=file]), input[type=textarea], select{border-radius:8px; out
 
 .is_img_avatar_object-fit{border-radius: 50%; width: 100%;height: 110%; object-fit: cover;}
 
+#shop_btn{background-color:var(--color-middle-blue-green);}
+#prev_btn{background-color:var(--color-middle-blue-green);}
