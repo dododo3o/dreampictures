@@ -1,0 +1,65 @@
+package com.example.dreampicturespring.controller.mypage;
+
+
+import com.example.dreampicturespring.entity.Membershiptbl;
+import com.example.dreampicturespring.entity.Paintingtbl;
+import com.example.dreampicturespring.repository.MembershiptblRepository;
+import com.example.dreampicturespring.vo.MypageVO;
+import com.example.dreampicturespring.vo.PaymentVO;
+import com.example.dreampicturespring.vo.RegisterVO;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.servlet.ModelAndView;
+
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
+import java.util.Optional;
+
+@Controller
+public class MypageController {
+    @Autowired
+    MembershiptblRepository membershiptblRepository;
+
+    @RequestMapping("/mypage/{user}")
+    public ModelAndView mypage(HttpServletRequest req){
+        ModelAndView mv = new ModelAndView();
+        String user = (String) req.getSession().getAttribute("logEmail");
+        Membershiptbl membership = membershiptblRepository.findByemail(user);
+        MypageVO vo = new MypageVO(membership);
+        mv.addObject("mypageVO",vo);
+        mv.setViewName("user/mypage/mypage");
+        return mv;
+    }
+
+    @RequestMapping("/changeInfo")
+    public ModelAndView changeInfo(HttpServletRequest req) {
+        ModelAndView mv = new ModelAndView();
+        String user = (String) req.getSession().getAttribute("logEmail");
+        Membershiptbl membership = membershiptblRepository.findByemail(user);
+        RegisterVO vo = new RegisterVO(membership);
+        mv.addObject("memberVO",vo);
+        mv.setViewName("user/mypage/changeInfo");
+        return mv;
+    }
+
+    @RequestMapping("/charge")
+    public String charge() { return "user/mypage/charge";}
+
+    @RequestMapping("/charge_money")
+    public String charge_money(Integer amount,HttpServletRequest request) {
+        System.out.println(amount);
+        HttpSession session =request.getSession();
+        if(session.getAttribute("logStatus") == null){ return "user/login/login"; }
+        Membershiptbl membershipTBL = membershiptblRepository.findByemail((String) session.getAttribute("logEmail"));
+        System.out.println(membershipTBL);
+        membershiptblRepository.UpdateDreampay(Integer.toString(amount),Integer.toString(membershipTBL.getNo_membership()));
+        return "user/mypage/charge";}
+
+    @RequestMapping("/changeSuccess")
+    public String changeSuccess() {
+        return "user/mypage/mypage";
+    }
+
+}

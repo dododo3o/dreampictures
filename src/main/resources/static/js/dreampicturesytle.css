@@ -1,0 +1,315 @@
+:root {
+    /* Color */
+    /* Color */
+    --color-gray: #848484;
+    --color-alabaster: #F9F9F9;
+    --color-harp:#E7F0F0;
+    --color-swiss-coffee: #E3D6D6;
+    --color-brandy-rose:#BC8484;
+    --color-puce: #CE9292;
+    --color-albescent-white: #F7E3DA;
+    --color-turbo: #FEE500;
+    --color-porcelain: #F3F7F7;
+    --color-aqua-island: #91D0D7CC;
+    --color-powder-blue: #ADDBE1;
+    --color-jagged-ice: #C8E7EB;
+    --color-chathams-blue: #17517E;
+    --color-river-bed: #495057;
+    --color-black:#000000;
+    --color-white:#ffffff;
+    --color-dark-moderate-blue:#365E75;
+    --color-middle-blue-green:#91D0D7;
+    --color-metallic-blue:#365E75;
+    --color-dark-gray:#787878;
+    --color-pink:pink;
+
+    /*Font-size*/
+    /*xs sm base lg xl 2xl...*/
+    --font-size-xs: 14px;
+    --font-size-sm: 16px;
+    --font-size-base: 18px;
+    --font-size-basic:20px;
+    --font-size-lg: 24px;
+    --font-size-xl: 36px;
+    --font-size-xll:48px;
+    --font-size-2xl:60px;
+    --font-size-xxl: 64px;
+
+    /*Width*/
+    --width-size-half: 225px;
+    --width-size-full: 540px;
+}
+
+@font-face {  font-family: 'BMHANNAPro';  src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_seven@1.0/BMHANNAPro.woff') format('woff');  font-weight: normal;  font-style: normal;}
+
+*{font-family: 'BMHANNAPro';text-decoration:none; list-style: none;margin:0;padding:0}
+
+input[type=password]{font-family: -apple-system;}
+
+html{font-size: var(--font-size-base);}
+
+body{height:100vh;}
+
+header{height: 80px;}
+
+main{height:760px;}
+
+footer{height: 140px;}
+
+a{color: inherit; text-decoration: none;}
+
+.container{display:grid; grid-template-columns:repeat(12, 1fr); grid-column-gap:30px; margin:auto; width:1100px; height: 100%;}
+
+.contents{display: flex;flex-direction: column;gap:20px;text-align: center;}
+
+/* button navigation logo */
+
+button{border-radius:8px; border:0; outline:0; color:var(--color-white); background-color:var(--color-aqua-island);}
+
+.anchor{font-size:var(--font-size-base); color:var(--color-gray);}
+
+.navigation{display: grid;grid-template-columns: repeat(6,1fr);grid-column: 5/13; grid-gap: 1rem;justify-items: center;align-items:center;}
+
+.title{color:var(--color-chathams-blue);font-size: var(--font-size-xxl);}
+
+.paintingTitle{color:var(--color-chathams-blue);font-size: var(--font-size-2xl);}
+
+.manager_card{display: flex; flex-direction: column; gap: 40px; margin-top: 30px;}
+
+.is_primary{width:180px; height:44px; font-size:var(--font-size-base);}
+
+.is_round{border-radius:50%; width:65px; height:65px; }
+
+.is_utility{width:159px; height:35px;}
+
+.is_pagination{width:65px; height:38px; background-color:var(--color-chathams-blue); font-size:var(--font-size-sm);}
+
+.is_report{width:65px; height:38px; background-color:var( --color-aqua-island); font-size:var(--font-size-sm);}
+
+.is_login{height:45px;font-size:var(--font-size-sm);color:var(--color-chathams-blue);}
+
+.is_large{height:70px; font-size:var(--font-size-base);}
+
+.is_back{width:160px;background-color:var(--color-chathams-blue);}
+
+.is_buy{width:255px;}
+
+.is_notification{width:127px; height:50px; font-size:var(--font-size-base);}
+
+.is_logo{grid-column: 1/3;}
+
+.is_logos{display:flex; flex-direction: row;justify-content: center;align-items: center;font-size:var(--font-size-xl);color:var(--color-aqua-island); height: 100%;}
+
+.is_enroll{ height:45px; font-size:var(--font-size-lg);}
+
+.is_enroll_logo{width:350px; height:66px;  font-size: var(--font-size-xxl);color:var(--color-chathams-blue); text-align: center;grid-column: 5/9;margin-top: 40px; margin-bottom: 10px}
+
+.is_enroll_button{height: 45px;font-size:var(--font-size-lg);}
+
+/* has */
+
+.has_flex_center{display: flex;justify-content: center;align-items: center;}
+
+.has_flex_column{display:flex; flex-direction:column;}
+
+.has_evenly{justify-content:space-evenly;}
+
+.has_between{justify-content:space-between;}
+
+.has_flex_center_cl{display: flex; flex-direction:column;justify-content: center;align-items: center;}
+
+.has_flex_space{display: flex;justify-content: space-between;align-items: center;}
+
+.has_flex_space_cl{display: flex; flex-direction:column;justify-content: space-evenly;align-items: center;}
+
+.has_flex_space_bt_cl{display: flex; flex-direction:column;align-items: center;}
+
+.has_flex_left{display: flex;flex-direction: column;align-content: center;align-items: flex-start; gap:10px;}
+
+.has_flex_end{display: flex;flex-direction: column;align-items: flex-end;}
+
+.has_flex_row{display: flex;flex-direction: row;justify-content: space-around;}
+
+.has_padding{padding:10px;}
+
+.has_margin{margin: 10px;}
+
+.has_icon{font-size:var(--font-size-base)}
+
+.has_shadow{box-shadow: 0px 4px 4px 0px #0000004D;}
+
+.has_notice{display: flex; justify-content: space-around; font-size: var( --font-size-lg)}
+
+/* color */
+
+.has_puce{color:var(--color-puce);}
+
+.has_dark-gray{color:var(--color-dark-gray);}
+
+.has_middle-blue-green{color:var(--color-middle-blue-green);}
+
+.has_black{color:var(--color-black);}
+
+.has_dark-moderate-blue{color:var(--color-dark-moderate-blue)}
+
+.has_white{color:var(--color-white)}
+
+.has_aqua-island{color:var(--color-aqua-island);}
+
+.has_chathams-blue{color:var(--color-chathams-blue);}
+
+.has_metallic-blue{color:var(--color-metallic-blue);}
+
+.has_albescent-white{color:var(--color-albescent-white);}
+
+.has_bg_albescent-white{background-color:var(--color-albescent-white);}
+
+.has_bg_river-bed{background-color: var(--color-river-bed);}
+
+.has_bg_harp{background-color: var(--color-harp);}
+
+.has_bg_turbo{background-color:var(--color-turbo);}
+
+.has_bg_white{background-color:var(--color-white);}
+
+.has_bg_middle-blue-green{background-color:var(--color-middle-blue-green);}
+
+.has_bg_dark-moderate-blue{background-color:var(--color-dark-moderate-blue)}
+
+.has_bg_dark-gray{background-color:var(--color-dark-gray);}
+
+.has_bg_puce{background-color:var(--color-puce);}
+
+.has_bg_pink{background-color:var(--color-pink);}
+
+/* font */
+
+.has_font-xs{font-size:var(--font-size-xs);}
+
+.has_font-sm{font-size:var(--font-size-sm);}
+
+.has_font-base{font-size:var(--font-size-base);}
+
+.has_font-lg{font-size:var(--font-size-lg);}
+
+.has_font-xl{font-size:var(--font-size-xl);}
+
+.has_font-xxl{font-size:var(--font-size-xxl);}
+
+/* avatar */
+.avatar {display: flex;justify-content: space-around;width: 445px;align-items: center;}
+
+.avatar_img {width: 120px;height: 120px;border-radius: 70%; object-fit: cover;}
+
+.avatar_name {width: 200px;font-size: var(--font-size-lg);}
+
+.avatar_info {font-size: var(--font-size-base);color: gray;padding-left: 0;}
+
+
+/* input textarea checkbox */
+option{font-size: var(--font-size-base);color: black;}
+
+input:not(input[type=file]), input[type=textarea], select{border-radius:8px; outline:none;text-indent:10px;height:64px;border: 2px solid var(--color-jagged-ice); font-size: var(--font-size-lg);}
+
+.input-file-button{padding: 6px 25px;background-color:var(--color-chathams-blue);border-radius: 4px;color: white;cursor: pointer;}
+
+.input_textarea{border-radius:8px; outline:none;border: 2px solid var( --color-dark-gray);}
+
+.has_width_half{width: var(--width-size-half);}
+
+.has_width_full{width: var(--width-size-full);}
+
+.has_width_100{width: 100%}
+
+.has_height_80{height: 80%}
+
+.checkbox{align-items: center;}
+
+.checkbox > input {height: 15px;}
+
+.is_login_input {height:45px;color:var(--color-gray);background-color:var(--color-albescent-white);border:none;}
+
+.is_login_input::placeholder{color:var(--color-alabaster);}
+
+/* card */
+.has_board_top_radius{border-top-right-radius: 8px;border-top-left-radius: 8px;}
+
+/*거래카드 베이스*/
+.transcationCard{height:450px;border-radius:4px;color:white;}
+
+.card{height:320px; border-radius: 4px; background-color: var(--color-alabaster);}
+
+.card_img{height:220px; width: 100%; background:url(photo/test.jpg);}
+
+.card_img_avatar{width:39px; height:39px; background:url(photo/cardimg4.png); border-radius:50%;}
+
+.card_history{display: flex;justify-content: space-evenly; width: 100%; align-items: center;}
+
+.dealingcard{width:255px; height:446px; border-radius:4px; color:white; text-align:center;}
+
+.dealingcard>div{display:inline-block;}
+
+/*마이페이지*/
+
+.my_page{width:535px; height:580px; border-radius:30px;}
+
+.my_img{width:100px; height:100px; border-radius:50%; background:url(photo/photo.png);}
+
+.item:nth-child(1){flex-basis:100px;}
+
+.item:nth-child(2){flex-basis:150px}
+
+.item:nth-child(3){flex-basis:230px; text-align:center;}
+
+.item:nth-child(4){flex-basis:60px;}
+
+/*거래 내역*/
+
+.transactionHistory-item{margin-bottom:70px;}
+
+.transactionHistory-item>button{width:133px;}
+
+/*구매자 카드*/
+.is_buyer>div:not(.is_buyer div:first-child){width:255px; height:36px; line-height:36px;}
+
+.is_buyer_img{width:125px; height:125px; border-radius:50%; background:url(../uitility/photo/cardimg2.png);}
+
+/*구매자 카드*/     /*여기수정햇음*/
+.is_buyer-card{/*grid-column:1/4;*/ height:446px; text-align:center;}
+/*경로수정*/
+.is_buyer-card-img{display:inline-block; margin-top:55px; border-radius:50%; width:125px; height:125px; background:url(photo/darth.jpg);}
+
+/*판매자 카드*/
+.is_seller>div:not(.is_seller div:first-child){width:255px;}
+
+.is_seller>div:first-child{width:223px; height:170px; background:url(static/css/photo/cardimg.png);}
+
+.is_seller>div:nth-child(3){height:120px; display:flex;}
+
+.is_seller>div:nth-child(3)>div:first-child{width:120px; border-radius:50%; background:url(../uitility/photo/cardimg.png);}
+
+/*아이콘*/
+.icon-card{text-align:center; border-radius:8px; width:140px; height:170px;}
+
+.credit-card{}
+
+/*결제 페이지*/
+
+.payment-page-artwork>div:last-child>ul>li{margin-top:10px;}
+
+.artwork-img{height: 350px;width: 100%;object-fit: contain;}
+
+/*hover*/
+
+.hover_header-btn:hover{transform:scale(1.2); color:#91D0D7CC; transition:0.5s; cursor:pointer}
+
+.hover_sign-btn:hover{transform:scale(1.1); transition:0.5s; cursor:pointer}
+
+.hover_top-btn:hover{transform:translateY(-25%); transition: 1s; cursor:pointer}
+
+/*sell page에 있는 이미지만 적용*/
+#sell_box img{width: 100%;height: 110%; object-fit: cover;}
+
+.is_img_object-fit{width: 260px;height: 230px;object-fit: cover}
+
+.is_img_avatar_object-fit{border-radius: 50%; width: 100%;height: 110%; object-fit: cover;}
