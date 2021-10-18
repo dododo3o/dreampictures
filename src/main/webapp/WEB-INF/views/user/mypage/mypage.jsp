@@ -55,8 +55,30 @@
                 <div style=" display:flex;align-items: center; margin-left: 15px; color: var(--color-river-bed)">질문내역</div>
             </div>
         </div>
-        <div style="grid-column:4/12; text-align: center; margin-top:15px; border-radius:8px; display: flex;">
-            <div class="ui segments" style=" background-color: white; height: 88%;">
+        <div class="ui card" style="height: 80%;">
+            <div class="content">
+                <div class="right floated meta">14h</div>
+                <img src="${cardVOlist.avatarimg}"
+                     style="border-radius:50%;width:3em;height:3em;object-fit:cover;">
+            </div>
+            <div class="image">
+                <img src="${cardVOlist.paintingmimg}"onclick="buypainting(${cardVOlist.no_painting});"
+                     style="object-fit: cover; height: 250px">
+            </div>
+            <div class="content">
+                    <span class="right floated">
+                      <i class="heart outline like icon"></i>17 likes</span>
+                <i class="comment icon"></i>3 comments
+            </div>
+            <div class="extra content">
+                <div class="ui large transparent left icon input" style="display: flex;">
+                    <i class="heart outline icon"></i>
+                    <input type="text" placeholder="Add Comment..." maxlength='20' style="font-size: 0.8em"/>
+                </div>
+                <button class="ui blue icon button" onclick="" style="float: right; font-size: 0.8em;">Add</button>
+            </div>
+        </div>
+        <div class="ui segments" style="grid-column:4/12; text-align: center; margin-top:15px; border-radius:8px;height:fit-content; ">
                 <div style="font-size:2em; text-align: center;" class="ui segment">
                     <p>My Page</p>
                 </div>
@@ -67,27 +89,25 @@
                     </div>
                 </div>
                 <div  class="ui segment">
-                    <p style="font-size:2em;"><i class="truck icon"></i> 포인트 <p style="font-size:20px;"><c:out value="${mypageVO.dreampay}"/></p></p>
+                    <div style="font-size:2em;"><i class="truck icon"></i> 포인트 <div style="font-size:20px;"><c:out value="${mypageVO.dreampay}"/></div></div>
                 </div>
                 <div  class="ui segment">
-                    <p style="font-size:2em;"><i class="truck icon"></i> 배송지 <p style="font-size:20px;"><c:out value="${mypageVO.addr}"/></p></p>
+                    <div style="font-size:2em;"><i class="truck icon"></i> 배송지 <div style="font-size:20px;"><c:out value="${mypageVO.addr}"/></div></div>
                 </div>
                 <div class="ui segment">
-                    <p style="font-size:2em;"><i class="envelope icon"></i> e-mail <p style="font-size:20px;"><c:out value="${mypageVO.email}"/></p></p>
+                    <div style="font-size:2em;"><i class="envelope icon"></i> e-mail <div style="font-size:20px;"><c:out value="${mypageVO.email}"/></div></div>
                 </div>
                 <div class="ui segment">
-                    <p style="font-size:2em;"><i class="phone icon"></i> phone <p style="font-size:20px;"><c:out value="${mypageVO.tel}"/></p></p>
+                    <div style="font-size:2em;"><i class="phone icon"></i> phone <div style="font-size:20px;"><c:out value="${mypageVO.tel}"/></div></div>
                 </div>
                 <div class="ui segment">
                     <p style="display:flex; justify-content: space-evenly;">
-                        <a href="/charge"><button class="ui button" style="width:200px; height:50px; background-color:#a2b0b36e">포인트충전</button></a>
+                        <a href="/charge"><button class="ui button " style="width:200px; height:50px; background-color:#a2b0b36e">포인트충전</button></a>
                         <button class="ui button" style="width:200px; height:50px; background-color:#a2b0b36e">수정하기</button>
                         <button class="ui button" style="width:200px; height:50px; background-color:#a2b0b36e">탈퇴하기</button>
                     </p>
                 </div>
             </div>
-
-        </div>
     </div>
 </main>
 <jsp:include page="../header_footer/footer.jsp"></jsp:include>
