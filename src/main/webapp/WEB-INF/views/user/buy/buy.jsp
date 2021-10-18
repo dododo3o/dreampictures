@@ -168,8 +168,7 @@
     </div>
 </div>
 </div>
-<div class="container" id="container"
-     style="display: grid;grid-template-columns: repeat(5,1fr);;grid-gap:1rem;justify-content: space-around;">
+<div class="container" id="container" style="display: grid;grid-template-columns: repeat(5,1fr);;grid-gap:1rem;justify-content: space-around;">
     <c:forEach var="cardVOlist" items="${cardVOlist}">
         <div class="ui card" style="height: 100%; margin: 0 auto;">
             <div class="content">
@@ -184,7 +183,7 @@
             <div class="content">
                     <span class="right floated">
                       <i class="heart outline like icon"></i>17 likes</span>
-                <i class="comment icon"></i>3 comments
+                <span onclick="showCommentModal(${cardVOlist.no_painting})"><i class="comment icon"></i>3</span>
             </div>
             <div class="extra content">
                 <div class="ui large transparent left icon input" style="display: flex;">
