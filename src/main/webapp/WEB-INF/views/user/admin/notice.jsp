@@ -20,7 +20,7 @@
 </head>
 <body>
 <jsp:include page="../header_footer/header_admin.jsp"></jsp:include>
-<main class="has_bg_harp" style="height: 100%;">
+<main class="has_bg_harp" style="height:auto;">
     <div class="container" style="height: 100%;">
         <div class="has_flex_column" style="grid-column:1/3; gap:40px; height: 100%; padding-top: 30px; background-color: #a2b0b36e">
             <a href="#" class="has_evenly" onmouseover="mouseOver()" onmouseout="mouseOut()" style=" padding-top: 10px; padding-bottom: 10px;" id="noticeLink">

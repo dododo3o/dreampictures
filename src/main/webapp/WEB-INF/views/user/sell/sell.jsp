@@ -65,15 +65,14 @@
 <% if (session.getAttribute("logStatus") == null) { %>
 <jsp:include page="../header_footer/header_not_login.jsp"></jsp:include>
 <% } %>
+<h1>Flickity - wrapAround</h1>
 <div class="carousel"
      data-flickity='{ "wrapAround": true }'>
-    <div class="carousel-cell">
-        <img class="carousel-cell-image"
-             data-flickity-lazyload="https://s3-us-west-2.amazonaws.com/s.cdpn.io/82/tulip.jpg" alt="tulip" />
-    </div>
     <div class="carousel-cell"></div>
     <div class="carousel-cell"></div>
-
+    <div class="carousel-cell"></div>
+    <div class="carousel-cell"></div>
+    <div class="carousel-cell"></div>
 </div>
 <main class="has_bg_harp">
     <div class="container">

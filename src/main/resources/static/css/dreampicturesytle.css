@@ -40,9 +40,9 @@
     --width-size-full: 540px;
 }
 
-@font-face {  font-family: 'BMHANNAPro';  src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_seven@1.0/BMHANNAPro.woff') format('woff');  font-weight: normal;  font-style: normal;}
+@font-face {  font-family: 'BMHANNAPro';  src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_seven@1.0/BMHANNAPro.woff') format('woff');  font-weight: normal;  font-style: normal; !important;}
 
-*{font-family: 'BMHANNAPro';text-decoration:none; list-style: none;margin:0;padding:0}
+*{font-family: 'BMHANNAPro'; text-decoration:none; list-style: none;margin:0;padding:0; }
 
 input[type=password]{font-family: -apple-system;}
 
@@ -211,7 +211,7 @@ button{border-radius:8px; border:0; outline:0; color:var(--color-white); backgro
 
 /* input textarea checkbox */
 option{font-size: var(--font-size-base);color: black;}
-input:not(input[type=file]), input[type=textarea], select{border-radius:8px; outline:none;text-indent:10px;height:64px;border: 2px solid var(--color-jagged-ice); font-size: var(--font-size-lg);}
+input:not(input[type=file]), input[type=textarea], #address_input, select{border-radius:8px; outline:none;text-indent:10px;height:64px;border: 2px solid var(--color-jagged-ice); font-size: var(--font-size-lg);}
 
 .input-file-button{padding: 6px 25px;background-color:var(--color-chathams-blue);border-radius: 4px;color: white;cursor: pointer;}
 
@@ -316,3 +316,6 @@ input:not(input[type=file]), input[type=textarea], select{border-radius:8px; out
 
 .is_img_avatar_object-fit{border-radius: 50%; width: 100%;height: 110%; object-fit: cover;}
 
+#shop_btn{background-color:var(--color-middle-blue-green);}
+#prev_btn{background-color:var(--color-middle-blue-green);}
+#address_input{border-radius:1px; outline:none;text-indent:10px;height:30px;border: 1px solid #80808057; font-size: var(--font-size-basic);}

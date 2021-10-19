@@ -3,12 +3,10 @@ package com.example.dreampicturespring.controller.buy;
 
 import com.example.dreampicturespring.entity.Membershiptbl;
 import com.example.dreampicturespring.entity.Paintingtbl;
+import com.example.dreampicturespring.repository.CommentRepository;
 import com.example.dreampicturespring.repository.MembershiptblRepository;
 import com.example.dreampicturespring.repository.PaintingRepository;
-import com.example.dreampicturespring.vo.CardVO;
-import com.example.dreampicturespring.vo.PaintingVO;
-import com.example.dreampicturespring.vo.PaymentVO;
-import com.example.dreampicturespring.vo.TransactionVO;
+import com.example.dreampicturespring.vo.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -29,19 +27,41 @@ public class BuyController {
     PaintingRepository paintingRepository;
     @Autowired
     MembershiptblRepository membershiptblRepository;
+    @Autowired
+    CommentRepository commentRepository;
 
     @RequestMapping("/buy")
-    public ModelAndView buy(HttpServletRequest request){
+    public ModelAndView buy(){
         final int CARDSPERPAGE = 15;
         int cardNum = 0,pageNum;
         ModelAndView mv = new ModelAndView();
-
         List<CardVO> cardVOList = new ArrayList<>();
         List<String> list = paintingRepository.findAllPainting_Desc();
         for(String card : list){
             List<String> obj = Arrays.asList(card.split(","));
-            CardVO vo = new CardVO(obj.get(0),obj.get(1)+"/avatarimg/avatarimg.jpg",obj.get(1)+"/paintingimg/"+obj.get(3)+"/0.jpg",obj.get(2),obj.get(3));
-            cardVOList.add(vo);
+            CardVO cardVO = new CardVO();
+            cardVO.setNo_painting(obj.get(0));
+            cardVO.setAvatarimg(obj.get(1)+"/avatarimg/avatarimg.jpg");
+            cardVO.setPaintingmimg(obj.get(1)+"/paintingimg/"+obj.get(3)+"/0.jpg");
+            cardVO.setNickname(obj.get(2));
+            cardVO.setPname(obj.get(3));
+            cardVO.setCommentNumber(commentRepository.countByno_painting(Integer.parseInt(obj.get(0))));
+
+            List<String> comments = commentRepository.findCommenttbl(Integer.parseInt(obj.get(0)));
+            List<CommentVO> commentVOlist = new ArrayList<>();
+            for(String comment : comments){
+                List<String> comment_member = Arrays.asList(comment.split(","));
+                Membershiptbl membershiptbl = membershiptblRepository.getById(Integer.parseInt(comment_member.get(1)));
+                CommentVO commentVO = new CommentVO();
+                commentVO.setAvatarimg(membershiptbl.getImg()+"/avatarimg/avatarimg.jpg");
+                commentVO.setAuthor(membershiptbl.getNickname());
+                commentVO.setDate("1H");
+                commentVO.setComments(comment_member.get(0));
+                commentVO.setNo_membership(membershiptbl.getNo_membership());
+                commentVOlist.add(commentVO);
+            }
+            cardVO.setCommentVOList(commentVOlist);
+            cardVOList.add(cardVO);
             cardNum++;
         }
         pageNum = cardNum/CARDSPERPAGE+1;
@@ -55,7 +75,7 @@ public class BuyController {
     public ModelAndView buy_picture(HttpServletRequest request, @PathVariable String no_painting) {
         ModelAndView mv = new ModelAndView();
         mv.setViewName("user/buy/buy_picture");
-        Optional<Paintingtbl> PTBL = paintingRepository.findById(Long.parseLong(no_painting));
+        Optional<Paintingtbl> PTBL = paintingRepository.findById(Integer.parseInt(no_painting));
         Paintingtbl paintingTBL = PTBL.get();
         Optional<Membershiptbl> MTBL = membershiptblRepository.findById(paintingTBL.getNo_membership());
         Membershiptbl membershipTBL = MTBL.get();
@@ -73,7 +93,7 @@ public class BuyController {
             mv.setViewName("user/login/login");
             return mv;
         }
-        Optional<Paintingtbl> PTBL = paintingRepository.findById(Long.parseLong(no_painting));
+        Optional<Paintingtbl> PTBL = paintingRepository.findById(Integer.parseInt(no_painting));
         Paintingtbl paintingTBL = PTBL.get();
         Membershiptbl membershipTBL = membershiptblRepository.findByemail((String) session.getAttribute("logEmail"));
         PaymentVO paymentVO = new PaymentVO(paintingTBL,membershipTBL);
@@ -90,7 +110,7 @@ public class BuyController {
             mv.setViewName("user/login/login");
             return mv;
         }
-        Optional<Paintingtbl> PTBL = paintingRepository.findById(Long.parseLong(no_painting));
+        Optional<Paintingtbl> PTBL = paintingRepository.findById(Integer.parseInt(no_painting));
         Paintingtbl paintingTBL = PTBL.get();
         Optional<Membershiptbl> sellerMembershipTBL = membershiptblRepository.findById((paintingTBL.getNo_membership()));
         Membershiptbl sellerMembershiptbl = sellerMembershipTBL.get();

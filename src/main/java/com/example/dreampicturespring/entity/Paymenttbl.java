@@ -17,7 +17,7 @@ public class Paymenttbl {
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "PAY_SEQ")
     @SequenceGenerator(sequenceName = "PAYMENTSQ", allocationSize = 1, name = "PAY_SEQ")
-    private Long no_payment;
+    private Integer no_payment;
 
     @Column(name="paymentprice")
     private String paymentprice;
@@ -28,19 +28,11 @@ public class Paymenttbl {
     @Column(name="cardcompony")
     private String cardcompony;
 
-    @Column(name="cardnum")
-    private int cardnum;
+    private Integer no_membership;
 
-    @Column(name="cvcnum")
-    private int cvcnum;
+    private Integer no_order;
 
-    private String VALIDTHRU;
-
-    private Long no_membership;
-
-    private Long no_order;
-
-    private Long no_cart;
+    private Integer no_cart;
 
     public Paymenttbl(){
         if(StringUtils.isEmpty(paymentdate)){

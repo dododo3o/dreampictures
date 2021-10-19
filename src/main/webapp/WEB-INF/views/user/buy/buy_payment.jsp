@@ -15,7 +15,7 @@
     <script src="https://kit.fontawesome.com/b14e6f064f.js" crossorigin="anonymous"></script>
 </head>
 <body>
-<% if (session.getAttribute("logStatus")=="Y"){ %>
+<% if (session.getAttribute("logStatus") == "Y") { %>
 <jsp:include page="../header_footer/header_login.jsp">
     <jsp:param name="user" value="${user}"/>
 </jsp:include>
@@ -23,67 +23,94 @@
 <main class="has_bg_harp">
 
     <div class="container">
+        <div style="background-color:var( --color-white);display:flex;grid-column: 1/13">
 
-        <div class="payment-page-artwork" style="border-bottom:1px solid black; height:750px; grid-column: 1/7;">
-            <h1 class="has_font-2xl has_dark-moderate-blue" style="margin:10px 0 25px 0;">결제페이지</h1>
-            <div>
-                <h2 class="has_font-xxl has_dark-moderate-blue" style="text-align:center; margin-bottom:10px;"><c:out value="${paymentVO.pname}"/></h2>
-                <img src="<c:out value="${paymentVO.paintingimg}"/>" alt="" class="artwork-img">
-            </div>
-            <div>
-                <ul>
-                    <li class="has_font-lg">가격: <c:out value="${paymentVO.price}"/></li>
-                    <li class="has_font-lg">높이: <c:out value="${paymentVO.height}"/> 넓이: <c:out value="${paymentVO.width}"/></li>
-                    <li class="has_font-lg">제작년도: <c:out value="${paymentVO.production}"/></li>
-                    <li>설명: <c:out value="${paymentVO.exp}"/></li>
-                </ul>
-            </div>
-        </div>
+            <div
+                    style="border-right: 1px solid #ddd;width:50%;padding-left: 130px;padding-right: 100px;">
+                <div class="has_flex_column has_evenly" style="height: 80%;padding-top: 100px;">
+                    <button class="ui secondary button"><font style="vertical-align: inherit; "><font
+                            style="vertical-align: inherit;">
+                        그림드림 페이
+                    </font></font></button>
+                    <div class="ui horizontal divider"><font style="vertical-align: inherit;"><font
+                            style="vertical-align: inherit;">
+                        Buyer Infomation
+                    </font></font></div>
+                    <div class="ui list has_flex_column has_font-base" style="display: flex; gap: 20px;">
+                        <div style="user-select: auto; display: flex;">
+                            <i class="users icon" style="user-select: auto;"></i>
+                            <div class="content" style="user-select: auto;">
+                                닉네임 : <c:out value="${mypageVO.nickname}"/>
+                            </div>
+                        </div>
+                        <div style="user-select: auto; display: flex;">
+                            <i class="mail icon" style="user-select: auto;"></i>
+                            <div class="content" style="user-select: auto;">
+                                이메일 : <c:out value="${mypageVO.email}"/>
+                            </div>
+                        </div>
+                        <div style="user-select: auto; display: flex;">
+                            <i class="phone icon" style="user-select: auto;"></i>
+                            <div class="content" style="user-select: auto;">
+                                연락처 : <c:out value="${mypageVO.tel}"/>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="ui horizontal divider"><font style="vertical-align: inherit;"><font
+                            style="vertical-align: inherit;">
+                        Shipping Address
+                    </font></font></div>
+                    <div class="has_flex_column" style="">
+                        <input type="text" style="" id="address_input" value="<c:out value="${mypageVO.addr}"/>">
+                    </div>
+                    <div class="ui horizontal divider"><font style="vertical-align: inherit;"><font
+                            style="vertical-align: inherit;">
+                        Point
+                    </font></font></div>
+                    <div class="ui list has_flex_column has_font-base" style="display: flex; gap: 20px;">
+                        <div style="user-select: auto; display: flex;">
+                            <i class="hourglass half icon" style="user-select: auto;"></i>
+                            <div class="content" style="user-select: auto;">
+                                현재 포인트 : <%--todo--%>
+                            </div>
+                        </div>
+                        <div style="user-select: auto; display: flex;">
+                            <i class="hourglass outline icon" style="user-select: auto;"></i>
+                            <div class="content" style="user-select: auto;">
+                                결제 후 포인트 : <%--todo--%>
+                            </div>
+                        </div>
+                    </div>
+                    <button class="ui secondary button"><font style="vertical-align: inherit; "><font
+                            style="vertical-align: inherit;">
+                        드림페이 충전
+                    </font></font></button>
+                    <div class="ui horizontal divider"><font style="vertical-align: inherit;"><font
+                            style="vertical-align: inherit;">
+                        Payment
+                    </font></font></div>
+                    <div style="display: flex;justify-content: space-around;">
+                        <button class="ui secondary button"><font style="vertical-align: inherit; "><font
+                                style="vertical-align: inherit;">
+                            결제하기
+                        </font></font></button>
+                        <button class="ui secondary button"><font style="vertical-align: inherit; "><font
+                                style="vertical-align: inherit;">
+                            뒤로가기
+                        </font></font></button>
+                    </div>
+                </div>
+            </div><!--오른쪽 div-->
 
-        <div style="height:750px; grid-column: 7/13;">
-            <!--구매자 정보-->
-            <div style="margin-top:130px;" class="avatar">
-                <img src="<c:out value="${paymentVO.avatarimg}"/>" class="avatar_img"/>
-                <div class="avatar_name has_chathams-blue">
-                    "<c:out value="${paymentVO.nickname}"/>"
-                    <ul class="avatar_info">
-                        <li>이메일 : <c:out value="${paymentVO.email}"/></li>
-                        <li>번호 : <c:out value="${paymentVO.tel}"/></li>
-                    </ul>
+            <div class="has_flex_column" style="width:50%;padding-left: 80px;padding-right: 80px;">
+                <h6 style="margin-top: 100px">작가이름</h6>
+                <h5>작품명</h5>
+                <h1>₩65000</h1>
+                <div class="image" style="margin-top: 70px">
+                    <img src="<c:out value="${paintingVO.paintingimg}"/>"
+                         style="width:300px;height: 300px;border-radius: 5%;">
                 </div>
-            </div>
-            <!--배송지-->
-            <div style="margin:40px 0 0px 30px;">
-                <div style="margin-bottom:15px;"><span style="margin:0 20px 0 20px;" class="has_metallic-blue has_font-xl">배송지</span><button style="width:100px; height:40px;" class="button has_font-base">수정</button></div>
-                <div style="width:90%; border:3px solid #495057; height:40px; border-radius:8px; line-height:40px;"><a style="margin-left:15px; color:#495057;" href="#"><c:out value="${paymentVO.addr}"/></a></div>
-            </div>
-            <!--결제수단-->
-            <div  style="margin:30px 0 0 30px;">
-                <p class="has_font-xl has_metallic-blue" style="margin:0 0 25px 0;">결제수단</p>
-                <!--카드결제-->
-                <div class="has_flex_center has_between">
-                    <div class="icon-card has_bg_middle-blue-green credit-card">
-                        <div style="margin-top:20px;"><i class="far fa-credit-card has_font-xxl has_metallic-blue"></i></div>
-                        <div><i class="fas fa-check has_font-xl has_puce"></i></div>
-                        <p class="has_metallic-blue has_font-lg">카드결제</p>
-                    </div>
-                    <!--휴대폰 결제-->
-                    <div class="icon-card has_bg_middle-blue-green credit-card">
-                        <div style="margin:20px 0 36px;"><i class="fas fa-mobile-alt has_font-xxl has_white"></i></div>
-                        <p class="has_white has_font-lg">휴대폰결제</p>
-                    </div>
-                    <!--드림페이-->
-                    <div class="icon-card has_bg_middle-blue-green credit-card">
-                        <div style="margin:20px 0 36px 0;"><i class="fas fa-palette has_font-xxl has_white"></i></div>
-                        <p class="has_font-lg has_white">드림페이</p>
-                    </div>
-                </div>
-            </div>
-            <!--버튼-->
-            <div style="margin:20px 0 0 30px;" class="has_flex_center has_between">
-                <a href="/buy_transaction/<c:out value="${paymentVO.no_painting}"/>"><button style="width:320px; height:60px;" class="button has_font-sm has_bg_dark-moderate-blue has_white">구매하기</button></a>
-                <a href="/buy_picture/<c:out value="${paymentVO.no_painting}"/>"><button style="width:140px; height:60px;" class="has_font-sm button has_bg_dark-moderate-blue has_white">뒤로가기</button></a>
-            </div>
+            </div><!--왼쪽div-->
         </div>
     </div>
 </main>

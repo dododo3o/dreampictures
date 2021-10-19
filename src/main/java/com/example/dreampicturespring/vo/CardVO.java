@@ -1,7 +1,10 @@
 package com.example.dreampicturespring.vo;
 
+import com.example.dreampicturespring.entity.Membershiptbl;
 import com.example.dreampicturespring.entity.Paintingtbl;
 import lombok.Data;
+
+import java.util.List;
 
 @Data
 public class CardVO {
@@ -10,6 +13,8 @@ public class CardVO {
     private String paintingmimg;
     private String nickname;
     private String pname;
+    private Integer commentNumber;
+    private List<CommentVO> commentVOList;
 
     public CardVO(){ }
     public CardVO(String no_painting,String avatarimg,String paintingmimg,String nickname,String pname){
@@ -19,13 +24,12 @@ public class CardVO {
         this.nickname = nickname;
         this.pname = pname;
     }
-    public CardVO(Paintingtbl paintingtbl){
-//        this.no_painting = Long.toString(paintingtbl.getNo_painting());
-//        this.avatarimg = paintingtbl.get;
-//        this.paintingmimg = paintingmimg;
-//        this.nickname = nickname;
-//        this.pname = pname;
-
+    public CardVO(Paintingtbl paintingtbl, Membershiptbl membershiptbl){
+        this.no_painting = Integer.toString(paintingtbl.getNo_painting());
+        this.avatarimg = membershiptbl.getImg()+"/avatarimg/avatarimg.jpg";
+        this.paintingmimg = membershiptbl.getImg()+"/paintingimg/"+paintingtbl.getPname()+"/0.jpg";
+        this.nickname = membershiptbl.getNickname();
+        this.pname = paintingtbl.getPname();
     }
 
 }

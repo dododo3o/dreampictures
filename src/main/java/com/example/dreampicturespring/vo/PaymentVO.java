@@ -9,7 +9,7 @@ import java.util.Date;
 
 @Data
 public class PaymentVO {
-    private Long no_painting;
+    private Integer no_painting;
     private String pname;
     private String paintingimg;
     private String avatarimg;

@@ -19,7 +19,7 @@ public class Paintingtbl {
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "PAINTING_SEQ")
     @SequenceGenerator(sequenceName = "PAINTINGSQ", allocationSize = 1, name = "PAINTING_SEQ")
-    private Long no_painting;
+    private Integer no_painting;
     private String pname;
     private String theme;
     private int width;
@@ -30,14 +30,14 @@ public class Paintingtbl {
     private LocalDateTime writedate;
     private Date production;
     private String exp;
-    private Long no_membership;
+    private Integer no_membership;
 
     public Paintingtbl(){
         if(StringUtils.isEmpty(writedate)){
             this.writedate = LocalDateTime.now();
         }
     }
-    public Paintingtbl(SellVO vo,Long no_membership){
+    public Paintingtbl(SellVO vo,Integer no_membership){
         this.pname = vo.getPname();
         this.theme = vo.getTheme();
         this.width = vo.getWidth();

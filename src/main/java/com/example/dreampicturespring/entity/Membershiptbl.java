@@ -18,7 +18,7 @@ public class Membershiptbl {
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "MEM_SEQ")
     @SequenceGenerator(sequenceName = "MEMBERSHIPSQ", allocationSize = 1, name = "MEM_SEQ")
-    private Long no_membership;
+    private Integer no_membership;
     @Column
     private String email;
     @Column
@@ -39,6 +39,8 @@ public class Membershiptbl {
     private Integer memberStatus;
     @Column(name = "reported")
     private Integer reported;
+    @Column(name = "dreampay")
+    private Integer dreampay;
 
     public Membershiptbl() {}
 
@@ -52,6 +54,7 @@ public class Membershiptbl {
         this.img = vo.getImg();
         this.memberStatus = 0;
         this.reported = 0;
+        this.dreampay = 0;
         if(StringUtils.isEmpty(startDate)){ this.startDate = LocalDateTime.now();}
     }
 
@@ -64,6 +67,7 @@ public class Membershiptbl {
         this.img = img;
         this.memberStatus = 0;
         this.reported = 0;
+        this.dreampay = 0;
         if(StringUtils.isEmpty(startDate)){ this.startDate = LocalDateTime.now();}
     }
 }
