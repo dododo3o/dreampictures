@@ -55,11 +55,12 @@
         }
     </script>
     <script type = "text/javascript" >
+        let status = undefined; //0~4 까지 질문 종류
+
         showModal = function () {$('.ui.modal').modal('show');};
-        requestQA = function () {
-            $(() => {
+        requestQA = function () {$(() => {
+                if(status==undefined) return;
                 let question = document.getElementById("question").value;
-                let status = 0; //0~4 까지 질문 종류
                 $.ajax({
                     url: "/ajax_request_QA",
                     data: "question="+question+"&status="+status,
@@ -67,8 +68,9 @@
                         document.location.href = "/notice";
                     }
                 });
-            });
-        };
+            });};
+        selectedBtn = function (number) {$(() => {status = number});};
+
     </script>
 </head>
 <body>
@@ -82,17 +84,15 @@
 <% } %>
 <main class="has_bg_harp" style="height: 100%;">
     <div class="ui modal">
-        <div class="header">
-            질문 사항
-        </div>
+        <div class="header">질문 사항</div>
         <div class="ui form">
             <div class="field">
                 <div class="five ui buttons">
-                    <button class="ui button">운영 정책</button>
-                    <button class="ui button">구매/판매</button>
-                    <button class="ui button">가격 정책</button>
-                    <button class="ui button">계정 인증</button>
-                    <button class="ui button">그 외 질문</button>
+                    <button class="ui button" onclick="selectedBtn(0)">운영 정책</button>
+                    <button class="ui button" onclick="selectedBtn(1)">구매/판매</button>
+                    <button class="ui button" onclick="selectedBtn(2)">가격 정책</button>
+                    <button class="ui button" onclick="selectedBtn(3)">계정 인증</button>
+                    <button class="ui button" onclick="selectedBtn(4)">그 외 질문</button>
                 </div>
                 <textarea id="question"></textarea>
             </div>
@@ -163,7 +163,6 @@
         </div>
     </div>
 </main>
-
 <jsp:include page="../header_footer/footer.jsp"></jsp:include>
 </body>
 </html>
