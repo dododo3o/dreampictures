@@ -44,32 +44,56 @@
 <main class="has_bg_harp">
     <div id="container" class="container">
         <div style="grid-column:1/3;display:flex;flex-direction: column;gap:40px; padding-top: 20px; background-color: #a2b0b36e">
-            <div style="display: flex;justify-content: space-evenly; ">
-                <span style=" color: var(--color-river-bed)"><i class="fas fa-bell fa-lg"></i></span>
-                <div style=" display:flex;align-items: center; margin-left: 10px; color: var(--color-river-bed)"><a
-                        href="mypage12.html">My Page</a></div>
-            </div>
-            <div style="display: flex;justify-content: space-evenly;">
-                <span style="color: var(--color-river-bed)"><i class="fas fa-question fa-lg"></i></span>
-                <div style=" display:flex;align-items: center; margin-left: 15px; color: var(--color-river-bed)">구매내역
+            <div class="has_flex_column"
+                 style="grid-column:1/3; gap:40px;padding-top: 30px;">
+                <div class="ui vertical animated button" tabindex="0" onclick="showModal()">
+                    <div class="hidden content">My Page</div>
+                    <div class="visible content">
+                        <i class="user circle icon"></i>
+                    </div>
+                </div>
+                <div class="ui vertical animated button" tabindex="0" onclick="showModal()">
+                    <div class="hidden content">구매내역</div>
+                    <div class="visible content">
+                        <i class="shipping fast icon"></i>
+                    </div>
+                </div>
+                <div class="ui vertical animated button" tabindex="0" onclick="showModal()">
+                    <div class="hidden content">장바구니</div>
+                    <div class="visible content">
+                        <i class="shopping cart icon"></i>
+                    </div>
+                </div>
+
+                <div class="ui vertical animated button" tabindex="0" onclick="showModal()">
+                    <div class="hidden content">질문내역</div>
+                    <div class="visible content">
+                        <i class="comments outline icon"></i>
+                    </div>
                 </div>
             </div>
-            <div style="display: flex;justify-content: space-evenly;">
-                <span style="color: var(--color-river-bed)"><i class="fas fa-question fa-lg"></i></span>
-                <div style=" display:flex;align-items: center; margin-left: 15px; color: var(--color-river-bed)">장바구니
-                </div>
-            </div>
-            <div style="display: flex;justify-content: space-evenly;">
-                <span style="color: var(--color-river-bed)"><i class="fas fa-question fa-lg"></i></span>
-                <div style=" display:flex;align-items: center; margin-left: 15px; color: var(--color-river-bed)">질문내역
-                </div>
-            </div>
+            <%--            <div style="display: flex;justify-content: space-evenly;">--%>
+            <%--                <span style="color: var(--color-river-bed)"><i class="fas fa-question fa-lg"></i></span>--%>
+            <%--                <div style=" display:flex;align-items: center; margin-left: 15px; color: var(--color-river-bed)">구매내역--%>
+            <%--                </div>--%>
+            <%--            </div>--%>
+            <%--            <div style="display: flex;justify-content: space-evenly;">--%>
+            <%--                <span style="color: var(--color-river-bed)"><i class="fas fa-question fa-lg"></i></span>--%>
+            <%--                <div style=" display:flex;align-items: center; margin-left: 15px; color: var(--color-river-bed)">장바구니--%>
+            <%--                </div>--%>
+            <%--            </div>--%>
+            <%--            <div style="display: flex;justify-content: space-evenly;">--%>
+            <%--                <span style="color: var(--color-river-bed)"><i class="fas fa-question fa-lg"></i></span>--%>
+            <%--                <div style=" display:flex;align-items: center; margin-left: 15px; color: var(--color-river-bed)">질문내역--%>
+            <%--                </div>--%>
+            <%--            </div>--%>
         </div>
-        <div class="ui card" style="width:500px;grid-column: 5/12;">
-            <div class="content" style="display:flex;">
+        <div class="ui card" style="width:500px;grid-column: 5/12; height: fit-content;">
+            <div class="content" style="display:flex;justify-content: space-evenly;align-items: center;">
                 <div><img src="${cardVOlist.avatarimg}"
-                          style="border-radius:50%;width:7em;height:7em; object-fit:cover;"></div>
-                <div style="color:black"><c:out value="${mypageVO.nickname}"/></div>
+                          style="border-radius:50%;width:5em;height:5em; object-fit:cover;">
+                </div>
+                <div style="color:black;font-size: 3em;"><c:out value="${mypageVO.nickname}"/></div>
             </div>
             <div class="content">
                 <span class="right floated"></span>
@@ -104,40 +128,6 @@
                 </div>
             </div>
         </div>
-<%--        <div class="ui segments"--%>
-<%--             style="grid-column:4/12; text-align: center; margin-top:15px; border-radius:8px;height:fit-content;">--%>
-<%--            <div style="font-size:2em; text-align: center;" class="ui segment">--%>
-<%--                <p>My Page</p>--%>
-<%--            </div>--%>
-<%--            <div class="ui segment">--%>
-<%--                <div class="has_flex_center" style="font-size:2em;">--%>
-<%--                    <img class="ui avatar image" src="<c:out value="${mypageVO.avatarimg}"/>">--%>
-<%--                    <span style="color:black"><c:out value="${mypageVO.nickname}"/></span>--%>
-<%--                </div>--%>
-<%--            </div>--%>
-<%--            <div class="ui segment">--%>
-<%--                <div style="font-size:2em;"><i class="truck icon"></i> 포인트--%>
-<%--                    <div style="font-size:20px;"><c:out value="${mypageVO.dreampay}"/></div>--%>
-<%--                </div>--%>
-<%--            </div>--%>
-<%--            <div class="ui segment">--%>
-<%--                <div style="font-size:2em;"><i class="truck icon"></i> 배송지--%>
-<%--                    <div style="font-size:20px;"><c:out value="${mypageVO.addr}"/></div>--%>
-<%--                </div>--%>
-<%--            </div>--%>
-<%--            <div class="ui segment">--%>
-<%--                <div style="font-size:2em;"><i class="envelope icon"></i> e-mail--%>
-<%--                    <div style="font-size:20px;"><c:out value="${mypageVO.email}"/></div>--%>
-<%--                </div>--%>
-<%--            </div>--%>
-<%--            <div class="ui segment">--%>
-<%--                <div style="font-size:2em;"><i class="phone icon"></i> phone--%>
-<%--                    <div style="font-size:20px;"><c:out value="${mypageVO.tel}"/></div>--%>
-<%--                </div>--%>
-<%--            </div>--%>
-<%--        </div>--%>
-    </div>
-    </div>
 </main>
 <jsp:include page="../header_footer/footer.jsp"></jsp:include>
 </body>

@@ -107,28 +107,29 @@
             </div>
         </div>
     </div>
-    <div class="container">
+    <div class="container" style="height: 100%;">
         <div class="has_flex_column" style="grid-column:1/3; gap:40px;padding-top: 30px; background-color: #a2b0b36e">
             <div class="ui vertical animated button" tabindex="0" onclick="showModal()">
-                <div class="hidden content">질문하기</div>
+                <div class="hidden content">공지사항</div>
+                <div class="visible content">
+                    <i class="bullhorn icon"></i>
+                </div>
+            </div>
+            <div class="ui vertical animated button" tabindex="0" onclick="showModal()">
+                <div class="hidden content">자주 묻는 질문</div>
                 <div class="visible content">
                     <i class="question circle icon"></i>
                 </div>
             </div>
+
             <div class="ui vertical animated button" tabindex="0" onclick="showModal()">
                 <div class="hidden content">질문하기</div>
                 <div class="visible content">
-                    <i class="question circle icon"></i>
-                </div>
-            </div>
-            <div class="ui vertical animated button" tabindex="0" onclick="showModal()">
-                <div class="hidden content">질문하기</div>
-                <div class="visible content">
-                    <i class="question circle icon"></i>
+                    <i class="comments outline icon"></i>
                 </div>
             </div>
         </div>
-        <div class="has_flex_end" style="grid-column: 3/13; flex-wrap: wrap; margin-top: 20px; margin-bottom: 20px;">
+        <div class="has_flex_end" style="grid-column: 3/13; flex-wrap: wrap; margin-top: 20px;">
             <div class="ui vertical animated button" tabindex="0" onclick="showModal()">
                 <div class="hidden content">질문하기</div>
                 <div class="visible content">
@@ -168,7 +169,6 @@
         </div>
     </div>
 </main>
-
 <jsp:include page="../header_footer/footer.jsp"></jsp:include>
 </body>
 </html>
