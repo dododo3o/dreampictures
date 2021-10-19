@@ -61,17 +61,12 @@ public class AjaxController {
 
 	@RequestMapping(value = "/ajax_request_QA",method = RequestMethod.GET, produces ="application/text;charset=UTF-8")
 	public String request_Integer(Model model,HttpServletRequest request, String question, Integer status){
-		System.out.println(question);
-		System.out.println(status);
-
 		HttpSession session = request.getSession();
 		Membershiptbl membershipTBL = membershiptblRepository.findByemail((String) session.getAttribute("logEmail"));
 		if(membershipTBL == null){ return "user/redirect/not_login"; }
-		//todo 리플테이블 재작성
 		Qatbl qatbl = new Qatbl(membershipTBL, question, status);
 		qaRepository.save(qatbl);
-
-		return "redirect:/buy";
+		return "redirect:/notice";
 	}
 
 	@RequestMapping(value = "/ajax_comment_finder",method = RequestMethod.GET, produces ="application/text;charset=UTF-8")

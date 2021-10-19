@@ -75,6 +75,8 @@ public class BuyController {
     public ModelAndView buy_picture(HttpServletRequest request, @PathVariable String no_painting) {
         ModelAndView mv = new ModelAndView();
         mv.setViewName("user/buy/buy_picture");
+        System.out.println("============================");
+        System.out.println(no_painting);
         Optional<Paintingtbl> PTBL = paintingRepository.findById(Integer.parseInt(no_painting));
         Paintingtbl paintingTBL = PTBL.get();
         Optional<Membershiptbl> MTBL = membershiptblRepository.findById(paintingTBL.getNo_membership());
