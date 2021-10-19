@@ -82,7 +82,7 @@
 <% if (session.getAttribute("logStatus") == null) { %>
 <jsp:include page="../header_footer/header_not_login.jsp"></jsp:include>
 <% } %>
-<main class="has_bg_harp" style="height: 100%;">
+<main class="has_bg_harp" style="height: auto;">
     <div class="ui modal">
         <div class="header">
             질문 사항
@@ -107,7 +107,7 @@
             </div>
         </div>
     </div>
-    <div class="container" style="height: 100%;">
+    <div class="container">
         <div class="has_flex_column" style="grid-column:1/3; gap:40px;padding-top: 30px; background-color: #a2b0b36e">
             <div class="ui vertical animated button" tabindex="0" onclick="showModal()">
                 <div class="hidden content">질문하기</div>
@@ -128,7 +128,7 @@
                 </div>
             </div>
         </div>
-        <div class="has_flex_end" style="grid-column: 3/13; flex-wrap: wrap; margin-top: 20px;">
+        <div class="has_flex_end" style="grid-column: 3/13; flex-wrap: wrap; margin-top: 20px; margin-bottom: 20px;">
             <div class="ui vertical animated button" tabindex="0" onclick="showModal()">
                 <div class="hidden content">질문하기</div>
                 <div class="visible content">
