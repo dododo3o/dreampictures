@@ -74,7 +74,7 @@
                     url: "/ajax_comment_add",
                     data: "comment=" + text + "&no_painting=" + no_paint,
                     success: function (result) {
-                        //todo
+                        alert(result);
                     }
                 });
             });
