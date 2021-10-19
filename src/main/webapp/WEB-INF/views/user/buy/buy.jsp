@@ -25,6 +25,7 @@
         function buypainting(num) {
             location.href = "http://localhost:8080/buy_picture/" + num;
         }
+
         showModal = function () {
             $(() => {
                 let pname = document.getElementById("pname").value;
@@ -56,7 +57,9 @@
                     success: function (result) {
                         alert(result)
                         var container = document.getElementById("commentModal");
-                        while ( container.hasChildNodes() ) { container.removeChild( container.firstChild ); }
+                        while (container.hasChildNodes()) {
+                            container.removeChild(container.firstChild);
+                        }
                         $("#commentModal").html(result);
                         $('.ui.tiny.modal').modal('show');
                     }
@@ -95,53 +98,55 @@
                 <div style="display: flex;" class="has_flex_space ">
                     <input type="text" class="has_width_full" id="pname" placeholder="검색어를 입력해주세요."/>
                 </div>
-    </form>
-    <button  class=" ui blue icon button has_width_full" onclick="showModal()"><i class="search icon"></i>찾기    </button>
-    <div style="display: flex; gap: 90px;">
-        <select style="font-family: 'BMHANNAPro'; font-size: 1.5em;" class="has_width_half"
-                style="margin-right: 90px;" id="style">
-            <option value="" disabled selected>화풍</option>
-            <option value="oils">유화</option>
-            <option value="water">수채화</option>
-            <option value="acrylic">아크릴화</option>
-            <option value="pen">펜화</option>
-            <option value="pencil">연필화</option>
-            <option value="pastel">파스텔화</option>
-            <option value="crayon">크레용화</option>
-            <option value="gouache">과슈화</option>
-        </select>
-        <select style="font-family: 'BMHANNAPro'; font-size: 1.5em;" class="has_width_half" id="theme">
-            <option value="" disabled selected>테마</option>
-            <option value="scenery">풍경</option>
-            <option value="character">인물</option>
-            <option value="still">정물</option>
-            <option value="animal">동물</option>
-            <option value="abstract">추상</option>
-            <option value="popart">팝아트</option>
-            <option value="objet">오브제</option>
-        </select>
-    </div>
-    <div style="display: flex;justify-content: space-between;grid-column:1/9;">
-        <div><span class="has_chathams-blue">최대너비  : <span id="widthVal">200</span>(CM)<br></span><input
-                type="range" class="width_slider"
-                id="width" min="0" max="200" step="10"
-                value="200" oninput="document.getElementById('widthVal').innerHTML=this.value;"/></div>
-        <div><span class="has_chathams-blue">최대높이  :  <span id="heightVal">200</span>(CM)<br></span><input
-                type="range" class="width_slider"
-                id="height" min="0" max="200" step="10"
-                value="200" oninput="document.getElementById('heightVal').innerHTML=this.value;"/></div>
-        <div><span class="has_chathams-blue">최대가격  : <span id="priceVal">100000</span>(원)<br></span><input
-                type="range" class="width_slider"
-                id="price" min="0" max="100000" step="1000"
-                value="100000" oninput="document.getElementById('priceVal').innerHTML=this.value;"/></div>
-        <div class="checkbox" style="display: flex;">
-            <input type="checkbox" id="status" style="margin-right:10px;"><label
-                style="color: var(--color-chathams-blue);">거래완료 안보기</label>
+            </form>
+            <button class=" ui blue icon button has_width_full" onclick="showModal()"><i class="search icon"></i>찾기
+            </button>
+            <div style="display: flex; gap: 90px;">
+                <select style="font-family: 'BMHANNAPro'; font-size: 1.5em;" class="has_width_half"
+                        style="margin-right: 90px;" id="style">
+                    <option value="" disabled selected>화풍</option>
+                    <option value="oils">유화</option>
+                    <option value="water">수채화</option>
+                    <option value="acrylic">아크릴화</option>
+                    <option value="pen">펜화</option>
+                    <option value="pencil">연필화</option>
+                    <option value="pastel">파스텔화</option>
+                    <option value="crayon">크레용화</option>
+                    <option value="gouache">과슈화</option>
+                </select>
+                <select style="font-family: 'BMHANNAPro'; font-size: 1.5em;" class="has_width_half" id="theme">
+                    <option value="" disabled selected>테마</option>
+                    <option value="scenery">풍경</option>
+                    <option value="character">인물</option>
+                    <option value="still">정물</option>
+                    <option value="animal">동물</option>
+                    <option value="abstract">추상</option>
+                    <option value="popart">팝아트</option>
+                    <option value="objet">오브제</option>
+                </select>
+            </div>
+            <div style="display: flex;justify-content: space-between;grid-column:1/9;">
+                <div><span class="has_chathams-blue">최대너비  : <span id="widthVal">200</span>(CM)<br></span><input
+                        type="range" class="width_slider"
+                        id="width" min="0" max="200" step="10"
+                        value="200" oninput="document.getElementById('widthVal').innerHTML=this.value;"/></div>
+                <div><span class="has_chathams-blue">최대높이  :  <span id="heightVal">200</span>(CM)<br></span><input
+                        type="range" class="width_slider"
+                        id="height" min="0" max="200" step="10"
+                        value="200" oninput="document.getElementById('heightVal').innerHTML=this.value;"/></div>
+                <div><span class="has_chathams-blue">최대가격  : <span id="priceVal">100000</span>(원)<br></span><input
+                        type="range" class="width_slider"
+                        id="price" min="0" max="100000" step="1000"
+                        value="100000" oninput="document.getElementById('priceVal').innerHTML=this.value;"/></div>
+                <div class="checkbox" style="display: flex;">
+                    <input type="checkbox" id="status" style="margin-right:10px;"><label
+                        style="color: var(--color-chathams-blue);">거래완료 안보기</label>
+                </div>
+            </div>
         </div>
     </div>
-</div>
-</div>
-    <div class="container" id="container" style="display: grid;grid-template-columns: repeat(5,1fr);grid-gap:1rem;justify-content: space-around;">
+    <div class="container" id="container"
+         style="display: grid;grid-template-columns: repeat(5,1fr);grid-gap:1rem;justify-content: space-around;">
         <c:forEach var="cardVOlist" items="${cardVOlist}">
             <div class="ui card" style="height: 100%; margin: 0 auto;">
                 <div class="content">
@@ -150,17 +155,21 @@
                          style="border-radius: 50%; width: 3em;height: 3em;object-fit: cover;">
                 </div>
                 <div class="image">
-                    <img src="${cardVOlist.paintingmimg}" onclick="buypainting(${cardVOlist.no_painting});" style="object-fit: cover; height: 250px">
+                    <img src="${cardVOlist.paintingmimg}" onclick="buypainting(${cardVOlist.no_painting});"
+                         style="object-fit: cover; height: 250px">
                 </div>
                 <div class="content" style="display: flex;justify-content: center;">
-                    <span >${cardVOlist.pname}</span>
+                    <span>${cardVOlist.pname}</span>
                 </div>
                 <div class="extra content">
                     <div class="ui large transparent left icon input" style="display: flex;">
                         <i class="pencil alternate icon"></i>
-                        <input type="text" id ="${cardVOlist.no_painting}" placeholder="Add Comment..." maxlength='20' style="font-size: 0.8em"/>
+                        <input type="text" id="${cardVOlist.no_painting}" placeholder="Add Comment..." maxlength='20'
+                               style="font-size: 0.8em"/>
                     </div>
-                    <button class="ui blue icon button" onclick="addComment(${cardVOlist.no_painting})" style="float: right; font-size: 0.8em;">Add</button>
+                    <button class="ui blue icon button" onclick="addComment(${cardVOlist.no_painting})"
+                            style="float: right; font-size: 0.8em;">Add
+                    </button>
                 </div>
                 <div class="ui bottom attached button collapsible">
                     <i class="add icon"></i>
@@ -171,7 +180,8 @@
                         <c:forEach var="commentVOList" items="${cardVOlist.commentVOList}">
                             <h4 class="ui" style="user-select: auto;"></h4>
                             <div class="comment" style="margin-left: 10px; margin-bottom: 10px;">
-                                <a class="avatar"><img src="${commentVOList.avatarimg}" style="border-radius: 50%; height:40px; width:40px;object-fit: cover;"></a>
+                                <a class="avatar"><img src="${commentVOList.avatarimg}"
+                                                       style="border-radius: 50%; height:40px; width:40px;object-fit: cover;"></a>
                                 <div class="content">
                                     <a class="author">${commentVOList.author}</a>
                                     <div class="metadata">
@@ -197,10 +207,10 @@
                 </div>
             </div>
             <c:forEach var="i" begin="1" end="${pageNum}">
-            <div class="ui animated button" tabindex="0"
-                 style="color:var(--color-white);background-color: var(--color-chathams-blue);">
-                <div class="visible content">${i}</div>
-                <div class="hidden content">${i}</div>
+                <div class="ui animated button" tabindex="0"
+                     style="color:var(--color-white);background-color: var(--color-chathams-blue);">
+                    <div class="visible content">${i}</div>
+                    <div class="hidden content">${i}</div>
                 </div>
             </c:forEach>
             <div class="ui animated button" tabindex="0"
@@ -212,16 +222,17 @@
             </div>
             <br>
         </div>
-    </div></div>
+    </div>
+</div>
 <script>
     var coll = document.getElementsByClassName("collapsible");
     var i;
 
     for (i = 0; i < coll.length; i++) {
-        coll[i].addEventListener("click", function() {
+        coll[i].addEventListener("click", function () {
             this.classList.toggle("active");
             var content = this.nextElementSibling;
-            if (content.style.maxHeight){
+            if (content.style.maxHeight) {
                 content.style.maxHeight = null;
             } else {
                 content.style.maxHeight = content.scrollHeight + "px";
