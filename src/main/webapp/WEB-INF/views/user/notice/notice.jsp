@@ -54,15 +54,17 @@
             document.getElementById("modaldiv")
         }
     </script>
-    <script type = "text/javascript" >
-        showModal = function () {$('.ui.modal').modal('show');};
+    <script type="text/javascript">
+        showModal = function () {
+            $('.ui.modal').modal('show');
+        };
         requestQA = function () {
             $(() => {
                 let question = document.getElementById("question").value;
                 let status = 0; //0~4 까지 질문 종류
                 $.ajax({
                     url: "/ajax_request_QA",
-                    data: "question="+question+"&status="+status,
+                    data: "question=" + question + "&status=" + status,
                     success: function (result) {
                         document.location.href = "/notice";
                     }
@@ -80,7 +82,7 @@
 <% if (session.getAttribute("logStatus") == null) { %>
 <jsp:include page="../header_footer/header_not_login.jsp"></jsp:include>
 <% } %>
-<main class="has_bg_harp" style="height: 100%;">
+<main class="has_bg_harp" style="height: auto;">
     <div class="ui modal">
         <div class="header">
             질문 사항
@@ -98,7 +100,8 @@
             </div>
         </div>
         <div class="actions" style="background-color: #95afc0">
-            <div class="ui positive right labeled icon button" style="background-color: var(--color-metallic-blue)" onclick="requestQA()">
+            <div class="ui positive right labeled icon button" style="background-color: var(--color-metallic-blue)"
+                 onclick="requestQA()">
                 올리기
                 <i class="checkmark icon"></i>
             </div>
@@ -107,21 +110,22 @@
     <div class="container" style="height: 100%;">
         <div class="has_flex_column" style="grid-column:1/3; gap:40px;padding-top: 30px; background-color: #a2b0b36e">
             <div class="ui vertical animated button" tabindex="0" onclick="showModal()">
-                <div class="hidden content">질문하기</div>
+                <div class="hidden content">공지사항</div>
+                <div class="visible content">
+                    <i class="bullhorn icon"></i>
+                </div>
+            </div>
+            <div class="ui vertical animated button" tabindex="0" onclick="showModal()">
+                <div class="hidden content">자주 묻는 질문</div>
                 <div class="visible content">
                     <i class="question circle icon"></i>
                 </div>
             </div>
+
             <div class="ui vertical animated button" tabindex="0" onclick="showModal()">
                 <div class="hidden content">질문하기</div>
                 <div class="visible content">
-                    <i class="question circle icon"></i>
-                </div>
-            </div>
-            <div class="ui vertical animated button" tabindex="0" onclick="showModal()">
-                <div class="hidden content">질문하기</div>
-                <div class="visible content">
-                    <i class="question circle icon"></i>
+                    <i class="comments outline icon"></i>
                 </div>
             </div>
         </div>
@@ -132,32 +136,34 @@
                     <i class="question circle icon"></i>
                 </div>
             </div>
-            <div class="manager_card" style="display: grid;grid-template-columns:repeat(3,1fr);grid-gap:1rem;width: 100%;">
+            <div class="manager_card"
+                 style="display: grid;grid-template-columns:repeat(3,1fr);grid-gap:1rem;width: 100%;">
                 <c:forEach var="noticeVOList" items="${noticeVOList}">
                     <div class="ui card" style="height: 100%; margin: 0 auto;">
-                    <div class="content">
-                        <div class="right floated meta">14h</div>
-                        <span>${noticeVOList.content}</span>
-                        <img src="${noticeVOList.avatarimg}" style="border-radius: 50%; width: 3em;height: 3em;object-fit: cover;">
-                    </div>
-                    <div class="image">
-                        <img src="${noticeVOList.paintingmimg}" style="object-fit: cover; height: 250px"></a>
-                    </div>
-                    <div class="content">
+                        <div class="content">
+                            <div class="right floated meta">14h</div>
+                            <span>${noticeVOList.content}</span>
+                            <img src="${noticeVOList.avatarimg}"
+                                 style="border-radius: 50%; width: 3em;height: 3em;object-fit: cover;">
+                        </div>
+                        <div class="image">
+                            <img src="${noticeVOList.paintingmimg}" style="object-fit: cover; height: 250px"></a>
+                        </div>
+                        <div class="content">
                     <span class="right floated">
                       <i class="heart outline like icon"></i>
                       17 likes
                     </span>
-                        <i class="comment icon"></i>
-                        3 comments
-                    </div>
-                    <div class="extra content">
-                        <div class="ui large transparent left icon input">
-                            <i class="heart outline icon"></i>
-                            <input type="text" placeholder="Add Comment...">
+                            <i class="comment icon"></i>
+                            3 comments
+                        </div>
+                        <div class="extra content">
+                            <div class="ui large transparent left icon input">
+                                <i class="heart outline icon"></i>
+                                <input type="text" placeholder="Add Comment...">
+                            </div>
                         </div>
                     </div>
-                </div>
                 </c:forEach>
             </div>
         </div>

@@ -21,10 +21,8 @@
 </jsp:include>
 <% } %>
 <main class="has_bg_harp">
-
     <div class="container">
         <div style="background-color:var( --color-white);display:flex;grid-column: 1/13">
-
             <div
                     style="border-right: 1px solid #ddd;width:50%;padding-left: 130px;padding-right: 100px;">
                 <div class="has_flex_column has_evenly" style="height: 80%;padding-top: 100px;">
@@ -40,19 +38,19 @@
                         <div style="user-select: auto; display: flex;">
                             <i class="users icon" style="user-select: auto;"></i>
                             <div class="content" style="user-select: auto;">
-                                닉네임 : <c:out value="${mypageVO.nickname}"/>
+                                닉네임 : <c:out value="${paymentVO.nickname}"/>
                             </div>
                         </div>
                         <div style="user-select: auto; display: flex;">
                             <i class="mail icon" style="user-select: auto;"></i>
                             <div class="content" style="user-select: auto;">
-                                이메일 : <c:out value="${mypageVO.email}"/>
+                                이메일 : <c:out value="${paymentVO.email}"/>
                             </div>
                         </div>
                         <div style="user-select: auto; display: flex;">
                             <i class="phone icon" style="user-select: auto;"></i>
                             <div class="content" style="user-select: auto;">
-                                연락처 : <c:out value="${mypageVO.tel}"/>
+                                연락처 : <c:out value="${paymentVO.tel}"/>
                             </div>
                         </div>
                     </div>
@@ -61,7 +59,7 @@
                         Shipping Address
                     </font></font></div>
                     <div class="has_flex_column" style="">
-                        <input type="text" style="" id="address_input" value="<c:out value="${mypageVO.addr}"/>">
+                        <input type="text" style="" class="painting_input" value="<c:out value="${mypageVO.addr}"/>">
                     </div>
                     <div class="ui horizontal divider"><font style="vertical-align: inherit;"><font
                             style="vertical-align: inherit;">
@@ -103,11 +101,11 @@
             </div><!--오른쪽 div-->
 
             <div class="has_flex_column" style="width:50%;padding-left: 80px;padding-right: 80px;">
-                <h6 style="margin-top: 100px">작가이름</h6>
-                <h5>작품명</h5>
-                <h1>₩65000</h1>
+                <h4 style="margin-top: 100px"> 메롱메롱작가이름이지롱<c:out value="${paymentVO.nickname}"/></h4>
+                <h2>메롱메롱메롱제목이지롱<c:out value="${paintingVO.pname}"/></h2>
+                <h3>₩ <c:out value="${paymentVO.price}"/></h3>
                 <div class="image" style="margin-top: 70px">
-                    <img src="<c:out value="${paintingVO.paintingimg}"/>"
+                    <img src="<c:out value="${paymentVO.paintingimg}"/>"
                          style="width:300px;height: 300px;border-radius: 5%;">
                 </div>
             </div><!--왼쪽div-->

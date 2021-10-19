@@ -93,6 +93,7 @@ public class BuyController {
         Paintingtbl paintingTBL = PTBL.get();
         Membershiptbl membershipTBL = membershiptblRepository.findByemail((String) session.getAttribute("logEmail"));
         PaymentVO paymentVO = new PaymentVO(paintingTBL,membershipTBL);
+        System.out.println(paymentVO);
         mv.addObject("paymentVO",paymentVO);
         return mv;
     }
