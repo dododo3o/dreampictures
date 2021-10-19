@@ -77,15 +77,6 @@
             });
         };
     </script>
-    <style>
-        .v {
-            padding: 0 18px;
-            max-height: 0;
-            overflow: hidden;
-            transition: max-height 0.2s ease-out;
-            background-color: #f1f1f1;
-        }
-    </style>
 </head>
 <body>
 <% if (session.getAttribute("logStatus") == "Y") { %>
@@ -159,15 +150,14 @@
                          style="border-radius: 50%; width: 3em;height: 3em;object-fit: cover;">
                 </div>
                 <div class="image">
-                    <img src="${cardVOlist.paintingmimg}" onclick="buypainting(${cardVOlist.no_painting});"
-                         style="object-fit: cover; height: 250px">
+                    <img src="${cardVOlist.paintingmimg}" onclick="buypainting(${cardVOlist.no_painting});" style="object-fit: cover; height: 250px">
                 </div>
-                <div class="content">
-                        <span class="right floated"><i class="heart outline like icon"></i>17 likes</span>
+                <div class="content" style="display: flex;justify-content: center;">
+                    <span >${cardVOlist.pname}</span>
                 </div>
                 <div class="extra content">
                     <div class="ui large transparent left icon input" style="display: flex;">
-                        <i class="heart outline icon"></i>
+                        <i class="pencil alternate icon"></i>
                         <input type="text" id ="${cardVOlist.no_painting}" placeholder="Add Comment..." maxlength='20' style="font-size: 0.8em"/>
                     </div>
                     <button class="ui blue icon button" onclick="addComment(${cardVOlist.no_painting})" style="float: right; font-size: 0.8em;">Add</button>
@@ -176,9 +166,8 @@
                     <i class="add icon"></i>
                     <span><i class="comment icon"></i>${cardVOlist.commentNumber}</span>
                 </div>
-                <div class="v">
+                <div class="comments_css">
                     <div class="ui comments">
-                        <h3 class="ui block header">댓글로 자유롭게 평가해주세요 !</h3>
                         <c:forEach var="commentVOList" items="${cardVOlist.commentVOList}">
                             <h4 class="ui" style="user-select: auto;"></h4>
                             <div class="comment" style="margin-left: 10px; margin-bottom: 10px;">

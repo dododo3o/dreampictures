@@ -67,6 +67,10 @@ public class AjaxController {
 		HttpSession session = request.getSession();
 		Membershiptbl membershipTBL = membershiptblRepository.findByemail((String) session.getAttribute("logEmail"));
 
+
+
+
+
 		//todo 리플테이블 재작성
 		Qatbl qatbl = new Qatbl(membershipTBL, question, status);
 		qaRepository.save(qatbl);
