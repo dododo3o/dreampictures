@@ -91,21 +91,18 @@
                     </font></font></div>
                     <div class="ui list has_flex_column has_font-base" style="display: flex; gap: 20px;">
                         <div style="user-select: auto; display: flex;">
-                            <i class="users icon" style="user-select: auto;"></i>
-                            <div class="content" style="user-select: auto;">
-                                닉네임 : <input class="painting_input" type="text" style="" value="<c:out value="${mypageVO.addr}"/>">
+                            <i class="edit outline icon" style="user-select: auto;"></i>
+                            <div class="content" style="display: flex;">
+                                <input class="painting_input" type="text" value="작품명">
                             </div>
                         </div>
-                        <div style="user-select: auto; display: flex;">
-                            <i class="mail icon" style="user-select: auto;"></i>
-                            <div class="content" style="user-select: auto;">
-                                이메일 : <c:out value="${paymentVO.email}"/>
-                            </div>
-                        </div>
-                        <div style="user-select: auto; display: flex;">
-                            <i class="phone icon" style="user-select: auto;"></i>
-                            <div class="content" style="user-select: auto;">
-                                연락처 : <c:out value="${paymentVO.tel}"/>
+                        <div class="ui selection dropdown">
+                            <input type="hidden" name="gender">
+                            <i class="dropdown icon"></i>
+                            <div class="default text">Gender</div>
+                            <div class="menu">
+                                <div class="item" data-value="1">Male</div>
+                                <div class="item" data-value="0">Female</div>
                             </div>
                         </div>
                     </div>
