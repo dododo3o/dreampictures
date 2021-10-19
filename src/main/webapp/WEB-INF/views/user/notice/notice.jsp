@@ -128,7 +128,6 @@
                     <i class="question circle icon"></i>
                 </div>
             </div>
-
             <div class="ui vertical animated button" tabindex="0" onclick="showModal()">
                 <div class="hidden content">질문하기</div>
                 <div class="visible content">
