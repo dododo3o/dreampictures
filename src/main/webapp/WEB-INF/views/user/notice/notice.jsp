@@ -62,20 +62,24 @@
 <jsp:include page="../header_footer/header_not_login.jsp"></jsp:include>
 <% } %>
 <main class="has_bg_harp" style="height: 100%;">
-    <div class="ui modal">
+    <div class="ui modal" style="width:700px;">
         <i class="close icon"></i>
-        <div class="header" style="background-color: var(--color-aqua-island)">
+        <div class="header" style="font-family: 'BMHANNAPro';background-color: var(--color-aqua-island);text-align: center;">
             질문사항
         </div>
-        <div class="description has_flex_row" style="justify-content: flex-start;">
-            <div class="ui medium has_flex_column" style="background-color: #a6bbc347; align-items: flex-start;padding-left: 10px;">
-                <div class="has_flex_center"> <input type="radio" value="question1">question1 question1 question1 question1 question1 </div>
-                <div class="has_flex_center"> <input type="radio" value="question2">question2 question2 question2 question2 question2 </div>
-                <div class="has_flex_center">  <input type="radio" value="question3"> question3 question3 question3 question3 question3  question3 question3</div>
+        <div class="description has_flex_column" style="justify-content: flex-start;">
+            <div class="ui medium" style="display:flex;flex-wrap:wrap;align-content:space-evenly;background-color: #a6bbc347; padding-left: 10px;">
+                <div class="has_flex_center"> <input type="radio" value="question1">계정문의(로그인,인증,탈퇴 등)</div>
+                <div class="has_flex_center"> <input type="radio" value="question2">거래환불/분쟁 및 사기신고</div>
+                <div class="has_flex_center">  <input type="radio" value="question3">사이트 사용/거래 방법 문의</div>
+                <div class="has_flex_center">  <input type="radio" value="question4">검색문의</div>
+                <div class="has_flex_center">  <input type="radio" value="question5">기타문의</div>
+                <div class="has_flex_center">  <input type="radio" value="question6">오류제보</div>
+                <div class="has_flex_center">  <input type="radio" value="question7">개선/제안</div>
             </div>
             <div class="description has_margin has_width_100">
-                <div class="ui header">질문을 구체적으로 작성해주세요!</div>
-                <textarea class="has_width_100 has_height_80 input_textarea" placeholder="질문사항을 작성해주세요." style="resize: none;"></textarea>
+                <div class="ui header">문의하고 싶은 내용</div>
+                <textarea class="has_width_100 has_height_80 input_textarea" placeholder="문의내용을 작성해주세요." style="resize: none;"></textarea>
             </div>
         </div>
         <div class="actions" style="background-color: var(--color-aqua-island)">

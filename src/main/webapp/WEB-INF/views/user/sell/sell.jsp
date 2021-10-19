@@ -14,18 +14,9 @@
     <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
     <script src="https://kit.fontawesome.com/b14e6f064f.js" crossorigin="anonymous"></script>
     <script>
-        //====================등록 완료 버튼을 활성 시킬 조건들======================
-        //모든 정보가 입력되어야 함
-        function nextBtn_condition() {
-            //사진등록확인작업하기===========================
-
-            document.getElementById('frm').submit();
-        }
-
-
+        function nextBtn_condition() {document.getElementById('frm').submit();}
         function setThumbnail(event) {
             var reader = new FileReader();
-
             reader.onload = function (event) {
                 var ex_img = document.getElementById("image_section");
                 if (ex_img !== null) {
@@ -38,10 +29,32 @@
                 img.setAttribute("src", event.target.result);
                 document.querySelector("div#preview_image").appendChild(img);
             };
-
             reader.readAsDataURL(event.target.files[0]);
         }
     </script>
+    <link rel="stylesheet" href="https://unpkg.com/flickity@2/dist/flickity.min.css">
+    <script src="https://unpkg.com/flickity@2/dist/flickity.pkgd.min.js"></script>
+    <style>
+        .carousel {
+            background: #EEE;
+        }
+        .carousel-cell {
+            width: 66%;
+            height: 200px;
+            margin-right: 10px;
+            background: #8C8;
+            border-radius: 5px;
+            counter-increment: carousel-cell;
+        }
+        .carousel-cell:before {
+            display: block;
+            text-align: center;
+            content: counter(carousel-cell);
+            line-height: 200px;
+            font-size: 80px;
+            color: white;
+        }
+    </style>
 </head>
 <body>
 <% if (session.getAttribute("logStatus") == "Y") { %>
@@ -52,6 +65,16 @@
 <% if (session.getAttribute("logStatus") == null) { %>
 <jsp:include page="../header_footer/header_not_login.jsp"></jsp:include>
 <% } %>
+<div class="carousel"
+     data-flickity='{ "wrapAround": true }'>
+    <div class="carousel-cell">
+        <img class="carousel-cell-image"
+             data-flickity-lazyload="https://s3-us-west-2.amazonaws.com/s.cdpn.io/82/tulip.jpg" alt="tulip" />
+    </div>
+    <div class="carousel-cell"></div>
+    <div class="carousel-cell"></div>
+
+</div>
 <main class="has_bg_harp">
     <div class="container">
         <div class="contents" style="grid-column: 4/10;justify-content: space-around ">
