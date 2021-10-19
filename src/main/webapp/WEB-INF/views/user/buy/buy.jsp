@@ -97,24 +97,6 @@
 <jsp:include page="../header_footer/header_not_login.jsp"></jsp:include>
 <% } %>
 <div class="has_bg_harp">
-<%--    <div class="ui tiny modal" id="commentModal">--%>
-<%--        <c:forEach var="commentVOlist" items="${commentVOlist}">--%>
-<%--        <div class="ui comments">--%>
-<%--            <div class="comment">--%>
-<%--                <a class="avatar">--%>
-<%--                    <img src="${commentVOlist.avatarimg}">--%>
-<%--                </a>--%>
-<%--                <div class="content">--%>
-<%--                    <a class="author">${commentVOlist.author}</a>--%>
-<%--                    <div class="metadata">--%>
-<%--                        <div class="date">${commentVOlist.date}</div>--%>
-<%--                    </div>--%>
-<%--                    <div class="text">${commentVOlist.comments}</div>--%>
-<%--                </div>--%>
-<%--            </div>--%>
-<%--        </div>--%>
-<%--        </c:forEach>--%>
-<%--    </div>--%>
     <div class="container">
         <div style="grid-column:1/9;display: flex;flex-direction: column; gap:20px; justify-content: center; margin-top: 70px;">
             <div class="has_chathams-blue" style="font-size: 42px;">그림드림의 당신만의 그림찾기</div>
@@ -181,9 +163,7 @@
                          style="object-fit: cover; height: 250px">
                 </div>
                 <div class="content">
-                        <span class="right floated">
-                          <i class="heart outline like icon"></i>17 likes</span>
-                    <span onclick="showCommentModal(${cardVOlist.no_painting})"><i class="comment icon"></i>${cardVOlist.commentNumber}</span>
+                        <span class="right floated"><i class="heart outline like icon"></i>17 likes</span>
                 </div>
                 <div class="extra content">
                     <div class="ui large transparent left icon input" style="display: flex;">
@@ -194,10 +174,26 @@
                 </div>
                 <div class="ui bottom attached button collapsible">
                     <i class="add icon"></i>
-                    Add Friend
+                    <span><i class="comment icon"></i>${cardVOlist.commentNumber}</span>
                 </div>
-                <div class="content">
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+                <div class="v">
+                    <div class="ui comments">
+                        <h3 class="ui block header">댓글로 자유롭게 평가해주세요 !</h3>
+                        <c:forEach var="commentVOList" items="${cardVOlist.commentVOList}">
+                            <h4 class="ui" style="user-select: auto;"></h4>
+                            <div class="comment" style="margin-left: 10px; margin-bottom: 10px;">
+                                <a class="avatar"><img src="${commentVOList.avatarimg}" style="border-radius: 50%; height:40px; width:40px;object-fit: cover;"></a>
+                                <div class="content">
+                                    <a class="author">${commentVOList.author}</a>
+                                    <div class="metadata">
+                                        <span class="date">${commentVOList.date}</span>
+                                    </div>
+                                    <div class="text">${commentVOList.comments}</div>
+                                    <div class="actions"></div>
+                                </div>
+                            </div>
+                        </c:forEach>
+                    </div>
                 </div>
             </div>
         </c:forEach>

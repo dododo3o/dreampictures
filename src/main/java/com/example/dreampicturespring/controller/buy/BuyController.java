@@ -35,11 +35,8 @@ public class BuyController {
         final int CARDSPERPAGE = 15;
         int cardNum = 0,pageNum;
         ModelAndView mv = new ModelAndView();
-
         List<CardVO> cardVOList = new ArrayList<>();
         List<String> list = paintingRepository.findAllPainting_Desc();
-        Integer n = commentRepository.countByno_painting(21);
-        System.out.println(n);
         for(String card : list){
             List<String> obj = Arrays.asList(card.split(","));
             CardVO cardVO = new CardVO();
@@ -49,27 +46,26 @@ public class BuyController {
             cardVO.setNickname(obj.get(2));
             cardVO.setPname(obj.get(3));
             cardVO.setCommentNumber(commentRepository.countByno_painting(Integer.parseInt(obj.get(0))));
+
+            List<String> comments = commentRepository.findCommenttbl(Integer.parseInt(obj.get(0)));
+            List<CommentVO> commentVOlist = new ArrayList<>();
+            for(String comment : comments){
+                List<String> comment_member = Arrays.asList(comment.split(","));
+                Membershiptbl membershiptbl = membershiptblRepository.getById(Integer.parseInt(comment_member.get(1)));
+                CommentVO commentVO = new CommentVO();
+                commentVO.setAvatarimg(membershiptbl.getImg()+"/avatarimg/avatarimg.jpg");
+                commentVO.setAuthor(membershiptbl.getNickname());
+                commentVO.setDate("1H");
+                commentVO.setComments(comment_member.get(0));
+                commentVO.setNo_membership(membershiptbl.getNo_membership());
+                commentVOlist.add(commentVO);
+            }
+            cardVO.setCommentVOList(commentVOlist);
             cardVOList.add(cardVO);
             cardNum++;
         }
-
-        List<String> comments = commentRepository.findCommenttbl(21);
-        List<CommentVO> commentVOlist = new ArrayList<>();
-        for(String commnet : comments){
-            List<String> obj = Arrays.asList(commnet.split(","));
-            Membershiptbl membershiptb = membershiptblRepository.getById(Integer.parseInt(obj.get(1)));
-            CommentVO commentVO = new CommentVO();
-            commentVO.setAvatarimg(membershiptb.getImg()+"/avatarimg/avatarimg.jpg");
-            commentVO.setAuthor(membershiptb.getNickname());
-            commentVO.setDate("1H");
-            commentVO.setComments(obj.get(0));
-            commentVOlist.add(commentVO);
-        }
-
-
         pageNum = cardNum/CARDSPERPAGE+1;
         mv.setViewName("user/buy/buy");
-        mv.addObject("commentVOlist",commentVOlist);
         mv.addObject("cardVOlist",cardVOList);
         mv.addObject("pageNum",pageNum);
         return mv;

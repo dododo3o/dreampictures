@@ -97,8 +97,6 @@ public class AjaxController {
 		HttpSession session =request.getSession();
 		Membershiptbl membershipTBL = membershiptblRepository.findByemail((String) session.getAttribute("logEmail"));
 		if(membershipTBL ==null){ return "user/redirect/alert2"; }
-
-		System.out.println(no_painting);
 		Commentstbl commentstbl = new Commentstbl();
 		commentstbl.setNo_membership(membershipTBL.getNo_membership());
 		commentstbl.setComments(comment);
