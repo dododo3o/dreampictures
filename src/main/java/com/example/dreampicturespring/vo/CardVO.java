@@ -4,6 +4,8 @@ import com.example.dreampicturespring.entity.Membershiptbl;
 import com.example.dreampicturespring.entity.Paintingtbl;
 import lombok.Data;
 
+import java.util.List;
+
 @Data
 public class CardVO {
     private String no_painting;
@@ -11,6 +13,8 @@ public class CardVO {
     private String paintingmimg;
     private String nickname;
     private String pname;
+    private Integer commentNumber;
+    private List<CommentVO> commentVOList;
 
     public CardVO(){ }
     public CardVO(String no_painting,String avatarimg,String paintingmimg,String nickname,String pname){

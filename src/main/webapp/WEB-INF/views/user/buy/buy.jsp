@@ -25,7 +25,6 @@
         function buypainting(num) {
             location.href = "http://localhost:8080/buy_picture/" + num;
         }
-
         showModal = function () {
             $(() => {
                 let pname = document.getElementById("pname").value;
@@ -50,10 +49,12 @@
         };
         showCommentModal = function (no_painting) {
             $(() => {
+                alert(no_painting)
                 $.ajax({
                     url: "/ajax_comment_finder",
                     data: "no_painting=" + no_painting,
                     success: function (result) {
+                        alert(result)
                         var container = document.getElementById("commentModal");
                         while ( container.hasChildNodes() ) { container.removeChild( container.firstChild ); }
                         $("#commentModal").html(result);
@@ -62,28 +63,27 @@
                 });
             });
         };
+        addComment = function (no_painting) {
+            $(() => {
+                let text = document.getElementById(no_painting).value;
+                let no_paint = no_painting;
+                $.ajax({
+                    url: "/ajax_comment_add",
+                    data: "comment=" + text + "&no_painting=" + no_paint,
+                    success: function (result) {
+                        //todo
+                    }
+                });
+            });
+        };
     </script>
-    <link rel="stylesheet" href="https://unpkg.com/flickity@2/dist/flickity.min.css">
-    <script src="https://unpkg.com/flickity@2/dist/flickity.pkgd.min.js"></script>
     <style>
-        .carousel {
-            background: #EEE;
-        }
-        .carousel-cell {
-            width: 66%;
-            height: 200px;
-            margin-right: 10px;
-            background: #8C8;
-            border-radius: 5px;
-            counter-increment: carousel-cell;
-        }
-        .carousel-cell:before {
-            display: block;
-            text-align: center;
-            content: counter(carousel-cell);
-            line-height: 200px;
-            font-size: 80px;
-            color: white;
+        .v {
+            padding: 0 18px;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.2s ease-out;
+            background-color: #f1f1f1;
         }
     </style>
 </head>
@@ -97,24 +97,6 @@
 <jsp:include page="../header_footer/header_not_login.jsp"></jsp:include>
 <% } %>
 <div class="has_bg_harp">
-        <div class="ui tiny modal" id="commentModal">
-            <c:forEach var="commentVOlist" items="${commentVOlist}">
-            <div class="ui comments">
-                <div class="comment">
-                    <a class="avatar">
-                        <img src="${commentVOlist.avatarimg}">
-                    </a>
-                    <div class="content">
-                        <a class="author">${commentVOlist.author}</a>
-                        <div class="metadata">
-                            <div class="date">${commentVOlist.date}</div>
-                        </div>
-                        <div class="text">${commentVOlist.comments}</div>
-                    </div>
-                </div>
-            </div>
-            </c:forEach>
-        </div>
     <div class="container">
         <div style="grid-column:1/9;display: flex;flex-direction: column; gap:20px; justify-content: center; margin-top: 70px;">
             <div class="has_chathams-blue" style="font-size: 42px;">그림드림의 당신만의 그림찾기</div>
@@ -168,60 +150,96 @@
     </div>
 </div>
 </div>
-<div class="container" id="container" style="display: grid;grid-template-columns: repeat(5,1fr);;grid-gap:1rem;justify-content: space-around;">
-    <c:forEach var="cardVOlist" items="${cardVOlist}">
-        <div class="ui card" style="height: 100%; margin: 0 auto;">
-            <div class="content">
-                <div class="right floated meta">14h</div>
-                <img src="${cardVOlist.avatarimg}"
-                     style="border-radius: 50%; width: 3em;height: 3em;object-fit: cover;">
-            </div>
-            <div class="image">
-                <img src="${cardVOlist.paintingmimg}" onclick="buypainting(${cardVOlist.no_painting});"
-                     style="object-fit: cover; height: 250px">
-            </div>
-            <div class="content">
-                    <span class="right floated">
-                      <i class="heart outline like icon"></i>17 likes</span>
-                <span onclick="showCommentModal(${cardVOlist.no_painting})"><i class="comment icon"></i>3</span>
-            </div>
-            <div class="extra content">
-                <div class="ui large transparent left icon input" style="display: flex;">
-                    <i class="heart outline icon"></i>
-                    <input type="text" placeholder="Add Comment..." maxlength='20' style="font-size: 0.8em"/>
+    <div class="container" id="container" style="display: grid;grid-template-columns: repeat(5,1fr);grid-gap:1rem;justify-content: space-around;">
+        <c:forEach var="cardVOlist" items="${cardVOlist}">
+            <div class="ui card" style="height: 100%; margin: 0 auto;">
+                <div class="content">
+                    <div class="right floated meta">14h</div>
+                    <img src="${cardVOlist.avatarimg}"
+                         style="border-radius: 50%; width: 3em;height: 3em;object-fit: cover;">
                 </div>
-                <button class="ui blue icon button" onclick="" style="float: right; font-size: 0.8em;">Add</button>
-            </div>
-        </div>
-    </c:forEach>
-</div>
-<div class="container" style="display: flex;justify-content: center;margin-top:30px;padding-bottom: 30px;">
-    <div>
-        <div class="ui animated button" tabindex="0"
-             style="color:var(--color-white);background-color: var(--color-chathams-blue);">
-            <div class="visible content">Perv</div>
-            <div class="hidden content">
-                <i class="left arrow icon"></i>
-            </div>
-        </div>
-        <c:forEach var="i" begin="1" end="${pageNum}">
-        <div class="ui animated button" tabindex="0"
-             style="color:var(--color-white);background-color: var(--color-chathams-blue);">
-            <div class="visible content">${i}</div>
-            <div class="hidden content">${i}</div>
+                <div class="image">
+                    <img src="${cardVOlist.paintingmimg}" onclick="buypainting(${cardVOlist.no_painting});"
+                         style="object-fit: cover; height: 250px">
+                </div>
+                <div class="content">
+                        <span class="right floated"><i class="heart outline like icon"></i>17 likes</span>
+                </div>
+                <div class="extra content">
+                    <div class="ui large transparent left icon input" style="display: flex;">
+                        <i class="heart outline icon"></i>
+                        <input type="text" id ="${cardVOlist.no_painting}" placeholder="Add Comment..." maxlength='20' style="font-size: 0.8em"/>
+                    </div>
+                    <button class="ui blue icon button" onclick="addComment(${cardVOlist.no_painting})" style="float: right; font-size: 0.8em;">Add</button>
+                </div>
+                <div class="ui bottom attached button collapsible">
+                    <i class="add icon"></i>
+                    <span><i class="comment icon"></i>${cardVOlist.commentNumber}</span>
+                </div>
+                <div class="v">
+                    <div class="ui comments">
+                        <h3 class="ui block header">댓글로 자유롭게 평가해주세요 !</h3>
+                        <c:forEach var="commentVOList" items="${cardVOlist.commentVOList}">
+                            <h4 class="ui" style="user-select: auto;"></h4>
+                            <div class="comment" style="margin-left: 10px; margin-bottom: 10px;">
+                                <a class="avatar"><img src="${commentVOList.avatarimg}" style="border-radius: 50%; height:40px; width:40px;object-fit: cover;"></a>
+                                <div class="content">
+                                    <a class="author">${commentVOList.author}</a>
+                                    <div class="metadata">
+                                        <span class="date">${commentVOList.date}</span>
+                                    </div>
+                                    <div class="text">${commentVOList.comments}</div>
+                                    <div class="actions"></div>
+                                </div>
+                            </div>
+                        </c:forEach>
+                    </div>
+                </div>
             </div>
         </c:forEach>
-        <div class="ui animated button" tabindex="0"
-             style="color:var(--color-white);background-color: var(--color-chathams-blue);">
-            <div class="visible content">Next</div>
-            <div class="hidden content">
-                <i class="right arrow icon"></i>
-            </div>
-        </div>
-        <br>
     </div>
-</div>
-</div>
+    <div class="container" style="display: flex;justify-content: center;margin-top:30px;padding-bottom: 30px;">
+        <div>
+            <div class="ui animated button" tabindex="0"
+                 style="color:var(--color-white);background-color: var(--color-chathams-blue);">
+                <div class="visible content">Perv</div>
+                <div class="hidden content">
+                    <i class="left arrow icon"></i>
+                </div>
+            </div>
+            <c:forEach var="i" begin="1" end="${pageNum}">
+            <div class="ui animated button" tabindex="0"
+                 style="color:var(--color-white);background-color: var(--color-chathams-blue);">
+                <div class="visible content">${i}</div>
+                <div class="hidden content">${i}</div>
+                </div>
+            </c:forEach>
+            <div class="ui animated button" tabindex="0"
+                 style="color:var(--color-white);background-color: var(--color-chathams-blue);">
+                <div class="visible content">Next</div>
+                <div class="hidden content">
+                    <i class="right arrow icon"></i>
+                </div>
+            </div>
+            <br>
+        </div>
+    </div></div>
+<script>
+    var coll = document.getElementsByClassName("collapsible");
+    var i;
+
+    for (i = 0; i < coll.length; i++) {
+        coll[i].addEventListener("click", function() {
+            this.classList.toggle("active");
+            var content = this.nextElementSibling;
+            if (content.style.maxHeight){
+                content.style.maxHeight = null;
+            } else {
+                content.style.maxHeight = content.scrollHeight + "px";
+            }
+        });
+    }
+</script>
 <jsp:include page="../header_footer/footer.jsp"></jsp:include>
 </body>
 </html>

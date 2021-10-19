@@ -1,9 +1,6 @@
 package com.example.dreampicturespring.controller.ajax;
 
-import com.example.dreampicturespring.entity.Membershiptbl;
-import com.example.dreampicturespring.entity.Paintingtbl;
-import com.example.dreampicturespring.entity.Qatbl;
-import com.example.dreampicturespring.entity.Replytbl;
+import com.example.dreampicturespring.entity.*;
 import com.example.dreampicturespring.repository.CommentRepository;
 import com.example.dreampicturespring.repository.MembershiptblRepository;
 import com.example.dreampicturespring.repository.PaintingRepository;
@@ -17,7 +14,6 @@ import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
@@ -82,10 +78,8 @@ public class AjaxController {
 	public String comment_finder(Model model, Integer no_painting){
 		List<String> comments = commentRepository.findCommenttbl(no_painting);
 		List<CommentVO> commentVOlist = new ArrayList<>();
-
-
-		for(String commnet : comments){
-			List<String> obj = Arrays.asList(commnet.split(","));
+		for(String comment : comments){
+			List<String> obj = Arrays.asList(comment.split(","));
 			Membershiptbl membershiptb = membershiptblRepository.getById(Integer.parseInt(obj.get(1)));
 			CommentVO commentVO = new CommentVO();
 			commentVO.setAvatarimg(membershiptb.getImg()+"/avatarimg/avatarimg.jpg");
@@ -94,24 +88,26 @@ public class AjaxController {
 			commentVO.setComments(obj.get(0));
 			commentVOlist.add(commentVO);
 		}
-		model.addAttribute("commentVOlist",commentVOlist);
+ 		model.addAttribute("commentVOlist",commentVOlist);
 		return "user/ajax/comment_find";
+	}
+
+	@RequestMapping(value = "/ajax_comment_add",method = RequestMethod.GET, produces ="application/text;charset=UTF-8")
+	public String comment_add(Model model,HttpServletRequest request,String comment,Integer no_painting){
+		HttpSession session =request.getSession();
+		Membershiptbl membershipTBL = membershiptblRepository.findByemail((String) session.getAttribute("logEmail"));
+		if(membershipTBL ==null){ return "user/redirect/alert2"; }
+		Commentstbl commentstbl = new Commentstbl();
+		commentstbl.setNo_membership(membershipTBL.getNo_membership());
+		commentstbl.setComments(comment);
+		commentstbl.setNo_painting(no_painting);
+		commentRepository.save(commentstbl);
+		return "redirect:/buy";
 	}
 
 
 	private String makeNotNull(String target){
 		if(StringUtils.isEmpty(target)) return target = null;
 		return target;
-	}
-	private String makeTitle(Integer status){
-		switch (status){
-			case 0: return "운영정책";
-			case 1: return "구매/판매";
-			case 2: return "가격정책";
-			case 3: return "계정인증";
-			case 4: return "그 외 질문";
-			default: return "";
-		}
-
 	}
 }
