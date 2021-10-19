@@ -56,29 +56,30 @@
 </jsp:include>
 
 
-<main class="has_bg_harp" style="height: 100%;">
+<main class="has_bg_harp" style="height: auto;">
     <div class="container" style="height: 100%;">
         <div class="has_flex_column" style="grid-column:1/3; gap:40px; height: 100%; padding-top: 30px; background-color: #a2b0b36e">
-            <div class="ui vertical animated button" tabindex="0" onclick="showModal()">
-                <div class="hidden content"><a href="#">공지사항</a></div>
-                <div class="visible content">
-                    <i class="question circle icon"></i>
-                </div>
-            </div>
-            <div class="ui vertical animated button" tabindex="0" onclick="showModal()">
-                <div class="hidden content"><a href="#">질문사항</a></div>
-                <div class="visible content">
-                    <i class="question circle icon"></i>
-                </div>
-            </div>
+            <button class="ui button" style="height: 50px;width:157px;font-family: 'BMHANNAPro';font-size: var(--font-size-base)">공지사항</button>
+            <button class="ui button" style="height: 50px;width:157px;font-family: 'BMHANNAPro';font-size: var(--font-size-base)">질문사항</button>
+
+
+<%--            <div class="ui vertical animated button" tabindex="0" onclick="showModal()">--%>
+<%--                <div class="hidden content"><a href="#">공지사항</a></div>--%>
+<%--                <div class="visible content">--%>
+<%--                    <i class="question circle icon"></i>--%>
+<%--                </div>--%>
+<%--            </div>--%>
+<%--            <div class="ui vertical animated button" tabindex="0" onclick="showModal()">--%>
+<%--                <div class="hidden content"><a href="#">질문사항</a></div>--%>
+<%--                <div class="visible content">--%>
+<%--                    <i class="question circle icon"></i>--%>
+<%--                </div>--%>
+<%--            </div>--%>
 
         </div>
-        <div class="has_flex_end" style="grid-column: 3/13; flex-wrap: wrap; margin-top: 20px;">
-            <div class="ui vertical animated button" tabindex="0" onclick="showModal()">
-                <div class="hidden content">질문하기</div>
-                <div class="visible content">
-                    <i class="question circle icon"></i>
-                </div>
+        <div class="has_flex_end" style="grid-column: 3/13; flex-wrap: wrap; margin-top: 20px;margin-bottom: 20px;">
+            <div tabindex="0" onclick="showModal()">
+                <button class="ui button" style="font-family: 'BMHANNAPro';">공지사항 올리기</button>
             </div>
             <div class="manager_card" style="display: grid;grid-template-columns:repeat(3,1fr);grid-gap:1rem;width: 100%;">
                 <div class="ui card" style="height: 100%; margin: 0 auto;">

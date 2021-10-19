@@ -109,8 +109,8 @@
     </div>
     <div class="container">
         <div class="has_flex_column" style="grid-column:1/3; gap:40px;padding-top: 30px; background-color: #a2b0b36e">
-            <button class="ui button" style="height: 50px;width:157px;font-family: 'BMHANNAPro';font-size: var(--font-size-basic)">공지사항</button>
-            <button class="ui button" style="height: 50px;width:157px;font-family: 'BMHANNAPro';font-size: var(--font-size-basic)">질문사항</button>
+            <button class="ui button" style="height: 50px;width:157px;font-family: 'BMHANNAPro';font-size: var(--font-size-base)">공지사항</button>
+            <button class="ui button" style="height: 50px;width:157px;font-family: 'BMHANNAPro';font-size: var(--font-size-base)">질문사항</button>
 
 <%--            <div class="ui vertical animated button" tabindex="0" onclick="showModal()">--%>
 <%--                <div class="hidden content">공지사항</div>--%>

@@ -71,4 +71,10 @@ public class AdminController {
     @RequestMapping("/admin/salesHistory")
     public String admin_salesHistory(Model model){ return "user/admin/salesHistory";}
 
+    @RequestMapping("/admin/reportManagement")
+    public String admin_reportManagement(Model model){ return "user/admin/reportManagement";}
+
+    @RequestMapping("/admin/noticeManagement")
+    public String admin_noticeManagement(Model model){ return "user/admin/noticeManagement";}
+
 }
