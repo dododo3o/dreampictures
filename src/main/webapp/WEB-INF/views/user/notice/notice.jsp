@@ -55,12 +55,15 @@
         }
     </script>
 
-    <script type = "text/javascript" >
+    <script type="text/javascript">
         let status = undefined; //0~4 까지 질문 종류
 
-        showModal = function () {$('.ui.modal').modal('show');};
-        requestQA = function () {$(() => {
-                if(status==undefined) return;
+        showModal = function () {
+            $('.ui.modal').modal('show');
+        };
+        requestQA = function () {
+            $(() => {
+                if (status == undefined) return;
                 let question = document.getElementById("question").value;
                 $.ajax({
                     url: "/ajax_request_QA",
@@ -69,8 +72,13 @@
                         document.location.href = "/notice";
                     }
                 });
-            });};
-        selectedBtn = function (number) {$(() => {status = number});};
+            });
+        };
+        selectedBtn = function (number) {
+            $(() => {
+                status = number
+            });
+        };
 
     </script>
 </head>
@@ -138,20 +146,47 @@
                     <div class="ui card" style="height: 100%; margin: 0 auto;">
                         <div class="content">
                             <div class="right floated meta">14h</div>
-                            <span>${noticeVOList.content}</span>
                             <img src="${noticeVOList.avatarimg}"
                                  style="border-radius: 50%; width: 3em;height: 3em;object-fit: cover;">
                         </div>
                         <div class="image">
                             <img src="${noticeVOList.paintingmimg}" style="object-fit: cover; height: 250px"></a>
                         </div>
-                        <div class="content">
-                    <span class="right floated"></span>
+                        <div class="content" style="display: flex;justify-content: center;">
+                            <span>${noticeVOList.content}</span>
                         </div>
                         <div class="extra content">
-                            <div class="ui large transparent left icon input">
-                                <i class="heart outline icon"></i>
-                                <input type="text" placeholder="Add Comment...">
+                            <div class="ui large transparent left icon input" style="display: flex;">
+                                <i class="pencil alternate icon"></i>
+                                <input type="text" id="${cardVOlist.no_painting}" placeholder="Add Comment..."
+                                       maxlength='20'
+                                       style="font-size: 0.8em"/>
+                            </div>
+                            <button class="ui blue icon button" onclick="addComment(${cardVOlist.no_painting})"
+                                    style="float: right; font-size: 0.8em;">Add
+                            </button>
+                        </div>
+                        <div class="ui bottom attached button collapsible">
+                            <i class="add icon"></i>
+                            <span><i class="comment icon"></i>${cardVOlist.commentNumber}</span>
+                        </div>
+                        <div class="comments_css">
+                            <div class="ui comments">
+                                <c:forEach var="commentVOList" items="${cardVOlist.commentVOList}">
+                                    <h4 class="ui" style="user-select: auto;"></h4>
+                                    <div class="comment" style="margin-left: 10px; margin-bottom: 10px;">
+                                        <a class="avatar"><img src="${commentVOList.avatarimg}"
+                                                               style="border-radius: 50%; height:40px; width:40px;object-fit: cover;"></a>
+                                        <div class="content">
+                                            <a class="author">${commentVOList.author}</a>
+                                            <div class="metadata">
+                                                <span class="date">${commentVOList.date}</span>
+                                            </div>
+                                            <div class="text">${commentVOList.comments}</div>
+                                            <div class="actions"></div>
+                                        </div>
+                                    </div>
+                                </c:forEach>
                             </div>
                         </div>
                     </div>
