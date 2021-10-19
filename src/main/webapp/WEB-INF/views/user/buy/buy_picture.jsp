@@ -23,7 +23,7 @@
 <% if (session.getAttribute("logStatus") == null) { %>
 <jsp:include page="../header_footer/header_not_login.jsp"></jsp:include>
 <% } %>
-<main class="has_bg_harp">
+<main class="has_bg_harp" style="height: 100%;">
     <div class="container">
         <div style="display:flex;grid-column: 1/13; background-color: #F3F7F7;height: 100%;">
             <div class="has_flex_column" style="width: 40%;justify-content: center; gap:50px; ">
@@ -40,7 +40,8 @@
                     <span style="font-size: 40px;"><c:out value="${paintingVO.pname}"/></span>
                 </div>
                 <div style="padding-left: 35px;padding-right: 35px; font-size: 20px;line-height:30px;">
-                    그림 설명 불러와야함~~~~ 그림 설명 불러와야함~~~~ 그림 설명 불러와야함~~~~ 그림 설명 불러와야함~~~~ 그림 설명 불러와야함~~~~ 그림 설명 불러와야함~~~~ 그림 설명 불러와야함~~~~ 그림 설명 불러와야함~~~~
+                    그림 설명 불러와야함~~~~ 그림 설명 불러와야함~~~~ 그림 설명 불러와야함~~~~ 그림 설명 불러와야함~~~~ 그림 설명 불러와야함~~~~ 그림 설명 불러와야함~~~~ 그림
+                    설명 불러와야함~~~~ 그림 설명 불러와야함~~~~
                     그림 설명 불러와야함~~~~ 그림 설명 불러와야함~~~~ 그림 설명 불러와야함~~~~
                 </div>
                 <div style="padding-left: 20px;">
@@ -63,7 +64,8 @@
             </div>
             <div class="has_flex_center" style="width: 60%;">
                 <div style="width: 80%; height: 80%;">
-                    <img src="<c:out value="${paintingVO.paintingimg}"/>" style="object-fit: cover; width: 100%; height: 100%;">
+                    <img src="<c:out value="${paintingVO.paintingimg}"/>"
+                         style="object-fit: cover; width: 100%; height: 100%;">
                 </div>
             </div>
         </div>

@@ -111,20 +111,12 @@
         <div class="has_flex_column" style="grid-column:1/3; gap:40px;padding-top: 30px; background-color: #a2b0b36e">
             <button class="ui button" style="height: 50px;width:157px;font-family: 'BMHANNAPro';font-size: var(--font-size-base)">공지사항</button>
             <button class="ui button" style="height: 50px;width:157px;font-family: 'BMHANNAPro';font-size: var(--font-size-base)">질문사항</button>
-
-<%--            <div class="ui vertical animated button" tabindex="0" onclick="showModal()">--%>
-<%--                <div class="hidden content">공지사항</div>--%>
-<%--                <div class="visible content">--%>
-<%--                    <i class="question circle icon"></i>--%>
-<%--                </div>--%>
-<%--            </div>--%>
-<%--            <div class="ui vertical animated button" tabindex="0" onclick="showModal()">--%>
-<%--                <div class="hidden content">질문사항</div>--%>
-<%--                <div class="visible content">--%>
-<%--                    <i class="question circle icon"></i>--%>
-<%--                </div>--%>
-<%--            </div>--%>
-
+            <div class="ui vertical animated button" tabindex="0" onclick="showModal()">
+                <div class="hidden content">질문하기</div>
+                <div class="visible content">
+                    <i class="comments outline icon"></i>
+                </div>
+            </div>
         </div>
         <div class="has_flex_end" style="grid-column: 3/13; flex-wrap: wrap; margin-top: 20px; margin-bottom: 20px;">
             <div tabindex="0" onclick="showModal()">
@@ -163,7 +155,6 @@
         </div>
     </div>
 </main>
-
 <jsp:include page="../header_footer/footer.jsp"></jsp:include>
 </body>
 </html>
