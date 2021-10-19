@@ -27,26 +27,21 @@
     <div class="container">
         <div style="display:flex;grid-column: 1/13; background-color: #F3F7F7;height: 100%;">
             <div class="has_flex_column" style="width: 40%;justify-content: center; gap:50px; ">
-                <div class="has_flex_column " style="padding: 40px; gap: 30px;">
-                    <div class="has_between" style="display: flex;">
-                        <span style="font-size: 32px; color: gray;"> <c:out value="${paintingVO.nickname}"/></span>
-                        <div class="ui vertical animated button" tabindex="0">
-                            <div class="hidden content" style="user-select: auto;">report</div>
-                            <div class="visible content" style="user-select: auto;">
-                                <i class="exclamation circle icon" style="user-select: auto;"></i>
-                            </div>
+                <a class="ui red ribbon label">아티스트</a>
+                <div class="has_flex_column ">
+                    <div class="has_between" style="display: flex; height: 35px; justify-content: space-around;">
+                        <h2 class="ui header"><div class="content"><c:out value="${paintingVO.nickname}"/></div></h2>
+                        <div class="ui vertical red animated button" tabindex="0">
+                            <div class="hidden content" style="user-select: auto;">신고하기</div>
+                            <div class="visible content" style="user-select: auto;"><i class="exclamation circle icon" style="user-select: auto;"></i></div>
                         </div>
                     </div>
-                    <span style="font-size: 40px;"><c:out value="${paintingVO.pname}"/></span>
                 </div>
-                <div style="padding-left: 35px;padding-right: 35px; font-size: 20px;line-height:30px;">
-                    그림 설명 불러와야함~~~~ 그림 설명 불러와야함~~~~ 그림 설명 불러와야함~~~~ 그림 설명 불러와야함~~~~ 그림 설명 불러와야함~~~~ 그림 설명 불러와야함~~~~ 그림
-                    설명 불러와야함~~~~ 그림 설명 불러와야함~~~~
-                    그림 설명 불러와야함~~~~ 그림 설명 불러와야함~~~~ 그림 설명 불러와야함~~~~
-                </div>
-                <div style="padding-left: 20px;">
-                    등록일 : <c:out value="${paintingVO.writedate}"/>
-                </div>
+                <a class="ui blue ribbon label">그림 제목</a>
+                <span style="font-size: 40px; margin: 0 auto;"><c:out value="${paintingVO.pname}"/></span>
+                <a class="ui teal ribbon label">그림 설명</a>
+                <div style="padding-left: 35px;padding-right: 35px; font-size: 20px;line-height:30px;"><c:out value="${paintingVO.exp}"/></div>
+                <div style="padding-left: 20px;">등록일 : <c:out value="${paintingVO.writedate}"/></div>
                 <div class="has_evenly" style="display: flex;">
                     <div class="ui animated button" tabindex="0" id="prev_btn" style="width: 200px;">
                         <div class="hidden content" style="user-select: auto;">prev</div>
@@ -64,8 +59,7 @@
             </div>
             <div class="has_flex_center" style="width: 60%;">
                 <div style="width: 80%; height: 80%;">
-                    <img src="<c:out value="${paintingVO.paintingimg}"/>"
-                         style="object-fit: cover; width: 100%; height: 100%;">
+                    <img src="<c:out value="${paintingVO.paintingimg}"/>" style="object-fit: cover; width: 100%; height: 100%;">
                 </div>
             </div>
         </div>
