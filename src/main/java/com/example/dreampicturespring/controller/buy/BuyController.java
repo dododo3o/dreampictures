@@ -38,10 +38,18 @@ public class BuyController {
 
         List<CardVO> cardVOList = new ArrayList<>();
         List<String> list = paintingRepository.findAllPainting_Desc();
+        Integer n = commentRepository.countByno_painting(21);
+        System.out.println(n);
         for(String card : list){
             List<String> obj = Arrays.asList(card.split(","));
-            CardVO vo = new CardVO(obj.get(0),obj.get(1)+"/avatarimg/avatarimg.jpg",obj.get(1)+"/paintingimg/"+obj.get(3)+"/0.jpg",obj.get(2),obj.get(3));
-            cardVOList.add(vo);
+            CardVO cardVO = new CardVO();
+            cardVO.setNo_painting(obj.get(0));
+            cardVO.setAvatarimg(obj.get(1)+"/avatarimg/avatarimg.jpg");
+            cardVO.setPaintingmimg(obj.get(1)+"/paintingimg/"+obj.get(3)+"/0.jpg");
+            cardVO.setNickname(obj.get(2));
+            cardVO.setPname(obj.get(3));
+            cardVO.setCommentNumber(commentRepository.countByno_painting(Integer.parseInt(obj.get(0))));
+            cardVOList.add(cardVO);
             cardNum++;
         }
 

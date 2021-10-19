@@ -11,6 +11,7 @@ public class CardVO {
     private String paintingmimg;
     private String nickname;
     private String pname;
+    private Integer commentNumber;
 
     public CardVO(){ }
     public CardVO(String no_painting,String avatarimg,String paintingmimg,String nickname,String pname){

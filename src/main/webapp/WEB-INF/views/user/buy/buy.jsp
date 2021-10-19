@@ -49,10 +49,12 @@
         };
         showCommentModal = function (no_painting) {
             $(() => {
+                alert(no_painting)
                 $.ajax({
                     url: "/ajax_comment_finder",
                     data: "no_painting=" + no_painting,
                     success: function (result) {
+                        alert(result)
                         var container = document.getElementById("commentModal");
                         while ( container.hasChildNodes() ) { container.removeChild( container.firstChild ); }
                         $("#commentModal").html(result);
@@ -75,6 +77,15 @@
             });
         };
     </script>
+    <style>
+        .v {
+            padding: 0 18px;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.2s ease-out;
+            background-color: #f1f1f1;
+        }
+    </style>
 </head>
 <body>
 <% if (session.getAttribute("logStatus") == "Y") { %>
@@ -86,24 +97,24 @@
 <jsp:include page="../header_footer/header_not_login.jsp"></jsp:include>
 <% } %>
 <div class="has_bg_harp">
-    <div class="ui tiny modal" id="commentModal">
-        <c:forEach var="commentVOlist" items="${commentVOlist}">
-        <div class="ui comments">
-            <div class="comment">
-                <a class="avatar">
-                    <img src="${commentVOlist.avatarimg}">
-                </a>
-                <div class="content">
-                    <a class="author">${commentVOlist.author}</a>
-                    <div class="metadata">
-                        <div class="date">${commentVOlist.date}</div>
-                    </div>
-                    <div class="text">${commentVOlist.comments}</div>
-                </div>
-            </div>
-        </div>
-        </c:forEach>
-    </div>
+<%--    <div class="ui tiny modal" id="commentModal">--%>
+<%--        <c:forEach var="commentVOlist" items="${commentVOlist}">--%>
+<%--        <div class="ui comments">--%>
+<%--            <div class="comment">--%>
+<%--                <a class="avatar">--%>
+<%--                    <img src="${commentVOlist.avatarimg}">--%>
+<%--                </a>--%>
+<%--                <div class="content">--%>
+<%--                    <a class="author">${commentVOlist.author}</a>--%>
+<%--                    <div class="metadata">--%>
+<%--                        <div class="date">${commentVOlist.date}</div>--%>
+<%--                    </div>--%>
+<%--                    <div class="text">${commentVOlist.comments}</div>--%>
+<%--                </div>--%>
+<%--            </div>--%>
+<%--        </div>--%>
+<%--        </c:forEach>--%>
+<%--    </div>--%>
     <div class="container">
         <div style="grid-column:1/9;display: flex;flex-direction: column; gap:20px; justify-content: center; margin-top: 70px;">
             <div class="has_chathams-blue" style="font-size: 42px;">그림드림의 당신만의 그림찾기</div>
@@ -157,7 +168,7 @@
     </div>
 </div>
 </div>
-    <div class="container" id="container" style="display: grid;grid-template-columns: repeat(5,1fr);;grid-gap:1rem;justify-content: space-around;">
+    <div class="container" id="container" style="display: grid;grid-template-columns: repeat(5,1fr);grid-gap:1rem;justify-content: space-around;">
         <c:forEach var="cardVOlist" items="${cardVOlist}">
             <div class="ui card" style="height: 100%; margin: 0 auto;">
                 <div class="content">
@@ -172,7 +183,7 @@
                 <div class="content">
                         <span class="right floated">
                           <i class="heart outline like icon"></i>17 likes</span>
-                    <span onclick="showCommentModal(${cardVOlist.no_painting})"><i class="comment icon"></i>3</span>
+                    <span onclick="showCommentModal(${cardVOlist.no_painting})"><i class="comment icon"></i>${cardVOlist.commentNumber}</span>
                 </div>
                 <div class="extra content">
                     <div class="ui large transparent left icon input" style="display: flex;">
@@ -180,6 +191,13 @@
                         <input type="text" id ="${cardVOlist.no_painting}" placeholder="Add Comment..." maxlength='20' style="font-size: 0.8em"/>
                     </div>
                     <button class="ui blue icon button" onclick="addComment(${cardVOlist.no_painting})" style="float: right; font-size: 0.8em;">Add</button>
+                </div>
+                <div class="ui bottom attached button collapsible">
+                    <i class="add icon"></i>
+                    Add Friend
+                </div>
+                <div class="content">
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
                 </div>
             </div>
         </c:forEach>
@@ -210,6 +228,22 @@
             <br>
         </div>
     </div></div>
+<script>
+    var coll = document.getElementsByClassName("collapsible");
+    var i;
+
+    for (i = 0; i < coll.length; i++) {
+        coll[i].addEventListener("click", function() {
+            this.classList.toggle("active");
+            var content = this.nextElementSibling;
+            if (content.style.maxHeight){
+                content.style.maxHeight = null;
+            } else {
+                content.style.maxHeight = content.scrollHeight + "px";
+            }
+        });
+    }
+</script>
 <jsp:include page="../header_footer/footer.jsp"></jsp:include>
 </body>
 </html>

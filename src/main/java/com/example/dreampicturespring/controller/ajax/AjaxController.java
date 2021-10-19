@@ -88,7 +88,7 @@ public class AjaxController {
 			commentVO.setComments(obj.get(0));
 			commentVOlist.add(commentVO);
 		}
-		model.addAttribute("commentVOlist",commentVOlist);
+ 		model.addAttribute("commentVOlist",commentVOlist);
 		return "user/ajax/comment_find";
 	}
 
