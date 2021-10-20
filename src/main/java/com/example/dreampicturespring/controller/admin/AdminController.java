@@ -42,7 +42,7 @@ public class AdminController {
                 HttpSession session =request.getSession();
                 session.setAttribute("adminLogin",vo.getAdmin());
                 session.setAttribute("adminLoginStatus","Y");
-                mv.setViewName("user/admin/salesHistory");
+                mv.setViewName("user/admin/main");
                 return mv;
             }
         }
@@ -55,20 +55,25 @@ public class AdminController {
         return "user/admin/login";
     }
 
-
-    @RequestMapping("/admin/report")
-    public String admin_report(Model model){ return "user/admin/report";}
-
     @RequestMapping("/admin/qa")
     public String admin_qa(Model model){ return "user/admin/qa";}
 
     @RequestMapping("/admin/blacklist")
     public String admin_blacklist(Model model){ return "user/admin/blacklist";}
 
+    @RequestMapping("/admin/main")
+    public String admin_main(Model model){ return "user/admin/main";}
+
     @RequestMapping("/admin/notice")
     public String admin_notice(Model model){ return "user/admin/notice";}
 
     @RequestMapping("/admin/salesHistory")
     public String admin_salesHistory(Model model){ return "user/admin/salesHistory";}
+
+    @RequestMapping("/admin/allmembers")
+    public String admin_allmembers(Model model){ return "user/admin/allmembers";}
+
+    @RequestMapping("/admin/report")
+    public String admin_report(Model model){ return "user/admin/report";}
 
 }

@@ -22,5 +22,4 @@ public class MypageVO {
         this.tel = membershiptbl.getTel();
         this.dreampay = membershiptbl.getDreampay();
     }
-
 }

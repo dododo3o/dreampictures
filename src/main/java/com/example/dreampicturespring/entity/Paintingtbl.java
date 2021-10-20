@@ -7,7 +7,9 @@ import lombok.ToString;
 import org.springframework.util.StringUtils;
 
 import javax.persistence.*;
+import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.time.ZoneId;
 import java.util.Date;
 
 @Entity
@@ -22,19 +24,20 @@ public class Paintingtbl {
     private Integer no_painting;
     private String pname;
     private String theme;
-    private int width;
-    private int height;
-    private int price;
+    private Integer width;
+    private Integer height;
+    private Integer price;
     private String style;
     @Column(name="writedate")
-    private LocalDateTime writedate;
+    private LocalDate writedate;
     private Date production;
     private String exp;
+    private Integer status;
     private Integer no_membership;
 
     public Paintingtbl(){
         if(StringUtils.isEmpty(writedate)){
-            this.writedate = LocalDateTime.now();
+            this.writedate = LocalDate.now(ZoneId.of("Asia/Seoul"));
         }
     }
     public Paintingtbl(SellVO vo,Integer no_membership){
@@ -45,10 +48,11 @@ public class Paintingtbl {
         this.price = vo.getPrice();
         this.style = vo.getStyle();
         if(StringUtils.isEmpty(writedate)){
-            this.writedate = LocalDateTime.now();
+            this.writedate = LocalDate.now(ZoneId.of("Asia/Seoul"));
         }
         this.production = vo.getProduction();
         this.exp = vo.getExp();
+        this.status = 0;
         this.no_membership = no_membership;
     }
 

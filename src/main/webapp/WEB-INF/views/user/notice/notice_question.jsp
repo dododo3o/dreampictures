@@ -54,8 +54,10 @@
             document.getElementById("modaldiv")
         }
     </script>
+
     <script type="text/javascript">
         let status = undefined; //0~4 까지 질문 종류
+
         showModal = function () {
             $('.ui.modal').modal('show');
         };
@@ -77,6 +79,7 @@
                 status = number
             });
         };
+
     </script>
 </head>
 <body>
@@ -111,6 +114,9 @@
             </div>
         </div>
         <div class="has_flex_end" style="grid-column: 3/13; flex-wrap: wrap; margin-top: 20px; margin-bottom: 20px;">
+            <div tabindex="0" onclick="showModal()">
+                <button class="ui button" style="font-family: 'BMHANNAPro';">질문하기</button>
+            </div>
             <div class="manager_card"
                  style="display: grid;grid-template-columns:repeat(3,1fr);grid-gap:1rem;width: 100%;">
                 <c:forEach var="noticeVOList" items="${noticeVOList}">
