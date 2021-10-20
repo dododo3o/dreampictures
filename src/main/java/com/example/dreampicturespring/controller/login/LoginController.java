@@ -6,6 +6,7 @@ import com.example.dreampicturespring.repository.MembershiptblRepository;
 import com.example.dreampicturespring.vo.LoginVO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -50,7 +51,11 @@ public class LoginController {
                 HttpSession session =request.getSession();
                 session.setAttribute("logEmail",vo.getEmail());
                 session.setAttribute("logStatus","Y");
-                mv.setViewName("user/main/main");
+                if(session.getAttribute("location") != null){
+                    mv.setViewName("redirect:"+session.getAttribute("location").toString());
+                }
+                else
+                    mv.setViewName("user/main/main");
                 return mv;
             }
         }

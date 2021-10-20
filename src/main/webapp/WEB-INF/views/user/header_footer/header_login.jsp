@@ -44,7 +44,7 @@
             <a href='/sell' class='anchor hover_header-btn'>Seller</a>
             <a href='/notice' class='anchor hover_header-btn'>Notice</a>
             <a href='/logout' class='anchor has_aqua-island hover_header-btn' id="mainMenu_login">Logout</a>
-            <button class='button is_primary hover_sign-btn'><a href="/mypage/${user}">MyPage</a></button>
+            <button class='button is_primary hover_sign-btn'><a href="/mypage/+${user}">MyPage</a></button>
         </div>
     </div>
 </header>
