@@ -44,7 +44,7 @@ public class NoticeController {
         mv.addObject("pageNum",pageNum);
         return mv;
     }
-    @RequestMapping("/notice_questions")
+    @RequestMapping("/notice_question")
     public ModelAndView notice_question(){
         final int CARDSPERPAGE = 15;
         int cardNum = 0,pageNum;
