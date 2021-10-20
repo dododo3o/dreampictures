@@ -18,17 +18,5 @@ public class Ordertbl {
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "Order_SEQ")//맴버테이블의 시퀀스를 만들어준다.
     @SequenceGenerator(sequenceName = "OrderSQ", allocationSize = 1, name = "Order_SEQ")//시퀀스를 만들어주는데 오른쪽의 시퀀스 이름을 똑같이 맞춰야한다.
     private Integer no_Order;
-    private LocalDateTime Orderdate;
-    private Integer orderstatus;
-    private Integer no_painting;
-    private Integer no_membership;
-    private Integer totalprice;
-
-
-    public Ordertbl(){
-        if(StringUtils.isEmpty(Orderdate)){
-            this.Orderdate = LocalDateTime.now();
-        }
-    }
 
 }
