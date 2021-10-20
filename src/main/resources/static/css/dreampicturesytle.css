@@ -320,6 +320,7 @@ input:not(input[type=file], .painting_input, select, #cal), input[type=textarea]
 
 #prev_btn{background-color:var(--color-middle-blue-green);}
 
+/*sell page에 사용*/
 .painting_input{border-radius:1px;  font-family: 'BMHANNAPro'; outline:none;text-indent:10px;height:30px;border: 1px solid #80808057; font-size: var(--font-size-sm);}
 
 .painting_img{height: 100%; width:100%;object-fit: cover}
@@ -328,3 +329,4 @@ input::placeholder{color: #80808057;}
 
 textarea::placeholder{color: #80808057;}
 
+.sell_select{border: 1px solid #80808057;color: #80808057;border-radius: 5%;width: 103%; }

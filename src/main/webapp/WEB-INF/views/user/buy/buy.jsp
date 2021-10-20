@@ -102,7 +102,7 @@
                 </div>
     </form>
     <button  class=" ui blue icon button has_width_full" onclick="showModal()"><i class="search icon"></i>찾기    </button>
-    <div style="display: flex; gap: 90px;">
+    <div>
         <select style="font-family: 'BMHANNAPro'; font-size: 1.5em;" class="has_width_half"
                 style="margin-right: 90px;" id="style">
             <option value="" disabled selected>화풍</option>

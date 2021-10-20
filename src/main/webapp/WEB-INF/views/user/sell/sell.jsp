@@ -13,9 +13,6 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
     <script src="https://kit.fontawesome.com/b14e6f064f.js" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/particlesjs/2.2.2/particles.min.js"></script>
-
-    <script src= "particles.min.js"
     ></script>
     <script>
         function setThumbnail(event) {
@@ -33,9 +30,6 @@
             };
             reader.readAsDataURL(event.target.files[0]);
         }
-        $('#standard_calendar')
-            .calendar()
-        ;
         function nextBtn_condition(){
             var pname = $("#pnameVal").val();
             var height = $("#heightVal").val();
@@ -43,19 +37,17 @@
             var price = $("#priceVal").val();
             var calVal = $("#cal").val();
             var content = $("#contentVal").val();
-            var style = $("#styleVal").val();
-            var theme = $("#themeVal").val();
+            var img = $("#image_section").val();
 
-            if (pname && height && width && price && calVal && content && style && theme != null) {
+           var f = document.form;
+
+            if (pname!= ''&& height!=''&& width!=''&&price!=''&&calVal!=''&&content!='' &&img!='' && f.style.value!=='' && f.theme.value!=='') {
                 document.getElementById('frm').submit();
             } else {
-                alert('모든 인증을 완료해주세요.');
+                $("#point").css("display","block");
             }
         }
-
     </script>
-    <link rel="stylesheet" href="https://unpkg.com/flickity@2/dist/flickity.min.css">
-    <script src="https://unpkg.com/flickity@2/dist/flickity.pkgd.min.js"></script>
     <style>
         .carousel {
             background: #EEE;
@@ -93,16 +85,13 @@
 <%--dvsdvdsvdvsz--%>
 <main class="has_bg_harp">
     <div class="container">
-        <form action="<%=conPath%>/sell_success" method="post" onsubmit="return false" enctype="multipart/form-data">
+        <form action="<%=conPath%>/sell_success" method="post" onsubmit="return false" enctype="multipart/form-data" id="frm" name="form">
             <div style="background-color:var( --color-white);display:flex;grid-column: 1/13;height: 100%;">
                 <div style="border-right: 1px solid #ddd;width:50%;padding-left: 110px;padding-right: 100px;">
                     <div class="has_flex_column has_evenly" style="flex-wrap: wrap;width:100%;height: 85%;padding-top: 100px;">
-
-
-
+                        <a class="ui red tag label" style="display: none; margin-bottom: 10px;" id="point"><span>그림 정보를 모두 작성해주세요.😥</span></a>
                         <input type="submit" class="ui secondary button" value="그림등록" onclick="nextBtn_condition()"><font style="vertical-align: inherit; "><font
                                 style="vertical-align: inherit;" >
-
                         </font></font>
                         <div class="ui horizontal divider"><font style="vertical-align: inherit;"><font
                                 style="vertical-align: inherit;">
@@ -140,66 +129,47 @@
                                 </div>
                             </div>
                         </div>
-
-                        <div class="ui calendar" id="standard_calendar">
-                            <div class="ui input left icon" style="width: 100%;">
-                                <i class="calendar icon"></i>
-                                <input type="text" placeholder="Date/Time" id="cal" style="width: 100%;display: flex;">
-                            </div>
-                        </div>
+                        <input type="date" class="has_width_half sell_select" name="production" id="cal" placeholder="제작년도"/>
                         <div class="ui list has_flex_column has_font-base" style="display: flex; ">
                             <div style=" display: flex;">
                                 <div class="content" style="display: flex;width: 100%;">
-                                    <textarea class="painting_input" id="contentVal" placeholder="작품설명"
-                                              style="resize: none; height: 60px;width: 100%;"></textarea>
+                                    <textarea class="painting_input" id="contentVal" placeholder="작품설명" style="resize: none; height: 60px;width: 100%;"></textarea>
                                 </div>
                             </div>
                         </div>
                         <%-- todo--%>
-                        <div class="ui selection dropdown" id="styleVal" style="width: 103%;">
-                            <input name="style">
-                            <i class="dropdown icon"></i>
-                            <div class="default text">화풍</div>
-                            <div class="menu">
-                                <div class="item">유화</div>
-                                <div class="item">수채화</div>
-                                <div class="item">아크릴화</div>
-                                <div class="item">펜화</div>
-                                <div class="item">연필화</div>
-                                <div class="item">크레용화</div>
-                                <div class="item">과슈화</div>
-                                <div class="item">파스텔화</div>
-                            </div>
-                        </div>
-                        <div class="ui selection dropdown" id="theme" style="width: 103%;">
-                            <input name="thema">
-                            <i class="dropdown icon"></i>
-                            <div class="default text">테마</div>
-                            <div class="menu">
-                                <div class="item">인물</div>
-                                <div class="item">풍경</div>
-                                <div class="item">정물</div>
-                                <div class="item">동물</div>
-                                <div class="item">추상</div>
-                                <div class="item">팝아트</div>
-                                <div class="item">오브제</div>
-                            </div>
-                        </div>
+                        <select style="font-family: 'BMHANNAPro'; font-size:var(--font-size-sm);" class="has_width_half sell_select" name="style">
+                            <option value="" disabled selected>화풍</option>
+                            <option value="oils">유화</option>
+                            <option value="water">수채화</option>
+                            <option value="acrylic">아크릴화</option>
+                            <option value="pen">펜화</option>
+                            <option value="pencil">연필화</option>
+                            <option value="pastel">파스텔화</option>
+                            <option value="crayon">크레용화</option>
+                            <option value="gouache">과슈화</option>
+                        </select>
+                        <select style="font-family: 'BMHANNAPro'; font-size:var(--font-size-sm);" class="has_width_half sell_select" name="theme">
+                            <option value="" disabled selected>테마</option>
+                            <option value="scenery">풍경</option>
+                            <option value="character">인물</option>
+                            <option value="still">정물</option>
+                            <option value="animal">동물</option>
+                            <option value="abstract">추상</option>
+                            <option value="popart">팝아트</option>
+                            <option value="objet">오브제</option>
+                        </select>
                     </div>
                 </div><!--오른쪽 div-->
 
                 <div class="has_flex_column" style="width:50%;padding-left: 80px;padding-right: 80px;">
-                    <div class="has_flex_center" id="image_container;"
-                         style="margin-top: 70px; width: 100%; height: 80%;">
+                    <div class="has_flex_center" id="image_container;" style="margin-top: 70px; width: 100%; height: 80%;">
                         <div id="preview_image">
-
-
+                            <%-- 선택한 사진 들어가는 곳--%>
                         </div>
-                        <%--todo 사진이 가로라면~"~?~"!?!?~???어떻게 해야할까요~고민해봅시다~~--%>
                     </div>
                     <div>
-                        <div><input type="file" onchange="setThumbnail(event);" name="filename" id="image"
-                                    style="margin-left: 100px;margin-top: 10px"/></div>
+                        <div><input type="file" onchange="setThumbnail(event);" name="filename" id="image" style="margin-left: 100px;margin-top: 10px"/></div>
                     </div>
                 </div><!--왼쪽div-->
             </div>
