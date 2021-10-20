@@ -35,8 +35,6 @@
 
 
             <a href='/admin/noticeManagement' class='anchor hover_header-btn'>관리자 메인으로</a>
-<%--            <a href='/admin/salesHistory' class='anchor hover_header-btn'>판매관리</a>--%>
-<%--            <a href='/admin/reportManagement' class='anchor hover_header-btn'>신고관리</a>--%>
 
             <button class='button is_primary hover_sign-btn'><a href="/admin/logout">Logout</a></button>
         </div>
