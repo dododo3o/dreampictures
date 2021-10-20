@@ -109,10 +109,10 @@
         <a href="/admin/main" class="w3-bar-item w3-button w3-padding"><i class="fa fa-bullseye fa-fw"></i>  관리자 메인으로</a>
         <a href="/admin/notice" class="w3-bar-item w3-button w3-padding"><i class="fa fa-bullseye fa-fw"></i>  공지사항</a>
         <a href="/admin/qa" class="w3-bar-item w3-button w3-padding"><i class="fa fa-bullseye fa-fw"></i>  질문사항</a>
-        <a href="/admin/salesHistory" class="w3-bar-item w3-button w3-padding w3-blue"><i class="fa fa-bullseye fa-fw"></i>  판매현황</a>
+        <a href="/admin/salesHistory" class="w3-bar-item w3-button w3-padding"><i class="fa fa-bullseye fa-fw"></i>  판매현황</a>
         <a href="/admin/report" class="w3-bar-item w3-button w3-padding"><i class="fa fa-bullseye fa-fw"></i>  신고내역</a>
         <a href="/admin/blacklist" class="w3-bar-item w3-button w3-padding"><i class="fa fa-bullseye fa-fw"></i>  블랙리스트</a>
-        <a href="/admin/allmembers" class="w3-bar-item w3-button w3-padding"><i class="fa fa-bullseye fa-fw"></i>  회원현황</a><br><br>
+        <a href="/admin/allmembers" class="w3-bar-item w3-button w3-padding w3-blue"><i class="fa fa-bullseye fa-fw"></i>  회원현황</a><br><br>
     </div>
 </nav>
 
@@ -126,89 +126,101 @@
     <!-- Header -->
 
 
-    <div class="has_bg_harp">
-        <div class="container">
-            <div style="grid-column:3/11;display: flex;flex-direction: column; gap:20px; justify-content: center;margin-top: 22px;">
-                <div class="has_chathams-blue" style="font-size: var(--font-size-xlll);text-align: center;margin-right: 50px">기간별 판매내역</div>
-                <form action="">
-                    <div style="display: flex;margin-bottom: 50px;justify-content: space-evenly;align-items: center;">
-                        <select class="has_width_full">
-                            <option value="" disabled selected>기간설정</option>
-                            <option value="1week">1주</option>
-                            <option value="1month">1개월</option>
-                            <option value="3month">3개월</option>
-                            <option value="6month">6개월</option>
-                            <option value="1year">1년</option>
-                        </select>
-                        <button class='button is_notification' onclick="searchOk">검색</button>
-                    </div>
-                </form>
+    <main class="has_bg_harp" style="height: auto;">
 
-                <div class="container" style="display: grid;grid-template-columns:repeat(4,1fr);grid-gap:1rem;">
-                    <c:forEach var="cardVOlist" items="${cardVOlist}">
-                        <div class="ui card" style="height: 100%; margin: 0 auto;">
-                            <div class="content">
-                                <div class="right floated meta">14h</div>
-                                <img src="${cardVOlist.avatarimg}"
-                                     style="border-radius: 50%; width: 3em;height: 3em;object-fit: cover;">
-                            </div>
-                            <div class="image">
-                                <img src="${cardVOlist.paintingmimg}" style="object-fit: cover; height: 250px">
-                            </div>
-                            <div class="content">
-                    <span class="right floated">
-                      <i class="heart outline like icon"></i>17 likes</span>
-                                <i class="comment icon"></i>3 comments
-                            </div>
-                            <div class="extra content">
-                                <div class="ui large transparent left icon input">
-                                    <i class="heart outline icon"></i>
-                                    <input type="text" placeholder="Add Comment...">
-                                </div>
-                            </div>
+        <div class="container" style="height: 100%;margin-left: 200px">
+
+            <div class="has_flex_end" style="grid-column: 1/13; flex-wrap: wrap; margin-top: 20px;margin-bottom: 20px;">
+
+                <div style="text-align: center;margin-right: 420px;font-family: 'BMHANNAPro';font-size: var(--font-size-xlll);color:var(--color-chathams-blue) ">전체 회원현황</div>
+
+                <div class="manager_card" style="display: grid;grid-template-columns:repeat(4,1fr);grid-gap:1rem;width: 100%;">
+                    <div class="ui card">
+                        <div class="image">
+                            <img src="/images/avatar2/large/kristy.png">
                         </div>
-                    </c:forEach>
+                        <div class="content">
+                            <a class="header"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">크리스티</font></font></a>
+                            <div class="meta">
+                                <span class="date"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">2013년에 합류</font></font></span>
+                            </div>
+                            <div class="description"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+                                Kristy는 뉴욕에 거주하는 아트 디렉터입니다.
+                            </font></font></div>
+                        </div>
+                        <div class="extra content">
+                            <a>
+                                <i class="user icon"></i><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+                                22 친구
+                            </font></font></a>
+                        </div>
+                    </div>
+                    <div class="ui card">
+                        <div class="image">
+                            <img src="/images/avatar2/large/kristy.png">
+                        </div>
+                        <div class="content">
+                            <a class="header"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">크리스티</font></font></a>
+                            <div class="meta">
+                                <span class="date"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">2013년에 합류</font></font></span>
+                            </div>
+                            <div class="description"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+                                Kristy는 뉴욕에 거주하는 아트 디렉터입니다.
+                            </font></font></div>
+                        </div>
+                        <div class="extra content">
+                            <a>
+                                <i class="user icon"></i><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+                                22 친구
+                            </font></font></a>
+                        </div>
+                    </div>
+                    <div class="ui card">
+                        <div class="image">
+                            <img src="/images/avatar2/large/kristy.png">
+                        </div>
+                        <div class="content">
+                            <a class="header"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">크리스티</font></font></a>
+                            <div class="meta">
+                                <span class="date"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">2013년에 합류</font></font></span>
+                            </div>
+                            <div class="description"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+                                Kristy는 뉴욕에 거주하는 아트 디렉터입니다.
+                            </font></font></div>
+                        </div>
+                        <div class="extra content">
+                            <a>
+                                <i class="user icon"></i><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+                                22 친구
+                            </font></font></a>
+                        </div>
+                    </div>
+                    <div class="ui card">
+                        <div class="image">
+                            <img src="/images/avatar2/large/kristy.png">
+                        </div>
+                        <div class="content">
+                            <a class="header"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">크리스티</font></font></a>
+                            <div class="meta">
+                                <span class="date"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">2013년에 합류</font></font></span>
+                            </div>
+                            <div class="description"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+                                Kristy는 뉴욕에 거주하는 아트 디렉터입니다.
+                            </font></font></div>
+                        </div>
+                        <div class="extra content">
+                            <a>
+                                <i class="user icon"></i><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+                                22 친구
+                            </font></font></a>
+                        </div>
+                    </div>
+
+                    </div>
                 </div>
             </div>
         </div>
-        <div class="container" style="display: grid;grid-template-columns:repeat(4,1fr);grid-gap:1rem;">
-            <c:forEach var="cardVOlist" items="${cardVOlist}">
-                <a href="/buy_picture/${cardVOlist.no_painting}">
-                    <div class="card has_flex_space_bt_cl has_shadow">
-                        <div><img src="${cardVOlist.paintingmimg}" alt="" class="is_img_object-fit has_board_top_radius"></div>
-                        <div class="card_history" style="width: 100%;">
-                            <img src="${cardVOlist.avatarimg}" alt="" style="border-radius: 50%; width: 65px">
-                            <span style="font-size: 1.3em">${cardVOlist.nickname}</span>
-                        </div>
-                        <div style="margin-bottom: 20px; font-size: 1.5em;">${cardVOlist.pname}</div>
-                    </div>
-                </a>
-            </c:forEach>
-        </div>
-        <div class="container" style="display: flex;justify-content: center;margin-top:30px;padding-bottom: 30px;
-">
-            <div style="margin-right: 40px;">
-                <div class="ui animated button" tabindex="0"
-                     style="color:var(--color-white);background-color: var(--color-chathams-blue);">
-                    <div class="visible content">Perv</div>
-                    <div class="hidden content">
-                        <i class="left arrow icon"></i>
-                    </div>
-                </div>
-                <c:forEach var="i" begin="1" end="${pageNum}" >
-                    <button class='button is_pagination'>${i}</button>
-                </c:forEach>
-                <div class="ui animated button" tabindex="0"
-                     style="color:var(--color-white);background-color: var(--color-chathams-blue);">
-                    <div class="visible content">Next</div>
-                    <div class="hidden content">
-                        <i class="right arrow icon"></i>
-                    </div>
-                </div>
-                <br>
-            </div>
-        </div>
-    </div>
+    </main>
 
 
     <!-- End page content -->

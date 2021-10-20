@@ -6,7 +6,9 @@ import lombok.ToString;
 import org.springframework.util.StringUtils;
 
 import javax.persistence.*;
+import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.time.ZoneId;
 
 @Entity//엔터티라고 선언해줘야함
 @Table(name="Noticetbl")//sql의 테이블이름이기때문에 이름틀리면 나가리
@@ -20,14 +22,12 @@ public class Noticetbl {
     private Integer no_notice;
     private String title;
     private String content;
-    private LocalDateTime writedate;
-    private Integer hit;
-    private Integer status;
+    private LocalDate writedate;
     private Integer no_admin;
 
     public Noticetbl(){
         if(StringUtils.isEmpty(writedate)){
-            this.writedate = LocalDateTime.now();
+            this.writedate = LocalDate.now(ZoneId.of("Asia/Seoul"));
         }
     }
 

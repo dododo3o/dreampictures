@@ -6,7 +6,9 @@ import lombok.ToString;
 import org.springframework.util.StringUtils;
 
 import javax.persistence.*;
+import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.time.ZoneId;
 
 @Entity
 @Table(name="paymenttbl")
@@ -20,23 +22,19 @@ public class Paymenttbl {
     private Integer no_payment;
 
     @Column(name="paymentprice")
-    private String paymentprice;
+    private Integer paymentprice;
 
     @Column(name="paymentdate")
-    private LocalDateTime paymentdate;
+    private LocalDate paymentdate;
 
     @Column(name="cardcompony")
     private String cardcompony;
 
     private Integer no_membership;
 
-    private Integer no_order;
-
-    private Integer no_cart;
-
     public Paymenttbl(){
         if(StringUtils.isEmpty(paymentdate)){
-            this.paymentdate = LocalDateTime.now();
+            this.paymentdate = LocalDate.now(ZoneId.of("Asia/Seoul"));
         }
     }
 }
