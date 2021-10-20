@@ -90,7 +90,7 @@
                                              placeholder="작품명을 입력해주세요."></div>
                 <div class="has_flex_space">
                     <select class="has_width_half" name="style">
-                        <option disabled selected>화풍</option>
+                        <option disabled selected>Style</option>
                         <option value="oils">유화</option>
                         <option value="water">수채화</option>
                         <option value="acrylic">아크릴화</option>
@@ -101,7 +101,7 @@
                         <option value="gouache">과슈화</option>
                     </select>
                     <select class="has_width_half" name="theme">
-                        <option disabled selected>테마</option>
+                        <option disabled selected>Theme</option>
                         <option value="scenery">풍경</option>
                         <option value="character">인물</option>
                         <option value="still">정물</option>
