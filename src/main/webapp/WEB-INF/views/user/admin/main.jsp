@@ -178,7 +178,7 @@
 
     <hr>
     <div class="w3-container">
-        <h5>General Stats</h5>
+        <h5>주간 통계</h5>
         <p>1주일간 신규가입자수</p>
         <div class="w3-grey">
             <div class="w3-container w3-center w3-padding w3-green" style="width:25%">+25%</div>
@@ -221,6 +221,48 @@
             </tr>
             <tr>
                 <td>정물</td>
+                <td>1.5%</td>
+            </tr>
+            <tr>
+                <td>오브제</td>
+                <td>1.5%</td>
+            </tr>
+        </table><br>
+    </div>
+    <hr>
+    <div class="w3-container">
+        <h5>스타일별 판매량</h5>
+        <table class="w3-table w3-striped w3-bordered w3-border w3-hoverable w3-white">
+            <tr>
+                <td>수채화</td>
+                <td>65%</td>
+            </tr>
+            <tr>
+                <td>유화</td>
+                <td>15.7%</td>
+            </tr>
+            <tr>
+                <td>파스텔화</td>
+                <td>5.6%</td>
+            </tr>
+            <tr>
+                <td>아크릴화</td>
+                <td>2.1%</td>
+            </tr>
+            <tr>
+                <td>펜화</td>
+                <td>1.9%</td>
+            </tr>
+            <tr>
+                <td>연필화</td>
+                <td>1.5%</td>
+            </tr>
+            <tr>
+                <td>크레용화</td>
+                <td>1.5%</td>
+            </tr>
+            <tr>
+                <td>과슈화</td>
                 <td>1.5%</td>
             </tr>
         </table><br>
