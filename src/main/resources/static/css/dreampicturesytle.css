@@ -31,12 +31,14 @@
     --font-size-basic:20px;
     --font-size-lg: 24px;
     --font-size-xl: 36px;
+    --font-size-xlll:42px;
     --font-size-xll:48px;
     --font-size-2xl:60px;
     --font-size-xxl: 64px;
 
     /*Width*/
     --width-size-half: 225px;
+    --width-size-middle-half:400px;
     --width-size-full: 540px;
 }
 
@@ -70,7 +72,7 @@ button{border-radius:8px; border:0; outline:0; color:var(--color-white); backgro
 
 .navigation{display: grid;grid-template-columns: repeat(5,1fr);grid-column: 5/13; grid-gap: 1rem;justify-items: center;align-items:center;}
 
-.navigation2{display: grid;grid-template-columns: repeat(6,1fr);grid-column: 5/13; grid-gap: 1rem;justify-items: center;align-items:center;}
+.navigation2{display: grid;grid-template-columns: repeat(2,1fr);grid-column: 9/13; grid-gap: 1rem;justify-items: center;align-items:center;}
 
 .title{color:var(--color-chathams-blue);font-size: var(--font-size-xxl);}
 
@@ -128,7 +130,7 @@ button{border-radius:8px; border:0; outline:0; color:var(--color-white); backgro
 
 .has_flex_left{display: flex;flex-direction: column;align-content: center;align-items: flex-start; gap:10px;}
 
-.has_flex_end{display: flex;flex-direction: column;align-items: flex-end;}
+.has_flex_end{display: flex;flex-direction: column;align-items: flex-end}
 
 .has_flex_row{display: flex;flex-direction: row;justify-content: space-around;}
 
@@ -218,6 +220,8 @@ input:not(input[type=file]), input[type=textarea], #address_input, select{border
 .input_textarea{border-radius:8px; outline:none;border: 2px solid var( --color-dark-gray);}
 
 .has_width_half{width: var(--width-size-half);}
+
+.has_width_middle_half{width: var(--width-size-middle-half);}
 
 .has_width_full{width: var(--width-size-full);}
 
