@@ -18,10 +18,30 @@
             integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ=="
             crossorigin="anonymous" referrerpolicy="no-referrer">
     </script>
+    <script>
+        function open_pwd_find(){
+                $('.small.modal')
+                    .modal('show')
+                ;
+        }
+
+    </script>
 </head>
 <body>
 <jsp:include page="../header_footer/header_not_login.jsp"></jsp:include>
+
 <main class="has_bg_harp">
+    <div class="small modal">
+        <div class="header">Header</div>
+        <div class="content">
+            <p ></p>
+        </div>
+        <div class="actions">
+            <div class="ui approve button" style="user-select: auto;">Approve</div>
+            <div class="ui button" style="user-select: auto;">Neutral</div>
+            <div class="ui cancel button" style="user-select: auto;">Cancel</div>
+        </div>
+    </div>
     <div class="container">
         <div class="contents" style="grid-column: 5/9; margin-top: 50px">
             <form action="<%=conPath%>/login_check" method="post" id="frm">
@@ -36,7 +56,7 @@
                             <input type="checkbox" id="login_check" style="height: 20px;">
                             <span class="has_black has_font-xs">Remember me</span>
                         </div>
-                        <div><a href='#' class="has_black">Forgot password?</a></div>
+                        <div class="has_black"onclick="open_pwd_find()">Forgot password?</div>
                     </div>
                     <a href="/login_check">
                         <button class='button is_login has_shadow has_width_full has_flex_center'><i
