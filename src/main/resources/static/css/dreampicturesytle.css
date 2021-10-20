@@ -328,8 +328,5 @@ input:not(input[type=file], .painting_input, select, #cal), input[type=textarea]
 input::placeholder{color: #80808057;}
 
 textarea::placeholder{color: #80808057;}
-
-.sell_select{border: 1px solid #80808057;
-    color: #80808057;
-    border-radius: 5%;
-    width: 103%; }
+.sell_select{border: 1px solid #80808057;color: #80808057;border-radius: 5%;width: 103%; }
+#address_input{border-radius:1px; outline:none;text-indent:10px;height:30px;border: 1px solid #80808057; font-size: var(--font-size-basic);}
