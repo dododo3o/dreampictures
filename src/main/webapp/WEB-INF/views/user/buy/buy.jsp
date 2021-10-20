@@ -166,7 +166,6 @@
                     </div>
                     <button class="ui blue icon button" onclick="addComment(${cardVOlist.no_painting})" style="float: right; font-size: 0.8em;">Add</button>
                     <button class="ui blue icon button" onclick="showCommentModal()" style="float: right; font-size: 0.8em;">zxc</button>
-
                 </div>
                 <div class="ui bottom attached button collapsible">
                     <i class="add icon"></i>
