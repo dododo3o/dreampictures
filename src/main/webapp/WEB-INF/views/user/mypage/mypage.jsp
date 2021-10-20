@@ -20,7 +20,6 @@
             crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script src="https://code.jquery.com/jquery-3.1.1.min.js"
             integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
->>>>>>> eb77b665953d7ef289a998e4844f2d6ac2c8eb44
     <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.13/semantic.js"></script>
     <script>
         showModal = function () {
@@ -116,6 +115,7 @@
                 </div>
             </div>
         </div>
+    </div>
 </main>
 <jsp:include page="../header_footer/footer.jsp"></jsp:include>
 </body>
