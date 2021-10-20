@@ -34,7 +34,7 @@ public class TransactionVO {
         this.buyer_email = buyerMembershiptbl.getEmail();
         this.buyer_tel = buyerMembershiptbl.getTel();
         this.buyer_addr = buyerMembershiptbl.getAddr();
-        if(StringUtils.isEmpty(transactionDate)){ this.transactionDate = LocalDateTime.now();}
+        if(StringUtils.isEmpty(transactionDate)){ this.transactionDate = LocalDate.now(ZoneId.of("Asia/Seoul"));}
     }
 
 

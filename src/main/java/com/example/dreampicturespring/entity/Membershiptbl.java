@@ -7,7 +7,9 @@ import lombok.ToString;
 import org.springframework.util.StringUtils;
 
 import javax.persistence.*;
+import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.time.ZoneId;
 
 @Entity//엔터티라고 선언해줘야함
 @Table(name="membershiptbl")//sql의 테이블이름이기때문에 이름틀리면 나가리
@@ -34,7 +36,7 @@ public class Membershiptbl {
     @Column
     private String img;
     @Column(name = "startdate")
-    private LocalDateTime startDate;
+    private LocalDate startDate;
     @Column(name = "memberstatus")
     private Integer memberStatus;
     @Column(name = "reported")
@@ -55,7 +57,7 @@ public class Membershiptbl {
         this.memberStatus = 0;
         this.reported = 0;
         this.dreampay = 0;
-        if(StringUtils.isEmpty(startDate)){ this.startDate = LocalDateTime.now();}
+        if(StringUtils.isEmpty(startDate)){ this.startDate = LocalDate.now(ZoneId.of("Asia/Seoul"));}
     }
 
     public Membershiptbl(String email, String pwd, String tel, String addr, String detatilAddr, String img){
@@ -68,6 +70,6 @@ public class Membershiptbl {
         this.memberStatus = 0;
         this.reported = 0;
         this.dreampay = 0;
-        if(StringUtils.isEmpty(startDate)){ this.startDate = LocalDateTime.now();}
+        if(StringUtils.isEmpty(startDate)){ this.startDate = LocalDate.now(ZoneId.of("Asia/Seoul"));}
     }
 }

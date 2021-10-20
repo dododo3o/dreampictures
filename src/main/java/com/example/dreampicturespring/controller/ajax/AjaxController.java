@@ -59,6 +59,19 @@ public class AjaxController {
 		return "user/ajax/picture_find";
 	}
 
+	@RequestMapping(value = "/ajax_pay",method = RequestMethod.GET, produces ="application/text;charset=UTF-8")
+	public String picture_find(Model model,Integer price){
+
+//		List<Paintingtbl> paintingtbls = paintingRepository.findPainting(makeNotNull(pname),makeNotNull(style),makeNotNull(theme),width,height,price);
+//		List<Membershiptbl> membershiptbls = new ArrayList<>();
+//		List<CardVO> cardVOList = new ArrayList<>();
+//
+//		for(int i=0;i<paintingtbls.size();i++){ membershiptbls.add(membershiptblRepository.getById(paintingtbls.get(i).getNo_membership())); }
+//		for(int i=0;i<paintingtbls.size();i++){ CardVO vo = new CardVO(paintingtbls.get(i),membershiptbls.get(i));cardVOList.add(vo);}
+//		model.addAttribute("cardVOlist",cardVOList);
+		return "user/ajax/picture_find";
+	}
+
 	@RequestMapping(value = "/ajax_request_QA",method = RequestMethod.GET, produces ="application/text;charset=UTF-8")
 	public String request_Integer(Model model,HttpServletRequest request, String question, Integer status){
 		HttpSession session = request.getSession();

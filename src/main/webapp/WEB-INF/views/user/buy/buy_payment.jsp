@@ -59,6 +59,23 @@
                     $('.ui.tiny.modal').modal('show');
                 }
             };
+        pay = function () {
+            $(() => {
+                $.ajax({
+                    url: "/ajax_pay",
+                    data: "pname=" + pname + "&style=" + style,
+                    success: function (result) {
+                        var container = document.getElementById("container");
+                        while (container.hasChildNodes()) {
+                            container.removeChild(container.firstChild);
+                        }
+                        $("#container").html(result);
+                    }
+                });
+            });
+        };
+
+
     </script>
 </head>
 <body>
@@ -82,7 +99,7 @@
             <div class="ui black deny button">
                 아니요
             </div>
-            <div class="ui positive right labeled icon button">
+            <div class="ui positive right labeled icon button" onclick="pay()">
                 네 구매할게요!
                 <i class="checkmark icon"></i>
             </div>
