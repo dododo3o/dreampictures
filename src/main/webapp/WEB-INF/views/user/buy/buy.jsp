@@ -104,7 +104,7 @@
             <div style="display: flex; gap: 90px;">
                 <select style="font-family: 'BMHANNAPro'; font-size: 1.5em;" class="has_width_half"
                         style="margin-right: 90px;" id="style">
-                    <option value="" disabled selected>화풍</option>
+                    <option value="" disabled selected>Style</option>
                     <option value="oils">유화</option>
                     <option value="water">수채화</option>
                     <option value="acrylic">아크릴화</option>
@@ -115,7 +115,7 @@
                     <option value="gouache">과슈화</option>
                 </select>
                 <select style="font-family: 'BMHANNAPro'; font-size: 1.5em;" class="has_width_half" id="theme">
-                    <option value="" disabled selected>테마</option>
+                    <option value="" disabled selected>Theme</option>
                     <option value="scenery">풍경</option>
                     <option value="character">인물</option>
                     <option value="still">정물</option>
