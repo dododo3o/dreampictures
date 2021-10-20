@@ -59,6 +59,12 @@
                     </div>
                 </div>
                 <div class="ui vertical animated button" tabindex="0" onclick="showModal()">
+                    <div class="hidden content">판매내역</div>
+                    <div class="visible content">
+                        <i class="orange shipping fast icon"></i>
+                    </div>
+                </div>
+                <div class="ui vertical animated button" tabindex="0" onclick="showModal()">
                     <div class="hidden content">장바구니</div>
                     <div class="visible content">
                         <i class="yellow shopping cart icon"></i>

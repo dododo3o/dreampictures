@@ -115,20 +115,20 @@
     </div>
     <div class="container">
         <div class="has_flex_column" style="grid-column:1/3; gap:40px;padding-top: 30px; background-color: #a2b0b36e">
-            <div class="ui vertical animated button" tabindex="0" onclick="showModal()">
-                <div class="hidden content">공지사항</div>
+            <div class="ui vertical animated button" tabindex="0">
+                <div class="hidden content"><a href="/notice">공지사항</a></div>
                 <div class="visible content">
                     <i class="bullhorn icon"></i>
                 </div>
             </div>
-            <div class="ui vertical animated button" tabindex="0" onclick="showModal()">
+            <div class="ui vertical animated button" tabindex="0">
                 <div class="hidden content">자주 묻는 질문</div>
                 <div class="visible content">
                     <i class="question circle icon"></i>
                 </div>
             </div>
-            <div class="ui vertical animated button" tabindex="0" onclick="showModal()">
-                <div class="hidden content">질문하기</div>
+            <div class="ui vertical animated button" tabindex="0">
+                <div class="hidden content"><a href="/notice_question">질문하기</a></div>
                 <div class="visible content">
                     <i class="comments outline icon"></i>
                 </div>
@@ -143,7 +143,6 @@
                 <c:forEach var="noticeVOList" items="${noticeVOList}">
                     <div class="ui card" style="height: 100%; margin: 0 auto;">
                         <div class="content">
-                            <div class="right floated meta">14h</div>
                             <img src="${noticeVOList.avatarimg}"
                                  style="border-radius: 50%; width: 3em;height: 3em;object-fit: cover;">
                         </div>
