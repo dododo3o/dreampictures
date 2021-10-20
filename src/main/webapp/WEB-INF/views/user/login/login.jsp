@@ -19,11 +19,28 @@
             crossorigin="anonymous" referrerpolicy="no-referrer">
     </script>
     <script>
-        function open_pwd_find(){
-                $('.small.modal')
-                    .modal('show')
-                ;
-        }
+        function open_pwd_find(){$('.small.modal').modal('show');}
+
+        //빈칸일떄 넘어가면 안돼~~
+        $(function(){
+            $("input[type=button]").click(function(){
+                var isRight = true;
+                $("#frm").find("input[type=text]").each(function(index, item){
+                    // 아무값없이 띄어쓰기만 있을 때도 빈 값으로 체크되도록 trim() 함수 호출
+                    if ($(this).val().trim() == '') {
+                        alert($(this).attr("data-name")+" 항목을 입력하세요.");
+                        isRight = false;
+                        return false;
+                    }
+                });
+
+                if (!isRight) {
+                    return;
+                }
+                $(this).prop("disabled", true);
+                $(this).prop("disabled", false);
+            });
+        });
 
     </script>
 </head>
@@ -37,15 +54,15 @@
             <p ></p>
         </div>
         <div class="actions">
-            <div class="ui approve button" style="user-select: auto;">Approve</div>
-            <div class="ui button" style="user-select: auto;">Neutral</div>
-            <div class="ui cancel button" style="user-select: auto;">Cancel</div>
+            <div class="ui approve button" style="">Approve</div>
+            <div class="ui button" style="">Neutral</div>
+            <div class="ui cancel button" style="">Cancel</div>
         </div>
     </div>
     <div class="container">
         <div class="contents" style="grid-column: 5/9; margin-top: 50px">
             <form action="<%=conPath%>/login_check" method="post" id="frm">
-                <div style="display: flex;user-select: auto;flex-direction: column;align-items: center;justify-content: space-evenly;height: 650px;">
+                <div class="has_flex_space_cl" style="height: 650px;">
                     <div class="title">로그인 화면</div>
                     <div class="has_flex_left"><input type="text" class="is_login_input has_width_full" name="email"
                                                       id="email" required="required" placeholder="이메일"></div>
@@ -56,7 +73,7 @@
                             <input type="checkbox" id="login_check" style="height: 20px;">
                             <span class="has_black has_font-xs">Remember me</span>
                         </div>
-                        <div class="has_black"onclick="open_pwd_find()">Forgot password?</div>
+                        <div class="has_black" onclick="open_pwd_find()">Forgot password?</div>
                     </div>
                     <a href="/login_check">
                         <button class='button is_login has_shadow has_width_full has_flex_center'><i

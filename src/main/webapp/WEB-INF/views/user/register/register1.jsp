@@ -48,6 +48,7 @@
                 });
             }
         };
+
         verifyTel = function () {
             var telVal = $("#tel").val();
             var telRegExp = /^[A-Za-z0-9]{6,12}$/;

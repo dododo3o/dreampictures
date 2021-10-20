@@ -327,3 +327,4 @@ input:not(input[type=file], .painting_input, select, #cal), input[type=textarea]
 input::placeholder{color: #80808057;}
 
 textarea::placeholder{color: #80808057;}
+

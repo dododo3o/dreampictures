@@ -114,6 +114,7 @@
             <option value="pastel">파스텔화</option>
             <option value="crayon">크레용화</option>
             <option value="gouache">과슈화</option>
+            <option value="nothing">상관없음</option>
         </select>
         <select style="font-family: 'BMHANNAPro'; font-size: 1.5em;" class="has_width_half" id="theme">
             <option value="" disabled selected>테마</option>
@@ -124,6 +125,7 @@
             <option value="abstract">추상</option>
             <option value="popart">팝아트</option>
             <option value="objet">오브제</option>
+            <option value="nothing">상관없음</option>
         </select>
     </div>
     <div style="display: flex;justify-content: space-between;grid-column:1/9;">
