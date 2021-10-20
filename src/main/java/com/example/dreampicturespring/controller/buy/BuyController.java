@@ -90,6 +90,7 @@ public class BuyController {
         mv.setViewName("user/buy/buy_payment");
         HttpSession session =request.getSession();
         if(session.getAttribute("logStatus") == null){
+            session.setAttribute("location","/buy_picture/"+no_painting);
             mv.setViewName("user/login/login");
             return mv;
         }

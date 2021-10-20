@@ -128,6 +128,7 @@
                     <i class="question circle icon"></i>
                 </div>
             </div>
+
             <div class="ui vertical animated button" tabindex="0" onclick="showModal()">
                 <div class="hidden content">질문하기</div>
                 <div class="visible content">
@@ -191,32 +192,6 @@
                     </div>
                 </c:forEach>
             </div>
-        </div>
-    </div>
-    <div class="container" style="display: flex;justify-content: center;margin-top:30px;padding-bottom: 30px;">
-        <div>
-            <div class="ui animated button" tabindex="0"
-                 style="color:var(--color-white);background-color: var(--color-chathams-blue);">
-                <div class="visible content">Perv</div>
-                <div class="hidden content">
-                    <i class="left arrow icon"></i>
-                </div>
-            </div>
-            <c:forEach var="i" begin="1" end="${pageNum}">
-                <div class="ui animated button" tabindex="0"
-                     style="color:var(--color-white);background-color: var(--color-chathams-blue);">
-                    <div class="visible content">${i}</div>
-                    <div class="hidden content">${i}</div>
-                </div>
-            </c:forEach>
-            <div class="ui animated button" tabindex="0"
-                 style="color:var(--color-white);background-color: var(--color-chathams-blue);">
-                <div class="visible content">Next</div>
-                <div class="hidden content">
-                    <i class="right arrow icon"></i>
-                </div>
-            </div>
-            <br>
         </div>
     </div>
 </main>

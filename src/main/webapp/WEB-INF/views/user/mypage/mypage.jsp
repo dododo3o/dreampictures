@@ -64,7 +64,6 @@
                         <i class="shopping cart icon"></i>
                     </div>
                 </div>
-
                 <div class="ui vertical animated button" tabindex="0" onclick="showModal()">
                     <div class="hidden content">질문내역</div>
                     <div class="visible content">
@@ -72,25 +71,10 @@
                     </div>
                 </div>
             </div>
-            <%--            <div style="display: flex;justify-content: space-evenly;">--%>
-            <%--                <span style="color: var(--color-river-bed)"><i class="fas fa-question fa-lg"></i></span>--%>
-            <%--                <div style=" display:flex;align-items: center; margin-left: 15px; color: var(--color-river-bed)">구매내역--%>
-            <%--                </div>--%>
-            <%--            </div>--%>
-            <%--            <div style="display: flex;justify-content: space-evenly;">--%>
-            <%--                <span style="color: var(--color-river-bed)"><i class="fas fa-question fa-lg"></i></span>--%>
-            <%--                <div style=" display:flex;align-items: center; margin-left: 15px; color: var(--color-river-bed)">장바구니--%>
-            <%--                </div>--%>
-            <%--            </div>--%>
-            <%--            <div style="display: flex;justify-content: space-evenly;">--%>
-            <%--                <span style="color: var(--color-river-bed)"><i class="fas fa-question fa-lg"></i></span>--%>
-            <%--                <div style=" display:flex;align-items: center; margin-left: 15px; color: var(--color-river-bed)">질문내역--%>
-            <%--                </div>--%>
-            <%--            </div>--%>
         </div>
-        <div class="ui card" style="width:500px;grid-column: 5/12; height: fit-content;">
+        <div class="ui card" style="width:500px;grid-column: 5/12; margin-top: 100px; height: fit-content;">
             <div class="content" style="display:flex;justify-content: space-evenly;align-items: center;">
-                <div><img src="${cardVOlist.avatarimg}"
+                <div><img src="${mypageVO.avatarimg}"
                           style="border-radius:50%;width:5em;height:5em; object-fit:cover;">
                 </div>
                 <div style="color:black;font-size: 3em;"><c:out value="${mypageVO.nickname}"/></div>

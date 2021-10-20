@@ -28,16 +28,18 @@ public class NoticeController {
     public ModelAndView notice(){
         final int CARDSPERPAGE = 15;
         int cardNum = 0,pageNum;
-        ModelAndView mv = new ModelAndView();
 
+        ModelAndView mv = new ModelAndView();
         List<NoticeVO> noticeVOList = new ArrayList<>();
         List<String> list = qaRepository.findAllNotice_Desc();
 
         for(String notice : list){
-            System.out.println(notice);
             List<String> obj = Arrays.asList(notice.split(","));
             Membershiptbl membershiptbl = membershiptblRepository.getById(Integer.parseInt(obj.get(1)));
-            NoticeVO vo = new NoticeVO(obj.get(2),membershiptbl.getImg()+"/avatarimg/avatarimg.jpg","/resources/utility/photo/"+obj.get(5)+".jpg");
+            NoticeVO vo = new NoticeVO();
+            vo.setContent(obj.get(2));
+            vo.setAvatarimg(membershiptbl.getImg()+"/avatarimg/avatarimg.jpg");
+            vo.setPaintingmimg("/resources/utility/photo/"+obj.get(5)+".jpg");
             noticeVOList.add(vo);
             cardNum++;
         }
