@@ -156,7 +156,7 @@
                          style="object-fit: cover; height: 250px">
                 </div>
                 <div class="content" style="display: flex;justify-content: center;">
-                    <span>${cardVOlist.pname}</span><span></span>
+                    <span style="font-size: 1.5em">${cardVOlist.pname}</span><span></span>
                 </div>
                 <div class="extra content">
                     <div class="ui large transparent left icon input" style="display: flex;">

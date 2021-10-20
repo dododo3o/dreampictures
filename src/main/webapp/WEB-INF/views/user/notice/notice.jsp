@@ -191,7 +191,7 @@
             <br>
         </div>
     </div>
-</main>
+</main>d
 <jsp:include page="../header_footer/footer.jsp"></jsp:include>
 </body>
 </html>
