@@ -5,7 +5,9 @@ import com.example.dreampicturespring.entity.Paintingtbl;
 import lombok.Data;
 import org.springframework.util.StringUtils;
 
+import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.time.ZoneId;
 import java.util.Date;
 
 @Data
@@ -20,7 +22,7 @@ public class TransactionVO {
     private String buyer_email;
     private String buyer_tel;
     private String buyer_addr;
-    private LocalDateTime transactionDate;
+    private LocalDate transactionDate;
 
 
     public TransactionVO() {}
@@ -36,6 +38,4 @@ public class TransactionVO {
         this.buyer_addr = buyerMembershiptbl.getAddr();
         if(StringUtils.isEmpty(transactionDate)){ this.transactionDate = LocalDate.now(ZoneId.of("Asia/Seoul"));}
     }
-
-
 }

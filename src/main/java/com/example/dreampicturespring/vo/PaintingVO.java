@@ -4,6 +4,7 @@ import com.example.dreampicturespring.entity.Membershiptbl;
 import com.example.dreampicturespring.entity.Paintingtbl;
 import lombok.Data;
 
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.Date;
 import java.util.List;
@@ -15,7 +16,7 @@ public class PaintingVO {
     private String paintingimg;
     private String avatarimg;
     private String nickname;
-    private LocalDateTime writedate;
+    private LocalDate writedate;
     private int width;
     private int height;
     private String exp;
