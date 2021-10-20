@@ -22,10 +22,7 @@
             integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.13/semantic.js"></script>
     <script>
-        function buypainting(num) {
-            location.href = "http://localhost:8080/buy_picture/" + num;
-        }
-
+        function buypainting(num) {location.href = "http://localhost:8080/buy_picture/" + num;}
         showModal = function () {
             $(() => {
                 let pname = document.getElementById("pname").value;
@@ -48,23 +45,8 @@
                 });
             });
         };
-        showCommentModal = function (no_painting) {
-            $(() => {
-                alert(no_painting)
-                $.ajax({
-                    url: "/ajax_comment_finder",
-                    data: "no_painting=" + no_painting,
-                    success: function (result) {
-                        alert(result)
-                        var container = document.getElementById("commentModal");
-                        while (container.hasChildNodes()) {
-                            container.removeChild(container.firstChild);
-                        }
-                        $("#commentModal").html(result);
-                        $('.ui.tiny.modal').modal('show');
-                    }
-                });
-            });
+        showCommentModal = function () {
+            $('.ui.tiny.modal').modal('show');
         };
         addComment = function (no_painting) {
             $(() => {
@@ -91,6 +73,22 @@
 <jsp:include page="../header_footer/header_not_login.jsp"></jsp:include>
 <% } %>
 <div class="has_bg_harp">
+    <div class="ui tiny modal" id="commentModal">
+        <div class="ui comments">
+            <div class="comment">
+                <a class="avatar">
+                    <img src="">
+                </a>
+                <div class="content">
+                    <a class="author">z</a>
+                    <div class="metadata">
+                        <div class="date">c</div>
+                    </div>
+                    <div class="text">h</div>
+                </div>
+            </div>
+        </div>
+    </div>
     <div class="container">
         <div style="grid-column:1/9;display: flex;flex-direction: column; gap:20px; justify-content: center; margin-top: 70px;">
             <div class="has_chathams-blue" style="font-size: 42px;">그림드림의 당신만의 그림찾기</div>
@@ -145,8 +143,7 @@
             </div>
         </div>
     </div>
-    <div class="container" id="container"
-         style="display: grid;grid-template-columns: repeat(5,1fr);grid-gap:1rem;justify-content: space-around;">
+    <div class="container" id="container" style="display: grid;grid-template-columns: repeat(5,1fr);grid-gap:1rem;justify-content: space-around;">
         <c:forEach var="cardVOlist" items="${cardVOlist}">
             <div class="ui card" style="height: 100%; margin: 0 auto;">
                 <div class="content">
@@ -167,9 +164,9 @@
                         <input type="text" id="${cardVOlist.no_painting}" placeholder="Add Comment..." maxlength='20'
                                style="font-size: 0.8em"/>
                     </div>
-                    <button class="ui blue icon button" onclick="addComment(${cardVOlist.no_painting})"
-                            style="float: right; font-size: 0.8em;">Add
-                    </button>
+                    <button class="ui blue icon button" onclick="addComment(${cardVOlist.no_painting})" style="float: right; font-size: 0.8em;">Add</button>
+                    <button class="ui blue icon button" onclick="showCommentModal()" style="float: right; font-size: 0.8em;">zxc</button>
+
                 </div>
                 <div class="ui bottom attached button collapsible">
                     <i class="add icon"></i>
