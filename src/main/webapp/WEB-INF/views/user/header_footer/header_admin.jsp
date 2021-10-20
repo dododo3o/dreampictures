@@ -18,8 +18,8 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.13/semantic.js"></script>
 </head>
 <body>
-<header class="has_bg_white">
-    <div class="container">
+<header class="has_bg_white" style="border-bottom: 1px solid #ddd">
+    <div class="container" >
         <div class="is_logo">
             <a href="/admin/qa">
                 <div class="is_logos"><i class="fas fa-palette fg-lg"></i>
@@ -32,9 +32,9 @@
         </div>
         <div class="navigation2">
 
-            <a href='/admin/noticeManagement' class='anchor hover_header-btn'>공지사항관리</a>
-            <a href='/admin/salesHistory' class='anchor hover_header-btn'>판매관리</a>
-            <a href='/admin/reportManagement' class='anchor hover_header-btn'>신고관리</a>
+            <a href='/admin/noticeManagement' class='anchor hover_header-btn'>관리자 메인으로</a>
+<%--            <a href='/admin/salesHistory' class='anchor hover_header-btn'>판매관리</a>--%>
+<%--            <a href='/admin/reportManagement' class='anchor hover_header-btn'>신고관리</a>--%>
 
             <button class='button is_primary hover_sign-btn'><a href="/admin/logout">Logout</a></button>
         </div>
