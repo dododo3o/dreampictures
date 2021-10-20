@@ -24,33 +24,23 @@
 </head>
 <body>
 <div class="ui tiny modal" id="commentModal">
-
     <div class="ui comments">
-        <h3 class="ui block header">
-            댓글로 자유롭게 평가해주세요 !
-        </h3>
+        <h3 class="ui block header">댓글로 자유롭게 평가해주세요 !</h3>
         <c:forEach var="commentVOlist" items="${commentVOlist}">
             <h4 class="ui" style="user-select: auto;"></h4>
             <div class="comment" style="margin-left: 10px; margin-bottom: 10px;">
-                <a class="avatar">
-                    <img src="${commentVOlist.avatarimg}" style="border-radius: 50%; height:40px; width:40px;object-fit: cover;">
-                </a>
+                <a class="avatar"><img src="${commentVOlist.avatarimg}" style="border-radius: 50%; height:40px; width:40px;object-fit: cover;"></a>
                 <div class="content">
                     <a class="author">${commentVOlist.author}</a>
                     <div class="metadata">
                         <span class="date">${commentVOlist.date}</span>
                     </div>
-                    <div class="text">
-                            ${commentVOlist.comments}
-                    </div>
-                    <div class="actions">
-                    </div>
+                    <div class="text">${commentVOlist.comments}</div>
+                    <div class="actions"></div>
                 </div>
             </div>
-
         </c:forEach>
     </div>
 </div>
 </body>
 </html>
-

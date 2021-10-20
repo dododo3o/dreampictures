@@ -14,10 +14,13 @@ public class PaymentVO {
     private String paintingimg;
     private String avatarimg;
     private String nickname;
+    private String nickname_artist;
     private String email;
     private String tel;
     private String addr;
     private Integer price;
+    private Integer dreampay;
+    private String sum;
     private Date production;
     private int width;
     private int height;
@@ -34,6 +37,8 @@ public class PaymentVO {
         this.tel = membershiptbl.getTel();
         this.addr = membershiptbl.getAddr();
         this.price = paintingtbl.getPrice();
+        this.dreampay = membershiptbl.getDreampay();
+        this.sum = this.dreampay - this.price >= 0 ? Integer.toString(this.dreampay - this.price) : "포인트가 부족합니다.";
         this.production = paintingtbl.getProduction();
         this.width = paintingtbl.getWidth();
         this.height = paintingtbl.getHeight();

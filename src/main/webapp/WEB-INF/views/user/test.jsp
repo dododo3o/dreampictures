@@ -11,140 +11,171 @@
     <link rel="stylesheet" href="/resources/css/dreampicturesytle.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.13/semantic.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
     <script src="https://kit.fontawesome.com/b14e6f064f.js" crossorigin="anonymous"></script>
-    <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
-    <script src="//dapi.kakao.com/v2/maps/sdk.js?appkey=e3b7b3147ef30d454b9901f4af5c27b4&libraries=services"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-    <script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.13/semantic.js"></script>
+    ></script>
     <script>
-        var mapContainer = document.getElementById('map'), // 지도를 표시할 div
-            mapOption = {
-                center: new daum.maps.LatLng(37.537187, 127.005476), // 지도의 중심좌표
-                level: 5 // 지도의 확대 레벨
-            };
-        var map = new daum.maps.Map(mapContainer, mapOption);
-        var geocoder = new daum.maps.services.Geocoder();
-        var marker = new daum.maps.Marker({
-            position: new daum.maps.LatLng(37.537187, 127.005476),
-            map: map
-        });
-        function sample5_execDaumPostcode() {
-            new daum.Postcode({
-                oncomplete: function (data) {
-                    var addr = data.address; // 최종 주소 변수
-                    document.getElementById("address_input").value = addr;
-                    geocoder.addressSearch(data.address, function (results, status) {
-                        if (status === daum.maps.services.Status.OK) {
-                            var result = results[0]; //첫번째 결과의 값을 활용
-                            var coords = new daum.maps.LatLng(result.y, result.x);
-                            mapContainer.style.display = "block";
-                            map.relayout();
-                            map.setCenter(coords);
-                            marker.setPosition(coords)
-                        }
-                    });
+        function setThumbnail(event) {
+            var reader = new FileReader();
+            reader.onload = function (event) {
+                var ex_img = document.getElementById("image_section");
+                if (ex_img !== null) {
+                    ex_img.parentNode.removeChild(ex_img);
                 }
-            }).open();
+                var img = document.createElement("img");
+                img.id = "image_section";
+                img.className = "painting_img";
+                img.setAttribute("src", event.target.result);
+                document.querySelector("div#preview_image").appendChild(img);
+            };
+            reader.readAsDataURL(event.target.files[0]);
         }
-    </script>
-    <script>
-        showCommentModal = function (msg) {
-            if(msg=="포인트가 부족합니다."){
+        function nextBtn_condition(){
+            var pname = $("#pnameVal").val();
+            var height = $("#heightVal").val();
+            var width = $("#widthVal").val();
+            var price = $("#priceVal").val();
+            var calVal = $("#cal").val();
+            var content = $("#contentVal").val();
+            var img = $("#image_section").val();
+
+            var f = document.form;
+
+            if (pname!= ''&& height!=''&& width!=''&&price!=''&&calVal!=''&&content!='' &&img!='' && f.style.value!=='' && f.theme.value!=='') {
+                document.getElementById('frm').submit();
+            } else {
                 $("#point").css("display","block");
             }
-            else{
-                $('.ui.tiny.modal').modal('show');
-            }
-        };
+        }
     </script>
+    <style>
+        .carousel {
+            background: #EEE;
+        }
+        .carousel-cell {
+            width: 66%;
+            height: 200px;
+            margin-right: 10px;
+            background: #8C8;
+            border-radius: 5px;
+            counter-increment: carousel-cell;
+        }
+
+        .carousel-cell:before {
+            display: block;
+            text-align: center;
+            content: counter(carousel-cell);
+            line-height: 200px;
+            font-size: 80px;
+            color: white;
+        }
+
+    </style>
 </head>
 <body>
 <% if (session.getAttribute("logStatus") == "Y") { %>
+<jsp:include page="../header_footer/header_login.jsp">
+    <jsp:param name="user" value="${user}"/>
+</jsp:include>
 <% } %>
+<% if (session.getAttribute("logStatus") == null) { %>
+<jsp:include page="../header_footer/header_not_login.jsp"></jsp:include>
+<% } %>
+
+<%--dvsdvdsvdvsz--%>
 <main class="has_bg_harp">
-    <div class="ui tiny modal">
-        <i class="close icon"></i>
-        <div class="header">구매하시겠습니까?</div>
-        <div class="image content">
-            <div class="description">
-                <div class="ui header">구매제품명: <c:out value="${paymentVO.pname}"/></div>
-                <p>가격: <c:out value="${paymentVO.price}"/></p>
-                <p>차액포인트: <c:out value="${paymentVO.sum}"/></p>
-            </div>
-        </div>
-        <div class="actions">
-            <div class="ui black deny button">
-                아니요
-            </div>
-            <div class="ui positive right labeled icon button">
-                네 구매할게요!
-                <i class="checkmark icon"></i>
-            </div>
-        </div>
-    </div>
     <div class="container">
-        <div style="background-color:var( --color-white);display:flex;grid-column: 1/13">
-            <div style="border-right: 1px solid #ddd;width:50%;padding-left: 130px;padding-right: 100px;">
-                <div class="has_flex_column has_evenly" style="height: 100%;">
-                    <h2 class="ui header" style="margin: 0 auto;">
-                        <i class="money bill alternate outline icon"></i>
-                        <div class="content">결제 페이지</div>
-                    </h2>
-                    <div class="ui horizontal divider">Buyer Infomation</div>
-                    <div class="ui list has_flex_column has_font-base" style="display: flex; gap: 20px;">
-                        <div style="user-select: auto; display: flex;">
-                            <i class="users icon" style="user-select: auto;"></i>
-                            <div class="content" style="user-select: auto;">닉네임 : <c:out value="${paymentVO.nickname}"/></div>
+        <form action="<%=conPath%>/sell_success" method="post" onsubmit="return false" enctype="multipart/form-data" id="frm" name="form">
+            <div style="background-color:var( --color-white);display:flex;grid-column: 1/13;height: 100%;">
+                <div style="border-right: 1px solid #ddd;width:50%;padding-left: 110px;padding-right: 100px;">
+                    <div class="has_flex_column has_evenly" style="flex-wrap: wrap;width:100%;height: 85%;padding-top: 100px;">
+                        <a class="ui red tag label" style="display: none; margin-bottom: 10px;" id="point"><span>그림 정보를 모두 작성해주세요.😥</span></a>
+                        <input type="submit" class="ui secondary button" value="그림등록" onclick="nextBtn_condition()"><font style="vertical-align: inherit; "><font
+                            style="vertical-align: inherit;" >
+                    </font></font>
+                        <div class="ui horizontal divider"><font style="vertical-align: inherit;"><font
+                                style="vertical-align: inherit;">
+                            Painting Infomation
+                        </font></font></div>
+                        <div class="ui list has_flex_column has_font-base" style="display: flex; gap: 20px;">
+                            <div style="display: flex;">
+                                <i class="big edit outline icon" style="user-select: auto;"></i>
+                                <div class="content" style="display: flex;">
+                                    <input class="painting_input" id="pnameVal" type="text" placeholder="작품명">
+                                </div>
+                            </div>
                         </div>
-                        <div style="user-select: auto; display: flex;">
-                            <i class="mail icon" style="user-select: auto;"></i>
-                            <div class="content" style="user-select: auto;">이메일 : <c:out value="${paymentVO.email}"/></div>
+                        <div class="ui list has_flex_column has_font-base" style="display: flex; gap: 20px;">
+                            <div style="user-select: auto; display: flex;">
+                                <i class="big long arrow alternate up icon" style="user-select: auto;"></i>
+                                <div class="content" style="display: flex;">
+                                    <input class="painting_input" id="heightVal" type="text" placeholder="높이 (cm)">
+                                </div>
+                            </div>
                         </div>
-                        <div style="user-select: auto; display: flex;">
-                            <i class="phone icon" style="user-select: auto;"></i>
-                            <div class="content" style="user-select: auto;">연락처 : <c:out value="${paymentVO.tel}"/></div>
+                        <div class="ui list has_flex_column has_font-base" style="display: flex; gap: 20px;">
+                            <div style="user-select: auto; display: flex;">
+                                <i class="big long arrow alternate right icon" style="user-select: auto;"></i>
+                                <div class="content" style="display: flex;">
+                                    <input class="painting_input" id="widthVal" type="text" placeholder="너비 (cm)">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="ui list has_flex_column has_font-base" style="display: flex; gap: 20px;">
+                            <div style="display: flex;">
+                                <i class="big won sign icon" style="user-select: auto;"></i>
+                                <div class="content" style="display: flex;">
+                                    <input class="painting_input" id="priceVal" type="text" placeholder="가격 (원)">
+                                </div>
+                            </div>
+                        </div>
+                        <input type="date" class="has_width_half sell_select" name="production" id="cal" placeholder="제작년도"/>
+                        <div class="ui list has_flex_column has_font-base" style="display: flex; ">
+                            <div style=" display: flex;">
+                                <div class="content" style="display: flex;width: 100%;">
+                                    <textarea class="painting_input" id="contentVal" placeholder="작품설명" style="resize: none; height: 60px;width: 100%;"></textarea>
+                                </div>
+                            </div>
+                        </div>
+                        <%-- todo--%>
+                        <select style="font-family: 'BMHANNAPro'; font-size:var(--font-size-sm)" class="has_width_half sell_select" name="style">
+                            <option value="" disabled selected>화풍</option>
+                            <option value="oils">유화</option>
+                            <option value="water">수채화</option>
+                            <option value="acrylic">아크릴화</option>
+                            <option value="pen">펜화</option>
+                            <option value="pencil">연필화</option>
+                            <option value="pastel">파스텔화</option>
+                            <option value="crayon">크레용화</option>
+                            <option value="gouache">과슈화</option>
+                        </select>
+                        <select style="font-family: 'BMHANNAPro'; font-size: 1.5em;" class="has_width_half sell_select" name="theme">
+                            <option value="" disabled selected>테마</option>
+                            <option value="scenery">풍경</option>
+                            <option value="character">인물</option>
+                            <option value="still">정물</option>
+                            <option value="animal">동물</option>
+                            <option value="abstract">추상</option>
+                            <option value="popart">팝아트</option>
+                            <option value="objet">오브제</option>
+                        </select>
+                    </div>
+                </div><!--오른쪽 div-->
+
+                <div class="has_flex_column" style="width:50%;padding-left: 80px;padding-right: 80px;">
+                    <div class="has_flex_center" id="image_container;" style="margin-top: 70px; width: 100%; height: 80%;">
+                        <div id="preview_image">
+                            <%-- 선택한 사진 들어가는 곳--%>
                         </div>
                     </div>
-                    <div class="ui horizontal divider">Shipping Address</div>
-                    <div class="has_flex_column" >
-                        <input type="text" id="address_input" name="addr" onclick="sample5_execDaumPostcode()" value="<c:out value="${paymentVO.addr}"/>">
+                    <div>
+                        <div><input type="file" onchange="setThumbnail(event);" name="filename" id="image" style="margin-left: 100px;margin-top: 10px"/></div>
                     </div>
-                    <div class="ui horizontal divider">Point</div>
-                    <div class="ui list has_flex_column has_font-base" style="display: flex; gap: 20px;">
-                        <div style="user-select: auto; display: flex;">
-                            <i class="hourglass half icon" style="user-select: auto;"></i>
-                            <div class="content" style="user-select: auto;">현재 포인트 : <c:out value="${paymentVO.dreampay}"/></div>
-                        </div>
-                        <div style="user-select: auto; display: flex;">
-                            <i class="hourglass outline icon" style="user-select: auto;"></i>
-                            <div class="content" style="user-select: auto;">결제 후 포인트 : <c:out value="${paymentVO.sum}"/></div>
-                        </div>
-                    </div>
-                    <a href="/charge" style="width: 100%"><button class="fluid ui secondary button"> 드림페이 충전 </button></a>
-                    <div class="ui horizontal divider">Payment</div>
-                    <a class="ui red tag label" style="display: none" id="point"><span>포인트가 부족해요😥</span></a>
-                    <div style="display: flex;justify-content: space-around;">
-                        <button class="ui secondary button">뒤로가기</button>
-                        <button class="ui secondary button" onclick="showCommentModal('<c:out value="${paymentVO.sum}"/>')">결제하기</button>
-                    </div>
-                </div>
+                </div><!--왼쪽div-->
             </div>
-            <div class="has_flex_column" style="width:50%;padding-left: 80px;padding-right: 80px;">
-                <h2 class="ui header" style="margin-top: 100px;">
-                    <i class="tag icon"></i>
-                    <div class="content">Name: <c:out value="${paymentVO.pname}"/></div>
-                </h2>
-                <h1>Price: <c:out value="${paymentVO.price}"/></h1>
-                <div class="image" style="margin-top: 70px">
-                    <img src="<c:out value="${paymentVO.paintingimg}"/>" style="width:300px;height: 300px;border-radius: 5%;">
-                </div>
-            </div>
-        </div>
+        </form>
     </div>
 </main>
-
+<jsp:include page="../header_footer/footer.jsp"></jsp:include>
 </body>
 </html>

@@ -50,7 +50,11 @@ public class LoginController {
                 HttpSession session =request.getSession();
                 session.setAttribute("logEmail",vo.getEmail());
                 session.setAttribute("logStatus","Y");
-                mv.setViewName("user/main/main");
+                if(session.getAttribute("location") != null){
+                    mv.setViewName("redirect:"+session.getAttribute("location").toString());
+                }
+                else
+                    mv.setViewName("user/main/main");
                 return mv;
             }
         }

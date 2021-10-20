@@ -87,7 +87,6 @@
             });
         };
     </script>
-
 </head>
 <body class="w3-light-grey">
 
@@ -95,7 +94,7 @@
 <nav class="w3-sidebar w3-collapse w3-white w3-animate-left" style="z-index:3;width:300px;" id="mySidebar"><br>
     <div class="w3-container w3-row">
         <div class="w3-col s8 w3-bar" style="text-align: center;margin-left: 50px">
-            <span>Welcome, <strong>Master</strong></span><br>
+            <span>Welcome, <strong>Master</strong></span><br><br>
             <button class="ui secondary button" style="height:35px;font-family: 'BMHANNAPro';">
                 로그아웃
             </button>
@@ -106,10 +105,10 @@
     </div>
     <div class="w3-bar-block">
         <a href="#" class="w3-bar-item w3-button w3-padding-16 w3-hide-large w3-dark-grey w3-hover-black" onclick="w3_close()" title="close menu"><i class="fa fa-remove fa-fw"></i>  Close Menu</a>
-        <a href="/admin/main" class="w3-bar-item w3-button w3-padding"><i class="fa fa-bullseye fa-fw"></i>  관리자 메인으로</a>
+        <a href="/admin/main" class="w3-bar-item w3-button w3-padding w3-blue"><i class="fa fa-bullseye fa-fw"></i>  관리자 메인으로</a>
         <a href="/admin/notice" class="w3-bar-item w3-button w3-padding"><i class="fa fa-bullseye fa-fw"></i>  공지사항</a>
         <a href="/admin/qa" class="w3-bar-item w3-button w3-padding"><i class="fa fa-bullseye fa-fw"></i>  질문사항</a>
-        <a href="/admin/salesHistory" class="w3-bar-item w3-button w3-padding w3-blue"><i class="fa fa-bullseye fa-fw"></i>  판매현황</a>
+        <a href="/admin/salesHistory" class="w3-bar-item w3-button w3-padding"><i class="fa fa-bullseye fa-fw"></i>  판매현황</a>
         <a href="/admin/report" class="w3-bar-item w3-button w3-padding"><i class="fa fa-bullseye fa-fw"></i>  신고내역</a>
         <a href="/admin/blacklist" class="w3-bar-item w3-button w3-padding"><i class="fa fa-bullseye fa-fw"></i>  블랙리스트</a>
         <a href="/admin/allmembers" class="w3-bar-item w3-button w3-padding"><i class="fa fa-bullseye fa-fw"></i>  회원현황</a><br><br>
@@ -125,91 +124,192 @@
 
     <!-- Header -->
 
-
-    <div class="has_bg_harp">
-        <div class="container">
-            <div style="grid-column:3/11;display: flex;flex-direction: column; gap:20px; justify-content: center;margin-top: 22px;">
-                <div class="has_chathams-blue" style="font-size: var(--font-size-xlll);text-align: center;margin-right: 50px">기간별 판매내역</div>
-                <form action="">
-                    <div style="display: flex;margin-bottom: 50px;justify-content: space-evenly;align-items: center;">
-                        <select class="has_width_full">
-                            <option value="" disabled selected>기간설정</option>
-                            <option value="1week">1주</option>
-                            <option value="1month">1개월</option>
-                            <option value="3month">3개월</option>
-                            <option value="6month">6개월</option>
-                            <option value="1year">1년</option>
-                        </select>
-                        <button class='button is_notification' onclick="searchOk">검색</button>
+    <div class="w3-row-padding w3-margin-bottom">
+        <div class="w3-quarter">
+            <a href="/admin/notice">
+                <div class="w3-container w3-red w3-padding-16">
+                    <div class="w3-left"><i class="fa fa-comment w3-xxxlarge"></i></div>
+                    <div class="w3-right">
+                        <h3>52</h3>
                     </div>
-                </form>
-
-                <div class="container" style="display: grid;grid-template-columns:repeat(4,1fr);grid-gap:1rem;">
-                    <c:forEach var="cardVOlist" items="${cardVOlist}">
-                        <div class="ui card" style="height: 100%; margin: 0 auto;">
-                            <div class="content">
-                                <div class="right floated meta">14h</div>
-                                <img src="${cardVOlist.avatarimg}"
-                                     style="border-radius: 50%; width: 3em;height: 3em;object-fit: cover;">
-                            </div>
-                            <div class="image">
-                                <img src="${cardVOlist.paintingmimg}" style="object-fit: cover; height: 250px">
-                            </div>
-                            <div class="content">
-                    <span class="right floated">
-                      <i class="heart outline like icon"></i>17 likes</span>
-                                <i class="comment icon"></i>3 comments
-                            </div>
-                            <div class="extra content">
-                                <div class="ui large transparent left icon input">
-                                    <i class="heart outline icon"></i>
-                                    <input type="text" placeholder="Add Comment...">
-                                </div>
-                            </div>
-                        </div>
-                    </c:forEach>
+                    <div class="w3-clear"></div>
+                    <h4 style="font-family: 'BMHANNAPro';font-size: var(--font-size-base)">공지사항</h4>
                 </div>
-            </div>
+            </a>
         </div>
-        <div class="container" style="display: grid;grid-template-columns:repeat(4,1fr);grid-gap:1rem;">
-            <c:forEach var="cardVOlist" items="${cardVOlist}">
-                <a href="/buy_picture/${cardVOlist.no_painting}">
-                    <div class="card has_flex_space_bt_cl has_shadow">
-                        <div><img src="${cardVOlist.paintingmimg}" alt="" class="is_img_object-fit has_board_top_radius"></div>
-                        <div class="card_history" style="width: 100%;">
-                            <img src="${cardVOlist.avatarimg}" alt="" style="border-radius: 50%; width: 65px">
-                            <span style="font-size: 1.3em">${cardVOlist.nickname}</span>
-                        </div>
-                        <div style="margin-bottom: 20px; font-size: 1.5em;">${cardVOlist.pname}</div>
+        <div class="w3-quarter">
+            <a href="/admin/qa">
+                <div class="w3-container w3-blue w3-padding-16">
+                    <div class="w3-left"><i class="fa fa-eye w3-xxxlarge"></i></div>
+                    <div class="w3-right">
+                        <h3>99</h3>
                     </div>
-                </a>
-            </c:forEach>
+                    <div class="w3-clear"></div>
+                    <h4 style="font-family: 'BMHANNAPro';font-size: var(--font-size-base)">질문사항</h4>
+                </div>
+            </a>
         </div>
-        <div class="container" style="display: flex;justify-content: center;margin-top:30px;padding-bottom: 30px;
-">
-            <div style="margin-right: 40px;">
-                <div class="ui animated button" tabindex="0"
-                     style="color:var(--color-white);background-color: var(--color-chathams-blue);">
-                    <div class="visible content">Perv</div>
-                    <div class="hidden content">
-                        <i class="left arrow icon"></i>
+        <div class="w3-quarter">
+            <a href="/admin/salesHistory">
+                <div class="w3-container w3-teal w3-padding-16">
+                    <div class="w3-left"><i class="fa fa-share-alt w3-xxxlarge"></i></div>
+                    <div class="w3-right">
+                        <h3>23</h3>
                     </div>
+                    <div class="w3-clear"></div>
+                    <h4 style="font-family: 'BMHANNAPro';font-size: var(--font-size-base)">판매현황</h4>
                 </div>
-                <c:forEach var="i" begin="1" end="${pageNum}" >
-                    <button class='button is_pagination'>${i}</button>
-                </c:forEach>
-                <div class="ui animated button" tabindex="0"
-                     style="color:var(--color-white);background-color: var(--color-chathams-blue);">
-                    <div class="visible content">Next</div>
-                    <div class="hidden content">
-                        <i class="right arrow icon"></i>
+            </a>
+        </div>
+        <div class="w3-quarter">
+            <a href="/admin/allmembers">
+                <div class="w3-container w3-orange w3-text-white w3-padding-16">
+                    <div class="w3-left"><i class="fa fa-users w3-xxxlarge"></i></div>
+                    <div class="w3-right">
+                        <h3>50</h3>
                     </div>
+                    <div class="w3-clear"></div>
+                    <h4 style="font-family: 'BMHANNAPro';font-size: var(--font-size-base)">회원현황</h4>
                 </div>
-                <br>
-            </div>
+            </a>
         </div>
     </div>
 
+
+    <hr>
+    <div class="w3-container">
+        <h5>주간 통계</h5>
+        <p>1주일간 신규가입자수</p>
+        <div class="w3-grey">
+            <div class="w3-container w3-center w3-padding w3-green" style="width:25%">+25%</div>
+        </div>
+
+        <p>1주일간 판매량</p>
+        <div class="w3-grey">
+            <div class="w3-container w3-center w3-padding w3-orange" style="width:50%">50%</div>
+        </div>
+
+        <p>1주일간 작품 등록수</p>
+        <div class="w3-grey">
+            <div class="w3-container w3-center w3-padding w3-red" style="width:75%">75%</div>
+        </div>
+    </div>
+    <hr>
+
+    <div class="w3-container">
+        <h5>테마별 판매량</h5>
+        <table class="w3-table w3-striped w3-bordered w3-border w3-hoverable w3-white">
+            <tr>
+                <td>팝아트</td>
+                <td>65%</td>
+            </tr>
+            <tr>
+                <td>추상화</td>
+                <td>15.7%</td>
+            </tr>
+            <tr>
+                <td>동물</td>
+                <td>5.6%</td>
+            </tr>
+            <tr>
+                <td>풍경</td>
+                <td>2.1%</td>
+            </tr>
+            <tr>
+                <td>인물</td>
+                <td>1.9%</td>
+            </tr>
+            <tr>
+                <td>정물</td>
+                <td>1.5%</td>
+            </tr>
+            <tr>
+                <td>오브제</td>
+                <td>1.5%</td>
+            </tr>
+        </table><br>
+    </div>
+    <hr>
+    <div class="w3-container">
+        <h5>스타일별 판매량</h5>
+        <table class="w3-table w3-striped w3-bordered w3-border w3-hoverable w3-white">
+            <tr>
+                <td>수채화</td>
+                <td>65%</td>
+            </tr>
+            <tr>
+                <td>유화</td>
+                <td>15.7%</td>
+            </tr>
+            <tr>
+                <td>파스텔화</td>
+                <td>5.6%</td>
+            </tr>
+            <tr>
+                <td>아크릴화</td>
+                <td>2.1%</td>
+            </tr>
+            <tr>
+                <td>펜화</td>
+                <td>1.9%</td>
+            </tr>
+            <tr>
+                <td>연필화</td>
+                <td>1.5%</td>
+            </tr>
+            <tr>
+                <td>크레용화</td>
+                <td>1.5%</td>
+            </tr>
+            <tr>
+                <td>과슈화</td>
+                <td>1.5%</td>
+            </tr>
+        </table><br>
+    </div>
+    <hr>
+    <div class="w3-container">
+        <h5>최근 판매자</h5>
+        <ul class="w3-ul w3-card-4 w3-white">
+            <li class="w3-padding-16">
+                <img src="/w3images/avatar2.png" class="w3-left w3-circle w3-margin-right" style="width:35px">
+                <span class="w3-xlarge">Mike</span><br>
+            </li>
+            <li class="w3-padding-16">
+                <img src="/w3images/avatar5.png" class="w3-left w3-circle w3-margin-right" style="width:35px">
+                <span class="w3-xlarge">Jill</span><br>
+            </li>
+            <li class="w3-padding-16">
+                <img src="/w3images/avatar6.png" class="w3-left w3-circle w3-margin-right" style="width:35px">
+                <span class="w3-xlarge">Jane</span><br>
+            </li>
+        </ul>
+    </div>
+    <hr>
+
+    <div class="w3-container">
+        <h5>최근 댓글</h5>
+        <div class="w3-row">
+            <div class="w3-col m2 text-center">
+                <img class="w3-circle" src="/w3images/avatar3.png" style="width:96px;height:96px">
+            </div>
+            <div class="w3-col m10 w3-container">
+                <h4>John <span class="w3-opacity w3-medium">Sep 29, 2014, 9:12 PM</span></h4>
+                <p>그림이 너무 이뻐요 구매하고 싶어요</p><br>
+            </div>
+        </div>
+
+        <div class="w3-row">
+            <div class="w3-col m2 text-center">
+                <img class="w3-circle" src="/w3images/avatar1.png" style="width:96px;height:96px">
+            </div>
+            <div class="w3-col m10 w3-container">
+                <h4>Bo <span class="w3-opacity w3-medium">Sep 28, 2014, 10:15 PM</span></h4>
+                <p>자주 구매하는 작가님입니다. 화이팅</p><br>
+            </div>
+        </div>
+    </div>
+    <br>
 
     <!-- End page content -->
 
@@ -239,5 +339,6 @@
         overlayBg.style.display = "none";
     }
 </script>
+
 </body>
 </html>

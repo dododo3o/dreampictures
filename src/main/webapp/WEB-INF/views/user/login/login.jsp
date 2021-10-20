@@ -18,47 +18,11 @@
             integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ=="
             crossorigin="anonymous" referrerpolicy="no-referrer">
     </script>
-    <script>
-        function open_pwd_find(){$('.small.modal').modal('show');}
 
-        //빈칸일떄 넘어가면 안돼~~
-        $(function(){
-            $("input[type=button]").click(function(){
-                var isRight = true;
-                $("#frm").find("input[type=text]").each(function(index, item){
-                    // 아무값없이 띄어쓰기만 있을 때도 빈 값으로 체크되도록 trim() 함수 호출
-                    if ($(this).val().trim() == '') {
-                        alert($(this).attr("data-name")+" 항목을 입력하세요.");
-                        isRight = false;
-                        return false;
-                    }
-                });
-
-                if (!isRight) {
-                    return;
-                }
-                $(this).prop("disabled", true);
-                $(this).prop("disabled", false);
-            });
-        });
-
-    </script>
 </head>
 <body>
 <jsp:include page="../header_footer/header_not_login.jsp"></jsp:include>
-
 <main class="has_bg_harp">
-    <div class="small modal">
-        <div class="header">Header</div>
-        <div class="content">
-            <p ></p>
-        </div>
-        <div class="actions">
-            <div class="ui approve button" style="">Approve</div>
-            <div class="ui button" style="">Neutral</div>
-            <div class="ui cancel button" style="">Cancel</div>
-        </div>
-    </div>
     <div class="container">
         <div class="contents" style="grid-column: 5/9; margin-top: 50px">
             <form action="<%=conPath%>/login_check" method="post" id="frm">
@@ -73,7 +37,8 @@
                             <input type="checkbox" id="login_check" style="height: 20px;">
                             <span class="has_black has_font-xs">Remember me</span>
                         </div>
-                        <div class="has_black" onclick="open_pwd_find()">Forgot password?</div>
+
+                        <div><a href='#' class="has_black">Forgot password?</a></div>
                     </div>
                     <a href="/login_check">
                         <button class='button is_login has_shadow has_width_full has_flex_center'><i

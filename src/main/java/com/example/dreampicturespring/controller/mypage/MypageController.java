@@ -61,5 +61,4 @@ public class MypageController {
     public String changeSuccess() {
         return "user/mypage/mypage";
     }
-
 }
