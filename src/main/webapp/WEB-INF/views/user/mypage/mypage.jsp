@@ -49,25 +49,31 @@
                 <div class="ui vertical animated button" tabindex="0" onclick="showModal()">
                     <div class="hidden content">My Page</div>
                     <div class="visible content">
-                        <i class="user circle icon"></i>
+                        <i class="red user circle icon"></i>
                     </div>
                 </div>
                 <div class="ui vertical animated button" tabindex="0" onclick="showModal()">
                     <div class="hidden content">구매내역</div>
                     <div class="visible content">
-                        <i class="shipping fast icon"></i>
+                        <i class="orange shipping fast icon"></i>
                     </div>
                 </div>
                 <div class="ui vertical animated button" tabindex="0" onclick="showModal()">
                     <div class="hidden content">장바구니</div>
                     <div class="visible content">
-                        <i class="shopping cart icon"></i>
+                        <i class="yellow shopping cart icon"></i>
                     </div>
                 </div>
                 <div class="ui vertical animated button" tabindex="0" onclick="showModal()">
                     <div class="hidden content">질문내역</div>
                     <div class="visible content">
-                        <i class="comments outline icon"></i>
+                        <i class="green comments outline icon"></i>
+                    </div>
+                </div>
+                <div class="ui vertical animated button" tabindex="0" onclick="showModal()">
+                    <div class="hidden content"><a href="/charge" style="color: rgba(0,0,0,.6)">포인트 입출금</a></div>
+                    <div class="visible content">
+                        <i class="blue money bill alternate outline icon"></i>
                     </div>
                 </div>
             </div>
@@ -104,9 +110,6 @@
             </div>
             <div class="extra content">
                 <div style="display:flex; justify-content: space-evenly;">
-                    <a href="/charge">
-                        <button class="ui blue icon button" style="width:200px; height:50px; ">포인트충전</button>
-                    </a>
                     <button class="ui blue icon button" style="width:200px; height:50px;">수정하기</button>
                     <button class="ui blue icon button" style="width:200px; height:50px;">탈퇴하기</button>
                 </div>
