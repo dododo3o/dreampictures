@@ -87,7 +87,7 @@
     <main class="has_bg_harp" style="height: auto;">
         <div class="container" style="height: 100%;margin-left: 200px">
             <div class="has_flex_end" style="grid-column: 1/13; flex-wrap: wrap; margin-top: 20px;margin-bottom: 20px;">
-                <div tabindex="0" onclick="showModal()" style="display: flex;margin-top: 50px;margin-right: 100px;">
+                <div tabindex="0" style="display: flex;margin-top: 50px;margin-right: 100px;">
                     <h1 class="ui header" style="margin-right: 230px;font-family: 'BMHANNAPro';color:var(--color-chathams-blue)">전체 회원현황</h1>
                 </div>
                 <div class="manager_card" style="display: grid;grid-template-columns:repeat(3,1fr);grid-gap:1rem;width: 100%;">
