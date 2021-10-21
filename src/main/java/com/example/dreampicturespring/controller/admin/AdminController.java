@@ -2,13 +2,17 @@ package com.example.dreampicturespring.controller.admin;
 
 
 import com.example.dreampicturespring.entity.Admintbl;
+import com.example.dreampicturespring.entity.Membershiptbl;
 import com.example.dreampicturespring.entity.Noticetbl;
+import com.example.dreampicturespring.entity.Qatbl;
 import com.example.dreampicturespring.repository.AdminRepository;
 import com.example.dreampicturespring.repository.MembershiptblRepository;
 import com.example.dreampicturespring.repository.NoticeRepository;
+import com.example.dreampicturespring.repository.QaRepository;
 import com.example.dreampicturespring.vo.LoginAdminVO;
 import com.example.dreampicturespring.vo.LoginVO;
 import com.example.dreampicturespring.vo.NoticeVO;
+import com.example.dreampicturespring.vo.QaVO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -19,6 +23,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 @Controller
 public class AdminController {
@@ -28,6 +33,13 @@ public class AdminController {
 
     @Autowired
     NoticeRepository noticeRepository;
+
+    @Autowired
+    QaRepository qaRepository;
+
+    @Autowired
+    MembershiptblRepository membershiptblRepository;
+
 
 
     @RequestMapping("/admin/login")
@@ -84,8 +96,36 @@ public class AdminController {
         return mv;
     }
 
+//    @RequestMapping("/admin/qa")
+//    public String admin_qa(Model model){ return "user/admin/qa";}
+
     @RequestMapping("/admin/qa")
-    public String admin_qa(Model model){ return "user/admin/qa";}
+    public ModelAndView admin_qa() {
+        final int CARDSPERPAGE = 15;
+        int cardNum = 0, pageNum;
+
+        ModelAndView mv = new ModelAndView();
+
+        List<Qatbl> qatblList = qaRepository.findAll();
+        List<QaVO> QaVOlist = new ArrayList<>();
+
+        for (Qatbl qatbl : qatblList) {
+            QaVO vo = new QaVO();
+            vo.parser(qatbl.getCategory());
+            Optional<Membershiptbl> membershiptbl = membershiptblRepository.findById(qatbl.getNo_membership());
+            Membershiptbl writer = membershiptbl.get();
+            vo.setNickname(writer.getNickname());
+            vo.setContent(qatbl.getContent());
+            vo.setAnswer(qatbl.getAnswer());
+            QaVOlist.add(vo);
+        }
+        pageNum = cardNum / CARDSPERPAGE + 1;
+        mv.setViewName("user/admin/qa");
+        mv.addObject("QaVOlist", QaVOlist);
+        mv.addObject("pageNum", pageNum);
+        return mv;
+    }
+
 
     @RequestMapping("/admin/blacklist")
     public String admin_blacklist(Model model){ return "user/admin/blacklist";}

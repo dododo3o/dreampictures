@@ -130,13 +130,16 @@
 
     <div class="has_bg_harp">
         <div class="container">
-            <div class="has_chathams-blue" style="font-size:var(--font-size-xlll);grid-column:5/11;margin-top: 20px;">회원 블랙리스트</div>
+            <div class="has_chathams-blue" style="grid-column:5/11;margin-top: 20px;">회원 블랙리스트</div>
             <div style="grid-column:3/11;display: flex;gap:20px; justify-content: center; margin-top:20px;margin-bottom: 70px;">
-                <div>
-                    <select class="has_width_half" style="font-family: 'BMHANNAPro';">
-                        <option>검색조건</option>
-                        <option value="아이디">아이디</option>
-                        <option value="닉네임">닉네임</option>
+                <div class="field" style="width:500px">
+                    <select>
+                        <option value="0">기간설정</option>
+                        <option value="1">1주</option>
+                        <option value="2">1개월</option>
+                        <option value="3">3개월</option>
+                        <option value="4">6개월</option>
+                        <option value="5">1년</option>
                     </select>
                 </div>
                 <form action="" >

@@ -37,34 +37,6 @@
             integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.13/semantic.js"></script>
     <script>
-        //a태그 마우스오버1
-        function mouseOver() {
-            document.getElementById('noticeLink').style.backgroundColor = "gray";
-            document.getElementById('menuFont').style.color = "white";
-            document.getElementById('menuIcon').style.color = "white";
-        }
-
-        //a태그 마우스오버
-        function mouseOver2() {
-            document.getElementById('noticeLink2').style.backgroundColor = "gray";
-            document.getElementById('menuFont2').style.color = "white";
-            document.getElementById('menuIcon2').style.color = "white";
-        }
-
-        //a태그 마우스아웃
-        function mouseOut() {
-            document.getElementById('noticeLink').style.backgroundColor = "rgba(255,255,255,0)";
-            document.getElementById('menuFont').style.color = "var(--color-river-bed)";
-            document.getElementById('menuIcon').style.color = "var(--color-river-bed)";
-        }
-
-        //a태그 마우스아웃2
-        function mouseOut2() {
-            document.getElementById('noticeLink2').style.backgroundColor = "rgba(255,255,255,0)";
-            document.getElementById('menuFont2').style.color = "var(--color-river-bed)";
-            document.getElementById('menuIcon2').style.color = "var(--color-river-bed)";
-        }
-
         function modal() {
             document.getElementById("modaldiv")
         }
@@ -136,39 +108,18 @@
                     <h1 class="ui header" style="margin-right: 200px;font-family: 'BMHANNAPro';color:var(--color-chathams-blue)">질문사항</h1>
                 </div>
                 <div class="manager_card" style="display: grid;grid-template-columns:repeat(3,1fr);grid-gap:1rem;width: 100%;">
-                    <c:forEach var="noticeVOList" items="${noticeVOList}">
+                    <c:forEach var="QaVOlist" items="${QaVOlist}">
                         <div class="ui card">
                             <div class="content">
-                                <div class="header">Project Timeline</div>
+                                <div class="header">${QaVOlist.category}</div>
                             </div>
                             <div class="content">
-                                <h4 class="ui sub header">Activity</h4>
-                                <div class="ui small feed">
-                                    <div class="event">
-                                        <div class="content">
-                                            <div class="summary">
-                                                <a>Elliot Fu</a> added <a>Jenny Hess</a> to the project
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="event">
-                                        <div class="content">
-                                            <div class="summary">
-                                                <a>Stevie Feliciano</a> was added as an <a>Administrator</a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="event">
-                                        <div class="content">
-                                            <div class="summary">
-                                                <a>Helen Troy</a> added two pictures
-                                            </div>
-                                        </div>
-                                    </div>
+                                <div style="font-size: 1.3em">작성자 : ${QaVOlist.nickname}<br/>${QaVOlist.content}
                                 </div>
                             </div>
+                            <div class="content" style="font-size: 1.3em">답변내용 : <br/>${QaVOlist.answer}</div>
                             <div class="extra content">
-                                <button class="ui button">Join Project</button>
+                                <button class="ui button">답변하기</button>
                             </div>
                         </div>
                     </c:forEach>
