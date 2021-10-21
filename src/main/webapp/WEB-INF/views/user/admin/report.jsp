@@ -131,9 +131,8 @@
 
         <div class="container" style="height: 100%;margin-left: 200px">
             <div class="has_flex_end" style="grid-column: 1/13; flex-wrap: wrap; margin-top: 20px;margin-bottom: 20px;">
-
-                <div tabindex="0" onclick="showModal()" style="display: flex;margin-top: 50px;margin-right: 270px;">
-                    <h1 class="ui header" style="margin-right: 200px;font-family: 'BMHANNAPro';color:var(--color-chathams-blue)">신고내역</h1>
+                <div tabindex="0" style="display: flex;margin-top: 50px;margin-left: 500px">
+                    <h1 class="ui header" style="font-family: 'BMHANNAPro';color:var(--color-chathams-blue)">신고내역</h1>
                 </div>
                 <div class="container" id="container"
                      style="display: grid;grid-template-columns: repeat(5,1fr);grid-gap:1rem;justify-content: space-around;">
