@@ -61,7 +61,7 @@
                     <div class="ui animated button" tabindex="0"style="width: 200px;">
                         <div class="hidden content" style="user-select: auto;"><a href="/mypage/basket">장바구니</a></div>
                         <div class=" visible content" style="user-select: auto;">
-                            <i class="shopping cart icon" style="user-select: auto;"></i>
+                            <i class="blue shopping cart icon" style="user-select: auto;"></i>
                         </div>
                     </div>
                         <div class="ui vertical animated button" tabindex="0" id="shop_btn" style="width: 200px;">
@@ -70,6 +70,7 @@
                                 <i class="money bill alternate outline icon" style="user-select: auto;"></i>
                             </div>
                         </div>
+                    </div>
                     </a>
                 </div>
             </div>

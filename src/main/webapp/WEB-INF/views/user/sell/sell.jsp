@@ -60,7 +60,6 @@
             border-radius: 5px;
             counter-increment: carousel-cell;
         }
-
         .carousel-cell:before {
             display: block;
             text-align: center;
@@ -69,7 +68,6 @@
             font-size: 80px;
             color: white;
         }
-
     </style>
 </head>
 <body>
@@ -81,8 +79,6 @@
 <% if (session.getAttribute("logStatus") == null) { %>
 <jsp:include page="../header_footer/header_not_login.jsp"></jsp:include>
 <% } %>
-
-<%--dvsdvdsvdvsz--%>
 <main class="has_bg_harp">
     <div class="container">
         <form action="<%=conPath%>/sell_success" method="post" onsubmit="return false" enctype="multipart/form-data" id="frm" name="form">

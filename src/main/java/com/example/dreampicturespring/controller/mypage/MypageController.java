@@ -58,7 +58,7 @@ public class MypageController {
         return "user/mypage/mypage";
     }
 
-    @RequestMapping("/mypage/basket")
+    @RequestMapping("/basket")
     public ModelAndView basket(HttpServletRequest req){
         ModelAndView mv = new ModelAndView();
         String user = (String) req.getSession().getAttribute("logEmail");
