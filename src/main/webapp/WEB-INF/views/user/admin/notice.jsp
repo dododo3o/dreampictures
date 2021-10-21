@@ -37,42 +37,10 @@
             integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.13/semantic.js"></script>
     <script>
-        //a태그 마우스오버1
-        function mouseOver() {
-            document.getElementById('noticeLink').style.backgroundColor = "gray";
-            document.getElementById('menuFont').style.color = "white";
-            document.getElementById('menuIcon').style.color = "white";
-        }
-
-        //a태그 마우스오버
-        function mouseOver2() {
-            document.getElementById('noticeLink2').style.backgroundColor = "gray";
-            document.getElementById('menuFont2').style.color = "white";
-            document.getElementById('menuIcon2').style.color = "white";
-        }
-
-        //a태그 마우스아웃
-        function mouseOut() {
-            document.getElementById('noticeLink').style.backgroundColor = "rgba(255,255,255,0)";
-            document.getElementById('menuFont').style.color = "var(--color-river-bed)";
-            document.getElementById('menuIcon').style.color = "var(--color-river-bed)";
-        }
-
-        //a태그 마우스아웃2
-        function mouseOut2() {
-            document.getElementById('noticeLink2').style.backgroundColor = "rgba(255,255,255,0)";
-            document.getElementById('menuFont2').style.color = "var(--color-river-bed)";
-            document.getElementById('menuIcon2').style.color = "var(--color-river-bed)";
-        }
-
-        function modal() {
-            document.getElementById("modaldiv")
-        }
+        function modal() {document.getElementById("modaldiv")}
     </script>
     <script type="text/javascript">
-        showModal = function () {
-            $('.ui.modal').modal('show');
-        };
+        showModal = function () {$('.ui.modal').modal('show');};
         requestQA = function () {
             $(() => {
                 let question = document.getElementById("question").value;
@@ -87,18 +55,17 @@
             });
         };
     </script>
-
 </head>
 <body class="w3-light-grey">
-
-<!-- Sidebar/menu -->
 <nav class="w3-sidebar w3-collapse w3-white w3-animate-left" style="z-index:3;width:300px;" id="mySidebar"><br>
     <div class="w3-container w3-row">
         <div class="w3-col s8 w3-bar" style="text-align: center;margin-left: 50px">
             <span>Welcome, <strong>Master</strong></span><br>
-            <button class="ui secondary button" style="height:35px;font-family: 'BMHANNAPro';">
-                로그아웃
-            </button>
+            <form action="<%=conPath%>/admin/login" method="post">
+                <button class="ui secondary button" style="height:35px;font-family: 'BMHANNAPro';">
+                    로그아웃
+                </button>
+            </form>
         </div>
     </div>
     <hr>
@@ -115,229 +82,56 @@
         <a href="/admin/allmembers" class="w3-bar-item w3-button w3-padding"><i class="fa fa-bullseye fa-fw"></i>  회원현황</a><br><br>
     </div>
 </nav>
-
-
-<!-- Overlay effect when opening sidebar on small screens -->
 <div class="w3-overlay w3-hide-large w3-animate-opacity" onclick="w3_close()" style="cursor:pointer" title="close side menu" id="myOverlay"></div>
-
-<!-- !PAGE CONTENT! -->
-<div class="w3-main" style="margin-left:300px;margin-top:43px;">
-
-    <!-- Header -->
-
-
+<div class="w3-main" style="margin-left:300px;">
     <main class="has_bg_harp" style="height: auto;">
-
         <div class="container" style="height: 100%;margin-left: 200px">
             <div class="has_flex_end" style="grid-column: 1/13; flex-wrap: wrap; margin-top: 20px;margin-bottom: 20px;">
-
-                <div tabindex="0" onclick="showModal()" style="display: flex">
-                    <div style="text-align: center;margin-right: 280px;font-family: 'BMHANNAPro';font-size: var(--font-size-xlll);color:var(--color-chathams-blue) ">공지사항</div>
+                <div tabindex="0" onclick="showModal()" style="display: flex;margin-top: 50px;margin-right: 100px;">
+                    <h1 class="ui header" style="margin-right: 230px;font-family: 'BMHANNAPro';color:var(--color-chathams-blue)">공지사항</h1>
                     <button class="ui button" style="font-family: 'BMHANNAPro';height: 50px">공지사항 올리기</button>
                 </div>
-                <div class="manager_card" style="display: grid;grid-template-columns:repeat(4,1fr);grid-gap:1rem;width: 100%;">
-                    <div class="ui card" style="height: 100%; margin: 0 auto;">
-                        <div class="content">
-                            <div class="right floated meta">14h</div>
-                            <img src="${cardVOlist.avatarimg}"
-                                 style="border-radius: 50%; width: 3em;height: 3em;object-fit: cover;">
-                        </div>
-                        <div class="image">
-                            <img src="/resources/user/qwer/paintingimg/bitcamp/0.jpg" style="object-fit: cover; height: 250px"></a>
-                        </div>
-                        <div class="content">
-                    <span class="right floated">
-                      <i class="heart outline like icon"></i>
-                      17 likes
-                    </span>
-                            <i class="comment icon"></i>
-                            3 comments
-                        </div>
-                        <div class="extra content">
-                            <div class="ui large transparent left icon input">
-                                <i class="heart outline icon"></i>
-                                <input type="text" placeholder="Add Comment...">
+                <div class="manager_card" style="display: grid;grid-template-columns:repeat(3,1fr);grid-gap:1rem;width: 100%;">
+                    <c:forEach var="noticeVOList" items="${noticeVOList}">
+                        <div class="ui card" style="height: 100%; margin: 0 auto;" >
+                            <div class="content" style="height: 100%; margin: 0 auto;">
+                                <div class="header">${noticeVOList.title}</div>
+                                <div class="meta">${noticeVOList.writedate}</div>
+                                <div class="description"><p>${noticeVOList.content}</p></div>
                             </div>
                         </div>
-                    </div>
-                    <div class="ui card" style="height: 100%; margin: 0 auto;">
-                        <div class="content">
-                            <div class="right floated meta">14h</div>
-                            <img src="${cardVOlist.avatarimg}"
-                                 style="border-radius: 50%; width: 3em;height: 3em;object-fit: cover;">
-                        </div>
-                        <div class="image">
-                            <img src="/resources/user/qwer/paintingimg/bitcamp/0.jpg" style="object-fit: cover; height: 250px"></a>
-                        </div>
-                        <div class="content">
-                    <span class="right floated">
-                      <i class="heart outline like icon"></i>
-                      17 likes
-                    </span>
-                            <i class="comment icon"></i>
-                            3 comments
-                        </div>
-                        <div class="extra content">
-                            <div class="ui large transparent left icon input">
-                                <i class="heart outline icon"></i>
-                                <input type="text" placeholder="Add Comment...">
-                            </div>
-                        </div>
-                    </div>
-                    <div class="ui card" style="height: 100%; margin: 0 auto;">
-                        <div class="content">
-                            <div class="right floated meta">14h</div>
-                            <img src="${cardVOlist.avatarimg}"
-                                 style="border-radius: 50%; width: 3em;height: 3em;object-fit: cover;">
-                        </div>
-                        <div class="image">
-                            <img src="/resources/user/qwer/paintingimg/bitcamp/0.jpg" style="object-fit: cover; height: 250px"></a>
-                        </div>
-                        <div class="content">
-                    <span class="right floated">
-                      <i class="heart outline like icon"></i>
-                      17 likes
-                    </span>
-                            <i class="comment icon"></i>
-                            3 comments
-                        </div>
-                        <div class="extra content">
-                            <div class="ui large transparent left icon input">
-                                <i class="heart outline icon"></i>
-                                <input type="text" placeholder="Add Comment...">
-                            </div>
-                        </div>
-                    </div>
-                    <div class="ui card" style="height: 100%; margin: 0 auto;">
-                        <div class="content">
-                            <div class="right floated meta">14h</div>
-                            <img src="${cardVOlist.avatarimg}"
-                                 style="border-radius: 50%; width: 3em;height: 3em;object-fit: cover;">
-                        </div>
-                        <div class="image">
-                            <img src="/resources/user/qwer/paintingimg/bitcamp/0.jpg" style="object-fit: cover; height: 250px"></a>
-                        </div>
-                        <div class="content">
-                    <span class="right floated">
-                      <i class="heart outline like icon"></i>
-                      17 likes
-                    </span>
-                            <i class="comment icon"></i>
-                            3 comments
-                        </div>
-                        <div class="extra content">
-                            <div class="ui large transparent left icon input">
-                                <i class="heart outline icon"></i>
-                                <input type="text" placeholder="Add Comment...">
-                            </div>
-                        </div>
-                    </div>
-                    <div class="ui card" style="height: 100%; margin: 0 auto;">
-                        <div class="content">
-                            <div class="right floated meta">14h</div>
-                            <img src="${cardVOlist.avatarimg}"
-                                 style="border-radius: 50%; width: 3em;height: 3em;object-fit: cover;">
-                        </div>
-                        <div class="image">
-                            <img src="/resources/user/qwer/paintingimg/bitcamp/0.jpg" style="object-fit: cover; height: 250px"></a>
-                        </div>
-                        <div class="content">
-                    <span class="right floated">
-                      <i class="heart outline like icon"></i>
-                      17 likes
-                    </span>
-                            <i class="comment icon"></i>
-                            3 comments
-                        </div>
-                        <div class="extra content">
-                            <div class="ui large transparent left icon input">
-                                <i class="heart outline icon"></i>
-                                <input type="text" placeholder="Add Comment...">
-                            </div>
-                        </div>
-                    </div>
-                    <div class="ui card" style="height: 100%; margin: 0 auto;">
-                        <div class="content">
-                            <div class="right floated meta">14h</div>
-                            <img src="${cardVOlist.avatarimg}"
-                                 style="border-radius: 50%; width: 3em;height: 3em;object-fit: cover;">
-                        </div>
-                        <div class="image">
-                            <img src="/resources/user/qwer/paintingimg/bitcamp/0.jpg" style="object-fit: cover; height: 250px"></a>
-                        </div>
-                        <div class="content">
-                    <span class="right floated">
-                      <i class="heart outline like icon"></i>
-                      17 likes
-                    </span>
-                            <i class="comment icon"></i>
-                            3 comments
-                        </div>
-                        <div class="extra content">
-                            <div class="ui large transparent left icon input">
-                                <i class="heart outline icon"></i>
-                                <input type="text" placeholder="Add Comment...">
-                            </div>
-                        </div>
-                    </div>
-                    <div class="ui card" style="height: 100%; margin: 0 auto;">
-                        <div class="content">
-                            <div class="right floated meta">14h</div>
-                            <img src="${cardVOlist.avatarimg}"
-                                 style="border-radius: 50%; width: 3em;height: 3em;object-fit: cover;">
-                        </div>
-                        <div class="image">
-                            <img src="/resources/user/qwer/paintingimg/bitcamp/0.jpg" style="object-fit: cover; height: 250px"></a>
-                        </div>
-                        <div class="content">
-                    <span class="right floated">
-                      <i class="heart outline like icon"></i>
-                      17 likes
-                    </span>
-                            <i class="comment icon"></i>
-                            3 comments
-                        </div>
-                        <div class="extra content">
-                            <div class="ui large transparent left icon input">
-                                <i class="heart outline icon"></i>
-                                <input type="text" placeholder="Add Comment...">
-                            </div>
-                        </div>
-                    </div>
-                    <div class="ui card" style="height: 100%; margin: 0 auto;">
-                        <div class="content">
-                            <div class="right floated meta">14h</div>
-                            <img src="${cardVOlist.avatarimg}"
-                                 style="border-radius: 50%; width: 3em;height: 3em;object-fit: cover;">
-                        </div>
-                        <div class="image">
-                            <img src="/resources/user/qwer/paintingimg/bitcamp/0.jpg" style="object-fit: cover; height: 250px"></a>
-                        </div>
-                        <div class="content">
-                    <span class="right floated">
-                      <i class="heart outline like icon"></i>
-                      17 likes
-                    </span>
-                            <i class="comment icon"></i>
-                            3 comments
-                        </div>
-                        <div class="extra content">
-                            <div class="ui large transparent left icon input">
-                                <i class="heart outline icon"></i>
-                                <input type="text" placeholder="Add Comment...">
-                            </div>
-                        </div>
-                    </div>
+                    </c:forEach>
                 </div>
             </div>
         </div>
+        <div class="container" style="display: flex;justify-content: center;margin-top:30px;padding-bottom: 30px;">
+            <div>
+                <div class="ui animated button" tabindex="0"
+                     style="color:var(--color-white);background-color: var(--color-chathams-blue);">
+                    <div class="visible content">Perv</div>
+                    <div class="hidden content">
+                        <i class="left arrow icon"></i>
+                    </div>
+                </div>
+                <c:forEach var="i" begin="1" end="${pageNum}">
+                    <div class="ui animated button" tabindex="0"
+                         style="color:var(--color-white);background-color: var(--color-chathams-blue);">
+                        <div class="visible content">${i}</div>
+                        <div class="hidden content">${i}</div>
+                    </div>
+                </c:forEach>
+                <div class="ui animated button" tabindex="0"
+                     style="color:var(--color-white);background-color: var(--color-chathams-blue);">
+                    <div class="visible content">Next</div>
+                    <div class="hidden content">
+                        <i class="right arrow icon"></i>
+                    </div>
+                </div>
+                </br>
+            </div>
+        </div>
     </main>
-
-
-    <!-- End page content -->
-
 </div>
-
 <script>
     // Get the Sidebar
     var mySidebar = document.getElementById("mySidebar");
@@ -362,6 +156,5 @@
         overlayBg.style.display = "none";
     }
 </script>
-
 </body>
 </html>

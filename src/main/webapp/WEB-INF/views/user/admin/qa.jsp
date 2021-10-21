@@ -96,9 +96,11 @@
     <div class="w3-container w3-row">
         <div class="w3-col s8 w3-bar" style="text-align: center;margin-left: 50px">
             <span>Welcome, <strong>Master</strong></span><br>
-            <button class="ui secondary button" style="height:35px;font-family: 'BMHANNAPro';">
-                로그아웃
-            </button>
+            <form action="<%=conPath%>/admin/login" method="post">
+                <button class="ui secondary button" style="height:35px;font-family: 'BMHANNAPro';">
+                    로그아웃
+                </button>
+            </form>
         </div>
     </div>
     <hr>
@@ -121,213 +123,82 @@
 <div class="w3-overlay w3-hide-large w3-animate-opacity" onclick="w3_close()" style="cursor:pointer" title="close side menu" id="myOverlay"></div>
 
 <!-- !PAGE CONTENT! -->
-<div class="w3-main" style="margin-left:300px;margin-top:43px;">
+<div class="w3-main" style="margin-left:300px;">
 
     <!-- Header -->
-
 
     <main class="has_bg_harp" style="height: auto;">
 
         <div class="container" style="height: 100%;margin-left: 200px">
-
             <div class="has_flex_end" style="grid-column: 1/13; flex-wrap: wrap; margin-top: 20px;margin-bottom: 20px;">
 
-                <div style="text-align: center;margin-right: 420px;font-family: 'BMHANNAPro';font-size: var(--font-size-xlll);color:var(--color-chathams-blue) ">질문사항</div>
-
-                <div class="manager_card" style="display: grid;grid-template-columns:repeat(4,1fr);grid-gap:1rem;width: 100%;">
-                    <div class="ui card" style="height: 100%; margin: 0 auto;">
-                        <div class="content">
-                            <div class="right floated meta">14h</div>
-                            <img src="${cardVOlist.avatarimg}"
-                                 style="border-radius: 50%; width: 3em;height: 3em;object-fit: cover;">
-                        </div>
-                        <div class="image">
-                            <img src="/resources/user/qwer/paintingimg/bitcamp/0.jpg" style="object-fit: cover; height: 250px"></a>
-                        </div>
-                        <div class="content">
-                    <span class="right floated">
-                      <i class="heart outline like icon"></i>
-                      17 likes
-                    </span>
-                            <i class="comment icon"></i>
-                            3 comments
-                        </div>
-                        <div class="extra content">
-                            <div class="ui large transparent left icon input">
-                                <i class="heart outline icon"></i>
-                                <input type="text" placeholder="Add Comment...">
+                <div tabindex="0" onclick="showModal()" style="display: flex;margin-top: 50px;margin-right: 270px;">
+                    <h1 class="ui header" style="margin-right: 200px;font-family: 'BMHANNAPro';color:var(--color-chathams-blue)">질문사항</h1>
+                </div>
+                <div class="manager_card" style="display: grid;grid-template-columns:repeat(3,1fr);grid-gap:1rem;width: 100%;">
+                    <c:forEach var="noticeVOList" items="${noticeVOList}">
+                        <div class="ui card">
+                            <div class="content">
+                                <div class="header">Project Timeline</div>
+                            </div>
+                            <div class="content">
+                                <h4 class="ui sub header">Activity</h4>
+                                <div class="ui small feed">
+                                    <div class="event">
+                                        <div class="content">
+                                            <div class="summary">
+                                                <a>Elliot Fu</a> added <a>Jenny Hess</a> to the project
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="event">
+                                        <div class="content">
+                                            <div class="summary">
+                                                <a>Stevie Feliciano</a> was added as an <a>Administrator</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="event">
+                                        <div class="content">
+                                            <div class="summary">
+                                                <a>Helen Troy</a> added two pictures
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="extra content">
+                                <button class="ui button">Join Project</button>
                             </div>
                         </div>
-                    </div>
-                    <div class="ui card" style="height: 100%; margin: 0 auto;">
-                        <div class="content">
-                            <div class="right floated meta">14h</div>
-                            <img src="${cardVOlist.avatarimg}"
-                                 style="border-radius: 50%; width: 3em;height: 3em;object-fit: cover;">
-                        </div>
-                        <div class="image">
-                            <img src="/resources/user/qwer/paintingimg/bitcamp/0.jpg" style="object-fit: cover; height: 250px"></a>
-                        </div>
-                        <div class="content">
-                    <span class="right floated">
-                      <i class="heart outline like icon"></i>
-                      17 likes
-                    </span>
-                            <i class="comment icon"></i>
-                            3 comments
-                        </div>
-                        <div class="extra content">
-                            <div class="ui large transparent left icon input">
-                                <i class="heart outline icon"></i>
-                                <input type="text" placeholder="Add Comment...">
-                            </div>
-                        </div>
-                    </div>
-                    <div class="ui card" style="height: 100%; margin: 0 auto;">
-                        <div class="content">
-                            <div class="right floated meta">14h</div>
-                            <img src="${cardVOlist.avatarimg}"
-                                 style="border-radius: 50%; width: 3em;height: 3em;object-fit: cover;">
-                        </div>
-                        <div class="image">
-                            <img src="/resources/user/qwer/paintingimg/bitcamp/0.jpg" style="object-fit: cover; height: 250px"></a>
-                        </div>
-                        <div class="content">
-                    <span class="right floated">
-                      <i class="heart outline like icon"></i>
-                      17 likes
-                    </span>
-                            <i class="comment icon"></i>
-                            3 comments
-                        </div>
-                        <div class="extra content">
-                            <div class="ui large transparent left icon input">
-                                <i class="heart outline icon"></i>
-                                <input type="text" placeholder="Add Comment...">
-                            </div>
-                        </div>
-                    </div>
-                    <div class="ui card" style="height: 100%; margin: 0 auto;">
-                        <div class="content">
-                            <div class="right floated meta">14h</div>
-                            <img src="${cardVOlist.avatarimg}"
-                                 style="border-radius: 50%; width: 3em;height: 3em;object-fit: cover;">
-                        </div>
-                        <div class="image">
-                            <img src="/resources/user/qwer/paintingimg/bitcamp/0.jpg" style="object-fit: cover; height: 250px"></a>
-                        </div>
-                        <div class="content">
-                    <span class="right floated">
-                      <i class="heart outline like icon"></i>
-                      17 likes
-                    </span>
-                            <i class="comment icon"></i>
-                            3 comments
-                        </div>
-                        <div class="extra content">
-                            <div class="ui large transparent left icon input">
-                                <i class="heart outline icon"></i>
-                                <input type="text" placeholder="Add Comment...">
-                            </div>
-                        </div>
-                    </div>
-                    <div class="ui card" style="height: 100%; margin: 0 auto;">
-                        <div class="content">
-                            <div class="right floated meta">14h</div>
-                            <img src="${cardVOlist.avatarimg}"
-                                 style="border-radius: 50%; width: 3em;height: 3em;object-fit: cover;">
-                        </div>
-                        <div class="image">
-                            <img src="/resources/user/qwer/paintingimg/bitcamp/0.jpg" style="object-fit: cover; height: 250px"></a>
-                        </div>
-                        <div class="content">
-                    <span class="right floated">
-                      <i class="heart outline like icon"></i>
-                      17 likes
-                    </span>
-                            <i class="comment icon"></i>
-                            3 comments
-                        </div>
-                        <div class="extra content">
-                            <div class="ui large transparent left icon input">
-                                <i class="heart outline icon"></i>
-                                <input type="text" placeholder="Add Comment...">
-                            </div>
-                        </div>
-                    </div>
-                    <div class="ui card" style="height: 100%; margin: 0 auto;">
-                        <div class="content">
-                            <div class="right floated meta">14h</div>
-                            <img src="${cardVOlist.avatarimg}"
-                                 style="border-radius: 50%; width: 3em;height: 3em;object-fit: cover;">
-                        </div>
-                        <div class="image">
-                            <img src="/resources/user/qwer/paintingimg/bitcamp/0.jpg" style="object-fit: cover; height: 250px"></a>
-                        </div>
-                        <div class="content">
-                    <span class="right floated">
-                      <i class="heart outline like icon"></i>
-                      17 likes
-                    </span>
-                            <i class="comment icon"></i>
-                            3 comments
-                        </div>
-                        <div class="extra content">
-                            <div class="ui large transparent left icon input">
-                                <i class="heart outline icon"></i>
-                                <input type="text" placeholder="Add Comment...">
-                            </div>
-                        </div>
-                    </div>
-                    <div class="ui card" style="height: 100%; margin: 0 auto;">
-                        <div class="content">
-                            <div class="right floated meta">14h</div>
-                            <img src="${cardVOlist.avatarimg}"
-                                 style="border-radius: 50%; width: 3em;height: 3em;object-fit: cover;">
-                        </div>
-                        <div class="image">
-                            <img src="/resources/user/qwer/paintingimg/bitcamp/0.jpg" style="object-fit: cover; height: 250px"></a>
-                        </div>
-                        <div class="content">
-                    <span class="right floated">
-                      <i class="heart outline like icon"></i>
-                      17 likes
-                    </span>
-                            <i class="comment icon"></i>
-                            3 comments
-                        </div>
-                        <div class="extra content">
-                            <div class="ui large transparent left icon input">
-                                <i class="heart outline icon"></i>
-                                <input type="text" placeholder="Add Comment...">
-                            </div>
-                        </div>
-                    </div>
-                    <div class="ui card" style="height: 100%; margin: 0 auto;">
-                        <div class="content">
-                            <div class="right floated meta">14h</div>
-                            <img src="${cardVOlist.avatarimg}"
-                                 style="border-radius: 50%; width: 3em;height: 3em;object-fit: cover;">
-                        </div>
-                        <div class="image">
-                            <img src="/resources/user/qwer/paintingimg/bitcamp/0.jpg" style="object-fit: cover; height: 250px"></a>
-                        </div>
-                        <div class="content">
-                    <span class="right floated">
-                      <i class="heart outline like icon"></i>
-                      17 likes
-                    </span>
-                            <i class="comment icon"></i>
-                            3 comments
-                        </div>
-                        <div class="extra content">
-                            <div class="ui large transparent left icon input">
-                                <i class="heart outline icon"></i>
-                                <input type="text" placeholder="Add Comment...">
-                            </div>
-                        </div>
+                    </c:forEach>
+                </div>
+            </div>
+        </div>
+        <div class="container" style="display: flex;justify-content: center;margin-top:30px;padding-bottom: 30px;">
+            <div>
+                <div class="ui animated button" tabindex="0"
+                     style="color:var(--color-white);background-color: var(--color-chathams-blue);">
+                    <div class="visible content">Perv</div>
+                    <div class="hidden content">
+                        <i class="left arrow icon"></i>
                     </div>
                 </div>
+                <c:forEach var="i" begin="1" end="${pageNum}">
+                    <div class="ui animated button" tabindex="0"
+                         style="color:var(--color-white);background-color: var(--color-chathams-blue);">
+                        <div class="visible content">${i}</div>
+                        <div class="hidden content">${i}</div>
+                    </div>
+                </c:forEach>
+                <div class="ui animated button" tabindex="0"
+                     style="color:var(--color-white);background-color: var(--color-chathams-blue);">
+                    <div class="visible content">Next</div>
+                    <div class="hidden content">
+                        <i class="right arrow icon"></i>
+                    </div>
+                </div>
+                <br>
             </div>
         </div>
     </main>
