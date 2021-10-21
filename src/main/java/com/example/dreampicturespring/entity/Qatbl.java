@@ -27,6 +27,7 @@ public class Qatbl {
     @Column(name="writedate")
     private LocalDate writedate;
     private Integer status;
+    private String answer;
 
     public Qatbl(){
         if(StringUtils.isEmpty(writedate)){

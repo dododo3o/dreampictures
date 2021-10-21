@@ -48,6 +48,7 @@
                 });
             }
         };
+
         verifyTel = function () {
             var telVal = $("#tel").val();
             var telRegExp = /^[A-Za-z0-9]{6,12}$/;
@@ -94,7 +95,6 @@
                     $("#alert-danger").css('display', 'inline-block');
                 }
             }
-
         }
         function nextBtn_condition() {
             var pwd1 = $("#pwd").val();
@@ -141,8 +141,7 @@
                                placeholder="비밀번호 확인"
                                required="required"
                                pattern="^(?=.*[A-Z])(?=.*[a-z])(?=.*[0-9])(?=.*[!@#$%^&*()_-+=[]{}~?:;`|/]).{6,20}$"
-                               onfocusout="passwordCheck()"
-                        />
+                               onfocusout="passwordCheck()" />
                     </div>
                     <div class="has_flex_left">
                         <div>연락처 *<span class="has_chathams-blue">([-] 하이픈 생략)</span></div>

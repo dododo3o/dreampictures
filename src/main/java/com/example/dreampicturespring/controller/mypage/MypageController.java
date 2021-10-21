@@ -2,20 +2,16 @@ package com.example.dreampicturespring.controller.mypage;
 
 
 import com.example.dreampicturespring.entity.Membershiptbl;
-import com.example.dreampicturespring.entity.Paintingtbl;
 import com.example.dreampicturespring.repository.MembershiptblRepository;
 import com.example.dreampicturespring.vo.MypageVO;
-import com.example.dreampicturespring.vo.PaymentVO;
 import com.example.dreampicturespring.vo.RegisterVO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
-import java.util.Optional;
 
 @Controller
 public class MypageController {
@@ -54,7 +50,7 @@ public class MypageController {
         if(session.getAttribute("logStatus") == null){ return "user/login/login"; }
         Membershiptbl membershipTBL = membershiptblRepository.findByemail((String) session.getAttribute("logEmail"));
         System.out.println(membershipTBL);
-        membershiptblRepository.UpdateDreampay(Integer.toString(amount),Integer.toString(membershipTBL.getNo_membership()));
+        membershiptblRepository.UpdateDreampayPlus(amount,membershipTBL.getNo_membership());
         return "user/mypage/charge";}
 
     @RequestMapping("/changeSuccess")

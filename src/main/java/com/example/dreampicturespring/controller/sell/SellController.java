@@ -49,6 +49,7 @@ public class SellController {
             File newFileObj = new File(path,fixedFileName);
             try {mf.transferTo(newFileObj);}catch (Exception e){}
         }
+
         Membershiptbl ms = membershiptblRepository.findByemail(user);
         Paintingtbl paintingtbl = new Paintingtbl(vo,ms.getNo_membership());
         paintingRepository.save(paintingtbl);
