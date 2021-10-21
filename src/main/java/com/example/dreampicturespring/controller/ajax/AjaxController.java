@@ -65,15 +65,10 @@ public class AjaxController {
 	@RequestMapping(value = "/ajax_pay",method = RequestMethod.GET, produces ="application/text;charset=UTF-8")
 	@ResponseBody
 	public String pay(Model model,Integer point,Integer buyer,Integer seller,Integer paint){
-
-		System.out.println(point);
-		System.out.println(buyer);
-		System.out.println(seller);
 		Optional<Membershiptbl> MTBL_buyer = membershiptblRepository.findById(buyer);
 		Membershiptbl buyerTBL =MTBL_buyer.get();
 		buyerTBL.dreampayCal(point,false);
 		membershiptblRepository.save(buyerTBL);
-
 
 		Optional<Membershiptbl> MTBL_seller = membershiptblRepository.findById(seller);
 		Membershiptbl sellerTBL =MTBL_seller.get();

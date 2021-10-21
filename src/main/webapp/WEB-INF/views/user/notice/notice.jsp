@@ -92,7 +92,7 @@
     <div class="container">
         <div class="has_flex_column" style="grid-column:1/3; gap:40px;padding-top: 30px; background-color: #a2b0b36e">
             <div class="ui vertical animated button" tabindex="0" onclick="showModal()">
-                <div class="hidden content"><a href="/notice">공지사항</a></div>
+                <div class="hidden content">공지사항</div>
                 <div class="visible content">
                     <i class="bullhorn icon"></i>
                 </div>
@@ -104,7 +104,7 @@
                 </div>
             </div>
             <div class="ui vertical animated button" tabindex="0" onclick="showModal()">
-                <div class="hidden content"><a href="/notice_question">질문하기</a></div>
+                <div class="hidden content"><a href="notice_question.jsp">질문하기</a></div>
                 <div class="visible content">
                     <i class="comments outline icon"></i>
                 </div>
@@ -116,9 +116,9 @@
                 <c:forEach var="noticeVOList" items="${noticeVOList}">
                     <div class="ui card" style="height: 100%; margin: 0 auto;">
                         <div class="content">
+                            <div class="right floated meta">14h</div>
                             <img src="${noticeVOList.avatarimg}"
                                  style="border-radius: 50%; width: 3em;height: 3em;object-fit: cover;">
-                            <div>${noticeVOList.title}</div>
                         </div>
                         <div class="image">
                             <img src="${noticeVOList.paintingmimg}" style="object-fit: cover; height: 250px"></a>
@@ -136,6 +136,29 @@
                             <button class="ui blue icon button" onclick="addComment(${cardVOlist.no_painting})"
                                     style="float: right; font-size: 0.8em;">Add
                             </button>
+                        </div>
+                        <div class="ui bottom attached button collapsible">
+                            <i class="add icon"></i>
+                            <span><i class="comment icon"></i>${cardVOlist.commentNumber}</span>
+                        </div>
+                        <div class="comments_css">
+                            <div class="ui comments">
+                                <c:forEach var="commentVOList" items="${cardVOlist.commentVOList}">
+                                    <h4 class="ui" style="user-select: auto;"></h4>
+                                    <div class="comment" style="margin-left: 10px; margin-bottom: 10px;">
+                                        <a class="avatar"><img src="${commentVOList.avatarimg}"
+                                                               style="border-radius: 50%; height:40px; width:40px;object-fit: cover;"></a>
+                                        <div class="content">
+                                            <a class="author">${commentVOList.author}</a>
+                                            <div class="metadata">
+                                                <span class="date">${commentVOList.date}</span>
+                                            </div>
+                                            <div class="text">${commentVOList.comments}</div>
+                                            <div class="actions"></div>
+                                        </div>
+                                    </div>
+                                </c:forEach>
+                            </div>
                         </div>
                     </div>
                 </c:forEach>
@@ -168,11 +191,7 @@
             <br>
         </div>
     </div>
-    </div>
-
-    </div>
-
-</main>
+</main>d
 <jsp:include page="../header_footer/footer.jsp"></jsp:include>
 </body>
 </html>
