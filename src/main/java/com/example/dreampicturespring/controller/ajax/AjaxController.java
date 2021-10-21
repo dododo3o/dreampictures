@@ -48,6 +48,7 @@ public class AjaxController {
 	@ResponseBody
 	public String nickname_check(String nickname){return membershiptblRepository.existsBynickname(nickname) ? "N" : "Y"; }
 
+
 	@RequestMapping(value = "/ajax_picture_finder",method = RequestMethod.GET, produces ="application/text;charset=UTF-8")
 	public String picture_find(Model model, String pname, String style, String theme, Integer width, Integer height, Integer price, Integer status){
 
