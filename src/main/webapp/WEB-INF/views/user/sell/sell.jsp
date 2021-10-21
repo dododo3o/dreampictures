@@ -88,7 +88,7 @@
         <form action="<%=conPath%>/sell_success" method="post" onsubmit="return false" enctype="multipart/form-data" id="frm" name="form">
             <div style="background-color:var( --color-white);display:flex;grid-column: 1/13;height: 100%;">
                 <div style="border-right: 1px solid #ddd;width:50%;padding-left: 110px;padding-right: 100px;">
-                    <div class="has_flex_column has_evenly" style="flex-wrap: wrap;width:100%;height: 85%;padding-top: 100px;">
+                    <div class="has_flex_column has_evenly" style="flex-wrap: wrap;width:100%;height: 90%;padding-top: 100px;">
                         <a class="ui red tag label" style="display: none; margin-bottom: 10px;" id="point"><span>그림 정보를 모두 작성해주세요.😥</span></a>
                         <input type="submit" class="ui secondary button" value="그림등록" onclick="nextBtn_condition()"><font style="vertical-align: inherit; "><font
                             style="vertical-align: inherit;" >
@@ -138,7 +138,7 @@
                             </div>
                         </div>
                         <%-- todo--%>
-                        <select style="font-family: 'BMHANNAPro'; font-size:var(--font-size-sm)" class="has_width_half sell_select" name="style">
+                        <select style="font-family: 'BMHANNAPro'; font-size:var(--font-size-sm)" class="has_width_half sell_select" id="style" name="style">
                             <option value="" disabled selected>화풍</option>
                             <option value="oils">유화</option>
                             <option value="water">수채화</option>
@@ -149,7 +149,7 @@
                             <option value="crayon">크레용화</option>
                             <option value="gouache">과슈화</option>
                         </select>
-                        <select style="font-family: 'BMHANNAPro'; font-size:var(--font-size-sm)" class="has_width_half sell_select" name="theme">
+                        <select style="font-family: 'BMHANNAPro'; font-size:var(--font-size-sm)" class="has_width_half sell_select" id="theme" name="theme">
                             <option value="" disabled selected>테마</option>
                             <option value="scenery">풍경</option>
                             <option value="character">인물</option>
