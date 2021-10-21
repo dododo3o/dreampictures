@@ -21,6 +21,7 @@ import javax.servlet.http.HttpSession;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.Optional;
 
 @Controller
 public class AjaxController {
@@ -61,16 +62,29 @@ public class AjaxController {
 	}
 
 	@RequestMapping(value = "/ajax_pay",method = RequestMethod.GET, produces ="application/text;charset=UTF-8")
-	public String picture_find(Model model,Integer price){
+	@ResponseBody
+	public String pay(Model model,Integer point,Integer buyer,Integer seller,Integer paint){
 
-//		List<Paintingtbl> paintingtbls = paintingRepository.findPainting(makeNotNull(pname),makeNotNull(style),makeNotNull(theme),width,height,price);
-//		List<Membershiptbl> membershiptbls = new ArrayList<>();
-//		List<CardVO> cardVOList = new ArrayList<>();
-//
-//		for(int i=0;i<paintingtbls.size();i++){ membershiptbls.add(membershiptblRepository.getById(paintingtbls.get(i).getNo_membership())); }
-//		for(int i=0;i<paintingtbls.size();i++){ CardVO vo = new CardVO(paintingtbls.get(i),membershiptbls.get(i));cardVOList.add(vo);}
-//		model.addAttribute("cardVOlist",cardVOList);
-		return "user/ajax/picture_find";
+		System.out.println(point);
+		System.out.println(buyer);
+		System.out.println(seller);
+		Optional<Membershiptbl> MTBL_buyer = membershiptblRepository.findById(buyer);
+		Membershiptbl buyerTBL =MTBL_buyer.get();
+		buyerTBL.dreampayCal(point,false);
+		membershiptblRepository.save(buyerTBL);
+
+
+		Optional<Membershiptbl> MTBL_seller = membershiptblRepository.findById(seller);
+		Membershiptbl sellerTBL =MTBL_seller.get();
+		sellerTBL.dreampayCal(point,true);
+		membershiptblRepository.save(sellerTBL);
+
+		Optional<Paintingtbl> PTBL = paintingRepository.findById(paint);
+		Paintingtbl paintingtbl = PTBL.get();
+		paintingtbl.setStatus(1);
+		paintingRepository.save(paintingtbl);
+
+		return "user/redirect/pay_success";
 	}
 
 	@RequestMapping(value = "/ajax_request_QA",method = RequestMethod.GET, produces ="application/text;charset=UTF-8")

@@ -25,12 +25,14 @@ public class PaymentVO {
     private int width;
     private int height;
     private String exp;
+    private Integer buyer_no_member;
+    private Integer seller_no_member;
 
     public PaymentVO() {}
-    public PaymentVO(Paintingtbl paintingtbl, Membershiptbl membershiptbl){
+    public PaymentVO(Paintingtbl paintingtbl, Membershiptbl membershiptbl, Membershiptbl sellerMembershiptbl){
         this.no_painting = paintingtbl.getNo_painting();
         this.pname = paintingtbl.getPname();
-        this.paintingimg = membershiptbl.getImg()+"/paintingimg/"+paintingtbl.getPname()+"/0.jpg";
+        this.paintingimg = sellerMembershiptbl.getImg()+"/paintingimg/"+paintingtbl.getPname()+"/0.jpg";
         this.avatarimg = membershiptbl.getImg()+"/avatarimg/avatarimg.jpg";
         this.nickname = membershiptbl.getNickname();
         this.email = membershiptbl.getEmail();
@@ -43,6 +45,8 @@ public class PaymentVO {
         this.width = paintingtbl.getWidth();
         this.height = paintingtbl.getHeight();
         this.exp = paintingtbl.getExp();
+        this.buyer_no_member = membershiptbl.getNo_membership();
+        this.seller_no_member = sellerMembershiptbl.getNo_membership();
     }
 
 
