@@ -12,4 +12,6 @@ public interface QaRepository extends JpaRepository<Qatbl,Integer> {
 
     @Query(value = "select * from qatbl ", nativeQuery = true)
     List<String> findAllNotice_Desc();
+
+
 }

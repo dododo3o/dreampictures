@@ -89,7 +89,7 @@ public class AjaxController {
 	}
 
 	@RequestMapping(value = "/ajax_request_QA",method = RequestMethod.GET, produces ="application/text;charset=UTF-8")
-	public String request_Integer(Model model,HttpServletRequest request, String question, Integer status){
+	public String request_Qa(Model model,HttpServletRequest request, String question, Integer status){
 		HttpSession session = request.getSession();
 		Membershiptbl membershipTBL = membershiptblRepository.findByemail((String) session.getAttribute("logEmail"));
 		if(membershipTBL == null){ return "user/redirect/not_login"; }
