@@ -45,7 +45,6 @@ public class Membershiptbl {
     private Integer dreampay;
 
     public Membershiptbl() {}
-
     public Membershiptbl(RegisterVO vo){
         this.email = vo.getEmail();
         this.pwd = vo.getPwd();
@@ -59,7 +58,6 @@ public class Membershiptbl {
         this.dreampay = 0;
         if(StringUtils.isEmpty(startDate)){ this.startDate = LocalDate.now(ZoneId.of("Asia/Seoul"));}
     }
-
     public Membershiptbl(String email, String pwd, String tel, String addr, String detatilAddr, String img){
         this.email = email;
         this.pwd = pwd;
@@ -71,5 +69,10 @@ public class Membershiptbl {
         this.reported = 0;
         this.dreampay = 0;
         if(StringUtils.isEmpty(startDate)){ this.startDate = LocalDate.now(ZoneId.of("Asia/Seoul"));}
+    }
+
+    public void dreampayCal(Integer point, boolean plus){
+        if(plus)this.dreampay = this.dreampay + point;
+        else this.dreampay = this.dreampay - point;
     }
 }
