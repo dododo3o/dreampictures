@@ -65,4 +65,9 @@ public class MypageController {
         mv.setViewName("user/mypage/basket");
         return mv;
     }
+
+    @RequestMapping("/purchaseList")
+    public String purchaseList() {
+        return "user/mypage/purchaseList";
+    }
 }
