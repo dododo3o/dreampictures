@@ -53,20 +53,19 @@
                 <div style="padding-left: 20px;">등록일 : <c:out value="${paintingVO.writedate}"/></div>
                 <div class="has_evenly" style="display: flex;">
                     <div class="ui animated button" tabindex="0" id="prev_btn" style="width: 200px;">
-                        <div class="hidden content" style="user-select: auto;">이전페이지</div>
+                        <div class="hidden content" style="user-select: auto;"><a href="/buy">이전페이지</a></div>
                         <div class=" visible content" style="user-select: auto;">
                             <i class="left arrow icon" style="user-select: auto;"></i>
                         </div>
                     </div>
-                    <div class="ui animated button" tabindex="0" id="prev_btnkkk" style="width: 200px;">
-                        <div class="hidden content" style="user-select: auto;">장바구니</div>
+                    <div class="ui animated button" tabindex="0"style="width: 200px;">
+                        <div class="hidden content" style="user-select: auto;"><a href="/mypage/basket">장바구니</a></div>
                         <div class=" visible content" style="user-select: auto;">
                             <i class="shopping cart icon" style="user-select: auto;"></i>
                         </div>
                     </div>
-                    <a href="/buy_payment/<c:out value="${paintingVO.no_painting}"/>">
                         <div class="ui vertical animated button" tabindex="0" id="shop_btn" style="width: 200px;">
-                            <div class="hidden content" style="user-select: auto;">바로구매</div>
+                            <div class="hidden content" style="user-select: auto;"><a href="/buy_payment/<c:out value="${paintingVO.no_painting}"/>">바로구매</a></div>
                             <div class="visible content" style="user-select: auto;">
                                 <i class="money bill alternate outline icon" style="user-select: auto;"></i>
                             </div>
