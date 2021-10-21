@@ -5,14 +5,8 @@ import com.example.dreampicturespring.entity.Admintbl;
 import com.example.dreampicturespring.entity.Membershiptbl;
 import com.example.dreampicturespring.entity.Noticetbl;
 import com.example.dreampicturespring.entity.Qatbl;
-import com.example.dreampicturespring.repository.AdminRepository;
-import com.example.dreampicturespring.repository.MembershiptblRepository;
-import com.example.dreampicturespring.repository.NoticeRepository;
-import com.example.dreampicturespring.repository.QaRepository;
-import com.example.dreampicturespring.vo.LoginAdminVO;
-import com.example.dreampicturespring.vo.LoginVO;
-import com.example.dreampicturespring.vo.NoticeVO;
-import com.example.dreampicturespring.vo.QaVO;
+import com.example.dreampicturespring.repository.*;
+import com.example.dreampicturespring.vo.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -22,6 +16,7 @@ import org.springframework.web.servlet.ModelAndView;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.Optional;
 
@@ -32,6 +27,9 @@ public class AdminController {
     AdminRepository adminRepository;
 
     @Autowired
+    CommentRepository commentRepository;
+
+    @Autowired
     NoticeRepository noticeRepository;
 
     @Autowired
@@ -40,7 +38,11 @@ public class AdminController {
     @Autowired
     MembershiptblRepository membershiptblRepository;
 
+    @Autowired
+    PaintingRepository paintingRepository;
 
+    @Autowired
+    ReportRepository reportRepository;
 
     @RequestMapping("/admin/login")
     public String admin_login(Model model){ return "user/admin/login";}
@@ -83,7 +85,6 @@ public class AdminController {
         mv.setViewName("user/admin/notice");
         List<Noticetbl> noticetblList =  noticeRepository.findAll();
         List<NoticeVO> noticeVOList = new ArrayList<>();
-
         for(Noticetbl noticetbl :noticetblList){
             NoticeVO noticeVO = new NoticeVO();
             noticeVO.setTitle(noticetbl.getTitle());
@@ -91,13 +92,9 @@ public class AdminController {
             noticeVO.setContent(noticetbl.getContent());
             noticeVOList.add(noticeVO);
         }
-
         mv.addObject("noticeVOList",noticeVOList);
         return mv;
     }
-
-//    @RequestMapping("/admin/qa")
-//    public String admin_qa(Model model){ return "user/admin/qa";}
 
     @RequestMapping("/admin/qa")
     public ModelAndView admin_qa() {
@@ -128,15 +125,118 @@ public class AdminController {
 
 
     @RequestMapping("/admin/blacklist")
-    public String admin_blacklist(Model model){ return "user/admin/blacklist";}
+    public ModelAndView admin_blacklist(Model model){
+
+        ModelAndView mv = new ModelAndView();
+
+        return mv;}
 
     @RequestMapping("/admin/salesHistory")
-    public String admin_salesHistory(Model model){ return "user/admin/salesHistory";}
+    public ModelAndView admin_salesHistory(Model model){
+        final int CARDSPERPAGE = 15;
+        int cardNum = 0,pageNum;
+        ModelAndView mv = new ModelAndView();
+        List<CardVO> cardVOList = new ArrayList<>();
+        List<String> list = paintingRepository.findAllPainting_SoldOut();
+        for(String card : list){
+            List<String> obj = Arrays.asList(card.split(","));
+            CardVO cardVO = new CardVO();
+            cardVO.setNo_painting(obj.get(0));
+            cardVO.setAvatarimg(obj.get(1)+"/avatarimg/avatarimg.jpg");
+            cardVO.setPaintingmimg(obj.get(1)+"/paintingimg/"+obj.get(3)+"/0.jpg");
+            cardVO.setNickname(obj.get(2));
+            cardVO.setPname(obj.get(3));
+            cardVO.setCommentNumber(commentRepository.countByno_painting(Integer.parseInt(obj.get(0))));
+
+            List<String> comments = commentRepository.findCommenttbl(Integer.parseInt(obj.get(0)));
+            List<CommentVO> commentVOlist = new ArrayList<>();
+            for(String comment : comments){
+                List<String> comment_member = Arrays.asList(comment.split(","));
+                Membershiptbl membershiptbl = membershiptblRepository.getById(Integer.parseInt(comment_member.get(1)));
+                CommentVO commentVO = new CommentVO();
+                commentVO.setAvatarimg(membershiptbl.getImg()+"/avatarimg/avatarimg.jpg");
+                commentVO.setAuthor(membershiptbl.getNickname());
+                commentVO.setDate("1H");
+                commentVO.setComments(comment_member.get(0));
+                commentVO.setNo_membership(membershiptbl.getNo_membership());
+                commentVOlist.add(commentVO);
+            }
+            cardVO.setCommentVOList(commentVOlist);
+            cardVOList.add(cardVO);
+            cardNum++;
+        }
+        pageNum = cardNum/CARDSPERPAGE+1;
+        mv.setViewName("user/admin/salesHistory");
+        mv.addObject("cardVOlist",cardVOList);
+        mv.addObject("pageNum",pageNum);
+        return mv;
+    }
 
     @RequestMapping("/admin/allmembers")
-    public String admin_allmembers(Model model){ return "user/admin/allmembers";}
+    public ModelAndView admin_allmembers(Model model){
+        ModelAndView mv = new ModelAndView();
+        List<Membershiptbl> memberAllTBL = membershiptblRepository.findAll();
+        List<MemberVO> memberVOList = new ArrayList<>();
+        for(Membershiptbl members : memberAllTBL){
+            MemberVO vo = new MemberVO();
+            vo.setAvatarimg(members.getImg()+"/avatarimg/avatarimg.jpg");
+            vo.setNickname(members.getNickname());
+            vo.setAddr(members.getAddr());
+            vo.setReported(members.getReported());
+            vo.setTel(members.getTel());
+            vo.setDreampay(members.getDreampay());
+            vo.setInput_total(0);
+            vo.setOutput_total(0);
+            memberVOList.add(vo);
+        }
+        mv.addObject("memberVOList",memberVOList);
+        mv.setViewName("user/admin/allmembers");
+        return mv;
+    }
 
     @RequestMapping("/admin/report")
-    public String admin_report(Model model){ return "user/admin/report";}
+    public ModelAndView admin_report(Model model){
+        final int CARDSPERPAGE = 15;
+        int cardNum = 0,pageNum;
+        ModelAndView mv = new ModelAndView();
+        List<CardVO> cardVOList = new ArrayList<>();
+
+        List<Integer> reportedList = reportRepository.findAllpaint();
+
+        for(Integer no : reportedList) {
+            List<String> list = paintingRepository.findAllPainting_Reported(no);
+            for (String card : list) {
+                List<String> obj = Arrays.asList(card.split(","));
+                CardVO cardVO = new CardVO();
+                cardVO.setNo_painting(obj.get(0));
+                cardVO.setAvatarimg(obj.get(1) + "/avatarimg/avatarimg.jpg");
+                cardVO.setPaintingmimg(obj.get(1) + "/paintingimg/" + obj.get(3) + "/0.jpg");
+                cardVO.setNickname(obj.get(2));
+                cardVO.setPname(obj.get(3));
+                cardVO.setCommentNumber(commentRepository.countByno_painting(Integer.parseInt(obj.get(0))));
+                List<String> comments = commentRepository.findCommenttbl(Integer.parseInt(obj.get(0)));
+                List<CommentVO> commentVOlist = new ArrayList<>();
+                for (String comment : comments) {
+                    List<String> comment_member = Arrays.asList(comment.split(","));
+                    Membershiptbl membershiptbl = membershiptblRepository.getById(Integer.parseInt(comment_member.get(1)));
+                    CommentVO commentVO = new CommentVO();
+                    commentVO.setAvatarimg(membershiptbl.getImg() + "/avatarimg/avatarimg.jpg");
+                    commentVO.setAuthor(membershiptbl.getNickname());
+                    commentVO.setDate("1H");
+                    commentVO.setComments(comment_member.get(0));
+                    commentVO.setNo_membership(membershiptbl.getNo_membership());
+                    commentVOlist.add(commentVO);
+                }
+                cardVO.setCommentVOList(commentVOlist);
+                cardVOList.add(cardVO);
+                cardNum++;
+            }
+        }
+        pageNum = cardNum/CARDSPERPAGE+1;
+        mv.setViewName("user/admin/report");
+        mv.addObject("cardVOlist",cardVOList);
+        mv.addObject("pageNum",pageNum);
+        return mv;
+    }
 
 }

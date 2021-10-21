@@ -22,43 +22,11 @@
             integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.13/semantic.js"></script>
     <script>
-        //a태그 마우스오버1
-        function mouseOver() {
-            document.getElementById('noticeLink').style.backgroundColor = "gray";
-            document.getElementById('menuFont').style.color = "white";
-            document.getElementById('menuIcon').style.color = "white";
-        }
-
-        //a태그 마우스오버
-        function mouseOver2() {
-            document.getElementById('noticeLink2').style.backgroundColor = "gray";
-            document.getElementById('menuFont2').style.color = "white";
-            document.getElementById('menuIcon2').style.color = "white";
-        }
-
-        //a태그 마우스아웃
-        function mouseOut() {
-            document.getElementById('noticeLink').style.backgroundColor = "rgba(255,255,255,0)";
-            document.getElementById('menuFont').style.color = "var(--color-river-bed)";
-            document.getElementById('menuIcon').style.color = "var(--color-river-bed)";
-        }
-
-        //a태그 마우스아웃2
-        function mouseOut2() {
-            document.getElementById('noticeLink2').style.backgroundColor = "rgba(255,255,255,0)";
-            document.getElementById('menuFont2').style.color = "var(--color-river-bed)";
-            document.getElementById('menuIcon2').style.color = "var(--color-river-bed)";
-        }
-
-        function modal() {
-            document.getElementById("modaldiv")
-        }
+        function modal() {document.getElementById("modaldiv")}
     </script>
     <script type="text/javascript">
         let status = undefined; //0~4 까지 질문 종류
-        showModal = function () {
-            $('.ui.modal').modal('show');
-        };
+        showModal = function () {$('.ui.modal').modal('show');};
         requestQA = function () {
             $(() => {
                 if (status == undefined) return;
@@ -72,11 +40,7 @@
                 });
             });
         };
-        selectedBtn = function (number) {
-            $(() => {
-                status = number
-            });
-        };
+        selectedBtn = function (number) {$(() => {status = number});};
     </script>
 </head>
 <body>
@@ -92,7 +56,7 @@
     <div class="container">
         <div class="has_flex_column" style="grid-column:1/3; gap:40px;padding-top: 30px; background-color: #a2b0b36e">
             <div class="ui vertical animated button" tabindex="0" onclick="showModal()">
-                <div class="hidden content"><a href="/notice">공지사항</a></div>
+                <div class="hidden content">공지사항</div>
                 <div class="visible content">
                     <i class="bullhorn icon"></i>
                 </div>
@@ -104,7 +68,7 @@
                 </div>
             </div>
             <div class="ui vertical animated button" tabindex="0" onclick="showModal()">
-                <div class="hidden content"><a href="/notice_question">질문하기</a></div>
+                <div class="hidden content"><a href="notice_question.jsp">질문하기</a></div>
                 <div class="visible content">
                     <i class="comments outline icon"></i>
                 </div>
@@ -116,9 +80,9 @@
                 <c:forEach var="noticeVOList" items="${noticeVOList}">
                     <div class="ui card" style="height: 100%; margin: 0 auto;">
                         <div class="content">
+                            <div class="right floated meta">14h</div>
                             <img src="${noticeVOList.avatarimg}"
                                  style="border-radius: 50%; width: 3em;height: 3em;object-fit: cover;">
-                            <div>${noticeVOList.title}</div>
                         </div>
                         <div class="image">
                             <img src="${noticeVOList.paintingmimg}" style="object-fit: cover; height: 250px"></a>
@@ -136,6 +100,29 @@
                             <button class="ui blue icon button" onclick="addComment(${cardVOlist.no_painting})"
                                     style="float: right; font-size: 0.8em;">Add
                             </button>
+                        </div>
+                        <div class="ui bottom attached button collapsible">
+                            <i class="add icon"></i>
+                            <span><i class="comment icon"></i>${cardVOlist.commentNumber}</span>
+                        </div>
+                        <div class="comments_css">
+                            <div class="ui comments">
+                                <c:forEach var="commentVOList" items="${cardVOlist.commentVOList}">
+                                    <h4 class="ui" style="user-select: auto;"></h4>
+                                    <div class="comment" style="margin-left: 10px; margin-bottom: 10px;">
+                                        <a class="avatar"><img src="${commentVOList.avatarimg}"
+                                                               style="border-radius: 50%; height:40px; width:40px;object-fit: cover;"></a>
+                                        <div class="content">
+                                            <a class="author">${commentVOList.author}</a>
+                                            <div class="metadata">
+                                                <span class="date">${commentVOList.date}</span>
+                                            </div>
+                                            <div class="text">${commentVOList.comments}</div>
+                                            <div class="actions"></div>
+                                        </div>
+                                    </div>
+                                </c:forEach>
+                            </div>
                         </div>
                     </div>
                 </c:forEach>
@@ -168,11 +155,7 @@
             <br>
         </div>
     </div>
-    </div>
-
-    </div>
-
-</main>
+</main>d
 <jsp:include page="../header_footer/footer.jsp"></jsp:include>
 </body>
 </html>

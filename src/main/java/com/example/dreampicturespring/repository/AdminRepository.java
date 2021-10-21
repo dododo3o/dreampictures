@@ -13,4 +13,7 @@ public interface AdminRepository extends JpaRepository<Admintbl,Integer> {//í…Œì
 
     @Query(value = "select admintbl.adminpwd from admintbl where admintbl.adminid = :adminID ", nativeQuery = true)
     String findByadminID(@Param("adminID") String adminID);
+
+    @Query(value = "select admintbl.no_admin from admintbl where admintbl.adminid = :adminID ", nativeQuery = true)
+    Integer findByadminID_no(@Param("adminID") String adminID);
 }

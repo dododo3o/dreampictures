@@ -28,7 +28,7 @@
 <jsp:include page="../header_footer/header_login.jsp"></jsp:include>
 <main class="has_bg_harp">
     <div style="display:flex; justify-content: space-evenly;" >
-        <div style="width:440px; margin-top:30px; height:500px; border-radius:10px;" class="has_bg_white">
+        <div style="width:440px; margin-top:100px; height:500px; border-radius:10px;" class="has_bg_white">
             <h1 style=" color:white; background-color:#dc143c; height:50px; border-radius:10px;" class="has_flex_center">P A Y C O</h1>
             <p style=" font-weight: bold; text-align: center; font-size:30px; margin-top:40px;">페이코 현재 사용가능</p>
             <div style="margin-left:85px;">
@@ -47,7 +47,7 @@
             <p  style="color: #ac2925; margin-top: 10px; text-align: center;">페이코의 최소 충전금액은 5,000원이며 <br/>최대 충전금액은 50,000원 입니다.</p>
             <div style="text-align: center;"><button  type="button" style=" color:white; border-radius:10px; font-size:20px; padding:15px 110px; background-color:#dc143c;" class="ui button"  id="charge_payco">충 전 하 기</button></div>
         </div>
-        <div style="width:440px; margin-top:30px; height:500px; border-radius:10px;" class="has_bg_white">
+        <div style="width:440px; margin-top:100px; height:500px; border-radius:10px;" class="has_bg_white">
             <h1 style=" color:white; background-color:#FFE400; height:50px; border-radius:10px;" class="has_flex_center">카카오페이</h1>
             <p style=" font-weight: bold; text-align: center; font-size:25px; margin-top:40px;">카카오페이 현재 사용가능</p>
             <div style="margin-left:85px;">
@@ -66,7 +66,7 @@
             <p  style="color: #ac2925; margin-top: 15px; text-align: center;">카카오페이의 최소 충전금액은 5,000원이며 <br/>최대 충전금액은 50,000원 입니다.</p>
             <div style="text-align: center;"><button  type="button" style=" color:white; border-radius:10px; font-size:20px; padding:15px 110px; background-color:#FFE400;" class="ui button"  id="charge_kakao">충 전 하 기</button></div>
         </div>
-        <div style="width:440px; margin-top:30px; height:500px; border-radius:10px;" class="has_bg_white">
+        <div style="width:440px; margin-top:100px; height:500px; border-radius:10px;" class="has_bg_white">
             <h1 style=" color:white; background-color:#00C73C; height:50px; border-radius:10px;" class="has_flex_center">네이버페이</h1>
             <p style=" font-weight: bold; text-align: center; font-size:25px; margin-top:40px;">네이버페이 현재 사용가능</p>
             <div style="margin-left:85px;">
