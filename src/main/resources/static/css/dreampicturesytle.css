@@ -212,7 +212,7 @@ button{border-radius:8px; border:0; outline:0; color:var(--color-white); backgro
 /* input textarea checkbox */
 option{font-size: var(--font-size-base);color: black;}
 
-input:not(input[type=file], .painting_input, #cal, #style, #theme), input[type=textarea], select{border-radius:8px; outline:none;text-indent:10px;height:64px;border: 2px solid var(--color-jagged-ice); font-size: var(--font-size-lg);}
+input:not(input[type=file], .painting_input, #cal, #style, #theme, .find_pwd), input[type=textarea], select{border-radius:8px; outline:none;text-indent:10px;height:64px;border: 2px solid var(--color-jagged-ice); font-size: var(--font-size-lg);}
 
 .input-file-button{padding: 6px 25px;background-color:var(--color-chathams-blue);border-radius: 4px;color: white;cursor: pointer;}
 
@@ -335,4 +335,5 @@ textarea::placeholder{color: #80808057;}
 #address_input{border-radius:1px; outline:none;text-indent:10px;height:30px;border: 1px solid #80808057; font-size: var(--font-size-basic);}
 
 .comments_css {padding: 0 18px;max-height: 0;overflow: hidden;transition: max-height 0.2s ease-out;background-color: #f1f1f1;}
+
 
