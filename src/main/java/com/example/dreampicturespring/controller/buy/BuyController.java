@@ -11,6 +11,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.HttpServletRequest;
@@ -96,8 +98,10 @@ public class BuyController {
         }
         Optional<Paintingtbl> PTBL = paintingRepository.findById(Integer.parseInt(no_painting));
         Paintingtbl paintingTBL = PTBL.get();
+        Optional<Membershiptbl> sellerMembershipTBL = membershiptblRepository.findById((paintingTBL.getNo_membership()));
+        Membershiptbl sellerMembershiptbl = sellerMembershipTBL.get();
         Membershiptbl membershipTBL = membershiptblRepository.findByemail((String) session.getAttribute("logEmail"));
-        PaymentVO paymentVO = new PaymentVO(paintingTBL,membershipTBL);
+        PaymentVO paymentVO = new PaymentVO(paintingTBL,membershipTBL,sellerMembershiptbl);
         mv.addObject("paymentVO",paymentVO);
         return mv;
     }
@@ -118,6 +122,16 @@ public class BuyController {
         Membershiptbl buyerMembershipTBL = membershiptblRepository.findByemail((String) session.getAttribute("logEmail"));
         TransactionVO transactionVO = new TransactionVO(paintingTBL,sellerMembershiptbl,buyerMembershipTBL);
         mv.addObject("transactionVO",transactionVO);
+        return mv;
+    }
+
+    @RequestMapping(value = "/buy_success",method = RequestMethod.POST, produces ="application/text;charset=UTF-8")
+    @ResponseBody
+    public ModelAndView buy_success(){
+        ModelAndView mv = new ModelAndView();
+        mv.setViewName("user/redirect/alert1");
+        mv.addObject("msg","성공적으로 구매되었습니다.");
+        mv.addObject("url","user/mypage/mypage");
         return mv;
     }
 }

@@ -19,6 +19,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.13/semantic.js"></script>
+
     <script>
         var mapContainer = document.getElementById('map'), // 지도를 표시할 div
             mapOption = {
@@ -52,30 +53,21 @@
     </script>
     <script>
         showCommentModal = function (msg) {
-                if(msg=="포인트가 부족합니다."){
-                    $("#point").css("display","block");
-                }
-                else{
-                    $('.ui.tiny.modal').modal('show');
-                }
-            };
-        pay = function () {
+                if(msg=="포인트가 부족합니다."){$("#point").css("display","block");}
+                else{$('.ui.tiny.modal').modal('show');}
+        };
+        pay = function (point) {
             $(() => {
+                alert(point);
                 $.ajax({
                     url: "/ajax_pay",
-                    data: "pname=" + pname + "&style=" + style,
+                    data: "point=" + point + "&buyer=" + <c:out value="${paymentVO.buyer_no_member}"/> + "&seller=" + <c:out value="${paymentVO.seller_no_member}"/> + "&paint=" + <c:out value="${paymentVO.no_painting}"/> ,
                     success: function (result) {
-                        var container = document.getElementById("container");
-                        while (container.hasChildNodes()) {
-                            container.removeChild(container.firstChild);
-                        }
-                        $("#container").html(result);
+                        document.location.href = "/buy";
                     }
                 });
             });
         };
-
-
     </script>
 </head>
 <body>
@@ -99,7 +91,7 @@
             <div class="ui black deny button">
                 아니요
             </div>
-            <div class="ui positive right labeled icon button" onclick="pay()">
+            <div class="ui positive right labeled icon button" onclick="pay(<c:out value="${paymentVO.price}"/>)">
                 네 구매할게요!
                 <i class="checkmark icon"></i>
             </div>

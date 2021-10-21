@@ -3,8 +3,11 @@ package com.example.dreampicturespring.repository;
 
 import com.example.dreampicturespring.entity.Membershiptbl;
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
+
+import javax.transaction.Transactional;
 
 public interface MembershiptblRepository extends JpaRepository<Membershiptbl,Integer> {
         @Override
@@ -14,8 +17,15 @@ public interface MembershiptblRepository extends JpaRepository<Membershiptbl,Int
         Boolean existsBytel(String tel);
         Boolean existsBynickname(String nickname);
 
+        @Transactional
+        @Modifying(clearAutomatically = true)
         @Query(value = "UPDATE membershiptbl SET membershiptbl.dreampay = :money + membershiptbl.dreampay WHERE membershiptbl.no_membership = :no_membership", nativeQuery = true)
-        String UpdateDreampay(@Param("money") String money,@Param("no_membership")String no_membership);
+        Integer UpdateDreampayPlus(@Param("money") Integer money, @Param("no_membership")Integer no_membership);
+
+        @Transactional
+        @Modifying(clearAutomatically = true)
+        @Query(value = "UPDATE membershiptbl SET membershiptbl.dreampay = :money + membershiptbl.dreampay WHERE membershiptbl.no_membership = :no_membership", nativeQuery = true)
+        Integer UpdateDreampayMinus(@Param("money") Integer money, @Param("no_membership")Integer no_membership);
 }
 
 

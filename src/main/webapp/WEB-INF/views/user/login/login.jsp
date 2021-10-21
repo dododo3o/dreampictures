@@ -18,6 +18,7 @@
             integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ=="
             crossorigin="anonymous" referrerpolicy="no-referrer">
     </script>
+
 </head>
 <body>
 <jsp:include page="../header_footer/header_not_login.jsp"></jsp:include>
@@ -25,7 +26,7 @@
     <div class="container">
         <div class="contents" style="grid-column: 5/9; margin-top: 50px">
             <form action="<%=conPath%>/login_check" method="post" id="frm">
-                <div style="display: flex;user-select: auto;flex-direction: column;align-items: center;justify-content: space-evenly;height: 650px;">
+                <div class="has_flex_space_cl" style="height: 650px;">
                     <div class="title">로그인 화면</div>
                     <div class="has_flex_left"><input type="text" class="is_login_input has_width_full" name="email"
                                                       id="email" required="required" placeholder="이메일"></div>
@@ -36,6 +37,7 @@
                             <input type="checkbox" id="login_check" style="height: 20px;">
                             <span class="has_black has_font-xs">Remember me</span>
                         </div>
+
                         <div><a href='#' class="has_black">Forgot password?</a></div>
                     </div>
                     <a href="/login_check">
