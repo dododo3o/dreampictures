@@ -96,9 +96,11 @@
     <div class="w3-container w3-row">
         <div class="w3-col s8 w3-bar" style="text-align: center;margin-left: 50px">
             <span>Welcome, <strong>Master</strong></span><br>
-            <button class="ui secondary button" style="height:35px;font-family: 'BMHANNAPro';">
-                로그아웃
-            </button>
+            <form action="<%=conPath%>/admin/login" method="post">
+                <button class="ui secondary button" style="height:35px;font-family: 'BMHANNAPro';">
+                    로그아웃
+                </button>
+            </form>
         </div>
     </div>
     <hr>
@@ -121,25 +123,29 @@
 <div class="w3-overlay w3-hide-large w3-animate-opacity" onclick="w3_close()" style="cursor:pointer" title="close side menu" id="myOverlay"></div>
 
 <!-- !PAGE CONTENT! -->
-<div class="w3-main" style="margin-left:300px;margin-top:43px;">
+<div class="w3-main" style="margin-left:300px;">
 
     <!-- Header -->
 
 
     <div class="has_bg_harp">
         <div class="container">
-            <div style="grid-column:3/11;display: flex;flex-direction: column; gap:20px; justify-content: center;margin-top: 22px;">
-                <div class="has_chathams-blue" style="font-size: var(--font-size-xlll);text-align: center;margin-right: 50px">기간별 판매내역</div>
+            <div style="grid-column:4/11;display: flex;flex-direction: column; gap:20px; justify-content: center;margin-top: 22px;">
+                <h1 class="ui header" style="margin-left:180px;margin-bottom:40px;font-family: 'BMHANNAPro';color:var(--color-chathams-blue)">기간별 판매내역</h1>
                 <form action="">
-                    <div style="display: flex;margin-bottom: 50px;justify-content: space-evenly;align-items: center;">
-                        <select class="has_width_full">
-                            <option value="" disabled selected>기간설정</option>
-                            <option value="1week">1주</option>
-                            <option value="1month">1개월</option>
-                            <option value="3month">3개월</option>
-                            <option value="6month">6개월</option>
-                            <option value="1year">1년</option>
-                        </select>
+                    <div style="display: flex;margin-bottom: 50px;align-items: center;">
+                        <div class="ui form">
+                            <div class="field" style="width:300px;margin-right: 40px;">
+                                <select>
+                                    <option value="">기간설정</option>
+                                    <option value="0">1주</option>
+                                    <option value="1">1개월</option>
+                                    <option value="2">3개월</option>
+                                    <option value="3">6개월</option>
+                                    <option value="4">1년</option>
+                                </select>
+                            </div>
+                        </div>
                         <button class='button is_notification' onclick="searchOk">검색</button>
                     </div>
                 </form>

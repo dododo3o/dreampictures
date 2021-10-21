@@ -30,23 +30,23 @@ public class NoticeController {
         int cardNum = 0, pageNum;
 
         ModelAndView mv = new ModelAndView();
-        List<NoticeVO> noticeVOList = new ArrayList<>();
-        List<String> list = qaRepository.findAllNotice_Desc();
-
-        for (String notice : list) {
-            List<String> obj = Arrays.asList(notice.split(","));
-            Membershiptbl membershiptbl = membershiptblRepository.getById(Integer.parseInt(obj.get(1)));
-            NoticeVO vo = new NoticeVO();
-            vo.setContent(obj.get(2));
-            vo.setAvatarimg(membershiptbl.getImg() + "/avatarimg/avatarimg.jpg");
-            vo.setPaintingmimg("/resources/utility/photo/" + obj.get(5) + ".jpg");
-            noticeVOList.add(vo);
-            cardNum++;
-        }
-        pageNum = cardNum / CARDSPERPAGE + 1;
+//        List<NoticeVO> noticeVOList = new ArrayList<>();
+//        List<String> list = qaRepository.findAllNotice_Desc();
+//
+//        for(String notice : list){
+//            List<String> obj = Arrays.asList(notice.split(","));
+//            Membershiptbl membershiptbl = membershiptblRepository.getById(Integer.parseInt(obj.get(1)));
+//            NoticeVO vo = new NoticeVO();
+//            vo.setContent(obj.get(2));
+//            vo.setAvatarimg(membershiptbl.getImg()+"/avatarimg/avatarimg.jpg");
+//            vo.setPaintingmimg("/resources/utility/photo/"+obj.get(5)+".jpg");
+//            noticeVOList.add(vo);
+//            cardNum++;
+//        }
+//        pageNum = cardNum/CARDSPERPAGE+1;
         mv.setViewName("user/notice/notice");
-        mv.addObject("noticeVOList", noticeVOList);
-        mv.addObject("pageNum", pageNum);
+//        mv.addObject("noticeVOList",noticeVOList);
+//        mv.addObject("pageNum",pageNum);
         return mv;
     }
 

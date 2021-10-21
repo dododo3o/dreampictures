@@ -96,9 +96,11 @@
     <div class="w3-container w3-row">
         <div class="w3-col s8 w3-bar" style="text-align: center;margin-left: 50px">
             <span>Welcome, <strong>Master</strong></span><br>
-            <button class="ui secondary button" style="height:35px;font-family: 'BMHANNAPro';">
-                로그아웃
-            </button>
+            <form action="<%=conPath%>/admin/login" method="post">
+                <button class="ui secondary button" style="height:35px;font-family: 'BMHANNAPro';">
+                    로그아웃
+                </button>
+            </form>
         </div>
     </div>
     <hr>
@@ -121,7 +123,7 @@
 <div class="w3-overlay w3-hide-large w3-animate-opacity" onclick="w3_close()" style="cursor:pointer" title="close side menu" id="myOverlay"></div>
 
 <!-- !PAGE CONTENT! -->
-<div class="w3-main" style="margin-left:300px;margin-top:43px;">
+<div class="w3-main" style="margin-left:300px;">
 
     <!-- Header -->
 

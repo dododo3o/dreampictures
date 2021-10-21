@@ -2,10 +2,13 @@ package com.example.dreampicturespring.controller.admin;
 
 
 import com.example.dreampicturespring.entity.Admintbl;
+import com.example.dreampicturespring.entity.Noticetbl;
 import com.example.dreampicturespring.repository.AdminRepository;
 import com.example.dreampicturespring.repository.MembershiptblRepository;
+import com.example.dreampicturespring.repository.NoticeRepository;
 import com.example.dreampicturespring.vo.LoginAdminVO;
 import com.example.dreampicturespring.vo.LoginVO;
+import com.example.dreampicturespring.vo.NoticeVO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -14,6 +17,8 @@ import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
+import java.util.ArrayList;
+import java.util.List;
 
 @Controller
 public class AdminController {
@@ -21,6 +26,8 @@ public class AdminController {
     @Autowired
     AdminRepository adminRepository;
 
+    @Autowired
+    NoticeRepository noticeRepository;
 
 
     @RequestMapping("/admin/login")
@@ -55,17 +62,33 @@ public class AdminController {
         return "user/admin/login";
     }
 
+    @RequestMapping("/admin/main")
+    public String admin_main(Model model){ return "user/admin/main";}
+
+    @RequestMapping("/admin/notice")
+    public ModelAndView admin_notice(Model model){
+        ModelAndView mv = new ModelAndView();
+        mv.setViewName("user/admin/notice");
+        List<Noticetbl> noticetblList =  noticeRepository.findAll();
+        List<NoticeVO> noticeVOList = new ArrayList<>();
+
+        for(Noticetbl noticetbl :noticetblList){
+            NoticeVO noticeVO = new NoticeVO();
+            noticeVO.setTitle(noticetbl.getTitle());
+            noticeVO.setWritedate(noticetbl.getWritedate());
+            noticeVO.setContent(noticetbl.getContent());
+            noticeVOList.add(noticeVO);
+        }
+
+        mv.addObject("noticeVOList",noticeVOList);
+        return mv;
+    }
+
     @RequestMapping("/admin/qa")
     public String admin_qa(Model model){ return "user/admin/qa";}
 
     @RequestMapping("/admin/blacklist")
     public String admin_blacklist(Model model){ return "user/admin/blacklist";}
-
-    @RequestMapping("/admin/main")
-    public String admin_main(Model model){ return "user/admin/main";}
-
-    @RequestMapping("/admin/notice")
-    public String admin_notice(Model model){ return "user/admin/notice";}
 
     @RequestMapping("/admin/salesHistory")
     public String admin_salesHistory(Model model){ return "user/admin/salesHistory";}
