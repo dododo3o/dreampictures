@@ -69,15 +69,9 @@ public class MypageController {
         mv.setViewName("user/mypage/cart");
         return mv;
     }
-<<<<<<< HEAD
-}
-=======
-
     @RequestMapping("/buylist")
     public String buylist() { return "user/mypage/buylist";}
 
     @RequestMapping("/selllist")
     public String selllist() { return "user/mypage/selllist";}
-
 }
->>>>>>> c66ed66beadb68574d58698cb4889b6c3da0ac80
