@@ -106,7 +106,8 @@
             </div>
         </div>
         <div class="actions" style="background-color: #95afc0">
-            <div class="ui positive right labeled icon button" style="background-color: var(--color-metallic-blue)" onclick="requestQA()">
+            <div class="ui positive right labeled icon button" style="background-color: var(--color-metallic-blue)"
+                 onclick="requestQA()">
                 올리기
                 <i class="checkmark icon"></i>
             </div>
@@ -137,9 +138,13 @@
             <div tabindex="0" onclick="showModal()">
                 <button class="ui button" style="font-family: 'BMHANNAPro';">질문하기</button>
             </div>
-            <div class="manager_card" style="display: grid;grid-template-columns:repeat(3,1fr);grid-gap:1rem;width: 100%;">
+            <div class="manager_card"
+                 style="display: grid;grid-template-columns:repeat(3,1fr);grid-gap:1rem;width: 100%;">
                 <c:forEach var="QaVOlist" items="${QaVOlist}">
-                    <div class="ui card" style="height: 100%; margin: 0 auto;"><div class="content"><div class="header" style="font-size: 1.5em">${QaVOlist.category}</div></div>
+                    <div class="ui card" style="height: 100%; margin: 0 auto;">
+                        <div class="content">
+                            <div class="header" style="font-size: 1.5em">${QaVOlist.category}</div>
+                        </div>
                         <div class="content">
                             <div style="font-size: 1.3em">작성자 : ${QaVOlist.nickname}<br/>${QaVOlist.content}
                             </div>

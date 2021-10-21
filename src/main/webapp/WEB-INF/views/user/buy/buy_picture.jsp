@@ -11,8 +11,8 @@
     <link rel="stylesheet" href="/resources/css/dreampicturesytle.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
-    <link href="https://fonts.googleapis.com/css2?family=Black+Han+Sans&family=Rampart+One&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Black+Han+Sans&family=Rampart+One&display=swap"
+          rel="stylesheet">
     <script src="https://kit.fontawesome.com/b14e6f064f.js" crossorigin="anonymous"></script>
 </head>
 <body>
@@ -32,39 +32,52 @@
                 <div class="has_flex_column ">
                     <div class="has_between" style="display: flex; height: 35px; justify-content: space-around;">
                         <h2 class="ui header">
-                            <img src="${paintingVO.avatarimg}" style="border-radius: 50%; width: 3em;height: 3em;object-fit: cover;"><c:out value="${paintingVO.nickname}"/>
+                            <img src="${paintingVO.avatarimg}"
+                                 style="border-radius: 50%; width: 3em;height: 3em;object-fit: cover;"><c:out
+                                value="${paintingVO.nickname}"/>
                         </h2>
                         <div class="ui vertical red animated button" tabindex="0">
                             <div class="hidden content" style="user-select: auto;">신고하기</div>
-                            <div class="visible content" style="user-select: auto;"><i class="exclamation circle icon" style="user-select: auto;"></i></div>
+                            <div class="visible content" style="user-select: auto;"><i class="exclamation circle icon"
+                                                                                       style="user-select: auto;"></i>
+                            </div>
                         </div>
                     </div>
                 </div>
                 <a class="ui blue ribbon label">그림 제목</a>
-                <span style="font-size: 40px; margin: 0 auto; font-family: 'Black Han Sans', sans-serif;;"><c:out value="${paintingVO.pname}"/></span>
+                <span style="font-size: 40px; margin: 0 auto; font-family: 'Black Han Sans', sans-serif;;"><c:out
+                        value="${paintingVO.pname}"/></span>
                 <a class="ui teal ribbon label">그림 설명</a>
-                <div style="padding-left: 35px;padding-right: 35px; font-size: 20px;line-height:30px;"><c:out value="${paintingVO.exp}"/></div>
+                <div style="padding-left: 35px;padding-right: 35px; font-size: 20px;line-height:30px;"><c:out
+                        value="${paintingVO.exp}"/></div>
                 <div style="padding-left: 20px;">등록일 : <c:out value="${paintingVO.writedate}"/></div>
                 <div class="has_evenly" style="display: flex;">
                     <div class="ui animated button" tabindex="0" id="prev_btn" style="width: 200px;">
-                        <div class="hidden content" style="user-select: auto;">prev</div>
+                        <div class="hidden content" style="user-select: auto;">이전페이지</div>
                         <div class=" visible content" style="user-select: auto;">
                             <i class="left arrow icon" style="user-select: auto;"></i>
                         </div>
                     </div>
+                    <div class="ui animated button" tabindex="0" id="prev_btnkkk" style="width: 200px;">
+                        <div class="hidden content" style="user-select: auto;">장바구니</div>
+                        <div class=" visible content" style="user-select: auto;">
+                            <i class="shopping cart icon" style="user-select: auto;"></i>
+                        </div>
+                    </div>
                     <a href="/buy_payment/<c:out value="${paintingVO.no_painting}"/>">
                         <div class="ui vertical animated button" tabindex="0" id="shop_btn" style="width: 200px;">
-                        <div class="hidden content" style="user-select: auto;">Shop</div>
-                        <div class="visible content" style="user-select: auto;">
-                            <i class="shop icon" style="user-select: auto;"></i>
-                        </div>
+                            <div class="hidden content" style="user-select: auto;">바로구매</div>
+                            <div class="visible content" style="user-select: auto;">
+                                <i class="money bill alternate outline icon" style="user-select: auto;"></i>
+                            </div>
                         </div>
                     </a>
                 </div>
             </div>
             <div class="has_flex_center" style="width: 60%;">
                 <div style="width: 80%; height: 80%;">
-                    <img src="<c:out value="${paintingVO.paintingimg}"/>" style="object-fit: cover; width: 100%; height: 100%;">
+                    <img src="<c:out value="${paintingVO.paintingimg}"/>"
+                         style="object-fit: cover; width: 100%; height: 100%;">
                 </div>
             </div>
         </div>
