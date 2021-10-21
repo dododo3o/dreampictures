@@ -57,4 +57,12 @@ public class MypageController {
     public String changeSuccess() {
         return "user/mypage/mypage";
     }
+
+    @RequestMapping("/mypage/basket")
+    public ModelAndView basket(HttpServletRequest req){
+        ModelAndView mv = new ModelAndView();
+        String user = (String) req.getSession().getAttribute("logEmail");
+        mv.setViewName("user/mypage/basket");
+        return mv;
+    }
 }
