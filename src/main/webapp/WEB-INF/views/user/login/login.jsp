@@ -18,11 +18,35 @@
             integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ=="
             crossorigin="anonymous" referrerpolicy="no-referrer">
     </script>
-
+    <script>
+        showModal = function () {
+            $('.ui.modal').modal('show');
+        };
+    </script>
 </head>
 <body>
 <jsp:include page="../header_footer/header_not_login.jsp"></jsp:include>
 <main class="has_bg_harp">
+    <div class="ui modal">
+        <div class="header">비밀번호 찾기 <i class="unlock alternate icon"></i></div>
+        <div class="ui form">
+            <div class="has_flex_column" style="gap:30px; margin-top: 20px; margin-bottom: 20px;">
+                <div class="ui input">
+                    <input class="find_pwd" type="text" placeholder="아이디를 입력해주세요." style="user-select: auto;">
+                </div>
+                <div class="ui input">
+                    <input class="find_pwd" type="text" placeholder="연락처를 입력해주세요." style="user-select: auto;">
+                </div>
+            </div>
+        </div>
+        <div class="actions" style="background-color: #95afc0">
+            <div class="ui positive right labeled icon button" style="background-color: var(--color-metallic-blue)"
+                 onclick="requestQA()">
+                찾기
+               <i class="checkmark icon"></i>
+            </div>
+        </div>
+    </div>
     <div class="container">
         <div class="contents" style="grid-column: 5/9; margin-top: 50px">
             <form action="<%=conPath%>/login_check" method="post" id="frm">
@@ -33,12 +57,12 @@
                     <div class="has_flex_left"><input type="password" placeholder="Password" name="pwd" id="pwd"
                                                       class="is_login_input has_width_full"/></div>
                     <div class="has_flex_center" style="display: flex; width: 100%; justify-content: space-around;">
-                        <div>
+                        <div style="display: flex;align-items: center;gap:10px; ">
                             <input type="checkbox" id="login_check" style="height: 20px;">
                             <span class="has_black has_font-xs">Remember me</span>
                         </div>
 
-                        <div><a href='#' class="has_black">Forgot password?</a></div>
+                        <div onclick="showModal()"><a href='#' class="has_black"> <i class="large unlock alternate icon"></i> Forgot password?</a></div>
                     </div>
                     <a href="/login_check">
                         <button class='button is_login has_shadow has_width_full has_flex_center'><i
