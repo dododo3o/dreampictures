@@ -117,7 +117,7 @@
                     <div class="ui card" style="height: 100%; margin: 0 auto;">
                         <div class="content">
                             <img src="${noticeVOList.avatarimg}" style="border-radius: 50%; width: 3em;height: 3em;object-fit: cover;">
-<%--                            <div>${noticeVOList.title}</div>--%>
+                            <div>${noticeVOList.title}</div>
                         </div>
                         <div class="image">
                             <img src="${noticeVOList.paintingmimg}" style="object-fit: cover; height: 250px"></a>

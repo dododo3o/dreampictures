@@ -69,7 +69,7 @@
                     url: "/ajax_request_QA",
                     data: "question=" + question + "&status=" + status,
                     success: function (result) {
-                        document.location.href = "/notice";
+                        document.location.href = "/notice_question";
                     }
                 });
             });
@@ -106,8 +106,7 @@
             </div>
         </div>
         <div class="actions" style="background-color: #95afc0">
-            <div class="ui positive right labeled icon button" style="background-color: var(--color-metallic-blue)"
-                 onclick="requestQA()">
+            <div class="ui positive right labeled icon button" style="background-color: var(--color-metallic-blue)" onclick="reqquestQA()">
                 올리기
                 <i class="checkmark icon"></i>
             </div>
@@ -138,54 +137,14 @@
             <div tabindex="0" onclick="showModal()">
                 <button class="ui button" style="font-family: 'BMHANNAPro';">질문하기</button>
             </div>
-            <div class="manager_card"
-                 style="display: grid;grid-template-columns:repeat(3,1fr);grid-gap:1rem;width: 100%;">
-                <c:forEach var="noticeVOList" items="${noticeVOList}">
-                    <div class="ui card" style="height: 100%; margin: 0 auto;">
+            <div class="manager_card" style="display: grid;grid-template-columns:repeat(3,1fr);grid-gap:1rem;width: 100%;">
+                <c:forEach var="QaVOlist" items="${QaVOlist}">
+                    <div class="ui card" style="height: 100%; margin: 0 auto;"><div class="content"><div class="header">${QaVOlist.category}</div></div>
                         <div class="content">
-                            <img src="${noticeVOList.avatarimg}"
-                                 style="border-radius: 50%; width: 3em;height: 3em;object-fit: cover;">
-                        </div>
-                        <div class="image">
-                            <img src="${noticeVOList.paintingmimg}" style="object-fit: cover; height: 250px"></a>
-                        </div>
-                        <div class="content" style="display: flex;justify-content: center;">
-                            <span>${noticeVOList.content}</span>
-                        </div>
-                        <div class="extra content">
-                            <div class="ui large transparent left icon input" style="display: flex;">
-                                <i class="pencil alternate icon"></i>
-                                <input type="text" id="${cardVOlist.no_painting}" placeholder="Add Comment..."
-                                       maxlength='20'
-                                       style="font-size: 0.8em"/>
-                            </div>
-                            <button class="ui blue icon button" onclick="addComment(${cardVOlist.no_painting})"
-                                    style="float: right; font-size: 0.8em;">Add
-                            </button>
-                        </div>
-                        <div class="ui bottom attached button collapsible">
-                            <i class="add icon"></i>
-                            <span><i class="comment icon"></i>${cardVOlist.commentNumber}</span>
-                        </div>
-                        <div class="comments_css">
-                            <div class="ui comments">
-                                <c:forEach var="commentVOList" items="${cardVOlist.commentVOList}">
-                                    <h4 class="ui" style="user-select: auto;"></h4>
-                                    <div class="comment" style="margin-left: 10px; margin-bottom: 10px;">
-                                        <a class="avatar"><img src="${commentVOList.avatarimg}"
-                                                               style="border-radius: 50%; height:40px; width:40px;object-fit: cover;"></a>
-                                        <div class="content">
-                                            <a class="author">${commentVOList.author}</a>
-                                            <div class="metadata">
-                                                <span class="date">${commentVOList.date}</span>
-                                            </div>
-                                            <div class="text">${commentVOList.comments}</div>
-                                            <div class="actions"></div>
-                                        </div>
-                                    </div>
-                                </c:forEach>
+                            <div>작성자 : ${QaVOlist.nickname}<br/>${QaVOlist.content}
                             </div>
                         </div>
+                        <div class="content">답변내용 : <br/>${QaVOlist.answer}</div>
                     </div>
                 </c:forEach>
             </div>
