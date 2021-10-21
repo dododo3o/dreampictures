@@ -58,11 +58,18 @@ public class MypageController {
         return "user/mypage/mypage";
     }
 
-    @RequestMapping("/mypage/basket")
+    @RequestMapping("/basket")
     public ModelAndView basket(HttpServletRequest req){
         ModelAndView mv = new ModelAndView();
         String user = (String) req.getSession().getAttribute("logEmail");
         mv.setViewName("user/mypage/basket");
         return mv;
     }
+
+    @RequestMapping("/buylist")
+    public String buylist() { return "user/mypage/buylist";}
+
+    @RequestMapping("/selllist")
+    public String selllist() { return "user/mypage/selllist";}
+
 }

@@ -53,13 +53,13 @@
                     </div>
                 </div>
                 <div class="ui vertical animated button" tabindex="0" onclick="showModal()">
-                    <div class="hidden content"><a>구매내역</a></div>
+                    <div class="hidden content">구매내역</div>
                     <div class="visible content">
                         <i class="orange shipping fast icon"></i>
                     </div>
                 </div>
                 <div class="ui vertical animated button" tabindex="0" onclick="showModal()">
-                    <div class="hidden content"><a>판매내역</a></div>
+                    <div class="hidden content">판매내역</div>
                     <div class="visible content">
                         <i class="orange shipping fast icon"></i>
                     </div>
@@ -71,13 +71,13 @@
                     </div>
                 </div>
                 <div class="ui vertical animated button" tabindex="0" onclick="showModal()">
-                    <div class="hidden content"><a href="/notice_question">질문내역</a></div>
+                    <div class="hidden content">질문내역</div>
                     <div class="visible content">
                         <i class="green comments outline icon"></i>
                     </div>
                 </div>
                 <div class="ui vertical animated button" tabindex="0" onclick="showModal()">
-                    <div class="hidden content"><a href="/charge">포인트 입출금</a></div>
+                    <div class="hidden content"><a href="/charge" style="color: rgba(0,0,0,.6)">포인트 입출금</a></div>
                     <div class="visible content">
                         <i class="blue money bill alternate outline icon"></i>
                     </div>

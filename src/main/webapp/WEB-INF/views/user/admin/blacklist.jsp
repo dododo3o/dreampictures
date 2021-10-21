@@ -130,158 +130,76 @@
 
     <div class="has_bg_harp">
         <div class="container">
-            <div class="has_chathams-blue" style="grid-column:5/11;margin-top: 20px;">회원 블랙리스트</div>
-            <div style="grid-column:3/11;display: flex;gap:20px; justify-content: center; margin-top:20px;margin-bottom: 70px;">
-                <div class="field" style="width:500px">
-                    <select>
-                        <option value="0">기간설정</option>
-                        <option value="1">1주</option>
-                        <option value="2">1개월</option>
-                        <option value="3">3개월</option>
-                        <option value="4">6개월</option>
-                        <option value="5">1년</option>
-                    </select>
-                </div>
-                <form action="" >
-                    <div  style="display: flex;" class="has_flex_space">
+            <div style="grid-column:3/11;flex-direction:column;display:flex;gap:20px;justify-content:center;margin-top:20px;margin-bottom:70px;align-items: center">
+                   <div><h1 class="ui header" style="font-family: 'BMHANNAPro';color:var(--color-chathams-blue)">블랙리스트 회원목록</h1></div>
+            <%--                <form class="ui form">--%>
+<%--                <div class="field" style="width:200px">--%>
+<%--                    <select>--%>
+<%--                        <option value="0">검색기준</option>--%>
+<%--                        <option value="1">아이디</option>--%>
+<%--                        <option value="2">닉네임</option>--%>
+<%--                    </select>--%>
+<%--                </div>--%>
+<%--                </form>--%>
+                    <form action="" >
+                    <div style="display: flex;" class="has_flex_space">
                         <input type="text" class="has_width_middle_half"
-                               placeholder="검색어를 입력해주세요." style="font-family: 'BMHANNAPro';margin-right: 20px"/>
+                               placeholder="닉네임을 입력해주세요." style="font-family: 'BMHANNAPro';margin-right: 20px;height:53px;"/>
                         <button class='button is_notification' style="font-family: 'BMHANNAPro';">검색</button>
                     </div>
-                </form>
+                    </form>
             </div>
         </div>
         <div class="container" style="display: grid;grid-template-columns:repeat(4,1fr);grid-gap:1rem;">
 
-            <div class="ui card">
-                <div class="image">
-                    <img src="latte.jpgs">
-                </div>
-                <div class="content">
-                    <a class="header"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">크리스티</font></font></a>
-                    <div class="meta">
-                        <span class="date"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">2013년에 합류</font></font></span>
+            <div class="manager_card" style="display: grid;grid-template-columns:repeat(3,1fr);grid-gap:1rem;width: 100%;">
+                <c:forEach var="noticeVOList" items="${noticeVOList}">
+                    <div class="ui card">
+                        <div class="image">
+                            <img src="https://semantic-ui.com/images/avatar2/large/kristy.png">
+                        </div>
+                        <div class="content">
+                            <a class="header">회원닉네임</a>
+                            <div class="meta">
+                                <span class="date">가입날짜(등록일)</span>
+                            </div>
+                        </div>
                     </div>
-                    <div class="description"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
-                        Kristy는 뉴욕에 거주하는 아트 디렉터입니다.
-                    </font></font></div>
-                </div>
-                <div class="extra content">
-                    <a>
-                        <i class="user icon"></i><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
-                        22 친구
-                    </font></font></a>
-                </div>
+                </c:forEach>
             </div>
-            <div class="ui card">
-                <div class="image">
-                    <img src="/images/avatar2/large/kristy.png">
-                </div>
-                <div class="content">
-                    <a class="header"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">크리스티</font></font></a>
-                    <div class="meta">
-                        <span class="date"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">2013년에 합류</font></font></span>
-                    </div>
-                    <div class="description"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
-                        Kristy는 뉴욕에 거주하는 아트 디렉터입니다.
-                    </font></font></div>
-                </div>
-                <div class="extra content">
-                    <a>
-                        <i class="user icon"></i><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
-                        22 친구
-                    </font></font></a>
-                </div>
-            </div>
-            <div class="ui card">
-                <div class="image">
-                    <img src="/images/avatar2/large/kristy.png">
-                </div>
-                <div class="content">
-                    <a class="header"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">크리스티</font></font></a>
-                    <div class="meta">
-                        <span class="date"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">2013년에 합류</font></font></span>
-                    </div>
-                    <div class="description"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
-                        Kristy는 뉴욕에 거주하는 아트 디렉터입니다.
-                    </font></font></div>
-                </div>
-                <div class="extra content">
-                    <a>
-                        <i class="user icon"></i><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
-                        22 친구
-                    </font></font></a>
-                </div>
-            </div>
-            <div class="ui card">
-                <div class="image">
-                    <img src="/images/avatar2/large/kristy.png">
-                </div>
-                <div class="content">
-                    <a class="header"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">크리스티</font></font></a>
-                    <div class="meta">
-                        <span class="date"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">2013년에 합류</font></font></span>
-                    </div>
-                    <div class="description"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
-                        Kristy는 뉴욕에 거주하는 아트 디렉터입니다.
-                    </font></font></div>
-                </div>
-                <div class="extra content">
-                    <a>
-                        <i class="user icon"></i><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
-                        22 친구
-                    </font></font></a>
-                </div>
-            </div>
+
         </div>
+
         <div class="container" style="display: flex;justify-content: center;margin-top:30px;padding-bottom: 30px;
 ">
             <div>
-                <button class='button is_pagination'>
-                    <i class="fas fa-arrow-left"></i>
-                </button>
-                <button class='button is_pagination'>1</button>
-                <button class='button is_pagination'>2</button>
-                <button class='button is_pagination'>3</button>
-                <button class='button is_pagination'>4</button>
-                <button class='button is_pagination'>5</button>
-                <button class='button is_pagination'>6</button>
-                <button class='button is_pagination'>7</button>
-                <button class='button is_pagination'>8</button>
-                <button class='button is_pagination'>9</button>
-                <button class='button is_pagination'>10</button>
-                <button class='button is_pagination'>
-                    <i class="fas fa-arrow-right"></i>
-                </button>
-                <br>
+                <div class="ui animated button" tabindex="0"
+                     style="color:var(--color-white);background-color: var(--color-chathams-blue);">
+                    <div class="visible content">Perv</div>
+                    <div class="hidden content">
+                        <i class="left arrow icon"></i>
+                    </div>
+                </div>
+                <c:forEach var="i" begin="1" end="${pageNum}">
+                    <div class="ui animated button" tabindex="0"
+                         style="color:var(--color-white);background-color: var(--color-chathams-blue);">
+                        <div class="visible content">${i}</div>
+                        <div class="hidden content">${i}</div>
+                    </div>
+                </c:forEach>
+                <div class="ui animated button" tabindex="0"
+                     style="color:var(--color-white);background-color: var(--color-chathams-blue);">
+                    <div class="visible content">Next</div>
+                    <div class="hidden content">
+                        <i class="right arrow icon"></i>
+                    </div>
+                </div>
+                </br>
             </div>
         </div>
     </div>
-    <footer class="has_bg_river-bed">
-        <div class="container">
-            <div class="is_logo">
-                <a href="">
-                    <div class="is_logos"><i class="fas fa-palette fg-lg"></i>
-                        <div>
-                            <div><span>그</span><span class="has_albescent-white">림</span></div>
-                            <div><span class="has_albescent-white">드</span><span>림</span></div>
-                        </div>
-                    </div>
-                </a>
-            </div>
-            <div class="has_flex_space" style="grid-column: 3/5">
-                <a href="#" class="has_aqua-island">회사 소개</a>
-                <a href="#" class="has_albescent-white">팀원 소개</a>
-            </div>
-            <div class="has_flex_space" style="grid-column: 10/12">
-                <a href="#" class="has_white has_font-xl"><i class="fab fa-youtube"></i></a>
-                <a href="#" class="has_white has_font-xl"><i class="fab fa-facebook-square"></i></a>
-                <a href="#" class="has_white has_font-xl"><i class="fab fa-instagram-square"></i></a>
-            </div>
-        </div>
 
         <!-- End page content -->
-
 </div>
 
 <script>

@@ -30,7 +30,8 @@
             };
             reader.readAsDataURL(event.target.files[0]);
         }
-        function nextBtn_condition(){
+
+        function nextBtn_condition() {
             var pname = $("#pnameVal").val();
             var height = $("#heightVal").val();
             var width = $("#widthVal").val();
@@ -41,141 +42,124 @@
 
             var f = document.form;
 
-            if (pname!= ''&& height!=''&& width!=''&&price!=''&&calVal!=''&&content!='' &&img!='' && f.style.value!=='' && f.theme.value!=='') {
+            if (pname != '' && height != '' && width != '' && price != '' && calVal != '' && content != '' && img != '' && f.style.value !== '' && f.theme.value !== '') {
                 document.getElementById('frm').submit();
             } else {
-                $("#point").css("display","block");
+                $("#point").css("display", "block");
             }
         }
     </script>
     <style>
-        .carousel {
-            background: #EEE;
-        }
-        .carousel-cell {
-            width: 66%;
-            height: 200px;
-            margin-right: 10px;
-            background: #8C8;
-            border-radius: 5px;
-            counter-increment: carousel-cell;
+
+        .container {
+            margin: 20px;
+            width: 500px;
+            height: 500px;
+            perspective: 1000px;
         }
 
-        .carousel-cell:before {
-            display: block;
-            text-align: center;
-            content: counter(carousel-cell);
-            line-height: 200px;
-            font-size: 80px;
-            color: white;
+        .card {
+            transition: transform 2s;
+            transform-style: preserve-3d;
+            cursor: pointer;
         }
 
+        .front, .back {
+            position: absolute;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            backface-visibility: hidden;
+        }
+
+        .front {
+            border: 2px solid black;
+            background: url("http://placehold.it/250x250");
+        }
+
+        .back {
+            border: 2px solid black;
+            background: url("http://placehold.it/100x100");
+            transform: rotateY(180deg);
+        }
     </style>
+    <script>
+        function flip(event) {
+            var element = event.currentTarget;
+            if (element.className === "card") {
+                if (element.style.transform == "rotateY(180deg)") {
+                    element.style.transform = "rotateY(0deg)";
+                } else {
+                    element.style.transform = "rotateY(180deg)";
+                }
+            }
+        };
+    </script>
 </head>
-<body>
-<% if (session.getAttribute("logStatus") == "Y") { %>
-<jsp:include page="../header_footer/header_login.jsp">
-    <jsp:param name="user" value="${user}"/>
-</jsp:include>
-<% } %>
-<% if (session.getAttribute("logStatus") == null) { %>
-<jsp:include page="../header_footer/header_not_login.jsp"></jsp:include>
-<% } %>
 
-<%--dvsdvdsvdvsz--%>
-<main class="has_bg_harp">
-    <div class="container">
-        <form action="<%=conPath%>/sell_success" method="post" onsubmit="return false" enctype="multipart/form-data" id="frm" name="form">
-            <div style="background-color:var( --color-white);display:flex;grid-column: 1/13;height: 100%;">
-                <div style="border-right: 1px solid #ddd;width:50%;padding-left: 110px;padding-right: 100px;">
-                    <div class="has_flex_column has_evenly" style="flex-wrap: wrap;width:100%;height: 85%;padding-top: 100px;">
-                        <a class="ui red tag label" style="display: none; margin-bottom: 10px;" id="point"><span>그림 정보를 모두 작성해주세요.😥</span></a>
-                        <input type="submit" class="ui secondary button" value="그림등록" onclick="nextBtn_condition()"><font style="vertical-align: inherit; "><font
-                            style="vertical-align: inherit;" >
-                    </font></font>
-                        <div class="ui horizontal divider"><font style="vertical-align: inherit;"><font
-                                style="vertical-align: inherit;">
-                            Painting Infomation
-                        </font></font></div>
-                        <div class="ui list has_flex_column has_font-base" style="display: flex; gap: 20px;">
-                            <div style="display: flex;">
-                                <i class="big edit outline icon" style="user-select: auto;"></i>
-                                <div class="content" style="display: flex;">
-                                    <input class="painting_input" id="pnameVal" type="text" placeholder="작품명">
-                                </div>
-                            </div>
-                        </div>
-                        <div class="ui list has_flex_column has_font-base" style="display: flex; gap: 20px;">
-                            <div style="user-select: auto; display: flex;">
-                                <i class="big long arrow alternate up icon" style="user-select: auto;"></i>
-                                <div class="content" style="display: flex;">
-                                    <input class="painting_input" id="heightVal" type="text" placeholder="높이 (cm)">
-                                </div>
-                            </div>
-                        </div>
-                        <div class="ui list has_flex_column has_font-base" style="display: flex; gap: 20px;">
-                            <div style="user-select: auto; display: flex;">
-                                <i class="big long arrow alternate right icon" style="user-select: auto;"></i>
-                                <div class="content" style="display: flex;">
-                                    <input class="painting_input" id="widthVal" type="text" placeholder="너비 (cm)">
-                                </div>
-                            </div>
-                        </div>
-                        <div class="ui list has_flex_column has_font-base" style="display: flex; gap: 20px;">
-                            <div style="display: flex;">
-                                <i class="big won sign icon" style="user-select: auto;"></i>
-                                <div class="content" style="display: flex;">
-                                    <input class="painting_input" id="priceVal" type="text" placeholder="가격 (원)">
-                                </div>
-                            </div>
-                        </div>
-                        <input type="date" class="has_width_half sell_select" name="production" id="cal" placeholder="제작년도"/>
-                        <div class="ui list has_flex_column has_font-base" style="display: flex; ">
-                            <div style=" display: flex;">
-                                <div class="content" style="display: flex;width: 100%;">
-                                    <textarea class="painting_input" id="contentVal" placeholder="작품설명" style="resize: none; height: 60px;width: 100%;"></textarea>
-                                </div>
-                            </div>
-                        </div>
-                        <%-- todo--%>
-                        <select style="font-family: 'BMHANNAPro'; font-size:var(--font-size-sm)" class="has_width_half sell_select" name="style">
-                            <option value="" disabled selected>화풍</option>
-                            <option value="oils">유화</option>
-                            <option value="water">수채화</option>
-                            <option value="acrylic">아크릴화</option>
-                            <option value="pen">펜화</option>
-                            <option value="pencil">연필화</option>
-                            <option value="pastel">파스텔화</option>
-                            <option value="crayon">크레용화</option>
-                            <option value="gouache">과슈화</option>
-                        </select>
-                        <select style="font-family: 'BMHANNAPro'; font-size: 1.5em;" class="has_width_half sell_select" name="theme">
-                            <option value="" disabled selected>테마</option>
-                            <option value="scenery">풍경</option>
-                            <option value="character">인물</option>
-                            <option value="still">정물</option>
-                            <option value="animal">동물</option>
-                            <option value="abstract">추상</option>
-                            <option value="popart">팝아트</option>
-                            <option value="objet">오브제</option>
-                        </select>
-                    </div>
-                </div><!--오른쪽 div-->
+<div class="container">
+    <div class="card" onclick="flip(event)">
+        <c:forEach var="cardVOlist" items="${cardVOlist}">
+            <div class="front">
 
-                <div class="has_flex_column" style="width:50%;padding-left: 80px;padding-right: 80px;">
-                    <div class="has_flex_center" id="image_container;" style="margin-top: 70px; width: 100%; height: 80%;">
-                        <div id="preview_image">
-                            <%-- 선택한 사진 들어가는 곳--%>
+                    <div class="content"
+                         style=" display: flex; flex-direction: row; justify-content: space-evenly; align-items: center;">
+                        <img src="${cardVOlist.avatarimg}"
+                             style="border-radius: 50%; width: 3em;height: 3em;object-fit: cover;">
+                        <span style="font-size: 2em;">${cardVOlist.nickname}</span>
+                    </div>
+                    <div class="image">
+                        <img src="${cardVOlist.paintingmimg}" onclick="buypainting(${cardVOlist.no_painting});"
+                             style="object-fit: cover; height: 250px">
+                    </div>
+                    <div class="content" style="display: flex;justify-content: center;">
+                        <span style="font-size: 1.5em">${cardVOlist.pname}</span><span></span>
+                    </div>
+                    <div class="extra content">
+                        <div class="ui large transparent left icon input" style="display: flex;">
+                            <i class="pencil alternate icon"></i>
+                            <input type="text" maxlength="20" size="20" id="${cardVOlist.no_painting}"
+                                   placeholder="글자수 20글자 내 작성"
+                                   style="font-size: 0.8em"/>
                         </div>
+                        <button class="ui blue icon button" onclick="addComment(${cardVOlist.no_painting})"
+                                style="float: right; font-size: 0.8em;">Add
+                        </button>
+                        <button class="ui blue icon button" onclick="showCommentModal()"
+                                style="float: right; font-size: 0.8em;">zxc
+                        </button>
                     </div>
-                    <div>
-                        <div><input type="file" onchange="setThumbnail(event);" name="filename" id="image" style="margin-left: 100px;margin-top: 10px"/></div>
+                    <div class="ui bottom attached button collapsible" onclick="flip(event, ${cardVOlist.no_painting})"
+                         id="">
+                        <i class="add icon"></i>
+                        <span><i class="comment icon"></i>${cardVOlist.commentNumber}</span>
                     </div>
-                </div><!--왼쪽div-->
+                </div>
             </div>
-        </form>
+        </c:forEach>
+        <div class="back">
+            <c:forEach var="commentVOList" items="${cardVOlist.commentVOList}">
+                <div class="">
+                    <h5 class="ui header" style="user-select: auto; margin: 10px;">
+                        <div style="display: flex;align-items: center;justify-content: space-between;">
+                            <img src="${commentVOList.avatarimg}"
+                                 style="border-radius: 50%; height:40px; width:40px;object-fit: cover;">
+                            <span class="author"
+                                  style="margin-left: 10px; font-size: 1.5em">${commentVOList.author}</span>
+                            <button class="ui red icon button" onclick="" style="font-size: 0.5em">X
+                            </button>
+                        </div>
+                        <div class="text" style="margin: 10px;">${commentVOList.comments}</div>
+                    </h5>
+                </div>
+            </c:forEach>
+            <div class="ui bottom attached button collapsible" onclick="closeCard(${cardVOlist.no_painting})"
+                 id="close_btn">
+                <i class="large close icon icon"></i>
+            </div>
+        </div>
     </div>
-</main>
-<jsp:include page="../header_footer/footer.jsp"></jsp:include>
-</body>
+</div>
+
 </html>
