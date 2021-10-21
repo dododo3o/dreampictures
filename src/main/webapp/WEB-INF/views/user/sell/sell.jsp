@@ -149,7 +149,7 @@
                             <option value="crayon">크레용화</option>
                             <option value="gouache">과슈화</option>
                         </select>
-                        <select style="font-family: 'BMHANNAPro'; font-size: 1.5em;" class="has_width_half sell_select" name="theme">
+                        <select style="font-family: 'BMHANNAPro'; font-size:var(--font-size-sm)" class="has_width_half sell_select" name="theme">
                             <option value="" disabled selected>테마</option>
                             <option value="scenery">풍경</option>
                             <option value="character">인물</option>
