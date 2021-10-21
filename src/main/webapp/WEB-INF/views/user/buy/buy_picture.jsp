@@ -59,7 +59,7 @@
                         </div>
                     </div>
                     <div class="ui animated button" tabindex="0" style="width: 200px;">
-                        <div class="hidden content" style="user-select: auto;"><a href="/mypage/basket">장바구니</a></div>
+                        <div class="hidden content" style="user-select: auto;"><a href="/basket">장바구니</a></div>
                         <div class=" visible content" style="user-select: auto;">
                             <i class="blue shopping cart icon" style="user-select: auto;"></i>
                         </div>
@@ -74,13 +74,14 @@
                 </div>
                 </a>
             </div>
-        </div>
-        <div class="has_flex_center" style="width: 60%;">
-            <div style="width: 80%; height: 80%;">
-                <img src="<c:out value="${paintingVO.paintingimg}"/>"
-                     style="object-fit: cover; width: 100%; height: 100%;">
+            <div class="has_flex_center" style="width: 60%;">
+                <div style="width: 80%; height: 80%;">
+                    <img src="<c:out value="${paintingVO.paintingimg}"/>"
+                         style="object-fit: cover; width: 100%; height: 100%;">
+                </div>
             </div>
         </div>
+
     </div>
     </div>
 </main>
