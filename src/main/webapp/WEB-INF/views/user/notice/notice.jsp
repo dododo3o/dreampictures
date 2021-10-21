@@ -116,7 +116,8 @@
                 <c:forEach var="noticeVOList" items="${noticeVOList}">
                     <div class="ui card" style="height: 100%; margin: 0 auto;">
                         <div class="content">
-                            <img src="${noticeVOList.avatarimg}" style="border-radius: 50%; width: 3em;height: 3em;object-fit: cover;">
+                            <img src="${noticeVOList.avatarimg}"
+                                 style="border-radius: 50%; width: 3em;height: 3em;object-fit: cover;">
                             <div>${noticeVOList.title}</div>
                         </div>
                         <div class="image">
@@ -167,7 +168,11 @@
             <br>
         </div>
     </div>
-</main>d
+    </div>
+
+    </div>
+
+</main>
 <jsp:include page="../header_footer/footer.jsp"></jsp:include>
 </body>
 </html>
