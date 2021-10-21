@@ -59,7 +59,7 @@
                         </div>
                     </div>
                     <div class="ui animated button" tabindex="0" style="width: 200px;">
-                        <div class="hidden content" style="user-select: auto;"><a href="/basket">장바구니</a></div>
+                        <div class="hidden content" style="user-select: auto;"><a href="/mypage/basket">장바구니</a></div>
                         <div class=" visible content" style="user-select: auto;">
                             <i class="blue shopping cart icon" style="user-select: auto;"></i>
                         </div>
