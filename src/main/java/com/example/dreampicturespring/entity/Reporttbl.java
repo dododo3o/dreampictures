@@ -20,4 +20,16 @@ public class Reporttbl {
     private Integer no_report;
     private Integer no_membership;
     private Integer no_painting;
+    private Integer status;
+
+    public void parser(Integer num){
+        switch (num){
+            case 1: this.status = 0;
+            case 2: this.status = 1;
+            case 3: this.status = 2;
+            case 4: this.status = 3;
+            default: break;
+        }
+    }
+
 }

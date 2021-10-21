@@ -36,43 +36,8 @@
     <script src="https://code.jquery.com/jquery-3.1.1.min.js"
             integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.13/semantic.js"></script>
-    <script>
-        //a태그 마우스오버1
-        function mouseOver() {
-            document.getElementById('noticeLink').style.backgroundColor = "gray";
-            document.getElementById('menuFont').style.color = "white";
-            document.getElementById('menuIcon').style.color = "white";
-        }
-
-        //a태그 마우스오버
-        function mouseOver2() {
-            document.getElementById('noticeLink2').style.backgroundColor = "gray";
-            document.getElementById('menuFont2').style.color = "white";
-            document.getElementById('menuIcon2').style.color = "white";
-        }
-
-        //a태그 마우스아웃
-        function mouseOut() {
-            document.getElementById('noticeLink').style.backgroundColor = "rgba(255,255,255,0)";
-            document.getElementById('menuFont').style.color = "var(--color-river-bed)";
-            document.getElementById('menuIcon').style.color = "var(--color-river-bed)";
-        }
-
-        //a태그 마우스아웃2
-        function mouseOut2() {
-            document.getElementById('noticeLink2').style.backgroundColor = "rgba(255,255,255,0)";
-            document.getElementById('menuFont2').style.color = "var(--color-river-bed)";
-            document.getElementById('menuIcon2').style.color = "var(--color-river-bed)";
-        }
-
-        function modal() {
-            document.getElementById("modaldiv")
-        }
-    </script>
     <script type="text/javascript">
-        showModal = function () {
-            $('.ui.modal').modal('show');
-        };
+        showModal = function () {$('.ui.modal').modal('show');};
         requestQA = function () {
             $(() => {
                 let question = document.getElementById("question").value;
@@ -90,8 +55,6 @@
 
 </head>
 <body class="w3-light-grey">
-
-<!-- Sidebar/menu -->
 <nav class="w3-sidebar w3-collapse w3-white w3-animate-left" style="z-index:3;width:300px;" id="mySidebar"><br>
     <div class="w3-container w3-row">
         <div class="w3-col s8 w3-bar" style="text-align: center;margin-left: 50px">
@@ -117,17 +80,8 @@
         <a href="/admin/allmembers" class="w3-bar-item w3-button w3-padding"><i class="fa fa-bullseye fa-fw"></i>  회원현황</a><br><br>
     </div>
 </nav>
-
-
-<!-- Overlay effect when opening sidebar on small screens -->
 <div class="w3-overlay w3-hide-large w3-animate-opacity" onclick="w3_close()" style="cursor:pointer" title="close side menu" id="myOverlay"></div>
-
-<!-- !PAGE CONTENT! -->
 <div class="w3-main" style="margin-left:300px;">
-
-    <!-- Header -->
-
-
     <div class="has_bg_harp">
         <div class="container">
             <div class="has_chathams-blue" style="grid-column:5/11;margin-top: 20px;">회원 블랙리스트</div>
@@ -152,87 +106,21 @@
             </div>
         </div>
         <div class="container" style="display: grid;grid-template-columns:repeat(4,1fr);grid-gap:1rem;">
-
-            <div class="ui card">
+<%--            <c:forEach var="cardVOlist" items="${cardVOlist}">--%>
+                <div class="ui card">
                 <div class="image">
-                    <img src="latte.jpgs">
+                    <img src="${cardVOlist.avatarimg}">
                 </div>
                 <div class="content">
-                    <a class="header"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">크리스티</font></font></a>
-                    <div class="meta">
-                        <span class="date"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">2013년에 합류</font></font></span>
-                    </div>
-                    <div class="description"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
-                        Kristy는 뉴욕에 거주하는 아트 디렉터입니다.
-                    </font></font></div>
+                    <a class="header">${cardVOlist.nickname}</a>
+                    <div class="meta"><span class="date">${cardVOlist.date}</span></div>
+                    <div class="description">${cardVOlist.email}</div>
                 </div>
                 <div class="extra content">
-                    <a>
-                        <i class="user icon"></i><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
-                        22 친구
-                    </font></font></a>
+                    <a><i class="user icon"></i>${cardVOlist.reported}</a>
                 </div>
             </div>
-            <div class="ui card">
-                <div class="image">
-                    <img src="/images/avatar2/large/kristy.png">
-                </div>
-                <div class="content">
-                    <a class="header"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">크리스티</font></font></a>
-                    <div class="meta">
-                        <span class="date"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">2013년에 합류</font></font></span>
-                    </div>
-                    <div class="description"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
-                        Kristy는 뉴욕에 거주하는 아트 디렉터입니다.
-                    </font></font></div>
-                </div>
-                <div class="extra content">
-                    <a>
-                        <i class="user icon"></i><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
-                        22 친구
-                    </font></font></a>
-                </div>
-            </div>
-            <div class="ui card">
-                <div class="image">
-                    <img src="/images/avatar2/large/kristy.png">
-                </div>
-                <div class="content">
-                    <a class="header"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">크리스티</font></font></a>
-                    <div class="meta">
-                        <span class="date"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">2013년에 합류</font></font></span>
-                    </div>
-                    <div class="description"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
-                        Kristy는 뉴욕에 거주하는 아트 디렉터입니다.
-                    </font></font></div>
-                </div>
-                <div class="extra content">
-                    <a>
-                        <i class="user icon"></i><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
-                        22 친구
-                    </font></font></a>
-                </div>
-            </div>
-            <div class="ui card">
-                <div class="image">
-                    <img src="/images/avatar2/large/kristy.png">
-                </div>
-                <div class="content">
-                    <a class="header"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">크리스티</font></font></a>
-                    <div class="meta">
-                        <span class="date"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">2013년에 합류</font></font></span>
-                    </div>
-                    <div class="description"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
-                        Kristy는 뉴욕에 거주하는 아트 디렉터입니다.
-                    </font></font></div>
-                </div>
-                <div class="extra content">
-                    <a>
-                        <i class="user icon"></i><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
-                        22 친구
-                    </font></font></a>
-                </div>
-            </div>
+<%--            </c:forEach>--%>
         </div>
         <div class="container" style="display: flex;justify-content: center;margin-top:30px;padding-bottom: 30px;
 ">
@@ -279,9 +167,7 @@
                 <a href="#" class="has_white has_font-xl"><i class="fab fa-instagram-square"></i></a>
             </div>
         </div>
-
-        <!-- End page content -->
-
+    </footer>
 </div>
 
 <script>
