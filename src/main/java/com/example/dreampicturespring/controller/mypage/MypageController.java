@@ -66,8 +66,10 @@ public class MypageController {
         return mv;
     }
 
-    @RequestMapping("/purchaseList")
-    public String purchaseList() {
-        return "user/mypage/purchaseList";
-    }
+    @RequestMapping("/buylist")
+    public String buylist() { return "user/mypage/buylist";}
+
+    @RequestMapping("/selllist")
+    public String selllist() { return "user/mypage/selllist";}
+
 }

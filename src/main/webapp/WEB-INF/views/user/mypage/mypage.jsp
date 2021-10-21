@@ -21,23 +21,7 @@
     <script src="https://code.jquery.com/jquery-3.1.1.min.js"
             integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.13/semantic.js"></script>
-    <script>
-        showModal = function () {
-            $(() => {
-                $.ajax({
-                    url: "/ajax_picture_finder",
-                    data: "",
-                    success: function (result) {
-                        var container = document.getElementById("container");
-                        while (container.hasChildNodes()) {
-                            container.removeChild(container.firstChild);
-                        }
-                        $("#container").html(result);
-                    }
-                });
-            });
-        };
-    </script>
+
 </head>
 <body>
 <jsp:include page="../header_footer/header_login.jsp"></jsp:include>
@@ -53,19 +37,19 @@
                     </div>
                 </div>
                 <div class="ui vertical animated button" tabindex="0" onclick="showModal()">
-                    <div class="hidden content"><a>구매내역</a></div>
+                    <div class="hidden content"><a href="/buylist">구매내역</a></div>
                     <div class="visible content">
                         <i class="orange shipping fast icon"></i>
                     </div>
                 </div>
                 <div class="ui vertical animated button" tabindex="0" onclick="showModal()">
-                    <div class="hidden content"><a>판매내역</a></div>
+                    <div class="hidden content"><a href="/selllist">판매내역</a></div>
                     <div class="visible content">
                         <i class="orange shipping fast icon"></i>
                     </div>
                 </div>
                 <div class="ui vertical animated button" tabindex="0" onclick="showModal()">
-                    <div class="hidden content"><a href="/mypage/basket">장바구니</a></div>
+                    <div class="hidden content"><a href="/basket">장바구니</a></div>
                     <div class="visible content">
                         <i class="yellow shopping cart icon"></i>
                     </div>
