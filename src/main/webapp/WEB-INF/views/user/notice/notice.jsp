@@ -22,43 +22,11 @@
             integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.13/semantic.js"></script>
     <script>
-        //a태그 마우스오버1
-        function mouseOver() {
-            document.getElementById('noticeLink').style.backgroundColor = "gray";
-            document.getElementById('menuFont').style.color = "white";
-            document.getElementById('menuIcon').style.color = "white";
-        }
-
-        //a태그 마우스오버
-        function mouseOver2() {
-            document.getElementById('noticeLink2').style.backgroundColor = "gray";
-            document.getElementById('menuFont2').style.color = "white";
-            document.getElementById('menuIcon2').style.color = "white";
-        }
-
-        //a태그 마우스아웃
-        function mouseOut() {
-            document.getElementById('noticeLink').style.backgroundColor = "rgba(255,255,255,0)";
-            document.getElementById('menuFont').style.color = "var(--color-river-bed)";
-            document.getElementById('menuIcon').style.color = "var(--color-river-bed)";
-        }
-
-        //a태그 마우스아웃2
-        function mouseOut2() {
-            document.getElementById('noticeLink2').style.backgroundColor = "rgba(255,255,255,0)";
-            document.getElementById('menuFont2').style.color = "var(--color-river-bed)";
-            document.getElementById('menuIcon2').style.color = "var(--color-river-bed)";
-        }
-
-        function modal() {
-            document.getElementById("modaldiv")
-        }
+        function modal() {document.getElementById("modaldiv")}
     </script>
     <script type="text/javascript">
         let status = undefined; //0~4 까지 질문 종류
-        showModal = function () {
-            $('.ui.modal').modal('show');
-        };
+        showModal = function () {$('.ui.modal').modal('show');};
         requestQA = function () {
             $(() => {
                 if (status == undefined) return;
@@ -72,11 +40,7 @@
                 });
             });
         };
-        selectedBtn = function (number) {
-            $(() => {
-                status = number
-            });
-        };
+        selectedBtn = function (number) {$(() => {status = number});};
     </script>
 </head>
 <body>

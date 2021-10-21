@@ -11,9 +11,32 @@
     <link rel="stylesheet" href="/resources/css/dreampicturesytle.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Black+Han+Sans&family=Rampart+One&display=swap"
-          rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Black+Han+Sans&family=Rampart+One&display=swap" rel="stylesheet">
     <script src="https://kit.fontawesome.com/b14e6f064f.js" crossorigin="anonymous"></script>
+    <script type = "text/javascript" >
+        let reportNum;
+        showModal = function () {$('.ui.mini.modal').modal('show');};
+        report = function() {
+            var obj_length = document.getElementsByName("report").length;
+            for (var i=0; i<obj_length; i++) {if (document.getElementsByName("report")[i].checked == true) {reportNum = document.getElementsByName("report")[i].value;}}
+            $(() => {
+                $.ajax({
+                    url: "/ajax_report",
+                    data: "reportNum="+reportNum +"&no_painting="+<c:out value="${paintingVO.no_painting}"/>,
+                    success: function (result) {
+                        if(result=="not_login")
+                            alert("로그인 후 이용해주세요.")
+                        else if(result=="overlap")
+                            alert("신고는 한 작품에 하나만 가능합니다.")
+                        else {
+                            alert("정상적으로 신고 되었습니다.")
+                            document.location.href = "/buy";
+                        }
+                    }
+                });
+            });
+        }
+    </script>
 </head>
 <body>
 <% if (session.getAttribute("logStatus") == "Y") { %>
@@ -32,14 +55,11 @@
                 <div class="has_flex_column ">
                     <div class="has_between" style="display: flex; height: 35px; justify-content: space-around;">
                         <h2 class="ui header">
-                            <img src="${paintingVO.avatarimg}"
-                                 style="border-radius: 50%; width: 3em;height: 3em;object-fit: cover;"><c:out
-                                value="${paintingVO.nickname}"/>
+                            <img src="${paintingVO.avatarimg}" style="border-radius: 50%; width: 3em;height: 3em;object-fit: cover;"><c:out value="${paintingVO.nickname}"/>
                         </h2>
-                        <div class="ui vertical red animated button" tabindex="0">
+                        <div class="ui vertical red animated button" tabindex="0" onclick="showModal()">
                             <div class="hidden content" style="user-select: auto;">신고하기</div>
-                            <div class="visible content" style="user-select: auto;"><i class="exclamation circle icon"
-                                                                                       style="user-select: auto;"></i>
+                            <div class="visible content" style="user-select: auto;"><i class="exclamation circle icon" style="user-select: auto;"></i>
                             </div>
                         </div>
                     </div>
@@ -76,10 +96,44 @@
             </div>
             <div class="has_flex_center" style="width: 60%;">
                 <div style="width: 80%; height: 80%;">
-                    <img src="<c:out value="${paintingVO.paintingimg}"/>"
-                         style="object-fit: cover; width: 100%; height: 100%;">
+                    <img src="<c:out value="${paintingVO.paintingimg}"/>" style="object-fit: cover; width: 100%; height: 100%;">
                 </div>
             </div>
+        </div>
+    </div>
+    <div class="ui mini modal">
+        <div class="header">신고 내역</div>
+        <div class="ui form">
+            <div class="grouped fields">
+                <label class="ui red large label" style="display: block;text-align: center;">어떤 사유 인가요?</label>
+                <div class="field" style="text-align: center">
+                    <div class="ui radio checkbox">
+                        <input type="radio" name="report" checked="checked" value="1">
+                        <label>그림이 맞지 않아요!</label>
+                    </div>
+                </div>
+                <div class="field" style="text-align: center">
+                    <div class="ui radio checkbox">
+                        <input type="radio" name="report" value="2">
+                        <label>그림이 적절치 않아요!</label>
+                    </div>
+                </div>
+                <div class="field" style="text-align: center">
+                    <div class="ui radio checkbox">
+                        <input type="radio" name="report" value="3">
+                        <label>작가가 악성유저에요!</label>
+                    </div>
+                </div>
+                <div class="field" style="text-align: center">
+                    <div class="ui radio checkbox">
+                        <input type="radio" name="report" value="4">
+                        <label>그 외 사유에요!</label>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="actions" style="background-color: #95afc0">
+            <div class="ui positive right labeled icon button" style="background-color: var(--color-metallic-blue)" onclick="report()">올리기<i class="checkmark icon"></i></div>
         </div>
     </div>
 </main>

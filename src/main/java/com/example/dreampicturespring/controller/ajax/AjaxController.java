@@ -2,10 +2,7 @@ package com.example.dreampicturespring.controller.ajax;
 
 
 import com.example.dreampicturespring.entity.*;
-import com.example.dreampicturespring.repository.CommentRepository;
-import com.example.dreampicturespring.repository.MembershiptblRepository;
-import com.example.dreampicturespring.repository.PaintingRepository;
-import com.example.dreampicturespring.repository.QaRepository;
+import com.example.dreampicturespring.repository.*;
 import com.example.dreampicturespring.vo.CardVO;
 import com.example.dreampicturespring.vo.CommentVO;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -27,13 +24,19 @@ import java.util.Optional;
 public class AjaxController {
 
 	@Autowired
+	AdminRepository adminRepository;
+	@Autowired
+	CommentRepository commentRepository;
+	@Autowired
 	MembershiptblRepository membershiptblRepository;
+	@Autowired
+	NoticeRepository noticeRepository;
 	@Autowired
 	PaintingRepository paintingRepository;
 	@Autowired
-	QaRepository qaRepository;
+	ReportRepository reportRepository;
 	@Autowired
-	CommentRepository commentRepository;
+	QaRepository qaRepository;
 
 
 	@RequestMapping(value="/ajax_email_check",method=RequestMethod.GET, produces="application/text;charset=UTF-8")
@@ -47,7 +50,6 @@ public class AjaxController {
 	@RequestMapping(value = "/ajax_nickname_check",method = RequestMethod.GET, produces ="application/text;charset=UTF-8")
 	@ResponseBody
 	public String nickname_check(String nickname){return membershiptblRepository.existsBynickname(nickname) ? "N" : "Y"; }
-
 
 	@RequestMapping(value = "/ajax_picture_finder",method = RequestMethod.GET, produces ="application/text;charset=UTF-8")
 	public String picture_find(Model model, String pname, String style, String theme, Integer width, Integer height, Integer price, Integer status){
@@ -91,6 +93,34 @@ public class AjaxController {
 		Qatbl qatbl = new Qatbl(membershipTBL, question, status);
 		qaRepository.save(qatbl);
 		return "redirect:/notice";
+	}
+
+	@RequestMapping(value = "/ajax_push_notice",method = RequestMethod.GET, produces ="application/text;charset=UTF-8")
+	public String push_notice(HttpServletRequest request,String title,String question){
+		HttpSession session = request.getSession();
+		Noticetbl noticetbl = new Noticetbl();
+		noticetbl.setTitle(title);
+		noticetbl.setContent(question);
+		System.out.println(adminRepository.findByadminID_no((String) session.getAttribute("adminLogin")));
+		noticetbl.setNo_admin(adminRepository.findByadminID_no((String) session.getAttribute("adminLogin")));
+		noticeRepository.save(noticetbl);
+		return "redirect:/admin/notice";
+	}
+
+	@RequestMapping(value = "/ajax_report",method = RequestMethod.GET, produces ="application/text;charset=UTF-8")
+	@ResponseBody
+	public String report(HttpServletRequest request,Integer reportNum,Integer no_painting ){
+		HttpSession session = request.getSession();
+		Membershiptbl membershipTBL = membershiptblRepository.findByemail((String) session.getAttribute("logEmail"));
+		if(membershipTBL == null){ return "not_login"; }
+		List<Integer> list = reportRepository.isOverlap(no_painting);
+		if(list.contains(membershipTBL.getNo_membership())){ return "overlap";}
+		Reporttbl reporttbl = new Reporttbl();
+		reporttbl.setNo_painting(no_painting);
+		reporttbl.setNo_membership(membershipTBL.getNo_membership());
+		reporttbl.parser(reportNum);
+		reportRepository.save(reporttbl);
+		return "user/buy/buy";
 	}
 
 	@RequestMapping(value = "/ajax_comment_finder",method = RequestMethod.GET, produces ="application/text;charset=UTF-8")

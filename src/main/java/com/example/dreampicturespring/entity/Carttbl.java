@@ -18,7 +18,7 @@ import java.time.ZoneId;
 public class Carttbl {
     @Id //바로아래있는 멤버를 프라이머리키지정해준다.
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "Cart_SEQ")//맴버테이블의 시퀀스를 만들어준다.
-    @SequenceGenerator(sequenceName = "CartSQ", allocationSize = 1, name = "Cart_SEQ")//시퀀스를 만들어주는데 오른쪽의 시퀀스 이름을 똑같이 맞춰야한다.
+    @SequenceGenerator(sequenceName = "CARTSQ", allocationSize = 1, name = "Cart_SEQ")//시퀀스를 만들어주는데 오른쪽의 시퀀스 이름을 똑같이 맞춰야한다.
     private Integer no_cart;
     private Integer no_membership;
     private Integer no_painting;

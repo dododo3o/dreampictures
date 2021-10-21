@@ -12,48 +12,33 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
-    <link rel="stylesheet" type="text/css"
-          href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.13/semantic.min.css">
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.13/semantic.min.css">
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <style>
-        html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
-    </style><meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <style>
-        html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
-    </style>
+    <style>html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}</style>
     <script src="https://kit.fontawesome.com/b14e6f064f.js" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"
-            integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ=="
-            crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-    <script src="https://code.jquery.com/jquery-3.1.1.min.js"
-            integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.13/semantic.js"></script>
     <script>
         function modal() {document.getElementById("modaldiv")}
     </script>
     <script type="text/javascript">
-        showModal = function () {$('.ui.modal').modal('show');};
-        requestQA = function () {
+        push_notice = function () {
             $(() => {
+                let title = document.getElementById("title").value;
                 let question = document.getElementById("question").value;
-                let status = 0; //0~4 까지 질문 종류
                 $.ajax({
-                    url: "/ajax_request_QA",
-                    data: "question=" + question + "&status=" + status,
-                    success: function (result) {
-                        document.location.href = "/notice";
+                    url: "/ajax_push_notice",
+                    data: "title=" + title + "&question=" + question,
+                    success: function () {
+                        document.location.href = "/admin/notice";
                     }
                 });
             });
         };
+        showModal = function () {$('.ui.tiny.modal').modal('show');};
     </script>
 </head>
 <body class="w3-light-grey">
@@ -62,15 +47,12 @@
         <div class="w3-col s8 w3-bar" style="text-align: center;margin-left: 50px">
             <span>Welcome, <strong>Master</strong></span><br>
             <form action="<%=conPath%>/admin/login" method="post">
-                <button class="ui secondary button" style="height:35px;font-family: 'BMHANNAPro';">
-                    로그아웃
-                </button>
+                <button class="ui secondary button" style="height:35px;font-family: 'BMHANNAPro';">로그아웃</button>
             </form>
         </div>
     </div>
     <hr>
-    <div class="w3-container">
-    </div>
+    <div class="w3-container"></div>
     <div class="w3-bar-block">
         <a href="#" class="w3-bar-item w3-button w3-padding-16 w3-hide-large w3-dark-grey w3-hover-black" onclick="w3_close()" title="close menu"><i class="fa fa-remove fa-fw"></i>  Close Menu</a>
         <a href="/admin/main" class="w3-bar-item w3-button w3-padding"><i class="fa fa-bullseye fa-fw"></i>  관리자 메인으로</a>
@@ -131,15 +113,26 @@
             </div>
         </div>
     </main>
+    <div class="ui tiny modal">
+        <div class="header">공지 사항</div>
+        <div class="ui form">
+            <div class="field">
+                <div class="field" placeholder="Last Name">
+                    <div class="ui blue large label">제목을 입력해주세요</div>
+                    <input type="text" id="title">
+                    <div class="ui blue large label">공지내용을 입력해주세요</div>
+                    <input type="text" id="question">
+                </div>
+            </div>
+        </div>
+        <div class="actions" style="background-color: #95afc0">
+            <div class="ui positive right labeled icon button" style="background-color: var(--color-metallic-blue)" onclick="push_notice()">올리기<i class="checkmark icon"></i></div>
+        </div>
+    </div>
 </div>
 <script>
-    // Get the Sidebar
     var mySidebar = document.getElementById("mySidebar");
-
-    // Get the DIV with overlay effect
     var overlayBg = document.getElementById("myOverlay");
-
-    // Toggle between showing and hiding the sidebar, and add overlay effect
     function w3_open() {
         if (mySidebar.style.display === 'block') {
             mySidebar.style.display = 'none';
@@ -149,8 +142,6 @@
             overlayBg.style.display = "block";
         }
     }
-
-    // Close the sidebar with the close button
     function w3_close() {
         mySidebar.style.display = "none";
         overlayBg.style.display = "none";
