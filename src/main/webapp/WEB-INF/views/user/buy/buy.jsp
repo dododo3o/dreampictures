@@ -64,7 +64,66 @@
                 });
             });
         };
+
+        function flipCard(num){
+            $('#'+num).css("transform","rotateY(180deg)");
+            $(".ui.comments.flip-card-back").css('margin','0');
+
+        }
+
+        function closeCard(num){
+            $('#'+num).css("transform","rotateY(0deg)");
+        }
+
+        // function flip(event, num){
+        //     var element = event.currentTarget;
+        //     if (element.id === '#'+num) {
+        //         if(element.style.transform == "rotateY(180deg)") {
+        //             element.style.transform = "rotateY(0deg)";
+        //         }
+        //         else {
+        //             element.style.transform = "rotateY(180deg)";
+        //         }
+        //     }
+        // };
     </script>
+    <style>
+        .flip-card {
+            background-color: transparent;
+            perspective: 1000px;
+        }
+        .flip-card-inner {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            text-align: center;
+            transition: transform 0.6s;
+            transform-style: preserve-3d;
+            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+        }
+
+        .flip-card-front, .flip-card-back {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            -webkit-backface-visibility: hidden;
+            backface-visibility: hidden;
+        }
+
+        .flip-card-front {
+            background-color: #bbb;
+            color: black;
+
+        }
+
+        .flip-card-back {
+            border-radius: 5px;
+            background-color: #2980b9;
+            color: white;
+            transform: rotateY(180deg);
+        }
+    </style>
 </head>
 <body>
 <% if (session.getAttribute("logStatus") == "Y") { %>
@@ -146,55 +205,64 @@
             </div>
         </div>
     </div>
-    <div class="container" id="container"
-         style="display: grid;grid-template-columns: repeat(5,1fr);grid-gap:1rem;justify-content: space-around;">
+
+    <div class="container " id="container" style="display: grid;grid-template-columns: repeat(5,1fr);grid-gap:1rem;justify-content: space-around;">
         <c:forEach var="cardVOlist" items="${cardVOlist}">
-            <div class="ui card" style="height: 100%; margin: 0 auto;">
-                <div class="content"
-                     style=" display: flex; flex-direction: row; justify-content: space-evenly; align-items: center;">
-                    <img src="${cardVOlist.avatarimg}"
-                         style="border-radius: 50%; width: 3em;height: 3em;object-fit: cover;">
-                    <span style="font-size: 2em;">${cardVOlist.nickname}</span>
-                </div>
-                <div class="image">
-                    <img src="${cardVOlist.paintingmimg}" onclick="buypainting(${cardVOlist.no_painting});"
-                         style="object-fit: cover; height: 250px">
-                </div>
-                <div class="content" style="display: flex;justify-content: center;">
-                    <span style="font-size: 1.5em">${cardVOlist.pname}</span><span></span>
-                </div>
-                <div class="extra content">
-                    <div class="ui large transparent left icon input" style="display: flex;">
-                        <i class="pencil alternate icon"></i>
-                        <input type="text" maxlength="20" size="20" id="${cardVOlist.no_painting}"
-                               placeholder="글자수 20글자 내 작성"
-                               style="font-size: 0.8em"/>
+            <div class="flip-card">
+                <div class="flip-card-inner" id="${cardVOlist.no_painting}" style="border-radius: 5px;">
+                    <div class="ui card flip-card-front" style="height: 100%; margin: 0 auto;">
+                        <div class="content"
+                             style=" display: flex; flex-direction: row; justify-content: space-evenly; align-items: center;">
+                            <img src="${cardVOlist.avatarimg}"
+                                 style="border-radius: 50%; width: 3em;height: 3em;object-fit: cover;">
+                            <span style="font-size: 2em;">${cardVOlist.nickname}</span>
+                        </div>
+                        <div class="image">
+                            <img src="${cardVOlist.paintingmimg}" onclick="buypainting(${cardVOlist.no_painting});"
+                                 style="object-fit: cover; height: 250px">
+                        </div>
+                        <div class="content" style="display: flex;justify-content: center;">
+                            <span style="font-size: 1.5em">${cardVOlist.pname}</span><span></span>
+                        </div>
+                        <div class="extra content">
+                            <div class="ui large transparent left icon input" style="display: flex;">
+                                <i class="pencil alternate icon"></i>
+                                <input type="text" maxlength="20" size="20" id="${cardVOlist.no_painting}"
+                                       placeholder="글자수 20글자 내 작성"
+                                       style="font-size: 0.8em"/>
+                            </div>
+                            <button class="ui blue icon button" onclick="addComment(${cardVOlist.no_painting})"
+                                    style="float: right; font-size: 0.8em;">Add
+                            </button>
+                            <button class="ui blue icon button" onclick="showCommentModal()"
+                                    style="float: right; font-size: 0.8em;">zxc
+                            </button>
+                        </div>
+                        <div class="ui bottom attached button collapsible" onclick="flipCard(${cardVOlist.no_painting})" style="z-index: 1;">
+                            <i class="add icon"></i>
+                            <span><i class="comment icon"></i>${cardVOlist.commentNumber}</span>
+                        </div>
                     </div>
-                    <button class="ui blue icon button" onclick="addComment(${cardVOlist.no_painting})"
-                            style="float: right; font-size: 0.8em;">Add
-                    </button>
-                    <button class="ui blue icon button" onclick="showCommentModal()"
-                            style="float: right; font-size: 0.8em;">zxc
-                    </button>
-                </div>
-                <div class="ui bottom attached button collapsible">
-                    <i class="add icon"></i>
-                    <span><i class="comment icon"></i>${cardVOlist.commentNumber}</span>
-                </div>
-                <div class="comments_css" style="background-color: white">
-                    <div class="ui comments">
+
+                    <div class="ui comments flip-card-back">
                         <c:forEach var="commentVOList" items="${cardVOlist.commentVOList}">
-                            <h5 class="ui header" style="user-select: auto; margin: 10px;">
-                                <div style="display: flex;align-items: center;justify-content: space-between;">
-                                    <img src="${commentVOList.avatarimg}"
-                                         style="border-radius: 50%; height:40px; width:40px;object-fit: cover;">
-                                    <span class="author"
-                                          style="margin-left: 10px; font-size: 1.5em">${commentVOList.author}</span>
-                                    <button class="ui red icon button" onclick="" style="font-size: 0.5em">X</button>
-                                </div>
-                                <div class="text" style="margin: 10px;">${commentVOList.comments}</div>
-                            </h5>
+                            <div class="">
+                                <h5 class="ui header" style="user-select: auto; margin: 10px;">
+                                    <div style="display: flex;align-items: center;justify-content: space-between;">
+                                        <img src="${commentVOList.avatarimg}"
+                                             style="border-radius: 50%; height:40px; width:40px;object-fit: cover;">
+                                        <span class="author"
+                                              style="margin-left: 10px; font-size: 1.5em">${commentVOList.author}</span>
+                                        <button class="ui red icon button" onclick="" style="font-size: 0.5em">X
+                                        </button>
+                                    </div>
+                                    <div class="text" style="margin: 10px;">${commentVOList.comments}</div>
+                                </h5>
+                            </div>
                         </c:forEach>
+                        <div class="ui button bottom attached collapsible" onclick="closeCard(${cardVOlist.no_painting})" id="close_btn">
+                            <i class="large close icon icon"></i>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -227,7 +295,7 @@
         </div>
     </div>
 </div>
-<script>
+<%--<script>
     var coll = document.getElementsByClassName("collapsible");
     var i;
 
@@ -242,7 +310,7 @@
             }
         });
     }
-</script>
+</script>--%>
 <jsp:include page="../header_footer/footer.jsp"></jsp:include>
 </body>
 </html>
