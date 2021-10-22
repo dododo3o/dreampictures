@@ -29,8 +29,6 @@ public class NoticeController {
 
     @RequestMapping("/notice")
     public ModelAndView notice_notice() {
-        final int CARDSPERPAGE = 15;
-        int cardNum = 0, pageNum;
 
         ModelAndView mv = new ModelAndView();
         mv.setViewName("user/notice/notice");
@@ -46,7 +44,6 @@ public class NoticeController {
         mv.addObject("noticeVOList", noticeVOList);
         return mv;
     }
-
     @RequestMapping("/notice_question")
     public ModelAndView notice_question() {
         final int CARDSPERPAGE = 15;

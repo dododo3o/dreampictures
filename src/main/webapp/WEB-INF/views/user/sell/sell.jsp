@@ -48,27 +48,6 @@
             }
         }
     </script>
-    <style>
-        .carousel {
-            background: #EEE;
-        }
-        .carousel-cell {
-            width: 66%;
-            height: 200px;
-            margin-right: 10px;
-            background: #8C8;
-            border-radius: 5px;
-            counter-increment: carousel-cell;
-        }
-        .carousel-cell:before {
-            display: block;
-            text-align: center;
-            content: counter(carousel-cell);
-            line-height: 200px;
-            font-size: 80px;
-            color: white;
-        }
-    </style>
 </head>
 <body>
 <% if (session.getAttribute("logStatus") == "Y") { %>
@@ -135,7 +114,7 @@
                         </div>
                         <%-- todo--%>
                         <select style="font-family: 'BMHANNAPro'; font-size:var(--font-size-sm)" class="has_width_half sell_select" id="style" name="style">
-                            <option value="" disabled selected>화풍</option>
+                            <option value="" disabled selected>Style</option>
                             <option value="oils">유화</option>
                             <option value="water">수채화</option>
                             <option value="acrylic">아크릴화</option>
@@ -146,7 +125,7 @@
                             <option value="gouache">과슈화</option>
                         </select>
                         <select style="font-family: 'BMHANNAPro'; font-size:var(--font-size-sm)" class="has_width_half sell_select" id="theme" name="theme">
-                            <option value="" disabled selected>테마</option>
+                            <option value="" disabled selected>Theme</option>
                             <option value="scenery">풍경</option>
                             <option value="character">인물</option>
                             <option value="still">정물</option>
@@ -156,7 +135,7 @@
                             <option value="objet">오브제</option>
                         </select>
                     </div>
-                </div><!--오른쪽 div-->
+                </div>
 
                 <div class="has_flex_column" style="width:50%;padding-left: 80px;padding-right: 80px;">
                     <div class="has_flex_center" id="image_container;" style="margin-top: 70px; width: 100%; height: 80%;">

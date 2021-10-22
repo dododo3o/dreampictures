@@ -21,11 +21,6 @@ public class Carttbl {
     @SequenceGenerator(sequenceName = "CARTSQ", allocationSize = 1, name = "Cart_SEQ")//시퀀스를 만들어주는데 오른쪽의 시퀀스 이름을 똑같이 맞춰야한다.
     private Integer no_cart;
     private Integer no_membership;
-    private Integer no_painting;
-    private LocalDate writedate;
-    private Integer totalprice;
 
-    public Carttbl(){
-        if(StringUtils.isEmpty(writedate)){ this.writedate = LocalDate.now(ZoneId.of("Asia/Seoul"));}
-    }
+    public Carttbl() { }
 }

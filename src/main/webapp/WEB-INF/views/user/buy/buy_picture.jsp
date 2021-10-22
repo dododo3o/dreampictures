@@ -24,12 +24,26 @@
                     url: "/ajax_report",
                     data: "reportNum="+reportNum +"&no_painting="+<c:out value="${paintingVO.no_painting}"/>,
                     success: function (result) {
-                        if(result=="not_login")
-                            alert("로그인 후 이용해주세요.")
-                        else if(result=="overlap")
-                            alert("신고는 한 작품에 하나만 가능합니다.")
+                        if(result=="not_login") alert("로그인 후 이용해주세요.")
+                        else if(result=="overlap") alert("신고는 한 작품에 하나만 가능합니다.")
                         else {
                             alert("정상적으로 신고 되었습니다.")
+                            document.location.href = "/buy";
+                        }
+                    }
+                });
+            });
+        }
+        cart = function() {
+            $(() => {
+                $.ajax({
+                    url: "/ajax_cart_add",
+                    data: "no_painting="+<c:out value="${paintingVO.no_painting}"/>,
+                    success: function (result) {
+                        if(result=="not_login") alert("로그인 후 이용해주세요.")
+                        else if(result=="has_already") alert("이미 장바구니에 담겨져 있습니다.")
+                        else {
+                            alert("정상적으로 장바구니에 담겨졌습니다.")
                             document.location.href = "/buy";
                         }
                     }
@@ -78,8 +92,8 @@
                             <i class="left arrow icon" style="user-select: auto;"></i>
                         </div>
                     </div>
-                    <div class="ui animated button" tabindex="0" style="width: 200px;">
-                        <div class="hidden content" style="user-select: auto;"><a href="/basket">장바구니</a></div>
+                    <div class="ui animated button" tabindex="0" style="width: 200px;" onclick="cart()">
+                        <div class="hidden content" style="user-select: auto;">장바구니</div>
                         <div class=" visible content" style="user-select: auto;">
                             <i class="blue shopping cart icon" style="user-select: auto;"></i>
                         </div>

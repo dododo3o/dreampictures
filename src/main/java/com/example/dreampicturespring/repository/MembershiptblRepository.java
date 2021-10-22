@@ -2,12 +2,14 @@ package com.example.dreampicturespring.repository;
 
 
 import com.example.dreampicturespring.entity.Membershiptbl;
+import com.example.dreampicturespring.entity.Paintingtbl;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 
 import javax.transaction.Transactional;
+import java.util.List;
 
 public interface MembershiptblRepository extends JpaRepository<Membershiptbl,Integer> {
         @Override
@@ -22,8 +24,6 @@ public interface MembershiptblRepository extends JpaRepository<Membershiptbl,Int
         @Query(value = "UPDATE membershiptbl SET membershiptbl.dreampay = :money + membershiptbl.dreampay WHERE membershiptbl.no_membership = :no_membership", nativeQuery = true)
         Integer UpdateDreampayPlus(@Param("money") Integer money, @Param("no_membership")Integer no_membership);
 
-        @Transactional
-        @Modifying(clearAutomatically = true)
-        @Query(value = "UPDATE membershiptbl SET membershiptbl.dreampay = :money + membershiptbl.dreampay WHERE membershiptbl.no_membership = :no_membership", nativeQuery = true)
-        Integer UpdateDreampayMinus(@Param("money") Integer money, @Param("no_membership")Integer no_membership);
+        @Query(value = "select * from membershiptbl where rownum < 4 order by membershiptbl.no_membership desc", nativeQuery = true)
+        List<Membershiptbl> findLatest();
 }
