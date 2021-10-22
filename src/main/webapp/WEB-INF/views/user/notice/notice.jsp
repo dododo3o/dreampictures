@@ -56,106 +56,70 @@
     <div class="container">
         <div class="has_flex_column" style="grid-column:1/3; gap:40px;padding-top: 30px; background-color: #a2b0b36e">
             <div class="ui vertical animated button" tabindex="0" onclick="showModal()">
-                <div class="hidden content">공지사항</div>
+                <div class="hidden content"><a href="/notice">공지사항</a></div>
                 <div class="visible content">
-                    <i class="bullhorn icon"></i>
+                    <i class="red bullhorn icon"></i>
                 </div>
             </div>
             <div class="ui vertical animated button" tabindex="0" onclick="showModal()">
-                <div class="hidden content">자주 묻는 질문</div>
-                <div class="visible content">
-                    <i class="question circle icon"></i>
-                </div>
-            </div>
-            <div class="ui vertical animated button" tabindex="0" onclick="showModal()">
-                <div class="hidden content"><a href="notice_question.jsp">질문하기</a></div>
+                <div class="hidden content"><a href="/notice_question">질문하기</a></div>
                 <div class="visible content">
                     <i class="comments outline icon"></i>
                 </div>
             </div>
         </div>
-        <div class="has_flex_end" style="grid-column: 3/13; flex-wrap: wrap; margin-top: 20px; margin-bottom: 20px;">
-            <div class="manager_card"
-                 style="display: grid;grid-template-columns:repeat(3,1fr);grid-gap:1rem;width: 100%;">
-                <c:forEach var="noticeVOList" items="${noticeVOList}">
+        <div style="grid-column: 3/13;display: flex;flex-direction: column;justify-content: space-between;align-items: center;justify-content: space-evenly">
+            <!-- 추가요소 있으면 이 안에 넣기-->
+            <div style="font-family:'BMHANNAPro';color:var(--color-chathams-blue);font-size:var(--font-size-xll);padding-top: 30px;
+    padding-bottom: 25px;">공지사항
+            </div>
+            <c:forEach var="cardVOlist" items="${cardVOlist}">
+                <div style="display:grid;grid-template-columns:repeat(3,1fr);grid-gap:1rem;width:100%;">
                     <div class="ui card" style="height: 100%; margin: 0 auto;">
-                        <div class="content">
-                            <div class="right floated meta">14h</div>
-                            <img src="${noticeVOList.avatarimg}"
+                        <div class="content"
+                             style=" display: flex; flex-direction: row; justify-content: space-evenly; align-items: center;">
+                            <img src="${cardVOlist.avatarimg}"
                                  style="border-radius: 50%; width: 3em;height: 3em;object-fit: cover;">
+                            <span style="font-size: 2em;">${cardVOlist.nickname}</span>
                         </div>
                         <div class="image">
-                            <img src="${noticeVOList.paintingmimg}" style="object-fit: cover; height: 250px"></a>
+                            <img src="${cardVOlist.paintingmimg}" onclick="buypainting(${cardVOlist.no_painting});"
+                                 style="object-fit: cover; height: 250px">
                         </div>
                         <div class="content" style="display: flex;justify-content: center;">
-                            <span>${noticeVOList.content}</span>
-                        </div>
-                        <div class="extra content">
-                            <div class="ui large transparent left icon input" style="display: flex;">
-                                <i class="pencil alternate icon"></i>
-                                <input type="text" id="${cardVOlist.no_painting}" placeholder="Add Comment..."
-                                       maxlength='20'
-                                       style="font-size: 0.8em"/>
-                            </div>
-                            <button class="ui blue icon button" onclick="addComment(${cardVOlist.no_painting})"
-                                    style="float: right; font-size: 0.8em;">Add
-                            </button>
-                        </div>
-                        <div class="ui bottom attached button collapsible">
-                            <i class="add icon"></i>
-                            <span><i class="comment icon"></i>${cardVOlist.commentNumber}</span>
-                        </div>
-                        <div class="comments_css">
-                            <div class="ui comments">
-                                <c:forEach var="commentVOList" items="${cardVOlist.commentVOList}">
-                                    <h4 class="ui" style="user-select: auto;"></h4>
-                                    <div class="comment" style="margin-left: 10px; margin-bottom: 10px;">
-                                        <a class="avatar"><img src="${commentVOList.avatarimg}"
-                                                               style="border-radius: 50%; height:40px; width:40px;object-fit: cover;"></a>
-                                        <div class="content">
-                                            <a class="author">${commentVOList.author}</a>
-                                            <div class="metadata">
-                                                <span class="date">${commentVOList.date}</span>
-                                            </div>
-                                            <div class="text">${commentVOList.comments}</div>
-                                            <div class="actions"></div>
-                                        </div>
-                                    </div>
-                                </c:forEach>
-                            </div>
+                            <span style="font-size: 1.5em">${cardVOlist.pname}</span><span></span>
                         </div>
                     </div>
-                </c:forEach>
-            </div>
-        </div>
-    </div>
-    <div class="container" style="display: flex;justify-content: center;margin-top:30px;padding-bottom: 30px;">
-        <div>
-            <div class="ui animated button" tabindex="0"
-                 style="color:var(--color-white);background-color: var(--color-chathams-blue);">
-                <div class="visible content">Perv</div>
-                <div class="hidden content">
-                    <i class="left arrow icon"></i>
-                </div>
-            </div>
-            <c:forEach var="i" begin="1" end="${pageNum}">
-                <div class="ui animated button" tabindex="0"
-                     style="color:var(--color-white);background-color: var(--color-chathams-blue);">
-                    <div class="visible content">${i}</div>
-                    <div class="hidden content">${i}</div>
                 </div>
             </c:forEach>
-            <div class="ui animated button" tabindex="0"
-                 style="color:var(--color-white);background-color: var(--color-chathams-blue);">
-                <div class="visible content">Next</div>
-                <div class="hidden content">
-                    <i class="right arrow icon"></i>
+            <div>
+                <div class="container"
+                     style="display: flex;justify-content: center;margin-top:30px;padding-bottom: 30px;">
+                    <div style="margin-right: 40px;">
+                        <div class="ui animated button" tabindex="0"
+                             style="color:var(--color-white);background-color: var(--color-chathams-blue);">
+                            <div class="visible content">Perv</div>
+                            <div class="hidden content">
+                                <i class="left arrow icon"></i>
+                            </div>
+                        </div>
+                        <c:forEach var="i" begin="1" end="${pageNum}">
+                            <button class='button is_pagination'>${i}</button>
+                        </c:forEach>
+                        <div class="ui animated button" tabindex="0"
+                             style="color:var(--color-white);background-color: var(--color-chathams-blue);">
+                            <div class="visible content">Next</div>
+                            <div class="hidden content">
+                                <i class="right arrow icon"></i>
+                            </div>
+                        </div>
+                        <br>
+                    </div>
                 </div>
             </div>
-            <br>
         </div>
     </div>
-</main>d
+</main>
 <jsp:include page="../header_footer/footer.jsp"></jsp:include>
 </body>
 </html>

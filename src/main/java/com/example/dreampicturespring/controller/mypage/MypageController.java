@@ -74,4 +74,7 @@ public class MypageController {
 
     @RequestMapping("/selllist")
     public String selllist() { return "user/mypage/selllist";}
+
+    @RequestMapping("/qalist")
+    public String qalist(){return "user/mypage/qalist";}
 }
