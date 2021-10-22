@@ -1,20 +1,14 @@
 package com.example.dreampicturespring.Interfacer;
-
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.mail.javamail.MimeMessageHelper;
 import org.springframework.stereotype.Component;
-
 import javax.mail.MessagingException;
 import javax.mail.internet.MimeMessage;
-
 @Component
 public class EmailUtillmpl implements EmailUtil{
-
     @Autowired
     private JavaMailSender sender;
-
     @Override
     public void sendEmail(String toAddress, String subject, String body) {
         MimeMessage message = sender.createMimeMessage();
@@ -26,7 +20,6 @@ public class EmailUtillmpl implements EmailUtil{
         } catch (MessagingException e) {
             e.printStackTrace();
         }
-
         sender.send(message);
     }
 }
