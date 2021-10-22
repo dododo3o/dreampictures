@@ -20,14 +20,19 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <style>
-        html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
-    </style><meta charset="UTF-8">
+        html, body, h1, h2, h3, h4, h5 {
+            font-family: "Raleway", sans-serif
+        }
+    </style>
+    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <style>
-        html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
+        html, body, h1, h2, h3, h4, h5 {
+            font-family: "Raleway", sans-serif
+        }
     </style>
     <script src="https://kit.fontawesome.com/b14e6f064f.js" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"
@@ -37,7 +42,9 @@
             integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.13/semantic.js"></script>
     <script type="text/javascript">
-        showModal = function () {$('.ui.modal').modal('show');};
+        showModal = function () {
+            $('.ui.modal').modal('show');
+        };
         requestQA = function () {
             $(() => {
                 let question = document.getElementById("question").value;
@@ -70,109 +77,197 @@
     <div class="w3-container">
     </div>
     <div class="w3-bar-block">
-        <a href="#" class="w3-bar-item w3-button w3-padding-16 w3-hide-large w3-dark-grey w3-hover-black" onclick="w3_close()" title="close menu"><i class="fa fa-remove fa-fw"></i>  Close Menu</a>
-        <a href="/admin/main" class="w3-bar-item w3-button w3-padding"><i class="fa fa-bullseye fa-fw"></i>  관리자 메인으로</a>
+        <a href="#" class="w3-bar-item w3-button w3-padding-16 w3-hide-large w3-dark-grey w3-hover-black"
+           onclick="w3_close()" title="close menu"><i class="fa fa-remove fa-fw"></i>  Close Menu</a>
+        <a href="/admin/main" class="w3-bar-item w3-button w3-padding"><i class="fa fa-bullseye fa-fw"></i>  관리자
+            메인으로</a>
         <a href="/admin/notice" class="w3-bar-item w3-button w3-padding"><i class="fa fa-bullseye fa-fw"></i>  공지사항</a>
         <a href="/admin/qa" class="w3-bar-item w3-button w3-padding"><i class="fa fa-bullseye fa-fw"></i>  질문사항</a>
-        <a href="/admin/salesHistory" class="w3-bar-item w3-button w3-padding"><i class="fa fa-bullseye fa-fw"></i>  판매현황</a>
+        <a href="/admin/salesHistory" class="w3-bar-item w3-button w3-padding"><i class="fa fa-bullseye fa-fw"></i> 
+            판매현황</a>
         <a href="/admin/report" class="w3-bar-item w3-button w3-padding"><i class="fa fa-bullseye fa-fw"></i>  신고내역</a>
-        <a href="/admin/blacklist" class="w3-bar-item w3-button w3-padding w3-blue"><i class="fa fa-bullseye fa-fw"></i>  블랙리스트</a>
+        <a href="/admin/blacklist" class="w3-bar-item w3-button w3-padding w3-blue"><i class="fa fa-bullseye fa-fw"></i> 
+            블랙리스트</a>
         <a href="/admin/allmembers" class="w3-bar-item w3-button w3-padding"><i class="fa fa-bullseye fa-fw"></i>  회원현황</a><br><br>
     </div>
 </nav>
-<div class="w3-overlay w3-hide-large w3-animate-opacity" onclick="w3_close()" style="cursor:pointer" title="close side menu" id="myOverlay"></div>
+<div class="w3-overlay w3-hide-large w3-animate-opacity" onclick="w3_close()" style="cursor:pointer;"
+     title="close side menu" id="myOverlay"></div>
 <div class="w3-main" style="margin-left:300px;">
-    <div class="has_bg_harp">
-        <div class="container">
-            <div style="grid-column:3/11;flex-direction:column;display:flex;gap:20px;justify-content:center;margin-top:20px;margin-bottom:70px;align-items: center">
-                   <div><h1 class="ui header" style="font-family: 'BMHANNAPro';color:var(--color-chathams-blue)">블랙리스트 회원목록</h1></div>
-            <%--                <form class="ui form">--%>
-<%--                <div class="field" style="width:200px">--%>
-<%--                    <select>--%>
-<%--                        <option value="0">검색기준</option>--%>
-<%--                        <option value="1">아이디</option>--%>
-<%--                        <option value="2">닉네임</option>--%>
-<%--                    </select>--%>
-<%--                </div>--%>
-<%--                </form>--%>
-                    <form action="" >
-                    <div style="display: flex;" class="has_flex_space">
-                        <input type="text" class="has_width_middle_half"
-                               placeholder="닉네임을 입력해주세요." style="font-family: 'BMHANNAPro';margin-right: 20px;height:53px;"/>
-                        <button class='button is_notification' style="font-family: 'BMHANNAPro';">검색</button>
+    <div class="has_bg_harp" style="display: flex;flex-direction: column;justify-content: space-between;">
+
+        <div>
+            <div style="padding: 10px 0px;flex-direction:column;display:flex;gap:20px;justify-content:center;align-items: center;border-bottom: 1px solid #BDBDBD;">
+                <div><h1 style="font-family: 'BMHANNAPro';color:var(--color-chathams-blue)">블랙리스트 회원목록</h1></div>
+                <form action="">
+                    <div style="display: flex;align-items: stretch" class="has_flex_space">
+                        <div class="ui input focus" style="margin-right: 20px">
+                            <input type="text" style="font-family: 'BMHANNAPro';" placeholder=" 닉네임을 입력해주세요.">
+                        </div>
+                        <button class="ui primary basic button"
+                                style="font-family: 'BMHANNAPro';width:120px;height:50px;font-size:20px ">검색
+                        </button>
                     </div>
-                    </form>
+                </form>
             </div>
-        </div>
-        <div class="container" style="display: grid;grid-template-columns:repeat(4,1fr);grid-gap:1rem;">
-<%--            <c:forEach var="cardVOlist" items="${cardVOlist}">--%>
+            <div style="height: auto;border-bottom: 1px solid #BDBDBD;display: grid;grid-template-columns:repeat(4,1fr);grid-gap:1rem;align-items: baseline;justify-items: center;padding:0 0 20px 0;">
+                <%--            <c:forEach var="cardVOlist" items="${cardVOlist}">--%>
                 <div class="ui card">
-                <div class="image">
-                    <img src="${cardVOlist.avatarimg}">
+                    <div class="image">
+                        <img src="${cardVOlist.avatarimg}">
+                    </div>
+                    <div class="content">
+                        <a class="header">${cardVOlist.nickname}</a>
+                        <div class="meta"><span class="date">${cardVOlist.date}</span></div>
+                        <div class="description">${cardVOlist.email}</div>
+                    </div>
+                    <div class="extra content">
+                        <a><i class="user icon"></i>${cardVOlist.reported}</a>
+                    </div>
                 </div>
-                <div class="content">
-                    <a class="header">${cardVOlist.nickname}</a>
-                    <div class="meta"><span class="date">${cardVOlist.date}</span></div>
-                    <div class="description">${cardVOlist.email}</div>
+
+                <%--            </c:forEach>--%>
+
+                <div class="ui card">
+                    <div class="image">
+                        <img src="${cardVOlist.avatarimg}">
+                    </div>
+                    <div class="content">
+                        <a class="header">${cardVOlist.nickname}</a>
+                        <div class="meta"><span class="date">${cardVOlist.date}</span></div>
+                        <div class="description">${cardVOlist.email}</div>
+                    </div>
+                    <div class="extra content">
+                        <a><i class="user icon"></i>${cardVOlist.reported}</a>
+                    </div>
                 </div>
-                <div class="extra content">
-                    <a><i class="user icon"></i>${cardVOlist.reported}</a>
+
+                <div class="ui card">
+                    <div class="image">
+                        <img src="${cardVOlist.avatarimg}">
+                    </div>
+                    <div class="content">
+                        <a class="header">${cardVOlist.nickname}</a>
+                        <div class="meta"><span class="date">${cardVOlist.date}</span></div>
+                        <div class="description">${cardVOlist.email}</div>
+                    </div>
+                    <div class="extra content">
+                        <a><i class="user icon"></i>${cardVOlist.reported}</a>
+                    </div>
                 </div>
+
+                <div class="ui card">
+                    <div class="image">
+                        <img src="${cardVOlist.avatarimg}">
+                    </div>
+                    <div class="content">
+                        <a class="header">${cardVOlist.nickname}</a>
+                        <div class="meta"><span class="date">${cardVOlist.date}</span></div>
+                        <div class="description">${cardVOlist.email}</div>
+                    </div>
+                    <div class="extra content">
+                        <a><i class="user icon"></i>${cardVOlist.reported}</a>
+                    </div>
+                </div>
+                <div class="ui card">
+                    <div class="image">
+                        <img src="${cardVOlist.avatarimg}">
+                    </div>
+                    <div class="content">
+                        <a class="header">${cardVOlist.nickname}</a>
+                        <div class="meta"><span class="date">${cardVOlist.date}</span></div>
+                        <div class="description">${cardVOlist.email}</div>
+                    </div>
+                    <div class="extra content">
+                        <a><i class="user icon"></i>${cardVOlist.reported}</a>
+                    </div>
+                </div>
+
+                <div class="ui card">
+                    <div class="image">
+                        <img src="${cardVOlist.avatarimg}">
+                    </div>
+                    <div class="content">
+                        <a class="header">${cardVOlist.nickname}</a>
+                        <div class="meta"><span class="date">${cardVOlist.date}</span></div>
+                        <div class="description">${cardVOlist.email}</div>
+                    </div>
+                    <div class="extra content">
+                        <a><i class="user icon"></i>${cardVOlist.reported}</a>
+                    </div>
+                </div>
+
+                <div class="ui card">
+                    <div class="image">
+                        <img src="${cardVOlist.avatarimg}">
+                    </div>
+                    <div class="content">
+                        <a class="header">${cardVOlist.nickname}</a>
+                        <div class="meta"><span class="date">${cardVOlist.date}</span></div>
+                        <div class="description">${cardVOlist.email}</div>
+                    </div>
+                    <div class="extra content">
+                        <a><i class="user icon"></i>${cardVOlist.reported}</a>
+                    </div>
+                </div>
+
+                <div class="ui card">
+                    <div class="image">
+                        <img src="${cardVOlist.avatarimg}">
+                    </div>
+                    <div class="content">
+                        <a class="header">${cardVOlist.nickname}</a>
+                        <div class="meta"><span class="date">${cardVOlist.date}</span></div>
+                        <div class="description">${cardVOlist.email}</div>
+                    </div>
+                    <div class="extra content">
+                        <a><i class="user icon"></i>${cardVOlist.reported}</a>
+                    </div>
+                </div>
+
+                <div class="ui card">
+                    <div class="image">
+                        <img src="${cardVOlist.avatarimg}">
+                    </div>
+                    <div class="content">
+                        <a class="header">${cardVOlist.nickname}</a>
+                        <div class="meta"><span class="date">${cardVOlist.date}</span></div>
+                        <div class="description">${cardVOlist.email}</div>
+                    </div>
+                    <div class="extra content">
+                        <a><i class="user icon"></i>${cardVOlist.reported}</a>
+                    </div>
+                </div>
+
             </div>
-<%--            </c:forEach>--%>
+
         </div>
-        <div class="container" style="display: flex;justify-content: center;margin-top:30px;padding-bottom: 30px;">
-            <div>
-                <div class="ui animated button" tabindex="0"
-                     style="color:var(--color-white);background-color: var(--color-chathams-blue);">
-                    <div class="visible content">Perv</div>
-                    <div class="hidden content">
-                        <i class="left arrow icon"></i>
-                    </div>
+        <div style="display: flex;justify-content: center;margin-top:30px;padding-bottom: 30px;">
+            <div class="ui animated button" tabindex="0"
+                 style="color:var(--color-white);background-color: var(--color-chathams-blue);">
+                <div class="visible content">Perv</div>
+                <div class="hidden content">
+                    <i class="left arrow icon"></i>
                 </div>
-                <c:forEach var="i" begin="1" end="${pageNum}">
-                    <div class="ui animated button" tabindex="0"
-                         style="color:var(--color-white);background-color: var(--color-chathams-blue);">
-                        <div class="visible content">${i}</div>
-                        <div class="hidden content">${i}</div>
-                    </div>
-                </c:forEach>
-                <div class="ui animated button" tabindex="0"
-                     style="color:var(--color-white);background-color: var(--color-chathams-blue);">
-                    <div class="visible content">Next</div>
-                    <div class="hidden content">
-                        <i class="right arrow icon"></i>
-                    </div>
-                </div>
-                <br>
             </div>
+            <c:forEach var="i" begin="1" end="${pageNum}">
+                <div class="ui animated button" tabindex="0"
+                     style="color:var(--color-white);background-color: var(--color-chathams-blue);">
+                    <div class="visible content">${i}</div>
+                    <div class="hidden content">${i}</div>
+                </div>
+            </c:forEach>
+            <div class="ui animated button" tabindex="0"
+                 style="color:var(--color-white);background-color: var(--color-chathams-blue);">
+                <div class="visible content">Next</div>
+                <div class="hidden content">
+                    <i class="right arrow icon"></i>
+                </div>
+            </div>
+            <br>
         </div>
     </div>
-    <footer class="has_bg_river-bed">
-        <div class="container">
-            <div class="is_logo">
-                <a href="">
-                    <div class="is_logos"><i class="fas fa-palette fg-lg"></i>
-                        <div>
-                            <div><span>그</span><span class="has_albescent-white">림</span></div>
-                            <div><span class="has_albescent-white">드</span><span>림</span></div>
-                        </div>
-                    </div>
-                </a>
-            </div>
-            <div class="has_flex_space" style="grid-column: 3/5">
-                <a href="#" class="has_aqua-island">회사 소개</a>
-                <a href="#" class="has_albescent-white">팀원 소개</a>
-            </div>
-            <div class="has_flex_space" style="grid-column: 10/12">
-                <a href="#" class="has_white has_font-xl"><i class="fab fa-youtube"></i></a>
-                <a href="#" class="has_white has_font-xl"><i class="fab fa-facebook-square"></i></a>
-                <a href="#" class="has_white has_font-xl"><i class="fab fa-instagram-square"></i></a>
-            </div>
-        </div>
-    </footer>
 </div>
-
 <script>
     // Get the Sidebar
     var mySidebar = document.getElementById("mySidebar");

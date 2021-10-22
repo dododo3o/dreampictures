@@ -69,12 +69,12 @@
 <div class="w3-overlay w3-hide-large w3-animate-opacity" onclick="w3_close()" style="cursor:pointer" title="close side menu" id="myOverlay"></div>
 <div class="w3-main" style="margin-left:300px;">
     <main class="has_bg_harp" style="height: auto;">
-        <div class="container" style="height: 100%;margin-left: 200px">
-            <div class="has_flex_end" style="grid-column: 1/13; flex-wrap: wrap; margin-top: 20px;margin-bottom: 20px;">
-                <div tabindex="0" style="display: flex;margin-top: 50px;margin-right: 270px;"><h1 class="ui header" style="margin-right: 200px;font-family: 'BMHANNAPro';color:var(--color-chathams-blue)">질문사항</h1></div>
-                <div class="manager_card" style="display: grid;grid-template-columns:repeat(3,1fr);grid-gap:1rem;width: 100%;">
+
+
+                <div tabindex="0" style="display: flex;justify-content: center;border-bottom: 1px solid #BDBDBD"><h1 style="font-family: 'BMHANNAPro';padding: 10px 0px;color:var(--color-chathams-blue);">질문사항</h1></div>
+                <div class="manager_card" style="display: grid;grid-template-columns:repeat(4,1fr);grid-gap:1rem;width: 100%;justify-items: center;border-bottom: 1px solid #BDBDBD;padding-bottom: 30px">
                     <c:forEach var="QaVOlist" items="${QaVOlist}">
-                        <div class="ui card">
+                        <div class="ui card" style="margin:0">
                             <div class="content" style="height: 0px">
                                 <div class="header">${QaVOlist.category}</div>
                                 <div style="font-size: 1.3em">작성자 : ${QaVOlist.nickname}</div>
@@ -92,8 +92,8 @@
                         </div>
                     </c:forEach>
                 </div>
-            </div>
-        </div>
+
+
         <div class="container" style="display: flex;justify-content: center;margin-top:30px;padding-bottom: 30px;">
             <div>
                 <div class="ui animated button" tabindex="0" style="color:var(--color-white);background-color: var(--color-chathams-blue);">

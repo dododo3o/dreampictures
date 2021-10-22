@@ -20,14 +20,19 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <style>
-        html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
-    </style><meta charset="UTF-8">
+        html, body, h1, h2, h3, h4, h5 {
+            font-family: "Raleway", sans-serif
+        }
+    </style>
+    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <style>
-        html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
+        html, body, h1, h2, h3, h4, h5 {
+            font-family: "Raleway", sans-serif
+        }
     </style>
     <script src="https://kit.fontawesome.com/b14e6f064f.js" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"
@@ -37,7 +42,9 @@
             integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.13/semantic.js"></script>
     <script type="text/javascript">
-        showModal = function () {$('.ui.modal').modal('show');};
+        showModal = function () {
+            $('.ui.modal').modal('show');
+        };
         requestQA = function () {
             $(() => {
                 let question = document.getElementById("question").value;
@@ -70,87 +77,93 @@
     <div class="w3-container">
     </div>
     <div class="w3-bar-block">
-        <a href="#" class="w3-bar-item w3-button w3-padding-16 w3-hide-large w3-dark-grey w3-hover-black" onclick="w3_close()" title="close menu"><i class="fa fa-remove fa-fw"></i>  Close Menu</a>
-        <a href="/admin/main" class="w3-bar-item w3-button w3-padding"><i class="fa fa-bullseye fa-fw"></i>  관리자 메인으로</a>
+        <a href="#" class="w3-bar-item w3-button w3-padding-16 w3-hide-large w3-dark-grey w3-hover-black"
+           onclick="w3_close()" title="close menu"><i class="fa fa-remove fa-fw"></i>  Close Menu</a>
+        <a href="/admin/main" class="w3-bar-item w3-button w3-padding"><i class="fa fa-bullseye fa-fw"></i>  관리자
+            메인으로</a>
         <a href="/admin/notice" class="w3-bar-item w3-button w3-padding"><i class="fa fa-bullseye fa-fw"></i>  공지사항</a>
         <a href="/admin/qa" class="w3-bar-item w3-button w3-padding"><i class="fa fa-bullseye fa-fw"></i>  질문사항</a>
-        <a href="/admin/salesHistory" class="w3-bar-item w3-button w3-padding"><i class="fa fa-bullseye fa-fw"></i>  판매현황</a>
+        <a href="/admin/salesHistory" class="w3-bar-item w3-button w3-padding"><i class="fa fa-bullseye fa-fw"></i> 
+            판매현황</a>
         <a href="/admin/report" class="w3-bar-item w3-button w3-padding"><i class="fa fa-bullseye fa-fw"></i>  신고내역</a>
-        <a href="/admin/blacklist" class="w3-bar-item w3-button w3-padding "><i class="fa fa-bullseye fa-fw"></i>  블랙리스트</a>
+        <a href="/admin/blacklist" class="w3-bar-item w3-button w3-padding"><i class="fa fa-bullseye fa-fw"></i> 
+            블랙리스트</a>
         <a href="/admin/allmembers" class="w3-bar-item w3-button w3-padding w3-blue"><i class="fa fa-bullseye fa-fw"></i>  회원현황</a><br><br>
     </div>
 </nav>
-<div class="w3-overlay w3-hide-large w3-animate-opacity" onclick="w3_close()" style="cursor:pointer" title="close side menu" id="myOverlay"></div>
+<div class="w3-overlay w3-hide-large w3-animate-opacity" onclick="w3_close()" style="cursor:pointer;"
+     title="close side menu" id="myOverlay"></div>
 <div class="w3-main" style="margin-left:300px;">
-    <div class="has_bg_harp">
-        <div class="container">
-            <div class="has_chathams-blue" style="grid-column:5/11;margin-top: 20px;">회원 블랙리스트</div>
-            <div style="grid-column:3/11;display: flex;gap:20px; justify-content: center; margin-top:20px;margin-bottom: 70px;">
-                <div class="field" style="width:500px">
-                    <select>
-                        <option value="0">기간설정</option>
-                        <option value="1">1주</option>
-                        <option value="2">1개월</option>
-                        <option value="3">3개월</option>
-                        <option value="4">6개월</option>
-                        <option value="5">1년</option>
-                    </select>
-                </div>
-                <form action="" >
-                    <div  style="display: flex;" class="has_flex_space">
-                        <input type="text" class="has_width_middle_half"
-                               placeholder="검색어를 입력해주세요." style="font-family: 'BMHANNAPro';margin-right: 20px"/>
-                        <button class='button is_notification' style="font-family: 'BMHANNAPro';">검색</button>
+    <div class="has_bg_harp" style="display: flex;flex-direction: column;justify-content: space-between;">
+
+        <div style="">
+            <div style="height:auto;padding: 10px 0px;flex-direction:column;display:flex;gap:20px;justify-content:center;align-items: center;border-bottom: 1px solid #BDBDBD;">
+                <div><h1 style="font-family: 'BMHANNAPro';color:var(--color-chathams-blue)">전체 회원목록</h1></div>
+                <form action="">
+                    <div style="display: flex;align-items: stretch" class="has_flex_space">
+                        <div class="ui input focus" style="margin-right: 20px">
+                            <input type="text" style="font-family: 'BMHANNAPro';" placeholder=" 닉네임을 입력해주세요.">
+                        </div>
+                        <button class="ui primary basic button"
+                                style="font-family: 'BMHANNAPro';width:120px;height:50px;font-size:20px ">검색
+                        </button>
                     </div>
                 </form>
             </div>
+            <div style="height: auto;border-bottom: 1px solid #BDBDBD;display: grid;grid-template-columns:repeat(4,1fr);grid-gap:1rem;align-items: baseline;justify-items: center;padding:0 0 20px 0;">
+                        <c:forEach var="memberVOList" items="${memberVOList}">
+                            <div class="ui card">
+                                <div class="content">
+                                    <img class="ui avatar image" src="${memberVOList.avatarimg}"><a class="header" style="display: inline">닉네임:${memberVOList.nickname}</a>
+                                    <div class="meta"><span class="date">신고당한 횟수:${memberVOList.reported}</span></div>
+                                    <div class="description">주소:${memberVOList.addr}</div>
+                                    <div class="description">전화번호:${memberVOList.tel}</div>
+                                    <div class="description">드림페이:${memberVOList.dreampay}</div>
+                                    <div class="description">입금 총액:${memberVOList.input_total}</div>
+                                    <div class="description">출금 총액:${memberVOList.output_total}</div>
+                                </div>
+                                <div class="extra content">
+                                    <a><i class="user icon"></i>상세정보</a>
+                                </div>
+                            </div>
+                        </c:forEach>
+            </div>
+
         </div>
-        <div class="container" style="display: grid;grid-template-columns:repeat(4,1fr);grid-gap:1rem;">
-        <c:forEach var="memberVOList" items="${memberVOList}">
-            <div class="ui card">
-                <div class="content">
-                    <img class="ui avatar image" src="${memberVOList.avatarimg}"><a class="header" style="display: inline">닉네임:${memberVOList.nickname}</a>
-                    <div class="meta"><span class="date">신고당한 횟수:${memberVOList.reported}</span></div>
-                    <div class="description">주소:${memberVOList.addr}</div>
-                    <div class="description">전화번호:${memberVOList.tel}</div>
-                    <div class="description">드림페이:${memberVOList.dreampay}</div>
-                    <div class="description">입금 총액:${memberVOList.input_total}</div>
-                    <div class="description">출금 총액:${memberVOList.output_total}</div>
-                </div>
-                <div class="extra content">
-                    <a><i class="user icon"></i>상세정보</a>
+        <div style="display: flex;justify-content: center;margin-top:30px;padding-bottom: 30px;">
+            <div class="ui animated button" tabindex="0"
+                 style="color:var(--color-white);background-color: var(--color-chathams-blue);">
+                <div class="visible content">Perv</div>
+                <div class="hidden content">
+                    <i class="left arrow icon"></i>
                 </div>
             </div>
-        </c:forEach>
-        </div>
-        <div class="container" style="display: flex;justify-content: center;margin-top:30px;padding-bottom: 30px;
-">
-            <div>
-                <button class='button is_pagination'>
-                    <i class="fas fa-arrow-left"></i>
-                </button>
-                <button class='button is_pagination'>1</button>
-                <button class='button is_pagination'>2</button>
-                <button class='button is_pagination'>3</button>
-                <button class='button is_pagination'>4</button>
-                <button class='button is_pagination'>5</button>
-                <button class='button is_pagination'>6</button>
-                <button class='button is_pagination'>7</button>
-                <button class='button is_pagination'>8</button>
-                <button class='button is_pagination'>9</button>
-                <button class='button is_pagination'>10</button>
-                <button class='button is_pagination'>
-                    <i class="fas fa-arrow-right"></i>
-                </button>
-                <br>
+            <c:forEach var="i" begin="1" end="${pageNum}">
+                <div class="ui animated button" tabindex="0"
+                     style="color:var(--color-white);background-color: var(--color-chathams-blue);">
+                    <div class="visible content">${i}</div>
+                    <div class="hidden content">${i}</div>
+                </div>
+            </c:forEach>
+            <div class="ui animated button" tabindex="0"
+                 style="color:var(--color-white);background-color: var(--color-chathams-blue);">
+                <div class="visible content">Next</div>
+                <div class="hidden content">
+                    <i class="right arrow icon"></i>
+                </div>
             </div>
+            <br>
         </div>
     </div>
 </div>
-
 <script>
+    // Get the Sidebar
     var mySidebar = document.getElementById("mySidebar");
+
+    // Get the DIV with overlay effect
     var overlayBg = document.getElementById("myOverlay");
+
+    // Toggle between showing and hiding the sidebar, and add overlay effect
     function w3_open() {
         if (mySidebar.style.display === 'block') {
             mySidebar.style.display = 'none';
@@ -160,6 +173,8 @@
             overlayBg.style.display = "block";
         }
     }
+
+    // Close the sidebar with the close button
     function w3_close() {
         mySidebar.style.display = "none";
         overlayBg.style.display = "none";
