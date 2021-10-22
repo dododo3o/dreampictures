@@ -51,19 +51,19 @@
                 </div>
             </div>
             <div class="ui vertical animated button" tabindex="0" onclick="showModal()">
-                <div class="hidden content"><a href="/buylist">판매내역</a></div>
+                <div class="hidden content"><a href="/buylist">구매내역</a></div>
                 <div class="visible content">
                     <i class="orange shipping fast icon"></i>
                 </div>
             </div>
             <div class="ui vertical animated button" tabindex="0" onclick="showModal()">
-                <div class="hidden content"><a>구매내역</a></div>
+                <div class="hidden content"><a href="/selllist">판매내역</a></div>
                 <div class="visible content">
                     <i class="orange shipping fast icon"></i>
                 </div>
             </div>
             <div class="ui vertical animated button" tabindex="0" onclick="showModal()">
-                <div class="hidden content"><a href="/basket">장바구니</a></div>
+                <div class="hidden content"><a href="/cart">장바구니</a></div>
                 <div class="visible content">
                     <i class="yellow shopping cart icon"></i>
                 </div>
@@ -85,28 +85,30 @@
         <div style="grid-column: 3/13;display: flex;flex-direction: column;justify-content: space-between;align-items: center;">
             <!-- 추가요소 있으면 이 안에 넣기-->
             <div style="font-family:'BMHANNAPro';color:var(--color-chathams-blue);font-size:var(--font-size-xll);padding-top: 30px;
-    padding-bottom: 25px;">판매내역</div>
-                        <c:forEach var="cardVOlist" items="${cardVOlist}">
-            <div style="display:grid;grid-template-columns:repeat(3,1fr);grid-gap:1rem;width:100%;">
-                <div class="ui card" style="height: 100%; margin: 0 auto;">
-                    <div class="content"
-                         style=" display: flex; flex-direction: row; justify-content: space-evenly; align-items: center;">
-                        <img src="${cardVOlist.avatarimg}"
-                             style="border-radius: 50%; width: 3em;height: 3em;object-fit: cover;">
-                        <span style="font-size: 2em;">${cardVOlist.nickname}</span>
-                    </div>
-                    <div class="image">
-                        <img src="${cardVOlist.paintingmimg}" onclick="buypainting(${cardVOlist.no_painting});"
-                             style="object-fit: cover; height: 250px">
-                    </div>
-                    <div class="content" style="display: flex;justify-content: center;">
-                        <span style="font-size: 1.5em">${cardVOlist.pname}</span><span></span>
+    padding-bottom: 25px;">판매내역
+            </div>
+            <c:forEach var="cardVOlist" items="${cardVOlist}">
+                <div style="display:grid;grid-template-columns:repeat(3,1fr);grid-gap:1rem;width:100%;">
+                    <div class="ui card" style="height: 100%; margin: 0 auto;">
+                        <div class="content"
+                             style=" display: flex; flex-direction: row; justify-content: space-evenly; align-items: center;">
+                            <img src="${cardVOlist.avatarimg}"
+                                 style="border-radius: 50%; width: 3em;height: 3em;object-fit: cover;">
+                            <span style="font-size: 2em;">${cardVOlist.nickname}</span>
+                        </div>
+                        <div class="image">
+                            <img src="${cardVOlist.paintingmimg}" onclick="buypainting(${cardVOlist.no_painting});"
+                                 style="object-fit: cover; height: 250px">
+                        </div>
+                        <div class="content" style="display: flex;justify-content: center;">
+                            <span style="font-size: 1.5em">${cardVOlist.pname}</span><span></span>
+                        </div>
                     </div>
                 </div>
-            </div>
-                        </c:forEach>
+            </c:forEach>
             <div>
-                <div class="container" style="display: flex;justify-content: center;margin-top:30px;padding-bottom: 30px;">
+                <div class="container"
+                     style="display: flex;justify-content: center;margin-top:30px;padding-bottom: 30px;">
                     <div style="margin-right: 40px;">
                         <div class="ui animated button" tabindex="0"
                              style="color:var(--color-white);background-color: var(--color-chathams-blue);">

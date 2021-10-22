@@ -41,50 +41,95 @@
 </head>
 <body>
 <jsp:include page="../header_footer/header_login.jsp"></jsp:include>
-<main class="has_bg_harp">
+<main class="has_bg_harp" style="height: auto;">
     <div id="container" class="container">
-        <div style="grid-column:1/3;display:flex;flex-direction: column;gap:40px; padding-top: 20px; background-color: #a2b0b36e">
-            <div class="has_flex_column"
-                 style="grid-column:1/3; gap:40px;padding-top: 30px;">
-                <div class="ui vertical animated button" tabindex="0" onclick="showModal()">
-                    <div class="hidden content"><a href="/mypage/+${user}">My Page</a></div>
-                    <div class="visible content">
-                        <i class="red user circle icon"></i>
-                    </div>
+        <div class="has_flex_column" style="grid-column:1/3; gap:40px;padding-top: 30px;background-color: #a2b0b36e">
+            <div class="ui vertical animated button" tabindex="0" onclick="showModal()">
+                <div class="hidden content"><a href="/mypage/+${user}">My Page</a></div>
+                <div class="visible content">
+                    <i class="red user circle icon"></i>
                 </div>
-                <div class="ui vertical animated button" tabindex="0" onclick="showModal()">
-                    <div class="hidden content"><a>구매내역</a></div>
-                    <div class="visible content">
-                        <i class="orange shipping fast icon"></i>
-                    </div>
+            </div>
+            <div class="ui vertical animated button" tabindex="0" onclick="showModal()">
+                <div class="hidden content"><a href="/buylist">판매내역</a></div>
+                <div class="visible content">
+                    <i class="orange shipping fast icon"></i>
                 </div>
-                <div class="ui vertical animated button" tabindex="0" onclick="showModal()">
-                    <div class="hidden content"><a>판매내역</a></div>
-                    <div class="visible content">
-                        <i class="orange shipping fast icon"></i>
-                    </div>
+            </div>
+            <div class="ui vertical animated button" tabindex="0" onclick="showModal()">
+                <div class="hidden content"><a>구매내역</a></div>
+                <div class="visible content">
+                    <i class="orange shipping fast icon"></i>
                 </div>
-                <div class="ui vertical animated button" tabindex="0" onclick="showModal()">
-                    <div class="hidden content"><a href="/cart">장바구니</a></div>
-                    <div class="visible content">
-                        <i class="yellow shopping cart icon"></i>
-                    </div>
+            </div>
+            <div class="ui vertical animated button" tabindex="0" onclick="showModal()">
+                <div class="hidden content"><a href="/cart">장바구니</a></div>
+                <div class="visible content">
+                    <i class="yellow shopping cart icon"></i>
                 </div>
-                <div class="ui vertical animated button" tabindex="0" onclick="showModal()">
-                    <div class="hidden content"><a href="/notice_question">질문내역</a></div>
-                    <div class="visible content">
-                        <i class="green comments outline icon"></i>
-                    </div>
+            </div>
+            <div class="ui vertical animated button" tabindex="0" onclick="showModal()">
+                <div class="hidden content"><a href="/notice_question">질문내역</a></div>
+                <div class="visible content">
+                    <i class="green comments outline icon"></i>
                 </div>
-                <div class="ui vertical animated button" tabindex="0" onclick="showModal()">
-                    <div class="hidden content"><a href="/charge">포인트 입출금</a></div>
-                    <div class="visible content">
-                        <i class="blue money bill alternate outline icon"></i>
-                    </div>
+            </div>
+            <div class="ui vertical animated button" tabindex="0" onclick="showModal()">
+                <div class="hidden content"><a href="/charge">포인트 입출금</a></div>
+                <div class="visible content">
+                    <i class="blue money bill alternate outline icon"></i>
                 </div>
             </div>
         </div>
 
+        <div style="grid-column: 3/13;display: flex;flex-direction: column;justify-content: space-between;align-items: center;">
+            <!-- 추가요소 있으면 이 안에 넣기-->
+            <div style="font-family:'BMHANNAPro';color:var(--color-chathams-blue);font-size:var(--font-size-xll);padding-top: 30px;
+    padding-bottom: 25px;">장바구니</div>
+            <c:forEach var="cardVOlist" items="${cardVOlist}">
+                <div style="display:grid;grid-template-columns:repeat(3,1fr);grid-gap:1rem;width:100%;">
+                    <div class="ui card" style="height: 100%; margin: 0 auto;">
+                        <div class="content"
+                             style=" display: flex; flex-direction: row; justify-content: space-evenly; align-items: center;">
+                            <img src="${cardVOlist.avatarimg}"
+                                 style="border-radius: 50%; width: 3em;height: 3em;object-fit: cover;">
+                            <span style="font-size: 2em;">${cardVOlist.nickname}</span>
+                        </div>
+                        <div class="image">
+                            <img src="${cardVOlist.paintingmimg}" onclick="buypainting(${cardVOlist.no_painting});"
+                                 style="object-fit: cover; height: 250px">
+                        </div>
+                        <div class="content" style="display: flex;justify-content: center;">
+                            <span style="font-size: 1.5em">${cardVOlist.pname}</span><span></span>
+                        </div>
+                    </div>
+                </div>
+            </c:forEach>
+            <div>
+                <div class="container" style="display: flex;justify-content: center;margin-top:30px;padding-bottom: 30px;">
+                    <div style="margin-right: 40px;">
+                        <div class="ui animated button" tabindex="0"
+                             style="color:var(--color-white);background-color: var(--color-chathams-blue);">
+                            <div class="visible content">Perv</div>
+                            <div class="hidden content">
+                                <i class="left arrow icon"></i>
+                            </div>
+                        </div>
+                        <c:forEach var="i" begin="1" end="${pageNum}">
+                            <button class='button is_pagination'>${i}</button>
+                        </c:forEach>
+                        <div class="ui animated button" tabindex="0"
+                             style="color:var(--color-white);background-color: var(--color-chathams-blue);">
+                            <div class="visible content">Next</div>
+                            <div class="hidden content">
+                                <i class="right arrow icon"></i>
+                            </div>
+                        </div>
+                        <br>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 </main>
 <jsp:include page="../header_footer/footer.jsp"></jsp:include>

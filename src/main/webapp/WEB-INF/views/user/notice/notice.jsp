@@ -68,7 +68,7 @@
                 </div>
             </div>
             <div class="ui vertical animated button" tabindex="0" onclick="showModal()">
-                <div class="hidden content"><a href="notice_question.jsp">질문하기</a></div>
+                <div class="hidden content"><a href="/notice_question">질문하기</a></div>
                 <div class="visible content">
                     <i class="comments outline icon"></i>
                 </div>
