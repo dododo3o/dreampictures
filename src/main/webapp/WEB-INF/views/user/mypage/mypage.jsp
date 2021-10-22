@@ -68,11 +68,11 @@
                 </div>
             </div>
         </div>
-        <div style="grid-column: 3/13;display: flex;flex-direction: column;justify-content: space-between;align-items: center;">
+        <div style="grid-column: 3/13;display: flex;flex-direction: column;justify-content: space-between;align-items: center;justify-content: space-evenly">
             <div style="font-family:'BMHANNAPro';color:var(--color-chathams-blue);font-size:var(--font-size-xll);padding-top: 30px;
     padding-bottom: 25px;">MY PAGE
             </div>
-            <div class="ui card" style="width:500px;grid-column: 5/12; margin-top: 100px; height: fit-content;">
+            <div class="ui card" style="width:500px;grid-column: 5/12;height: fit-content;">
                 <div class="content" style="display:flex;justify-content: space-evenly;align-items: center;">
                     <div><img src="${mypageVO.avatarimg}"
                               style="border-radius:50%;width:5em;height:5em; object-fit:cover;">
