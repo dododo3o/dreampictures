@@ -69,29 +69,19 @@
             </div>
         </div>
         <div style="grid-column: 3/13;display: flex;flex-direction: column;justify-content: space-between;align-items: center;justify-content: space-evenly">
-            <!-- 추가요소 있으면 이 안에 넣기-->
             <div style="font-family:'BMHANNAPro';color:var(--color-chathams-blue);font-size:var(--font-size-xll);padding-top: 30px;
-    padding-bottom: 25px;">공지사항
-            </div>
-            <c:forEach var="cardVOlist" items="${cardVOlist}">
-                <div style="display:grid;grid-template-columns:repeat(3,1fr);grid-gap:1rem;width:100%;">
-                    <div class="ui card" style="height: 100%; margin: 0 auto;">
-                        <div class="content"
-                             style=" display: flex; flex-direction: row; justify-content: space-evenly; align-items: center;">
-                            <img src="${cardVOlist.avatarimg}"
-                                 style="border-radius: 50%; width: 3em;height: 3em;object-fit: cover;">
-                            <span style="font-size: 2em;">${cardVOlist.nickname}</span>
-                        </div>
-                        <div class="image">
-                            <img src="${cardVOlist.paintingmimg}" onclick="buypainting(${cardVOlist.no_painting});"
-                                 style="object-fit: cover; height: 250px">
-                        </div>
-                        <div class="content" style="display: flex;justify-content: center;">
-                            <span style="font-size: 1.5em">${cardVOlist.pname}</span><span></span>
+    padding-bottom: 25px;">공지사항</div>
+            <div class="manager_card" style="display: grid;grid-template-columns:repeat(3,1fr);grid-gap:1rem;width: 100%;">
+                <c:forEach var="noticeVOList" items="${noticeVOList}">
+                    <div class="ui card" style="height: 100%; margin: 0 auto;" >
+                        <div class="content" style="height: 100%; margin: 0 auto;">
+                            <div class="header">${noticeVOList.title}</div>
+                            <div class="meta">${noticeVOList.writedate}</div>
+                            <div class="description"><p>${noticeVOList.content}</p></div>
                         </div>
                     </div>
-                </div>
-            </c:forEach>
+                </c:forEach>
+            </div>
             <div>
                 <div class="container"
                      style="display: flex;justify-content: center;margin-top:30px;padding-bottom: 30px;">

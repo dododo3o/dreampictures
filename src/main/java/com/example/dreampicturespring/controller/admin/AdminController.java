@@ -1,10 +1,7 @@
 package com.example.dreampicturespring.controller.admin;
 
 
-import com.example.dreampicturespring.entity.Admintbl;
-import com.example.dreampicturespring.entity.Membershiptbl;
-import com.example.dreampicturespring.entity.Noticetbl;
-import com.example.dreampicturespring.entity.Qatbl;
+import com.example.dreampicturespring.entity.*;
 import com.example.dreampicturespring.repository.*;
 import com.example.dreampicturespring.vo.*;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -63,7 +60,7 @@ public class AdminController {
                 HttpSession session =request.getSession();
                 session.setAttribute("adminLogin",vo.getAdmin());
                 session.setAttribute("adminLoginStatus","Y");
-                mv.setViewName("user/admin/main");
+                mv.setViewName("redirect:/admin/main");
                 return mv;
             }
         }
@@ -77,7 +74,49 @@ public class AdminController {
     }
 
     @RequestMapping("/admin/main")
-    public String admin_main(Model model){ return "user/admin/main";}
+    public ModelAndView admin_main(){
+
+        ModelAndView mv = new ModelAndView();
+
+        AdminVO adminVO = new AdminVO();
+
+        adminVO.setNoticeNum(noticeRepository.findAll().size());
+        adminVO.setQuestionNum(qaRepository.findAll().size());
+        adminVO.setRegisterNum(paintingRepository.findAll().size());
+        adminVO.setMemberNum(membershiptblRepository.findAll().size());
+        adminVO.setNewMemberPercent(membershiptblRepository.findAll().size());
+        adminVO.setOneWeekSaleVolumePercent(paintingRepository.countSold());
+        adminVO.setOneWeekRegisterPercent(paintingRepository.findAll().size());
+        adminVO.setPopart(paintingRepository.countTheme("popart"));
+        adminVO.setAbstracts(paintingRepository.countTheme("abstracts"));
+        adminVO.setAnimal(paintingRepository.countTheme("animal"));
+        adminVO.setScenery(paintingRepository.countTheme("scenery"));
+        adminVO.setCharacter(paintingRepository.countTheme("character"));
+        adminVO.setStill(paintingRepository.countTheme("still"));
+        adminVO.setObjet(paintingRepository.countTheme("objet"));
+        adminVO.setWater(paintingRepository.countTheme("water"));
+        adminVO.setOils(paintingRepository.countTheme("oils"));
+        adminVO.setAcrylic(paintingRepository.countTheme("acrylic"));
+        adminVO.setPen(paintingRepository.countTheme("pen"));
+        adminVO.setPencil(paintingRepository.countTheme("pencil"));
+        adminVO.setCrayon(paintingRepository.countTheme("crayon"));
+        adminVO.setGouache(paintingRepository.countTheme("gouache"));
+        adminVO.setPastel(paintingRepository.countTheme("pastel"));
+
+        List<Membershiptbl> membershiptbls = membershiptblRepository.findLatest();
+        adminVO.setPerson1(membershiptbls.get(0).getNickname());
+        adminVO.setPerson1img(membershiptbls.get(0).getImg()+"/avatarimg/avatarimg.jpg");
+        adminVO.setPerson2(membershiptbls.get(1).getNickname());
+        adminVO.setPerson2img(membershiptbls.get(1).getImg()+"/avatarimg/avatarimg.jpg");
+        adminVO.setPerson3(membershiptbls.get(2).getNickname());
+        adminVO.setPerson3img(membershiptbls.get(2).getImg()+"/avatarimg/avatarimg.jpg");
+
+        System.out.println(adminVO);
+
+        mv.addObject("adminVO",adminVO);
+        mv.setViewName("user/admin/main");
+        return mv;
+    }
 
     @RequestMapping("/admin/notice")
     public ModelAndView admin_notice(Model model){
@@ -127,7 +166,7 @@ public class AdminController {
     public ModelAndView admin_blacklist(Model model){
 
         ModelAndView mv = new ModelAndView();
-
+        mv.setViewName("user/admin/blacklist");
         return mv;
     }
 
