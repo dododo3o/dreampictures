@@ -51,13 +51,13 @@
                 </div>
             </div>
             <div class="ui vertical animated button" tabindex="0" onclick="showModal()">
-                <div class="hidden content"><a href="/buylist">판매내역</a></div>
+                <div class="hidden content"><a href="/buylist">구매내역</a></div>
                 <div class="visible content">
                     <i class="orange shipping fast icon"></i>
                 </div>
             </div>
             <div class="ui vertical animated button" tabindex="0" onclick="showModal()">
-                <div class="hidden content"><a>구매내역</a></div>
+                <div class="hidden content"><a href="/selllist">판매내역</a></div>
                 <div class="visible content">
                     <i class="orange shipping fast icon"></i>
                 </div>
@@ -69,7 +69,7 @@
                 </div>
             </div>
             <div class="ui vertical animated button" tabindex="0" onclick="showModal()">
-                <div class="hidden content"><a href="/notice_question">질문내역</a></div>
+                <div class="hidden content"><a href="/qalist">질문내역</a></div>
                 <div class="visible content">
                     <i class="green comments outline icon"></i>
                 </div>
@@ -85,7 +85,8 @@
         <div style="grid-column: 3/13;display: flex;flex-direction: column;justify-content: space-between;align-items: center;">
             <!-- 추가요소 있으면 이 안에 넣기-->
             <div style="font-family:'BMHANNAPro';color:var(--color-chathams-blue);font-size:var(--font-size-xll);padding-top: 30px;
-    padding-bottom: 25px;">장바구니</div>
+    padding-bottom: 25px;">장바구니
+            </div>
             <c:forEach var="cardVOlist" items="${cardVOlist}">
                 <div style="display:grid;grid-template-columns:repeat(3,1fr);grid-gap:1rem;width:100%;">
                     <div class="ui card" style="height: 100%; margin: 0 auto;">
@@ -106,7 +107,8 @@
                 </div>
             </c:forEach>
             <div>
-                <div class="container" style="display: flex;justify-content: center;margin-top:30px;padding-bottom: 30px;">
+                <div class="container"
+                     style="display: flex;justify-content: center;margin-top:30px;padding-bottom: 30px;">
                     <div style="margin-right: 40px;">
                         <div class="ui animated button" tabindex="0"
                              style="color:var(--color-white);background-color: var(--color-chathams-blue);">

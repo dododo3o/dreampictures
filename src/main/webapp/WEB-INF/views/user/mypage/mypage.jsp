@@ -55,7 +55,7 @@
                     </div>
                 </div>
                 <div class="ui vertical animated button" tabindex="0" onclick="showModal()">
-                    <div class="hidden content"><a href="/notice_question">질문내역</a></div>
+                    <div class="hidden content"><a href="/qalist">질문내역</a></div>
                     <div class="visible content">
                         <i class="green comments outline icon"></i>
                     </div>
