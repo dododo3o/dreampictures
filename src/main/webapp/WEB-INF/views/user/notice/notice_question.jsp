@@ -60,7 +60,7 @@
 <% if (session.getAttribute("logStatus") == null) { %>
 <jsp:include page="../header_footer/header_not_login.jsp"></jsp:include>
 <% } %>
-<main class="has_bg_harp">
+<main class="has_bg_harp" style="height: auto">
     <div class="ui modal">
         <div class="header">질문 사항</div>
         <div class="ui form">
@@ -101,13 +101,14 @@
         <div style="grid-column: 3/13;display: flex;flex-direction: column;justify-content: space-between;align-items: center;justify-content: space-evenly;">
             <!-- 추가요소 있으면 이 안에 넣기-->
 
-           <div style="display: flex; width: 100%;justify-content: flex-end; align-items: center">
-               <div style="font-family:'BMHANNAPro';color:var(--color-chathams-blue);font-size:var(--font-size-xll);padding-top: 30px;
+            <div style="display: flex; width: 100%;justify-content: flex-end; align-items: center">
+                <div style="font-family:'BMHANNAPro';color:var(--color-chathams-blue);font-size:var(--font-size-xll);padding-top: 30px;
     padding-bottom: 25px; padding-right: 31%;">질문과 답변
-            </div>
+                </div>
                 <div tabindex="0" onclick="showModal()">
                     <button class="ui button" style="font-family: 'BMHANNAPro';">질문하기</button>
-                </div></div>
+                </div>
+            </div>
             <div style="display:grid;grid-template-columns:repeat(3,1fr);grid-gap:1rem;width:100%;">
                 <c:forEach var="QaVOlist" items="${QaVOlist}">
                     <div class="ui card" style="height: 100%; margin: 0 auto;">
@@ -122,35 +123,35 @@
                     </div>
                 </c:forEach>
             </div>
-                <div>
-                    <div class="container"
-                         style="display: flex;justify-content: center;margin-top:30px;padding-bottom: 30px;">
-                        <div style="margin-right: 40px;">
-                            <div class="ui animated button" tabindex="0"
-                                 style="color:var(--color-white);background-color: var(--color-chathams-blue);">
-                                <div class="visible content">Perv</div>
-                                <div class="hidden content">
-                                    <i class="left arrow icon"></i>
-                                </div>
+            <div>
+                <div class="container"
+                     style="display: flex;justify-content: center;margin-top:30px;padding-bottom: 30px;">
+                    <div style="margin-right: 40px;">
+                        <div class="ui animated button" tabindex="0"
+                             style="color:var(--color-white);background-color: var(--color-chathams-blue);">
+                            <div class="visible content">Perv</div>
+                            <div class="hidden content">
+                                <i class="left arrow icon"></i>
                             </div>
-                            <c:forEach var="i" begin="1" end="${pageNum}">
-                                <div class="ui animated button" tabindex="0"
-                                     style="color:var(--color-white);background-color: var(--color-chathams-blue);">
-                                    <div class="visible content">${i}</div>
-                                    <div class="hidden content">${i}</div>
-                                </div>
-                            </c:forEach>
-                            <div class="ui animated button" tabindex="0"
-                                 style="color:var(--color-white);background-color: var(--color-chathams-blue);">
-                                <div class="visible content">Next</div>
-                                <div class="hidden content"><i class="right arrow icon"></i></div>
-                            </div>
-                            <br>
                         </div>
+                        <c:forEach var="i" begin="1" end="${pageNum}">
+                            <div class="ui animated button" tabindex="0"
+                                 style="color:var(--color-white);background-color: var(--color-chathams-blue);">
+                                <div class="visible content">${i}</div>
+                                <div class="hidden content">${i}</div>
+                            </div>
+                        </c:forEach>
+                        <div class="ui animated button" tabindex="0"
+                             style="color:var(--color-white);background-color: var(--color-chathams-blue);">
+                            <div class="visible content">Next</div>
+                            <div class="hidden content"><i class="right arrow icon"></i></div>
+                        </div>
+                        <br>
                     </div>
                 </div>
             </div>
         </div>
+    </div>
 </main>
 <jsp:include page="../header_footer/footer.jsp"></jsp:include>
 </body>
