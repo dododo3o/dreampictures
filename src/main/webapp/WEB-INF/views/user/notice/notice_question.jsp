@@ -105,7 +105,11 @@
                             </div>
                         </div>
                         <c:forEach var="i" begin="1" end="${pageNum}">
-                            <button class='button is_pagination'>${i}</button>
+                            <div class="ui animated button" tabindex="0"
+                                 style="color:var(--color-white);background-color: var(--color-chathams-blue);">
+                                <div class="visible content">${i}</div>
+                                <div class="hidden content">${i}</div>
+                            </div>
                         </c:forEach>
                         <div class="ui animated button" tabindex="0"
                              style="color:var(--color-white);background-color: var(--color-chathams-blue);">
