@@ -189,4 +189,5 @@ public class AjaxController {
 		if(StringUtils.isEmpty(target)) return target = null;
 		return target;
 	}
+
 }

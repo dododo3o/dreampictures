@@ -15,6 +15,7 @@ public interface MembershiptblRepository extends JpaRepository<Membershiptbl,Int
         @Override
         Membershiptbl getById(Integer aInteger);
         Membershiptbl findByemail(String email);
+
         Boolean existsByemail(String email);
         Boolean existsBytel(String tel);
         Boolean existsBynickname(String nickname);
@@ -26,4 +27,7 @@ public interface MembershiptblRepository extends JpaRepository<Membershiptbl,Int
 
         @Query(value = "select * from membershiptbl where rownum < 4 order by membershiptbl.no_membership desc", nativeQuery = true)
         List<Membershiptbl> findLatest();
+
+        @Query(value = "select * from membershiptbl where membershiptbl.email = :email", nativeQuery = true)
+        Membershiptbl email_pwd(@Param("email") String email);
 }

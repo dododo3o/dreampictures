@@ -1,9 +1,11 @@
 package com.example.dreampicturespring.controller.login;
 
 
+import com.example.dreampicturespring.Interfacer.EmailUtil;
 import com.example.dreampicturespring.entity.Membershiptbl;
 import com.example.dreampicturespring.repository.MembershiptblRepository;
 import com.example.dreampicturespring.vo.LoginVO;
+import com.example.dreampicturespring.vo.RegisterVO1;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -20,6 +22,9 @@ public class LoginController {
 
     @Autowired
     MembershiptblRepository membershiptblRepository;
+
+    @Autowired
+    private EmailUtil emailUtil;
 
     @RequestMapping("/login")
     public String login(){ return "user/login/login";}
@@ -58,5 +63,16 @@ public class LoginController {
                 return mv;
             }
         }
+    }
+    @RequestMapping(value="/find_pwd",method=RequestMethod.GET, produces="application/text;charset=UTF-8")
+    @ResponseBody
+    public String find_pwd(String email,String tel) {
+        Membershiptbl membershiptbl = membershiptblRepository.email_pwd(email);
+        if(membershiptbl==null) return "ㅗ";
+        else if(!membershiptbl.getTel().equals(tel)) return "ㅗㅗ";
+        emailUtil.sendEmail(email,"역머거", "123456");
+        membershiptbl.setPwd("123456");
+        membershiptblRepository.save(membershiptbl);
+        return "ㅇㅈ";
     }
 }
