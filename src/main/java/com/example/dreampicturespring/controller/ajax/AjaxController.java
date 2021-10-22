@@ -38,6 +38,8 @@ public class AjaxController {
 	@Autowired
 	PaintingRepository paintingRepository;
 	@Autowired
+	PaymentRepository paymentRepository;
+	@Autowired
 	ReportRepository reportRepository;
 	@Autowired
 	QaRepository qaRepository;
@@ -86,7 +88,13 @@ public class AjaxController {
 		paintingtbl.setStatus(1);
 		paintingRepository.save(paintingtbl);
 
-		return "user/redirect/pay_success";
+		Paymenttbl paymenttbl = new Paymenttbl();
+		paymenttbl.setPaymentprice(point);
+		paymenttbl.setNo_membership(buyer);
+		paymenttbl.setNo_painting(paint);
+		paymentRepository.save(paymenttbl);
+
+		return "success";
 	}
 
 	@RequestMapping(value = "/ajax_answer_QA",method = RequestMethod.GET, produces ="application/text;charset=UTF-8")

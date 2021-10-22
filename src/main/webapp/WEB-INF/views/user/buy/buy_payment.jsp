@@ -63,11 +63,13 @@
                     url: "/ajax_pay",
                     data: "point=" + point + "&buyer=" + <c:out value="${paymentVO.buyer_no_member}"/> + "&seller=" + <c:out value="${paymentVO.seller_no_member}"/> + "&paint=" + <c:out value="${paymentVO.no_painting}"/> ,
                     success: function (result) {
-                        document.location.href = "/buy";
+                        if(result=="success")
+                            document.location.href = "/buylist";
                     }
                 });
             });
         };
+
     </script>
 </head>
 <body>

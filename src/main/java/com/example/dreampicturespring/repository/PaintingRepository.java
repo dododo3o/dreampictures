@@ -28,4 +28,8 @@ public interface PaintingRepository extends JpaRepository<Paintingtbl, Integer> 
 
     @Query(value = "select count(*) from paintingtbl where paintingtbl.theme = :theme ", nativeQuery = true)
     Integer countTheme(@Param("theme") String theme);
+
+    @Query(value = "select * from paintingtbl where paintingtbl.no_membership = :no_membership ", nativeQuery = true)
+    List<Paintingtbl> findbyno_membership(@Param("no_membership") Integer no_membership);
+
 }
