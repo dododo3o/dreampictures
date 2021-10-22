@@ -27,13 +27,13 @@ public class Paymenttbl {
     @Column(name="paymentdate")
     private LocalDate paymentdate;
 
-    @Column(name="cardcompony")
-    private String cardcompony;
-
     private Integer no_membership;
+    private Integer no_painting;
     public Paymenttbl(){
         if(StringUtils.isEmpty(paymentdate)){
             this.paymentdate = LocalDate.now(ZoneId.of("Asia/Seoul"));
         }
+
     }
+
 }
