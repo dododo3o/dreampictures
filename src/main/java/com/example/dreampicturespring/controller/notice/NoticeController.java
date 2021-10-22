@@ -34,16 +34,16 @@ public class NoticeController {
 
         ModelAndView mv = new ModelAndView();
         mv.setViewName("user/notice/notice");
-        List<Noticetbl> noticetblList =  noticeRepository.findAll();
+        List<Noticetbl> noticetblList = noticeRepository.findAll();
         List<NoticeVO> noticeVOList = new ArrayList<>();
-        for(Noticetbl noticetbl :noticetblList){
+        for (Noticetbl noticetbl : noticetblList) {
             NoticeVO noticeVO = new NoticeVO();
             noticeVO.setTitle(noticetbl.getTitle());
             noticeVO.setWritedate(noticetbl.getWritedate());
             noticeVO.setContent(noticetbl.getContent());
             noticeVOList.add(noticeVO);
         }
-        mv.addObject("noticeVOList",noticeVOList);
+        mv.addObject("noticeVOList", noticeVOList);
         return mv;
     }
 
