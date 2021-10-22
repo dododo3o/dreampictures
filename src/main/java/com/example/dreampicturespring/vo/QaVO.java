@@ -8,6 +8,7 @@ public class QaVO {
     private String nickname;
     private String content;
     private String answer;
+    private Integer no_qa;
     public QaVO(){ }
 
     public void parser(Integer category){

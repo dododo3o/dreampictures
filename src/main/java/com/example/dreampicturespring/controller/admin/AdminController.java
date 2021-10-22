@@ -102,10 +102,8 @@ public class AdminController {
         int cardNum = 0, pageNum;
 
         ModelAndView mv = new ModelAndView();
-
         List<Qatbl> qatblList = qaRepository.findAll();
         List<QaVO> QaVOlist = new ArrayList<>();
-
         for (Qatbl qatbl : qatblList) {
             QaVO vo = new QaVO();
             vo.parser(qatbl.getCategory());
@@ -114,6 +112,7 @@ public class AdminController {
             vo.setNickname(writer.getNickname());
             vo.setContent(qatbl.getContent());
             vo.setAnswer(qatbl.getAnswer());
+            vo.setNo_qa(qatbl.getNo_qa());
             QaVOlist.add(vo);
         }
         pageNum = cardNum / CARDSPERPAGE + 1;
@@ -129,7 +128,8 @@ public class AdminController {
 
         ModelAndView mv = new ModelAndView();
 
-        return mv;}
+        return mv;
+    }
 
     @RequestMapping("/admin/salesHistory")
     public ModelAndView admin_salesHistory(Model model){

@@ -191,11 +191,7 @@
             </div>
         </div>
     </div>
-<<<<<<< HEAD
     <div class="container " id="container" style="display: grid;grid-template-columns: repeat(5,1fr);grid-gap:1rem;justify-content: space-around;">
-=======
-    <div class="container" id="container" style="display: grid;grid-template-columns: repeat(5,1fr);grid-gap:1rem;justify-content: space-around;">
->>>>>>> c66ed66beadb68574d58698cb4889b6c3da0ac80
         <c:forEach var="cardVOlist" items="${cardVOlist}">
             <div class="flip-card">
                 <div class="flip-card-inner" id="${cardVOlist.no_painting}" style="border-radius: 5px;">

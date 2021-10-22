@@ -85,6 +85,15 @@ public class AjaxController {
 		return "user/redirect/pay_success";
 	}
 
+	@RequestMapping(value = "/ajax_answer_QA",method = RequestMethod.GET, produces ="application/text;charset=UTF-8")
+	public String answer_QA(HttpServletRequest request, Integer no_qa, String answer){
+		Optional<Qatbl> qatblOptional = qaRepository.findById(no_qa);
+		Qatbl qatbl =qatblOptional.get();
+		qatbl.setAnswer(answer);
+		qaRepository.save(qatbl);
+		return "redirect:/notice";
+	}
+
 	@RequestMapping(value = "/ajax_request_QA",method = RequestMethod.GET, produces ="application/text;charset=UTF-8")
 	public String request_Qa(Model model,HttpServletRequest request, String question, Integer status){
 		HttpSession session = request.getSession();
@@ -94,6 +103,8 @@ public class AjaxController {
 		qaRepository.save(qatbl);
 		return "redirect:/notice";
 	}
+
+
 
 	@RequestMapping(value = "/ajax_push_notice",method = RequestMethod.GET, produces ="application/text;charset=UTF-8")
 	public String push_notice(HttpServletRequest request,String title,String question){

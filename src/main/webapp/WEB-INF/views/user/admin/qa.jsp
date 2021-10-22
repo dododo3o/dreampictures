@@ -12,46 +12,26 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
-    <link rel="stylesheet" type="text/css"
-          href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.13/semantic.min.css">
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.13/semantic.min.css">
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <style>
-        html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
-    </style><meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <style>
-        html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
-    </style>
+    <style>html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}</style>
     <script src="https://kit.fontawesome.com/b14e6f064f.js" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"
-            integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ=="
-            crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-    <script src="https://code.jquery.com/jquery-3.1.1.min.js"
-            integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.13/semantic.js"></script>
     <script>
-        function modal() {
-            document.getElementById("modaldiv")
-        }
+        function modal() {document.getElementById("modaldiv")}
     </script>
     <script type="text/javascript">
-        showModal = function () {
-            $('.ui.modal').modal('show');
-        };
-        requestQA = function () {
+        showModal = function () {$('.ui.tiny.modal').modal('show');};
+        answerQA = function (no_qa) {
             $(() => {
-                let question = document.getElementById("question").value;
-                let status = 0; //0~4 까지 질문 종류
+                let answer = document.getElementById(no_qa).value;
                 $.ajax({
-                    url: "/ajax_request_QA",
-                    data: "question=" + question + "&status=" + status,
+                    url: "/ajax_answer_QA",
+                    data: "no_qa=" + no_qa + "&answer=" + answer,
                     success: function (result) {
                         document.location.href = "/notice";
                     }
@@ -59,11 +39,8 @@
             });
         };
     </script>
-
 </head>
 <body class="w3-light-grey">
-
-<!-- Sidebar/menu -->
 <nav class="w3-sidebar w3-collapse w3-white w3-animate-left" style="z-index:3;width:300px;" id="mySidebar"><br>
     <div class="w3-container w3-row">
         <div class="w3-col s8 w3-bar" style="text-align: center;margin-left: 50px">
@@ -89,37 +66,28 @@
         <a href="/admin/allmembers" class="w3-bar-item w3-button w3-padding"><i class="fa fa-bullseye fa-fw"></i>  회원현황</a><br><br>
     </div>
 </nav>
-
-
-<!-- Overlay effect when opening sidebar on small screens -->
 <div class="w3-overlay w3-hide-large w3-animate-opacity" onclick="w3_close()" style="cursor:pointer" title="close side menu" id="myOverlay"></div>
-
-<!-- !PAGE CONTENT! -->
 <div class="w3-main" style="margin-left:300px;">
-
-    <!-- Header -->
-
     <main class="has_bg_harp" style="height: auto;">
-
         <div class="container" style="height: 100%;margin-left: 200px">
             <div class="has_flex_end" style="grid-column: 1/13; flex-wrap: wrap; margin-top: 20px;margin-bottom: 20px;">
-
-                <div tabindex="0" onclick="showModal()" style="display: flex;margin-top: 50px;margin-right: 270px;">
-                    <h1 class="ui header" style="margin-right: 200px;font-family: 'BMHANNAPro';color:var(--color-chathams-blue)">질문사항</h1>
-                </div>
+                <div tabindex="0" style="display: flex;margin-top: 50px;margin-right: 270px;"><h1 class="ui header" style="margin-right: 200px;font-family: 'BMHANNAPro';color:var(--color-chathams-blue)">질문사항</h1></div>
                 <div class="manager_card" style="display: grid;grid-template-columns:repeat(3,1fr);grid-gap:1rem;width: 100%;">
                     <c:forEach var="QaVOlist" items="${QaVOlist}">
                         <div class="ui card">
-                            <div class="content">
+                            <div class="content" style="height: 0px">
                                 <div class="header">${QaVOlist.category}</div>
+                                <div style="font-size: 1.3em">작성자 : ${QaVOlist.nickname}</div>
                             </div>
                             <div class="content">
-                                <div style="font-size: 1.3em">작성자 : ${QaVOlist.nickname}<br/>${QaVOlist.content}
-                                </div>
+                                <p style="font-size: 1.3em">${QaVOlist.content}</p>
                             </div>
-                            <div class="content" style="font-size: 1.3em">답변내용 : <br/>${QaVOlist.answer}</div>
                             <div class="extra content">
-                                <button class="ui button">답변하기</button>
+                                <div class="ui large transparent left icon input" style="display: flex;">
+                                    <i class="pencil alternate icon"></i>
+                                    <input type="text" maxlength="50" size="20" id="${QaVOlist.no_qa}" placeholder="답변하기..." style="font-size: 0.8em"/>
+                                </div>
+                                <button class="ui blue icon button" onclick="answerQA(${QaVOlist.no_qa})" style="float: right; font-size: 0.8em;">답변하기</button>
                             </div>
                         </div>
                     </c:forEach>
@@ -128,12 +96,9 @@
         </div>
         <div class="container" style="display: flex;justify-content: center;margin-top:30px;padding-bottom: 30px;">
             <div>
-                <div class="ui animated button" tabindex="0"
-                     style="color:var(--color-white);background-color: var(--color-chathams-blue);">
+                <div class="ui animated button" tabindex="0" style="color:var(--color-white);background-color: var(--color-chathams-blue);">
                     <div class="visible content">Perv</div>
-                    <div class="hidden content">
-                        <i class="left arrow icon"></i>
-                    </div>
+                    <div class="hidden content"><i class="left arrow icon"></i></div>
                 </div>
                 <c:forEach var="i" begin="1" end="${pageNum}">
                     <div class="ui animated button" tabindex="0"
@@ -142,31 +107,18 @@
                         <div class="hidden content">${i}</div>
                     </div>
                 </c:forEach>
-                <div class="ui animated button" tabindex="0"
-                     style="color:var(--color-white);background-color: var(--color-chathams-blue);">
+                <div class="ui animated button" tabindex="0" style="color:var(--color-white);background-color: var(--color-chathams-blue);">
                     <div class="visible content">Next</div>
-                    <div class="hidden content">
-                        <i class="right arrow icon"></i>
-                    </div>
+                    <div class="hidden content"><i class="right arrow icon"></i></div>
                 </div>
                 <br>
             </div>
         </div>
     </main>
-
-
-    <!-- End page content -->
-
 </div>
-
 <script>
-    // Get the Sidebar
     var mySidebar = document.getElementById("mySidebar");
-
-    // Get the DIV with overlay effect
     var overlayBg = document.getElementById("myOverlay");
-
-    // Toggle between showing and hiding the sidebar, and add overlay effect
     function w3_open() {
         if (mySidebar.style.display === 'block') {
             mySidebar.style.display = 'none';
@@ -176,13 +128,10 @@
             overlayBg.style.display = "block";
         }
     }
-
-    // Close the sidebar with the close button
     function w3_close() {
         mySidebar.style.display = "none";
         overlayBg.style.display = "none";
     }
 </script>
-
 </body>
 </html>
