@@ -47,9 +47,9 @@
 <% if (session.getAttribute("logStatus") == null) { %>
 <jsp:include page="../header_footer/header_not_login.jsp"></jsp:include>
 <% } %>
-<main class="has_bg_harp" style="height: 100%;">
+<main class="has_bg_harp" style="height: auto;">
     <div class="container">
-        <div style="display:flex;grid-column: 1/13; background-color: #F3F7F7;height: 100%;">
+        <div style="display:flex;grid-column: 1/13; background-color: #F3F7F7;">
             <div class="has_flex_column" style="width: 40%;justify-content: center; gap:50px; ">
                 <a class="ui red ribbon label">아티스트</a>
                 <div class="has_flex_column ">
