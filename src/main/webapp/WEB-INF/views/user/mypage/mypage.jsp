@@ -68,40 +68,45 @@
                 </div>
             </div>
         </div>
-        <div class="ui card" style="width:500px;grid-column: 5/12; margin-top: 100px; height: fit-content;">
-            <div class="content" style="display:flex;justify-content: space-evenly;align-items: center;">
-                <div><img src="${mypageVO.avatarimg}"
-                          style="border-radius:50%;width:5em;height:5em; object-fit:cover;">
-                </div>
-                <div style="color:black;font-size: 3em;"><c:out value="${mypageVO.nickname}"/></div>
+        <div style="grid-column: 3/13;display: flex;flex-direction: column;justify-content: space-between;align-items: center;">
+            <div style="font-family:'BMHANNAPro';color:var(--color-chathams-blue);font-size:var(--font-size-xll);padding-top: 30px;
+    padding-bottom: 25px;">MY PAGE
             </div>
-            <div class="content">
-                <span class="right floated"></span>
-                <div class="ui segment">
-                    <div style="font-size:2em;"><i class="truck icon"></i> 포인트
-                        <div style="font-size:20px;"><c:out value="${mypageVO.dreampay}"/></div>
+            <div class="ui card" style="width:500px;grid-column: 5/12; margin-top: 100px; height: fit-content;">
+                <div class="content" style="display:flex;justify-content: space-evenly;align-items: center;">
+                    <div><img src="${mypageVO.avatarimg}"
+                              style="border-radius:50%;width:5em;height:5em; object-fit:cover;">
+                    </div>
+                    <div style="color:black;font-size: 3em;"><c:out value="${mypageVO.nickname}"/></div>
+                </div>
+                <div class="content">
+                    <span class="right floated"></span>
+                    <div class="ui segment">
+                        <div style="font-size:2em;"><i class="truck icon"></i> 포인트
+                            <div style="font-size:20px;"><c:out value="${mypageVO.dreampay}"/></div>
+                        </div>
+                    </div>
+                    <div class="ui segment">
+                        <div style="font-size:2em;"><i class="truck icon"></i> 배송지
+                            <div style="font-size:20px;"><c:out value="${mypageVO.addr}"/></div>
+                        </div>
+                    </div>
+                    <div class="ui segment">
+                        <div style="font-size:2em;"><i class="envelope icon"></i> e-mail
+                            <div style="font-size:20px;"><c:out value="${mypageVO.email}"/></div>
+                        </div>
+                    </div>
+                    <div class="ui segment">
+                        <div style="font-size:2em;"><i class="phone icon"></i> phone
+                            <div style="font-size:20px;"><c:out value="${mypageVO.tel}"/></div>
+                        </div>
                     </div>
                 </div>
-                <div class="ui segment">
-                    <div style="font-size:2em;"><i class="truck icon"></i> 배송지
-                        <div style="font-size:20px;"><c:out value="${mypageVO.addr}"/></div>
+                <div class="extra content">
+                    <div style="display:flex; justify-content: space-evenly;">
+                        <button class="ui blue icon button" style="width:200px; height:50px;">수정하기</button>
+                        <button class="ui blue icon button" style="width:200px; height:50px;">탈퇴하기</button>
                     </div>
-                </div>
-                <div class="ui segment">
-                    <div style="font-size:2em;"><i class="envelope icon"></i> e-mail
-                        <div style="font-size:20px;"><c:out value="${mypageVO.email}"/></div>
-                    </div>
-                </div>
-                <div class="ui segment">
-                    <div style="font-size:2em;"><i class="phone icon"></i> phone
-                        <div style="font-size:20px;"><c:out value="${mypageVO.tel}"/></div>
-                    </div>
-                </div>
-            </div>
-            <div class="extra content">
-                <div style="display:flex; justify-content: space-evenly;">
-                    <button class="ui blue icon button" style="width:200px; height:50px;">수정하기</button>
-                    <button class="ui blue icon button" style="width:200px; height:50px;">탈퇴하기</button>
                 </div>
             </div>
         </div>
