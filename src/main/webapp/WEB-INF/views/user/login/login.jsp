@@ -20,30 +20,77 @@
     </script>
     <script>
         showModal = function () {
-            $('.ui.modal').modal('show');
+            $('.ui.tiny.modal').modal('show');
         };
+
+        function find_pwd_btn() {
+            var email = $('#find_email').val();
+            var tel = $('#find_tel').val();
+            alert('333');
+            if (email !== '' && tel !== '') {
+                alert('123');
+                $(() => {
+                    $.ajax({
+                        url: "/ajax_tel_check",
+                        data: "tel=" + tel,
+                        success: function (result) {
+                            if (result == 'Y') {
+                                telChecked = true;//중복이 아니다
+                                alert('존재하지 않는 연락처입니다. 다시 한번 확인해주세요 !');
+                            }else{//연락처 있어
+                                alert('어~ 연락처 있네~');
+                                //연락처, 이메일에 맞는 비밀번호 띄워주기
+                            }
+                        }
+                    });
+                });
+            } else {
+                alert('정보를 모두 입력해주세요 ! 😅');
+                showModal();
+            }
+        }
+
     </script>
 </head>
 <body>
 <jsp:include page="../header_footer/header_not_login.jsp"></jsp:include>
 <main class="has_bg_harp">
-    <div class="ui modal">
+    <div class="ui tiny modal">
         <div class="header">비밀번호 찾기 <i class="unlock alternate icon"></i></div>
         <div class="ui form">
-            <div class="has_flex_column" style="gap:30px; margin-top: 20px; margin-bottom: 20px;">
+            <div class="has_flex_column" style="gap:30px; margin:20px;display: flex;">
                 <div class="ui input">
-                    <input class="find_pwd" type="text" placeholder="아이디를 입력해주세요." style="user-select: auto;">
+                    <input class="find_pwd" id="find_email" type="text" placeholder="이메일을 입력해주세요."
+                           style="user-select: auto;">
                 </div>
                 <div class="ui input">
-                    <input class="find_pwd" type="text" placeholder="연락처를 입력해주세요." style="user-select: auto;">
+                    <input class="find_pwd" id="find_tel" type="text" placeholder="연락처를 입력해주세요."
+                           style="user-select: auto;">
+                </div>
+            </div>
+            <div style="display: flex;justify-content: center;">
+                <div class="ui steps" style="display: flex;margin-bottom: 10px;">
+                    <div class="step"
+                         style="user-select: auto;display: flex;flex-direction: row;justify-content: space-evenly;">
+                        <i class="big check circle outline icon" style=""></i>
+                        <div class="content" style="">
+                            <div class="title" style="">현정님</div>
+                            <div class="description" style="">임시비밀번호를 전송하였습니다 ! </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
         <div class="actions" style="background-color: #95afc0">
             <div class="ui positive right labeled icon button" style="background-color: var(--color-metallic-blue)"
-                 onclick="requestQA()">
+                 onclick="find_pwd_btn()">
                 찾기
-               <i class="checkmark icon"></i>
+                <i class="checkmark icon"></i>
+            </div>
+            <div class="ui positive right labeled icon button" style="background-color: var(--color-brandy-rose)"
+                 onclick="">
+                닫기
+                <i class="checkmark icon"></i>
             </div>
         </div>
     </div>
@@ -62,7 +109,8 @@
                             <span class="has_black has_font-xs">Remember me</span>
                         </div>
 
-                        <div onclick="showModal()"><a href='#' class="has_black"> <i class="large unlock alternate icon"></i> Forgot password?</a></div>
+                        <div onclick="showModal()"><a href='#' class="has_black"> <i
+                                class="large unlock alternate icon"></i> Forgot password?</a></div>
                     </div>
                     <a href="/login_check">
                         <button class='button is_login has_shadow has_width_full has_flex_center'><i
