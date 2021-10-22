@@ -26,6 +26,10 @@ public class AjaxController {
 	@Autowired
 	AdminRepository adminRepository;
 	@Autowired
+	CartRepository cartRepository;
+	@Autowired
+	CartpaintingRepository cartpaintingRepository;
+	@Autowired
 	CommentRepository commentRepository;
 	@Autowired
 	MembershiptblRepository membershiptblRepository;
@@ -104,8 +108,6 @@ public class AjaxController {
 		return "redirect:/notice";
 	}
 
-
-
 	@RequestMapping(value = "/ajax_push_notice",method = RequestMethod.GET, produces ="application/text;charset=UTF-8")
 	public String push_notice(HttpServletRequest request,String title,String question){
 		HttpSession session = request.getSession();
@@ -133,6 +135,24 @@ public class AjaxController {
 		reportRepository.save(reporttbl);
 		return "user/buy/buy";
 	}
+
+
+	@RequestMapping(value = "/ajax_cart_add",method = RequestMethod.GET, produces ="application/text;charset=UTF-8")
+	@ResponseBody
+	public String cart_add(HttpServletRequest request,Integer no_painting){
+		HttpSession session = request.getSession();
+		Membershiptbl membershipTBL = membershiptblRepository.findByemail((String) session.getAttribute("logEmail"));
+		if(membershipTBL == null){ return "not_login";}
+		Carttbl carttbls = cartRepository.findByno_membership(membershipTBL.getNo_membership());
+		List<Cartpaintingtbl> cartpaintingtblList = cartpaintingRepository.findByno_cart(carttbls.getNo_cart());
+		for(Cartpaintingtbl cartpaintingtbl : cartpaintingtblList){ if(cartpaintingtbl.getNo_painting()==no_painting) return "has_already"; }
+		Cartpaintingtbl cartpaintingtbl = new Cartpaintingtbl();
+		cartpaintingtbl.setNo_cart(carttbls.getNo_cart());
+		cartpaintingtbl.setNo_painting(no_painting);
+		cartpaintingRepository.save(cartpaintingtbl);
+		return "success";
+	}
+
 
 	@RequestMapping(value = "/ajax_comment_finder",method = RequestMethod.GET, produces ="application/text;charset=UTF-8")
 	public String comment_finder(Model model, Integer no_painting){
