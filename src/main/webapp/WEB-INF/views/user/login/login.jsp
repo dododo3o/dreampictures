@@ -26,20 +26,18 @@
         function find_pwd_btn() {
             var email = $('#find_email').val();
             var tel = $('#find_tel').val();
-            alert('333');
             if (email !== '' && tel !== '') {
-                alert('123');
                 $(() => {
                     $.ajax({
-                        url: "/ajax_tel_check",
-                        data: "tel=" + tel,
+                        url: "/find_pwd",
+                        data: "email=" + email + "&tel=" + tel,
                         success: function (result) {
-                            if (result == 'Y') {
-                                telChecked = true;//중복이 아니다
-                                alert('존재하지 않는 연락처입니다. 다시 한번 확인해주세요 !');
-                            }else{//연락처 있어
-                                alert('어~ 연락처 있네~');
-                                //연락처, 이메일에 맞는 비밀번호 띄워주기
+                            if (result == 'ㅗ') {
+                                alert('존재하지 않는 이메일입니다.');
+                            }
+                            else if (result=="ㅗㅗ"){alert('이메일과 일치 하지 않습니다.')}
+                            else{//연락처 있어
+                                alert('니 이메일 확인해보세요.');
                             }
                         }
                     });
@@ -83,8 +81,13 @@
         </div>
         <div class="actions" style="background-color: #95afc0">
             <div class="ui positive right labeled icon button" style="background-color: var(--color-metallic-blue)"
+                 onclick="">
+                회원 확인
+                <i class="checkmark icon"></i>
+            </div>
+            <div class="ui positive right labeled icon button" style="background-color: var(--color-metallic-blue)"
                  onclick="find_pwd_btn()">
-                찾기
+                보내기
                 <i class="checkmark icon"></i>
             </div>
             <div class="ui positive right labeled icon button" style="background-color: var(--color-brandy-rose)"
