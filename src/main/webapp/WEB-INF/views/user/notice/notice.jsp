@@ -56,9 +56,9 @@
     <div class="container">
         <div class="has_flex_column" style="grid-column:1/3; gap:40px;padding-top: 30px; background-color: #a2b0b36e">
             <div class="ui vertical animated button" tabindex="0" onclick="showModal()">
-                <div class="hidden content">공지사항</div>
+                <div class="hidden content"><a href="/notice">공지사항</a></div>
                 <div class="visible content">
-                    <i class="bullhorn icon"></i>
+                    <i class="red bullhorn icon"></i>
                 </div>
             </div>
             <div class="ui vertical animated button" tabindex="0" onclick="showModal()">
@@ -68,7 +68,7 @@
                 </div>
             </div>
             <div class="ui vertical animated button" tabindex="0" onclick="showModal()">
-                <div class="hidden content"><a href="notice_question.jsp">질문하기</a></div>
+                <div class="hidden content"><a href="/notice_question">질문하기</a></div>
                 <div class="visible content">
                     <i class="comments outline icon"></i>
                 </div>

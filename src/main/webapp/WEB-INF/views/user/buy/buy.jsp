@@ -22,7 +22,10 @@
             integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.13/semantic.js"></script>
     <script>
-        function buypainting(num) {location.href = "http://localhost:8080/buy_picture/" + num;}
+        function buypainting(num) {
+            location.href = "http://localhost:8080/buy_picture/" + num;
+        }
+
         showModal = function () {
             $(() => {
                 let pname = document.getElementById("pname").value;
@@ -191,11 +194,8 @@
             </div>
         </div>
     </div>
-<<<<<<< HEAD
-    <div class="container " id="container" style="display: grid;grid-template-columns: repeat(5,1fr);grid-gap:1rem;justify-content: space-around;">
-=======
-    <div class="container" id="container" style="display: grid;grid-template-columns: repeat(5,1fr);grid-gap:1rem;justify-content: space-around;">
->>>>>>> c66ed66beadb68574d58698cb4889b6c3da0ac80
+    <div class="container " id="container"
+         style="display: grid;grid-template-columns: repeat(5,1fr);grid-gap:1rem;justify-content: space-around;">
         <c:forEach var="cardVOlist" items="${cardVOlist}">
             <div class="flip-card">
                 <div class="flip-card-inner" id="${cardVOlist.no_painting}" style="border-radius: 5px;">
