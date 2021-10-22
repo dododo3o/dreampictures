@@ -1,8 +1,10 @@
 package com.example.dreampicturespring.controller.notice;
 
 import com.example.dreampicturespring.entity.Membershiptbl;
+import com.example.dreampicturespring.entity.Noticetbl;
 import com.example.dreampicturespring.entity.Qatbl;
 import com.example.dreampicturespring.repository.MembershiptblRepository;
+import com.example.dreampicturespring.repository.NoticeRepository;
 import com.example.dreampicturespring.repository.QaRepository;
 import com.example.dreampicturespring.vo.NoticeVO;
 import com.example.dreampicturespring.vo.QaVO;
@@ -18,7 +20,8 @@ import java.util.Optional;
 
 @Controller
 public class NoticeController {
-
+    @Autowired
+    NoticeRepository noticeRepository;
     @Autowired
     MembershiptblRepository membershiptblRepository;
     @Autowired
@@ -30,23 +33,17 @@ public class NoticeController {
         int cardNum = 0, pageNum;
 
         ModelAndView mv = new ModelAndView();
-//        List<NoticeVO> noticeVOList = new ArrayList<>();
-//        List<String> list = qaRepository.findAllNotice_Desc();
-//
-//        for(String notice : list){
-//            List<String> obj = Arrays.asList(notice.split(","));
-//            Membershiptbl membershiptbl = membershiptblRepository.getById(Integer.parseInt(obj.get(1)));
-//            NoticeVO vo = new NoticeVO();
-//            vo.setContent(obj.get(2));
-//            vo.setAvatarimg(membershiptbl.getImg()+"/avatarimg/avatarimg.jpg");
-//            vo.setPaintingmimg("/resources/utility/photo/"+obj.get(5)+".jpg");
-//            noticeVOList.add(vo);
-//            cardNum++;
-//        }
-//        pageNum = cardNum/CARDSPERPAGE+1;
         mv.setViewName("user/notice/notice");
-//        mv.addObject("noticeVOList",noticeVOList);
-//        mv.addObject("pageNum",pageNum);
+        List<Noticetbl> noticetblList =  noticeRepository.findAll();
+        List<NoticeVO> noticeVOList = new ArrayList<>();
+        for(Noticetbl noticetbl :noticetblList){
+            NoticeVO noticeVO = new NoticeVO();
+            noticeVO.setTitle(noticetbl.getTitle());
+            noticeVO.setWritedate(noticetbl.getWritedate());
+            noticeVO.setContent(noticetbl.getContent());
+            noticeVOList.add(noticeVO);
+        }
+        mv.addObject("noticeVOList",noticeVOList);
         return mv;
     }
 
