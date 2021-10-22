@@ -1,7 +1,12 @@
 package com.example.dreampicturespring.controller.mypage;
 
+import com.example.dreampicturespring.entity.Cartpaintingtbl;
+import com.example.dreampicturespring.entity.Carttbl;
 import com.example.dreampicturespring.entity.Membershiptbl;
-import com.example.dreampicturespring.repository.MembershiptblRepository;
+import com.example.dreampicturespring.entity.Paintingtbl;
+import com.example.dreampicturespring.repository.*;
+import com.example.dreampicturespring.vo.CardVO;
+import com.example.dreampicturespring.vo.CommentVO;
 import com.example.dreampicturespring.vo.MypageVO;
 import com.example.dreampicturespring.vo.RegisterVO;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,11 +16,27 @@ import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+import java.util.Optional;
 
 @Controller
 public class MypageController {
     @Autowired
     MembershiptblRepository membershiptblRepository;
+
+    @Autowired
+    CommentRepository commentRepository;
+
+    @Autowired
+    CartRepository cartRepository;
+
+    @Autowired
+    CartpaintingRepository cartpaintingRepository;
+
+    @Autowired
+    PaintingRepository paintingRepository;
 
     @RequestMapping("/mypage/{user}")
     public ModelAndView mypage(HttpServletRequest req) {
@@ -63,10 +84,53 @@ public class MypageController {
     }
 
     @RequestMapping("/cart")
-    public ModelAndView basket(HttpServletRequest req) {
+    public ModelAndView cart(HttpServletRequest request) {
+        final int CARDSPERPAGE = 15;
+        int cardNum = 0,pageNum;
         ModelAndView mv = new ModelAndView();
-        String user = (String) req.getSession().getAttribute("logEmail");
         mv.setViewName("user/mypage/cart");
+        HttpSession session = request.getSession();
+        Membershiptbl membershipTBL = membershiptblRepository.findByemail((String) session.getAttribute("logEmail"));
+        Carttbl carttbls = cartRepository.findByno_membership(membershipTBL.getNo_membership());
+        List<Cartpaintingtbl> cartpaintingtblList = cartpaintingRepository.findByno_cart(carttbls.getNo_cart());
+
+        List<Paintingtbl> paintingtblList = new ArrayList<>();
+        for(Cartpaintingtbl cartpaintingtbl : cartpaintingtblList){
+            Optional<Paintingtbl> optional = paintingRepository.findById(cartpaintingtbl.getNo_painting());
+            Paintingtbl paintingtbl = optional.get();
+            paintingtblList.add(paintingtbl);
+        }
+        List<CardVO> cardVOList = new ArrayList<>();
+        for(Paintingtbl paintingtbl : paintingtblList){
+            CardVO cardVO = new CardVO();
+            cardVO.setNo_painting(paintingtbl.getNo_painting().toString());
+            Membershiptbl membershiptbl = membershiptblRepository.getById(paintingtbl.getNo_membership());
+            cardVO.setAvatarimg(membershiptbl.getImg()+"/avatarimg/avatarimg.jpg");
+            cardVO.setPaintingmimg(membershiptbl.getImg()+"/paintingimg/"+paintingtbl.getPname()+"/0.jpg");
+            cardVO.setNickname(membershiptbl.getNickname());
+            cardVO.setPname(paintingtbl.getPname());
+            cardVO.setCommentNumber(commentRepository.countByno_painting(paintingtbl.getNo_painting()));
+            List<String> comments = commentRepository.findCommenttbl(paintingtbl.getNo_painting());
+            List<CommentVO> commentVOlist = new ArrayList<>();
+            for(String comment : comments){
+                List<String> comment_member = Arrays.asList(comment.split(","));
+                Membershiptbl comment_membership = membershiptblRepository.getById(Integer.parseInt(comment_member.get(1)));
+                CommentVO commentVO = new CommentVO();
+                commentVO.setAvatarimg(comment_membership.getImg()+"/avatarimg/avatarimg.jpg");
+                commentVO.setAuthor(comment_membership.getNickname());
+                commentVO.setDate("1H");
+                commentVO.setComments(comment_member.get(0));
+                commentVO.setNo_membership(comment_membership.getNo_membership());
+                commentVOlist.add(commentVO);
+            }
+            cardVO.setCommentVOList(commentVOlist);
+            cardVOList.add(cardVO);
+            cardNum++;
+        }
+        pageNum = cardNum/CARDSPERPAGE+1;
+        mv.setViewName("user/mypage/cart");
+        mv.addObject("cardVOlist",cardVOList);
+        mv.addObject("pageNum",pageNum);
         return mv;
     }
     @RequestMapping("/buylist")

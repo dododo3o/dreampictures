@@ -1,6 +1,8 @@
 package com.example.dreampicturespring.controller.register;
 
+import com.example.dreampicturespring.entity.Carttbl;
 import com.example.dreampicturespring.entity.Membershiptbl;
+import com.example.dreampicturespring.repository.CartpaintingRepository;
 import com.example.dreampicturespring.repository.MembershiptblRepository;
 import com.example.dreampicturespring.vo.RegisterVO;
 import com.example.dreampicturespring.vo.RegisterVO1;
@@ -20,6 +22,11 @@ public class RegisterController {
 
     @Autowired
     MembershiptblRepository membershiptblRepository;
+
+    @Autowired
+    CartpaintingRepository cartpaintingRepository;
+
+
     RegisterVO vo = new RegisterVO();
 
     @RequestMapping("/register1")
@@ -68,6 +75,12 @@ public class RegisterController {
 
         Membershiptbl membershiptbl = new Membershiptbl(vo);
         membershiptblRepository.save(membershiptbl);
+
+        Carttbl carttbl = new Carttbl();
+        carttbl.setNo_membership(membershiptbl.getNo_membership());
+
+
+
         return "user/login/login";
     }
 }
