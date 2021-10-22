@@ -62,33 +62,22 @@
             });
         };
 
-        function flipCard(num){
-            $('#'+num).css("transform","rotateY(180deg)");
-            $(".ui.comments.flip-card-back").css('margin','0');
+        function flipCard(num) {
+            $('#' + num).css("transform", "rotateY(180deg)");
+            $(".ui.comments.flip-card-back").css('margin', '0');
 
         }
 
-        function closeCard(num){
-            $('#'+num).css("transform","rotateY(0deg)");
+        function closeCard(num) {
+            $('#' + num).css("transform", "rotateY(0deg)");
         }
-
-        // function flip(event, num){
-        //     var element = event.currentTarget;
-        //     if (element.id === '#'+num) {
-        //         if(element.style.transform == "rotateY(180deg)") {
-        //             element.style.transform = "rotateY(0deg)";
-        //         }
-        //         else {
-        //             element.style.transform = "rotateY(180deg)";
-        //         }
-        //     }
-        // };
     </script>
     <style>
         .flip-card {
             background-color: transparent;
             perspective: 1000px;
         }
+
         .flip-card-inner {
             position: relative;
             width: 100%;
@@ -202,7 +191,11 @@
             </div>
         </div>
     </div>
+<<<<<<< HEAD
+    <div class="container " id="container" style="display: grid;grid-template-columns: repeat(5,1fr);grid-gap:1rem;justify-content: space-around;">
+=======
     <div class="container" id="container" style="display: grid;grid-template-columns: repeat(5,1fr);grid-gap:1rem;justify-content: space-around;">
+>>>>>>> c66ed66beadb68574d58698cb4889b6c3da0ac80
         <c:forEach var="cardVOlist" items="${cardVOlist}">
             <div class="flip-card">
                 <div class="flip-card-inner" id="${cardVOlist.no_painting}" style="border-radius: 5px;">
@@ -234,12 +227,12 @@
                                     style="float: right; font-size: 0.8em;">zxc
                             </button>
                         </div>
-                        <div class="ui bottom attached button collapsible" onclick="flipCard(${cardVOlist.no_painting})" style="z-index: 1;">
+                        <div class="ui bottom attached button collapsible" onclick="flipCard(${cardVOlist.no_painting})"
+                             style="z-index: 1;">
                             <i class="add icon"></i>
                             <span><i class="comment icon"></i>${cardVOlist.commentNumber}</span>
                         </div>
                     </div>
-
                     <div class="ui comments flip-card-back">
                         <c:forEach var="commentVOList" items="${cardVOlist.commentVOList}">
                             <div class="">
@@ -256,7 +249,8 @@
                                 </h5>
                             </div>
                         </c:forEach>
-                        <div class="ui button bottom attached collapsible" onclick="closeCard(${cardVOlist.no_painting})" id="close_btn">
+                        <div class="ui button bottom attached collapsible"
+                             onclick="closeCard(${cardVOlist.no_painting})" id="close_btn">
                             <i class="large close icon icon"></i>
                         </div>
                     </div>
@@ -291,22 +285,6 @@
         </div>
     </div>
 </div>
-<%--<script>
-    var coll = document.getElementsByClassName("collapsible");
-    var i;
-
-    for (i = 0; i < coll.length; i++) {
-        coll[i].addEventListener("click", function () {
-            this.classList.toggle("active");
-            var content = this.nextElementSibling;
-            if (content.style.maxHeight) {
-                content.style.maxHeight = null;
-            } else {
-                content.style.maxHeight = content.scrollHeight + "px";
-            }
-        });
-    }
-</script>--%>
 <jsp:include page="../header_footer/footer.jsp"></jsp:include>
 </body>
 </html>

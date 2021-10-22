@@ -27,5 +27,3 @@ public interface MembershiptblRepository extends JpaRepository<Membershiptbl,Int
         @Query(value = "UPDATE membershiptbl SET membershiptbl.dreampay = :money + membershiptbl.dreampay WHERE membershiptbl.no_membership = :no_membership", nativeQuery = true)
         Integer UpdateDreampayMinus(@Param("money") Integer money, @Param("no_membership")Integer no_membership);
 }
-
-
