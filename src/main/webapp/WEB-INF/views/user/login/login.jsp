@@ -81,13 +81,13 @@
                         <div style="display: flex;align-items: center;gap:10px; "><input type="checkbox" id="login_check" style="height: 20px;"><span class="has_black has_font-xs">Remember me</span></div>
                         <div onclick="showModal()"><a href='#' class="has_black"> <i class="large unlock alternate icon"></i> Forgot password?</a></div>
                     </div>
-                    <button class='button is_login has_shadow has_width_full has_flex_center'><i
+                    <button class='logbtn is_login has_shadow has_width_full has_flex_center'><i
                             class="fas fa-key"></i><span class="has_padding">로그인</span></button>
 
-                    <button class='button is_login has_shadow has_flex_center has_bg_turbo has_width_full'><i
+                    <button class='kakaologbtn button is_login has_shadow has_flex_center has_bg_turbo has_width_full'><i
                             class="fas fa-comment"></i></i></i><span
                             class="has_padding">카카오톡 로그인</span></button>
-                    <button class='button is_login has_shadow has_flex_center has_bg_white has_width_full'><i
+                    <button class='googlelogbtn is_login has_shadow has_flex_center has_bg_white has_width_full'><i
                             class="fab fa-google"></i><span
                             class="has_padding">구글계정</span></button>
                 </div>
