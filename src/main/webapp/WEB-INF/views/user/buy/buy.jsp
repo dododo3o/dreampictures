@@ -133,7 +133,7 @@
                     <option value="objet">오브제</option>
                 </select>
             </div>
-            <div style="display: flex;justify-content: space-between;grid-column:1/9;">
+            <div style="display: flex;justify-content: space-between;grid-column:1/9;margin: 30px 0;">
                 <div><span class="has_chathams-blue">최대너비  : <span id="widthVal">200</span>(CM)<br></span><input
                         type="range" class="width_slider"
                         id="width" min="0" max="200" step="10"

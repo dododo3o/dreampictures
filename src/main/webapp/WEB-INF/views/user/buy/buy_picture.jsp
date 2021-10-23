@@ -83,7 +83,8 @@
                         </h2>
                         <div class="ui vertical red animated button" tabindex="0" onclick="showModal()">
                             <div class="hidden content" style="user-select: auto;">신고하기</div>
-                            <div class="visible content" style="user-select: auto;"><i class="exclamation circle icon" style="user-select: auto;"></i>
+                            <div class="visible content" style="user-select: auto;"><i class="exclamation circle icon"
+                                                                                       style="user-select: auto;"></i>
                             </div>
                         </div>
                     </div>
@@ -102,7 +103,8 @@
                             <i class="black left arrow icon" style="user-select: auto;"></i>
                         </div>
                     </div>
-                    <div class="ui animated button" tabindex="0" style="background-color: var(--color-middle-blue-green); width: 200px;" onclick="cart()">
+                    <div class="ui animated button" tabindex="0"
+                         style="background-color: var(--color-middle-blue-green); width: 200px;" onclick="cart()">
                         <div class="hidden content" style="user-select: auto;">장바구니</div>
                         <div class=" visible content" style="user-select: auto;">
                             <i class="black shopping cart icon" style="user-select: auto;"></i>
