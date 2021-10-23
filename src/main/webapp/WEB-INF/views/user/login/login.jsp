@@ -30,11 +30,11 @@
                         data: "email=" + email + "&tel=" + tel,
                         success: function (result) {
                             if (result == 'ㅗ') {
-                                alert('존재하지 않는 이메일입니다.');
-                            }
-                            else if (result=="ㅗㅗ"){alert('이메일과 일치 하지 않습니다.')}
-                            else{//연락처 있어
-                                alert('니 이메일 확인해보세요.');
+                                alert('존재하지 않는 이메일입니다 ! 😅');
+                            } else if (result == "ㅗㅗ") {
+                                alert('연락처와 이메일이 일치 하지 않습니다. \n연락처를 다시 한번 확인해주세요 ! 😅')
+                            } else {//연락처 있어
+                                alert('이메일 전송이 완료 되었습니다. \n이메일을 확인해주세요 ! 📩');
                             }
                         }
                     });
@@ -56,22 +56,18 @@
                 <div class="ui input"><input class="find_pwd" id="find_email" type="text" placeholder="이메일을 입력해주세요." style="user-select: auto;"></div>
                 <div class="ui input"><input class="find_pwd" id="find_tel" type="text" placeholder="연락처를 입력해주세요." style="user-select: auto;"></div>
             </div>
-            <div style="display: flex;justify-content: center;">
-                <div class="ui steps" style="display: flex;margin-bottom: 10px;">
-                    <div class="step" style="user-select: auto;display: flex;flex-direction: row;justify-content: space-evenly;">
-                        <i class="big check circle outline icon" style=""></i>
-                        <div class="content" style="">
-                            <div class="title" style="">고객님</div>
-                            <div class="description" style="">임시비밀번호를 전송하였습니다 !</div>
-                        </div>
-                    </div>
-                </div>
-            </div>
         </div>
         <div class="actions" style="background-color: #95afc0">
-            <div class="ui positive right labeled icon button" style="background-color: var(--color-metallic-blue)" onclick="">회원 확인<i class="checkmark icon"></i></div>
-            <div class="ui positive right labeled icon button" style="background-color: var(--color-metallic-blue)" onclick="find_pwd_btn()">보내기<i class="checkmark icon"></i></div>
-            <div class="ui positive right labeled icon button" style="background-color: var(--color-brandy-rose)" onclick="">닫기<i class="checkmark icon"></i></div>
+            <div class="ui positive right labeled icon button" style="background-color: var(--color-metallic-blue)"
+                 onclick="find_pwd_btn()">
+                보내기
+                <i class="checkmark icon"></i>
+            </div>
+            <div class="ui positive right labeled icon button" style="background-color: var(--color-brandy-rose)"
+                 onclick="">
+                닫기
+                <i class="checkmark icon"></i>
+            </div>
         </div>
     </div>
     <div class="container">
@@ -85,9 +81,15 @@
                         <div style="display: flex;align-items: center;gap:10px; "><input type="checkbox" id="login_check" style="height: 20px;"><span class="has_black has_font-xs">Remember me</span></div>
                         <div onclick="showModal()"><a href='#' class="has_black"> <i class="large unlock alternate icon"></i> Forgot password?</a></div>
                     </div>
-                    <a href="/login_check"><button class='button is_login has_shadow has_width_full has_flex_center'><i class="fas fa-key"></i><span class="has_padding">로그인</span></button></a>
-                    <button class='button is_login has_shadow has_flex_center has_bg_turbo has_width_full'><i class="fas fa-comment"></i></i></i><span class="has_padding">카카오톡 로그인</span></button>
-                    <button class='button is_login has_shadow has_flex_center has_bg_white has_width_full'><i class="fab fa-google"></i><span class="has_padding">구글계정</span></button>
+                    <button class='button is_login has_shadow has_width_full has_flex_center'><i
+                            class="fas fa-key"></i><span class="has_padding">로그인</span></button>
+
+                    <button class='button is_login has_shadow has_flex_center has_bg_turbo has_width_full'><i
+                            class="fas fa-comment"></i></i></i><span
+                            class="has_padding">카카오톡 로그인</span></button>
+                    <button class='button is_login has_shadow has_flex_center has_bg_white has_width_full'><i
+                            class="fab fa-google"></i><span
+                            class="has_padding">구글계정</span></button>
                 </div>
             </form>
         </div>

@@ -9,6 +9,8 @@ public class CommentVO {
     private String date;
     private String comments;
 
+    private Integer no_comment;
+
     private Integer no_membership;
 
     public CommentVO(){ }

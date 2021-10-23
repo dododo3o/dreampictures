@@ -42,6 +42,8 @@
                                 emailChecked = true;
                                 alert('인증되었습니다!')
                                 // if (emailChecked && telChecked) document.getElementById("next_btn").removeAttribute("disabled");
+                            }else{//즁복일때
+                                alert('이미 존재하는 이메일입니다.');
                             }
                         }
                     });
@@ -62,7 +64,7 @@
                         url: "/ajax_tel_check",
                         data: "tel=" + tel,
                         success: function (result) {
-                            if (result == 'Y') {
+                            if (result == 'Y') {//중복이 아닐때
                                 document.getElementById("tel_btn").innerText = "인증완료";
                                 // document.getElementById("tel").setAttribute("disabled", true);
                                 document.getElementById("tel_btn").setAttribute("disabled", true);
@@ -70,6 +72,8 @@
                                 telChecked = true;
                                 alert("인증되었습니다!")
                                 // if (emailChecked && telChecked) document.getElementById("next_btn").removeAttribute("disabled");
+                            }else{//즁복일때
+                                alert('중복된 연락처입니다 ! ㅜㅜ');
                             }
                         }
                     });
