@@ -22,7 +22,7 @@
     --color-metallic-blue:#365E75;
     --color-dark-gray:#787878;
     --color-pink:pink;
-
+    --color-logbtn:#224957;
     /*Font-size*/
     /*xs sm base lg xl 2xl...*/
     --font-size-xs: 14px;
@@ -64,7 +64,7 @@ a{color: inherit; text-decoration: none;}
 
 /* button navigation logo */
 
-button:not(.back_btn){border-radius:8px; border:0; outline:0; color:var(--color-white); background-color:var(--color-aqua-island);}
+button:not(.back_btn,.kakaologbtn,.googlelogbtn,.logbtn){border-radius:8px; border:0; outline:0; color:var(--color-white); background-color:var(--color-aqua-island);}
 
 .anchor{font-size:var(--font-size-base); color:var(--color-gray);}
 
@@ -345,3 +345,8 @@ textarea::placeholder{color: #80808057;}
 
 .input_select{border-radius:8px; outline:none;text-indent:10px;height:64px;border: 2px solid var(--color-jagged-ice); font-size: var(--font-size-lg);}
 
+.kakaologbtn {border-radius:8px; border:0; outline:0; color:var(--color-logbtn); background-color:var(--color-turbo);}
+
+.googlelogbtn{border-radius:8px; border:0; outline:0; color:var(--color-logbtn); background-color:var(--color-white);}
+
+.logbtn{border-radius:8px; border:0; outline:0; color:var(--color-logbtn); background-color:var(--color-aqua-island);}
