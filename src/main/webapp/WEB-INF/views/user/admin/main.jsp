@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="/resources/css/dreampicturesytle.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Gowun+Dodum&display=swap" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.13/semantic.min.css">
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
@@ -27,7 +27,7 @@
         <div class="w3-col s8 w3-bar" style="text-align: center;margin-left: 50px">
             <span>Welcome, <strong>Master</strong></span><br><br>
             <form action="<%=conPath%>/admin/login" method="post">
-                <button class="ui secondary button" style="height:35px;font-family: 'BMHANNAPro';">
+                <button class="ui secondary button" style="height:35px;font-family: 'Gowun Dodum'">
                     로그아웃
                 </button>
             </form>
@@ -36,7 +36,7 @@
     <hr>
     <div class="w3-container">
     </div>
-    <div class="w3-bar-block">
+    <div class="w3-bar-block" >
         <a href="#" class="w3-bar-item w3-button w3-padding-16 w3-hide-large w3-dark-grey w3-hover-black" onclick="w3_close()" title="close menu"><i class="fa fa-remove fa-fw"></i>  Close Menu</a>
         <a href="/admin/main" class="w3-bar-item w3-button w3-padding w3-blue"><i class="fa fa-bullseye fa-fw"></i>  관리자 메인으로</a>
         <a href="/admin/notice" class="w3-bar-item w3-button w3-padding"><i class="fa fa-bullseye fa-fw"></i>  공지사항</a>
@@ -58,7 +58,7 @@
                         <h3><c:out value="${adminVO.noticeNum}"/></h3>
                     </div>
                     <div class="w3-clear"></div>
-                    <h4 style="font-family: 'BMHANNAPro';font-size: var(--font-size-base)">공지사항</h4>
+                    <h4 style="font-family: 'Gowun Dodum', sans-serif;"font-size: var(--font-size-base)">공지사항</h4>
                 </div>
             </a>
         </div>
@@ -70,7 +70,7 @@
                         <h3><c:out value="${adminVO.questionNum}"/></h3>
                     </div>
                     <div class="w3-clear"></div>
-                    <h4 style="font-family: 'BMHANNAPro';font-size: var(--font-size-base)">질문사항</h4>
+                    <h4 style="font-family: 'Gowun Dodum', sans-serif;";font-size: var(--font-size-base)">질문사항</h4>
                 </div>
             </a>
         </div>
@@ -82,7 +82,7 @@
                         <h3><c:out value="${adminVO.registerNum}"/></h3>
                     </div>
                     <div class="w3-clear"></div>
-                    <h4 style="font-family: 'BMHANNAPro';font-size: var(--font-size-base)">등록현황</h4>
+                    <h4 style="font-family: 'Gowun Dodum', sans-serif;font-size: var(--font-size-base)">등록현황</h4>
                 </div>
             </a>
         </div>
@@ -94,14 +94,14 @@
                         <h3><c:out value="${adminVO.memberNum}"/></h3>
                     </div>
                     <div class="w3-clear"></div>
-                    <h4 style="font-family: 'BMHANNAPro';font-size: var(--font-size-base)">회원현황</h4>
+                    <h4 style="font-family: 'Gowun Dodum', sans-serif;"font-size: var(--font-size-base)">회원현황</h4>
                 </div>
             </a>
         </div>
     </div>
     <hr>
     <div class="w3-container">
-        <h5>주간 통계</h5>
+        <h5 style="font-family: 'Gowun Dodum', sans-serif;font-weight: bold;">주간 통계</h5>
         <p>1주일간 신규가입자수</p>
         <div class="w3-grey">
             <div class="w3-container w3-center w3-padding w3-green" style="width:<c:out value="${adminVO.newMemberPercent}"/>%">+<c:out value="${adminVO.newMemberPercent}"/></div>
@@ -117,7 +117,7 @@
     </div>
     <hr>
     <div class="w3-container">
-        <h5>테마별 등록량</h5>
+        <h5 style="font-family: 'Gowun Dodum', sans-serif;font-weight: bold;">테마별 등록량</h5>
         <table class="w3-table w3-striped w3-bordered w3-border w3-hoverable w3-white">
             <tr>
                 <td>팝아트</td>
@@ -151,7 +151,7 @@
     </div>
     <hr>
     <div class="w3-container">
-        <h5>스타일별 판매량</h5>
+        <h5 style="font-family: 'Gowun Dodum', sans-serif;font-weight: bold;">스타일별 판매량</h5>
         <table class="w3-table w3-striped w3-bordered w3-border w3-hoverable w3-white">
             <tr>
                 <td>수채화</td>
@@ -189,7 +189,7 @@
     </div>
     <hr>
     <div class="w3-container">
-        <h5>최근 가입자</h5>
+        <h5 style="font-family: 'Gowun Dodum', sans-serif;font-weight: bold;">최근 가입자</h5>
         <ul class="w3-ul w3-card-4 w3-white">
             <li class="w3-padding-16">
                 <img class="ui avatar image" src="<c:out value="${adminVO.person1img}"/>">
@@ -207,7 +207,7 @@
     </div>
     <hr>
     <div class="w3-container">
-        <h5>최근 작품</h5>
+        <h5 style="font-family: 'Gowun Dodum', sans-serif;font-weight: bold;">최근 작품</h5>
         <div class="w3-row">
             <div class="ui card">
                 <a class="image" href="#">

@@ -26,15 +26,14 @@
 <jsp:include page="../header_footer/header_not_login.jsp"></jsp:include>
 <main class="has_bg_harp">
     <div class="container">
-        <div class="contents" style="grid-column: 5/9; margin-top: 150px;">
-            <div class="title" style="margin-bottom: 50px">관리자 로그인</div>
+        <div class="contents" style="grid-column: 5/10; margin-top: 150px;">
+            <div class="title" style="margin-bottom: 50px;font-weight:bold">관리자 로그인</div>
             <form action="<%=conPath%>/admin/login_check" method="post">
                 <div style="display: flex;user-select: auto;flex-direction:column;align-items:center;height: 650px;">
                     <input type="text" placeholder="Login" name="admin" class="is_login_input has_width_full" style="margin-bottom: 50px"/>
                     <input type="text" placeholder="Password" name="adminpwd" class="is_login_input has_width_full" style="margin-bottom: 50px"/>
                     <button class='button is_login has_shadow'>
-                        <input type="submit" class='button is_login has_shadow has_flex_center has_width_full'
-                               value="로그인">
+                        <input type="submit" class='button is_login has_shadow has_flex_center has_width_full' style="font-family: 'Gowun Dodum', sans-serif;font-weight:bold;font-size: 20px" value="로그인">
                     </button>
                 </div>
             </form>
