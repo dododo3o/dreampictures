@@ -11,7 +11,7 @@
     <link rel="stylesheet" href="/resources/css/dreampicturesytle.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Gowun+Dodum&display=swap" rel="stylesheet">
     <link rel="stylesheet" type="text/css"
           href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.13/semantic.min.css">
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
@@ -57,7 +57,7 @@
         <div class="w3-col s8 w3-bar" style="text-align: center;margin-left: 50px">
             <span>Welcome, <strong>Master</strong></span><br>
             <form action="<%=conPath%>/admin/login" method="post">
-                <button class="ui secondary button" style="height:35px;font-family: 'BMHANNAPro';">로그아웃</button>
+                <button class="ui secondary button" style="height:35px;font-family: 'Gowun Dodum'">로그아웃</button>
             </form>
         </div>
     </div>
@@ -84,8 +84,8 @@
     <main class="has_bg_harp" style="height:100%;display:flex;flex-direction: column;justify-content: space-between;">
         <div>
             <div style="display: flex;align-items: center;justify-content:space-evenly;border-bottom: 1px solid #BDBDBD;padding: 10px 0">
-                <div style="padding-left: 447px"><h1 style="font-family: 'BMHANNAPro';color:var(--color-chathams-blue);">공지사항</h1></div>
-                <div><button class="ui primary basic button" style="font-family: 'BMHANNAPro';" onclick="showModal()">공지사항 올리기</button></div>
+                <div style="padding-left: 447px"><h1 style="color:var(--color-chathams-blue);font-family: 'Gowun Dodum', sans-serif;font-weight: bold">공지사항</h1></div>
+                <div><button class="ui primary basic button" style="font-family: 'Gowun Dodum', sans-serif;font-weight: bold" onclick="showModal()">공지사항 올리기</button></div>
             </div>
 
             <div style="height:100%;padding:20px 0;padding-bottom: 30px">

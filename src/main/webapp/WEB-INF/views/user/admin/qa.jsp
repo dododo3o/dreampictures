@@ -11,7 +11,7 @@
     <link rel="stylesheet" href="/resources/css/dreampicturesytle.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Gowun+Dodum&display=swap" rel="stylesheet">
     <link rel="stylesheet" type="text/css"
           href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.13/semantic.min.css">
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
@@ -56,7 +56,7 @@
         <div class="w3-col s8 w3-bar" style="text-align: center;margin-left: 50px">
             <span>Welcome, <strong>Master</strong></span><br>
             <form action="<%=conPath%>/admin/login" method="post">
-                <button class="ui secondary button" style="height:35px;font-family: 'BMHANNAPro';">
+                <button class="ui secondary button" style="height:35px;font-family: 'Gowun Dodum'">
                     로그아웃
                 </button>
             </form>
@@ -86,14 +86,14 @@
 
         <div>
             <div tabindex="0" style="display: flex;justify-content: center;border-bottom: 1px solid #BDBDBD"><h1
-                    style="font-family: 'BMHANNAPro';padding: 10px 0px;color:var(--color-chathams-blue);">질문사항</h1>
+                    style="font-family: 'Gowun Dodum', sans-serif;font-weight: bold;padding: 10px 0px;color:var(--color-chathams-blue);">질문사항</h1>
             </div>
             <div class="manager_card"
                  style="display: grid;grid-template-columns:repeat(4,1fr);grid-gap:1rem;width: 100%;justify-items: center;padding-bottom: 30px">
                 <c:forEach var="QaVOlist" items="${QaVOlist}">
                     <div class="ui card" style="margin:0">
-                        <div class="content" style="">
-                            <div class="header">${QaVOlist.category}</div>
+                        <div class="content">
+                            <div class="header" style="font-family: 'Gowun Dodum', sans-serif;font-weight: bold;">${QaVOlist.category}</div>
                             <div style="font-size: 1.3em">작성자 : ${QaVOlist.nickname}</div>
                         </div>
                         <div class="content">

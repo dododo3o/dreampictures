@@ -11,7 +11,7 @@
     <link rel="stylesheet" href="/resources/css/dreampicturesytle.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Gowun+Dodum&display=swap" rel="stylesheet">
     <link rel="stylesheet" type="text/css"
           href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.13/semantic.min.css">
     <meta charset="UTF-8">
@@ -67,7 +67,7 @@
         <div class="w3-col s8 w3-bar" style="text-align: center;margin-left: 50px">
             <span>Welcome, <strong>Master</strong></span><br>
             <form action="<%=conPath%>/admin/login" method="post">
-                <button class="ui secondary button" style="height:35px;font-family: 'BMHANNAPro';">
+                <button class="ui secondary button" style="height:35px;font-family: 'Gowun Dodum'">
                     로그아웃
                 </button>
             </form>
@@ -98,14 +98,14 @@
 
         <div>
             <div style="padding: 10px 0px;flex-direction:column;display:flex;gap:20px;justify-content:center;align-items: center;border-bottom: 1px solid #BDBDBD;">
-                <div><h1 style="font-family: 'BMHANNAPro';color:var(--color-chathams-blue)">블랙리스트 회원목록</h1></div>
+                <div><h1 style="font-family: 'Gowun Dodum', sans-serif;font-weight: bold;color:var(--color-chathams-blue)">블랙리스트 회원목록</h1></div>
                 <form action="">
                     <div style="display: flex;align-items: stretch" class="has_flex_space">
                         <div class="ui input focus" style="margin-right: 20px">
-                            <input type="text" style="font-family: 'BMHANNAPro';" placeholder=" 닉네임을 입력해주세요.">
+                            <input type="text" style="width:300px;font-family: 'Gowun Dodum', sans-serif;" placeholder=" 닉네임을 입력해주세요.">
                         </div>
                         <button class="ui primary basic button"
-                                style="font-family: 'BMHANNAPro';width:120px;height:50px;font-size:20px ">검색
+                                style="font-family: 'Gowun Dodum', sans-serif;font-weight: bold;width:120px;height:50px;font-size:20px ">검색
                         </button>
                     </div>
                 </form>
