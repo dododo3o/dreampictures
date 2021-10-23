@@ -120,8 +120,8 @@
         <div class="contents" style="grid-column: 5/9; margin-top: 50px;">
             <form action="<%=conPath%>/register_success" method="post" onsubmit="return false"
                   enctype="multipart/form-data" id="frm">
-                <div style="display: flex;user-select: auto;flex-direction: column;align-items: center;justify-content: space-evenly;height: 650px;">
-                    <div class="title">회원 가입</div>
+                <div style="display: flex;font-weight: bold; user-select: auto;flex-direction: column;align-items: center;justify-content: space-evenly;height: 650px;">
+                    <div class="title" style="margin-bottom: 35px;">회원 가입</div>
                     <div class="has_flex_left">주소 *<input type="text" class="has_width_full input_select" name="addr"
                                                           id="sample5_address" placeholder="주소"
                                                           onclick="sample5_execDaumPostcode()"/></div>

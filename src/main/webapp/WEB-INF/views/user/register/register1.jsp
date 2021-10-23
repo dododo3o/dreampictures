@@ -120,8 +120,8 @@
     <div class="container">
         <div class="contents" style="grid-column: 5/9; margin-top: 50px; gap:30px; ">
             <form action="<%=conPath%>/register2" method="post" onsubmit="return false" id="frm">
-                <div style="display: flex;user-select: auto;flex-direction: column;align-items: center;justify-content: space-evenly;height: 650px;">
-                    <div class="title " style="font-weight: bold">회원 가입</div>
+                <div style="display: flex;font-weight: bold; user-select: auto;flex-direction: column;align-items: center;justify-content: space-evenly;height: 650px;">
+                    <div class="title "style="margin-bottom: 35px;">회원 가입</div>
                     <div class=" has_flex_left">이메일 *<input type="text" class="input_select has_width_full" name="email" id="email" required="required" placeholder="이메일"/></div>
                     <button id="email_btn" class='button is_primary' onclick="verifyEmail()"
                             style="font-family: 'Gowun Dodum'">인증하기
