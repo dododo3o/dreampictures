@@ -130,7 +130,7 @@
         </div>
 
         <div style="grid-column: 3/13;display: flex;flex-direction: column;justify-content: space-between;align-items: center;justify-content: space-evenly">
-            <div style="font-family:'BMHANNAPro';color:var(--color-chathams-blue);font-size:var(--font-size-xll);padding-top: 30px;padding-bottom: 25px;">전시내역</div>
+            <div style="color:var(--color-chathams-blue);font-size:var(--font-size-xll);padding-top: 30px;padding-bottom: 25px;">전시내역</div>
             <c:forEach var="cardVOlist" items="${cardVOlist}">
                 <div class="flip-card">
                     <div class="flip-card-inner" id="${cardVOlist.no_painting}" style="border-radius: 5px;">

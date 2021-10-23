@@ -9,9 +9,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Title</title>
     <link rel="stylesheet" href="/resources/css/dreampicturesytle.css">
+    <!--고운돋움 글씨체 -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Gowun+Dodum&display=swap" rel="stylesheet">
     <script src="https://kit.fontawesome.com/b14e6f064f.js" crossorigin="anonymous"></script>
     <script
             src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"
@@ -101,7 +102,7 @@
         <div class="contents" style="grid-column: 5/9; margin-top: 50px">
             <form action="<%=conPath%>/login_check" method="post" id="frm">
                 <div class="has_flex_space_cl" style="height: 650px;">
-                    <div class="title">로그인 화면</div>
+                    <div class="title" style="font-weight: bold">로그인 화면</div>
                     <div class="has_flex_left"><input type="text" class="is_login_input has_width_full" name="email"
                                                       id="email" required="required" placeholder="이메일"></div>
                     <div class="has_flex_left"><input type="password" placeholder="Password" name="pwd" id="pwd"
@@ -117,14 +118,14 @@
                     </div>
                     <a href="/login_check">
                         <button class='button is_login has_shadow has_width_full has_flex_center'><i
-                                class="fas fa-key"></i><span class="has_padding">로그인</span></button>
+                                class="fas fa-key"></i><span class="has_padding" style="font-weight: bold">로그인</span></button>
                     </a>
                     <button class='button is_login has_shadow has_flex_center has_bg_turbo has_width_full'><i
                             class="fas fa-comment"></i></i></i><span
-                            class="has_padding">카카오톡 로그인</span></button>
+                            class="has_padding" style="font-weight: bold">카카오톡 로그인</span></button>
                     <button class='button is_login has_shadow has_flex_center has_bg_white has_width_full'><i
                             class="fab fa-google"></i><span
-                            class="has_padding">구글계정</span></button>
+                            class="has_padding" style="font-weight: bold">구글계정</span></button>
                 </div>
             </form>
         </div>

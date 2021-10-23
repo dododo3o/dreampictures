@@ -115,7 +115,7 @@
         </div>
         <div style="grid-column: 3/13;display: flex;flex-direction: column;justify-content: space-between;align-items: center;justify-content: space-evenly;flex-wrap: nowrap;">
             <!-- 추가요소 있으면 이 안에 넣기-->
-            <div style="font-family:'BMHANNAPro';color:var(--color-chathams-blue);font-size:var(--font-size-xll);padding-top: 30px; padding-bottom: 25px;">장바구니</div>
+            <div style="color:var(--color-chathams-blue);font-size:var(--font-size-xll);padding-top: 30px; padding-bottom: 25px;">장바구니</div>
             <div style="display:flex;grid-template-columns: repeat(3,1fr); grid-gap: 1rem; width: 100%;flex-wrap: wrap">
                 <c:forEach var="cardVOlist" items="${cardVOlist}">
                     <div class="flip-card">

@@ -69,7 +69,7 @@
             </div>
         </div>
         <div style="grid-column: 3/13;display: flex;flex-direction: column;justify-content: space-between;align-items: center;justify-content: space-evenly">
-            <div style="font-family:'BMHANNAPro';color:var(--color-chathams-blue);font-size:var(--font-size-xll);padding-top: 25px;">MY PAGE</div>
+            <div style="font-weight:bold;font-family:'Gowun Dodum';color:var(--color-chathams-blue);font-size:var(--font-size-xll);padding-top: 25px;">MY PAGE</div>
             <div class="ui card" style="width:500px;grid-column: 5/12;height: fit-content;">
                 <div class="content" style="display:flex;justify-content: space-evenly;align-items: center;">
                     <div><img src="${mypageVO.avatarimg}"
@@ -102,8 +102,8 @@
                 </div>
                 <div class="extra content">
                     <div style="display:flex; justify-content: space-evenly;">
-                        <button class="ui primary basic button" style="font-family: 'BMHANNAPro';width:150px; height:50px;">수정하기</button>
-                        <button class="ui primary basic button" style="font-family: 'BMHANNAPro';width:150px; height:50px;">탈퇴하기</button>
+                        <button class="ui primary basic button" style="font-weight:bold;font-family: 'Gowun Dodum';width:150px; height:50px;">수정하기</button>
+                        <button class="ui primary basic button" style="font-weight:bold;font-family: 'Gowun Dodum';width:150px; height:50px;">탈퇴하기</button>
                     </div>
                 </div>
             </div>
