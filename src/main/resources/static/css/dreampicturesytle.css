@@ -345,8 +345,8 @@ textarea::placeholder{color: #80808057;}
 
 .input_select{border-radius:8px; outline:none;text-indent:10px;height:64px;border: 2px solid var(--color-jagged-ice); font-size: var(--font-size-lg);}
 
-.kakaologbtn {border-radius:8px; border:0; outline:0; color:var(--color-black); background-color:var(--color-turbo);}
+.kakaologbtn {border-radius:8px; border:0; outline:0; color:#224957; background-color:var(--color-turbo);}
 
-.googlelogbtn{border-radius:8px; border:0; outline:0; color:var(--color-black); background-color:var(--color-white);}
+.googlelogbtn{border-radius:8px; border:0; outline:0; color:#224957; background-color:var(--color-white);}
 
-.logbtn{border-radius:8px; border:0; outline:0; color:var(--color-black); background-color:var(--color-aqua-island);}
+.logbtn{border-radius:8px; border:0; outline:0; color:#224957; background-color:var(--color-aqua-island);}
