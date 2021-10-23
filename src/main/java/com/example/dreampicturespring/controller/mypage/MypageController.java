@@ -227,7 +227,6 @@ public class MypageController {
         mv.addObject("pageNum", pageNum);
         return mv;
     }
-
     @RequestMapping("/qalist")
     public String qalist() {
         return "user/mypage/qalist";
