@@ -25,6 +25,7 @@
         function buypainting(num) {
             location.href = "http://localhost:8080/buy_picture/" + num;
         }
+
         function flipCard(num) {
             $('#' + num).css("transform", "rotateY(180deg)");
             $(".ui.comments.flip-card-back").css('margin', '0');
