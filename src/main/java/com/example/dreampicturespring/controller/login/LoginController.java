@@ -70,8 +70,8 @@ public class LoginController {
         Membershiptbl membershiptbl = membershiptblRepository.email_pwd(email);
         if(membershiptbl==null) return "ㅗ";
         else if(!membershiptbl.getTel().equals(tel)) return "ㅗㅗ";
-        emailUtil.sendEmail(email,"역머거", "123456");
-        membershiptbl.setPwd("123456");
+        emailUtil.sendEmail(email,"그림드림 임시비밀번호 \uD83D\uDDBC", "회원님의 임시 비밀번호는 '123456'입니다. \n보안을 위해 비밀번호를 꼭 변경해주세요 ! \uD83D\uDD10");
+        membershiptbl.setPwd("dream!");
         membershiptblRepository.save(membershiptbl);
         return "ㅇㅈ";
     }

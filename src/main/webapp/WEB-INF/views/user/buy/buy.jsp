@@ -108,9 +108,9 @@
 
         .flip-card-back {
             border-radius: 5px;
-            background-color: #2980b9;
             color: white;
             transform: rotateY(180deg);
+            background-color: #F9F9F9;
         }
     </style>
 </head>
@@ -194,7 +194,8 @@
             </div>
         </div>
     </div>
-    <div class="container " id="container" style="display: grid;grid-template-columns: repeat(5,1fr);grid-gap:1rem;justify-content: space-around;">
+    <div class="container " id="container"
+         style="display: grid;grid-template-columns: repeat(5,1fr);grid-gap:1rem;justify-content: space-around;">
         <c:forEach var="cardVOlist" items="${cardVOlist}">
             <div class="flip-card">
                 <div class="flip-card-inner" id="${cardVOlist.no_painting}" style="border-radius: 5px;">
@@ -227,27 +228,33 @@
                             </button>
                         </div>
                         <div class="ui bottom attached button collapsible" onclick="flipCard(${cardVOlist.no_painting})"
-                             style="z-index: 1;">
+                             style="">
                             <i class="add icon"></i>
                             <span><i class="comment icon"></i>${cardVOlist.commentNumber}</span>
                         </div>
                     </div>
-                    <div class="ui comments flip-card-back">
-                        <c:forEach var="commentVOList" items="${cardVOlist.commentVOList}">
-                            <div class="">
-                                <h5 class="ui header" style="user-select: auto; margin: 10px;">
-                                    <div style="display: flex;align-items: center;justify-content: space-between;">
-                                        <img src="${commentVOList.avatarimg}"
-                                             style="border-radius: 50%; height:40px; width:40px;object-fit: cover;">
-                                        <span class="author"
-                                              style="margin-left: 10px; font-size: 1.5em">${commentVOList.author}</span>
-                                        <button class="ui red icon button" onclick="" style="font-size: 0.5em">X
-                                        </button>
-                                    </div>
-                                    <div class="text" style="margin: 10px;">${commentVOList.comments}</div>
-                                </h5>
-                            </div>
-                        </c:forEach>
+                    <div class="ui comments flip-card-back"
+                         style="display: flex;user-select: auto;margin: 0;flex-direction: column;justify-content: space-between;">
+                        <div>
+                            <c:forEach var="commentVOList" items="${cardVOlist.commentVOList}">
+                                <div class="" style=" background-color:var(--color-albescent-white)">
+                                    <h5 class="ui header" style="user-select: auto; margin: 10px;">
+                                        <div style="display: flex;align-items: center;justify-content: space-between;">
+                                            <img src="${commentVOList.avatarimg}"
+                                                 style="border-radius: 50%; height:40px; width:40px;object-fit: cover;">
+                                            <span class="author"
+                                                  style="margin-left: 10px; font-size: 1.5em">${commentVOList.author}</span>
+                                            <button class="ui red icon button"
+                                                    onclick="reply_delete(${commentVOList.no_comment})"
+                                                    style="font-size: 0.5em;">X
+                                            </button>
+                                        </div>
+                                        <div class="text"
+                                             style="margin: 10px;">${commentVOList.comments}</div>
+                                    </h5>
+                                </div>
+                            </c:forEach>
+                        </div>
                         <div class="ui button bottom attached collapsible"
                              onclick="closeCard(${cardVOlist.no_painting})" id="close_btn">
                             <i class="large close icon icon"></i>
@@ -286,4 +293,19 @@
 </div>
 <jsp:include page="../header_footer/footer.jsp"></jsp:include>
 </body>
+<script>
+    function reply_delete(num) {
+        $(() => {
+            $.ajax({
+                url: "/reply_delete",
+                data: "num=" + num,
+                success: function (result) {
+                    if (result == 'ㅗ') {
+                        alert('존재하지 않는 이메일입니다 ! 😅');
+                    }
+                }
+            });
+        });
+    }
+</script>
 </html>

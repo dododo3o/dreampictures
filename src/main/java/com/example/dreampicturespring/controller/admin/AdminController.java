@@ -128,6 +128,7 @@ public class AdminController {
     @RequestMapping("/admin/notice")
     public ModelAndView admin_notice(Model model){
         ModelAndView mv = new ModelAndView();
+
         mv.setViewName("user/admin/notice");
         List<Noticetbl> noticetblList =  noticeRepository.findAll();
         List<NoticeVO> noticeVOList = new ArrayList<>();

@@ -45,6 +45,8 @@
                                 // if (emailChecked && telChecked) document.getElementById("next_btn").removeAttribute("disabled");
                             }else{
                                 alert('중복된 닉네임입니다 !')
+                            }else{//즁복일때
+                                alert('이미 존재하는 닉네임입니다.');
                             }
                         }
                     });

@@ -1,6 +1,7 @@
 package com.example.dreampicturespring.controller.buy;
 
 
+import com.example.dreampicturespring.entity.Commentstbl;
 import com.example.dreampicturespring.entity.Membershiptbl;
 import com.example.dreampicturespring.entity.Paintingtbl;
 import com.example.dreampicturespring.repository.CommentRepository;
@@ -53,8 +54,10 @@ public class BuyController {
             List<CommentVO> commentVOlist = new ArrayList<>();
             for(String comment : comments){
                 List<String> comment_member = Arrays.asList(comment.split(","));
-                Membershiptbl membershiptbl = membershiptblRepository.getById(Integer.parseInt(comment_member.get(1)));
                 CommentVO commentVO = new CommentVO();
+                Integer no_comment = commentRepository.findByNo_comment(Integer.parseInt(comment_member.get(1)),Integer.parseInt(obj.get(0)));
+                Membershiptbl membershiptbl = membershiptblRepository.getById(Integer.parseInt(comment_member.get(1)));
+                commentVO.setNo_comment(no_comment);
                 commentVO.setAvatarimg(membershiptbl.getImg()+"/avatarimg/avatarimg.jpg");
                 commentVO.setAuthor(membershiptbl.getNickname());
                 commentVO.setDate("1H");
@@ -134,4 +137,16 @@ public class BuyController {
         mv.addObject("url","user/mypage/mypage");
         return mv;
     }
+    @RequestMapping(value = "/reply_delete",method = RequestMethod.GET, produces ="application/text;charset=UTF-8")
+    public String reply_delete(HttpServletRequest request, Integer num, CommentVO vo) {
+
+        vo.setNo_comment(num);
+
+        Commentstbl commenttbl = commentRepository.deleteByNo_comment(vo.getNo_comment());
+
+        commentRepository.save(commenttbl);
+
+        return "redirect:/buy";
+    }
+
 }
