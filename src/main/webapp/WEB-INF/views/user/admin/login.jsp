@@ -33,7 +33,7 @@
                     <input type="text"style="margin-bottom: 50px" class="input_select has_width_full" name="admin" required="required" placeholder="Login">
                     <input type="text"style="margin-bottom: 50px" class="input_select has_width_full" name="adminpwd" required="required" placeholder="PassWord">
                     <button class='button is_login has_shadow'>
-                        <input type="submit" class='button is_login has_shadow has_flex_center has_width_full' style="font-family: 'Gowun Dodum', sans-serif;font-weight:bold;font-size: 20px" value="로그인">
+                        <input type="submit" class='logbtn is_login has_shadow has_flex_center has_width_full' style="font-family: 'Gowun Dodum', sans-serif;font-weight:bold;font-size: 20px" value="로그인">
                     </button>
                 </div>
             </form>
