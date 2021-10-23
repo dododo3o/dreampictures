@@ -14,7 +14,6 @@ public interface CommentRepository extends JpaRepository<Commentstbl,Integer> {
 @Override
 Commentstbl deleteByNo_comment(Integer no_comment);
 
-
     @Query(value = "select commentstbl.comments,commentstbl.no_membership from commentstbl where commentstbl.no_painting = :no_painting", nativeQuery = true)
     List<String> findCommenttbl(@Param("no_painting") Integer no_painting);
 
@@ -23,6 +22,4 @@ Commentstbl deleteByNo_comment(Integer no_comment);
 
     @Query(value = "select commentstbl.no_comment from commentstbl where commentstbl.no_membership = :no_membership and commentstbl.no_painting = :no_painting", nativeQuery = true)
     Integer findByNo_comment(@Param("no_membership") Integer no_membership,@Param("no_painting") Integer no_painting);
-
-
 }
