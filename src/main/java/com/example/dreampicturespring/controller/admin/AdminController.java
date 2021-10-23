@@ -169,7 +169,6 @@ public class AdminController {
         return mv;
     }
 
-
     @RequestMapping("/admin/blacklist")
     public ModelAndView admin_blacklist(Model model){
 

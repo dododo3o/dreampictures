@@ -182,6 +182,7 @@ public class AjaxController {
 
 	@RequestMapping(value = "/ajax_comment_add",method = RequestMethod.GET, produces ="application/text;charset=UTF-8")
 	public String comment_add(Model model,HttpServletRequest request,String comment,Integer no_painting){
+		System.out.println(comment + no_painting);
 		HttpSession session =request.getSession();
 		Membershiptbl membershipTBL = membershiptblRepository.findByemail((String) session.getAttribute("logEmail"));
 		if(membershipTBL ==null){ return "user/redirect/not_login"; }
@@ -189,7 +190,9 @@ public class AjaxController {
 		commentstbl.setNo_membership(membershipTBL.getNo_membership());
 		commentstbl.setComments(comment);
 		commentstbl.setNo_painting(no_painting);
+		System.out.println(commentstbl);
 		commentRepository.save(commentstbl);
+
 		return "redirect:/buy";
 	}
 
