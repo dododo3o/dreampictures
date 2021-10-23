@@ -4,199 +4,30 @@
     <meta charset="UTF-8">
     <title>Title</title>
     <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.13/semantic.min.css">
-    <style>
-        @import url(https://fonts.googleapis.com/css?family=Nunito:400,700,300);
-        * {
-            box-sizing: border-box;
-        }
+    <!-- Materialize CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
 
-        body {
-            font-family: "Nunito", sans-serif;
-        }
-        body .page {
-            margin: 0 auto;
-            width: 920px;
-        }
-        body .content {
-            width: 33.33%;
-            display: inline-block;
-            margin: 0 auto;
-            position: relative;
-            height: 100vh;
-            max-width: 300px;
-        }
-        body .circle_inner__layer {
-            width: 600px;
-            height: 200px;
-            transition: all 0.4s;
-            position: absolute;
-            top: 0;
-            left: -200px;
-        }
-        body .circle_inner__layer img {
-            width: 100%;
-            position: absolute;
-            bottom: 0;
-        }
-        body .circle {
-            position: absolute;
-            left: 0;
-            right: 0;
-            margin: auto;
-            top: 50%;
-            width: 200px;
-            transform: translateY(-50%);
-            transition: all 0.5s;
-            cursor: pointer;
-        }
-        body .circle:hover .circle_shine {
-            top: 330px;
-            left: -200px;
-        }
-        body .circle_shine {
-            background: white;
-            width: 600px;
-            transition: 0.3s;
-            height: 200px;
-            opacity: 0.2;
-            top: -10px;
-            left: -90px;
-            transform: rotate(45deg);
-            position: absolute;
-            z-index: 2;
-        }
-        body .circle:hover h2, body .circle:hover h3 {
-            opacity: 1;
-            top: -36px;
-        }
-        body .circle:hover .content_shadow {
-            transform: scale(1.1);
-            top: -22px;
-        }
-        body .circle:hover h3 {
-            transition: all 0.2s 0.04s;
-        }
-        body .circle:hover h2 {
-            transition: all 0.2s;
-        }
-        body .circle .circle_inner__layer:nth-of-type(1) {
-            top: 0px;
-            left: 0px;
-        }
-        body .circle .circle_inner__layer:nth-of-type(2) {
-            top: 0px;
-            left: -210px;
-        }
-        body .circle .circle_inner__layer:nth-of-type(3) {
-            top: 0px;
-            left: -440px;
-        }
-        body .circle_title {
-            text-align: center;
-        }
-        body .circle_title h2, body .circle_title h3 {
-            opacity: 0;
-            color: #4A7479;
-            margin: 0;
-            transition: all 0.2s 0.04s;
-            position: relative;
-            top: -10px;
-        }
-        body .circle_title h3 {
-            transition: all 0.2s;
-            color: #B0D5D6;
-            font-size: 15px;
-        }
-        body .circle_inner {
-            border-radius: 200px;
-            background: #B0D5D6;
-            overflow: hidden;
-            margin: auto;
-            width: 200px;
-            z-index: 1;
-            transition: all 0.3s;
-            height: 200px;
-            position: relative;
-        }
-        body .circle_inner:hover {
-            transform: scale(1.1);
-        }
-        body .circle_inner:hover .circle_inner__layer:nth-of-type(1) {
-            left: -80px;
-            transition: all 4s linear;
-        }
-        body .circle_inner:hover .circle_inner__layer:nth-of-type(2) {
-            left: -400px;
-            transition: all 4s linear;
-        }
-        body .circle_inner:hover .circle_inner__layer:nth-of-type(3) {
-            left: -140px;
-            transition: all 4s linear;
-        }
-        body .content_shadow {
-            width: 200px;
-            box-shadow: 0px 31px 19px -2px #E0E8F9;
-            height: 20px;
-            border-radius: 70%;
-            position: relative;
-            top: -44px;
-            transition: all 0.3s;
-            z-index: 0;
-        }
-    </style>
+    <!-- Materialize Icons -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
 </head>
 <body>
-<div class="page">
-    <div class="content">
-        <div class="circle">
-            <div class="circle_title">
-                <h2>Great Outdoors</h2>
-                <h3>Get some fresh air</h3>
-            </div>
-            <div class="circle_inner">
-                <div class="circle_inner__layer">
-                    <img src="../../static/css/photo/photo.png" /></div>
-                <div class="circle_inner__layer"><img src="../../static/css/photo/test.jpg" /></div>
-                <div class="circle_inner__layer"><img src="../../static/css/photo/darth.jpg" /></div>
-            </div>
-            <div class="content_shadow"></div>
-        </div>
-    </div>
-    <div class="content">
-        <div class="circle">
-            <div class="circle_title">
-                <h2>City Breaks</h2>
-                <h3>Go somewhere new</h3>
-            </div>
-            <div class="circle_inner">
-                <div class="circle_inner__layer">
-                    <img />{:src => 'https://s3-us-west-2.amazonaws.com/s.cdpn.io/217233/pc4.png'}</div>
-                <div class="circle_inner__layer">
-                    <img />{:src => 'https://s3-us-west-2.amazonaws.com/s.cdpn.io/217233/pc5.png'}</div>
-                <div class="circle_inner__layer">
-                    <img />{:src => 'https://s3-us-west-2.amazonaws.com/s.cdpn.io/217233/pc6.png'}</div>
-            </div>
-            <div class="content_shadow"></div>
-        </div>
-    </div>
-    <div class="content">
-        <div class="circle">
-            <div class="circle_title">
-                <h2>Cheap Flights</h2>
-                <h3>Come fly with me</h3>
-            </div>
-            <div class="circle_inner">
-                <div class="circle_inner__layer">
-                    <img />{:src => 'https://s3-us-west-2.amazonaws.com/s.cdpn.io/217233/pc7.png'}</div>
-                <div class="circle_inner__layer">
-                    <img />{:src => 'https://s3-us-west-2.amazonaws.com/s.cdpn.io/217233/pc8.png'}</div>
-                <div class="circle_inner__layer">
-                    <img />{:src => 'https://s3-us-west-2.amazonaws.com/s.cdpn.io/217233/pc9.png'}</div>
-            </div>
-            <div class="content_shadow"></div>
+<div class="row">
+    <div class="col s12 m5">
+        <div class="card-panel teal">
+        <span class="white-text">I am a very simple card. I am good at containing small bits of information.
+        I am convenient because I require little markup to use effectively. I am similar to what is called a panel in other frameworks.
+        </span>
         </div>
     </div>
 </div>
+
+
+<!-- jQuery -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+
+<!-- Materialize JS -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
 
 </body>
 </html>
