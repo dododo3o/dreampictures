@@ -83,8 +83,7 @@
                         </h2>
                         <div class="ui vertical red animated button" tabindex="0" onclick="showModal()">
                             <div class="hidden content" style="user-select: auto;">신고하기</div>
-                            <div class="visible content" style="user-select: auto;"><i class="exclamation circle icon"
-                                                                                       style="user-select: auto;"></i>
+                            <div class="visible content" style="user-select: auto;"><i class="exclamation circle icon" style="user-select: auto;"></i>
                             </div>
                         </div>
                     </div>
@@ -100,20 +99,20 @@
                     <div class="ui animated button" tabindex="0" id="prev_btn" style="width: 200px;">
                         <div class="hidden content" style="user-select: auto;"><a href="/buy">이전페이지</a></div>
                         <div class=" visible content" style="user-select: auto;">
-                            <i class="left arrow icon" style="user-select: auto;"></i>
+                            <i class="black left arrow icon" style="user-select: auto;"></i>
                         </div>
                     </div>
-                    <div class="ui animated button" tabindex="0" style="width: 200px;" onclick="cart()">
+                    <div class="ui animated button" tabindex="0" style="background-color: var(--color-middle-blue-green); width: 200px;" onclick="cart()">
                         <div class="hidden content" style="user-select: auto;">장바구니</div>
                         <div class=" visible content" style="user-select: auto;">
-                            <i class="blue shopping cart icon" style="user-select: auto;"></i>
+                            <i class="black shopping cart icon" style="user-select: auto;"></i>
                         </div>
                     </div>
                     <div class="ui vertical animated button" tabindex="0" id="shop_btn" style="width: 200px;">
                         <div class="hidden content" style="user-select: auto;"><a
                                 href="/buy_payment/<c:out value="${paintingVO.no_painting}"/>">바로구매</a></div>
                         <div class="visible content" style="user-select: auto;">
-                            <i class="money bill alternate outline icon" style="user-select: auto;"></i>
+                            <i class="black money bill alternate outline icon" style="user-select: auto;"></i>
                         </div>
                     </div>
                 </div>
@@ -126,7 +125,6 @@
                 </div>
             </div>
         </div>
-
     </div>
     </div>
     <div class="ui mini modal">
