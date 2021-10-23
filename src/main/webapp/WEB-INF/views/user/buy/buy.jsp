@@ -25,7 +25,6 @@
         function buypainting(num) {
             location.href = "http://localhost:8080/buy_picture/" + num;
         }
-
         showModal = function () {
             $(() => {
                 let pname = document.getElementById("pname").value;
@@ -64,55 +63,15 @@
                 });
             });
         };
-
         function flipCard(num) {
             $('#' + num).css("transform", "rotateY(180deg)");
             $(".ui.comments.flip-card-back").css('margin', '0');
 
         }
-
         function closeCard(num) {
             $('#' + num).css("transform", "rotateY(0deg)");
         }
     </script>
-    <style>
-        .flip-card {
-            background-color: transparent;
-            perspective: 1000px;
-        }
-
-        .flip-card-inner {
-            position: relative;
-            width: 100%;
-            height: 100%;
-            text-align: center;
-            transition: transform 0.6s;
-            transform-style: preserve-3d;
-            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-        }
-
-        .flip-card-front, .flip-card-back {
-            position: absolute;
-            width: 100%;
-            height: 100%;
-            top: 0;
-            -webkit-backface-visibility: hidden;
-            backface-visibility: hidden;
-        }
-
-        .flip-card-front {
-            background-color: #bbb;
-            color: black;
-
-        }
-
-        .flip-card-back {
-            border-radius: 5px;
-            background-color: #2980b9;
-            color: white;
-            transform: rotateY(180deg);
-        }
-    </style>
 </head>
 <body>
 <% if (session.getAttribute("logStatus") == "Y") { %>
@@ -145,13 +104,13 @@
             <div class="has_chathams-blue" style="font-size: 42px;">그림드림의 당신만의 그림찾기</div>
             <form action="">
                 <div style="display: flex;" class="has_flex_space ">
-                    <input type="text" class="has_width_full" id="pname" placeholder="검색어를 입력해주세요."/>
+                    <input type="text" class="has_width_full input_select" id="pname" placeholder="검색어를 입력해주세요." />
                 </div>
             </form>
             <button class=" ui blue icon button has_width_full" onclick="showModal()"><i class="search icon"></i>찾기
             </button>
             <div style="display: flex; gap: 90px;">
-                <select style="font-family: 'BMHANNAPro'; font-size: 1.5em;" class="has_width_half"
+                <select style="font-family: 'BMHANNAPro'; font-size: 1.5em;" class="has_width_half input_select"
                         style="margin-right: 90px;" id="style">
                     <option value="" disabled selected>Style</option>
                     <option value="oils">유화</option>
@@ -163,7 +122,7 @@
                     <option value="crayon">크레용화</option>
                     <option value="gouache">과슈화</option>
                 </select>
-                <select style="font-family: 'BMHANNAPro'; font-size: 1.5em;" class="has_width_half" id="theme">
+                <select style="font-family: 'BMHANNAPro'; font-size: 1.5em;" class="has_width_half input_select" id="theme">
                     <option value="" disabled selected>Theme</option>
                     <option value="scenery">풍경</option>
                     <option value="character">인물</option>
@@ -194,7 +153,8 @@
             </div>
         </div>
     </div>
-    <div class="container " id="container" style="display: grid;grid-template-columns: repeat(5,1fr);grid-gap:1rem;justify-content: space-around;flex-wrap: nowrap">
+    <div class="container " id="container"
+         style="display: grid;grid-template-columns: repeat(5,1fr);grid-gap:1rem;justify-content: space-around;flex-wrap: nowrap">
         <c:forEach var="cardVOlist" items="${cardVOlist}">
             <div class="flip-card">
                 <div class="flip-card-inner" id="${cardVOlist.no_painting}" style="border-radius: 5px;">

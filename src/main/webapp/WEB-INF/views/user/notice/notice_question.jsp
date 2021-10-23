@@ -39,7 +39,7 @@
                     url: "/ajax_request_QA",
                     data: "question=" + question + "&status=" + status,
                     success: function (result) {
-                        document.location.href = "/notice";
+                        document.location.href = "/notice_question";
                     }
                 });
             });
