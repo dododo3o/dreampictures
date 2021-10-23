@@ -72,7 +72,7 @@ button:not(.back_btn,.kakaologbtn,.googlelogbtn,.logbtn){border-radius:8px; bord
 
 .navigation2{display: grid;grid-template-columns: repeat(6,1fr);grid-column: 5/13; grid-gap: 1rem;justify-items: center;align-items:center;}
 
-.title{color:var(--color-chathams-blue);font-size: var(--font-size-xxl);}
+.title{color:var(--color-chathams-blue);font-size: var(--font-size-xl);}
 
 .paintingTitle{color:var(--color-chathams-blue);font-size: var(--font-size-2xl);}
 

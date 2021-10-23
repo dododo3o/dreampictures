@@ -79,28 +79,25 @@
     <div class="container">
         <div class="contents" style="grid-column: 5/9; margin-top: 50px">
             <form action="<%=conPath%>/login_check" method="post" id="frm">
-                <div class="has_flex_space_cl" style="height: 650px;">
-                    <div class="title" style="font-weight: bold">로그인 화면</div>
-                    <div class="has_flex_left"><input type="text" class="is_login_input has_width_full" name="email"
-                                                      id="email" required="required" placeholder="이메일"></div>
-                    <div class="has_flex_left"><input type="password" placeholder="Password" name="pwd" id="pwd"
-                                                      class="is_login_input has_width_full"/></div>
+                    <div class="has_flex_space_cl " style="height: 650px;">
+                        <div class="title">로그인 화면</div>
+                        <div class="has_flex_left"><input type="text" class="input_select  has_width_full" name="email"
+                                                          id="email" required="required" placeholder="이메일"></div>
+                        <div class="has_flex_left"><input type="password" placeholder="Password" name="pwd" id="pwd"
+                                                          class=" input_select has_width_full"/></div>
                     <div class="has_flex_center" style="display: flex; width: 100%; justify-content: space-around;">
                         <div style="display: flex;align-items: center;gap:10px; "><input type="checkbox" id="login_check" style="height: 20px;"><span
                                 class="has_black has_font-xs">Remember me</span></div>
                         <div onclick="showModal()"><a href='#' class="has_black"> <i
                                 class="large unlock alternate icon"></i> Forgot password?</a></div>
                     </div>
-                    <a href="/login_check">
-                        <button class='button is_login has_shadow has_width_full has_flex_center'><i
-                                class="fas fa-key"></i><span class="has_padding" style="font-weight: bold">로그인</span></button>
-                    </a>
-                    <button class='button is_login has_shadow has_flex_center has_bg_turbo has_width_full'><i
-                            class="fas fa-comment"></i></i></i><span
-                            class="has_padding" style="font-weight: bold">카카오톡 로그인</span></button>
-                    <button class='button is_login has_shadow has_flex_center has_bg_white has_width_full'><i
+                        <button class='logbtn is_login has_shadow has_width_full has_flex_center'><i class="fas fa-key"></i><span class="has_padding">로그인</span></button>
+                        <button class='kakaologbtn button is_login has_shadow has_flex_center has_bg_turbo has_width_full'>
+                            <i class="fas fa-comment"></i></i></i><span
+                                class="has_padding">카카오톡 로그인</span></button>
+                        <button class='googlelogbtn is_login has_shadow has_flex_center has_bg_white has_width_full'><i
                             class="fab fa-google"></i><span
-                            class="has_padding" style="font-weight: bold">구글계정</span></button>
+                                class="has_padding" style="font-weight: bold">구글계정</span></button>
                 </div>
             </form>
         </div>
