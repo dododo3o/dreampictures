@@ -110,7 +110,7 @@
             <button class=" ui blue icon button has_width_full" onclick="showModal()" style="font-family: 'Gowun Dodum'"><i class="search icon"></i>찾기
             </button>
             <div style="display: flex; gap: 90px;">
-                <select style="font-family: 'Gowun Dodum'; font-size: 1.5em;" class="has_width_half"
+                <select style="font-family: 'Gowun Dodum'; font-size: 1.5em;" class="input_select has_width_half"
                         style="margin-right: 90px;" id="style">
                     <option value="" disabled selected>Style</option>
                     <option value="oils">유화</option>
@@ -122,7 +122,7 @@
                     <option value="crayon">크레용화</option>
                     <option value="gouache">과슈화</option>
                 </select>
-                <select style="font-family: 'Gowun Dodum'; font-size: 1.5em;" class="has_width_half" id="theme">
+                <select style="font-family: 'Gowun Dodum'; font-size: 1.5em;" class="input_select has_width_half" id="theme">
                     <option value="" disabled selected>Theme</option>
                     <option value="scenery">풍경</option>
                     <option value="character">인물</option>
