@@ -68,7 +68,7 @@
                 </div>
             </div>
         </div>
-        <div style="grid-column: 3/13;display: flex;flex-direction: column;justify-content: space-between;align-items: center;justify-content: space-evenly">
+        <div style="grid-column: 3/13;display: flex;flex-direction: column;justify-content: space-between;align-items: center;">
             <div style="font-family:'BMHANNAPro';color:var(--color-chathams-blue);font-size:var(--font-size-xll);padding-top: 25px;">MY PAGE</div>
             <div class="ui card" style="width:500px;grid-column: 5/12;height: fit-content;">
                 <div class="content" style="display:flex;justify-content: space-evenly;align-items: center;">

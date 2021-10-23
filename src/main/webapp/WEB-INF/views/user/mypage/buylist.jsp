@@ -128,9 +128,7 @@
                 </div>
             </div>
         </div>
-
-        <div style="grid-column: 3/13;display: flex;flex-direction: column;justify-content: space-between;align-items: center;justify-content: space-evenly">
-            <!-- 추가요소 있으면 이 안에 넣기-->
+        <div style="grid-column: 3/13;display: flex;flex-direction: column;justify-content: space-between;align-items: center;">
             <div style="font-family:'BMHANNAPro';color:var(--color-chathams-blue);font-size:var(--font-size-xll);padding-top: 30px;
     padding-bottom: 25px;">구매내역</div>
             <c:forEach var="cardVOlist" items="${cardVOlist}">

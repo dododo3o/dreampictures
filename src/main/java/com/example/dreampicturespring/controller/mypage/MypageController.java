@@ -2,10 +2,7 @@ package com.example.dreampicturespring.controller.mypage;
 
 import com.example.dreampicturespring.entity.*;
 import com.example.dreampicturespring.repository.*;
-import com.example.dreampicturespring.vo.CardVO;
-import com.example.dreampicturespring.vo.CommentVO;
-import com.example.dreampicturespring.vo.MypageVO;
-import com.example.dreampicturespring.vo.RegisterVO;
+import com.example.dreampicturespring.vo.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -38,6 +35,9 @@ public class MypageController {
     @Autowired
     PaymentRepository paymentRepository;
 
+    @Autowired
+    QaRepository qaRepository;
+
     @RequestMapping("/mypage/{user}")
     public ModelAndView mypage(HttpServletRequest req) {
         ModelAndView mv = new ModelAndView();
@@ -67,13 +67,9 @@ public class MypageController {
 
     @RequestMapping("/charge_money")
     public String charge_money(Integer amount, HttpServletRequest request) {
-        System.out.println(amount);
         HttpSession session = request.getSession();
-        if (session.getAttribute("logStatus") == null) {
-            return "user/login/login";
-        }
+        if (session.getAttribute("logStatus") == null) { return "user/login/login"; }
         Membershiptbl membershipTBL = membershiptblRepository.findByemail((String) session.getAttribute("logEmail"));
-        System.out.println(membershipTBL);
         membershiptblRepository.UpdateDreampayPlus(amount, membershipTBL.getNo_membership());
         return "user/mypage/charge";
     }
@@ -93,7 +89,6 @@ public class MypageController {
         Membershiptbl membershipTBL = membershiptblRepository.findByemail((String) session.getAttribute("logEmail"));
         Carttbl carttbls = cartRepository.findByno_membership(membershipTBL.getNo_membership());
         List<Cartpaintingtbl> cartpaintingtblList = cartpaintingRepository.findByno_cart(carttbls.getNo_cart());
-
         List<Paintingtbl> paintingtblList = new ArrayList<>();
         for (Cartpaintingtbl cartpaintingtbl : cartpaintingtblList) {
             Optional<Paintingtbl> optional = paintingRepository.findById(cartpaintingtbl.getNo_painting());
@@ -189,11 +184,8 @@ public class MypageController {
         int cardNum = 0, pageNum;
         ModelAndView mv = new ModelAndView();
         HttpSession session = request.getSession();
-        System.out.println((String) session.getAttribute("logEmail"));
         Membershiptbl membershiptbl = membershiptblRepository.findByemail((String) session.getAttribute("logEmail"));
-        System.out.println(membershiptbl);
         List<Paintingtbl> paintingtblList = paintingRepository.findbyno_membership(membershiptbl.getNo_membership());
-        System.out.println(paintingtblList);
         List<CardVO> cardVOList = new ArrayList<>();
         for (Paintingtbl paintingtbl : paintingtblList) {
             CardVO cardVO = new CardVO();
@@ -229,7 +221,24 @@ public class MypageController {
     }
 
     @RequestMapping("/qalist")
-    public String qalist() {
-        return "user/mypage/qalist";
+    public ModelAndView qalist(HttpServletRequest request) {
+
+        ModelAndView mv = new ModelAndView();
+        HttpSession session = request.getSession();
+        Membershiptbl membershiptbl = membershiptblRepository.findByemail((String) session.getAttribute("logEmail"));
+        List<Qatbl> qatblList = qaRepository.findbyno_membership(membershiptbl.getNo_membership());
+        List<QaVO> QaVOlist = new ArrayList<>();
+
+        for (Qatbl qatbl : qatblList) {
+            QaVO vo = new QaVO();
+            vo.parser(qatbl.getCategory());
+            vo.setNickname(membershiptbl.getNickname());
+            vo.setContent(qatbl.getContent());
+            vo.setAnswer(qatbl.getAnswer());
+            QaVOlist.add(vo);
+        }
+        mv.addObject("QaVOlist", QaVOlist);
+        mv.setViewName("user/mypage/qalist");
+        return mv;
     }
 }

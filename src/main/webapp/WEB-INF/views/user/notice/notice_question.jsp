@@ -28,6 +28,7 @@
     </script>
     <script type="text/javascript">
         let status = undefined; //0~4 까지 질문 종류
+        let actived = 0;
         showModal = function () {
             $('.ui.modal').modal('show');
         };
@@ -45,9 +46,8 @@
             });
         };
         selectedBtn = function (number) {
-            $(() => {
-                status = number
-            });
+            // $("#")
+            $(() => {status = number});
         };
     </script>
 </head>
@@ -60,13 +60,13 @@
 <% if (session.getAttribute("logStatus") == null) { %>
 <jsp:include page="../header_footer/header_not_login.jsp"></jsp:include>
 <% } %>
-<main class="has_bg_harp" style="height: auto">
+<main class="has_bg_harp">
     <div class="ui modal">
         <div class="header">질문 사항</div>
         <div class="ui form">
             <div class="field">
                 <div class="five ui buttons">
-                    <button class="ui button" onclick="selectedBtn(0)">운영 정책</button>
+                    <button class="ui button active" onclick="selectedBtn(0)">운영 정책</button>
                     <button class="ui button" onclick="selectedBtn(1)">구매/판매</button>
                     <button class="ui button" onclick="selectedBtn(2)">가격 정책</button>
                     <button class="ui button" onclick="selectedBtn(3)">계정 인증</button>
@@ -76,10 +76,7 @@
             </div>
         </div>
         <div class="actions" style="background-color: #95afc0">
-            <div class="ui positive right labeled icon button" style="background-color: var(--color-metallic-blue)"
-                 onclick="requestQA()">
-                올리기
-                <i class="checkmark icon"></i>
+            <div class="ui positive right labeled icon button" style="background-color: var(--color-metallic-blue)" onclick="requestQA()">올리기<i class="checkmark icon"></i>
             </div>
         </div>
     </div>
@@ -99,12 +96,9 @@
             </div>
         </div>
         <div style="grid-column: 3/13;display: flex;flex-direction: column;justify-content: space-between;align-items: center;justify-content: space-evenly;">
-            <!-- 추가요소 있으면 이 안에 넣기-->
-
             <div style="display: flex; width: 100%;justify-content: flex-end; align-items: center">
                 <div style="font-family:'BMHANNAPro';color:var(--color-chathams-blue);font-size:var(--font-size-xll);padding-top: 30px;
-    padding-bottom: 25px; padding-right: 31%;">질문과 답변
-                </div>
+    padding-bottom: 25px; padding-right: 31%;">질문과 답변</div>
                 <div tabindex="0" onclick="showModal()">
                     <button class="ui button" style="font-family: 'BMHANNAPro';">질문하기</button>
                 </div>

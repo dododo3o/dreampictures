@@ -344,3 +344,4 @@ textarea::placeholder{color: #80808057;}
 .flip-card-back {border-radius: 5px;background-color: #2980b9;color: white;transform: rotateY(180deg);}
 
 .input_select{border-radius:8px; outline:none;text-indent:10px;height:64px;border: 2px solid var(--color-jagged-ice); font-size: var(--font-size-lg);}
+
