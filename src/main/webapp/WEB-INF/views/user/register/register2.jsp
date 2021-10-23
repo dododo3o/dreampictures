@@ -11,7 +11,7 @@
     <link rel="stylesheet" href="/resources/css/dreampicturesytle.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Gowun+Dodum&display=swap" rel="stylesheet">
     <script src="https://kit.fontawesome.com/b14e6f064f.js" crossorigin="anonymous"></script>
     <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
     <script src="//dapi.kakao.com/v2/maps/sdk.js?appkey=e3b7b3147ef30d454b9901f4af5c27b4&libraries=services"></script>
@@ -131,9 +131,7 @@
                                                                class="is_login_input has_width_full"
                                                                placeholder="닉네임 등록"/></div>
                     <div>
-                        <button id="nick_btn" class="button is_primary" onclick="verifyNick()" style="margin-top: 10px;margin-bottom: 10px">인증
-                            확인
-                        </button>
+                        <button id="nick_btn" class="button is_primary" onclick="verifyNick()" style="margin-top: 10px;margin-bottom: 10px;font-family: 'Gowun Dodum'">인증 확인</button>
                     </div>
                     <div class="has_flex_center" id="image_container;">
                         <div id="preview_image">
@@ -148,7 +146,7 @@
                     <div>
                         <input type="submit" onclick="nextBtn_condition()"
                                class='button is_login has_shadow has_flex_center has_width_full'
-                               style="margin-top:20px" value="가입 완료">
+                               style="margin-top:20px;font-family: 'Gowun Dodum'" value="가입 완료">
                     </div>
                 </div>
             </form>

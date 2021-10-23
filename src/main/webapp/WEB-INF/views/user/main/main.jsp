@@ -7,10 +7,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Title</title>
-    <%--    <link rel="stylesheet" href="/resources/css/dreampicturesytle.css">--%>
+    <!--고운돋움 글씨체 -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Gowun+Dodum&display=swap" rel="stylesheet">
     <script src="https://kit.fontawesome.com/b14e6f064f.js" crossorigin="anonymous"></script>
 
 </head>
@@ -27,11 +27,11 @@
     <div class="container has_bg_harp">
         <div class="has_flex_center"
              style="grid-column: 1/6; flex-direction: column; gap: 40px;">
-            <div style="font-size: 58px;">
+            <div style="font-size: 58px;font-weight: bold;">
                 <div style="margin-bottom: 20px">당신의 그림을</div>
                 <br><div>사고 팔고 싶어요.</div>
             </div>
-            <div style="font-size: 22px;">여러분의 그림을 사고 싶은 분들이 많이 계실거에요!</div>
+            <div style="font-size: 21px;">여러분의 그림을 사고 싶은분들이많이 계실거에요!</div>
         </div>
         <div class="has_flex_center" style="grid-column: 6/13;">
             <svg id="darth" class="part" style="visibility: hidden" width="280" height="539" viewBox="0 0 280 539" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
@@ -243,10 +243,10 @@
 <main>
     <div class="container">
         <div class="has_flex_center has_flex_column" style="grid-column: 1/7; gap:20px;">
-            <div style="line-height :80px; font-size:48px;text-align:center">
+            <div style="line-height :80px; font-weight: bold;font-size:48px;text-align:center">
                 혹시 아티스트인가요?<br/>
-                작품의 사진, 이름, 형식, 가격<br/>
-                설명만 올려주세요.
+                작품의 사진, 이름, 형식,<br/>
+                가격, 설명만 올려주세요.
             </div>
             <div style="color: var( --color-river-bed); font-size: 25px;">5가지 스텝만으로 당신의 작품을 상품으로 !</div>
         </div>

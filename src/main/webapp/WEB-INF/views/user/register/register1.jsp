@@ -11,7 +11,7 @@
     <link rel="stylesheet" href="/resources/css/dreampicturesytle.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Gowun+Dodum&display=swap" rel="stylesheet">
     <script src="https://kit.fontawesome.com/b14e6f064f.js" crossorigin="anonymous"></script>
     <script
             src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"
@@ -119,11 +119,11 @@
         <div class="contents" style="grid-column: 5/9; margin-top: 50px; gap:30px; ">
             <form action="<%=conPath%>/register2" method="post" onsubmit="return false" id="frm">
                 <div style="display: flex;user-select: auto;flex-direction: column;align-items: center;justify-content: space-evenly;height: 650px;">
-                    <div class="title">회원 가입</div>
+                    <div class="title" style="font-weight: bold">회원 가입</div>
                     <div class="has_flex_left">이메일 *<input type="text" class="is_login_input  has_width_full"
                                                            name="email" id="email" required="required"
                                                            placeholder="이메일"/></div>
-                    <button id="email_btn" class='button is_primary' onclick="verifyEmail()">인증하기</button>
+                    <button id="email_btn" class='button is_primary' onclick="verifyEmail()" style="font-family: 'Gowun Dodum'">인증하기</button>
                     <div class="has_flex_left">
                         <div>비밀번호 *<span class="has_chathams-blue">(6~20 영문 대소문자, 숫자, 특수문자 꼭포함하여  6~20자)</span>
                         </div>
@@ -152,9 +152,9 @@
                         <input type="text" class="is_login_input  has_width_full" name="tel" id="tel"
                                required="required" placeholder="핸드폰 번호"/>
                     </div>
-                    <button id="tel_btn" class='button is_primary' onclick="verifyTel()">인증하기</button>
+                    <button id="tel_btn" class='button is_primary' style="font-family: 'Gowun Dodum'" onclick="verifyTel()">인증하기</button>
 
-                    <input type="submit" onclick="nextBtn_condition()" id="submit_btn"
+                    <input type="submit" onclick="nextBtn_condition()" id="submit_btn" style="font-family: 'Gowun Dodum'"
                            class='button is_login has_shadow has_flex_center has_width_full' value="다음 단계">
                 </div>
             </form>

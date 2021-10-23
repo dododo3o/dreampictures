@@ -79,8 +79,7 @@
         <a href="/admin/allmembers" class="w3-bar-item w3-button w3-padding"><i class="fa fa-bullseye fa-fw"></i>  회원현황</a><br><br>
     </div>
 </nav>
-<div class="w3-overlay w3-hide-large w3-animate-opacity" onclick="w3_close()" style="cursor:pointer;"
-     title="close side menu" id="myOverlay"></div>
+<div class="w3-overlay w3-hide-large w3-animate-opacity" onclick="w3_close()" style="cursor:pointer;" title="close side menu" id="myOverlay"></div>
 <div class="w3-main" style="margin-left:300px; height: 100%;">
 
     <div class="has_bg_harp" style="height:100%;flex-direction: column;justify-content: space-between;display: flex;">
