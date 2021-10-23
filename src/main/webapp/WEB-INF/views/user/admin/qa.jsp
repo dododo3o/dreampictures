@@ -12,20 +12,30 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
-    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.13/semantic.min.css">
+    <link rel="stylesheet" type="text/css"
+          href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.13/semantic.min.css">
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <style>html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}</style>
+    <style>html, body, h1, h2, h3, h4, h5 {
+        font-family: "Raleway", sans-serif
+    }</style>
     <script src="https://kit.fontawesome.com/b14e6f064f.js" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-    <script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"
+            integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ=="
+            crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://code.jquery.com/jquery-3.1.1.min.js"
+            integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.13/semantic.js"></script>
     <script>
-        function modal() {document.getElementById("modaldiv")}
+        function modal() {
+            document.getElementById("modaldiv")
+        }
     </script>
     <script type="text/javascript">
-        showModal = function () {$('.ui.tiny.modal').modal('show');};
+        showModal = function () {
+            $('.ui.tiny.modal').modal('show');
+        };
         answerQA = function (no_qa) {
             $(() => {
                 let answer = document.getElementById(no_qa).value;
@@ -56,47 +66,56 @@
     <div class="w3-container">
     </div>
     <div class="w3-bar-block">
-        <a href="#" class="w3-bar-item w3-button w3-padding-16 w3-hide-large w3-dark-grey w3-hover-black" onclick="w3_close()" title="close menu"><i class="fa fa-remove fa-fw"></i>  Close Menu</a>
-        <a href="/admin/main" class="w3-bar-item w3-button w3-padding"><i class="fa fa-bullseye fa-fw"></i>  관리자 메인으로</a>
+        <a href="#" class="w3-bar-item w3-button w3-padding-16 w3-hide-large w3-dark-grey w3-hover-black"
+           onclick="w3_close()" title="close menu"><i class="fa fa-remove fa-fw"></i>  Close Menu</a>
+        <a href="/admin/main" class="w3-bar-item w3-button w3-padding"><i class="fa fa-bullseye fa-fw"></i>  관리자
+            메인으로</a>
         <a href="/admin/notice" class="w3-bar-item w3-button w3-padding"><i class="fa fa-bullseye fa-fw"></i>  공지사항</a>
         <a href="/admin/qa" class="w3-bar-item w3-button w3-padding w3-blue"><i class="fa fa-bullseye fa-fw"></i>  질문사항</a>
-        <a href="/admin/salesHistory" class="w3-bar-item w3-button w3-padding"><i class="fa fa-bullseye fa-fw"></i>  판매현황</a>
+        <a href="/admin/salesHistory" class="w3-bar-item w3-button w3-padding"><i class="fa fa-bullseye fa-fw"></i> 
+            판매현황</a>
         <a href="/admin/report" class="w3-bar-item w3-button w3-padding"><i class="fa fa-bullseye fa-fw"></i>  신고내역</a>
         <a href="/admin/blacklist" class="w3-bar-item w3-button w3-padding"><i class="fa fa-bullseye fa-fw"></i>  블랙리스트</a>
         <a href="/admin/allmembers" class="w3-bar-item w3-button w3-padding"><i class="fa fa-bullseye fa-fw"></i>  회원현황</a><br><br>
     </div>
 </nav>
-<div class="w3-overlay w3-hide-large w3-animate-opacity" onclick="w3_close()" style="cursor:pointer" title="close side menu" id="myOverlay"></div>
-<div class="w3-main" style="margin-left:300px;">
-    <main class="has_bg_harp" style="height: auto;">
+<div class="w3-overlay w3-hide-large w3-animate-opacity" onclick="w3_close()" style="cursor:pointer"
+     title="close side menu" id="myOverlay"></div>
+<div class="w3-main" style="margin-left:300px; height: 100%">
+    <main class="has_bg_harp" style="height: 100%;display: flex;flex-direction: column; justify-content: space-between;">
 
-
-                <div tabindex="0" style="display: flex;justify-content: center;border-bottom: 1px solid #BDBDBD"><h1 style="font-family: 'BMHANNAPro';padding: 10px 0px;color:var(--color-chathams-blue);">질문사항</h1></div>
-                <div class="manager_card" style="display: grid;grid-template-columns:repeat(4,1fr);grid-gap:1rem;width: 100%;justify-items: center;border-bottom: 1px solid #BDBDBD;padding-bottom: 30px">
-                    <c:forEach var="QaVOlist" items="${QaVOlist}">
-                        <div class="ui card" style="margin:0">
-                            <div class="content" style="height: 0px">
-                                <div class="header">${QaVOlist.category}</div>
-                                <div style="font-size: 1.3em">작성자 : ${QaVOlist.nickname}</div>
-                            </div>
-                            <div class="content">
-                                <p style="font-size: 1.3em">${QaVOlist.content}</p>
-                            </div>
-                            <div class="extra content">
-                                <div class="ui large transparent left icon input" style="display: flex;">
-                                    <i class="pencil alternate icon"></i>
-                                    <input type="text" maxlength="50" size="20" id="${QaVOlist.no_qa}" placeholder="답변하기..." style="font-size: 0.8em"/>
-                                </div>
-                                <button class="ui blue icon button" onclick="answerQA(${QaVOlist.no_qa})" style="float: right; font-size: 0.8em;">답변하기</button>
-                            </div>
+        <div>
+            <div tabindex="0" style="display: flex;justify-content: center;border-bottom: 1px solid #BDBDBD"><h1
+                    style="font-family: 'BMHANNAPro';padding: 10px 0px;color:var(--color-chathams-blue);">질문사항</h1>
+            </div>
+            <div class="manager_card"
+                 style="display: grid;grid-template-columns:repeat(4,1fr);grid-gap:1rem;width: 100%;justify-items: center;padding-bottom: 30px">
+                <c:forEach var="QaVOlist" items="${QaVOlist}">
+                    <div class="ui card" style="margin:0">
+                        <div class="content" style="">
+                            <div class="header">${QaVOlist.category}</div>
+                            <div style="font-size: 1.3em">작성자 : ${QaVOlist.nickname}</div>
                         </div>
-                    </c:forEach>
-                </div>
-
-
-        <div class="container" style="display: flex;justify-content: center;margin-top:30px;padding-bottom: 30px;">
+                        <div class="content">
+                            <p style="font-size: 1.3em">${QaVOlist.content}</p>
+                        </div>
+                        <div class="extra content">
+                            <div class="ui large transparent left icon input" style="display: flex;">
+                                <i class="pencil alternate icon"></i>
+                                <input type="text" maxlength="100" size="20" id="${QaVOlist.no_qa}" placeholder="답변하기..."
+                                       style="font-size: 0.8em"/>
+                            </div>
+                            <button class="ui red basic button" style="font-size: 0.8em;float:right;">삭제</button>
+                            <button class="ui primary basic button" style="float:right;font-size: 0.8em" onclick="answerQA(${QaVOlist.no_qa})">답변하기</button>
+                        </div>
+                    </div>
+                </c:forEach>
+            </div>
+        </div>
+        <div style="display: flex;justify-content: center;padding-top:30px;padding-bottom: 30px;border-top: 1px solid #BDBDBD;">
             <div>
-                <div class="ui animated button" tabindex="0" style="color:var(--color-white);background-color: var(--color-chathams-blue);">
+                <div class="ui animated button" tabindex="0"
+                     style="color:var(--color-white);background-color: var(--color-chathams-blue);">
                     <div class="visible content">Perv</div>
                     <div class="hidden content"><i class="left arrow icon"></i></div>
                 </div>
@@ -107,7 +126,8 @@
                         <div class="hidden content">${i}</div>
                     </div>
                 </c:forEach>
-                <div class="ui animated button" tabindex="0" style="color:var(--color-white);background-color: var(--color-chathams-blue);">
+                <div class="ui animated button" tabindex="0"
+                     style="color:var(--color-white);background-color: var(--color-chathams-blue);">
                     <div class="visible content">Next</div>
                     <div class="hidden content"><i class="right arrow icon"></i></div>
                 </div>
@@ -119,6 +139,7 @@
 <script>
     var mySidebar = document.getElementById("mySidebar");
     var overlayBg = document.getElementById("myOverlay");
+
     function w3_open() {
         if (mySidebar.style.display === 'block') {
             mySidebar.style.display = 'none';
@@ -128,6 +149,7 @@
             overlayBg.style.display = "block";
         }
     }
+
     function w3_close() {
         mySidebar.style.display = "none";
         overlayBg.style.display = "none";

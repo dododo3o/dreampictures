@@ -24,7 +24,7 @@
             <a href="/">
                 <div class="is_logos">
                     <i class="fas fa-palette fg-lg"></i>
-                    <div>
+                    <div style="font-weight: bold">
                         <div style="margin-bottom: 14px;">
                             <span>그</span><span class="has_albescent-white">림</span>
                         </div>
@@ -35,12 +35,12 @@
                 </div>
             </a>
         </div>
-        <div class="navigation">
+        <div class="navigation" style="font-weight: bold">
             <a href='/buy' class='anchor'>Buyer</a>
             <a href='/login' class='anchor'>Seller</a>
             <a href='/notice' class='anchor'>Notice</a>
             <a href='/login' class='anchor has_aqua-island' id="mainMenu_login">Login</a>
-            <button class='button is_primary'><a href="/register1">Sign in</a></button>
+            <button class='button is_primary'><a href="/register1" style="font-weight: bold">Sign in</a></button>
         </div>
     </div>
 </header>

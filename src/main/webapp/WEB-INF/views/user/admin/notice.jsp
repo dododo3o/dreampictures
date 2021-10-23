@@ -51,7 +51,7 @@
         };
     </script>
 </head>
-<body class="w3-light-grey">
+<body class="w3-light-grey" style="height:100%">
 <nav class="w3-sidebar w3-collapse w3-white w3-animate-left" style="z-index:3;width:300px;" id="mySidebar"><br>
     <div class="w3-container w3-row">
         <div class="w3-col s8 w3-bar" style="text-align: center;margin-left: 50px">
@@ -81,28 +81,32 @@
 <div class="w3-overlay w3-hide-large w3-animate-opacity" onclick="w3_close()" style="cursor:pointer"
      title="close side menu" id="myOverlay"></div>
 <div class="w3-main" style="margin-left:300px;height: 100%">
-    <main class="has_bg_harp" style=" height:100%;display:flex;flex-direction: column;justify-content: space-between">
-
-            <div tabindex="0"  style="display: flex;align-items: center;justify-content: space-around;border-bottom: 1px solid #BDBDBD;">
-                <h1 style="font-family: 'BMHANNAPro';color:var(--color-chathams-blue);padding: 10px 0px 10px 605px;">공지사항</h1>
-                <button class="ui primary basic button" style="font-family: 'BMHANNAPro';" onclick="showModal()">공지사항 올리기</button>
+    <main class="has_bg_harp" style="height:100%;display:flex;flex-direction: column;justify-content: space-between;">
+        <div>
+            <div style="display: flex;align-items: center;justify-content:space-evenly;border-bottom: 1px solid #BDBDBD;padding: 10px 0">
+                <div style="padding-left: 447px"><h1 style="font-family: 'BMHANNAPro';color:var(--color-chathams-blue);">공지사항</h1></div>
+                <div><button class="ui primary basic button" style="font-family: 'BMHANNAPro';" onclick="showModal()">공지사항 올리기</button></div>
             </div>
 
-        <div style="height:100%;padding:20px 0;border-bottom: 1px solid #BDBDBD;padding-bottom: 30px">
-            <div style="display: grid;grid-template-columns:repeat(4,1fr);grid-gap:1rem;width: 100%;">
-                <c:forEach var="noticeVOList" items="${noticeVOList}">
-                    <div class="ui card" style="height: 320px; margin: 0 auto;">
-                        <div class="content" style="height: 100%; margin: 0 auto;">
-                            <div class="header">${noticeVOList.title}</div>
-                            <div class="meta">${noticeVOList.writedate}</div>
-                            <div class="description"><p>${noticeVOList.content}</p></div>
+            <div style="height:100%;padding:20px 0;padding-bottom: 30px">
+                <div style="display: grid;grid-template-columns:repeat(4,1fr);grid-gap:1rem;width: 100%;">
+                    <c:forEach var="noticeVOList" items="${noticeVOList}">
+                        <div class="ui card" style="height: 350px; margin: 0 auto;">
+                            <div class="content" style="height: 100%; margin: 0 auto;">
+                                <div class="header">${noticeVOList.title}</div>
+                                <div class="meta">${noticeVOList.writedate}</div>
+                                <div class="description"><p>${noticeVOList.content}</p></div>
+                            </div>
+                            <div style="height:auto;border-top: 1px solid #ddd;text-align: center;padding: 5px 0;">
+                                <button class="ui red basic button" style="font-family: 'BMHANNAPro';">삭제</button>
+                            </div>
                         </div>
-                    </div>
-                </c:forEach>
+                    </c:forEach>
+                </div>
             </div>
         </div>
 
-        <div style="display: flex;justify-content: center;margin-top:30px;padding-bottom: 30px;">
+        <div style="display: flex;justify-content: center;padding-top:30px;padding-bottom: 30px;border-top: 1px solid #BDBDBD;">
             <div>
                 <div class="ui animated button" tabindex="0"
                      style="color:var(--color-white);background-color: var(--color-chathams-blue);">
@@ -137,7 +141,8 @@
                     <div style="font-size: var(--font-size-lg);font-family:'BMHANNAPro';">제목</div>
                     <input type="text" maxlength="30" id="title" style="border: 1px solid lightblue">
                     <div class="ui" style="font-size: var(--font-size-lg);font-family:'BMHANNAPro';">공지내용</div>
-                    <input type="text" maxlength="200" id="question" style="height: 200px;border: 1px solid lightblue">
+                    <textarea maxlength="200"></textarea>
+                    <%--                    <input type="text" maxlength="200" id="question" style="height: 200px;border: 1px solid lightblue">--%>
                 </div>
             </div>
         </div>

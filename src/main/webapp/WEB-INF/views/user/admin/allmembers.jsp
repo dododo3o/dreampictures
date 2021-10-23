@@ -93,10 +93,10 @@
 </nav>
 <div class="w3-overlay w3-hide-large w3-animate-opacity" onclick="w3_close()" style="cursor:pointer;"
      title="close side menu" id="myOverlay"></div>
-<div class="w3-main" style="margin-left:300px;">
-    <div class="has_bg_harp" style="display: flex;flex-direction: column;justify-content: space-between;">
+<div class="w3-main" style="margin-left:300px;height: 100%;">
+    <div class="has_bg_harp" style="height:100%;display: flex;flex-direction: column;justify-content: space-between;">
 
-        <div style="">
+        <div>
             <div style="height:auto;padding: 10px 0px;flex-direction:column;display:flex;gap:20px;justify-content:center;align-items: center;border-bottom: 1px solid #BDBDBD;">
                 <div><h1 style="font-family: 'BMHANNAPro';color:var(--color-chathams-blue)">전체 회원목록</h1></div>
                 <form action="">
@@ -110,7 +110,7 @@
                     </div>
                 </form>
             </div>
-            <div style="height: auto;border-bottom: 1px solid #BDBDBD;display: grid;grid-template-columns:repeat(4,1fr);grid-gap:1rem;align-items: baseline;justify-items: center;padding:0 0 20px 0;">
+            <div style="height: auto;display: grid;grid-template-columns:repeat(4,1fr);grid-gap:1rem;align-items: baseline;justify-items: center;padding:0 0 20px 0;">
                         <c:forEach var="memberVOList" items="${memberVOList}">
                             <div class="ui card">
                                 <div class="content">
@@ -130,7 +130,7 @@
             </div>
 
         </div>
-        <div style="display: flex;justify-content: center;margin-top:30px;padding-bottom: 30px;">
+        <div style="display: flex;justify-content: center;padding-top:30px;padding-bottom: 30px;border-top: 1px solid #BDBDBD;">
             <div class="ui animated button" tabindex="0"
                  style="color:var(--color-white);background-color: var(--color-chathams-blue);">
                 <div class="visible content">Perv</div>
