@@ -11,7 +11,7 @@
     <link rel="stylesheet" href="/resources/css/dreampicturesytle.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Gowun+Dodum&display=swap" rel="stylesheet">
     <link rel="stylesheet" type="text/css"
           href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.13/semantic.min.css">
     <script src="https://kit.fontawesome.com/b14e6f064f.js" crossorigin="anonymous"></script>
@@ -29,8 +29,7 @@
 <main class="has_bg_harp">
     <div style="display:flex; justify-content: space-evenly;" >
         <div style="width:440px; margin-top:100px; height:500px; border-radius:10px;" class="has_bg_white">
-            <h1 style=" color:white; background-color:#dc143c; height:50px; border-radius:10px;"
-                class="has_flex_center">P A Y C O</h1>
+            <h1 style=" color:white; background-color:#dc143c; height:50px; border-radius:10px;font-family:'Gowun Dodum' " class="has_flex_center">P A Y C O</h1>
             <p style=" font-weight: bold; text-align: center; font-size:30px; margin-top:40px;">페이코 현재 사용가능</p>
             <div style="margin-left:85px;">
                 <div style="display:grid; grid-template-columns:90px 90px 90px; ">
@@ -54,18 +53,11 @@
                             style="border:1px solid lightgray; vertical-align:top; line-height:66px; font-size:15px; padding:5px;">50,000원</span></label>
                 </div>
             </div>
-            <p style="color: #ac2925; margin-top: 10px; text-align: center;">페이코의 최소 충전금액은 5,000원이며 <br/>최대 충전금액은
-                50,000원 입니다.</p>
-            <div style="text-align: center;">
-                <button type="button"
-                        style=" color:white; border-radius:10px; font-size:20px; padding:15px 110px; background-color:#dc143c;"
-                        class="ui button" id="charge_payco">충 전 하 기
-                </button>
-            </div>
+            <p  style="color: #ac2925; margin-top: 10px; text-align: center;">페이코의 최소 충전금액은 5,000원이며 <br/>최대 충전금액은 50,000원 입니다.</p>
+            <div style="text-align: center;"><button  type="button" style=" color:white; border-radius:10px; font-size:20px; padding:15px 110px; background-color:#dc143c;font-family:'Gowun Dodum'" class="ui button"  id="charge_payco">충 전 하 기</button></div>
         </div>
         <div style="width:440px; margin-top:100px; height:500px; border-radius:10px;" class="has_bg_white">
-            <h1 style=" color:white; background-color:#FFE400; height:50px; border-radius:10px;"
-                class="has_flex_center">카카오페이</h1>
+            <h1 style=" color:white; background-color:#FFE400; height:50px; border-radius:10px;font-family:'Gowun Dodum'" class="has_flex_center">카카오페이</h1>
             <p style=" font-weight: bold; text-align: center; font-size:25px; margin-top:40px;">카카오페이 현재 사용가능</p>
             <div style="margin-left:85px;">
                 <div style="display:grid; grid-template-columns:90px 90px 90px; ">
@@ -89,18 +81,11 @@
                             style="border:1px solid lightgray; vertical-align:top; line-height:66px; font-size:15px; padding:5px;">50,000원</span></label>
                 </div>
             </div>
-            <p style="color: #ac2925; margin-top: 15px; text-align: center;">카카오페이의 최소 충전금액은 5,000원이며 <br/>최대 충전금액은
-                50,000원 입니다.</p>
-            <div style="text-align: center;">
-                <button type="button"
-                        style=" color:white; border-radius:10px; font-size:20px; padding:15px 110px; background-color:#FFE400;"
-                        class="ui button" id="charge_kakao">충 전 하 기
-                </button>
-            </div>
+            <p  style="color: #ac2925; margin-top: 15px; text-align: center;">카카오페이의 최소 충전금액은 5,000원이며 <br/>최대 충전금액은 50,000원 입니다.</p>
+            <div style="text-align: center;"><button  type="button" style="font-family:'Gowun Dodum';color:white; border-radius:10px; font-size:20px; padding:15px 110px; background-color:#FFE400;" class="ui button"  id="charge_kakao">충 전 하 기</button></div>
         </div>
         <div style="width:440px; margin-top:100px; height:500px; border-radius:10px;" class="has_bg_white">
-            <h1 style=" color:white; background-color:#00C73C; height:50px; border-radius:10px;"
-                class="has_flex_center">네이버페이</h1>
+            <h1 style="font-family:'Gowun Dodum';color:white; background-color:#00C73C; height:50px; border-radius:10px;" class="has_flex_center">네이버페이</h1>
             <p style=" font-weight: bold; text-align: center; font-size:25px; margin-top:40px;">네이버페이 현재 사용가능</p>
             <div style="margin-left:85px;">
                 <div style="display:grid; grid-template-columns:90px 90px 90px; ">
@@ -124,14 +109,8 @@
                             style="border:1px solid lightgray; vertical-align:top; line-height:66px; font-size:15px; padding:5px;">50,000원</span></label>
                 </div>
             </div>
-            <p style="color: #ac2925; margin-top: 15px; text-align: center;">네이버페이의 최소 충전금액은 5,000원이며 <br/>최대 충전금액은
-                50,000원 입니다.</p>
-            <div style="text-align: center; margin-top: 10px;">
-                <button type="button"
-                        style=" color:white; border-radius:10px; font-size:20px; padding:15px 110px; background-color:#00C73C;"
-                        class="ui button" id="charge_naver">충 전 하 기
-                </button>
-            </div>
+            <p  style="color: #ac2925; margin-top: 15px; text-align: center;">네이버페이의 최소 충전금액은 5,000원이며 <br/>최대 충전금액은 50,000원 입니다.</p>
+            <div style="text-align: center; margin-top: 10px;"><button  type="button" style="font-family:'Gowun Dodum';color:white; border-radius:10px; font-size:20px; padding:15px 110px; background-color:#00C73C;" class="ui button"  id="charge_naver">충 전 하 기</button></div>
         </div>
     </div>
     <div style="display: flex;    height: auto;width: 100%;justify-content: space-around;padding-top: 60px;">
