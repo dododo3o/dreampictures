@@ -13,7 +13,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
     <script src="https://kit.fontawesome.com/b14e6f064f.js" crossorigin="anonymous"></script>
-    ></script>
+    </script>
     <script>
         function setThumbnail(event) {
             var reader = new FileReader();
@@ -30,7 +30,8 @@
             };
             reader.readAsDataURL(event.target.files[0]);
         }
-        function nextBtn_condition(){
+
+        function nextBtn_condition() {
             var pname = $("#pnameVal").val();
             var height = $("#heightVal").val();
             var width = $("#widthVal").val();
@@ -41,10 +42,33 @@
 
             var f = document.form;
 
-            if (pname!= ''&& height!=''&& width!=''&&price!=''&&calVal!=''&&content!='' &&img!='' && f.style.value!=='' && f.theme.value!=='') {
+            if (pname != '' && height != '' && width != '' && price != '' && calVal != '' && content != '' && img != '' && f.style.value !== '' && f.theme.value !== '') {
                 document.getElementById('frm').submit();
             } else {
-                $("#point").css("display","block");
+                $("#point").css("display", "block");
+            }
+        }
+
+        function heightMaxLength(e) {
+            if (e.value.length > e.maxLength) {
+                e.value = e.value.slice(0, e.maxLength);
+            }
+        }
+
+        function widthMaxLength(e) {
+            if (e.value.length > e.maxLength) {
+                e.value = e.value.slice(0, e.maxLength);
+            }
+        }
+
+        function priceMaxLength(e) {
+            if (e.value.length > e.maxLength) {
+                e.value = e.value.slice(0, e.maxLength);
+            }
+        }
+        function MaxLength(e){//작품설명 최대 입력 수 200
+            if(e.value.length > e.maxLength){
+                e.value = e.value.slice(0, e.maxLength);
             }
         }
     </script>
@@ -60,18 +84,15 @@
 <% } %>
 <main class="has_bg_harp">
     <div class="container">
-        <form action="<%=conPath%>/sell_success" method="post" onsubmit="return false" enctype="multipart/form-data" id="frm" name="form">
+        <form action="<%=conPath%>/sell_success" method="post" onsubmit="return false" enctype="multipart/form-data"
+              id="frm" name="form">
             <div style="background-color:var( --color-white);display:flex;grid-column: 1/13;height: 100%;">
                 <div style="border-right: 1px solid #ddd;width:50%;padding-left: 110px;padding-right: 100px;">
-                    <div class="has_flex_column has_evenly" style="flex-wrap: wrap;width:100%;height: 90%;padding-top: 100px;">
+                    <div class="has_flex_column has_evenly"
+                         style="flex-wrap: wrap;width:100%;height: 90%;padding-top: 100px;">
                         <a class="ui red tag label" style="display: none; margin-bottom: 10px;" id="point"><span>그림 정보를 모두 작성해주세요.😥</span></a>
-                        <input type="submit" class="ui secondary button" value="그림등록" onclick="nextBtn_condition()"><font style="vertical-align: inherit; "><font
-                            style="vertical-align: inherit;" >
-                    </font></font>
-                        <div class="ui horizontal divider"><font style="vertical-align: inherit;"><font
-                                style="vertical-align: inherit;">
-                            Painting Infomation
-                        </font></font></div>
+                        <input type="submit" class="ui secondary button" value="그림등록" onclick="nextBtn_condition()">
+                        <div class="ui horizontal divider" style="vertical-align: inherit;">Painting Infomation</div>
                         <div class="ui list has_flex_column has_font-base" style="display: flex; gap: 20px;">
                             <div style="display: flex;">
                                 <i class="big edit outline icon" style="user-select: auto;"></i>
@@ -84,7 +105,9 @@
                             <div style="user-select: auto; display: flex;">
                                 <i class="big long arrow alternate up icon" style="user-select: auto;"></i>
                                 <div class="content" style="display: flex;">
-                                    <input class="painting_input" id="heightVal" type="text" placeholder="높이 (cm)">
+                                    <input class="painting_input" id="heightVal" type="number"
+                                           oninput="heightMaxLength(this)" placeholder="높이 (cm) 최대 200CM" max="200"
+                                           maxlength="3">
                                 </div>
                             </div>
                         </div>
@@ -92,7 +115,9 @@
                             <div style="user-select: auto; display: flex;">
                                 <i class="big long arrow alternate right icon" style="user-select: auto;"></i>
                                 <div class="content" style="display: flex;">
-                                    <input class="painting_input" id="widthVal" type="text" placeholder="너비 (cm)">
+                                    <input class="painting_input" id="widthVal" type="number"
+                                           oninput="widthMaxLength(this)" placeholder="너비 (cm) 최대 200CM" max="200"
+                                           maxlength="3">
                                 </div>
                             </div>
                         </div>
@@ -100,20 +125,25 @@
                             <div style="display: flex;">
                                 <i class="big won sign icon" style="user-select: auto;"></i>
                                 <div class="content" style="display: flex;">
-                                    <input class="painting_input" id="priceVal" type="text" placeholder="가격 (원)">
+                                    <input class="painting_input" id="priceVal" type="number"
+                                           oninput="priceMaxLength(this)" placeholder="가격 (원) 최대 10 만원" max="100000"
+                                           maxlength="6">
                                 </div>
                             </div>
                         </div>
-                        <input type="date" class="has_width_half sell_select" name="production" id="cal" placeholder="제작년도"/>
+                        <input type="date" class="has_width_half sell_select" name="production" id="cal"
+                               placeholder="제작년도"/>
                         <div class="ui list has_flex_column has_font-base" style="display: flex; ">
                             <div style=" display: flex;">
                                 <div class="content" style="display: flex;width: 100%;">
-                                    <textarea class="painting_input" id="contentVal" placeholder="작품설명" style="resize: none; height: 60px;width: 100%;"></textarea>
+                                    <textarea class="painting_input" id="contentVal" placeholder="작품설명 200글자 내외로 입력해주세요" oninput="MaxLength(this)" maxlength="100"
+                                              style="resize: none; height: 60px;width: 100%;"></textarea>
                                 </div>
                             </div>
                         </div>
                         <%-- todo--%>
-                        <select style="font-family: 'BMHANNAPro'; font-size:var(--font-size-sm)" class="has_width_half sell_select" id="style" name="style">
+                        <select style="font-family: 'BMHANNAPro'; font-size:var(--font-size-sm)"
+                                class="has_width_half sell_select" id="style" name="style">
                             <option value="" disabled selected>Style</option>
                             <option value="oils">유화</option>
                             <option value="water">수채화</option>
@@ -124,7 +154,8 @@
                             <option value="crayon">크레용화</option>
                             <option value="gouache">과슈화</option>
                         </select>
-                        <select style="font-family: 'BMHANNAPro'; font-size:var(--font-size-sm)" class="has_width_half sell_select" id="theme" name="theme">
+                        <select style="font-family: 'BMHANNAPro'; font-size:var(--font-size-sm)"
+                                class="has_width_half sell_select" id="theme" name="theme">
                             <option value="" disabled selected>Theme</option>
                             <option value="scenery">풍경</option>
                             <option value="character">인물</option>
@@ -138,13 +169,15 @@
                 </div>
 
                 <div class="has_flex_column" style="width:50%;padding-left: 80px;padding-right: 80px;">
-                    <div class="has_flex_center" id="image_container;" style="margin-top: 70px; width: 100%; height: 80%;">
+                    <div class="has_flex_center" id="image_container;"
+                         style="margin-top: 70px; width: 100%; height: 80%;">
                         <div id="preview_image">
                             <%-- 선택한 사진 들어가는 곳--%>
                         </div>
                     </div>
                     <div>
-                        <div><input type="file" onchange="setThumbnail(event);" name="filename" id="image" style="margin-left: 100px;margin-top: 10px"/></div>
+                        <div><input type="file" onchange="setThumbnail(event);" name="filename" id="image"
+                                    style="margin-left: 100px;margin-top: 10px"/></div>
                     </div>
                 </div><!--왼쪽div-->
             </div>

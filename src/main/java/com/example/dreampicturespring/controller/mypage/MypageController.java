@@ -219,7 +219,6 @@ public class MypageController {
         mv.addObject("pageNum", pageNum);
         return mv;
     }
-
     @RequestMapping("/qalist")
     public ModelAndView qalist(HttpServletRequest request) {
 
