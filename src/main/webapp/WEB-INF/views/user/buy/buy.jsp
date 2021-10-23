@@ -1,5 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-         pageEncoding="UTF-8" %>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <% String conPath = request.getContextPath(); %>
 <!DOCTYPE html>
@@ -39,6 +38,7 @@
                     url: "/ajax_picture_finder",
                     data: "pname=" + pname + "&style=" + style + "&theme=" + theme + "&width=" + width + "&height=" + height + "&price=" + price + "&status=" + status,
                     success: function (result) {
+                        alert('댓글이 삭제되었습니다.');
                         var container = document.getElementById("container");
                         while (container.hasChildNodes()) {
                             container.removeChild(container.firstChild);
@@ -55,9 +55,12 @@
             $(() => {
                 let text = document.getElementById(no_painting).value;
                 let no_paint = no_painting;
+                let real_no = no_paint.replace("input","");
+                alert(text);
+                alert(real_no);
                 $.ajax({
                     url: "/ajax_comment_add",
-                    data: "comment=" + text + "&no_painting=" + no_paint,
+                    data: "comment=" + text + "&no_painting=" + real_no,
                     success: function (result) {
                         document.location.href = "/buy";
                     }
@@ -175,11 +178,11 @@
                         <div class="extra content">
                             <div class="ui large transparent left icon input" style="display: flex;">
                                 <i class="pencil alternate icon"></i>
-                                <input type="text" maxlength="20" size="20" id="${cardVOlist.no_painting}"
+                                <input type="text" maxlength="20" size="20" id="input${cardVOlist.no_painting}"
                                        placeholder="글자수 20글자 내 작성"
                                        style="font-size: 0.8em"/>
                             </div>
-                            <button class="ui blue icon button" onclick="addComment(${cardVOlist.no_painting})"
+                            <button class="ui blue icon button" onclick="addComment('input' + ${cardVOlist.no_painting})"
                                     style="float: right; font-size: 0.8em;">Add
                             </button>
                             <button class="ui blue icon button" onclick="showCommentModal()"
@@ -203,6 +206,7 @@
                                                  style="border-radius: 50%; height:40px; width:40px;object-fit: cover;">
                                             <span class="author"
                                                   style="margin-left: 10px; font-size: 1.5em">${commentVOList.author}</span>
+
                                             <button class="ui red icon button"
                                                     onclick="reply_delete(${commentVOList.no_comment})"
                                                     style="font-size: 0.5em;">X
@@ -252,19 +256,21 @@
 </div>
 <jsp:include page="../header_footer/footer.jsp"></jsp:include>
 </body>
-<%--<script>
+<script>
     function reply_delete(num) {
         $(() => {
             $.ajax({
                 url: "/reply_delete",
                 data: "num=" + num,
                 success: function (result) {
-                    if (result == 'ㅗ') {
-                        alert('존재하지 않는 이메일입니다 ! 😅');
+                    var container = document.getElementById("container");
+                    while (container.hasChildNodes()) {
+                        container.removeChild(container.firstChild);
                     }
+                    $("#container").html(result);
                 }
             });
         });
     }
-</script>--%>
+</script>
 </html>
