@@ -285,5 +285,4 @@ public class AdminController {
         mv.addObject("pageNum",pageNum);
         return mv;
     }
-
 }

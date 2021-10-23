@@ -137,7 +137,7 @@ public class BuyController {
         mv.addObject("url","user/mypage/mypage");
         return mv;
     }
-    @RequestMapping(value = "/reply_delete",method = RequestMethod.GET, produces ="application/text;charset=UTF-8")
+   /* @RequestMapping(value = "/reply_delete",method = RequestMethod.GET, produces ="application/text;charset=UTF-8")
     public String reply_delete(HttpServletRequest request, Integer num, CommentVO vo) {
 
         vo.setNo_comment(num);
@@ -147,6 +147,6 @@ public class BuyController {
         commentRepository.save(commenttbl);
 
         return "redirect:/buy";
-    }
+    }*/
 
 }
