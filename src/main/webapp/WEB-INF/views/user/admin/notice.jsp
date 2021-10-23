@@ -134,20 +134,19 @@
         </div>
     </main>
     <div class="ui tiny modal" style="text-align: center;width:450px">
-        <div class="header" style="font-family:'BMHANNAPro';font-size:32px;background-color:lightblue">공지 사항</div>
+        <div class="header" style="font-family: 'Gowun Dodum';font-size:32px;background-color:lightblue">공지 사항</div>
         <div class="ui form">
             <div class="field">
                 <div class="field">
-                    <div style="font-size: var(--font-size-lg);font-family:'BMHANNAPro';">제목</div>
+                    <div style="font-size: var(--font-size-lg);font-family: 'Gowun Dodum';font-weight: bold;">제목</div>
                     <input type="text" maxlength="30" id="title" style="border: 1px solid lightblue">
-                    <div class="ui" style="font-size: var(--font-size-lg);font-family:'BMHANNAPro';">공지내용</div>
-                    <textarea maxlength="200"></textarea>
-                    <%--                    <input type="text" maxlength="200" id="question" style="height: 200px;border: 1px solid lightblue">--%>
+                    <div class="ui" style="font-size: var(--font-size-lg);font-family: 'Gowun Dodum';font-weight: bold;">공지내용</div>
+                    <textarea id="question" maxlength="200"></textarea>
                 </div>
             </div>
         </div>
         <div class="actions" style="background-color:lightblue">
-            <div class="ui positive right labeled icon button" style="background-color:steelblue"
+            <div class="ui positive right labeled icon button" style="background-color:steelblue;font-family: 'Gowun Dodum';font-weight: bold;"
                  onclick="push_notice()">올리기<i class="checkmark icon"></i></div>
         </div>
     </div>
