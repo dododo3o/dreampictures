@@ -27,6 +27,7 @@
 <body>
 <jsp:include page="../header_footer/header_login.jsp"></jsp:include>
 <main class="has_bg_harp">
+
     <div style="display:flex; justify-content: space-evenly;" >
         <div style="width:440px; margin-top:100px; height:500px; border-radius:10px;" class="has_bg_white">
             <h1 style=" color:white; background-color:#dc143c; height:50px; border-radius:10px;" class="has_flex_center">P A Y C O</h1>

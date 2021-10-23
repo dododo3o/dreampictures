@@ -81,17 +81,17 @@
 <div class="w3-overlay w3-hide-large w3-animate-opacity" onclick="w3_close()" style="cursor:pointer"
      title="close side menu" id="myOverlay"></div>
 <div class="w3-main" style="margin-left:300px;height: 100%">
-    <main class="has_bg_harp" style=" height: 100%;display:flex;flex-direction: column;justify-content: space-between">
+    <main class="has_bg_harp" style=" height:100%;display:flex;flex-direction: column;justify-content: space-between">
 
             <div tabindex="0"  style="display: flex;align-items: center;justify-content: space-around;border-bottom: 1px solid #BDBDBD;">
                 <h1 style="font-family: 'BMHANNAPro';color:var(--color-chathams-blue);padding: 10px 0px 10px 605px;">공지사항</h1>
                 <button class="ui primary basic button" style="font-family: 'BMHANNAPro';" onclick="showModal()">공지사항 올리기</button>
             </div>
 
-        <div style="height: 100%;padding:20px 0;border-bottom: 1px solid #BDBDBD;padding-bottom: 30px">
+        <div style="height:100%;padding:20px 0;border-bottom: 1px solid #BDBDBD;padding-bottom: 30px">
             <div style="display: grid;grid-template-columns:repeat(4,1fr);grid-gap:1rem;width: 100%;">
                 <c:forEach var="noticeVOList" items="${noticeVOList}">
-                    <div class="ui card" style="height: 100%; margin: 0 auto;">
+                    <div class="ui card" style="height: 320px; margin: 0 auto;">
                         <div class="content" style="height: 100%; margin: 0 auto;">
                             <div class="header">${noticeVOList.title}</div>
                             <div class="meta">${noticeVOList.writedate}</div>
@@ -129,20 +129,20 @@
             </div>
         </div>
     </main>
-    <div class="ui tiny modal">
-        <div class="header">공지 사항</div>
+    <div class="ui tiny modal" style="text-align: center;width:450px">
+        <div class="header" style="font-family:'BMHANNAPro';font-size:32px;background-color:lightblue">공지 사항</div>
         <div class="ui form">
             <div class="field">
-                <div class="field" placeholder="Last Name">
-                    <div class="ui blue large label">제목을 입력해주세요</div>
-                    <input type="text" id="title">
-                    <div class="ui blue large label">공지내용을 입력해주세요</div>
-                    <input type="text" id="question">
+                <div class="field">
+                    <div style="font-size: var(--font-size-lg);font-family:'BMHANNAPro';">제목</div>
+                    <input type="text" maxlength="30" id="title" style="border: 1px solid lightblue">
+                    <div class="ui" style="font-size: var(--font-size-lg);font-family:'BMHANNAPro';">공지내용</div>
+                    <input type="text" maxlength="200" id="question" style="height: 200px;border: 1px solid lightblue">
                 </div>
             </div>
         </div>
-        <div class="actions" style="background-color: #95afc0">
-            <div class="ui positive right labeled icon button" style="background-color: var(--color-metallic-blue)"
+        <div class="actions" style="background-color:lightblue">
+            <div class="ui positive right labeled icon button" style="background-color:steelblue"
                  onclick="push_notice()">올리기<i class="checkmark icon"></i></div>
         </div>
     </div>
