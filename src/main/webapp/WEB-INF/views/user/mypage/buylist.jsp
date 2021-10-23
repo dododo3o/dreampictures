@@ -37,11 +37,58 @@
                 });
             });
         };
+    function flipCard(num) {
+    $('#' + num).css("transform", "rotateY(180deg)");
+    $(".ui.comments.flip-card-back").css('margin', '0');
+
+    }
+
+    function closeCard(num) {
+    $('#' + num).css("transform", "rotateY(0deg)");
+    }
     </script>
+    <style>
+        .flip-card {
+            background-color: transparent;
+            perspective: 1000px;
+        }
+
+        .flip-card-inner {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            text-align: center;
+            transition: transform 0.6s;
+            transform-style: preserve-3d;
+            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+        }
+
+        .flip-card-front, .flip-card-back {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            -webkit-backface-visibility: hidden;
+            backface-visibility: hidden;
+        }
+
+        .flip-card-front {
+            background-color: #bbb;
+            color: black;
+
+        }
+
+        .flip-card-back {
+            border-radius: 5px;
+            background-color: #2980b9;
+            color: white;
+            transform: rotateY(180deg);
+        }
+    </style>
 </head>
 <body>
 <jsp:include page="../header_footer/header_login.jsp"></jsp:include>
-<main class="has_bg_harp" style="height: auto;">
+<main class="has_bg_harp">
     <div id="container" class="container">
         <div class="has_flex_column" style="grid-column:1/3; gap:40px;padding-top: 30px;background-color: #a2b0b36e">
             <div class="ui vertical animated button" tabindex="0" onclick="showModal()">
@@ -85,23 +132,64 @@
         <div style="grid-column: 3/13;display: flex;flex-direction: column;justify-content: space-between;align-items: center;justify-content: space-evenly">
             <!-- 추가요소 있으면 이 안에 넣기-->
             <div style="font-family:'BMHANNAPro';color:var(--color-chathams-blue);font-size:var(--font-size-xll);padding-top: 30px;
-    padding-bottom: 25px;">구매내역
-            </div>
+    padding-bottom: 25px;">구매내역</div>
             <c:forEach var="cardVOlist" items="${cardVOlist}">
-                <div style="display:grid;grid-template-columns:repeat(3,1fr);grid-gap:1rem;width:100%;">
-                    <div class="ui card" style="height: 100%; margin: 0 auto;">
-                        <div class="content"
-                             style=" display: flex; flex-direction: row; justify-content: space-evenly; align-items: center;">
-                            <img src="${cardVOlist.avatarimg}"
-                                 style="border-radius: 50%; width: 3em;height: 3em;object-fit: cover;">
-                            <span style="font-size: 2em;">${cardVOlist.nickname}</span>
+                <div class="flip-card">
+                    <div class="flip-card-inner" id="${cardVOlist.no_painting}" style="border-radius: 5px;">
+                        <div class="ui card flip-card-front" style="height: 100%; margin: 0 auto;">
+                            <div class="content"
+                                 style=" display: flex; flex-direction: row; justify-content: space-evenly; align-items: center;">
+                                <img src="${cardVOlist.avatarimg}"
+                                     style="border-radius: 50%; width: 3em;height: 3em;object-fit: cover;">
+                                <span style="font-size: 2em;">${cardVOlist.nickname}</span>
+                            </div>
+                            <div class="image">
+                                <img src="${cardVOlist.paintingmimg}"
+                                     onclick="buypainting(${cardVOlist.no_painting});"
+                                     style="object-fit: cover; height: 250px">
+                            </div>
+                            <div class="content" style="display: flex;justify-content: center;">
+                                <span style="font-size: 1.5em">${cardVOlist.pname}</span><span></span>
+                            </div>
+                            <div class="extra content">
+                                <div class="ui large transparent left icon input" style="display: flex;">
+                                    <i class="pencil alternate icon"></i>
+                                    <input type="text" maxlength="20" size="20" id="${cardVOlist.no_painting}"
+                                           placeholder="글자수 20글자 내 작성"
+                                           style="font-size: 0.8em"/>
+                                </div>
+                                <button class="ui blue icon button" onclick="addComment(${cardVOlist.no_painting})"
+                                        style="float: right; font-size: 0.8em;">Add
+                                </button>
+                                <button class="ui blue icon button" onclick="showCommentModal()"
+                                        style="float: right; font-size: 0.8em;">zxc
+                                </button>
+                            </div>
+                            <div class="ui bottom attached button collapsible"
+                                 onclick="flipCard(${cardVOlist.no_painting})"
+                                 style="z-index: 1;">
+                                <i class="add icon"></i>
+                                <span><i class="comment icon"></i>${cardVOlist.commentNumber}</span>
+                            </div>
                         </div>
-                        <div class="image">
-                            <img src="${cardVOlist.paintingmimg}" onclick="buypainting(${cardVOlist.no_painting});"
-                                 style="object-fit: cover; height: 250px">
-                        </div>
-                        <div class="content" style="display: flex;justify-content: center;">
-                            <span style="font-size: 1.5em">${cardVOlist.pname}</span><span></span>
+                        <div class="ui comments flip-card-back">
+                            <c:forEach var="commentVOList" items="${cardVOlist.commentVOList}">
+                                <h5 class="ui header" style="user-select: auto; margin: 10px;">
+                                    <div style="display: flex;align-items: center;justify-content: space-between;">
+                                        <img src="${commentVOList.avatarimg}"
+                                             style="border-radius: 50%; height:40px; width:40px;object-fit: cover;">
+                                        <span class="author"
+                                              style="margin-left: 10px; font-size: 1.5em">${commentVOList.author}</span>
+                                        <button class="ui red icon button" onclick="" style="font-size: 0.5em">X
+                                        </button>
+                                    </div>
+                                    <div class="text" style="margin: 10px;">${commentVOList.comments}</div>
+                                </h5>
+                            </c:forEach>
+                            <div class="ui button bottom attached collapsible"
+                                 onclick="closeCard(${cardVOlist.no_painting})" id="close_btn">
+                                <i class="large close icon icon"></i>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -118,7 +206,11 @@
                             </div>
                         </div>
                         <c:forEach var="i" begin="1" end="${pageNum}">
-                            <button class='button is_pagination'>${i}</button>
+                            <div class="ui animated button" tabindex="0"
+                                 style="color:var(--color-white);background-color: var(--color-chathams-blue);">
+                                <div class="visible content">${i}</div>
+                                <div class="hidden content">${i}</div>
+                            </div>
                         </c:forEach>
                         <div class="ui animated button" tabindex="0"
                              style="color:var(--color-white);background-color: var(--color-chathams-blue);">

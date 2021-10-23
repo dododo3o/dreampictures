@@ -2,6 +2,7 @@ package com.example.dreampicturespring.controller.register;
 
 import com.example.dreampicturespring.entity.Carttbl;
 import com.example.dreampicturespring.entity.Membershiptbl;
+import com.example.dreampicturespring.repository.CartRepository;
 import com.example.dreampicturespring.repository.CartpaintingRepository;
 import com.example.dreampicturespring.repository.MembershiptblRepository;
 import com.example.dreampicturespring.vo.RegisterVO;
@@ -22,7 +23,8 @@ public class RegisterController {
 
     @Autowired
     MembershiptblRepository membershiptblRepository;
-
+    @Autowired
+    CartRepository cartRepository;
     @Autowired
     CartpaintingRepository cartpaintingRepository;
 
@@ -78,8 +80,7 @@ public class RegisterController {
 
         Carttbl carttbl = new Carttbl();
         carttbl.setNo_membership(membershiptbl.getNo_membership());
-
-
+        cartRepository.save(carttbl);
 
         return "user/login/login";
     }

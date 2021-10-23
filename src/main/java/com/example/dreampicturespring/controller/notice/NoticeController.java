@@ -20,12 +20,10 @@ import java.util.Optional;
 
 @Controller
 public class NoticeController {
-
-    @Autowired
-    MembershiptblRepository membershiptblRepository;
     @Autowired
     NoticeRepository noticeRepository;
-
+    @Autowired
+    MembershiptblRepository membershiptblRepository;
     @Autowired
     QaRepository qaRepository;
 
@@ -33,20 +31,19 @@ public class NoticeController {
     public ModelAndView notice_notice() {
 
         ModelAndView mv = new ModelAndView();
-        List<Noticetbl> noticetblList =  noticeRepository.findAll();
+        mv.setViewName("user/notice/notice");
+        List<Noticetbl> noticetblList = noticeRepository.findAll();
         List<NoticeVO> noticeVOList = new ArrayList<>();
-        for(Noticetbl noticetbl :noticetblList){
+        for (Noticetbl noticetbl : noticetblList) {
             NoticeVO noticeVO = new NoticeVO();
             noticeVO.setTitle(noticetbl.getTitle());
             noticeVO.setWritedate(noticetbl.getWritedate());
             noticeVO.setContent(noticetbl.getContent());
             noticeVOList.add(noticeVO);
         }
-        mv.setViewName("user/notice/notice");
-        mv.addObject("noticeVOList",noticeVOList);
+        mv.addObject("noticeVOList", noticeVOList);
         return mv;
     }
-
     @RequestMapping("/notice_question")
     public ModelAndView notice_question() {
         final int CARDSPERPAGE = 15;
