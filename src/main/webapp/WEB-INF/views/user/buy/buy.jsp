@@ -251,7 +251,7 @@
 </div>
 <jsp:include page="../header_footer/footer.jsp"></jsp:include>
 </body>
-<script>
+<%--<script>
     function reply_delete(num) {
         $(() => {
             $.ajax({
@@ -265,5 +265,5 @@
             });
         });
     }
-</script>
+</script>--%>
 </html>

@@ -11,8 +11,8 @@ import java.util.List;
 @Repository
 
 public interface CommentRepository extends JpaRepository<Commentstbl,Integer> {
-@Override
-Commentstbl deleteByNo_comment(Integer no_comment);
+
+//Commentstbl deleteByNo_comment(Integer no_comment);
 
     @Query(value = "select commentstbl.comments,commentstbl.no_membership from commentstbl where commentstbl.no_painting = :no_painting", nativeQuery = true)
     List<String> findCommenttbl(@Param("no_painting") Integer no_painting);
