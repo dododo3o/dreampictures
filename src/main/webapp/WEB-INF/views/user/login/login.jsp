@@ -19,7 +19,10 @@
             crossorigin="anonymous" referrerpolicy="no-referrer">
     </script>
     <script>
-        showModal = function () {$('.ui.tiny.modal').modal('show');};
+        showModal = function () {
+            $('.ui.tiny.modal').modal('show');
+        };
+
         function find_pwd_btn() {
             var email = $('#find_email').val();
             var tel = $('#find_tel').val();
@@ -53,8 +56,10 @@
         <div class="header">비밀번호 찾기 <i class="unlock alternate icon"></i></div>
         <div class="ui form">
             <div class="has_flex_column" style="gap:30px; margin:20px;display: flex;">
-                <div class="ui input"><input class="find_pwd" id="find_email" type="text" placeholder="이메일을 입력해주세요." style="user-select: auto;"></div>
-                <div class="ui input"><input class="find_pwd" id="find_tel" type="text" placeholder="연락처를 입력해주세요." style="user-select: auto;"></div>
+                <div class="ui input"><input class="find_pwd" id="find_email" type="text" placeholder="이메일을 입력해주세요."
+                                             style="user-select: auto;"></div>
+                <div class="ui input"><input class="find_pwd" id="find_tel" type="text" placeholder="연락처를 입력해주세요."
+                                             style="user-select: auto;"></div>
             </div>
         </div>
         <div class="actions" style="background-color: #95afc0">
@@ -75,17 +80,20 @@
             <form action="<%=conPath%>/login_check" method="post" id="frm">
                 <div class="has_flex_space_cl" style="height: 650px;">
                     <div class="title">로그인 화면</div>
-                    <div class="has_flex_left"><input type="text" class="is_login_input has_width_full" name="email" id="email" required="required" placeholder="이메일"></div>
-                    <div class="has_flex_left"><input type="password" placeholder="Password" name="pwd" id="pwd" class="is_login_input has_width_full"/></div>
+                    <div class="has_flex_left"><input type="text" class="is_login_input has_width_full" name="email"
+                                                      id="email" required="required" placeholder="이메일"></div>
+                    <div class="has_flex_left"><input type="password" placeholder="Password" name="pwd" id="pwd"
+                                                      class="is_login_input has_width_full"/></div>
                     <div class="has_flex_center" style="display: flex; width: 100%; justify-content: space-around;">
-                        <div style="display: flex;align-items: center;gap:10px; "><input type="checkbox" id="login_check" style="height: 20px;"><span class="has_black has_font-xs">Remember me</span></div>
-                        <div onclick="showModal()"><a href='#' class="has_black"> <i class="large unlock alternate icon"></i> Forgot password?</a></div>
+                        <div style="display: flex;align-items: center;gap:10px; "><input type="checkbox" id="login_check" style="height: 20px;"><span
+                                class="has_black has_font-xs">Remember me</span></div>
+                        <div onclick="showModal()"><a href='#' class="has_black"> <i
+                                class="large unlock alternate icon"></i> Forgot password?</a></div>
                     </div>
                     <button class='logbtn is_login has_shadow has_width_full has_flex_center'><i
                             class="fas fa-key"></i><span class="has_padding">로그인</span></button>
-
-                    <button class='kakaologbtn button is_login has_shadow has_flex_center has_bg_turbo has_width_full'><i
-                            class="fas fa-comment"></i></i></i><span
+                    <button class='kakaologbtn button is_login has_shadow has_flex_center has_bg_turbo has_width_full'>
+                        <i class="fas fa-comment"></i></i></i><span
                             class="has_padding">카카오톡 로그인</span></button>
                     <button class='googlelogbtn is_login has_shadow has_flex_center has_bg_white has_width_full'><i
                             class="fab fa-google"></i><span
