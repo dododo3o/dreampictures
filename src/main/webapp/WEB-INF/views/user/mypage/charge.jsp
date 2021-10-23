@@ -27,65 +27,115 @@
 <body>
 <jsp:include page="../header_footer/header_login.jsp"></jsp:include>
 <main class="has_bg_harp">
-    <div style="display:flex; justify-content: space-evenly;" >
+    <div style="display:flex; justify-content: space-evenly;">
         <div style="width:440px; margin-top:100px; height:500px; border-radius:10px;" class="has_bg_white">
-            <h1 style=" color:white; background-color:#dc143c; height:50px; border-radius:10px;" class="has_flex_center">P A Y C O</h1>
+            <h1 style=" color:white; background-color:#dc143c; height:50px; border-radius:10px;"
+                class="has_flex_center">P A Y C O</h1>
             <p style=" font-weight: bold; text-align: center; font-size:30px; margin-top:40px;">페이코 현재 사용가능</p>
             <div style="margin-left:85px;">
                 <div style="display:grid; grid-template-columns:90px 90px 90px; ">
-                    <label><input class="radio1" type="radio" name="cp_item" value="5000"/><span class="radiospan1" style="border:1px solid lightgray; vertical-align:top; line-height:66px; font-size:15px; padding:5px;">5,000원</span></label>
-                    <label><input class="radio1" type="radio" name="cp_item" value="10000" /><span class="radiospan1" style="border:1px solid lightgray; vertical-align:top; line-height:66px; font-size:15px; padding:5px;">10,000원</span></label>
-                    <label><input class="radio1" type="radio" name="cp_item" value="15000" /><span class="radiospan1" style="border:1px solid lightgray; vertical-align:top; line-height:66px; font-size:15px; padding:5px;">15,000원</span></label>
-                    <label><input class="radio1" type="radio" name="cp_item" value="20000" /><span class="radiospan1" style="border:1px solid lightgray; vertical-align:top; line-height:66px; font-size:15px; padding:5px;">20,000원</span></label>
-                    <label><input class="radio1" type="radio" name="cp_item" value="25000" /><span class="radiospan1" style="border:1px solid lightgray; vertical-align:top; line-height:66px; font-size:15px; padding:5px;">25,000원</span></label>
-                    <label><input class="radio1" type="radio" name="cp_item" value="30000" /><span class="radiospan1" style="border:1px solid lightgray; vertical-align:top; line-height:66px; font-size:15px; padding:5px;">30,000원</span></label>
-                    <label><input class="radio1" type="radio" name="cp_item" value="35000" /><span class="radiospan1" style="border:1px solid lightgray; vertical-align:top; line-height:66px; font-size:15px; padding:5px;">35,000원</span></label>
-                    <label><input class="radio1" type="radio" name="cp_item" value="40000" /><span class="radiospan1" style="border:1px solid lightgray; vertical-align:top; line-height:66px; font-size:15px; padding:5px;">40,000원</span></label>
-                    <label><input class="radio1" type="radio" name="cp_item" value="50000" /><span style="border:1px solid lightgray; vertical-align:top; line-height:66px; font-size:15px; padding:5px;">50,000원</span></label>
+                    <label><input class="radio1" type="radio" name="cp_item" value="5000"/><span class="radiospan1"
+                                                                                                 style="border:1px solid lightgray; vertical-align:top; line-height:66px; font-size:15px; padding:5px;">5,000원</span></label>
+                    <label><input class="radio1" type="radio" name="cp_item" value="10000"/><span class="radiospan1"
+                                                                                                  style="border:1px solid lightgray; vertical-align:top; line-height:66px; font-size:15px; padding:5px;">10,000원</span></label>
+                    <label><input class="radio1" type="radio" name="cp_item" value="15000"/><span class="radiospan1"
+                                                                                                  style="border:1px solid lightgray; vertical-align:top; line-height:66px; font-size:15px; padding:5px;">15,000원</span></label>
+                    <label><input class="radio1" type="radio" name="cp_item" value="20000"/><span class="radiospan1"
+                                                                                                  style="border:1px solid lightgray; vertical-align:top; line-height:66px; font-size:15px; padding:5px;">20,000원</span></label>
+                    <label><input class="radio1" type="radio" name="cp_item" value="25000"/><span class="radiospan1"
+                                                                                                  style="border:1px solid lightgray; vertical-align:top; line-height:66px; font-size:15px; padding:5px;">25,000원</span></label>
+                    <label><input class="radio1" type="radio" name="cp_item" value="30000"/><span class="radiospan1"
+                                                                                                  style="border:1px solid lightgray; vertical-align:top; line-height:66px; font-size:15px; padding:5px;">30,000원</span></label>
+                    <label><input class="radio1" type="radio" name="cp_item" value="35000"/><span class="radiospan1"
+                                                                                                  style="border:1px solid lightgray; vertical-align:top; line-height:66px; font-size:15px; padding:5px;">35,000원</span></label>
+                    <label><input class="radio1" type="radio" name="cp_item" value="40000"/><span class="radiospan1"
+                                                                                                  style="border:1px solid lightgray; vertical-align:top; line-height:66px; font-size:15px; padding:5px;">40,000원</span></label>
+                    <label><input class="radio1" type="radio" name="cp_item" value="50000"/><span
+                            style="border:1px solid lightgray; vertical-align:top; line-height:66px; font-size:15px; padding:5px;">50,000원</span></label>
                 </div>
             </div>
-            <p  style="color: #ac2925; margin-top: 10px; text-align: center;">페이코의 최소 충전금액은 5,000원이며 <br/>최대 충전금액은 50,000원 입니다.</p>
-            <div style="text-align: center;"><button  type="button" style=" color:white; border-radius:10px; font-size:20px; padding:15px 110px; background-color:#dc143c;" class="ui button"  id="charge_payco">충 전 하 기</button></div>
+            <p style="color: #ac2925; margin-top: 10px; text-align: center;">페이코의 최소 충전금액은 5,000원이며 <br/>최대 충전금액은
+                50,000원 입니다.</p>
+            <div style="text-align: center;">
+                <button type="button"
+                        style=" color:white; border-radius:10px; font-size:20px; padding:15px 110px; background-color:#dc143c;"
+                        class="ui button" id="charge_payco">충 전 하 기
+                </button>
+            </div>
         </div>
         <div style="width:440px; margin-top:100px; height:500px; border-radius:10px;" class="has_bg_white">
-            <h1 style=" color:white; background-color:#FFE400; height:50px; border-radius:10px;" class="has_flex_center">카카오페이</h1>
+            <h1 style=" color:white; background-color:#FFE400; height:50px; border-radius:10px;"
+                class="has_flex_center">카카오페이</h1>
             <p style=" font-weight: bold; text-align: center; font-size:25px; margin-top:40px;">카카오페이 현재 사용가능</p>
             <div style="margin-left:85px;">
                 <div style="display:grid; grid-template-columns:90px 90px 90px; ">
-                    <label><input class="radio1" type="radio" name="cp_item" value="5000"/><span class="radiospan1" style="border:1px solid lightgray; vertical-align:top; line-height:66px; font-size:15px; padding:5px;">5,000원</span></label>
-                    <label><input class="radio1" type="radio" name="cp_item" value="10000" /><span class="radiospan1" style="border:1px solid lightgray; vertical-align:top; line-height:66px; font-size:15px; padding:5px;">10,000원</span></label>
-                    <label><input class="radio1" type="radio" name="cp_item" value="15000" /><span class="radiospan1" style="border:1px solid lightgray; vertical-align:top; line-height:66px; font-size:15px; padding:5px;">15,000원</span></label>
-                    <label><input class="radio1" type="radio" name="cp_item" value="20000" /><span class="radiospan1" style="border:1px solid lightgray; vertical-align:top; line-height:66px; font-size:15px; padding:5px;">20,000원</span></label>
-                    <label><input class="radio1" type="radio" name="cp_item" value="25000" /><span class="radiospan1" style="border:1px solid lightgray; vertical-align:top; line-height:66px; font-size:15px; padding:5px;">25,000원</span></label>
-                    <label><input class="radio1" type="radio" name="cp_item" value="30000" /><span class="radiospan1" style="border:1px solid lightgray; vertical-align:top; line-height:66px; font-size:15px; padding:5px;">30,000원</span></label>
-                    <label><input class="radio1" type="radio" name="cp_item" value="35000" /><span class="radiospan1" style="border:1px solid lightgray; vertical-align:top; line-height:66px; font-size:15px; padding:5px;">35,000원</span></label>
-                    <label><input class="radio1" type="radio" name="cp_item" value="40000" /><span class="radiospan1" style="border:1px solid lightgray; vertical-align:top; line-height:66px; font-size:15px; padding:5px;">40,000원</span></label>
-                    <label><input class="radio1" type="radio" name="cp_item" value="50000" /><span style="border:1px solid lightgray; vertical-align:top; line-height:66px; font-size:15px; padding:5px;">50,000원</span></label>
+                    <label><input class="radio1" type="radio" name="cp_item" value="5000"/><span class="radiospan1"
+                                                                                                 style="border:1px solid lightgray; vertical-align:top; line-height:66px; font-size:15px; padding:5px;">5,000원</span></label>
+                    <label><input class="radio1" type="radio" name="cp_item" value="10000"/><span class="radiospan1"
+                                                                                                  style="border:1px solid lightgray; vertical-align:top; line-height:66px; font-size:15px; padding:5px;">10,000원</span></label>
+                    <label><input class="radio1" type="radio" name="cp_item" value="15000"/><span class="radiospan1"
+                                                                                                  style="border:1px solid lightgray; vertical-align:top; line-height:66px; font-size:15px; padding:5px;">15,000원</span></label>
+                    <label><input class="radio1" type="radio" name="cp_item" value="20000"/><span class="radiospan1"
+                                                                                                  style="border:1px solid lightgray; vertical-align:top; line-height:66px; font-size:15px; padding:5px;">20,000원</span></label>
+                    <label><input class="radio1" type="radio" name="cp_item" value="25000"/><span class="radiospan1"
+                                                                                                  style="border:1px solid lightgray; vertical-align:top; line-height:66px; font-size:15px; padding:5px;">25,000원</span></label>
+                    <label><input class="radio1" type="radio" name="cp_item" value="30000"/><span class="radiospan1"
+                                                                                                  style="border:1px solid lightgray; vertical-align:top; line-height:66px; font-size:15px; padding:5px;">30,000원</span></label>
+                    <label><input class="radio1" type="radio" name="cp_item" value="35000"/><span class="radiospan1"
+                                                                                                  style="border:1px solid lightgray; vertical-align:top; line-height:66px; font-size:15px; padding:5px;">35,000원</span></label>
+                    <label><input class="radio1" type="radio" name="cp_item" value="40000"/><span class="radiospan1"
+                                                                                                  style="border:1px solid lightgray; vertical-align:top; line-height:66px; font-size:15px; padding:5px;">40,000원</span></label>
+                    <label><input class="radio1" type="radio" name="cp_item" value="50000"/><span
+                            style="border:1px solid lightgray; vertical-align:top; line-height:66px; font-size:15px; padding:5px;">50,000원</span></label>
                 </div>
             </div>
-            <p  style="color: #ac2925; margin-top: 15px; text-align: center;">카카오페이의 최소 충전금액은 5,000원이며 <br/>최대 충전금액은 50,000원 입니다.</p>
-            <div style="text-align: center;"><button  type="button" style=" color:white; border-radius:10px; font-size:20px; padding:15px 110px; background-color:#FFE400;" class="ui button"  id="charge_kakao">충 전 하 기</button></div>
+            <p style="color: #ac2925; margin-top: 15px; text-align: center;">카카오페이의 최소 충전금액은 5,000원이며 <br/>최대 충전금액은
+                50,000원 입니다.</p>
+            <div style="text-align: center;">
+                <button type="button"
+                        style=" color:white; border-radius:10px; font-size:20px; padding:15px 110px; background-color:#FFE400;"
+                        class="ui button" id="charge_kakao">충 전 하 기
+                </button>
+            </div>
         </div>
         <div style="width:440px; margin-top:100px; height:500px; border-radius:10px;" class="has_bg_white">
-            <h1 style=" color:white; background-color:#00C73C; height:50px; border-radius:10px;" class="has_flex_center">네이버페이</h1>
+            <h1 style=" color:white; background-color:#00C73C; height:50px; border-radius:10px;"
+                class="has_flex_center">네이버페이</h1>
             <p style=" font-weight: bold; text-align: center; font-size:25px; margin-top:40px;">네이버페이 현재 사용가능</p>
             <div style="margin-left:85px;">
                 <div style="display:grid; grid-template-columns:90px 90px 90px; ">
-                    <label><input class="radio1" type="radio" name="cp_item" value="5000"/><span class="radiospan1" style="border:1px solid lightgray; vertical-align:top; line-height:66px; font-size:15px; padding:5px;">5,000원</span></label>
-                    <label><input class="radio1" type="radio" name="cp_item" value="10000" /><span class="radiospan1" style="border:1px solid lightgray; vertical-align:top; line-height:66px; font-size:15px; padding:5px;">10,000원</span></label>
-                    <label><input class="radio1" type="radio" name="cp_item" value="15000" /><span class="radiospan1" style="border:1px solid lightgray; vertical-align:top; line-height:66px; font-size:15px; padding:5px;">15,000원</span></label>
-                    <label><input class="radio1" type="radio" name="cp_item" value="20000" /><span class="radiospan1" style="border:1px solid lightgray; vertical-align:top; line-height:66px; font-size:15px; padding:5px;">20,000원</span></label>
-                    <label><input class="radio1" type="radio" name="cp_item" value="25000" /><span class="radiospan1" style="border:1px solid lightgray; vertical-align:top; line-height:66px; font-size:15px; padding:5px;">25,000원</span></label>
-                    <label><input class="radio1" type="radio" name="cp_item" value="30000" /><span class="radiospan1" style="border:1px solid lightgray; vertical-align:top; line-height:66px; font-size:15px; padding:5px;">30,000원</span></label>
-                    <label><input class="radio1" type="radio" name="cp_item" value="35000" /><span class="radiospan1" style="border:1px solid lightgray; vertical-align:top; line-height:66px; font-size:15px; padding:5px;">35,000원</span></label>
-                    <label><input class="radio1" type="radio" name="cp_item" value="40000" /><span class="radiospan1" style="border:1px solid lightgray; vertical-align:top; line-height:66px; font-size:15px; padding:5px;">40,000원</span></label>
-                    <label><input class="radio1" type="radio" name="cp_item" value="50000" /><span style="border:1px solid lightgray; vertical-align:top; line-height:66px; font-size:15px; padding:5px;">50,000원</span></label>
+                    <label><input class="radio1" type="radio" name="cp_item" value="5000"/><span class="radiospan1"
+                                                                                                 style="border:1px solid lightgray; vertical-align:top; line-height:66px; font-size:15px; padding:5px;">5,000원</span></label>
+                    <label><input class="radio1" type="radio" name="cp_item" value="10000"/><span class="radiospan1"
+                                                                                                  style="border:1px solid lightgray; vertical-align:top; line-height:66px; font-size:15px; padding:5px;">10,000원</span></label>
+                    <label><input class="radio1" type="radio" name="cp_item" value="15000"/><span class="radiospan1"
+                                                                                                  style="border:1px solid lightgray; vertical-align:top; line-height:66px; font-size:15px; padding:5px;">15,000원</span></label>
+                    <label><input class="radio1" type="radio" name="cp_item" value="20000"/><span class="radiospan1"
+                                                                                                  style="border:1px solid lightgray; vertical-align:top; line-height:66px; font-size:15px; padding:5px;">20,000원</span></label>
+                    <label><input class="radio1" type="radio" name="cp_item" value="25000"/><span class="radiospan1"
+                                                                                                  style="border:1px solid lightgray; vertical-align:top; line-height:66px; font-size:15px; padding:5px;">25,000원</span></label>
+                    <label><input class="radio1" type="radio" name="cp_item" value="30000"/><span class="radiospan1"
+                                                                                                  style="border:1px solid lightgray; vertical-align:top; line-height:66px; font-size:15px; padding:5px;">30,000원</span></label>
+                    <label><input class="radio1" type="radio" name="cp_item" value="35000"/><span class="radiospan1"
+                                                                                                  style="border:1px solid lightgray; vertical-align:top; line-height:66px; font-size:15px; padding:5px;">35,000원</span></label>
+                    <label><input class="radio1" type="radio" name="cp_item" value="40000"/><span class="radiospan1"
+                                                                                                  style="border:1px solid lightgray; vertical-align:top; line-height:66px; font-size:15px; padding:5px;">40,000원</span></label>
+                    <label><input class="radio1" type="radio" name="cp_item" value="50000"/><span
+                            style="border:1px solid lightgray; vertical-align:top; line-height:66px; font-size:15px; padding:5px;">50,000원</span></label>
                 </div>
             </div>
-            <p  style="color: #ac2925; margin-top: 15px; text-align: center;">네이버페이의 최소 충전금액은 5,000원이며 <br/>최대 충전금액은 50,000원 입니다.</p>
-            <div style="text-align: center; margin-top: 10px;"><button  type="button" style=" color:white; border-radius:10px; font-size:20px; padding:15px 110px; background-color:#00C73C;" class="ui button"  id="charge_naver">충 전 하 기</button></div>
+            <p style="color: #ac2925; margin-top: 15px; text-align: center;">네이버페이의 최소 충전금액은 5,000원이며 <br/>최대 충전금액은
+                50,000원 입니다.</p>
+            <div style="text-align: center; margin-top: 10px;">
+                <button type="button"
+                        style=" color:white; border-radius:10px; font-size:20px; padding:15px 110px; background-color:#00C73C;"
+                        class="ui button" id="charge_naver">충 전 하 기
+                </button>
+            </div>
         </div>
     </div>
+    <div style="display: flex;    height: auto;width: 100%;justify-content: space-around;padding-top: 60px;">
+        <button class="back_btn"><a href="/mypage">뒤로가기</a></button>
     </div>
 </main>
 <script>
