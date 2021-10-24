@@ -1,6 +1,4 @@
 package com.example.dreampicturespring.controller.ajax;
-
-
 import com.example.dreampicturespring.entity.*;
 import com.example.dreampicturespring.repository.*;
 import com.example.dreampicturespring.vo.CardVO;
@@ -12,7 +10,6 @@ import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
-
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 import java.util.ArrayList;
@@ -43,7 +40,6 @@ public class AjaxController {
 	ReportRepository reportRepository;
 	@Autowired
 	QaRepository qaRepository;
-
 
 	@RequestMapping(value="/ajax_email_check",method=RequestMethod.GET, produces="application/text;charset=UTF-8")
 	@ResponseBody
@@ -182,6 +178,7 @@ public class AjaxController {
 
 	@RequestMapping(value = "/ajax_comment_add",method = RequestMethod.GET, produces ="application/text;charset=UTF-8")
 	public String comment_add(Model model,HttpServletRequest request,String comment,Integer no_painting){
+		System.out.println(comment + no_painting);
 		HttpSession session =request.getSession();
 		Membershiptbl membershipTBL = membershiptblRepository.findByemail((String) session.getAttribute("logEmail"));
 		if(membershipTBL ==null){ return "user/redirect/not_login"; }
@@ -190,6 +187,7 @@ public class AjaxController {
 		commentstbl.setComments(comment);
 		commentstbl.setNo_painting(no_painting);
 		commentRepository.save(commentstbl);
+
 		return "redirect:/buy";
 	}
 
@@ -197,7 +195,4 @@ public class AjaxController {
 		if(StringUtils.isEmpty(target)) return target = null;
 		return target;
 	}
-
-
-
 }

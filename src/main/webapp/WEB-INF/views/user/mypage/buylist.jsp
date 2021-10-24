@@ -37,54 +37,17 @@
                 });
             });
         };
-    function flipCard(num) {
-    $('#' + num).css("transform", "rotateY(180deg)");
-    $(".ui.comments.flip-card-back").css('margin', '0');
 
-    }
+        function flipCard(num) {
+            $('#' + num).css("transform", "rotateY(180deg)");
+            $(".ui.comments.flip-card-back").css('margin', '0');
 
-    function closeCard(num) {
-    $('#' + num).css("transform", "rotateY(0deg)");
-    }
+        }
+
+        function closeCard(num) {
+            $('#' + num).css("transform", "rotateY(0deg)");
+        }
     </script>
-    <style>
-        .flip-card {
-            background-color: transparent;
-            perspective: 1000px;
-        }
-
-        .flip-card-inner {
-            position: relative;
-            width: 100%;
-            height: 100%;
-            text-align: center;
-            transition: transform 0.6s;
-            transform-style: preserve-3d;
-            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-        }
-
-        .flip-card-front, .flip-card-back {
-            position: absolute;
-            width: 100%;
-            height: 100%;
-            top: 0;
-            -webkit-backface-visibility: hidden;
-            backface-visibility: hidden;
-        }
-
-        .flip-card-front {
-            background-color: #bbb;
-            color: black;
-
-        }
-
-        .flip-card-back {
-            border-radius: 5px;
-            background-color: #2980b9;
-            color: white;
-            transform: rotateY(180deg);
-        }
-    </style>
 </head>
 <body>
 <jsp:include page="../header_footer/header_login.jsp"></jsp:include>
@@ -130,9 +93,9 @@
         </div>
         <div style="grid-column: 3/13;display: flex;flex-direction: column;justify-content: space-between;align-items: center;justify-content: space-evenly">
             <!-- 추가요소 있으면 이 안에 넣기-->
-            <div style="color:var(--color-chathams-blue);font-size:var(--font-size-xll);padding-top: 30px;
->>>>>>> ba
-    padding-bottom: 25px;">구매내역</div>
+            <div style="color:var(--color-chathams-blue);font-size:var(--font-size-xll);padding-top: 30px;padding-bottom: 25px;">
+                구매내역
+            </div>
             <c:forEach var="cardVOlist" items="${cardVOlist}">
                 <div class="flip-card">
                     <div class="flip-card-inner" id="${cardVOlist.no_painting}" style="border-radius: 5px;">

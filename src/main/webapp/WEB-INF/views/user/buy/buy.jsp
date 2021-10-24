@@ -1,5 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-         pageEncoding="UTF-8" %>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <% String conPath = request.getContextPath(); %>
 <!DOCTYPE html>
@@ -26,6 +25,7 @@
         function buypainting(num) {
             location.href = "http://localhost:8080/buy_picture/" + num;
         }
+
         showModal = function () {
             $(() => {
                 let pname = document.getElementById("pname").value;
@@ -39,6 +39,7 @@
                     url: "/ajax_picture_finder",
                     data: "pname=" + pname + "&style=" + style + "&theme=" + theme + "&width=" + width + "&height=" + height + "&price=" + price + "&status=" + status,
                     success: function (result) {
+                        alert('댓글이 삭제되었습니다.');
                         var container = document.getElementById("container");
                         while (container.hasChildNodes()) {
                             container.removeChild(container.firstChild);
@@ -55,19 +56,24 @@
             $(() => {
                 let text = document.getElementById(no_painting).value;
                 let no_paint = no_painting;
+                let real_no = no_paint.replace("input", "");
+                alert(text);
+                alert(real_no);
                 $.ajax({
                     url: "/ajax_comment_add",
-                    data: "comment=" + text + "&no_painting=" + no_paint,
+                    data: "comment=" + text + "&no_painting=" + real_no,
                     success: function (result) {
                         document.location.href = "/buy";
                     }
                 });
             });
         };
+
         function flipCard(num) {
             $('#' + num).css("transform", "rotateY(180deg)");
             $(".ui.comments.flip-card-back").css('margin', '0');
         }
+
         function closeCard(num) {
             $('#' + num).css("transform", "rotateY(0deg)");
         }
@@ -101,16 +107,19 @@
     </div>
     <div class="container">
         <div style="grid-column:1/9;display: flex;flex-direction: column; gap:20px; justify-content: center; margin-top: 70px;">
-            <div class="has_chathams-blue" style="font-size: 42px;font-family: 'Gowun Dodum';font-weight: bold">그림드림의 당신만의 그림찾기</div>
+            <div class="has_chathams-blue" style="font-size: 42px;font-family: 'Gowun Dodum';font-weight: bold">그림드림의
+                당신만의 그림찾기
+            </div>
             <form action="">
                 <div style="display: flex;" class="has_flex_space ">
-                    <input type="text" class="has_width_full input_select" id="pname" placeholder="검색어를 입력해주세요." />
+                    <input type="text" class="has_width_full input_select" id="pname" placeholder="검색어를 입력해주세요."/>
                 </div>
             </form>
-            <button class=" ui blue icon button has_width_full" onclick="showModal()" style="font-family: 'Gowun Dodum'"><i class="search icon"></i>찾기
+            <button class=" ui blue icon button has_width_full" onclick="showModal()"
+                    style="font-family: 'Gowun Dodum'"><i class="search icon"></i>찾기
             </button>
             <div style="display: flex; gap: 90px;">
-                <select style="font-family: 'Gowun Dodum'; font-size: 1.5em;" class="has_width_half"
+                <select style="font-family: 'Gowun Dodum'; font-size: 1.5em;" class="input_select has_width_half"
                         style="margin-right: 90px;" id="style">
                     <option value="" disabled selected>Style</option>
                     <option value="oils">유화</option>
@@ -122,7 +131,8 @@
                     <option value="crayon">크레용화</option>
                     <option value="gouache">과슈화</option>
                 </select>
-                <select style="font-family: 'Gowun Dodum'; font-size: 1.5em;" class="has_width_half" id="theme">
+                <select style="font-family: 'Gowun Dodum'; font-size: 1.5em;" class="input_select has_width_half"
+                        id="theme">
                     <option value="" disabled selected>Theme</option>
                     <option value="scenery">풍경</option>
                     <option value="character">인물</option>
@@ -133,7 +143,7 @@
                     <option value="objet">오브제</option>
                 </select>
             </div>
-            <div style="display: flex;justify-content: space-between;grid-column:1/9;">
+            <div style="display: flex;justify-content: space-between;grid-column:1/9;margin: 30px 0;">
                 <div><span class="has_chathams-blue">최대너비  : <span id="widthVal">200</span>(CM)<br></span><input
                         type="range" class="width_slider"
                         id="width" min="0" max="200" step="10"
@@ -175,11 +185,12 @@
                         <div class="extra content">
                             <div class="ui large transparent left icon input" style="display: flex;">
                                 <i class="pencil alternate icon"></i>
-                                <input type="text" maxlength="20" size="20" id="${cardVOlist.no_painting}"
+                                <input type="text" maxlength="20" size="20" id="input${cardVOlist.no_painting}"
                                        placeholder="글자수 20글자 내 작성"
                                        style="font-size: 0.8em"/>
                             </div>
-                            <button class="ui blue icon button" onclick="addComment(${cardVOlist.no_painting})"
+                            <button class="ui blue icon button"
+                                    onclick="addComment('input' + ${cardVOlist.no_painting})"
                                     style="float: right; font-size: 0.8em;">Add
                             </button>
                             <button class="ui blue icon button" onclick="showCommentModal()"
@@ -203,6 +214,7 @@
                                                  style="border-radius: 50%; height:40px; width:40px;object-fit: cover;">
                                             <span class="author"
                                                   style="margin-left: 10px; font-size: 1.5em">${commentVOList.author}</span>
+
                                             <button class="ui red icon button"
                                                     onclick="reply_delete(${commentVOList.no_comment})"
                                                     style="font-size: 0.5em;">X
@@ -252,19 +264,21 @@
 </div>
 <jsp:include page="../header_footer/footer.jsp"></jsp:include>
 </body>
-<%--<script>
+<script>
     function reply_delete(num) {
         $(() => {
             $.ajax({
                 url: "/reply_delete",
                 data: "num=" + num,
                 success: function (result) {
-                    if (result == 'ㅗ') {
-                        alert('존재하지 않는 이메일입니다 ! 😅');
+                    var container = document.getElementById("container");
+                    while (container.hasChildNodes()) {
+                        container.removeChild(container.firstChild);
                     }
+                    $("#container").html(result);
                 }
             });
         });
     }
-</script>--%>
+</script>
 </html>

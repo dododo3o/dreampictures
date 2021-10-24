@@ -27,11 +27,13 @@
             <h1 class="has_font-xxl" style="margin-left:280px; margin-bottom: 40px;">구매완료</h1>
             <div style="display:flex;">
                 <div class="has_bg_puce is_buyer-card">
-                    <div class="is_seller-card-img" style="background:url("<c:out value="${transactionVO.paintingimg}"/>");">
+                    <div class="is_seller-card-img" style="background:url("
+                    <c:out value="${transactionVO.paintingimg}"/>");">
                 </div>
                 <div class="has_font-xl "><c:out value="${transactionVO.pname}"/></div>
                 <div style="display:flex; margin-top: 20px;">
-                    <div class="is_round is_seller-face" style="background:url("<c:out value="${transactionVO.avatarimg}"/>");">
+                    <div class="is_round is_seller-face" style="background:url("
+                    <c:out value="${transactionVO.avatarimg}"/>");">
                 </div>
                 <div class="has_font-xl"><c:out value="${transactionVO.nickname}"/></div>
             </div>
@@ -45,17 +47,19 @@
         </div>
     </div>
     <div class="has_bg_pink is_buyer-card">
-        <div class="is_buyer-card-img" style="background:url("<c:out value="${transactionVO.buyer_avatarimg}"/>");"></div>
-        <div></div>
-        <ul>
-            <c:out value="${transactionVO.paintingimg}"/>
-            <c:out value="${transactionVO.buyer_avatarimg}"/>
-            <li style="margin-top:35px;" class="has_font-xl has_white"><c:out value="${transactionVO.buyer_nickname}"/></li>
-            <li style="margin-top:25px;" class="has_font-lg has_white"><c:out value="${transactionVO.buyer_email}"/></li>
-            <li style="margin-top:10px;" class="has_font-base has_white"><c:out value="${transactionVO.buyer_tel}"/></li>
-            <li style="margin-top:10px;" class="has_white"><c:out value="${transactionVO.buyer_addr}"/></li>
-        </ul>
-        <button class="button" style="margin-top:30px; width:185px; height:30px;">구매 내역</button>
+        <div class="is_buyer-card-img" style="background:url("
+        <c:out value="${transactionVO.buyer_avatarimg}"/>");">
+    </div>
+    <div></div>
+    <ul>
+        <c:out value="${transactionVO.paintingimg}"/>
+        <c:out value="${transactionVO.buyer_avatarimg}"/>
+        <li style="margin-top:35px;" class="has_font-xl has_white"><c:out value="${transactionVO.buyer_nickname}"/></li>
+        <li style="margin-top:25px;" class="has_font-lg has_white"><c:out value="${transactionVO.buyer_email}"/></li>
+        <li style="margin-top:10px;" class="has_font-base has_white"><c:out value="${transactionVO.buyer_tel}"/></li>
+        <li style="margin-top:10px;" class="has_white"><c:out value="${transactionVO.buyer_addr}"/></li>
+    </ul>
+    <button class="button" style="margin-top:30px; width:185px; height:30px;">구매 내역</button>
     </div>
     </div>
     </section>

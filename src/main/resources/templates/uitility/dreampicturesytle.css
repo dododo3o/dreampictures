@@ -217,7 +217,7 @@ input:not(input[type=file]), textarea, select{border-radius:8px; outline:none;te
 
 .is_login_input {height:45px;color:var(--color-gray);background-color:var(--color-albescent-white);border:none;}
 
-.is_login_input::placeholder{color:var(--color-alabaster);}
+.is_login_input::placeholder{color:var(--color-black);}
 
 /* card */
 .has_board_top_radius{border-top-right-radius: 8px;border-top-left-radius: 8px;}

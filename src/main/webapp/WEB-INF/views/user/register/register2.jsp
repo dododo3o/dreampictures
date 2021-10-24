@@ -26,7 +26,7 @@
         verifyNick = function () {
             var nickVal = $("#nickname").val();
             // 검증에 사용할 정규식 변수 regExp에 저장
-            if (nickVal=='' ) {
+            if (nickVal == '') {
                 alert('닉네임을 작성해주세요.');
             } else {
                 $(() => {
@@ -43,7 +43,7 @@
                                 emailChecked = true;
                                 alert('인증되었습니다 !')
                                 // if (emailChecked && telChecked) document.getElementById("next_btn").removeAttribute("disabled");
-                            }else{
+                            } else {
                                 alert('중복된 닉네임입니다 !')
                             }
                         }
@@ -100,15 +100,14 @@
             reader.readAsDataURL(event.target.files[0]);
         }
 
-        function nextBtn_condition(){
+        function nextBtn_condition() {
             var addrVal = $("#sample5_address").val();
             var detailAddrVal = $("#detailAddr").val();
             var nickVal = $("#nickname").val();
-
-            if (addrVal!= ''&& detailAddrVal!=''&& nickVal!='') {
+            if (addrVal != '' && detailAddrVal != '' && nickVal != '') {
                 document.getElementById('frm').submit();
             } else {
-               alert("정보를 모두 작성해주세요 !")
+                alert("정보를 모두 작성해주세요 !")
             }
         }
     </script>
@@ -120,18 +119,20 @@
         <div class="contents" style="grid-column: 5/9; margin-top: 50px;">
             <form action="<%=conPath%>/register_success" method="post" onsubmit="return false"
                   enctype="multipart/form-data" id="frm">
-                <div style="display: flex;user-select: auto;flex-direction: column;align-items: center;justify-content: space-evenly;height: 650px;">
-                    <div class="title">회원 가입</div>
-                    <div class="has_flex_left">주소 *<input type="text" class="is_login_input has_width_full" name="addr"
+                <div style="display: flex;font-weight: bold; user-select: auto;flex-direction: column;align-items: center;justify-content: space-evenly;height: 650px;">
+                    <div class="title" style="margin-bottom: 35px;">회원 가입</div>
+                    <div class="has_flex_left">주소 *<input type="text" class="has_width_full input_select" name="addr"
                                                           id="sample5_address" placeholder="주소"
                                                           onclick="sample5_execDaumPostcode()"/></div>
-                    <div class="has_flex_left">상세주소 *<input type="text" class="is_login_input has_width_full"
-                                                           id="detailAddr" name="detailAddr" placeholder="상세주소"/></div>
+                    <div class="has_flex_left">상세주소 *<input type="text" class="has_width_full input_select"
+                                                            id="detailAddr" name="detailAddr" placeholder="상세주소"/></div>
                     <div class="has_flex_left">닉네임 등록 * <input type="text" name="nickname" id="nickname"
-                                                               class="is_login_input has_width_full"
+                                                               class="has_width_full input_select"
                                                                placeholder="닉네임 등록"/></div>
                     <div>
-                        <button id="nick_btn" class="button is_primary" onclick="verifyNick()" style="margin-top: 10px;margin-bottom: 10px;font-family: 'Gowun Dodum'">인증 확인</button>
+                        <button id="nick_btn" class="button is_primary" onclick="verifyNick()"
+                                style="margin-top: 10px;margin-bottom: 10px;font-family: 'Gowun Dodum'">인증 확인
+                        </button>
                     </div>
                     <div class="has_flex_center" id="image_container;">
                         <div id="preview_image">
@@ -145,8 +146,8 @@
                     </div>
                     <div>
                         <input type="submit" onclick="nextBtn_condition()"
-                               class='button is_login has_shadow has_flex_center has_width_full'
-                               style="margin-top:20px;font-family: 'Gowun Dodum'" value="가입 완료">
+                               class='input_select is_login has_shadow has_flex_center has_width_full'
+                               style="margin-top:20px;font-family: 'Gowun Dodum';background-color: white" value="가입 완료">
                     </div>
                 </div>
             </form>

@@ -1,6 +1,4 @@
 package com.example.dreampicturespring.controller.admin;
-
-
 import com.example.dreampicturespring.Interfacer.EmailUtil;
 import com.example.dreampicturespring.entity.*;
 import com.example.dreampicturespring.repository.*;
@@ -10,7 +8,6 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
-
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 import java.util.ArrayList;
@@ -118,13 +115,10 @@ public class AdminController {
 //        System.out.println(adminVO);
 
 //        emailUtil.sendEmail("tjdrb200@naver.com","스프링 연습이다 마!", "테스트확인");
-
-
         mv.addObject("adminVO",adminVO);
         mv.setViewName("user/admin/main");
         return mv;
     }
-
     @RequestMapping("/admin/notice")
     public ModelAndView admin_notice(Model model){
         ModelAndView mv = new ModelAndView();
@@ -168,7 +162,6 @@ public class AdminController {
         mv.addObject("pageNum", pageNum);
         return mv;
     }
-
 
     @RequestMapping("/admin/blacklist")
     public ModelAndView admin_blacklist(Model model){

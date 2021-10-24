@@ -1,7 +1,4 @@
 package com.example.dreampicturespring.controller.buy;
-
-
-import com.example.dreampicturespring.entity.Commentstbl;
 import com.example.dreampicturespring.entity.Membershiptbl;
 import com.example.dreampicturespring.entity.Paintingtbl;
 import com.example.dreampicturespring.repository.CommentRepository;
@@ -10,12 +7,12 @@ import com.example.dreampicturespring.repository.PaintingRepository;
 import com.example.dreampicturespring.vo.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
-
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 import java.util.ArrayList;
@@ -137,16 +134,18 @@ public class BuyController {
         mv.addObject("url","user/mypage/mypage");
         return mv;
     }
-   /* @RequestMapping(value = "/reply_delete",method = RequestMethod.GET, produces ="application/text;charset=UTF-8")
-    public String reply_delete(HttpServletRequest request, Integer num, CommentVO vo) {
+    @RequestMapping(value = "/reply_delete",method = RequestMethod.GET, produces ="application/text;charset=UTF-8")
+    public String reply_delete(Model model, HttpServletRequest request, Integer num) {
 
-        vo.setNo_comment(num);
+        commentRepository.deleteById(num);
 
-        Commentstbl commenttbl = commentRepository.deleteByNo_comment(vo.getNo_comment());
+        List<Paintingtbl> paintingtbls = paintingRepository.findAll();
+        List<Membershiptbl> membershiptbls = new ArrayList<>();
+        List<CardVO> cardVOList = new ArrayList<>();
 
-        commentRepository.save(commenttbl);
-
-        return "redirect:/buy";
-    }*/
-
+        for(int i=0;i<paintingtbls.size();i++){ membershiptbls.add(membershiptblRepository.getById(paintingtbls.get(i).getNo_membership())); }
+        for(int i=0;i<paintingtbls.size();i++){ CardVO vo = new CardVO(paintingtbls.get(i),membershiptbls.get(i));cardVOList.add(vo);}
+        model.addAttribute("cardVOlist",cardVOList);
+        return "user/ajax/picture_find";
+    }
 }

@@ -1,14 +1,8 @@
 package com.example.dreampicturespring.vo;
-
 import com.example.dreampicturespring.entity.Membershiptbl;
 import com.example.dreampicturespring.entity.Paintingtbl;
 import lombok.Data;
-
 import java.time.LocalDate;
-import java.time.LocalDateTime;
-import java.util.Date;
-import java.util.List;
-
 @Data
 public class PaintingVO {
     private Integer no_painting;
@@ -33,6 +27,4 @@ public class PaintingVO {
         this.height = paintingtbl.getHeight();
         this.exp = paintingtbl.getExp();
     }
-
-
 }

@@ -1,7 +1,5 @@
 package com.example.dreampicturespring.vo;
-
 import lombok.Data;
-
 @Data
 public class CommentVO {
     private String avatarimg;
