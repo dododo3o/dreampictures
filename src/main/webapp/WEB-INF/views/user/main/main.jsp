@@ -449,7 +449,6 @@
             })
         })
     })
-    // $('.hyper').transition('fly left', '1000ms')
 
 </script>
 <jsp:include page="../header_footer/footer.jsp"></jsp:include>
