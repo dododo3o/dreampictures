@@ -104,7 +104,6 @@
             var addrVal = $("#sample5_address").val();
             var detailAddrVal = $("#detailAddr").val();
             var nickVal = $("#nickname").val();
-
             if (addrVal != '' && detailAddrVal != '' && nickVal != '') {
                 document.getElementById('frm').submit();
             } else {

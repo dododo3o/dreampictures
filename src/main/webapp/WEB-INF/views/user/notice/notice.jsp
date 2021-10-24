@@ -23,11 +23,15 @@
             integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.13/semantic.js"></script>
     <script>
-        function modal() {document.getElementById("modaldiv")}
+        function modal() {
+            document.getElementById("modaldiv")
+        }
     </script>
     <script type="text/javascript">
         let status = undefined; //0~4 까지 질문 종류
-        showModal = function () {$('.ui.modal').modal('show');};
+        showModal = function () {
+            $('.ui.modal').modal('show');
+        };
         requestQA = function () {
             $(() => {
                 if (status == undefined) return;
@@ -41,7 +45,11 @@
                 });
             });
         };
-        selectedBtn = function (number) {$(() => {status = number});};
+        selectedBtn = function (number) {
+            $(() => {
+                status = number
+            });
+        };
     </script>
 </head>
 <body>
@@ -73,9 +81,10 @@
             <div style="font-family:'BMHANNAPro';color:var(--color-chathams-blue);font-size:var(--font-size-xll);padding-top: 30px;
     padding-bottom: 25px;">공지사항
             </div>
-            <div class="manager_card" style="display: grid;grid-template-columns:repeat(3,1fr);grid-gap:1rem;width: 100%;">
+            <div class="manager_card"
+                 style="display: grid;grid-template-columns:repeat(3,1fr);grid-gap:1rem;width: 100%;">
                 <c:forEach var="noticeVOList" items="${noticeVOList}">
-                    <div class="ui card" style="height: 100%; margin: 0 auto;" >
+                    <div class="ui card" style="height: 100%; margin: 0 auto;">
                         <div class="content" style="height: 100%; margin: 0 auto;">
                             <div class="header">${noticeVOList.title}</div>
                             <div class="meta">${noticeVOList.writedate}</div>

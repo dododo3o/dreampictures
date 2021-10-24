@@ -25,6 +25,7 @@
         function buypainting(num) {
             location.href = "http://localhost:8080/buy_picture/" + num;
         }
+
         showModal = function () {
             $(() => {
                 let pname = document.getElementById("pname").value;
@@ -55,7 +56,7 @@
             $(() => {
                 let text = document.getElementById(no_painting).value;
                 let no_paint = no_painting;
-                let real_no = no_paint.replace("input","");
+                let real_no = no_paint.replace("input", "");
                 alert(text);
                 alert(real_no);
                 $.ajax({
@@ -67,10 +68,12 @@
                 });
             });
         };
+
         function flipCard(num) {
             $('#' + num).css("transform", "rotateY(180deg)");
             $(".ui.comments.flip-card-back").css('margin', '0');
         }
+
         function closeCard(num) {
             $('#' + num).css("transform", "rotateY(0deg)");
         }
@@ -104,13 +107,16 @@
     </div>
     <div class="container">
         <div style="grid-column:1/9;display: flex;flex-direction: column; gap:20px; justify-content: center; margin-top: 70px;">
-            <div class="has_chathams-blue" style="font-size: 42px;font-family: 'Gowun Dodum';font-weight: bold">그림드림의 당신만의 그림찾기</div>
+            <div class="has_chathams-blue" style="font-size: 42px;font-family: 'Gowun Dodum';font-weight: bold">그림드림의
+                당신만의 그림찾기
+            </div>
             <form action="">
                 <div style="display: flex;" class="has_flex_space ">
-                    <input type="text" class="has_width_full input_select" id="pname" placeholder="검색어를 입력해주세요." />
+                    <input type="text" class="has_width_full input_select" id="pname" placeholder="검색어를 입력해주세요."/>
                 </div>
             </form>
-            <button class=" ui blue icon button has_width_full" onclick="showModal()" style="font-family: 'Gowun Dodum'"><i class="search icon"></i>찾기
+            <button class=" ui blue icon button has_width_full" onclick="showModal()"
+                    style="font-family: 'Gowun Dodum'"><i class="search icon"></i>찾기
             </button>
             <div style="display: flex; gap: 90px;">
                 <select style="font-family: 'Gowun Dodum'; font-size: 1.5em;" class="input_select has_width_half"
@@ -125,7 +131,8 @@
                     <option value="crayon">크레용화</option>
                     <option value="gouache">과슈화</option>
                 </select>
-                <select style="font-family: 'Gowun Dodum'; font-size: 1.5em;" class="input_select has_width_half" id="theme">
+                <select style="font-family: 'Gowun Dodum'; font-size: 1.5em;" class="input_select has_width_half"
+                        id="theme">
                     <option value="" disabled selected>Theme</option>
                     <option value="scenery">풍경</option>
                     <option value="character">인물</option>
@@ -182,7 +189,8 @@
                                        placeholder="글자수 20글자 내 작성"
                                        style="font-size: 0.8em"/>
                             </div>
-                            <button class="ui blue icon button" onclick="addComment('input' + ${cardVOlist.no_painting})"
+                            <button class="ui blue icon button"
+                                    onclick="addComment('input' + ${cardVOlist.no_painting})"
                                     style="float: right; font-size: 0.8em;">Add
                             </button>
                             <button class="ui blue icon button" onclick="showCommentModal()"

@@ -1,15 +1,8 @@
 package com.example.dreampicturespring.entity;
-
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
-import org.springframework.util.StringUtils;
-
 import javax.persistence.*;
-import java.time.LocalDate;
-import java.time.LocalDateTime;
-import java.time.ZoneId;
-
 @Entity//엔터티라고 선언해줘야함
 @Table(name="Carttbl")//sql의 테이블이름이기때문에 이름틀리면 나가리
 @Getter

@@ -1,7 +1,5 @@
 package com.example.dreampicturespring.vo;
-
 import lombok.Data;
-
 @Data
 public class QaVO {
     private String category;

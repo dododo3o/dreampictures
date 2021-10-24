@@ -48,7 +48,9 @@
         };
         selectedBtn = function (number) {
             // $("#")
-            $(() => {status = number});
+            $(() => {
+                status = number
+            });
         };
     </script>
 </head>
@@ -77,7 +79,8 @@
             </div>
         </div>
         <div class="actions" style="background-color: #95afc0">
-            <div class="ui positive right labeled icon button" style="background-color: var(--color-metallic-blue)" onclick="requestQA()">올리기<i class="checkmark icon"></i>
+            <div class="ui positive right labeled icon button" style="background-color: var(--color-metallic-blue)"
+                 onclick="requestQA()">올리기<i class="checkmark icon"></i>
             </div>
         </div>
     </div>
@@ -99,7 +102,8 @@
         <div style="grid-column: 3/13;display: flex;flex-direction: column;justify-content: space-between;align-items: center;justify-content: space-evenly;">
             <div style="display: flex; width: 100%;justify-content: flex-end; align-items: center">
                 <div style="font-family:'BMHANNAPro';color:var(--color-chathams-blue);font-size:var(--font-size-xll);padding-top: 30px;
-    padding-bottom: 25px; padding-right: 31%;">질문과 답변</div>
+    padding-bottom: 25px; padding-right: 31%;">질문과 답변
+                </div>
                 <div tabindex="0" onclick="showModal()">
                     <button class="ui button" style="font-family: 'BMHANNAPro';">질문하기</button>
                 </div>

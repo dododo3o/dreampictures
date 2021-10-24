@@ -1,10 +1,5 @@
 package com.example.dreampicturespring.vo;
-
 import lombok.Data;
-
-import javax.persistence.criteria.CriteriaBuilder;
-import java.util.Map;
-
 @Data
 public class AdminVO {
     private Integer noticeNum;

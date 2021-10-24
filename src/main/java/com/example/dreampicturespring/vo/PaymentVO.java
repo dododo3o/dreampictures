@@ -1,13 +1,7 @@
 package com.example.dreampicturespring.vo;
-
 import com.example.dreampicturespring.entity.Membershiptbl;
 import com.example.dreampicturespring.entity.Paintingtbl;
-import lombok.Data;
-
-import java.time.LocalDateTime;
 import java.util.Date;
-
-@Data
 public class PaymentVO {
     private Integer no_painting;
     private String pname;
@@ -48,6 +42,4 @@ public class PaymentVO {
         this.buyer_no_member = membershiptbl.getNo_membership();
         this.seller_no_member = sellerMembershiptbl.getNo_membership();
     }
-
-
 }

@@ -67,8 +67,9 @@
                 e.value = e.value.slice(0, e.maxLength);
             }
         }
-        function MaxLength(e){//작품설명 최대 입력 수 200
-            if(e.value.length > e.maxLength){
+
+        function MaxLength(e) {//작품설명 최대 입력 수 200
+            if (e.value.length > e.maxLength) {
                 e.value = e.value.slice(0, e.maxLength);
             }
         }
@@ -137,12 +138,12 @@
                         <div class="ui list has_flex_column has_font-base" style="display: flex; ">
                             <div style=" display: flex;">
                                 <div class="content" style="display: flex;width: 100%;">
-                                    <textarea class="painting_input" id="contentVal" placeholder="작품설명 200글자 내외로 입력해주세요" oninput="MaxLength(this)" maxlength="100"
+                                    <textarea class="painting_input" id="contentVal" placeholder="작품설명 200글자 내외로 입력해주세요"
+                                              oninput="MaxLength(this)" maxlength="100"
                                               style="resize: none; height: 60px;width: 100%;"></textarea>
                                 </div>
                             </div>
                         </div>
-                        <%-- todo--%>
                         <select style="font-family: 'BMHANNAPro'; font-size:var(--font-size-sm)"
                                 class="has_width_half sell_select" id="style" name="style">
                             <option value="" disabled selected>Style</option>
@@ -168,7 +169,6 @@
                         </select>
                     </div>
                 </div>
-
                 <div class="has_flex_column" style="width:50%;padding-left: 80px;padding-right: 80px;">
                     <div class="has_flex_center" id="image_container;"
                          style="margin-top: 70px; width: 100%; height: 80%;">

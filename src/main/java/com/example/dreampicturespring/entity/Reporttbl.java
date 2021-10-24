@@ -1,13 +1,8 @@
 package com.example.dreampicturespring.entity;
-
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
-import org.springframework.util.StringUtils;
-
 import javax.persistence.*;
-import java.time.LocalDateTime;
-
 @Entity
 @Table(name="reporttbl")
 @Getter

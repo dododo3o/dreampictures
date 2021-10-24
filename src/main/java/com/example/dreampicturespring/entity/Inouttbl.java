@@ -1,11 +1,8 @@
 package com.example.dreampicturespring.entity;
-
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
-
 import javax.persistence.*;
-
 @Entity
 @Table(name="inouttbl")
 @Getter

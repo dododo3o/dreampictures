@@ -1,7 +1,4 @@
 package com.example.dreampicturespring.controller.buy;
-
-
-import com.example.dreampicturespring.entity.Commentstbl;
 import com.example.dreampicturespring.entity.Membershiptbl;
 import com.example.dreampicturespring.entity.Paintingtbl;
 import com.example.dreampicturespring.repository.CommentRepository;
@@ -16,7 +13,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
-
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 import java.util.ArrayList;
@@ -141,9 +137,6 @@ public class BuyController {
     @RequestMapping(value = "/reply_delete",method = RequestMethod.GET, produces ="application/text;charset=UTF-8")
     public String reply_delete(Model model, HttpServletRequest request, Integer num) {
 
-//        vo.setNo_comment(num);
-
-        System.out.println(num);
         commentRepository.deleteById(num);
 
         List<Paintingtbl> paintingtbls = paintingRepository.findAll();
@@ -155,5 +148,4 @@ public class BuyController {
         model.addAttribute("cardVOlist",cardVOList);
         return "user/ajax/picture_find";
     }
-
 }

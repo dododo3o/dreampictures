@@ -1,5 +1,4 @@
 package com.example.dreampicturespring.controller.sell;
-
 import com.example.dreampicturespring.entity.Membershiptbl;
 import com.example.dreampicturespring.entity.Paintingtbl;
 import com.example.dreampicturespring.repository.MembershiptblRepository;
@@ -11,7 +10,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.multipart.MultipartHttpServletRequest;
 import org.springframework.web.servlet.ModelAndView;
-
 import javax.servlet.http.HttpServletRequest;
 import java.io.File;
 import java.io.IOException;
@@ -26,7 +24,6 @@ public class SellController {
 
     @RequestMapping("/test")
     public String test() { return "user/test"; }
-
 
     @RequestMapping("/sell")
     public String sell() { return "user/sell/sell"; }
@@ -49,16 +46,12 @@ public class SellController {
             File newFileObj = new File(path,fixedFileName);
             try {mf.transferTo(newFileObj);}catch (Exception e){}
         }
-
         Membershiptbl ms = membershiptblRepository.findByemail(user);
         Paintingtbl paintingtbl = new Paintingtbl(vo,ms.getNo_membership());
         paintingRepository.save(paintingtbl);
 
         ModelAndView mv = new ModelAndView();
         mv.setViewName("redirect:/");
-
         return mv;
     }
-
-
 }
