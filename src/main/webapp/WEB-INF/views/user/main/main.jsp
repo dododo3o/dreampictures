@@ -657,11 +657,9 @@
     $('#exp').css('visibility', 'hidden');
     $('#style').css('visibility', 'hidden');
     $('#main_second_card').css("display","none");
-
-
     window.addEventListener("scroll", function () {
         if(window.scrollY==300){$('#main_second').transition('jiggle','1000ms')}
-        if(window.scrollY==300 && trigger==true){
+        if(window.scrollY==400 && trigger==true){
             trigger=false;
             $('#pname').transition('swing up','1000ms',function () {
                 $('#height').transition('swing up','1000ms',function () {
