@@ -58,9 +58,7 @@
         <div class="has_flex_column" style="grid-column:1/3; gap:40px;padding-top: 30px; background-color: #a2b0b36e">
             <div class="ui vertical animated button" tabindex="0" onclick="showModal()">
                 <div class="hidden content"><a href="/notice">공지사항</a></div>
-                <div class="visible content">
-                    <i class="red bullhorn icon"></i>
-                </div>
+                <div class="visible content"><i class="red bullhorn icon"></i></div>
             </div>
             <div class="ui vertical animated button" tabindex="0" onclick="showModal()">
                 <div class="hidden content"><a href="/notice_question">질문과답변</a></div>
@@ -84,27 +82,17 @@
                 </c:forEach>
             </div>
             <div>
-                <div class="container"
-                     style="display: flex;justify-content: center;margin-top:30px;padding-bottom: 30px;">
+                <div class="container" style="display: flex;justify-content: center;margin-top:30px;padding-bottom: 30px;">
                     <div style="margin-right: 40px;">
-                        <div class="ui animated button" tabindex="0"
-                             style="color:var(--color-white);background-color: var(--color-chathams-blue);">
+                        <div class="ui animated button" tabindex="0" style="color:var(--color-white);background-color: var(--color-chathams-blue);">
                             <div class="visible content">Perv</div>
-                            <div class="hidden content">
-                                <i class="left arrow icon"></i>
-                            </div>
+                            <div class="hidden content"><i class="left arrow icon"></i></div>
                         </div>
-                        <c:forEach var="i" begin="1" end="${pageNum}">
-                            <button class='button is_pagination'>${i}</button>
-                        </c:forEach>
-                        <div class="ui animated button" tabindex="0"
-                             style="color:var(--color-white);background-color: var(--color-chathams-blue);">
+                        <c:forEach var="i" begin="1" end="${pageNum}"><button class='button is_pagination'>${i}</button></c:forEach>
+                        <div class="ui animated button" tabindex="0" style="color:var(--color-white);background-color: var(--color-chathams-blue);">
                             <div class="visible content">Next</div>
-                            <div class="hidden content">
-                                <i class="right arrow icon"></i>
-                            </div>
+                            <div class="hidden content"><i class="right arrow icon"></i></div>
                         </div>
-                        <br>
                     </div>
                 </div>
             </div>
