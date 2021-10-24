@@ -78,7 +78,7 @@
                 <div class="content">
                     <span class="right floated"></span>
                     <div class="ui segment" style="text-align:center;">
-                        <div style="font-size:1.5em;"><i class="truck icon"></i>포인트<div style="font-size:25px;"><c:out value="${mypageVO.dreampay}"/></div></div>
+                        <div style="font-size:1.5em;"><i class="money bill alternate outline icon"></i>포인트<div style="font-size:25px;"><c:out value="${mypageVO.dreampay}"/></div></div>
                     </div>
                     <div class="ui segment" style="text-align:center;">
                         <div style="font-size:1.5em;"><i class="truck icon"></i>배송지<div style=";font-size:25px;"><c:out value="${mypageVO.addr}"/></div></div>
