@@ -173,7 +173,7 @@
                              style=" display: flex; flex-direction: row; justify-content: space-evenly; align-items: center;">
                             <img src="${cardVOlist.avatarimg}"
                                  style="border-radius: 50%; width: 3em;height: 3em;object-fit: cover;">
-                            <span style="font-size: 2em;">${cardVOlist.nickname}</span>
+                            <span style="font-size: 1.5em;">${cardVOlist.nickname}</span>
                         </div>
                         <div class="image">
                             <img src="${cardVOlist.paintingmimg}" onclick="buypainting(${cardVOlist.no_painting});"
@@ -187,14 +187,14 @@
                                 <i class="pencil alternate icon"></i>
                                 <input type="text" maxlength="20" size="20" id="input${cardVOlist.no_painting}"
                                        placeholder="글자수 20글자 내 작성"
-                                       style="font-size: 0.8em"/>
+                                       style="font-size: 0.8em;font-family:'Gowun Dodum',sans-serif;font-weight:bold;"/>
                             </div>
                             <button class="ui blue icon button"
                                     onclick="addComment('input' + ${cardVOlist.no_painting})"
-                                    style="float: right; font-size: 0.8em;">Add
+                                    style="float: right; font-size: 0.8em;font-family:'Gowun Dodum',sans-serif;">Add
                             </button>
                             <button class="ui blue icon button" onclick="showCommentModal()"
-                                    style="float: right; font-size: 0.8em;">zxc
+                                    style="float: right; font-size: 0.8em;font-family:'Gowun Dodum',sans-serif;">zxc
                             </button>
                         </div>
                         <div class="ui bottom attached button collapsible" onclick="flipCard(${cardVOlist.no_painting})"

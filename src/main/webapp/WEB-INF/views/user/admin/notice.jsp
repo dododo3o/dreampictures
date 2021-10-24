@@ -14,12 +14,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Gowun+Dodum&display=swap" rel="stylesheet">
     <link rel="stylesheet" type="text/css"
           href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.13/semantic.min.css">
-    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <style>html, body, h1, h2, h3, h4, h5 {
-        font-family: "Raleway", sans-serif
-    }</style>
     <script src="https://kit.fontawesome.com/b14e6f064f.js" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"
             integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ=="
@@ -87,10 +82,9 @@
                 <div style="padding-left: 447px"><h1 style="color:var(--color-chathams-blue);font-family: 'Gowun Dodum', sans-serif;font-weight: bold">공지사항</h1></div>
                 <div><button class="ui primary basic button" style="font-family: 'Gowun Dodum', sans-serif;font-weight: bold" onclick="showModal()">공지사항 올리기</button></div>
             </div>
-
-            <div style="height:100%;padding:20px 0;padding-bottom: 30px">
+            <div style="height:100%;padding:20px 0;padding-bottom: 30px;font-family:'Gowun Dodum',sans-serif;font-weight:bold;">
                 <div style="display: grid;grid-template-columns:repeat(4,1fr);grid-gap:1rem;width: 100%;">
-                    <c:forEach var="noticeVOList" items="${noticeVOList}">
+                    <c:forEach var="noticeVOList"  items="${noticeVOList}">
                         <div class="ui card" style="height: 350px; margin: 0 auto;">
                             <div class="content" style="height: 100%; margin: 0 auto;">
                                 <div class="header">${noticeVOList.title}</div>
@@ -98,7 +92,7 @@
                                 <div class="description"><p>${noticeVOList.content}</p></div>
                             </div>
                             <div style="height:auto;border-top: 1px solid #ddd;text-align: center;padding: 5px 0;">
-                                <button class="ui red basic button" style="font-family: 'BMHANNAPro';">삭제</button>
+                                <button class="ui red basic button"style="font-family:'Gowun Dodum',sans-serif;font-weight:bold;">삭제</button>
                             </div>
                         </div>
                     </c:forEach>
