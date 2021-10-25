@@ -45,7 +45,12 @@ public class LoginController {
             return mv;
         }
         else{
-            if(!membershiptbl.getPwd().equals(vo.getPwd())) return mv;
+            if(!membershiptbl.getPwd().equals(vo.getPwd())){
+                mv.setViewName("user/redirect/alert1");
+                mv.addObject("msg","회원정보를 다시 확인해주세요.");
+                mv.addObject("url","/login");
+                return mv;
+            }
             else{
                 mv.addObject("user", membershiptbl.getEmail());
                 HttpSession session =request.getSession();

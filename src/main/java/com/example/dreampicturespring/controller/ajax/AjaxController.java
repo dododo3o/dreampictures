@@ -159,6 +159,7 @@ public class AjaxController {
 	}
 
 	@RequestMapping(value = "/ajax_push_notice",method = RequestMethod.GET, produces ="application/text;charset=UTF-8")
+	@ResponseBody
 	public String push_notice(HttpServletRequest request,String title,String question){
 		HttpSession session = request.getSession();
 		Noticetbl noticetbl = new Noticetbl();
@@ -170,19 +171,25 @@ public class AjaxController {
 		return "redirect:/admin/notice";
 	}
 
-	////////////////////정보수정 모달창 ajax 수정중///////////////////////////////
-//	@RequestMapping(value = "/ajax_push_changeInfo",method = RequestMethod.GET, produces ="application/text;charset=UTF-8")
-//	public String push_changeInfo(HttpServletRequest request,String title,String question){
-//		HttpSession session = request.getSession();
-//		Membershiptbl membershiptbl = new Membershiptbl();
-//		membershiptbl.setAddr(addr);
-//		membershiptbl.setAddrdetail(addrdetail);
-//		membershiptbl.setTel(tel);
-//		System.out.println(adminRepository.findByadminID_no((String) session.getAttribute("adminLogin")));
-//		membershiptbl.setNo_admin(adminRepository.findByadminID_no((String) session.getAttribute("adminLogin")));
-//		membershiptblRepository.save(membershiptbl);
-//		return "redirect:/mypage";
-//	}
+	@RequestMapping(value = "/ajax_delete_notice",method = RequestMethod.GET, produces ="application/text;charset=UTF-8")
+	@ResponseBody
+	public String delete_notice(HttpServletRequest request,Integer num){
+		noticeRepository.deleteById(num);
+		return "success";
+	}
+
+	@RequestMapping(value = "/ajax_push_changeInfo",method = RequestMethod.GET, produces ="application/text;charset=UTF-8")
+	@ResponseBody
+	public String push_changeInfo(HttpServletRequest request,String addr,String addrDetail,String tel){
+		HttpSession session = request.getSession();
+		Membershiptbl membershipTBL = membershiptblRepository.findByemail((String) session.getAttribute("logEmail"));
+		membershipTBL.setAddr(addr);
+		membershipTBL.setDetailAddr(addrDetail);
+		membershipTBL.setTel(tel);
+		System.out.println(membershipTBL);
+		membershiptblRepository.save(membershipTBL);
+		return "redirect:/mypage";
+	}
 
 
 	@RequestMapping(value = "/ajax_report",method = RequestMethod.GET, produces ="application/text;charset=UTF-8")

@@ -13,6 +13,7 @@ public class MypageVO {
 
     public MypageVO() { }
     public MypageVO(Membershiptbl membershiptbl) {
+        System.out.println(membershiptbl);
         this.avatarimg = membershiptbl.getImg();
         this.nickname = membershiptbl.getNickname();
         this.addr = membershiptbl.getAddr();

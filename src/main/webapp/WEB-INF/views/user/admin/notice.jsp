@@ -34,9 +34,7 @@
             integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.13/semantic.js"></script>
     <script>
-        function modal() {
-            document.getElementById("modaldiv")
-        }
+        function modal() {document.getElementById("modaldiv")}
     </script>
     <script type="text/javascript">
         push_notice = function () {
@@ -46,6 +44,17 @@
                 $.ajax({
                     url: "/ajax_push_notice",
                     data: "title=" + title + "&question=" + question,
+                    success: function () {
+                        document.location.href = "/admin/notice";
+                    }
+                });
+            });
+        };
+        delete_notice = function (num) {
+            $(() => {
+                $.ajax({
+                    url: "/ajax_delete_notice",
+                    data: "num=" + num,
                     success: function () {
                         document.location.href = "/admin/notice";
                     }
@@ -102,7 +111,7 @@
                                 <div class="description"><p>${noticeVOList.content}</p></div>
                             </div>
                             <div style="height:auto;border-top: 1px solid #ddd;text-align: center;padding: 5px 0;">
-                                <button class="ui red basic button" style="font-family:'Gowun Dodum';font-weight:bold;">삭제</button>
+                                <button class="ui red basic button" onclick="delete_notice(${noticeVOList.no_notice})" style="font-family:'Gowun Dodum';font-weight:bold;">삭제</button>
                             </div>
                         </div>
                     </c:forEach>
@@ -150,8 +159,7 @@
             </div>
         </div>
         <div class="actions" style="background-color:lightblue">
-            <div class="ui positive right labeled icon button" style="background-color:steelblue;font-family: 'Gowun Dodum';font-weight: bold;"
-                 onclick="push_notice()">올리기<i class="checkmark icon"></i></div>
+            <div class="ui positive right labeled icon button" style="background-color:steelblue;font-family: 'Gowun Dodum';font-weight: bold;" onclick="push_notice()">올리기<i class="checkmark icon"></i></div>
         </div>
     </div>
 </div>

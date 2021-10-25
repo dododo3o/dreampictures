@@ -128,6 +128,7 @@ public class AdminController {
         List<NoticeVO> noticeVOList = new ArrayList<>();
         for(Noticetbl noticetbl :noticetblList){
             NoticeVO noticeVO = new NoticeVO();
+            noticeVO.setNo_notice(noticetbl.getNo_notice());
             noticeVO.setTitle(noticetbl.getTitle());
             noticeVO.setWritedate(noticetbl.getWritedate());
             noticeVO.setContent(noticetbl.getContent());
