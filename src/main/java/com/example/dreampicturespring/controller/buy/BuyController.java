@@ -71,6 +71,7 @@ public class BuyController {
         mv.addObject("cardVOlist",cardVOList);
         mv.addObject("pageNum",pageNum);
         return mv;
+
     }
 
     @RequestMapping("/buy_picture/{no_painting}")
