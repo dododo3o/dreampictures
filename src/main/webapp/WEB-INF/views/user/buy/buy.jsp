@@ -109,7 +109,7 @@
             </div>
             <form action="">
                 <div style="display: flex;" class="has_flex_space ">
-                    <input type="text" class="has_width_full input_select" id="pname" placeholder="검색어를 입력해주세요."/>
+                    <input type="text" class="has_width_full input_select" id="pname" style="font-family: 'Gowun Dodum';" placeholder="검색어를 입력해주세요."/>
                 </div>
             </form>
             <button class=" ui blue icon button has_width_full" onclick="showModal()"

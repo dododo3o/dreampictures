@@ -93,13 +93,13 @@
                 <div style="border-right: 1px solid #ddd;width:50%;padding-left: 110px;padding-right: 100px;">
                     <div class="has_flex_column has_evenly" style="flex-wrap: wrap;width:100%;height: 90%;padding-top: 100px;">
                         <a class="ui red tag label" style="display: none; margin-bottom: 10px;" id="point"><span>그림 정보를 모두 작성해주세요.😥</span></a>
-                        <input type="submit" class="ui secondary button" value="그림등록" onclick="nextBtn_condition()">
+                        <input type="submit" class="ui secondary button" style="font-family: 'Gowun Dodum'" value="그림등록" onclick="nextBtn_condition()">
                         <div class="ui horizontal divider" style="vertical-align: inherit;">Painting Infomation</div>
                         <div class="ui list has_flex_column has_font-base" style="display: flex; gap: 20px;">
                             <div style="display: flex;">
                                 <i class="big edit outline icon" style="user-select: auto;"></i>
                                 <div class="content" style="display: flex;">
-                                    <input class="painting_input" id="pnameVal" type="text" placeholder="작품명">
+                                    <input class="painting_input" id="pnameVal" type="text" style="font-family: 'Gowun Dodum';width:200px" placeholder="작품명">
                                 </div>
                             </div>
                         </div>
@@ -108,7 +108,7 @@
                                 <i class="big long arrow alternate up icon" style="user-select: auto;"></i>
                                 <div class="content" style="display: flex;">
                                     <input class="painting_input" id="heightVal" type="number"
-                                           oninput="heightMaxLength(this)" placeholder="높이 (cm) 최대 200CM" max="200"
+                                           oninput="heightMaxLength(this)" style="font-family: 'Gowun Dodum';width:200px" placeholder="높이(cm) 최대200CM" max="200"
                                            maxlength="3">
                                 </div>
                             </div>
@@ -118,7 +118,7 @@
                                 <i class="big long arrow alternate right icon" style="user-select: auto;"></i>
                                 <div class="content" style="display: flex;">
                                     <input class="painting_input" id="widthVal" type="number"
-                                           oninput="widthMaxLength(this)" placeholder="너비 (cm) 최대 200CM" max="200"
+                                           oninput="widthMaxLength(this)" style="font-family: 'Gowun Dodum';width:200px" placeholder="너비 (cm) 최대 200CM" max="200"
                                            maxlength="3">
                                 </div>
                             </div>
@@ -128,19 +128,19 @@
                                 <i class="big won sign icon" style="user-select: auto;"></i>
                                 <div class="content" style="display: flex;">
                                     <input class="painting_input" id="priceVal" type="number"
-                                           oninput="priceMaxLength(this)" placeholder="가격 (원) 최대 10 만원" max="100000"
+                                           oninput="priceMaxLength(this)" style="font-family: 'Gowun Dodum';width:200px" placeholder="가격 (원) 최대 10 만원" max="100000"
                                            maxlength="6">
                                 </div>
                             </div>
                         </div>
-                        <input type="date" class="has_width_half sell_select" name="production" id="cal"
+                        <input type="date" class="has_width_half sell_select" name="production" id="cal" style="font-family: 'Gowun Dodum';"
                                placeholder="제작년도"/>
                         <div class="ui list has_flex_column has_font-base" style="display: flex; ">
                             <div style=" display: flex;">
                                 <div class="content" style="display: flex;width: 100%;">
                                     <textarea class="painting_input" id="contentVal" placeholder="작품설명 200글자 내외로 입력해주세요"
                                               oninput="MaxLength(this)" maxlength="100"
-                                              style="resize: none; height: 60px;width: 100%;"></textarea>
+                                              style="font-family: 'Gowun Dodum';resize: none; height: 60px;width: 100%;"></textarea>
                                 </div>
                             </div>
                         </div>
