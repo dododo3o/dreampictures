@@ -1,14 +1,11 @@
 package com.example.dreampicturespring.entity;
-
 import com.example.dreampicturespring.vo.RegisterVO;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
 import org.springframework.util.StringUtils;
-
 import javax.persistence.*;
 import java.time.LocalDate;
-import java.time.LocalDateTime;
 import java.time.ZoneId;
 
 @Entity//엔터티라고 선언해줘야함

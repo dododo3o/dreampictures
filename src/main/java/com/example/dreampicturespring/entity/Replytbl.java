@@ -1,13 +1,10 @@
 package com.example.dreampicturespring.entity;
-
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
 import org.springframework.util.StringUtils;
-
 import javax.persistence.*;
 import java.time.LocalDate;
-import java.time.LocalDateTime;
 import java.time.ZoneId;
 
 @Entity

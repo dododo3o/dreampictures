@@ -1,8 +1,6 @@
 package com.example.dreampicturespring.vo;
-
 import com.example.dreampicturespring.entity.Membershiptbl;
 import lombok.Data;
-
 @Data
 public class RegisterVO {
     private String email;

@@ -59,7 +59,6 @@
             });
         };
     </script>
-
 </head>
 <body class="w3-light-grey">
 <nav class="w3-sidebar w3-collapse w3-white w3-animate-left" style="z-index:3;width:300px;" id="mySidebar"><br>
@@ -95,12 +94,11 @@
      title="close side menu" id="myOverlay"></div>
 <div class="w3-main" style="margin-left:300px;">
     <div class="has_bg_harp" style="display: flex;flex-direction: column;justify-content: space-between;">
-
         <div style="">
             <div style="height:auto;padding: 10px 0px;flex-direction:column;display:flex;gap:20px;justify-content:center;align-items: center;border-bottom: 1px solid #BDBDBD;">
-                <div><h1 style="font-family: 'Gowun Dodum', sans-serif;font-weight:bold;color:var(--color-chathams-blue)">전체 회원목록</h1></div>
+                <div><h1 style="font-family: 'Gowun Dodum',sans-serif;font-weight:bold;color:var(--color-chathams-blue)">전체 회원목록</h1></div>
                 <form action="">
-                    <div style="display: flex;align-items: stretch" class="has_flex_space">
+                    <div style="display: flex;align-items: stretch;" class="has_flex_space">
                         <div class="ui input focus" style="margin-right: 20px">
                             <input type="text" style="font-family: 'Gowun Dodum', sans-serif;" placeholder=" 닉네임을 입력해주세요.">
                         </div>
@@ -110,10 +108,10 @@
                     </div>
                 </form>
             </div>
-            <div style="height: auto;border-bottom: 1px solid #BDBDBD;display: grid;grid-template-columns:repeat(4,1fr);grid-gap:1rem;align-items: baseline;justify-items: center;padding:0 0 20px 0;">
+            <div style="font-family: 'Gowun Dodum',sans-serif;font-weight:bold;height: auto;border-bottom: 1px solid #BDBDBD;display: grid;grid-template-columns:repeat(4,1fr);grid-gap:1rem;align-items: baseline;justify-items: center;padding:0 0 20px 0;">
                 <c:forEach var="memberVOList" items="${memberVOList}">
                     <div class="ui card">
-                        <div class="content">
+                        <div class="content" >
                             <img class="ui avatar image" src="${memberVOList.avatarimg}"><a class="header" style="display: inline">닉네임:${memberVOList.nickname}</a>
                             <div class="meta"><span class="date">신고당한 횟수:${memberVOList.reported}</span></div>
                             <div class="description">주소:${memberVOList.addr}</div>

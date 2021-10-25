@@ -1,6 +1,4 @@
 package com.example.dreampicturespring.controller.ajax;
-
-
 import com.example.dreampicturespring.entity.*;
 import com.example.dreampicturespring.repository.*;
 import com.example.dreampicturespring.vo.CardVO;
@@ -12,7 +10,6 @@ import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
-
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 import java.util.ArrayList;
@@ -43,7 +40,6 @@ public class AjaxController {
 	ReportRepository reportRepository;
 	@Autowired
 	QaRepository qaRepository;
-
 
 	@RequestMapping(value="/ajax_email_check",method=RequestMethod.GET, produces="application/text;charset=UTF-8")
 	@ResponseBody
@@ -195,7 +191,6 @@ public class AjaxController {
 		System.out.println("=====2222======="+comment+"=============");
 		commentstbl.setComments(comment);
 		commentstbl.setNo_painting(no_painting);
-		System.out.println(commentstbl);
 		commentRepository.save(commentstbl);
 		System.out.println("============"+comment+"=============");
 
@@ -206,7 +201,4 @@ public class AjaxController {
 		if(StringUtils.isEmpty(target)) return target = null;
 		return target;
 	}
-
-
-
 }

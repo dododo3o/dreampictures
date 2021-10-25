@@ -70,8 +70,8 @@
             }
         }
 
-        function MaxLength(e){//작품설명 최대 입력 수 200
-            if(e.value.length > e.maxLength){
+        function MaxLength(e) {//작품설명 최대 입력 수 200
+            if (e.value.length > e.maxLength) {
                 e.value = e.value.slice(0, e.maxLength);
             }
         }
@@ -88,12 +88,10 @@
 <% } %>
 <main class="has_bg_harp">
     <div class="container">
-        <form action="<%=conPath%>/sell_success" method="post" onsubmit="return false" enctype="multipart/form-data"
-              id="frm" name="form">
+        <form action="<%=conPath%>/sell_success" method="post" onsubmit="return false" enctype="multipart/form-data" id="frm" name="form">
             <div style="background-color:var( --color-white);display:flex;grid-column: 1/13;height: 100%;">
                 <div style="border-right: 1px solid #ddd;width:50%;padding-left: 110px;padding-right: 100px;">
-                    <div class="has_flex_column has_evenly"
-                         style="flex-wrap: wrap;width:100%;height: 90%;padding-top: 100px;">
+                    <div class="has_flex_column has_evenly" style="flex-wrap: wrap;width:100%;height: 90%;padding-top: 100px;">
                         <a class="ui red tag label" style="display: none; margin-bottom: 10px;" id="point"><span>그림 정보를 모두 작성해주세요.😥</span></a>
                         <input type="submit" class="ui secondary button" value="그림등록" onclick="nextBtn_condition()">
                         <div class="ui horizontal divider" style="vertical-align: inherit;">Painting Infomation</div>
@@ -140,12 +138,12 @@
                         <div class="ui list has_flex_column has_font-base" style="display: flex; ">
                             <div style=" display: flex;">
                                 <div class="content" style="display: flex;width: 100%;">
-                                    <textarea class="painting_input" id="contentVal" placeholder="작품설명 200글자 내외로 입력해주세요" oninput="MaxLength(this)" maxlength="100"
+                                    <textarea class="painting_input" id="contentVal" placeholder="작품설명 200글자 내외로 입력해주세요"
+                                              oninput="MaxLength(this)" maxlength="100"
                                               style="resize: none; height: 60px;width: 100%;"></textarea>
                                 </div>
                             </div>
                         </div>
-                        <%-- todo--%>
                         <select style="font-family: 'BMHANNAPro'; font-size:var(--font-size-sm)"
                                 class="has_width_half sell_select" id="style" name="style">
                             <option value="" disabled selected>Style</option>
@@ -171,19 +169,16 @@
                         </select>
                     </div>
                 </div>
-
                 <div class="has_flex_column" style="width:50%;padding-left: 80px;padding-right: 80px;">
-                    <div class="has_flex_center" id="image_container;"
-                         style="margin-top: 70px; width: 100%; height: 80%;">
+                    <div class="has_flex_center" id="image_container;" style="margin-top: 70px; width: 100%; height: 80%;">
                         <div id="preview_image">
                             <%-- 선택한 사진 들어가는 곳--%>
                         </div>
                     </div>
                     <div>
-                        <div><input type="file" onchange="setThumbnail(event);" name="filename" id="image"
-                                    style="margin-left: 100px;margin-top: 10px"/></div>
+                        <div><input type="file" onchange="setThumbnail(event);" name="filename" id="image" style="margin-left: 100px;margin-top: 10px"/></div>
                     </div>
-                </div><!--왼쪽div-->
+                </div>
             </div>
         </form>
     </div>

@@ -1,9 +1,6 @@
 package com.example.dreampicturespring.vo;
-
 import lombok.Data;
-
 import java.sql.Date;
-
 @Data
 public class SellVO {
     private String pname;

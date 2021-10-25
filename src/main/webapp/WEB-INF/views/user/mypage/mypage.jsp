@@ -72,32 +72,22 @@
             <div style="font-weight:bold;font-family:'Gowun Dodum';color:var(--color-chathams-blue);font-size:var(--font-size-xll);padding-top: 25px;">MY PAGE</div>
             <div class="ui card" style="width:500px;grid-column: 5/12;height: fit-content;">
                 <div class="content" style="display:flex;justify-content: space-evenly;align-items: center;">
-                    <div><img src="${mypageVO.avatarimg}"
-                              style="border-radius:50%;width:5em;height:5em; object-fit:cover;">
-                    </div>
+                    <div><img src="${mypageVO.avatarimg}" style="border-radius:50%;width:5em;height:5em; object-fit:cover;"></div>
                     <div style="color:black;font-size: 3em;"><c:out value="${mypageVO.nickname}"/></div>
                 </div>
                 <div class="content">
                     <span class="right floated"></span>
                     <div class="ui segment" style="text-align:center;">
-                        <div style="font-size:1.5em;"><i class="truck icon"></i>포인트
-                            <div style="font-size:25px;"><c:out value="${mypageVO.dreampay}"/></div>
-                        </div>
+                        <div style="font-size:1.5em;"><i class="money bill alternate outline icon"></i>포인트<div style="font-size:25px;"><c:out value="${mypageVO.dreampay}"/></div></div>
                     </div>
                     <div class="ui segment" style="text-align:center;">
-                        <div style="font-size:1.5em;"><i class="truck icon"></i>배송지
-                            <div style=";font-size:25px;"><c:out value="${mypageVO.addr}"/></div>
-                        </div>
+                        <div style="font-size:1.5em;"><i class="truck icon"></i>배송지<div style=";font-size:25px;"><c:out value="${mypageVO.addr}"/></div></div>
                     </div>
                     <div class="ui segment" style="text-align:center;">
-                        <div style="font-size:1.5em;"><i class="envelope icon"></i>이메일
-                            <div style="font-size:25px;"><c:out value="${mypageVO.email}"/></div>
-                        </div>
+                        <div style="font-size:1.5em;"><i class="envelope icon"></i>이메일<div style="font-size:25px;"><c:out value="${mypageVO.email}"/></div></div>
                     </div>
                     <div class="ui segment" style="text-align:center;">
-                        <div style="font-size:1.5em;"><i class="phone icon"></i>연락처
-                            <div style=";font-size:25px;"><c:out value="${mypageVO.tel}"/></div>
-                        </div>
+                        <div style="font-size:1.5em;"><i class="phone icon"></i>연락처<div style=";font-size:25px;"><c:out value="${mypageVO.tel}"/></div></div>
                     </div>
                 </div>
                 <div class="extra content">
@@ -110,6 +100,16 @@
         </div>
     </div>
 </main>
+<script>
+    $(document).ready(function ()
+    {
+        $('.ui.segment').hover(function(){
+            $(this).css('background','#E7F0F0');
+        }, function() {
+            $(this).css('background','white');
+        });
+    });
+</script>
 <jsp:include page="../header_footer/footer.jsp"></jsp:include>
 </body>
 </html>

@@ -1,7 +1,6 @@
 package com.example.dreampicturespring.repository;
 
 import com.example.dreampicturespring.entity.Admintbl;
-import com.example.dreampicturespring.entity.Membershiptbl;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;

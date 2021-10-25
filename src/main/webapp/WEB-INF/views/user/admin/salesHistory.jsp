@@ -45,9 +45,7 @@
         showModal = function () {
             $('.ui.modal').modal('show');
         };
-
     </script>
-
 </head>
 <body class="w3-light-grey">
 <nav class="w3-sidebar w3-collapse w3-white w3-animate-left" style="z-index:3;width:300px;" id="mySidebar"><br>
@@ -82,7 +80,6 @@
 <div class="w3-overlay w3-hide-large w3-animate-opacity" onclick="w3_close()" style="cursor:pointer;"
      title="close side menu" id="myOverlay"></div>
 <div class="w3-main" style="margin-left:300px; height: 100%;">
-
     <div class="has_bg_harp" style="height:100%;flex-direction: column;justify-content: space-between;display: flex;">
         <div style="height:100%;border-bottom: 1px solid #BDBDBD;">
             <div style="border-bottom: 1px solid #BDBDBD; padding: 10px 0px;flex-direction:column;display:flex;gap:20px;justify-content:center;align-items: center;">
@@ -107,7 +104,6 @@
                     </div>
                 </form>
             </div>
-
             <div style="padding:20px 0;display: grid;grid-template-columns: repeat(4,1fr);grid-gap:1rem;justify-content: space-around;">
                 <c:forEach var="cardVOlist" items="${cardVOlist}">
                     <div class="ui card" style="height: 100%; margin: 0 auto;">
@@ -127,7 +123,6 @@
                     </div>
                 </c:forEach>
             </div>
-
         </div>
         <div style="display: flex;justify-content: center;margin-top:30px;padding-bottom: 30px;">
             <div class="ui animated button" tabindex="0"
@@ -158,10 +153,8 @@
 <script>
     // Get the Sidebar
     var mySidebar = document.getElementById("mySidebar");
-
     // Get the DIV with overlay effect
     var overlayBg = document.getElementById("myOverlay");
-
     // Toggle between showing and hiding the sidebar, and add overlay effect
     function w3_open() {
         if (mySidebar.style.display === 'block') {
@@ -172,7 +165,6 @@
             overlayBg.style.display = "block";
         }
     }
-
     // Close the sidebar with the close button
     function w3_close() {
         mySidebar.style.display = "none";

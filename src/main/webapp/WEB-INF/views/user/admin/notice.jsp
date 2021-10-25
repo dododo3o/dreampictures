@@ -14,12 +14,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Gowun+Dodum&display=swap" rel="stylesheet">
     <link rel="stylesheet" type="text/css"
           href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.13/semantic.min.css">
-    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <style>html, body, h1, h2, h3, h4, h5 {
-        font-family: "Raleway", sans-serif
-    }</style>
     <script src="https://kit.fontawesome.com/b14e6f064f.js" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"
             integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ=="
@@ -87,10 +82,9 @@
                 <div style="padding-left: 447px"><h1 style="color:var(--color-chathams-blue);font-family: 'Gowun Dodum', sans-serif;font-weight: bold">공지사항</h1></div>
                 <div><button class="ui primary basic button" style="font-family: 'Gowun Dodum', sans-serif;font-weight: bold" onclick="showModal()">공지사항 올리기</button></div>
             </div>
-
-            <div style="height:100%;padding:20px 0;padding-bottom: 30px">
+            <div style="height:100%;padding:20px 0;padding-bottom: 30px;font-family:'Gowun Dodum',sans-serif;font-weight:bold;">
                 <div style="display: grid;grid-template-columns:repeat(4,1fr);grid-gap:1rem;width: 100%;">
-                    <c:forEach var="noticeVOList" items="${noticeVOList}">
+                    <c:forEach var="noticeVOList"  items="${noticeVOList}">
                         <div class="ui card" style="height: 350px; margin: 0 auto;">
                             <div class="content" style="height: 100%; margin: 0 auto;">
                                 <div class="header">${noticeVOList.title}</div>
@@ -98,7 +92,7 @@
                                 <div class="description"><p>${noticeVOList.content}</p></div>
                             </div>
                             <div style="height:auto;border-top: 1px solid #ddd;text-align: center;padding: 5px 0;">
-                                <button class="ui red basic button" style="font-family: 'BMHANNAPro';">삭제</button>
+                                <button class="ui red basic button"style="font-family:'Gowun Dodum',sans-serif;font-weight:bold;">삭제</button>
                             </div>
                         </div>
                     </c:forEach>
@@ -134,20 +128,19 @@
         </div>
     </main>
     <div class="ui tiny modal" style="text-align: center;width:450px">
-        <div class="header" style="font-family:'BMHANNAPro';font-size:32px;background-color:lightblue">공지 사항</div>
+        <div class="header" style="font-family: 'Gowun Dodum';font-size:32px;background-color:lightblue">공지 사항</div>
         <div class="ui form">
             <div class="field">
                 <div class="field">
-                    <div style="font-size: var(--font-size-lg);font-family:'BMHANNAPro';">제목</div>
+                    <div style="font-size: var(--font-size-lg);font-family: 'Gowun Dodum';font-weight: bold;">제목</div>
                     <input type="text" maxlength="30" id="title" style="border: 1px solid lightblue">
-                    <div class="ui" style="font-size: var(--font-size-lg);font-family:'BMHANNAPro';">공지내용</div>
-                    <textarea maxlength="200"></textarea>
-                    <%--                    <input type="text" maxlength="200" id="question" style="height: 200px;border: 1px solid lightblue">--%>
+                    <div class="ui" style="font-size: var(--font-size-lg);font-family: 'Gowun Dodum';font-weight: bold;">공지내용</div>
+                    <textarea id="question" maxlength="200"></textarea>
                 </div>
             </div>
         </div>
         <div class="actions" style="background-color:lightblue">
-            <div class="ui positive right labeled icon button" style="background-color:steelblue"
+            <div class="ui positive right labeled icon button" style="background-color:steelblue;font-family: 'Gowun Dodum';font-weight: bold;"
                  onclick="push_notice()">올리기<i class="checkmark icon"></i></div>
         </div>
     </div>
