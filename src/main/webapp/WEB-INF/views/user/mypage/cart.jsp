@@ -54,7 +54,7 @@
                 </div>
             </div>
             <div class="ui vertical animated button" tabindex="0" onclick="showModal()">
-                <div class="hidden content"><a href="/selllist">판매내역</a></div>
+                <div class="hidden content"><a href="/selllist">전시내역</a></div>
                 <div class="visible content">
                     <i class="orange shipping fast icon"></i>
                 </div>
