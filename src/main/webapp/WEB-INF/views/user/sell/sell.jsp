@@ -66,8 +66,8 @@
             if (pname != '' && height != '' && width != '' && price != '' && calVal != '' && content != '' && f.style.value !== '' && f.theme.value !== '') {
                 document.getElementById('frm').submit();
                 alert('성공이다');
-                // $("#point").css("display", "none");
-                // document.location.href = "/buy";
+                $("#point").css("display", "none");
+                document.location.href = "/buy";
             } else {
                 $("#point").css("display", "block");
             }
