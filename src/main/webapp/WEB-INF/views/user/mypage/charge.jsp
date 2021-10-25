@@ -135,7 +135,7 @@
         </div>
     </div>
     <div style="display: flex;    height: auto;width: 100%;justify-content: space-around;padding-top: 60px;">
-        <button class="back_btn"><a href="/mypage/+">뒤로가기</a></button>
+        <button class="back_btn" style="width: 100px;height: 40px"><a href="/mypage/+">뒤로가기</a></button>
     </div>
 </main>
 <script>
