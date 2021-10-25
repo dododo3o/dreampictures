@@ -130,6 +130,8 @@
                 alert("정보를 모두 작성해주세요 !")
             }
         }
+
+
     </script>
 </head>
 <body>
@@ -156,6 +158,12 @@
                     <div style="display: none"><input type="text" id="url" name="url"></div>
                 </div>
             </form>
+        </div>
+    </div>
+    <div class="ui segment">
+        <p></p>
+        <div class="ui active dimmer">
+            <div class="ui loader"></div>
         </div>
     </div>
 </main>
