@@ -124,6 +124,21 @@ public class AjaxController {
 		return "redirect:/admin/notice";
 	}
 
+	////////////////////정보수정 모달창 ajax 수정중///////////////////////////////
+//	@RequestMapping(value = "/ajax_push_changeInfo",method = RequestMethod.GET, produces ="application/text;charset=UTF-8")
+//	public String push_changeInfo(HttpServletRequest request,String title,String question){
+//		HttpSession session = request.getSession();
+//		Membershiptbl membershiptbl = new Membershiptbl();
+//		membershiptbl.setAddr(addr);
+//		membershiptbl.setAddrdetail(addrdetail);
+//		membershiptbl.setTel(tel);
+//		System.out.println(adminRepository.findByadminID_no((String) session.getAttribute("adminLogin")));
+//		membershiptbl.setNo_admin(adminRepository.findByadminID_no((String) session.getAttribute("adminLogin")));
+//		membershiptblRepository.save(membershiptbl);
+//		return "redirect:/mypage";
+//	}
+
+
 	@RequestMapping(value = "/ajax_report",method = RequestMethod.GET, produces ="application/text;charset=UTF-8")
 	@ResponseBody
 	public String report(HttpServletRequest request,Integer reportNum,Integer no_painting ){

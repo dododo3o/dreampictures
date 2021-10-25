@@ -93,7 +93,7 @@
                 <c:forEach var="QaVOlist" items="${QaVOlist}">
                     <div class="ui card" style="margin:0">
                         <div class="content">
-                            <div class="header" style="font-family: 'Gowun Dodum', sans-serif;font-weight: bold;">${QaVOlist.category}</div>
+                            <div class="header" style="text-align:center;font-family: 'Gowun Dodum';font-weight: bold;">${QaVOlist.category}</div>
                             <div style="font-size: 1.3em">작성자 : ${QaVOlist.nickname}</div>
                         </div>
                         <div class="content">
@@ -103,10 +103,10 @@
                             <div class="ui large transparent left icon input" style="display: flex;">
                                 <i class="pencil alternate icon"></i>
                                 <input type="text" maxlength="100" size="20" id="${QaVOlist.no_qa}" placeholder="답변하기..."
-                                       style="font-size: 0.8em"/>
+                                       style="font-size: 0.8em;font-weight:bold;font-family: 'Gowun Dodum'"/>
                             </div>
-                            <button class="ui red basic button" style="font-size: 0.8em;float:right;">삭제</button>
-                            <button class="ui primary basic button" style="float:right;font-size: 0.8em" onclick="answerQA(${QaVOlist.no_qa})">답변하기</button>
+                            <button class="ui red basic button" style="font-weight:bold;font-family: 'Gowun Dodum';font-size: 0.8em;float:right;">삭제</button>
+                            <button class="ui primary basic button" style="font-weight:bold;font-family: 'Gowun Dodum';float:right;font-size: 0.8em" onclick="answerQA(${QaVOlist.no_qa})">답변하기</button>
                         </div>
                     </div>
                 </c:forEach>

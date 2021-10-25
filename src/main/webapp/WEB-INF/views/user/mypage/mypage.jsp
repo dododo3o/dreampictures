@@ -21,9 +21,71 @@
     <script src="https://code.jquery.com/jquery-3.1.1.min.js"
             integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.13/semantic.js"></script>
+    <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
+    <script src="//dapi.kakao.com/v2/maps/sdk.js?appkey=e3b7b3147ef30d454b9901f4af5c27b4&libraries=services"></script>
+
+
+    <!--정보수정 모달창 띄우기-->
+    <script>
+        function modal() {
+            document.getElementById("modaldiv")
+        }
+    </script>
+    <script type="text/javascript">
+        push_changeInfo = function () {
+            $(() => {
+                let addr = document.getElementById("addr").value;
+                let tel = document.getElementById("tel").value;
+                $.ajax({
+                    url: "/ajax_push_changeInfo",
+                    data: "addr=" + addr + "&tel=" + tel,
+                    success: function () {
+                        document.location.href = "/mypage";
+                    }
+                });
+            });
+        };
+        showModal = function () {
+            $('.ui.tiny.modal').modal('show');
+        };
+    </script>
+    <!--모달창 띄우기 끝-->
+    <script>
+        var mapContainer = document.getElementById('map'), // 지도를 표시할 div
+            mapOption = {
+                center: new daum.maps.LatLng(37.537187, 127.005476), // 지도의 중심좌표
+                level: 5 // 지도의 확대 레벨
+            };
+        var map = new daum.maps.Map(mapContainer, mapOption);
+        var geocoder = new daum.maps.services.Geocoder();
+        var marker = new daum.maps.Marker({
+            position: new daum.maps.LatLng(37.537187, 127.005476),
+            map: map
+        });
+
+        function sample5_execDaumPostcode() {
+            new daum.Postcode({
+                oncomplete: function (data) {
+                    var addr = data.address; // 최종 주소 변수
+                    document.getElementById("sample5_address").value = addr;
+                    geocoder.addressSearch(data.address, function (results, status) {
+                        if (status === daum.maps.services.Status.OK) {
+                            var result = results[0]; //첫번째 결과의 값을 활용
+                            var coords = new daum.maps.LatLng(result.y, result.x);
+                            mapContainer.style.display = "block";
+                            map.relayout();
+                            map.setCenter(coords);
+                            marker.setPosition(coords)
+                        }
+                    });
+                }
+            }).open();
+        }
+    </script>
+
 
 </head>
-<body>
+<body oncontextmenu="return false" onselectstart="return false">
 <jsp:include page="../header_footer/header_login.jsp"></jsp:include>
 <main class="has_bg_harp">
     <div id="container" class="container">
@@ -92,7 +154,7 @@
                 </div>
                 <div class="extra content">
                     <div style="display:flex; justify-content: space-evenly;">
-                        <button class="ui primary basic button" style="font-weight:bold;font-family: 'Gowun Dodum';width:150px; height:50px;">수정하기</button>
+                        <button class="ui primary basic button" onclick="showModal()" style="font-weight:bold;font-family: 'Gowun Dodum';width:150px; height:50px;">수정하기</button>
                         <button class="ui primary basic button" style="font-weight:bold;font-family: 'Gowun Dodum';width:150px; height:50px;">탈퇴하기</button>
                     </div>
                 </div>
@@ -100,6 +162,30 @@
         </div>
     </div>
 </main>
+<!--정보수정 모달창-->
+<div class="ui tiny modal" style="text-align: center;width:450px">
+    <div class="header" style="font-family: 'Gowun Dodum';font-size:32px;background-color:lightblue">정보수정</div>
+    <div class="ui form">
+        <div class="field">
+            <div class="field">
+                <div style="font-size: var(--font-size-lg);font-family: 'Gowun Dodum';font-weight: bold;padding:5px 0">주소</div>
+                <input type="text" class="has_width_full input_select" name="addr"
+                       id="sample5_address" placeholder="주소"
+                       onclick="sample5_execDaumPostcode()"/>
+                <div style="font-size: var(--font-size-lg);font-family: 'Gowun Dodum';font-weight: bold;padding:5px 0">상세주소</div>
+                <input type="text" id="addrdetail" maxlength="100" style="border: 1px solid lightblue">
+                <div style="font-size: var(--font-size-lg);font-family: 'Gowun Dodum';font-weight: bold;padding:5px 0">연락처</div>
+                <input type="text" id="tel" maxlength="30" style="border: 1px solid lightblue">
+            </div>
+        </div>
+    </div>
+    <div class="actions" style="background-color:lightblue">
+        <div class="ui positive right labeled icon button" style="background-color:steelblue;font-family: 'Gowun Dodum';font-weight: bold;"
+             onclick="push_notice()">수정하기<i class="checkmark icon"></i></div>
+    </div>
+</div>
+
+
 <script>
     $(document).ready(function ()
     {

@@ -111,7 +111,7 @@
                 </form>
             </div>
             <div style="height: auto;display: grid;grid-template-columns:repeat(4,1fr);grid-gap:1rem;align-items: baseline;justify-items: center;padding:0 0 20px 0;">
-                <%--            <c:forEach var="cardVOlist" items="${cardVOlist}">--%>
+             <c:forEach var="cardVOlist" items="${cardVOlist}">
                 <div class="ui card">
                     <div class="image">
                         <img src="${cardVOlist.avatarimg}">
@@ -125,53 +125,8 @@
                         <a><i class="user icon"></i>${cardVOlist.reported}</a>
                     </div>
                 </div>
-
-                <%--            </c:forEach>--%>
-
-                <div class="ui card">
-                    <div class="image">
-                        <img src="${cardVOlist.avatarimg}">
-                    </div>
-                    <div class="content">
-                        <a class="header">${cardVOlist.nickname}</a>
-                        <div class="meta"><span class="date">${cardVOlist.date}</span></div>
-                        <div class="description">${cardVOlist.email}</div>
-                    </div>
-                    <div class="extra content">
-                        <a><i class="user icon"></i>${cardVOlist.reported}</a>
-                    </div>
-                </div>
-
-                <div class="ui card">
-                    <div class="image">
-                        <img src="${cardVOlist.avatarimg}">
-                    </div>
-                    <div class="content">
-                        <a class="header">${cardVOlist.nickname}</a>
-                        <div class="meta"><span class="date">${cardVOlist.date}</span></div>
-                        <div class="description">${cardVOlist.email}</div>
-                    </div>
-                    <div class="extra content">
-                        <a><i class="user icon"></i>${cardVOlist.reported}</a>
-                    </div>
-                </div>
-
-                <div class="ui card">
-                    <div class="image">
-                        <img src="${cardVOlist.avatarimg}">
-                    </div>
-                    <div class="content">
-                        <a class="header">${cardVOlist.nickname}</a>
-                        <div class="meta"><span class="date">${cardVOlist.date}</span></div>
-                        <div class="description">${cardVOlist.email}</div>
-                    </div>
-                    <div class="extra content">
-                        <a><i class="user icon"></i>${cardVOlist.reported}</a>
-                    </div>
-                </div>
-
+              </c:forEach>
             </div>
-
         </div>
         <div style="display: flex;justify-content: center;padding-top:30px;padding-bottom: 30px;border-top: 1px solid #BDBDBD;">
             <div class="ui animated button" tabindex="0"
