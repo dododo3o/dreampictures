@@ -95,16 +95,31 @@
             <div style="color:var(--color-chathams-blue);font-size:var(--font-size-xll);padding-top: 30px;padding-bottom: 25px;">
                 구매내역
             </div>
-            <div style="display:flex;grid-template-columns: repeat(3,1fr); grid-gap: 1rem; width: 100%;flex-wrap: wrap">
-                <c:forEach var="cardVOlist" items="${cardVOlist}">
-                    <div class="flip-card">
-                        <div class="flip-card-inner" id="${cardVOlist.no_painting}" style="border-radius: 5px;">
-                            <div class="ui card flip-card-front" style="height: 100%; margin: 0 auto;">
-                                <div class="content"
-                                     style=" display: flex; flex-direction: row; justify-content: space-evenly; align-items: center;">
-                                    <img src="${cardVOlist.avatarimg}"
-                                         style="border-radius: 50%; width: 3em;height: 3em;object-fit: cover;">
-                                    <span style="font-size: 1.5em;">${cardVOlist.nickname}</span>
+            <div style="display:flex;grid-template-columns: repeat(4,1fr); grid-gap: 1rem; width: 100%;flex-wrap: wrap">
+            <c:forEach var="cardVOlist" items="${cardVOlist}">
+                <div class="flip-card">
+                    <div class="flip-card-inner" id="${cardVOlist.no_painting}" style="border-radius: 5px;">
+                        <div class="ui card flip-card-front" style="height: 100%; margin: 0 auto;">
+                            <div class="content"
+                                 style=" display: flex; flex-direction: row; justify-content: space-evenly; align-items: center;">
+                                <img src="${cardVOlist.avatarimg}"
+                                     style="border-radius: 50%; width: 3em;height: 3em;object-fit: cover;">
+                                <span style="font-size: 1.5em;">${cardVOlist.nickname}</span>
+                            </div>
+                            <div class="image">
+                                <img src="${cardVOlist.paintingmimg}"
+                                     onclick="buypainting(${cardVOlist.no_painting});"
+                                     style="object-fit: cover; height: 250px">
+                            </div>
+                            <div class="content" style="display: flex;justify-content: center;">
+                                <span style="font-size: 1.5em">${cardVOlist.pname}</span><span></span>
+                            </div>
+                            <div class="extra content">
+                                <div class="ui large transparent left icon input" style="display: flex;">
+                                    <i class="pencil alternate icon"></i>
+                                    <input type="text" maxlength="20" size="20" id="${cardVOlist.no_painting}"
+                                           placeholder="글자수 20글자 내 작성"
+                                           style="font-size: 0.8em"/>
                                 </div>
                                 <div class="image">
                                     <img src="${cardVOlist.paintingmimg}"
