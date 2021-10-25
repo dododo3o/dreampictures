@@ -32,7 +32,7 @@
                 <div style="display: flex;user-select: auto;flex-direction:column;align-items:center;height: 650px;">
                     <input type="text" style="margin-bottom: 50px" class="input_select has_width_full" name="admin"
                            required="required" placeholder="Login">
-                    <input type="text" style="margin-bottom: 50px" class="input_select has_width_full" name="adminpwd"
+                    <input type="password" style="margin-bottom: 50px" class="input_select has_width_full" name="adminpwd"
                            required="required" placeholder="PassWord">
                     <button class='button is_login has_shadow'>
                         <input type="submit" class='logbtn is_login has_shadow has_flex_center has_width_full'
