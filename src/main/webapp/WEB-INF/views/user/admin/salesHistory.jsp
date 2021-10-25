@@ -111,7 +111,7 @@
                              style=" display: flex; flex-direction: row; justify-content: space-evenly; align-items: center;">
                             <img src="${cardVOlist.avatarimg}"
                                  style="border-radius: 50%; width: 3em;height: 3em;object-fit: cover;">
-                            <span style="font-size: 2em;">${cardVOlist.nickname}</span>
+                            <span style="font-size: 1.5em;">${cardVOlist.nickname}</span>
                         </div>
                         <div class="image">
                             <img src="${cardVOlist.paintingmimg}" onclick="buypainting(${cardVOlist.no_painting});"
