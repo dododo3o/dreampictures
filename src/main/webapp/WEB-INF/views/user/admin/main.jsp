@@ -43,7 +43,6 @@
         <a href="/admin/qa" class="w3-bar-item w3-button w3-padding"><i class="fa fa-bullseye fa-fw"></i>  질문사항</a>
         <a href="/admin/salesHistory" class="w3-bar-item w3-button w3-padding"><i class="fa fa-bullseye fa-fw"></i>  판매현황</a>
         <a href="/admin/report" class="w3-bar-item w3-button w3-padding"><i class="fa fa-bullseye fa-fw"></i>  신고내역</a>
-        <a href="/admin/blacklist" class="w3-bar-item w3-button w3-padding"><i class="fa fa-bullseye fa-fw"></i>  블랙리스트</a>
         <a href="/admin/allmembers" class="w3-bar-item w3-button w3-padding"><i class="fa fa-bullseye fa-fw"></i>  회원현황</a><br><br>
     </div>
 </nav>
@@ -206,36 +205,6 @@
         </ul>
     </div>
     <hr>
-    <div class="w3-container">
-        <h5 style="font-family: 'Gowun Dodum', sans-serif;font-weight: bold;">최근 작품</h5>
-        <div class="w3-row">
-            <div class="ui card">
-                <a class="image" href="#">
-                    <img src="/images/avatar/large/steve.jpg">
-                </a>
-                <div class="content">
-                    <a class="header" href="#">Steve Jobes</a>
-                    <div class="meta">
-                        <a>Last Seen 2 days ago</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="w3-row">
-            <div class="ui card">
-                <a class="image" href="#">
-                    <img src="/images/avatar/large/steve.jpg">
-                </a>
-                <div class="content">
-                    <a class="header" href="#">Steve Jobes</a>
-                    <div class="meta">
-                        <a>Last Seen 2 days ago</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
     <br>
 </div>
 <script>

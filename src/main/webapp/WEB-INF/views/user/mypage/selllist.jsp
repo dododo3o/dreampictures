@@ -94,7 +94,7 @@
         <div style="grid-column: 3/13;display: flex;flex-direction: column;justify-content: space-between;align-items: center;justify-content: space-evenly">
             <!-- 추가요소 있으면 이 안에 넣기-->
             <div style="color:var(--color-chathams-blue);font-size:var(--font-size-xll);padding-top: 30px;padding-bottom: 25px;">
-                구매내역
+                판매내역
             </div>
             <div style="display:flex;grid-template-columns: repeat(3,1fr); grid-gap: 1rem; width: 100%;flex-wrap: wrap">
             <c:forEach var="cardVOlist" items="${cardVOlist}">

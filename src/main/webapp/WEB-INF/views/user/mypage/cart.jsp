@@ -78,8 +78,9 @@
                 </div>
             </div>
         </div>
-        <div style="grid-column: 3/13;display: flex;flex-direction: column;justify-content: space-between;align-items: center;justify-content: space-evenly;flex-wrap: nowrap;">
+        <div style="grid-column: 3/13;display: flex;flex-direction: column;justify-content: space-between;align-items: center;justify-content: space-between;flex-wrap: nowrap;">
             <!-- 추가요소 있으면 이 안에 넣기-->
+            <div style="display: flex;flex-direction: column;">
             <div style="color:var(--color-chathams-blue);font-size:var(--font-size-xll);padding-top: 30px; padding-bottom: 25px;">
                 장바구니
             </div>
@@ -142,6 +143,7 @@
                         </div>
                     </div>
                 </c:forEach>
+            </div>
             </div>
             <div>
                 <div class="container"

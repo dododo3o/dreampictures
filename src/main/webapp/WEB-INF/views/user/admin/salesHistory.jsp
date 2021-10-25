@@ -99,7 +99,7 @@
                             </div>
                         </div>
                         <button class="ui primary basic button"
-                                style="font-family:'Gowun Dodum', sans-serif;font-weight: bold;width:120px;height:30px;font-size:0.9em">검색
+                                style="font-family:'Gowun Dodum', sans-serif;font-weight: bold;width:120px;height:40px;font-size:15px">검색
                         </button>
                     </div>
                 </form>

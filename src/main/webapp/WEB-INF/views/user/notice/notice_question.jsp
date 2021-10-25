@@ -114,7 +114,6 @@
                     </div>
                     <div tabindex="0" onclick="showModal()">
                         <button class="ui primary basic button" style="font-size:1.2em;font-family:'Gowun Dodum';font-weight: bold;width:120px">질문하기</button>
-<%--                        <button class="ui button" style="font-family: 'Gowun Dodum'">질문하기</button>--%>
                     </div>
                 </div>
                 <div style="display:grid;grid-template-columns:repeat(3,1fr);grid-gap:1rem;width:100%;padding-top: 10px">
