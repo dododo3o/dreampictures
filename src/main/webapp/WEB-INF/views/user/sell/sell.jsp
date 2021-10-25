@@ -64,11 +64,13 @@
             var f = document.form;
             if (pname != '' && height != '' && width != '' && price != '' && calVal != '' && content != '' && f.style.value !== '' && f.theme.value !== '') {
                 $("#point").css("display", "none");
-                // document.location.href = "/buy";
             } else {
                 $("#point").css("display", "block");
             }
         }
+
+        document.location.href = "/buy";
+
         function heightMaxLength(e) {
             if (e.value.length > e.maxLength) {
                 e.value = e.value.slice(0, e.maxLength);
@@ -105,18 +107,22 @@
 <% } %>
 <main class="has_bg_harp">
     <div class="container">
-        <form action="<%=conPath%>/sell_success" method="post" onsubmit="return false" enctype="multipart/form-data" id="frm" name="form">
+        <form action="<%=conPath%>/sell_success" method="post" onsubmit="return false" enctype="multipart/form-data"
+              id="frm" name="form">
             <div style="background-color:var( --color-white);display:flex;grid-column: 1/13;height: 100%;">
                 <div style="border-right: 1px solid #ddd;width:50%;padding-left: 110px;padding-right: 100px;">
-                    <div class="has_flex_column has_evenly" style="flex-wrap: wrap;width:100%;height: 90%;padding-top: 100px;">
+                    <div class="has_flex_column has_evenly"
+                         style="flex-wrap: wrap;width:100%;height: 90%;padding-top: 100px;">
                         <a class="ui red tag label" style="display: none; margin-bottom: 10px;" id="point"><span>그림 정보를 모두 작성해주세요.😥</span></a>
-                        <input type="submit" class="ui secondary button" style="font-family:'Gowun Dodum'" value="그림등록" onclick="nextBtn_condition()">
+                        <input type="submit" class="ui secondary button" style="font-family:'Gowun Dodum'" value="그림등록"
+                               onclick="nextBtn_condition()">
                         <div class="ui horizontal divider" style="vertical-align: inherit;">Painting Infomation</div>
                         <div class="ui list has_flex_column has_font-base" style="display: flex; gap: 20px;">
                             <div style="display: flex;">
                                 <i class="big edit outline icon" style="user-select: auto;"></i>
                                 <div class="content" style="display: flex;">
-                                    <input class="painting_input" id="pnameVal" name="pname" type="text" style="font-family:'Gowun Dodum';width:200px" placeholder="작품명">
+                                    <input class="painting_input" id="pnameVal" name="pname" type="text"
+                                           style="font-family:'Gowun Dodum';width:200px" placeholder="작품명">
                                 </div>
                             </div>
                         </div>
@@ -124,7 +130,9 @@
                             <div style="user-select: auto; display: flex;">
                                 <i class="big long arrow alternate up icon" style="user-select: auto;"></i>
                                 <div class="content" style="display: flex;">
-                                    <input class="painting_input" id="heightVal" name="height" type="number" oninput="heightMaxLength(this)" style="font-family:'Gowun Dodum';width:200px" placeholder="높이 (cm) 최대 200CM" max="200" maxlength="3">
+                                    <input class="painting_input" id="heightVal" name="height" type="number"
+                                           oninput="heightMaxLength(this)" style="font-family:'Gowun Dodum';width:200px"
+                                           placeholder="높이 (cm) 최대 200CM" max="200" maxlength="3">
                                 </div>
                             </div>
                         </div>
@@ -132,7 +140,9 @@
                             <div style="user-select: auto; display: flex;">
                                 <i class="big long arrow alternate right icon" style="user-select: auto;"></i>
                                 <div class="content" style="display: flex;">
-                                    <input class="painting_input" id="widthVal" name="width" type="number" oninput="widthMaxLength(this)" style="font-family:'Gowun Dodum';width:200px" placeholder="너비 (cm) 최대 200CM" max="200" maxlength="3">
+                                    <input class="painting_input" id="widthVal" name="width" type="number"
+                                           oninput="widthMaxLength(this)" style="font-family:'Gowun Dodum';width:200px"
+                                           placeholder="너비 (cm) 최대 200CM" max="200" maxlength="3">
                                 </div>
                             </div>
                         </div>
@@ -140,15 +150,21 @@
                             <div style="display: flex;">
                                 <i class="big won sign icon" style="user-select: auto;"></i>
                                 <div class="content" style="display: flex;">
-                                    <input class="painting_input" id="priceVal" name="price" type="number" oninput="priceMaxLength(this)" style="font-family:'Gowun Dodum';width:200px" placeholder="가격 (원) 최대 10 만원" max="100000" maxlength="6">
+                                    <input class="painting_input" id="priceVal" name="price" type="number"
+                                           oninput="priceMaxLength(this)" style="font-family:'Gowun Dodum';width:200px"
+                                           placeholder="가격 (원) 최대 10 만원" max="100000" maxlength="6">
                                 </div>
                             </div>
                         </div>
-                        <input type="date" class="has_width_half sell_select" name="production" id="cal" style="font-family:'Gowun Dodum';" placeholder="제작년도"/>
+                        <input type="date" class="has_width_half sell_select" name="production" id="cal"
+                               style="font-family:'Gowun Dodum';" placeholder="제작년도"/>
                         <div class="ui list has_flex_column has_font-base" style="display: flex; ">
                             <div style=" display: flex;">
                                 <div class="content" style="display: flex;width: 100%;">
-                                    <textarea class="painting_input" id="contentVal" name="exp" placeholder="작품설명 200글자 내외로 입력해주세요" oninput="MaxLength(this)" maxlength="100" style="font-family:'Gowun Dodum';resize: none; height: 60px;width: 100%;"></textarea>'
+                                    <textarea class="painting_input" id="contentVal" name="exp"
+                                              placeholder="작품설명 200글자 내외로 입력해주세요" oninput="MaxLength(this)"
+                                              maxlength="100"
+                                              style="font-family:'Gowun Dodum';resize: none; height: 60px;width: 100%;"></textarea>'
                                 </div>
                             </div>
                         </div>
@@ -179,13 +195,15 @@
                     <div style="display: none"><input type="text" id="url" name="url"></div>
                 </div>
                 <div class="has_flex_column" style="width:50%;padding-left: 80px;padding-right: 80px;">
-                    <div class="has_flex_center" id="image_container;" style="margin-top: 70px; width: 100%; height: 80%;">
+                    <div class="has_flex_center" id="image_container;"
+                         style="margin-top: 70px; width: 100%; height: 80%;">
                         <div id="preview_image">
                             <%-- 선택한 사진 들어가는 곳--%>
                         </div>
                     </div>
                     <div>
-                        <input type="file" onchange="setThumbnail(event);" id="image" style="margin-left: 100px;margin-top: 10px"/>
+                        <input type="file" onchange="setThumbnail(event);" id="image"
+                               style="margin-left: 100px;margin-top: 10px"/>
                     </div>
                 </div>
             </div>
