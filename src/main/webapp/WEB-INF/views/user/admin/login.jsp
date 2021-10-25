@@ -7,7 +7,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Title</title>
+    <title>관리자 로그인</title>
     <link rel="stylesheet" href="/resources/static/css/dreampicturesytle.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -30,9 +30,9 @@
             <div class="title" style="margin-bottom: 50px;font-weight:bold">관리자 로그인</div>
             <form action="<%=conPath%>/admin/login_check" method="post">
                 <div style="display: flex;user-select: auto;flex-direction:column;align-items:center;height: 650px;">
-                    <input type="text" style="margin-bottom: 50px" class="input_select has_width_full" name="admin"
+                    <input type="text" style="font-family: 'Gowun Dodum';margin-bottom: 50px" class="input_select has_width_full" name="admin"
                            required="required" placeholder="Login">
-                    <input type="password" style="margin-bottom: 50px" class="input_select has_width_full" name="adminpwd"
+                    <input type="password" style="font-family: 'Gowun Dodum';margin-bottom: 50px" class="input_select has_width_full" name="adminpwd"
                            required="required" placeholder="PassWord">
                     <button class='button is_login has_shadow'>
                         <input type="submit" class='logbtn is_login has_shadow has_flex_center has_width_full'

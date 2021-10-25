@@ -1,13 +1,14 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
          pageEncoding="UTF-8" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <% String conPath = request.getContextPath(); %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Title</title>
+    <title>질문사항</title>
     <link rel="stylesheet" href="/resources/css/dreampicturesytle.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -75,7 +76,6 @@
         <a href="/admin/salesHistory" class="w3-bar-item w3-button w3-padding"><i class="fa fa-bullseye fa-fw"></i> 
             판매현황</a>
         <a href="/admin/report" class="w3-bar-item w3-button w3-padding"><i class="fa fa-bullseye fa-fw"></i>  신고내역</a>
-        <a href="/admin/blacklist" class="w3-bar-item w3-button w3-padding"><i class="fa fa-bullseye fa-fw"></i>  블랙리스트</a>
         <a href="/admin/allmembers" class="w3-bar-item w3-button w3-padding"><i class="fa fa-bullseye fa-fw"></i>  회원현황</a><br><br>
     </div>
 </nav>
@@ -100,10 +100,12 @@
                             <p style="font-size: 1.3em">${QaVOlist.content}</p>
                         </div>
                         <div class="extra content">
-                            <div class="ui large transparent left icon input" style="display: flex;">
+                            <div class="ui large transparent left icon input" style="display: flex;padding-bottom: 5px">
                                 <i class="pencil alternate icon"></i>
-                                <input type="text" maxlength="100" size="20" id="${QaVOlist.no_qa}" placeholder="답변하기..."
-                                       style="font-size: 0.8em;font-weight:bold;font-family: 'Gowun Dodum'"/>
+<%--                                <input type="text" maxlength="100" size="20" id="${QaVOlist.no_qa}" placeholder="답변하기..."--%>
+<%--                                       style="font-size: 0.8em;font-weight:bold;font-family: 'Gowun Dodum'"/>--%>
+                                <textarea type="text" maxlength="100" size="20" id="${QaVOlist.no_qa}" placeholder="답변하기..."
+                                          style="font-size: 0.8em;font-weight:bold;font-family: 'Gowun Dodum';width:100%;height:60px;resize: none;border: none; "/></textarea>
                             </div>
                             <button class="ui red basic button" style="font-weight:bold;font-family: 'Gowun Dodum';font-size: 0.8em;float:right;">삭제</button>
                             <button class="ui primary basic button" style="font-weight:bold;font-family: 'Gowun Dodum';float:right;font-size: 0.8em" onclick="answerQA(${QaVOlist.no_qa})">답변하기</button>

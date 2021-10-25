@@ -7,7 +7,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Title</title>
+    <title>그림드림 | 공지사항</title>
     <link rel="stylesheet" href="/resources/css/dreampicturesytle.css">
     <!--고운돋움 글씨체 -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -69,17 +69,24 @@
         <div class="ui form">
             <div class="field">
                 <div class="five ui buttons">
-                    <button class="ui button active" onclick="selectedBtn(0)" style="font-family: 'Gowun Dodum';">운영 정책</button>
-                    <button class="ui button" onclick="selectedBtn(1)" style="font-family: 'Gowun Dodum';">구매/판매</button>
-                    <button class="ui button" onclick="selectedBtn(2)" style="font-family: 'Gowun Dodum';">가격 정책</button>
-                    <button class="ui button" onclick="selectedBtn(3)" style="font-family: 'Gowun Dodum';">계정 인증</button>
-                    <button class="ui button" onclick="selectedBtn(4)" style="font-family: 'Gowun Dodum';">그 외 질문</button>
+                    <button class="ui button active" onclick="selectedBtn(0)" style="font-family: 'Gowun Dodum';">운영
+                        정책
+                    </button>
+                    <button class="ui button" onclick="selectedBtn(1)" style="font-family: 'Gowun Dodum';">구매/판매
+                    </button>
+                    <button class="ui button" onclick="selectedBtn(2)" style="font-family: 'Gowun Dodum';">가격 정책
+                    </button>
+                    <button class="ui button" onclick="selectedBtn(3)" style="font-family: 'Gowun Dodum';">계정 인증
+                    </button>
+                    <button class="ui button" onclick="selectedBtn(4)" style="font-family: 'Gowun Dodum';">그 외 질문
+                    </button>
                 </div>
                 <textarea id="question" style="font-family:'Gowun Dodum'"></textarea>
             </div>
         </div>
         <div class="actions" style="background-color: #95afc0">
-            <div class="ui positive right labeled icon button" style="font-family: 'Gowun Dodum';background-color: var(--color-metallic-blue)"
+            <div class="ui positive right labeled icon button"
+                 style="font-family: 'Gowun Dodum';background-color: var(--color-metallic-blue)"
                  onclick="requestQA()">올리기<i class="checkmark icon"></i>
             </div>
         </div>
@@ -99,28 +106,31 @@
                 </div>
             </div>
         </div>
-        <div style="grid-column: 3/13;display: flex;flex-direction: column;justify-content: space-between;align-items: center;justify-content: space-evenly;">
-            <div style="display: flex; width: 100%;justify-content: flex-end; align-items: center">
-                <div style="color:var(--color-chathams-blue);font-size:var(--font-size-xll);padding-top: 30px;
-    padding-bottom: 25px; padding-right: 31%;">질문과 답변
-                </div>
-                <div tabindex="0" onclick="showModal()">
-                    <button class="ui button" style="">질문하기</button>
-                </div>
-            </div>
-            <div style="display:grid;grid-template-columns:repeat(3,1fr);grid-gap:1rem;width:100%;">
-                <c:forEach var="QaVOlist" items="${QaVOlist}">
-                    <div class="ui card" style="height: 100%; margin: 0 auto;">
-                        <div class="content">
-                            <div class="header" style="font-family: 'Gowun Dodum', sans-serif;font-size: 1.5em">${QaVOlist.category}</div>
-                        </div>
-                        <div class="content">
-                            <div style="font-size: 1.3em">작성자 : ${QaVOlist.nickname}<br/>${QaVOlist.content}
-                            </div>
-                        </div>
-                        <div class="content" style="font-size: 1.3em">답변내용 : <br/>${QaVOlist.answer}</div>
+        <div style="grid-column: 3/13;display: flex;flex-direction: column;justify-content: space-between;align-items: center;justify-content: space-between;">
+            <div>
+                <div style="display: flex; width: 100%;justify-content: flex-end; align-items: center;padding: 25px 0">
+                    <div style="color:var(--color-chathams-blue);font-size:var(--font-size-xll);padding-top: 30px;padding-bottom: 25px; padding-right: 24%;">
+                        질문과 답변
                     </div>
-                </c:forEach>
+                    <div tabindex="0" onclick="showModal()">
+                        <button class="ui primary basic button" style="font-size:1.2em;font-family:'Gowun Dodum';font-weight: bold;width:120px">질문하기</button>
+                    </div>
+                </div>
+                <div style="display:grid;grid-template-columns:repeat(3,1fr);grid-gap:1rem;width:100%;padding-top: 10px">
+                    <c:forEach var="QaVOlist" items="${QaVOlist}">
+                        <div class="ui card" style="height: 100%; margin: 0 auto;">
+                            <div class="content">
+                                <div class="header"
+                                     style="font-family: 'Gowun Dodum', sans-serif;font-size: 1.5em">${QaVOlist.category}</div>
+                            </div>
+                            <div class="content">
+                                <div style="font-size: 1.3em">작성자 : ${QaVOlist.nickname}<br/>${QaVOlist.content}
+                                </div>
+                            </div>
+                            <div class="content" style="font-size: 1.3em">답변내용 : <br/>${QaVOlist.answer}</div>
+                        </div>
+                    </c:forEach>
+                </div>
             </div>
             <div>
                 <div class="container"

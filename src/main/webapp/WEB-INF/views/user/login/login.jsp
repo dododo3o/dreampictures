@@ -7,7 +7,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Title</title>
+    <title>그림드림 | 로그인</title>
     <link rel="stylesheet" href="/resources/css/dreampicturesytle.css">
     <!--고운돋움 글씨체 -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -54,22 +54,22 @@
 <jsp:include page="../header_footer/header_not_login.jsp"></jsp:include>
 <main class="has_bg_harp">
     <div class="ui tiny modal">
-        <div class="header">비밀번호 찾기 <i class="unlock alternate icon"></i></div>
+        <div class="header" style="font-family: 'Gowun Dodum'">비밀번호 찾기 <i class="unlock alternate icon"></i></div>
         <div class="ui form">
             <div class="has_flex_column" style="gap:30px; margin:20px;display: flex;">
                 <div class="ui input"><input class="find_pwd" id="find_email" type="text" placeholder="이메일을 입력해주세요."
-                                             style="user-select: auto;"></div>
+                                             style="font-family: 'Gowun Dodum';user-select: auto;"></div>
                 <div class="ui input"><input class="find_pwd" id="find_tel" type="text" placeholder="연락처를 입력해주세요."
-                                             style="user-select: auto;"></div>
+                                             style="font-family: 'Gowun Dodum';user-select: auto;"></div>
             </div>
         </div>
         <div class="actions" style="background-color: #95afc0">
-            <div class="ui positive right labeled icon button" style="background-color: var(--color-metallic-blue)"
+            <div class="ui positive right labeled icon button" style="font-family: 'Gowun Dodum';background-color: var(--color-metallic-blue)"
                  onclick="find_pwd_btn()">
                 보내기<%--todo--%>
                 <i class="checkmark icon"></i>
             </div>
-            <div class="ui positive right labeled icon button" style="background-color: var(--color-brandy-rose)"
+            <div class="ui positive right labeled icon button" style="font-family: 'Gowun Dodum';background-color: var(--color-brandy-rose)"
                  onclick="">
                 닫기
                 <i class="checkmark icon"></i>
@@ -81,9 +81,9 @@
             <form action="<%=conPath%>/login_check" method="post" id="frm">
                 <div class="has_flex_space_cl " style="height: 650px;">
                     <div class="title">로그인 화면</div>
-                    <div class="has_flex_left"><input type="text" class="input_select has_width_full" name="email"
+                    <div class="has_flex_left"><input style="font-family: 'Gowun Dodum'" type="text" class="input_select has_width_full" name="email"
                                                       id="email" required="required" placeholder="이메일"></div>
-                    <div class="has_flex_left"><input type="password" placeholder="Password" name="pwd" id="pwd"
+                    <div class="has_flex_left"><input style="font-family: 'Gowun Dodum'" type="password" placeholder="Password" name="pwd" id="pwd"
                                                       class=" input_select has_width_full"/></div>
                     <div class="has_flex_center" style="display: flex; width: 100%; justify-content: space-around;">
                         <div style="display: flex;align-items: center;gap:10px; "><input type="checkbox"id="login_check"style="height: 20px;"><span

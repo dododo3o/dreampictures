@@ -12,4 +12,6 @@ public class SellVO {
     private Date production;
     private String exp;
     private String url;
+
+    public SellVO(){}
 }

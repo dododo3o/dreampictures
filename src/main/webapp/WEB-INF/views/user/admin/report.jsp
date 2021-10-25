@@ -7,7 +7,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Title</title>
+    <title>신고내역</title>
     <link rel="stylesheet" href="/resources/css/dreampicturesytle.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -72,8 +72,6 @@
         <a href="/admin/salesHistory" class="w3-bar-item w3-button w3-padding"><i class="fa fa-bullseye fa-fw"></i> 
             판매현황</a>
         <a href="/admin/report" class="w3-bar-item w3-button w3-padding w3-blue"><i class="fa fa-bullseye fa-fw"></i>  신고내역</a>
-        <a href="/admin/blacklist" class="w3-bar-item w3-button w3-padding"><i class="fa fa-bullseye fa-fw"></i> 
-            블랙리스트</a>
         <a href="/admin/allmembers" class="w3-bar-item w3-button w3-padding"><i class="fa fa-bullseye fa-fw"></i>  회원현황</a><br><br>
     </div>
 </nav>
@@ -100,7 +98,7 @@
                             </div>
                         </div>
                         <button class="ui primary basic button"
-                                style="font-family: 'Gowun Dodum', sans-serif;font-weight: bold;width:120px;height:30px;font-size:0.9em">검색
+                                style="font-family: 'Gowun Dodum', sans-serif;font-weight: bold;width:120px;height:40px;font-size:15px">검색
                         </button>
                     </div>
                 </form>

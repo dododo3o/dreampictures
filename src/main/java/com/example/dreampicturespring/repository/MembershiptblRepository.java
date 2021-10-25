@@ -11,6 +11,9 @@ public interface MembershiptblRepository extends JpaRepository<Membershiptbl,Int
         @Override
         Membershiptbl getById(Integer aInteger);
         Membershiptbl findByemail(String email);
+        Membershiptbl findBypwd(String pwd);
+
+//        Membershiptbl findByAllInfo(String email,String pwd);
 
         Boolean existsByemail(String email);
         Boolean existsBytel(String tel);

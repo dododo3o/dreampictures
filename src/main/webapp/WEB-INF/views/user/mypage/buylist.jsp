@@ -7,7 +7,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Title</title>
+    <title>그림드림 | 마이페이지</title>
     <link rel="stylesheet" href="/resources/css/dreampicturesytle.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -96,6 +96,7 @@
             <div style="color:var(--color-chathams-blue);font-size:var(--font-size-xll);padding-top: 30px;padding-bottom: 25px;">
                 구매내역
             </div>
+            <div style="display:flex;grid-template-columns: repeat(3,1fr); grid-gap: 1rem; width: 100%;flex-wrap: wrap">
             <c:forEach var="cardVOlist" items="${cardVOlist}">
                 <div class="flip-card">
                     <div class="flip-card-inner" id="${cardVOlist.no_painting}" style="border-radius: 5px;">
@@ -123,9 +124,6 @@
                                 </div>
                                 <button class="ui blue icon button" onclick="addComment(${cardVOlist.no_painting})"
                                         style="float: right; font-size: 0.8em;">Add
-                                </button>
-                                <button class="ui blue icon button" onclick="showCommentModal()"
-                                        style="float: right; font-size: 0.8em;">zxc
                                 </button>
                             </div>
                             <div class="ui bottom attached button collapsible"

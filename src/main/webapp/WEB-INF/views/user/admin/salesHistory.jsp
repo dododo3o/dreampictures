@@ -7,7 +7,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Title</title>
+    <title>판매현황</title>
     <link rel="stylesheet" href="/resources/css/dreampicturesytle.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -99,7 +99,7 @@
                             </div>
                         </div>
                         <button class="ui primary basic button"
-                                style="font-family:'Gowun Dodum', sans-serif;font-weight: bold;width:120px;height:30px;font-size:0.9em">검색
+                                style="font-family:'Gowun Dodum', sans-serif;font-weight: bold;width:120px;height:40px;font-size:15px">검색
                         </button>
                     </div>
                 </form>

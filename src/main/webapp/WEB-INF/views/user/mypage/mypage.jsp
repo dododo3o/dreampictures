@@ -7,7 +7,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Title</title>
+    <title>그림드림 | 마이페이지</title>
     <link rel="stylesheet" href="/resources/css/dreampicturesytle.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -98,31 +98,31 @@
                         <i class="red user circle icon"></i>
                     </div>
                 </div>
-                <div class="ui vertical animated button" tabindex="0" onclick="showModal()">
+                <div class="ui vertical animated button" tabindex="0" >
                     <div class="hidden content"><a href="/buylist">구매내역</a></div>
                     <div class="visible content">
                         <i class="orange shipping fast icon"></i>
                     </div>
                 </div>
-                <div class="ui vertical animated button" tabindex="0" onclick="showModal()">
+                <div class="ui vertical animated button" tabindex="0" >
                     <div class="hidden content"><a href="/selllist">판매내역</a></div>
                     <div class="visible content">
                         <i class="orange shipping fast icon"></i>
                     </div>
                 </div>
-                <div class="ui vertical animated button" tabindex="0" onclick="showModal()">
+                <div class="ui vertical animated button" tabindex="0" >
                     <div class="hidden content"><a href="/cart">장바구니</a></div>
                     <div class="visible content">
                         <i class="yellow shopping cart icon"></i>
                     </div>
                 </div>
-                <div class="ui vertical animated button" tabindex="0" onclick="showModal()">
+                <div class="ui vertical animated button" tabindex="0">
                     <div class="hidden content"><a href="/qalist">질문내역</a></div>
                     <div class="visible content">
                         <i class="green comments outline icon"></i>
                     </div>
                 </div>
-                <div class="ui vertical animated button" tabindex="0" onclick="showModal()">
+                <div class="ui vertical animated button" tabindex="0">
                     <div class="hidden content"><a href="/charge">포인트 입출금</a></div>
                     <div class="visible content">
                         <i class="blue money bill alternate outline icon"></i>

@@ -7,7 +7,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Title</title>
+    <title>그림드림 | 회원가입</title>
     <link rel="stylesheet" href="/resources/css/dreampicturesytle.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -123,7 +123,7 @@
                 <div style="display: flex;font-weight: bold; user-select: auto;flex-direction: column;align-items: center;justify-content: space-evenly;height: 650px;">
                     <div class="title " style="margin-bottom: 35px;">회원 가입</div>
                     <div class=" has_flex_left">이메일 *<input type="text" class="input_select has_width_full" name="email"
-                                                            id="email" required="required" placeholder="이메일"/></div>
+                                                            id="email" required="required" style="font-family: 'Gowun Dodum';" placeholder="이메일"/></div>
                     <button id="email_btn" class='button is_primary' onclick="verifyEmail()"
                             style="font-family: 'Gowun Dodum'">인증하기
                     </button>
@@ -131,7 +131,7 @@
                         <div>비밀번호 *<span class="has_chathams-blue">(6~20 영문 대소문자, 숫자, 특수문자 꼭포함하여  6~20자)</span>
                         </div>
                         <input type="password" class="has_width_full input_select" id="pwd" name="pwd"
-                               placeholder="비밀번호"
+                               placeholder="비밀번호" style="font-family: 'Gowun Dodum';"
                                required="required"/>
                     </div>
                     <div class="has_flex_left">
@@ -145,7 +145,7 @@
                             </div>
                         </div>
                         <input type="password" class="pw has_width_full input_select" id="pwdChk"
-                               placeholder="비밀번호 확인"
+                               placeholder="비밀번호 확인" style="font-family: 'Gowun Dodum';"
                                required="required"
                                pattern="^(?=.*[A-Z])(?=.*[a-z])(?=.*[0-9])(?=.*[!@#$%^&*()_-+=[]{}~?:;`|/]).{6,20}$"
                                onfocusout="passwordCheck()"/>
@@ -153,7 +153,7 @@
                     <div class="has_flex_left">
                         <div>연락처 *<span class="has_chathams-blue">([-] 하이픈 생략)</span></div>
                         <input type="text" class="input_select has_width_full" name="tel" id="tel"
-                               required="required" placeholder="핸드폰 번호"/>
+                               required="required" style="font-family: 'Gowun Dodum';" placeholder="핸드폰 번호"/>
                     </div>
                     <button id="tel_btn" class='button is_primary' style="font-family: 'Gowun Dodum'"
                             onclick="verifyTel()">인증하기

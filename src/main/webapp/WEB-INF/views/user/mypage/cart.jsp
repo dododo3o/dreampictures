@@ -7,7 +7,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Title</title>
+    <title>그림드림 | 마이페이지</title>
     <link rel="stylesheet" href="/resources/css/dreampicturesytle.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -78,8 +78,9 @@
                 </div>
             </div>
         </div>
-        <div style="grid-column: 3/13;display: flex;flex-direction: column;justify-content: space-between;align-items: center;justify-content: space-evenly;flex-wrap: nowrap;">
+        <div style="grid-column: 3/13;display: flex;flex-direction: column;justify-content: space-between;align-items: center;justify-content: space-between;flex-wrap: nowrap;">
             <!-- 추가요소 있으면 이 안에 넣기-->
+            <div style="display: flex;flex-direction: column;">
             <div style="color:var(--color-chathams-blue);font-size:var(--font-size-xll);padding-top: 30px; padding-bottom: 25px;">
                 장바구니
             </div>
@@ -112,9 +113,6 @@
                                     <button class="ui blue icon button" onclick="addComment(${cardVOlist.no_painting})"
                                             style="float: right; font-size: 0.8em;">Add
                                     </button>
-                                    <button class="ui blue icon button" onclick="showCommentModal()"
-                                            style="float: right; font-size: 0.8em;">zxc
-                                    </button>
                                 </div>
                                 <div class="ui bottom attached button collapsible"
                                      onclick="flipCard(${cardVOlist.no_painting})"
@@ -145,6 +143,7 @@
                         </div>
                     </div>
                 </c:forEach>
+            </div>
             </div>
             <div>
                 <div class="container"

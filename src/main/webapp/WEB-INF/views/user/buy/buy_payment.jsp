@@ -7,7 +7,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Title</title>
+    <title>그림드림 | 구매</title>
     <link rel="stylesheet" href="/resources/css/dreampicturesytle.css">
     <!--고운돋움 글씨체 -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -80,20 +80,20 @@
 <main class="has_bg_harp">
     <div class="ui tiny modal">
         <i class="close icon"></i>
-        <div class="header">구매하시겠습니까?</div>
+        <div class="header" style="font-family: 'Gowun Dodum';">구매하시겠습니까?</div>
         <div class="image content">
             <div class="description">
-                <div class="ui header">구매제품명: <c:out value="${paymentVO.pname}"/> </div>
+                <div class="ui header" style="font-family: 'Gowun Dodum';">구매제품명: <c:out value="${paymentVO.pname}"/> </div>
                 <p>가격: <c:out value="${paymentVO.price}"/></p>
                 <p>차액포인트: <c:out value="${paymentVO.sum}"/></p>
             </div>
         </div>
         <div class="actions">
             <div class="ui black deny button">
-                아니요
+                <span>아니요</span>
             </div>
             <div class="ui positive right labeled icon button" onclick="pay(<c:out value="${paymentVO.price}"/>,<c:out value="${paymentVO.buyer_no_member}"/>,<c:out value="${paymentVO.seller_no_member}"/>,<c:out value="${paymentVO.no_painting}"/>)">
-                네 구매할게요!
+                <span>네 구매할게요!</span>
                 <i class="checkmark icon"></i>
             </div>
         </div>
@@ -123,7 +123,7 @@
                     </div>
                     <div class="ui horizontal divider">Shipping Address</div>
                     <div class="has_flex_column" >
-                        <input type="text" id="address_input" name="addr" onclick="sample5_execDaumPostcode()" value="<c:out value="${paymentVO.addr}"/>">
+                        <input type="text" id="address_input" name="addr" onclick="sample5_execDaumPostcode()" style="font-family: 'Gowun Dodum'" value="<c:out value="${paymentVO.addr}"/>">
                     </div>
                     <div class="ui horizontal divider">Point</div>
                     <div class="ui list has_flex_column has_font-base" style="display: flex; gap: 20px;">
@@ -136,12 +136,12 @@
                             <div class="content" style="user-select: auto;">결제 후 포인트 : <c:out value="${paymentVO.sum}"/></div>
                         </div>
                     </div>
-                    <a href="/charge" style="width: 100%"><button class="fluid ui secondary button"> 드림페이 충전 </button></a>
+                    <a href="/charge" style="width: 100%"><button class="fluid ui secondary button" style="font-family: 'Gowun Dodum'"> 드림페이 충전 </button></a>
                     <div class="ui horizontal divider">Payment</div>
                     <a class="ui red tag label" style="display: none" id="point"><span>포인트가 부족해요😥</span></a>
                     <div style="display: flex;justify-content: space-around;">
-                        <button class="ui secondary button">뒤로가기</button>
-                        <button class="ui secondary button" onclick="showCommentModal('<c:out value="${paymentVO.sum}"/>')">결제하기</button>
+                        <button class="ui secondary button" style="font-family: 'Gowun Dodum'">뒤로가기</button>
+                        <button class="ui secondary button" style="font-family: 'Gowun Dodum'" onclick="showCommentModal('<c:out value="${paymentVO.sum}"/>')">결제하기</button>
                     </div>
                 </div>
             </div>
@@ -150,7 +150,7 @@
                     <i class="tag icon"></i>
                     <div class="content">Name: <c:out value="${paymentVO.pname}"/></div>
                 </h2>
-                <h1>Price: <c:out value="${paymentVO.price}"/></h1>
+                <h1 style="font-family: 'Gowun Dodum'">Price: ₩<c:out value="${paymentVO.price}"/></h1>
                 <div class="image" style="margin-top: 70px">
                     <img src="<c:out value="${paymentVO.paintingimg}"/>" style="width:300px;height: 300px;border-radius: 5%;">
                 </div>
