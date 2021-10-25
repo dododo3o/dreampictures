@@ -97,6 +97,26 @@
                 document.querySelector("div#preview_image").appendChild(img);
                 $("#default_img").css("display", "none");
             };
+            var file = document.getElementById('image');
+            console.log(file)
+            var form = new FormData();
+            form.append("image", file.files[0])
+            var settings = {
+                "url": "https://api.imgbb.com/1/upload?key=a58b54558814eef28607f69ffed7f06c",
+                "method": "POST",
+                "timeout": 0,
+                "processData": false,
+                "mimeType": "multipart/form-data",
+                "contentType": false,
+                "data": form
+            };
+            $.ajax(settings).done(function (response) {
+                console.log(response);
+                var displayURL = JSON.parse(response);
+                console.log(displayURL.data.url);
+                $("#url").val(displayURL.data.url)
+
+            });
             reader.readAsDataURL(event.target.files[0]);
         }
 
@@ -117,38 +137,23 @@
 <main class="has_bg_harp">
     <div class="container">
         <div class="contents" style="grid-column: 5/9; margin-top: 50px;">
-            <form action="<%=conPath%>/register_success" method="post" onsubmit="return false"
-                  enctype="multipart/form-data" id="frm">
+            <form action="<%=conPath%>/register_success" method="post" onsubmit="return false" enctype="multipart/form-data" id="frm">
                 <div style="display: flex;font-weight: bold; user-select: auto;flex-direction: column;align-items: center;justify-content: space-evenly;height: 650px;">
                     <div class="title" style="margin-bottom: 35px;">회원 가입</div>
-                    <div class="has_flex_left">주소 *<input type="text" class="has_width_full input_select" name="addr"
-                                                          id="sample5_address" placeholder="주소"
-                                                          onclick="sample5_execDaumPostcode()"/></div>
-                    <div class="has_flex_left">상세주소 *<input type="text" class="has_width_full input_select"
-                                                            id="detailAddr" name="detailAddr" placeholder="상세주소"/></div>
-                    <div class="has_flex_left">닉네임 등록 * <input type="text" name="nickname" id="nickname"
-                                                               class="has_width_full input_select"
-                                                               placeholder="닉네임 등록"/></div>
+                    <div class="has_flex_left">주소 *<input type="text" class="has_width_full input_select" name="addr" id="sample5_address" placeholder="주소" onclick="sample5_execDaumPostcode()"/></div>
+                    <div class="has_flex_left">상세주소 *<input type="text" class="has_width_full input_select" id="detailAddr" name="detailAddr" placeholder="상세주소"/></div>
+                    <div class="has_flex_left">닉네임 등록 * <input type="text" name="nickname" id="nickname" class="has_width_full input_select" placeholder="닉네임 등록"/></div>
                     <div>
-                        <button id="nick_btn" class="button is_primary" onclick="verifyNick()"
-                                style="margin-top: 10px;margin-bottom: 10px;font-family: 'Gowun Dodum'">인증 확인
-                        </button>
+                        <button id="nick_btn" class="button is_primary" onclick="verifyNick()" style="margin-top: 10px;margin-bottom: 10px;font-family: 'Gowun Dodum'">인증 확인</button>
                     </div>
                     <div class="has_flex_center" id="image_container;">
-                        <div id="preview_image">
-                            <%-- 선택한 사진 들어가는 곳--%>
-                            <img src="/resources/css/photo/darth.jpg" class="avatar_img" id="default_img"
-                                 style="margin: 0 auto; display: inline;"/></div>
+                        <div id="preview_image"><img src="/resources/css/photo/darth.jpg" class="avatar_img" id="default_img" style="margin: 0 auto; display: inline;"/></div>
                     </div>
-                    <div style="margin-top: 10px">
-                        이미지등록<input type="file" onchange="setThumbnail(event);" name="filename"
-                                    style="margin-left: 100px;margin-top: 10px"/>
-                    </div>
+                    <div style="margin-top: 10px">이미지등록<input type="file" id="image" onchange="setThumbnail(event);" name="filename" style="margin-left: 100px;margin-top: 10px"/></div>
                     <div>
-                        <input type="submit" onclick="nextBtn_condition()"
-                               class='input_select is_login has_shadow has_flex_center has_width_full'
-                               style="margin-top:20px;font-family: 'Gowun Dodum';background-color: white" value="가입 완료">
+                        <input type="submit" onclick="nextBtn_condition()" class='input_select is_login has_shadow has_flex_center has_width_full' style="margin-top:20px;font-family: 'Gowun Dodum';background-color: white" value="가입 완료">
                     </div>
+                    <div style="display: none"><input type="text" id="url" name="url"></div>
                 </div>
             </form>
         </div>

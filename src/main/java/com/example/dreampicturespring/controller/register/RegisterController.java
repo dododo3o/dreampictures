@@ -46,32 +46,32 @@ public class RegisterController {
         vo.setAddr(vo2.getAddr());
         vo.setAddrdetail(vo2.getDetailAddr());
         vo.setNickname(vo2.getNickname());
-        vo.setImg("/resources/user/"+vo.getEmail());
+        vo.setImg(vo2.getUrl());
 
-        String path = "D:\\dreampicture_spring\\src\\main\\resources\\static\\user";
-        File newfolder = new File(path+"\\"+vo.getEmail());
-        newfolder.mkdir();
-
-        File avatarfolder = new File(path+"\\"+vo.getEmail()+"\\avatarimg");
-        avatarfolder.mkdir();
-
-        File paintingfolder = new File(path+"\\"+vo.getEmail()+"\\paintingimg");
-        paintingfolder.mkdir();
-
-        //사진 객체 가져오기
-        MultipartHttpServletRequest mr = (MultipartHttpServletRequest) request;
-        MultipartFile avatarImg = mr.getFile("filename");
-
-        //사진 이름 변경
-        String fname = avatarImg.getOriginalFilename();
-        int point = fname.lastIndexOf(".");//마지막 점의 위치를 구해라
-        String orgFileExt = fname.substring(point+1);
-        String fixedFileName = "avatarimg."+orgFileExt;
-
-        //사진을 폴더로 옮기기
-        path=path+"\\"+vo.getEmail()+"\\avatarimg";
-        File newFileObj = new File(path,fixedFileName);
-        try { avatarImg.transferTo(newFileObj); } catch (Exception e) { }
+//        String path = "D:\\dreampicture_spring\\src\\main\\resources\\static\\user";
+//        File newfolder = new File(path+"\\"+vo.getEmail());
+//        newfolder.mkdir();
+//
+//        File avatarfolder = new File(path+"\\"+vo.getEmail()+"\\avatarimg");
+//        avatarfolder.mkdir();
+//
+//        File paintingfolder = new File(path+"\\"+vo.getEmail()+"\\paintingimg");
+//        paintingfolder.mkdir();
+//
+//        //사진 객체 가져오기
+//        MultipartHttpServletRequest mr = (MultipartHttpServletRequest) request;
+//        MultipartFile avatarImg = mr.getFile("filename");
+//
+//        //사진 이름 변경
+//        String fname = avatarImg.getOriginalFilename();
+//        int point = fname.lastIndexOf(".");//마지막 점의 위치를 구해라
+//        String orgFileExt = fname.substring(point+1);
+//        String fixedFileName = "avatarimg."+orgFileExt;
+//
+//        //사진을 폴더로 옮기기
+//        path=path+"\\"+vo.getEmail()+"\\avatarimg";
+//        File newFileObj = new File(path,fixedFileName);
+//        try { avatarImg.transferTo(newFileObj); } catch (Exception e) { }
 
         Membershiptbl membershiptbl = new Membershiptbl(vo);
         membershiptblRepository.save(membershiptbl);

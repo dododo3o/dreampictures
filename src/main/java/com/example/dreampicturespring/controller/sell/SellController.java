@@ -31,21 +31,22 @@ public class SellController {
     @RequestMapping("/sell_success")
     public Object sell_success(SellVO vo, HttpServletRequest req) throws IOException {
         String user = req.getSession().getAttribute("logEmail").toString();
-        String path = "D:\\dreampicture_spring\\src\\main\\resources\\static\\user\\"+user+"\\paintingimg\\"+vo.getPname();
-        File newPaintingFolder =  new File(path);
-        newPaintingFolder.mkdir();
-        MultipartHttpServletRequest mr = (MultipartHttpServletRequest)req;
-        List<MultipartFile> files = mr.getFiles("filename");
-        for(int i=0;i<files.size();i++) {
-            MultipartFile mf = files.get(i);
-            String fname = mf.getOriginalFilename();
-            if(fname==null || fname.equals("")) continue;
-            int point = fname.lastIndexOf(".");//마지막 점의 위치를 구해라
-            String orgFileExt = fname.substring(point+1);
-            String fixedFileName = i+"."+orgFileExt;
-            File newFileObj = new File(path,fixedFileName);
-            try {mf.transferTo(newFileObj);}catch (Exception e){}
-        }
+//        String path = "D:\\dreampicture_spring\\src\\main\\resources\\static\\user\\"+user+"\\paintingimg\\"+vo.getPname();
+//        File newPaintingFolder =  new File(path);
+//        newPaintingFolder.mkdir();
+//        MultipartHttpServletRequest mr = (MultipartHttpServletRequest)req;
+//        List<MultipartFile> files = mr.getFiles("filename");
+//        for(int i=0;i<files.size();i++) {
+//            MultipartFile mf = files.get(i);
+//            String fname = mf.getOriginalFilename();
+//            if(fname==null || fname.equals("")) continue;
+//            int point = fname.lastIndexOf(".");//마지막 점의 위치를 구해라
+//            String orgFileExt = fname.substring(point+1);
+//            String fixedFileName = i+"."+orgFileExt;
+//            File newFileObj = new File(path,fixedFileName);
+//            try {mf.transferTo(newFileObj);}catch (Exception e){}
+//        }
+
         Membershiptbl ms = membershiptblRepository.findByemail(user);
         Paintingtbl paintingtbl = new Paintingtbl(vo,ms.getNo_membership());
         paintingRepository.save(paintingtbl);

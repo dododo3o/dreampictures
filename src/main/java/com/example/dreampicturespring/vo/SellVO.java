@@ -11,4 +11,5 @@ public class SellVO {
     private Integer price;
     private Date production;
     private String exp;
+    private String url;
 }

@@ -31,6 +31,7 @@ public class Paintingtbl {
     private String exp;
     private Integer status;
     private Integer no_membership;
+    private String url;
 
     public Paintingtbl(){
         if(StringUtils.isEmpty(writedate)){
@@ -51,6 +52,7 @@ public class Paintingtbl {
         this.exp = vo.getExp();
         this.status = 0;
         this.no_membership = no_membership;
+        this.url = vo.getUrl();
     }
 
 }

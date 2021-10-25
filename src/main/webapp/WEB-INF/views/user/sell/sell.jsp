@@ -29,6 +29,26 @@
                 img.setAttribute("src", event.target.result);
                 document.querySelector("div#preview_image").appendChild(img);
             };
+            var file = document.getElementById('image');
+            console.log(file)
+            var form = new FormData();
+            form.append("image", file.files[0])
+            var settings = {
+                "url": "https://api.imgbb.com/1/upload?key=a58b54558814eef28607f69ffed7f06c",
+                "method": "POST",
+                "timeout": 0,
+                "processData": false,
+                "mimeType": "multipart/form-data",
+                "contentType": false,
+                "data": form
+            };
+            $.ajax(settings).done(function (response) {
+                console.log(response);
+                var displayURL = JSON.parse(response);
+                console.log(displayURL.data.url);
+                $("#url").val(displayURL.data.url)
+
+            });
             reader.readAsDataURL(event.target.files[0]);
         }
 
@@ -105,9 +125,7 @@
                             <div style="user-select: auto; display: flex;">
                                 <i class="big long arrow alternate up icon" style="user-select: auto;"></i>
                                 <div class="content" style="display: flex;">
-                                    <input class="painting_input" id="heightVal" type="number"
-                                           oninput="heightMaxLength(this)" placeholder="높이 (cm) 최대 200CM" max="200"
-                                           maxlength="3">
+                                    <input class="painting_input" id="heightVal" type="number" oninput="heightMaxLength(this)" placeholder="높이 (cm) 최대 200CM" max="200" maxlength="3">
                                 </div>
                             </div>
                         </div>
@@ -115,9 +133,7 @@
                             <div style="user-select: auto; display: flex;">
                                 <i class="big long arrow alternate right icon" style="user-select: auto;"></i>
                                 <div class="content" style="display: flex;">
-                                    <input class="painting_input" id="widthVal" type="number"
-                                           oninput="widthMaxLength(this)" placeholder="너비 (cm) 최대 200CM" max="200"
-                                           maxlength="3">
+                                    <input class="painting_input" id="widthVal" type="number" oninput="widthMaxLength(this)" placeholder="너비 (cm) 최대 200CM" max="200" maxlength="3">
                                 </div>
                             </div>
                         </div>
@@ -125,9 +141,7 @@
                             <div style="display: flex;">
                                 <i class="big won sign icon" style="user-select: auto;"></i>
                                 <div class="content" style="display: flex;">
-                                    <input class="painting_input" id="priceVal" type="number"
-                                           oninput="priceMaxLength(this)" placeholder="가격 (원) 최대 10 만원" max="100000"
-                                           maxlength="6">
+                                    <input class="painting_input" id="priceVal" type="number" oninput="priceMaxLength(this)" placeholder="가격 (원) 최대 10 만원" max="100000" maxlength="6">
                                 </div>
                             </div>
                         </div>
@@ -136,9 +150,7 @@
                         <div class="ui list has_flex_column has_font-base" style="display: flex; ">
                             <div style=" display: flex;">
                                 <div class="content" style="display: flex;width: 100%;">
-                                    <textarea class="painting_input" id="contentVal" placeholder="작품설명 200글자 내외로 입력해주세요"
-                                              oninput="MaxLength(this)" maxlength="100"
-                                              style="resize: none; height: 60px;width: 100%;"></textarea>
+                                    <textarea class="painting_input" id="contentVal" placeholder="작품설명 200글자 내외로 입력해주세요" oninput="MaxLength(this)" maxlength="100" style="resize: none; height: 60px;width: 100%;"></textarea>
                                 </div>
                             </div>
                         </div>
@@ -177,6 +189,7 @@
                         <div><input type="file" onchange="setThumbnail(event);" name="filename" id="image" style="margin-left: 100px;margin-top: 10px"/></div>
                     </div>
                 </div>
+                <div style="display: none"><input type="text" id="url" name="url"></div>
             </div>
         </form>
     </div>

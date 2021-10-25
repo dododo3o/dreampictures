@@ -163,8 +163,7 @@
             </div>
         </div>
     </div>
-    <div class="container " id="container"
-         style="display: grid;grid-template-columns: repeat(5,1fr);grid-gap:1rem;justify-content: space-around;flex-wrap: nowrap">
+    <div class="container " id="container" style="display: grid;grid-template-columns: repeat(5,1fr);grid-gap:1rem;justify-content: space-around;flex-wrap: nowrap">
         <c:forEach var="cardVOlist" items="${cardVOlist}">
             <div class="flip-card">
                 <div class="flip-card-inner" id="${cardVOlist.no_painting}" style="border-radius: 5px;">

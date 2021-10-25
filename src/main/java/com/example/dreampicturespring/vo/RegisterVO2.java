@@ -5,4 +5,5 @@ public class RegisterVO2 {
     private String addr;
     private String detailAddr;
     private String nickname;
+    private String url;
 }
