@@ -105,7 +105,7 @@
     padding-bottom: 25px; padding-right: 31%;">질문과 답변
                 </div>
                 <div tabindex="0" onclick="showModal()">
-                    <button class="ui button" style="">질문하기</button>
+                    <button class="ui button" style="font-family: 'Gowun Dodum'">질문하기</button>
                 </div>
             </div>
             <div style="display:grid;grid-template-columns:repeat(3,1fr);grid-gap:1rem;width:100%;">

@@ -123,7 +123,7 @@
                     </div>
                     <div class="ui horizontal divider">Shipping Address</div>
                     <div class="has_flex_column" >
-                        <input type="text" id="address_input" name="addr" onclick="sample5_execDaumPostcode()" value="<c:out value="${paymentVO.addr}"/>">
+                        <input type="text" id="address_input" name="addr" onclick="sample5_execDaumPostcode()" style="font-family: 'Gowun Dodum'" value="<c:out value="${paymentVO.addr}"/>">
                     </div>
                     <div class="ui horizontal divider">Point</div>
                     <div class="ui list has_flex_column has_font-base" style="display: flex; gap: 20px;">
@@ -136,12 +136,12 @@
                             <div class="content" style="user-select: auto;">결제 후 포인트 : <c:out value="${paymentVO.sum}"/></div>
                         </div>
                     </div>
-                    <a href="/charge" style="width: 100%"><button class="fluid ui secondary button"> 드림페이 충전 </button></a>
+                    <a href="/charge" style="width: 100%"><button class="fluid ui secondary button" style="font-family: 'Gowun Dodum'"> 드림페이 충전 </button></a>
                     <div class="ui horizontal divider">Payment</div>
                     <a class="ui red tag label" style="display: none" id="point"><span>포인트가 부족해요😥</span></a>
                     <div style="display: flex;justify-content: space-around;">
-                        <button class="ui secondary button">뒤로가기</button>
-                        <button class="ui secondary button" onclick="showCommentModal('<c:out value="${paymentVO.sum}"/>')">결제하기</button>
+                        <button class="ui secondary button" style="font-family: 'Gowun Dodum'">뒤로가기</button>
+                        <button class="ui secondary button" style="font-family: 'Gowun Dodum'" onclick="showCommentModal('<c:out value="${paymentVO.sum}"/>')">결제하기</button>
                     </div>
                 </div>
             </div>
@@ -150,7 +150,7 @@
                     <i class="tag icon"></i>
                     <div class="content">Name: <c:out value="${paymentVO.pname}"/></div>
                 </h2>
-                <h1>Price: <c:out value="${paymentVO.price}"/></h1>
+                <h1 style="font-family: 'Gowun Dodum'">Price: ₩<c:out value="${paymentVO.price}"/></h1>
                 <div class="image" style="margin-top: 70px">
                     <img src="<c:out value="${paymentVO.paintingimg}"/>" style="width:300px;height: 300px;border-radius: 5%;">
                 </div>
