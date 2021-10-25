@@ -37,7 +37,7 @@
                                 alert('존재하지 않는 이메일입니다 ! 😅');
                             } else if (result == "ㅗㅗ") {
                                 alert('연락처와 이메일이 일치 하지 않습니다. \n연락처를 다시 한번 확인해주세요 ! 😅')
-                            } else {//연락처 있어
+                            } else{//연락처 있어
                                 alert('이메일 전송이 완료 되었습니다. \n이메일을 확인해주세요 ! 📩');
                             }
                         }
@@ -66,7 +66,7 @@
         <div class="actions" style="background-color: #95afc0">
             <div class="ui positive right labeled icon button" style="background-color: var(--color-metallic-blue)"
                  onclick="find_pwd_btn()">
-                보내기
+                보내기<%--todo--%>
                 <i class="checkmark icon"></i>
             </div>
             <div class="ui positive right labeled icon button" style="background-color: var(--color-brandy-rose)"

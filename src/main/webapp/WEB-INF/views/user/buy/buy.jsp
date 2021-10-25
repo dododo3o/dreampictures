@@ -39,7 +39,6 @@
                     url: "/ajax_picture_finder",
                     data: "pname=" + pname + "&style=" + style + "&theme=" + theme + "&width=" + width + "&height=" + height + "&price=" + price + "&status=" + status,
                     success: function (result) {
-                        alert('댓글이 삭제되었습니다.');
                         var container = document.getElementById("container");
                         while (container.hasChildNodes()) {
                             container.removeChild(container.firstChild);
@@ -49,9 +48,7 @@
                 });
             });
         };
-        showCommentModal = function () {
-            $('.ui.tiny.modal').modal('show');
-        };
+
         addComment = function (no_painting) {
             $(() => {
                 let text = document.getElementById(no_painting).value;
@@ -197,8 +194,7 @@
                                     style="float: right; font-size: 0.8em;font-family:'Gowun Dodum',sans-serif;">zxc
                             </button>
                         </div>
-                        <div class="ui bottom attached button collapsible" onclick="flipCard(${cardVOlist.no_painting})"
-                             style="">
+                        <div class="ui bottom attached button collapsible" onclick="flipCard(${cardVOlist.no_painting})">
                             <i class="add icon"></i>
                             <span><i class="comment icon"></i>${cardVOlist.commentNumber}</span>
                         </div>
@@ -207,14 +203,13 @@
                          style="display: flex;user-select: auto;margin: 0;flex-direction: column;justify-content: space-between;">
                         <div>
                             <c:forEach var="commentVOList" items="${cardVOlist.commentVOList}">
-                                <div class="" style=" background-color:var(--color-albescent-white)">
+                                <div style=" background-color:var(--color-albescent-white)">
                                     <h5 class="ui header" style="user-select: auto; margin: 10px;">
                                         <div style="display: flex;align-items: center;justify-content: space-between;">
                                             <img src="${commentVOList.avatarimg}"
                                                  style="border-radius: 50%; height:40px; width:40px;object-fit: cover;">
                                             <span class="author"
                                                   style="margin-left: 10px; font-size: 1.5em">${commentVOList.author}</span>
-
                                             <button class="ui red icon button"
                                                     onclick="reply_delete(${commentVOList.no_comment})"
                                                     style="font-size: 0.5em;">X
@@ -271,11 +266,8 @@
                 url: "/reply_delete",
                 data: "num=" + num,
                 success: function (result) {
-                    var container = document.getElementById("container");
-                    while (container.hasChildNodes()) {
-                        container.removeChild(container.firstChild);
-                    }
-                    $("#container").html(result);
+                    alert('댓글이 삭제되었습니다.');
+                    document.location.href = "/redirect:/buy";
                 }
             });
         });
