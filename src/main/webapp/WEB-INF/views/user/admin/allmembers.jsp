@@ -100,7 +100,7 @@
                 <form action="">
                     <div style="display: flex;align-items: stretch;" class="has_flex_space">
                         <div class="ui input focus" style="margin-right: 20px">
-                            <input type="text" style="font-family: 'Gowun Dodum', sans-serif;" placeholder=" 닉네임을 입력해주세요.">
+                            <input type="text" style="width:300px;font-family: 'Gowun Dodum', sans-serif;" placeholder=" 닉네임을 입력해주세요.">
                         </div>
                         <button class="ui primary basic button"
                                 style="font-family: 'Gowun Dodum', sans-serif;font-weight:bold;width:120px;height:50px;font-size:20px ">검색

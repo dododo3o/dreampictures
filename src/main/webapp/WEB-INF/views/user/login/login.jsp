@@ -81,9 +81,9 @@
             <form action="<%=conPath%>/login_check" method="post" id="frm">
                 <div class="has_flex_space_cl " style="height: 650px;">
                     <div class="title">로그인 화면</div>
-                    <div class="has_flex_left"><input type="text" class="input_select has_width_full" name="email"
+                    <div class="has_flex_left"><input style="font-family: 'Gowun Dodum'" type="text" class="input_select has_width_full" name="email"
                                                       id="email" required="required" placeholder="이메일"></div>
-                    <div class="has_flex_left"><input type="password" placeholder="Password" name="pwd" id="pwd"
+                    <div class="has_flex_left"><input style="font-family: 'Gowun Dodum'" type="password" placeholder="Password" name="pwd" id="pwd"
                                                       class=" input_select has_width_full"/></div>
                     <div class="has_flex_center" style="display: flex; width: 100%; justify-content: space-around;">
                         <div style="display: flex;align-items: center;gap:10px; "><input type="checkbox"id="login_check"style="height: 20px;"><span

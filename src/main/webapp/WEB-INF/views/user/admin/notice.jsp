@@ -90,8 +90,8 @@
     <main class="has_bg_harp" style="height:100%;display:flex;flex-direction: column;justify-content: space-between;">
         <div>
             <div style="display: flex;align-items: center;justify-content:space-evenly;border-bottom: 1px solid #BDBDBD;padding: 10px 0">
-                <div style="padding-left: 447px"><h1 style="color:var(--color-chathams-blue);font-weight: bold">공지사항</h1></div>
-                <div><button class="ui primary basic button" style="font-weight: bold" onclick="showModal()">공지사항 올리기</button></div>
+                <div style="padding-left: 447px"><h1 style="font-family:'Gowun Dodum';color:var(--color-chathams-blue);font-weight: bold">공지사항</h1></div>
+                <div><button class="ui primary basic button" style="font-family:'Gowun Dodum';font-weight: bold" onclick="showModal()">공지사항 올리기</button></div>
             </div>
             <div style="height:100%;padding:20px 0;padding-bottom: 30px;font-weight:bold;">
                 <div style="display: grid;grid-template-columns:repeat(4,1fr);grid-gap:1rem;width: 100%;">
@@ -103,7 +103,7 @@
                                 <div class="description"><p>${noticeVOList.content}</p></div>
                             </div>
                             <div style="height:auto;border-top: 1px solid #ddd;text-align: center;padding: 5px 0;">
-                                <button class="ui red basic button" style="font-weight:bold;">삭제</button>
+                                <button class="ui red basic button" style="font-family:'Gowun Dodum';font-weight:bold;">삭제</button>
                             </div>
                         </div>
                     </c:forEach>

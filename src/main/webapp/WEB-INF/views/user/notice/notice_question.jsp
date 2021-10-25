@@ -65,7 +65,7 @@
 <% } %>
 <main class="has_bg_harp">
     <div class="ui modal">
-        <div class="header" style="font-family: 'Gowun Dodum';">질문 사항</div>
+        <div class="header" style="text-align:center;font-family: 'Gowun Dodum';">질문 사항</div>
         <div class="ui form">
             <div class="field">
                 <div class="five ui buttons">
@@ -81,7 +81,7 @@
                     <button class="ui button" onclick="selectedBtn(4)" style="font-family: 'Gowun Dodum';">그 외 질문
                     </button>
                 </div>
-                <textarea id="question"></textarea>
+                <textarea id="question" style="font-family:'Gowun Dodum'"></textarea>
             </div>
         </div>
         <div class="actions" style="background-color: #95afc0">

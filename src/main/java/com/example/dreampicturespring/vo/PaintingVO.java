@@ -19,7 +19,7 @@ public class PaintingVO {
     public PaintingVO(Paintingtbl paintingtbl, Membershiptbl membershiptbl){
         this.no_painting = paintingtbl.getNo_painting();
         this.pname = paintingtbl.getPname();
-        this.paintingimg = membershiptbl.getImg();;
+        this.paintingimg = paintingtbl.getUrl();;
         this.avatarimg = membershiptbl.getImg();
         this.nickname = membershiptbl.getNickname();
         this.writedate = paintingtbl.getWritedate();
