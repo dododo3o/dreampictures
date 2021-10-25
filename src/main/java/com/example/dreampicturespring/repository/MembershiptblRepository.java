@@ -13,8 +13,6 @@ public interface MembershiptblRepository extends JpaRepository<Membershiptbl,Int
         Membershiptbl findByemail(String email);
         Membershiptbl findBypwd(String pwd);
 
-//        Membershiptbl findByAllInfo(String email,String pwd);
-
         Boolean existsByemail(String email);
         Boolean existsBytel(String tel);
         Boolean existsBynickname(String nickname);
@@ -29,4 +27,6 @@ public interface MembershiptblRepository extends JpaRepository<Membershiptbl,Int
 
         @Query(value = "select * from membershiptbl where membershiptbl.email = :email", nativeQuery = true)
         Membershiptbl email_pwd(@Param("email") String email);
+
+
 }

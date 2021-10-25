@@ -26,7 +26,6 @@ public class SellController {
     @RequestMapping("/sell")
     public String sell() { return "user/sell/sell"; }
 
-
     @RequestMapping(value = "/sell_success",method = RequestMethod.POST, produces ="application/text;charset=UTF-8")
     public ModelAndView sell_success(SellVO vo, HttpServletRequest req) {
         String user = req.getSession().getAttribute("logEmail").toString();
@@ -35,7 +34,7 @@ public class SellController {
         System.out.println(paintingtbl);
         paintingRepository.save(paintingtbl);
         ModelAndView mv = new ModelAndView();
-        mv.setViewName("/sell");
+        mv.setViewName("/sell/sell");
         return mv;
     }
 }
