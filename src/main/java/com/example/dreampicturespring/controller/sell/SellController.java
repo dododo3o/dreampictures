@@ -7,6 +7,7 @@ import com.example.dreampicturespring.vo.SellVO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 import javax.servlet.http.HttpServletRequest;
 
@@ -23,8 +24,10 @@ public class SellController {
     @RequestMapping("/sell")
     public String sell() { return "user/sell/sell"; }
 
-    @RequestMapping("/sell_success")
+    @RequestMapping(value = "/sell_success",method = RequestMethod.POST, produces ="application/text;charset=UTF-8")
     public ModelAndView sell_success(SellVO vo, HttpServletRequest req) {
+        System.out.println(vo);
+        System.out.println("=================");
         String user = req.getSession().getAttribute("logEmail").toString();
         Membershiptbl ms = membershiptblRepository.findByemail(user);
         Paintingtbl paintingtbl = new Paintingtbl(vo,ms.getNo_membership());

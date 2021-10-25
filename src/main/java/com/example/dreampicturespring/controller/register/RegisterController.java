@@ -10,11 +10,9 @@ import com.example.dreampicturespring.vo.RegisterVO2;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.multipart.MultipartFile;
-import org.springframework.web.multipart.MultipartHttpServletRequest;
+import org.springframework.web.bind.annotation.RequestMethod;
 
 import javax.servlet.http.HttpServletRequest;
-import java.io.File;
 import java.io.IOException;
 
 @Controller
@@ -40,8 +38,9 @@ public class RegisterController {
         return "user/register/register2";
     }
 
+
     @RequestMapping("/register_success")
-    public String register_success(HttpServletRequest request,RegisterVO2 vo2) throws IOException {
+    public String register_success(HttpServletRequest request,RegisterVO2 vo2) {
 
         vo.setAddr(vo2.getAddr());
         vo.setAddrdetail(vo2.getDetailAddr());
