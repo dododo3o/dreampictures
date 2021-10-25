@@ -101,18 +101,18 @@
         </div>
         <div style="grid-column: 3/13;display: flex;flex-direction: column;justify-content: space-between;align-items: center;justify-content: space-evenly;">
             <div style="display: flex; width: 100%;justify-content: flex-end; align-items: center">
-                <div style="font-family: 'Gowun Dodum';color:var(--color-chathams-blue);font-size:var(--font-size-xll);padding-top: 30px;
+                <div style="color:var(--color-chathams-blue);font-size:var(--font-size-xll);padding-top: 30px;
     padding-bottom: 25px; padding-right: 31%;">질문과 답변
                 </div>
                 <div tabindex="0" onclick="showModal()">
-                    <button class="ui button" style="font-family: 'Gowun Dodum';">질문하기</button>
+                    <button class="ui button" style="">질문하기</button>
                 </div>
             </div>
             <div style="display:grid;grid-template-columns:repeat(3,1fr);grid-gap:1rem;width:100%;">
                 <c:forEach var="QaVOlist" items="${QaVOlist}">
                     <div class="ui card" style="height: 100%; margin: 0 auto;">
                         <div class="content">
-                            <div class="header" style="font-family: 'Gowun Dodum';font-size: 1.5em">${QaVOlist.category}</div>
+                            <div class="header" style="font-family: 'Gowun Dodum', sans-serif;font-size: 1.5em">${QaVOlist.category}</div>
                         </div>
                         <div class="content">
                             <div style="font-size: 1.3em">작성자 : ${QaVOlist.nickname}<br/>${QaVOlist.content}

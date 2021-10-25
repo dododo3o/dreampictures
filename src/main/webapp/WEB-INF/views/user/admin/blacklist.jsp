@@ -117,7 +117,7 @@
                         <img src="${cardVOlist.avatarimg}">
                     </div>
                     <div class="content">
-                        <a class="header">${cardVOlist.nickname}</a>
+                        <a class="header"  style="font-family: 'Gowun Dodum', sans-serif;">${cardVOlist.nickname}</a>
                         <div class="meta"><span class="date">${cardVOlist.date}</span></div>
                         <div class="description">${cardVOlist.email}</div>
                     </div>
@@ -126,6 +126,50 @@
                     </div>
                 </div>
               </c:forEach>
+
+                <%--            </c:forEach>--%>
+
+                <div class="ui card">
+                    <div class="image">
+                        <img src="${cardVOlist.avatarimg}">
+                    </div>
+                    <div class="content">
+                        <a class="header"  style="font-family: 'Gowun Dodum', sans-serif;">${cardVOlist.nickname}</a>
+                        <div class="meta"><span class="date">${cardVOlist.date}</span></div>
+                        <div class="description">${cardVOlist.email}</div>
+                    </div>
+                    <div class="extra content">
+                        <a><i class="user icon"></i>${cardVOlist.reported}</a>
+                    </div>
+                </div>
+
+                <div class="ui card">
+                    <div class="image">
+                        <img src="${cardVOlist.avatarimg}">
+                    </div>
+                    <div class="content">
+                        <a class="header"  style="font-family: 'Gowun Dodum', sans-serif;">${cardVOlist.nickname}</a>
+                        <div class="meta"><span class="date">${cardVOlist.date}</span></div>
+                        <div class="description">${cardVOlist.email}</div>
+                    </div>
+                    <div class="extra content">
+                        <a><i class="user icon"></i>${cardVOlist.reported}</a>
+                    </div>
+                </div>
+
+                <div class="ui card">
+                    <div class="image">
+                        <img src="${cardVOlist.avatarimg}">
+                    </div>
+                    <div class="content">
+                        <a class="header"  style="font-family: 'Gowun Dodum', sans-serif;">${cardVOlist.nickname}</a>
+                        <div class="meta"><span class="date">${cardVOlist.date}</span></div>
+                        <div class="description">${cardVOlist.email}</div>
+                    </div>
+                    <div class="extra content">
+                        <a><i class="user icon"></i>${cardVOlist.reported}</a>
+                    </div>
+                </div>
             </div>
         </div>
         <div style="display: flex;justify-content: center;padding-top:30px;padding-bottom: 30px;border-top: 1px solid #BDBDBD;">
