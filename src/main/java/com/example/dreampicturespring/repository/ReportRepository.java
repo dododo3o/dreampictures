@@ -16,6 +16,4 @@ public interface ReportRepository extends JpaRepository<Reporttbl,Integer> {
 
     @Query(value = "select reporttbl.no_painting from reporttbl", nativeQuery = true)
     List<Integer> findAllpaint();
-
-
 }

@@ -112,7 +112,7 @@ public class AdminController {
         adminVO.setPerson3(membershiptbls.get(2).getNickname());
         adminVO.setPerson3img(membershiptbls.get(2).getImg());
 
-        emailUtil.sendEmail("tjdrb200@naver.com","스프링 연습이다 마!", "테스트확인");
+//        emailUtil.sendEmail("tjdrb200@naver.com","스프링 연습이다 마!", "테스트확인");
 
         mv.addObject("adminVO",adminVO);
         mv.setViewName("user/admin/main");
