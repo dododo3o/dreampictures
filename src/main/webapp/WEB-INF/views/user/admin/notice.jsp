@@ -138,7 +138,7 @@
             <div class="field">
                 <div class="field">
                     <div style="font-size: var(--font-size-lg);font-family: 'Gowun Dodum';font-weight: bold;padding:5px 0">제목</div>
-                    <input type="text" maxlength="30" id="title" style="border: 1px solid lightblue">
+                    <input type="text" maxlength="30" id="title" style="border: 1px solid lightblue;font-family: 'Gowun Dodum';">
                     <div class="ui" style="font-size: var(--font-size-lg);font-family: 'Gowun Dodum';font-weight: bold;padding:5px 0">공지내용</div>
                     <textarea id="question" maxlength="200"></textarea>
                 </div>
