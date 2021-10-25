@@ -140,7 +140,7 @@
                     <div class="ui horizontal divider">Payment</div>
                     <a class="ui red tag label" style="display: none" id="point"><span>포인트가 부족해요😥</span></a>
                     <div style="display: flex;justify-content: space-around;">
-                        <button class="ui secondary button" style="font-family: 'Gowun Dodum'">뒤로가기</button>
+                        <a href="/buy_picture/<c:out value="${paymentVO.no_painting}"/>"><button class="ui secondary button" style="font-family: 'Gowun Dodum'">뒤로가기</button></a>
                         <button class="ui secondary button" style="font-family: 'Gowun Dodum'" onclick="showCommentModal('<c:out value="${paymentVO.sum}"/>')">결제하기</button>
                     </div>
                 </div>

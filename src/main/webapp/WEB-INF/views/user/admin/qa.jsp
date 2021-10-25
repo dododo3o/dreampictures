@@ -44,7 +44,18 @@
                     url: "/ajax_answer_QA",
                     data: "no_qa=" + no_qa + "&answer=" + answer,
                     success: function (result) {
-                        document.location.href = "/notice";
+                        document.location.href = "/admin/qa";
+                    }
+                });
+            });
+        };
+        deleteQA = function (no_qa) {
+            $(() => {
+                $.ajax({
+                    url: "/ajax_delete_QA",
+                    data: "num=" + no_qa,
+                    success: function (result) {
+                        document.location.href = "/admin/qa";
                     }
                 });
             });
@@ -79,17 +90,12 @@
         <a href="/admin/allmembers" class="w3-bar-item w3-button w3-padding"><i class="fa fa-bullseye fa-fw"></i>  회원현황</a><br><br>
     </div>
 </nav>
-<div class="w3-overlay w3-hide-large w3-animate-opacity" onclick="w3_close()" style="cursor:pointer"
-     title="close side menu" id="myOverlay"></div>
+<div class="w3-overlay w3-hide-large w3-animate-opacity" onclick="w3_close()" style="cursor:pointer" title="close side menu" id="myOverlay"></div>
 <div class="w3-main" style="margin-left:300px; height: 100%">
     <main class="has_bg_harp" style="height: 100%;display: flex;flex-direction: column; justify-content: space-between;">
-
         <div>
-            <div tabindex="0" style="display: flex;justify-content: center;border-bottom: 1px solid #BDBDBD"><h1
-                    style="font-family: 'Gowun Dodum', sans-serif;font-weight: bold;padding: 10px 0px;color:var(--color-chathams-blue);">질문사항</h1>
-            </div>
-            <div class="manager_card"
-                 style="display: grid;grid-template-columns:repeat(4,1fr);grid-gap:1rem;width: 100%;justify-items: center;padding-bottom: 30px">
+            <div tabindex="0" style="display: flex;justify-content: center;border-bottom: 1px solid #BDBDBD"><h1 style="font-family: 'Gowun Dodum', sans-serif;font-weight: bold;padding: 10px 0px;color:var(--color-chathams-blue);">질문사항</h1></div>
+            <div class="manager_card" style="display: grid;grid-template-columns:repeat(4,1fr);grid-gap:1rem;width: 100%;justify-items: center;padding-bottom: 30px">
                 <c:forEach var="QaVOlist" items="${QaVOlist}">
                     <div class="ui card" style="margin:0">
                         <div class="content">
@@ -102,13 +108,11 @@
                         <div class="extra content">
                             <div class="ui large transparent left icon input" style="display: flex;padding-bottom: 5px">
                                 <i class="pencil alternate icon"></i>
-<%--                                <input type="text" maxlength="100" size="20" id="${QaVOlist.no_qa}" placeholder="답변하기..."--%>
-<%--                                       style="font-size: 0.8em;font-weight:bold;font-family: 'Gowun Dodum'"/>--%>
                                 <textarea type="text" maxlength="100" size="20" id="${QaVOlist.no_qa}" placeholder="답변하기..."
                                           style="font-size: 0.8em;font-weight:bold;font-family: 'Gowun Dodum';width:100%;height:60px;resize: none;border: none; "/></textarea>
                             </div>
-                            <button class="ui red basic button" style="font-weight:bold;font-family: 'Gowun Dodum';font-size: 0.8em;float:right;">삭제</button>
-                            <button class="ui primary basic button" style="font-weight:bold;font-family: 'Gowun Dodum';float:right;font-size: 0.8em" onclick="answerQA(${QaVOlist.no_qa})">답변하기</button>
+                            <button class="ui red basic button" onclick="deleteQA(${QaVOlist.no_qa})" style="font-weight:bold;font-family: 'Gowun Dodum';font-size: 0.8em;float:right;">삭제</button>
+                            <button class="ui primary basic button" onclick="answerQA(${QaVOlist.no_qa})" style="font-weight:bold;font-family: 'Gowun Dodum';float:right;font-size: 0.8em" >답변하기</button>
                         </div>
                     </div>
                 </c:forEach>

@@ -147,8 +147,8 @@ public class MypageController {
             CardVO cardVO = new CardVO();
             cardVO.setNo_painting(paintingtbl.getNo_painting().toString());
             Membershiptbl mtbl = membershiptblRepository.getById(paintingtbl.getNo_membership());
-            cardVO.setAvatarimg(mtbl.getImg() + "/avatarimg/avatarimg.jpg");
-            cardVO.setPaintingmimg(mtbl.getImg() + "/paintingimg/" + paintingtbl.getPname() + "/0.jpg");
+            cardVO.setAvatarimg(mtbl.getImg());
+            cardVO.setPaintingmimg(paintingtbl.getUrl());
             cardVO.setNickname(mtbl.getNickname());
             cardVO.setPname(paintingtbl.getPname());
             cardVO.setCommentNumber(commentRepository.countByno_painting(paintingtbl.getNo_painting()));
@@ -189,10 +189,14 @@ public class MypageController {
             CardVO cardVO = new CardVO();
             cardVO.setNo_painting(paintingtbl.getNo_painting().toString());
             Membershiptbl mtbl = membershiptblRepository.getById(paintingtbl.getNo_membership());
-            cardVO.setAvatarimg(mtbl.getImg() + "/avatarimg/avatarimg.jpg");
-            cardVO.setPaintingmimg(mtbl.getImg() + "/paintingimg/" + paintingtbl.getPname() + "/0.jpg");
+            cardVO.setAvatarimg(mtbl.getImg());
+            cardVO.setPaintingmimg(paintingtbl.getUrl());
+            System.out.println(mtbl.getImg());
+            System.out.println(paintingtbl.getUrl());
             cardVO.setNickname(mtbl.getNickname());
             cardVO.setPname(paintingtbl.getPname());
+            cardVO.setWritedate(paintingtbl.getWritedate());
+            cardVO.setPrice(paintingtbl.getPrice());
             cardVO.setCommentNumber(commentRepository.countByno_painting(paintingtbl.getNo_painting()));
             List<String> comments = commentRepository.findCommenttbl(paintingtbl.getNo_painting());
             List<CommentVO> commentVOlist = new ArrayList<>();

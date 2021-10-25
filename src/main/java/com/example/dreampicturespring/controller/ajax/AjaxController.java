@@ -59,15 +59,11 @@ public class AjaxController {
 	public String picture_find(Model model, String pname, String style, String theme, Integer width, Integer height, Integer price, Integer status){
 		/* =======================comment 정보도 받아서 넘겨줘야할 것 같음.======================= */
 		List<Paintingtbl> paintingtbls = paintingRepository.findPainting(makeNotNull(pname),makeNotNull(style),makeNotNull(theme),width,height,price);
-
 		List<Membershiptbl> membershiptbls = new ArrayList<>();
 		List<CardVO> cardVOList = new ArrayList<>();
-
 		for(int i=0;i<paintingtbls.size();i++){ membershiptbls.add(membershiptblRepository.getById(paintingtbls.get(i).getNo_membership())); }
 		for(int i=0;i<paintingtbls.size();i++){ CardVO vo = new CardVO(paintingtbls.get(i),membershiptbls.get(i));cardVOList.add(vo);}
 		model.addAttribute("cardVOlist",cardVOList);
-
-
 /*
 
 
@@ -112,6 +108,21 @@ public class AjaxController {
 		return "user/ajax/picture_find";
 	}
 
+	@RequestMapping(value = "/ajax_picture_finder_soldout",method = RequestMethod.GET, produces ="application/text;charset=UTF-8")
+	public String picture_find_soldout(Model model,String deadline){
+		System.out.println(deadline);
+		List<Paintingtbl> paintingtbls = paintingRepository.findPainting_soldout_deadline(deadline);
+		List<Membershiptbl> membershiptbls = new ArrayList<>();
+		List<CardVO> cardVOList = new ArrayList<>();
+		for(int i=0;i<paintingtbls.size();i++){ membershiptbls.add(membershiptblRepository.getById(paintingtbls.get(i).getNo_membership())); }
+		for(int i=0;i<paintingtbls.size();i++){ CardVO vo = new CardVO(paintingtbls.get(i),membershiptbls.get(i));cardVOList.add(vo);}
+		System.out.println(cardVOList);
+		model.addAttribute("cardVOlist",cardVOList);
+		return "user/ajax/picture_find_soldout";
+	}
+
+
+
 	@RequestMapping(value = "/ajax_pay",method = RequestMethod.GET, produces ="application/text;charset=UTF-8")
 	@ResponseBody
 	public String pay(Model model,Integer point,Integer buyer,Integer seller,Integer paint){
@@ -146,6 +157,13 @@ public class AjaxController {
 		qatbl.setAnswer(answer);
 		qaRepository.save(qatbl);
 		return "redirect:/notice";
+	}
+
+	@RequestMapping(value = "/ajax_delete_QA",method = RequestMethod.GET, produces ="application/text;charset=UTF-8")
+	@ResponseBody
+	public String delete_QA(HttpServletRequest request,Integer num){
+		qaRepository.deleteById(num);
+		return "success";
 	}
 
 	@RequestMapping(value = "/ajax_request_QA",method = RequestMethod.GET, produces ="application/text;charset=UTF-8")

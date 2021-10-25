@@ -37,6 +37,7 @@ public class BuyController {
         ModelAndView mv = new ModelAndView();
         List<CardVO> cardVOList = new ArrayList<>();
         List<String> list = paintingRepository.findAllPainting_Desc();
+
         for(String card : list){
             List<String> obj = Arrays.asList(card.split(","));
             CardVO cardVO = new CardVO();

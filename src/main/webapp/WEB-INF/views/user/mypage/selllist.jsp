@@ -113,18 +113,13 @@
                                      style="object-fit: cover; height: 250px">
                             </div>
                             <div class="content" style="display: flex;justify-content: center;">
-                                <span style="font-size: 1.5em">${cardVOlist.pname}</span><span></span>
+                                <span style="font-size: 1.5em">${cardVOlist.pname}</span>
                             </div>
                             <div class="extra content">
-                                <div class="ui large transparent left icon input" style="display: flex;">
-                                    <i class="pencil alternate icon"></i>
-                                    <input type="text" maxlength="20" size="20" id="${cardVOlist.no_painting}"
-                                           placeholder="글자수 20글자 내 작성"
-                                           style="font-size: 0.8em"/>
+                                <div class="ui large transparent left icon input" style="display: flex;justify-content: space-evenly;">
+                                    <span style="font-size: 1.5em">${cardVOlist.price}</span>
+                                    <span style="font-size: 1.5em">${cardVOlist.writedate}</span>
                                 </div>
-                                <button class="ui blue icon button" onclick="addComment(${cardVOlist.no_painting})"
-                                        style="float: right; font-size: 0.8em;">Add
-                                </button>
                             </div>
                             <div class="ui bottom attached button collapsible"
                                  onclick="flipCard(${cardVOlist.no_painting})"

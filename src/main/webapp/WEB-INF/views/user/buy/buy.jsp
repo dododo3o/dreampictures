@@ -26,7 +26,7 @@
             location.href = "http://localhost:8080/buy_picture/" + num;
         }
 
-        showModal = function () {
+        find_picture = function () {
             $(() => {
                 let pname = document.getElementById("pname").value;
                 let style = document.getElementById("style").value;
@@ -87,22 +87,6 @@
 <jsp:include page="../header_footer/header_not_login.jsp"></jsp:include>
 <% } %>
 <div class="has_bg_harp">
-    <div class="ui tiny modal" id="commentModal">
-        <div class="ui comments">
-            <div class="comment">
-                <a class="avatar">
-                    <img src="">
-                </a>
-                <div class="content">
-                    <a class="author">z</a>
-                    <div class="metadata">
-                        <div class="date">c</div>
-                    </div>
-                    <div class="text">h</div>
-                </div>
-            </div>
-        </div>
-    </div>
     <div class="container">
         <div style="grid-column:1/9;display: flex;flex-direction: column; gap:20px; justify-content: center; margin-top: 70px;">
             <div class="has_chathams-blue" style="font-size: 42px;font-family: 'Gowun Dodum';font-weight: bold">그림드림의
@@ -113,7 +97,7 @@
                     <input type="text" class="has_width_full input_select" id="pname" style="font-family: 'Gowun Dodum';" placeholder="검색어를 입력해주세요."/>
                 </div>
             </form>
-            <button class=" ui blue icon button has_width_full" onclick="showModal()"
+            <button class=" ui blue icon button has_width_full" onclick="find_picture()"
                     style="font-family: 'Gowun Dodum'"><i class="search icon"></i>찾기
             </button>
             <div style="display: flex; gap: 90px;">

@@ -95,14 +95,14 @@ public class AdminController {
         adminVO.setCharacter(paintingRepository.countTheme("character"));
         adminVO.setStill(paintingRepository.countTheme("still"));
         adminVO.setObjet(paintingRepository.countTheme("objet"));
-        adminVO.setWater(paintingRepository.countTheme("water"));
-        adminVO.setOils(paintingRepository.countTheme("oils"));
-        adminVO.setAcrylic(paintingRepository.countTheme("acrylic"));
-        adminVO.setPen(paintingRepository.countTheme("pen"));
-        adminVO.setPencil(paintingRepository.countTheme("pencil"));
-        adminVO.setCrayon(paintingRepository.countTheme("crayon"));
-        adminVO.setGouache(paintingRepository.countTheme("gouache"));
-        adminVO.setPastel(paintingRepository.countTheme("pastel"));
+        adminVO.setWater(paintingRepository.countStyle("water"));
+        adminVO.setOils(paintingRepository.countStyle("oils"));
+        adminVO.setAcrylic(paintingRepository.countStyle("acrylic"));
+        adminVO.setPen(paintingRepository.countStyle("pen"));
+        adminVO.setPencil(paintingRepository.countStyle("pencil"));
+        adminVO.setCrayon(paintingRepository.countStyle("crayon"));
+        adminVO.setGouache(paintingRepository.countStyle("gouache"));
+        adminVO.setPastel(paintingRepository.countStyle("pastel"));
 
         List<Membershiptbl> membershiptbls = membershiptblRepository.findLatest();
         adminVO.setPerson1(membershiptbls.get(0).getNickname());

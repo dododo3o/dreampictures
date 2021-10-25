@@ -30,7 +30,7 @@ public class PaymentVO {
     public PaymentVO(Paintingtbl paintingtbl, Membershiptbl membershiptbl, Membershiptbl sellerMembershiptbl){
         this.no_painting = paintingtbl.getNo_painting();
         this.pname = paintingtbl.getPname();
-        this.paintingimg = sellerMembershiptbl.getImg();;
+        this.paintingimg = paintingtbl.getUrl();
         this.avatarimg = membershiptbl.getImg();
         this.nickname = membershiptbl.getNickname();
         this.email = membershiptbl.getEmail();

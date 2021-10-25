@@ -2,6 +2,8 @@ package com.example.dreampicturespring.vo;
 import com.example.dreampicturespring.entity.Membershiptbl;
 import com.example.dreampicturespring.entity.Paintingtbl;
 import lombok.Data;
+
+import java.time.LocalDate;
 import java.util.List;
 
 @Data
@@ -11,6 +13,8 @@ public class CardVO {
     private String paintingmimg;
     private String nickname;
     private String pname;
+    private LocalDate writedate;
+    private Integer price;
 
     private Integer commentNumber;
     private List<CommentVO> commentVOList;
