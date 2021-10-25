@@ -10,6 +10,8 @@ import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.servlet.ModelAndView;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 import java.util.ArrayList;
@@ -55,7 +57,7 @@ public class AjaxController {
 
 	@RequestMapping(value = "/ajax_picture_finder",method = RequestMethod.GET, produces ="application/text;charset=UTF-8")
 	public String picture_find(Model model, String pname, String style, String theme, Integer width, Integer height, Integer price, Integer status){
-	/* =======================comment 정보도 받아서 넘겨줘야할 것 같음.======================= */
+		/* =======================comment 정보도 받아서 넘겨줘야할 것 같음.======================= */
 		List<Paintingtbl> paintingtbls = paintingRepository.findPainting(makeNotNull(pname),makeNotNull(style),makeNotNull(theme),width,height,price);
 
 		List<Membershiptbl> membershiptbls = new ArrayList<>();
@@ -64,6 +66,49 @@ public class AjaxController {
 		for(int i=0;i<paintingtbls.size();i++){ membershiptbls.add(membershiptblRepository.getById(paintingtbls.get(i).getNo_membership())); }
 		for(int i=0;i<paintingtbls.size();i++){ CardVO vo = new CardVO(paintingtbls.get(i),membershiptbls.get(i));cardVOList.add(vo);}
 		model.addAttribute("cardVOlist",cardVOList);
+
+
+/*
+
+
+		ModelAndView mv = new ModelAndView();
+		List<CommentVO> commentVOList = new ArrayList<>();
+		List<String> list = paintingRepository.findAllPainting_Desc();
+		for(String card : list){
+			List<String> obj = Arrays.asList(card.split(","));
+			CardVO cardVO = new CardVO();
+			cardVO.setNo_painting(obj.get(0));
+			cardVO.setAvatarimg(obj.get(1)+"/avatarimg/avatarimg.jpg");
+			cardVO.setPaintingmimg(obj.get(4));
+			cardVO.setNickname(obj.get(2));
+			cardVO.setPname(obj.get(3));
+			cardVO.setCommentNumber(commentRepository.countByno_painting(Integer.parseInt(obj.get(0))));
+
+			List<String> comments = commentRepository.findCommenttbl(Integer.parseInt(obj.get(0)));
+			List<CommentVO> commentVOlist = new ArrayList<>();
+			for(String comment : comments){
+				List<String> comment_member = Arrays.asList(comment.split(","));
+				CommentVO commentVO = new CommentVO();
+				Integer no_comment = commentRepository.findByNo_comment(Integer.parseInt(comment_member.get(1)),Integer.parseInt(obj.get(0)));
+				Membershiptbl membershiptbl = membershiptblRepository.getById(Integer.parseInt(comment_member.get(1)));
+				commentVO.setNo_comment(no_comment);
+				commentVO.setAvatarimg(membershiptbl.getImg());
+				commentVO.setAuthor(membershiptbl.getNickname());
+				commentVO.setDate("1H");
+				commentVO.setComments(comment_member.get(0));
+				commentVO.setNo_membership(membershiptbl.getNo_membership());
+				commentVOlist.add(commentVO);
+			}
+			cardVO.setCommentVOList(commentVOlist);
+			cardVOList.add(cardVO);
+		}
+		mv.setViewName("user/buy/buy");
+		mv.addObject("cardVOlist",cardVOList);
+
+
+*/
+
+
 		return "user/ajax/picture_find";
 	}
 
@@ -188,7 +233,7 @@ public class AjaxController {
 			commentVO.setComments(obj.get(0));
 			commentVOlist.add(commentVO);
 		}
- 		model.addAttribute("commentVOlist",commentVOlist);
+		model.addAttribute("commentVOlist",commentVOlist);
 		return "user/ajax/comment_find";
 	}
 
