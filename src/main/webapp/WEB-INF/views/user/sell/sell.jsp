@@ -7,7 +7,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>그림드림 | 그림등록</title>
+    <title>Title</title>
     <link rel="stylesheet" href="/resources/css/dreampicturesytle.css">
     <!--고운돋움 글씨체 -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -29,26 +29,6 @@
                 img.setAttribute("src", event.target.result);
                 document.querySelector("div#preview_image").appendChild(img);
             };
-            var file = document.getElementById('image');
-            console.log(file)
-            var form = new FormData();
-            form.append("image", file.files[0])
-            var settings = {
-                "url": "https://api.imgbb.com/1/upload?key=a58b54558814eef28607f69ffed7f06c",
-                "method": "POST",
-                "timeout": 0,
-                "processData": false,
-                "mimeType": "multipart/form-data",
-                "contentType": false,
-                "data": form
-            };
-            $.ajax(settings).done(function (response) {
-                console.log(response);
-                var displayURL = JSON.parse(response);
-                console.log(displayURL.data.url);
-                $("#url").val(displayURL.data.url)
-
-            });
             reader.readAsDataURL(event.target.files[0]);
         }
 
@@ -61,10 +41,12 @@
             var content = $("#contentVal").val();
             var img = $("#image_section").val();
 
+            document.getElementById('frm').submit();
+
+
             var f = document.form;
 
             if (pname != '' && height != '' && width != '' && price != '' && calVal != '' && content != '' && f.style.value !== '' && f.theme.value !== '') {
-                document.getElementById('frm').submit();
                 alert('성공이다');
                 $("#point").css("display", "none");
                 document.location.href = "/buy";
@@ -181,18 +163,17 @@
                         </select>
                     </div>
                 </div>
-                <div class="has_flex_column" style="width:50%;padding-left: 80px;padding-right: 80px;">
-                    <div class="has_flex_center" id="image_container;" style="margin-top: 70px; width: 100%; height: 80%;">
-                        <div id="preview_image">
-                            <%-- 선택한 사진 들어가는 곳--%>
-                        </div>
-                    </div>
-                    <div>
-                        <div><input type="file" onchange="setThumbnail(event);" id="image" style="margin-left: 100px;margin-top: 10px"/></div>
-                    </div>
-                </div>
-                <div style="display: none"><input type="text" id="url" name="url"></div>
-            </div>
+<%--                <div class="has_flex_column" style="width:50%;padding-left: 80px;padding-right: 80px;">--%>
+<%--                    <div class="has_flex_center" id="image_container;" style="margin-top: 70px; width: 100%; height: 80%;">--%>
+<%--                        <div id="preview_image">--%>
+<%--                            &lt;%&ndash; 선택한 사진 들어가는 곳&ndash;%&gt;--%>
+<%--                        </div>--%>
+<%--                    </div>--%>
+<%--                    <div>--%>
+<%--                        <div><input type="file" onchange="setThumbnail(event);" name="filename" id="image" style="margin-left: 100px;margin-top: 10px"/></div>--%>
+<%--                    </div>--%>
+<%--                </div>--%>
+<%--            </div>--%>
         </form>
     </div>
 </main>
