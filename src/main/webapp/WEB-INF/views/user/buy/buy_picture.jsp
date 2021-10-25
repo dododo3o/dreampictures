@@ -77,8 +77,7 @@
                     <div class="has_between" style="display: flex; height: 35px; justify-content: space-around;">
                         <h2 class="ui header" style="font-family: 'Gowun Dodum'">
                             <img src="${paintingVO.avatarimg}"
-                                 style="border-radius: 50%; width: 3em;height: 3em;object-fit: cover;"><c:out
-                                value="${paintingVO.nickname}"/>
+                                 style="border-radius: 50%; width: 3em;height: 3em;object-fit: cover;"><c:out value="${paintingVO.nickname}"/>
                         </h2>
                         <div class="ui vertical red animated button" tabindex="0" onclick="showModal()">
                             <div class="hidden content" style="user-select: auto;">신고하기</div>
@@ -87,8 +86,7 @@
                     </div>
                 </div>
                 <a class="ui blue ribbon label">그림 제목</a>
-                <span style="font-size: 40px; margin: 0 auto;font-family: 'Gowun Dodum'"><c:out
-                        value="${paintingVO.pname}"/></span>
+                <span style="font-size: 40px; margin: 0 auto;font-family: 'Gowun Dodum'"><c:out value="${paintingVO.pname}"/></span>
                 <a class="ui teal ribbon label">그림 설명</a>
                 <div style="padding-left: 35px;padding-right: 35px; font-size: 20px;line-height:30px;"><c:out value="${paintingVO.exp}"/></div>
                 <div style="padding-left: 20px;">등록일 : <c:out value="${paintingVO.writedate}"/></div>
@@ -117,8 +115,7 @@
             </div>
             <div class="has_flex_center" style="width: 60%;">
                 <div style="width: 80%; height: 80%;">
-                    <img src="<c:out value="${paintingVO.paintingimg}"/>"
-                         style="object-fit: cover; width: 100%; height: 100%;">
+                    <img src="<c:out value="${paintingVO.paintingimg}"/>"style="object-fit: cover; width: 100%; height: 100%;">
                 </div>
             </div>
         </div>
