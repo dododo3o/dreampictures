@@ -54,22 +54,22 @@
 <jsp:include page="../header_footer/header_not_login.jsp"></jsp:include>
 <main class="has_bg_harp">
     <div class="ui tiny modal">
-        <div class="header">비밀번호 찾기 <i class="unlock alternate icon"></i></div>
+        <div class="header" style="font-family: 'Gowun Dodum'">비밀번호 찾기 <i class="unlock alternate icon"></i></div>
         <div class="ui form">
             <div class="has_flex_column" style="gap:30px; margin:20px;display: flex;">
                 <div class="ui input"><input class="find_pwd" id="find_email" type="text" placeholder="이메일을 입력해주세요."
-                                             style="user-select: auto;"></div>
+                                             style="font-family: 'Gowun Dodum';user-select: auto;"></div>
                 <div class="ui input"><input class="find_pwd" id="find_tel" type="text" placeholder="연락처를 입력해주세요."
-                                             style="user-select: auto;"></div>
+                                             style="font-family: 'Gowun Dodum';user-select: auto;"></div>
             </div>
         </div>
         <div class="actions" style="background-color: #95afc0">
-            <div class="ui positive right labeled icon button" style="background-color: var(--color-metallic-blue)"
+            <div class="ui positive right labeled icon button" style="font-family: 'Gowun Dodum';background-color: var(--color-metallic-blue)"
                  onclick="find_pwd_btn()">
                 보내기<%--todo--%>
                 <i class="checkmark icon"></i>
             </div>
-            <div class="ui positive right labeled icon button" style="background-color: var(--color-brandy-rose)"
+            <div class="ui positive right labeled icon button" style="font-family: 'Gowun Dodum';background-color: var(--color-brandy-rose)"
                  onclick="">
                 닫기
                 <i class="checkmark icon"></i>

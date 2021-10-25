@@ -80,20 +80,20 @@
 <main class="has_bg_harp">
     <div class="ui tiny modal">
         <i class="close icon"></i>
-        <div class="header">구매하시겠습니까?</div>
+        <div class="header" style="font-family: 'Gowun Dodum';">구매하시겠습니까?</div>
         <div class="image content">
             <div class="description">
-                <div class="ui header">구매제품명: <c:out value="${paymentVO.pname}"/> </div>
+                <div class="ui header" style="font-family: 'Gowun Dodum';">구매제품명: <c:out value="${paymentVO.pname}"/> </div>
                 <p>가격: <c:out value="${paymentVO.price}"/></p>
                 <p>차액포인트: <c:out value="${paymentVO.sum}"/></p>
             </div>
         </div>
         <div class="actions">
             <div class="ui black deny button">
-                아니요
+                <span>아니요</span>
             </div>
             <div class="ui positive right labeled icon button" onclick="pay(<c:out value="${paymentVO.price}"/>,<c:out value="${paymentVO.buyer_no_member}"/>,<c:out value="${paymentVO.seller_no_member}"/>,<c:out value="${paymentVO.no_painting}"/>)">
-                네 구매할게요!
+                <span>네 구매할게요!</span>
                 <i class="checkmark icon"></i>
             </div>
         </div>
