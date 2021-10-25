@@ -39,39 +39,38 @@
                 <div class="extra content">
                     <div class="ui large transparent left icon input" style="display: flex;">
                         <i class="pencil alternate icon"></i>
-                        <input type="text" maxlength="20" size="20" id="${cardVOlist.no_painting}"
+                        <input type="text" maxlength="20" size="20" id="input${cardVOlist.no_painting}"
                                placeholder="글자수 20글자 내 작성"
                                style="font-size: 0.8em"/>
                     </div>
-                    <button class="ui blue icon button" onclick="addComment(${cardVOlist.no_painting})"
+                    <button class="ui blue icon button" onclick="addComment('input' + ${cardVOlist.no_painting})"
                             style="float: right; font-size: 0.8em;">Add
                     </button>
-                    <button class="ui blue icon button" onclick="showCommentModal()"
-                            style="float: right; font-size: 0.8em;">zxc
-                    </button>
                 </div>
-                <div class="ui bottom attached button collapsible" onclick="flipCard(${cardVOlist.no_painting})"
-                     style="z-index: 1;">
+                <div class="ui bottom attached button collapsible" onclick="flipCard(${cardVOlist.no_painting})">
                     <i class="add icon"></i>
                     <span><i class="comment icon"></i>${cardVOlist.commentNumber}</span>
                 </div>
             </div>
-            <div class="ui comments flip-card-back">
+            <div class="ui comments flip-card-back" style="display: flex;user-select: auto;margin: 0;flex-direction: column;justify-content: space-between;">
+               <div>
                 <c:forEach var="commentVOList" items="${cardVOlist.commentVOList}">
-                    <div class="">
+                    <div style=" background-color:var(--color-albescent-white)">
                         <h5 class="ui header" style="user-select: auto; margin: 10px;">
                             <div style="display: flex;align-items: center;justify-content: space-between;">
                                 <img src="${commentVOList.avatarimg}"
                                      style="border-radius: 50%; height:40px; width:40px;object-fit: cover;">
                                 <span class="author"
                                       style="margin-left: 10px; font-size: 1.5em">${commentVOList.author}</span>
-                                <button class="ui red icon button" onclick="" style="font-size: 0.5em">X
+                                <button class="ui red icon button" onclick="reply_delete(${commentVOList.no_comment})" style="font-size: 0.5em">X
                                 </button>
                             </div>
-                            <div class="text" style="margin: 10px;">${commentVOList.comments}</div>
+                            <div class="text"
+                                 style="margin: 10px;">${commentVOList.comments}</div>
                         </h5>
                     </div>
                 </c:forEach>
+               </div>
                 <div class="ui button bottom attached collapsible"
                      onclick="closeCard(${cardVOlist.no_painting})" id="close_btn">
                     <i class="large close icon icon"></i>

@@ -43,13 +43,15 @@
 
             var f = document.form;
 
-            if (pname != '' && height != '' && width != '' && price != '' && calVal != '' && content != '' && img != '' && f.style.value !== '' && f.theme.value !== '') {
+            if (pname != '' && height != '' && width != '' && price != '' && calVal != '' && content != '' && f.style.value !== '' && f.theme.value !== '') {
                 document.getElementById('frm').submit();
+                alert('성공이다');
+                $("#point").css("display", "none");
+                document.location.href = "/buy";
             } else {
                 $("#point").css("display", "block");
             }
         }
-
         function heightMaxLength(e) {
             if (e.value.length > e.maxLength) {
                 e.value = e.value.slice(0, e.maxLength);
@@ -67,6 +69,7 @@
                 e.value = e.value.slice(0, e.maxLength);
             }
         }
+
         function MaxLength(e){//작품설명 최대 입력 수 200
             if(e.value.length > e.maxLength){
                 e.value = e.value.slice(0, e.maxLength);

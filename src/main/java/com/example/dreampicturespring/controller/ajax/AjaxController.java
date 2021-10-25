@@ -59,7 +59,7 @@ public class AjaxController {
 
 	@RequestMapping(value = "/ajax_picture_finder",method = RequestMethod.GET, produces ="application/text;charset=UTF-8")
 	public String picture_find(Model model, String pname, String style, String theme, Integer width, Integer height, Integer price, Integer status){
-
+	/* =======================comment 정보도 받아서 넘겨줘야할 것 같음.======================= */
 		List<Paintingtbl> paintingtbls = paintingRepository.findPainting(makeNotNull(pname),makeNotNull(style),makeNotNull(theme),width,height,price);
 		List<Membershiptbl> membershiptbls = new ArrayList<>();
 		List<CardVO> cardVOList = new ArrayList<>();
@@ -182,16 +182,22 @@ public class AjaxController {
 
 	@RequestMapping(value = "/ajax_comment_add",method = RequestMethod.GET, produces ="application/text;charset=UTF-8")
 	public String comment_add(Model model,HttpServletRequest request,String comment,Integer no_painting){
-		System.out.println(comment + no_painting);
+		System.out.println(comment + no_painting+"ㅁㅁㅁㅁ");
 		HttpSession session =request.getSession();
+
 		Membershiptbl membershipTBL = membershiptblRepository.findByemail((String) session.getAttribute("logEmail"));
-		if(membershipTBL ==null){ return "user/redirect/not_login"; }
+		System.out.println(comment + no_painting);
+		if(membershipTBL == null){ return "user/redirect/not_login";}
+
+		System.out.println("=======3333====="+comment+"=============");
 		Commentstbl commentstbl = new Commentstbl();
 		commentstbl.setNo_membership(membershipTBL.getNo_membership());
+		System.out.println("=====2222======="+comment+"=============");
 		commentstbl.setComments(comment);
 		commentstbl.setNo_painting(no_painting);
 		System.out.println(commentstbl);
 		commentRepository.save(commentstbl);
+		System.out.println("============"+comment+"=============");
 
 		return "redirect:/buy";
 	}
