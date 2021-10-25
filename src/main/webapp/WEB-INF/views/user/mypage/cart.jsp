@@ -78,7 +78,7 @@
                 </div>
             </div>
         </div>
-        <div style="height:100%;grid-column: 3/13;display: flex;flex-direction: column;align-items: center;flex-wrap: nowrap;">
+        <div style="grid-column: 3/13;display: flex;flex-direction: column;align-items: center;justify-content: space-between;">
             <!-- 추가요소 있으면 이 안에 넣기-->
             <div style="color:var(--color-chathams-blue);font-size:var(--font-size-xll);padding-top:63px;padding-bottom: 25px;">
                 장바구니
