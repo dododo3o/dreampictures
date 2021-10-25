@@ -35,7 +35,7 @@ public class SellController {
         System.out.println(paintingtbl);
         paintingRepository.save(paintingtbl);
         ModelAndView mv = new ModelAndView();
-        mv.setViewName("redirect:/");
+        mv.setViewName("/sell");
         return mv;
     }
 }
