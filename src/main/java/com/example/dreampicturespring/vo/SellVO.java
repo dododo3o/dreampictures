@@ -9,7 +9,7 @@ public class SellVO {
     private Integer height;
     private Integer width;
     private Integer price;
-    private Date production;
+    private String production;
     private String exp;
     private String url;
 

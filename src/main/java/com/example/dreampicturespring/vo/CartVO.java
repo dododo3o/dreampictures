@@ -6,7 +6,7 @@ public class CartVO {
     private Integer no_cart;
     private Integer no_membership;
     private Integer no_painting;
-    private Date writedate;
+    private String writedate;
     private Integer totalprice;
 
     public CartVO(){ }

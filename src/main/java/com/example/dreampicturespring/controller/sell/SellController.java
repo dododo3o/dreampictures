@@ -27,23 +27,13 @@ public class SellController {
     public String sell() { return "user/sell/sell"; }
 
 
-    @RequestMapping(value = "/sell_success", method = RequestMethod.POST)
-    public ModelAndView sell_success(String pname, Integer height, Integer width, Integer price, String production, String exp,String style, String theme, HttpServletRequest req)  throws IOException {
+    @RequestMapping(value = "/sell_success",method = RequestMethod.POST, produces ="application/text;charset=UTF-8")
+    public ModelAndView sell_success(SellVO vo, HttpServletRequest req) {
         String user = req.getSession().getAttribute("logEmail").toString();
-        System.out.println(pname);
-        System.out.println(height);
-        System.out.println(width);
-        System.out.println(price);
-        System.out.println(production);
-        System.out.println(exp);
-        System.out.println(style);
-        System.out.println(theme);
-
         Membershiptbl ms = membershiptblRepository.findByemail(user);
-        System.out.println(user);
-//        Paintingtbl paintingtbl = new Paintingtbl(vo,ms.getNo_membership());
-//        System.out.println("patingtbl"+paintingtbl);
-//        paintingRepository.save(paintingtbl);
+        Paintingtbl paintingtbl = new Paintingtbl(vo,ms.getNo_membership());
+        System.out.println(paintingtbl);
+        paintingRepository.save(paintingtbl);
         ModelAndView mv = new ModelAndView();
         mv.setViewName("redirect:/");
         return mv;
