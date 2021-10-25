@@ -81,13 +81,11 @@
                 </div>
             </div>
         </div>
-        <div style="grid-column: 3/13;display: flex;flex-direction: column;justify-content: space-between;align-items: center;justify-content: space-evenly">
+        <div style="height:100%;grid-column: 3/13;display: flex;flex-direction: column;justify-content: space-between;align-items: center;padding-top:63px;padding-bottom: 25px;">
             <!-- 추가요소 있으면 이 안에 넣기-->
-            <div style="color:var(--color-chathams-blue);font-size:var(--font-size-xll);padding-top: 30px;
-    padding-bottom: 25px;">질문내역
-            </div>
+            <div style="color:var(--color-chathams-blue);font-size:var(--font-size-xll);">질문내역</div>
             <c:forEach var="cardVOlist" items="${cardVOlist}">
-                <div style="display:grid;grid-template-columns:repeat(3,1fr);grid-gap:1rem;width:100%;">
+                <div style="display:grid;grid-template-columns:repeat(4,1fr);grid-gap:1rem;width:100%;">
                     <div class="ui card" style="height: 100%; margin: 0 auto;">
                         <div class="content"
                              style=" display: flex; flex-direction: row; justify-content: space-evenly; align-items: center;">
@@ -106,6 +104,7 @@
                     <div class="content" style="font-size: 1.3em">답변내용 : <br/>${QaVOlist.answer}</div>
                 </div>
             </c:forEach>
+
             <div>
                 <div class="container"
                      style="display: flex;justify-content: center;margin-top:30px;padding-bottom: 30px;">
