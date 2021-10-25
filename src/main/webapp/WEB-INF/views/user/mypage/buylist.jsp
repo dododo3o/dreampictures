@@ -66,7 +66,7 @@
                 </div>
             </div>
             <div class="ui vertical animated button" tabindex="0" onclick="showModal()">
-                <div class="hidden content"><a href="/selllist">판매내역</a></div>
+                <div class="hidden content"><a href="/selllist">전시내역</a></div>
                 <div class="visible content">
                     <i class="orange shipping fast icon"></i>
                 </div>
@@ -96,7 +96,7 @@
                 구매내역
             </div>
             <div style="display:flex;grid-template-columns: repeat(4,1fr); grid-gap: 1rem; width: 100%;flex-wrap: wrap">
-            <c:forEach var="cardVOlist" items="${cardVOlist}">
+                <c:forEach var="cardVOlist" items="${cardVOlist}">
                 <div class="flip-card">
                     <div class="flip-card-inner" id="${cardVOlist.no_painting}" style="border-radius: 5px;">
                         <div class="ui card flip-card-front" style="height: 100%; margin: 0 auto;">
@@ -127,7 +127,7 @@
                                          style="object-fit: cover; height: 250px">
                                 </div>
                                 <div class="content" style="display: flex;justify-content: center;">
-                                    <span style="font-size: 1.5em">${cardVOlist.pname}</span><span></span>
+                                    <span style="font-size: 1.5em">${cardVOlist.pname}</span>
                                 </div>
                                 <div class="extra content">
                                     <div class="ui large transparent left icon input" style="display: flex;">
@@ -168,33 +168,34 @@
                             </div>
                         </div>
                     </div>
-                </c:forEach>
-                <div>
-                    <div class="container"
-                         style="display: flex;justify-content: center;margin-top:30px;padding-bottom: 30px;">
-                        <div style="margin-right: 40px;">
-                            <div class="ui animated button" tabindex="0"
-                                 style="color:var(--color-white);background-color: var(--color-chathams-blue);">
-                                <div class="visible content">Perv</div>
-                                <div class="hidden content">
-                                    <i class="left arrow icon"></i>
-                                </div>
-                            </div>
-                            <c:forEach var="i" begin="1" end="${pageNum}">
+                    </c:forEach>
+                    <div>
+                        <div class="container"
+                             style="display: flex;justify-content: center;margin-top:30px;padding-bottom: 30px;">
+                            <div style="margin-right: 40px;">
                                 <div class="ui animated button" tabindex="0"
                                      style="color:var(--color-white);background-color: var(--color-chathams-blue);">
-                                    <div class="visible content">${i}</div>
-                                    <div class="hidden content">${i}</div>
+                                    <div class="visible content">Perv</div>
+                                    <div class="hidden content">
+                                        <i class="left arrow icon"></i>
+                                    </div>
                                 </div>
-                            </c:forEach>
-                            <div class="ui animated button" tabindex="0"
-                                 style="color:var(--color-white);background-color: var(--color-chathams-blue);">
-                                <div class="visible content">Next</div>
-                                <div class="hidden content">
-                                    <i class="right arrow icon"></i>
+                                <c:forEach var="i" begin="1" end="${pageNum}">
+                                    <div class="ui animated button" tabindex="0"
+                                         style="color:var(--color-white);background-color: var(--color-chathams-blue);">
+                                        <div class="visible content">${i}</div>
+                                        <div class="hidden content">${i}</div>
+                                    </div>
+                                </c:forEach>
+                                <div class="ui animated button" tabindex="0"
+                                     style="color:var(--color-white);background-color: var(--color-chathams-blue);">
+                                    <div class="visible content">Next</div>
+                                    <div class="hidden content">
+                                        <i class="right arrow icon"></i>
+                                    </div>
                                 </div>
+                                <br>
                             </div>
-                            <br>
                         </div>
                     </div>
                 </div>
