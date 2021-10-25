@@ -28,6 +28,7 @@ public class SellController {
         String user = req.getSession().getAttribute("logEmail").toString();
         Membershiptbl ms = membershiptblRepository.findByemail(user);
         Paintingtbl paintingtbl = new Paintingtbl(vo,ms.getNo_membership());
+        System.out.println(paintingtbl);
         paintingRepository.save(paintingtbl);
         ModelAndView mv = new ModelAndView();
         mv.setViewName("redirect:/");
