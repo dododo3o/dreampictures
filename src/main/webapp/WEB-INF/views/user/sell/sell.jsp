@@ -69,7 +69,6 @@
             }
         }
 
-        document.location.href = "/buy";
 
         function heightMaxLength(e) {
             if (e.value.length > e.maxLength) {
