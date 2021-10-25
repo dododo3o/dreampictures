@@ -74,6 +74,7 @@
         function closeCard(num) {
             $('#' + num).css("transform", "rotateY(0deg)");
         }
+
     </script>
 </head>
 <body>
@@ -190,9 +191,6 @@
                                     onclick="addComment('input' + ${cardVOlist.no_painting})"
                                     style="float: right; font-size: 0.8em;font-family:'Gowun Dodum',sans-serif;">Add
                             </button>
-                            <button class="ui blue icon button" onclick="showCommentModal()"
-                                    style="float: right; font-size: 0.8em;font-family:'Gowun Dodum',sans-serif;">zxc
-                            </button>
                         </div>
                         <div class="ui bottom attached button collapsible" onclick="flipCard(${cardVOlist.no_painting})">
                             <i class="add icon"></i>
@@ -267,7 +265,7 @@
                 data: "num=" + num,
                 success: function (result) {
                     alert('댓글이 삭제되었습니다.');
-                    document.location.href = "/redirect:/buy";
+                    document.location.href = "/buy";
                 }
             });
         });

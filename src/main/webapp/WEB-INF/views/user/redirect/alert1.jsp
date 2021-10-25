@@ -19,7 +19,7 @@
     var message = "${msg}";
     var url = "${url}";
     alert(message);
-    document.location.href = url;
+    document.location.href = "/login";
 </script>
 </body>
 </html>

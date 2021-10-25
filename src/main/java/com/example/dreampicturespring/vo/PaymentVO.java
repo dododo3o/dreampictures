@@ -1,7 +1,10 @@
 package com.example.dreampicturespring.vo;
 import com.example.dreampicturespring.entity.Membershiptbl;
 import com.example.dreampicturespring.entity.Paintingtbl;
+import lombok.Data;
+
 import java.util.Date;
+@Data
 public class PaymentVO {
     private Integer no_painting;
     private String pname;

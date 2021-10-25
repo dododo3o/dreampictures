@@ -117,7 +117,7 @@
                         <img src="${cardVOlist.avatarimg}">
                     </div>
                     <div class="content">
-                        <a class="header">${cardVOlist.nickname}</a>
+                        <a class="header"  style="font-family: 'Gowun Dodum', sans-serif;">${cardVOlist.nickname}</a>
                         <div class="meta"><span class="date">${cardVOlist.date}</span></div>
                         <div class="description">${cardVOlist.email}</div>
                     </div>
@@ -133,7 +133,7 @@
                         <img src="${cardVOlist.avatarimg}">
                     </div>
                     <div class="content">
-                        <a class="header">${cardVOlist.nickname}</a>
+                        <a class="header"  style="font-family: 'Gowun Dodum', sans-serif;">${cardVOlist.nickname}</a>
                         <div class="meta"><span class="date">${cardVOlist.date}</span></div>
                         <div class="description">${cardVOlist.email}</div>
                     </div>
@@ -147,7 +147,7 @@
                         <img src="${cardVOlist.avatarimg}">
                     </div>
                     <div class="content">
-                        <a class="header">${cardVOlist.nickname}</a>
+                        <a class="header"  style="font-family: 'Gowun Dodum', sans-serif;">${cardVOlist.nickname}</a>
                         <div class="meta"><span class="date">${cardVOlist.date}</span></div>
                         <div class="description">${cardVOlist.email}</div>
                     </div>
@@ -161,7 +161,7 @@
                         <img src="${cardVOlist.avatarimg}">
                     </div>
                     <div class="content">
-                        <a class="header">${cardVOlist.nickname}</a>
+                        <a class="header"  style="font-family: 'Gowun Dodum', sans-serif;">${cardVOlist.nickname}</a>
                         <div class="meta"><span class="date">${cardVOlist.date}</span></div>
                         <div class="description">${cardVOlist.email}</div>
                     </div>
