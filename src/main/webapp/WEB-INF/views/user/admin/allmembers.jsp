@@ -112,7 +112,7 @@
                 <c:forEach var="memberVOList" items="${memberVOList}">
                     <div class="ui card">
                         <div class="content" >
-                            <img class="ui avatar image" src="${memberVOList.avatarimg}"><a class="header" style="display: inline">닉네임:${memberVOList.nickname}</a>
+                            <img class="ui avatar image" src="${memberVOList.avatarimg}"><a class="header" style="display: inline;font-family: 'Gowun Dodum'">닉네임:${memberVOList.nickname}</a>
                             <div class="meta"><span class="date">신고당한 횟수:${memberVOList.reported}</span></div>
                             <div class="description">주소:${memberVOList.addr}</div>
                             <div class="description">전화번호:${memberVOList.tel}</div>

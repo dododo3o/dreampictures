@@ -76,13 +76,13 @@
             </div>
         </div>
         <div style="grid-column: 3/13;display: flex;flex-direction: column;align-items: center;">
-            <div style="font-family:'BMHANNAPro';color:var(--color-chathams-blue);font-size:var(--font-size-xll);padding-top: 30px;
+            <div style="font-family: 'Gowun Dodum';color:var(--color-chathams-blue);font-size:var(--font-size-xll);padding-top: 30px;
     padding-bottom: 25px;">공지사항</div>
             <div class="manager_card" style="display: grid;grid-template-columns:repeat(3,1fr);grid-gap:1rem;width: 100%;">
                 <c:forEach var="noticeVOList" items="${noticeVOList}">
                     <div class="ui card" style="height: 100%; margin: 0 auto;">
                         <div class="content" style="height: 100%; margin: 0 auto;">
-                            <div class="header">${noticeVOList.title}</div>
+                            <div class="header" style="font-family: 'Gowun Dodum';">${noticeVOList.title}</div>
                             <div class="meta">${noticeVOList.writedate}</div>
                             <div class="description"><p>${noticeVOList.content}</p></div>
                         </div>
