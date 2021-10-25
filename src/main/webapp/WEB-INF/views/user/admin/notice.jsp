@@ -92,7 +92,7 @@
                     <c:forEach var="noticeVOList"  items="${noticeVOList}">
                         <div class="ui card" style="height: 350px; margin: 0 auto;">
                             <div class="content" style="height: 100%; margin: 0 auto;">
-                                <div class="header">${noticeVOList.title}</div>
+                                <div class="header" style="font-family: 'Gowun Dodum'">${noticeVOList.title}</div>
                                 <div class="meta">${noticeVOList.writedate}</div>
                                 <div class="description"><p>${noticeVOList.content}</p></div>
                             </div>
@@ -137,9 +137,9 @@
         <div class="ui form">
             <div class="field">
                 <div class="field">
-                    <div style="font-size: var(--font-size-lg);font-family: 'Gowun Dodum';font-weight: bold;">제목</div>
+                    <div style="font-size: var(--font-size-lg);font-family: 'Gowun Dodum';font-weight: bold;padding:5px 0">제목</div>
                     <input type="text" maxlength="30" id="title" style="border: 1px solid lightblue">
-                    <div class="ui" style="font-size: var(--font-size-lg);font-family: 'Gowun Dodum';font-weight: bold;">공지내용</div>
+                    <div class="ui" style="font-size: var(--font-size-lg);font-family: 'Gowun Dodum';font-weight: bold;padding:5px 0">공지내용</div>
                     <textarea id="question" maxlength="200"></textarea>
                 </div>
             </div>
