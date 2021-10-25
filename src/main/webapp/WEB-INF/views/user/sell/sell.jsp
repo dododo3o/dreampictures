@@ -66,8 +66,8 @@
             if (pname != '' && height != '' && width != '' && price != '' && calVal != '' && content != '' && f.style.value !== '' && f.theme.value !== '') {
                 document.getElementById('frm').submit();
                 alert('성공이다');
-                $("#point").css("display", "none");
-                document.location.href = "/buy";
+                // $("#point").css("display", "none");
+                // document.location.href = "/buy";
             } else {
                 $("#point").css("display", "block");
             }
@@ -119,7 +119,7 @@
                             <div style="display: flex;">
                                 <i class="big edit outline icon" style="user-select: auto;"></i>
                                 <div class="content" style="display: flex;">
-                                    <input class="painting_input" id="pnameVal" type="text" placeholder="작품명">
+                                    <input class="painting_input" id="pnameVal" name="pname" type="text" placeholder="작품명">
                                 </div>
                             </div>
                         </div>
@@ -127,7 +127,7 @@
                             <div style="user-select: auto; display: flex;">
                                 <i class="big long arrow alternate up icon" style="user-select: auto;"></i>
                                 <div class="content" style="display: flex;">
-                                    <input class="painting_input" id="heightVal" type="number" oninput="heightMaxLength(this)" placeholder="높이 (cm) 최대 200CM" max="200" maxlength="3">
+                                    <input class="painting_input" id="heightVal" name="height" type="number" oninput="heightMaxLength(this)" placeholder="높이 (cm) 최대 200CM" max="200" maxlength="3">
                                 </div>
                             </div>
                         </div>
@@ -135,7 +135,7 @@
                             <div style="user-select: auto; display: flex;">
                                 <i class="big long arrow alternate right icon" style="user-select: auto;"></i>
                                 <div class="content" style="display: flex;">
-                                    <input class="painting_input" id="widthVal" type="number" oninput="widthMaxLength(this)" placeholder="너비 (cm) 최대 200CM" max="200" maxlength="3">
+                                    <input class="painting_input" id="widthVal" name="width" type="number" oninput="widthMaxLength(this)" placeholder="너비 (cm) 최대 200CM" max="200" maxlength="3">
                                 </div>
                             </div>
                         </div>
@@ -143,7 +143,7 @@
                             <div style="display: flex;">
                                 <i class="big won sign icon" style="user-select: auto;"></i>
                                 <div class="content" style="display: flex;">
-                                    <input class="painting_input" id="priceVal" type="number" oninput="priceMaxLength(this)" placeholder="가격 (원) 최대 10 만원" max="100000" maxlength="6">
+                                    <input class="painting_input" id="priceVal" name="price" type="number" oninput="priceMaxLength(this)" placeholder="가격 (원) 최대 10 만원" max="100000" maxlength="6">
                                 </div>
                             </div>
                         </div>
@@ -152,7 +152,7 @@
                         <div class="ui list has_flex_column has_font-base" style="display: flex; ">
                             <div style=" display: flex;">
                                 <div class="content" style="display: flex;width: 100%;">
-                                    <textarea class="painting_input" id="contentVal" placeholder="작품설명 200글자 내외로 입력해주세요" oninput="MaxLength(this)" maxlength="100" style="resize: none; height: 60px;width: 100%;"></textarea>
+                                    <textarea class="painting_input" id="contentVal" name="exp" placeholder="작품설명 200글자 내외로 입력해주세요" oninput="MaxLength(this)" maxlength="100" style="resize: none; height: 60px;width: 100%;"></textarea>
                                 </div>
                             </div>
                         </div>
@@ -188,7 +188,7 @@
                         </div>
                     </div>
                     <div>
-                        <div><input type="file" onchange="setThumbnail(event);" name="filename" id="image" style="margin-left: 100px;margin-top: 10px"/></div>
+                        <div><input type="file" onchange="setThumbnail(event);" id="image" style="margin-left: 100px;margin-top: 10px"/></div>
                     </div>
                 </div>
                 <div style="display: none"><input type="text" id="url" name="url"></div>

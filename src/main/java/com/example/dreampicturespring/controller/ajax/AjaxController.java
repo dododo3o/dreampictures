@@ -166,7 +166,7 @@ public class AjaxController {
 			List<String> obj = Arrays.asList(comment.split(","));
 			Membershiptbl membershiptb = membershiptblRepository.getById(Integer.parseInt(obj.get(1)));
 			CommentVO commentVO = new CommentVO();
-			commentVO.setAvatarimg(membershiptb.getImg()+"/avatarimg/avatarimg.jpg");
+			commentVO.setAvatarimg(membershiptb.getImg());
 			commentVO.setAuthor(membershiptb.getNickname());
 			commentVO.setDate("1H");
 			commentVO.setComments(obj.get(0));

@@ -55,7 +55,7 @@ public class BuyController {
                 Integer no_comment = commentRepository.findByNo_comment(Integer.parseInt(comment_member.get(1)),Integer.parseInt(obj.get(0)));
                 Membershiptbl membershiptbl = membershiptblRepository.getById(Integer.parseInt(comment_member.get(1)));
                 commentVO.setNo_comment(no_comment);
-                commentVO.setAvatarimg(membershiptbl.getImg()+"/avatarimg/avatarimg.jpg");
+                commentVO.setAvatarimg(membershiptbl.getImg());
                 commentVO.setAuthor(membershiptbl.getNickname());
                 commentVO.setDate("1H");
                 commentVO.setComments(comment_member.get(0));
@@ -98,9 +98,11 @@ public class BuyController {
         }
         Optional<Paintingtbl> PTBL = paintingRepository.findById(Integer.parseInt(no_painting));
         Paintingtbl paintingTBL = PTBL.get();
+
         Optional<Membershiptbl> sellerMembershipTBL = membershiptblRepository.findById((paintingTBL.getNo_membership()));
         Membershiptbl sellerMembershiptbl = sellerMembershipTBL.get();
         Membershiptbl membershipTBL = membershiptblRepository.findByemail((String) session.getAttribute("logEmail"));
+
         PaymentVO paymentVO = new PaymentVO(paintingTBL,membershipTBL,sellerMembershiptbl);
         mv.addObject("paymentVO",paymentVO);
         return mv;
@@ -117,9 +119,11 @@ public class BuyController {
         }
         Optional<Paintingtbl> PTBL = paintingRepository.findById(Integer.parseInt(no_painting));
         Paintingtbl paintingTBL = PTBL.get();
+
         Optional<Membershiptbl> sellerMembershipTBL = membershiptblRepository.findById((paintingTBL.getNo_membership()));
         Membershiptbl sellerMembershiptbl = sellerMembershipTBL.get();
         Membershiptbl buyerMembershipTBL = membershiptblRepository.findByemail((String) session.getAttribute("logEmail"));
+
         TransactionVO transactionVO = new TransactionVO(paintingTBL,sellerMembershiptbl,buyerMembershipTBL);
         mv.addObject("transactionVO",transactionVO);
         return mv;
@@ -146,6 +150,7 @@ public class BuyController {
         for(int i=0;i<paintingtbls.size();i++){ membershiptbls.add(membershiptblRepository.getById(paintingtbls.get(i).getNo_membership())); }
         for(int i=0;i<paintingtbls.size();i++){ CardVO vo = new CardVO(paintingtbls.get(i),membershiptbls.get(i));cardVOList.add(vo);}
         model.addAttribute("cardVOlist",cardVOList);
+
         return "user/ajax/picture_find";
     }
 }

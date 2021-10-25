@@ -106,11 +106,11 @@ public class AdminController {
 
         List<Membershiptbl> membershiptbls = membershiptblRepository.findLatest();
         adminVO.setPerson1(membershiptbls.get(0).getNickname());
-        adminVO.setPerson1img(membershiptbls.get(0).getImg()+"/avatarimg/avatarimg.jpg");
+        adminVO.setPerson1img(membershiptbls.get(0).getImg());
         adminVO.setPerson2(membershiptbls.get(1).getNickname());
-        adminVO.setPerson2img(membershiptbls.get(1).getImg()+"/avatarimg/avatarimg.jpg");
+        adminVO.setPerson2img(membershiptbls.get(1).getImg());
         adminVO.setPerson3(membershiptbls.get(2).getNickname());
-        adminVO.setPerson3img(membershiptbls.get(2).getImg()+"/avatarimg/avatarimg.jpg");
+        adminVO.setPerson3img(membershiptbls.get(2).getImg());
 
         emailUtil.sendEmail("tjdrb200@naver.com","스프링 연습이다 마!", "테스트확인");
 
@@ -193,7 +193,7 @@ public class AdminController {
                 List<String> comment_member = Arrays.asList(comment.split(","));
                 Membershiptbl membershiptbl = membershiptblRepository.getById(Integer.parseInt(comment_member.get(1)));
                 CommentVO commentVO = new CommentVO();
-                commentVO.setAvatarimg(membershiptbl.getImg()+"/avatarimg/avatarimg.jpg");
+                commentVO.setAvatarimg(membershiptbl.getImg());
                 commentVO.setAuthor(membershiptbl.getNickname());
                 commentVO.setDate("1H");
                 commentVO.setComments(comment_member.get(0));
@@ -218,7 +218,7 @@ public class AdminController {
         List<MemberVO> memberVOList = new ArrayList<>();
         for(Membershiptbl members : memberAllTBL){
             MemberVO vo = new MemberVO();
-            vo.setAvatarimg(members.getImg()+"/avatarimg/avatarimg.jpg");
+            vo.setAvatarimg(members.getImg());
             vo.setNickname(members.getNickname());
             vo.setAddr(members.getAddr());
             vo.setReported(members.getReported());
