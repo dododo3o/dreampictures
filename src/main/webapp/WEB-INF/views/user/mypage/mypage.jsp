@@ -37,19 +37,19 @@
                         <i class="red user circle icon"></i>
                     </div>
                 </div>
-                <div class="ui vertical animated button" tabindex="0" >
+                <div class="ui vertical animated button" tabindex="0">
                     <div class="hidden content"><a href="/buylist">구매내역</a></div>
                     <div class="visible content">
                         <i class="orange shipping fast icon"></i>
                     </div>
                 </div>
-                <div class="ui vertical animated button" tabindex="0" >
+                <div class="ui vertical animated button" tabindex="0">
                     <div class="hidden content"><a href="/selllist">판매내역</a></div>
                     <div class="visible content">
                         <i class="orange shipping fast icon"></i>
                     </div>
                 </div>
-                <div class="ui vertical animated button" tabindex="0" >
+                <div class="ui vertical animated button" tabindex="0">
                     <div class="hidden content"><a href="/cart">장바구니</a></div>
                     <div class="visible content">
                         <i class="yellow shopping cart icon"></i>
@@ -70,31 +70,46 @@
             </div>
         </div>
         <div style="grid-column: 3/13;display: flex;flex-direction: column;justify-content: space-between;align-items: center;justify-content: space-evenly">
-            <div style="font-weight:bold;font-family:'Gowun Dodum';color:var(--color-chathams-blue);font-size:var(--font-size-xll);padding-top: 25px;">MY PAGE</div>
+            <div style="font-family: 'Gowun Dodum',sans-serif;font-weight:bold;color:var(--color-chathams-blue);font-size:var(--font-size-xll);padding-top: 25px;">
+                My Page
+            </div>
             <div class="ui card" style="width:500px;grid-column: 5/12;height: fit-content;">
                 <div class="content" style="display:flex;justify-content: space-evenly;align-items: center;">
-                    <div><img src="${mypageVO.avatarimg}" style="border-radius:50%;width:5em;height:5em; object-fit:cover;"></div>
+                    <div><img src="${mypageVO.avatarimg}"
+                              style="border-radius:50%;width:5em;height:5em; object-fit:cover;"></div>
                     <div style="color:black;font-size: 3em;"><c:out value="${mypageVO.nickname}"/></div>
                 </div>
                 <div class="content">
                     <span class="right floated"></span>
                     <div class="ui segment" style="text-align:center;">
-                        <div style="font-size:1.5em;"><i class="money bill alternate outline icon"></i>포인트<div style="font-size:25px;"><c:out value="${mypageVO.dreampay}"/></div></div>
+                        <div style="font-size:1.5em;"><i class="money bill alternate outline icon"></i>포인트
+                            <div style="font-size:25px;"><c:out value="${mypageVO.dreampay}"/></div>
+                        </div>
                     </div>
                     <div class="ui segment" style="text-align:center;">
-                        <div style="font-size:1.5em;"><i class="truck icon"></i>배송지<div style=";font-size:25px;"><c:out value="${mypageVO.addr}"/></div></div>
+                        <div style="font-size:1.5em;"><i class="truck icon"></i>배송지
+                            <div style=";font-size:25px;"><c:out value="${mypageVO.addr}"/></div>
+                        </div>
                     </div>
                     <div class="ui segment" style="text-align:center;">
-                        <div style="font-size:1.5em;"><i class="envelope icon"></i>이메일<div style="font-size:25px;"><c:out value="${mypageVO.email}"/></div></div>
+                        <div style="font-size:1.5em;"><i class="envelope icon"></i>이메일
+                            <div style="font-size:25px;"><c:out value="${mypageVO.email}"/></div>
+                        </div>
                     </div>
                     <div class="ui segment" style="text-align:center;">
-                        <div style="font-size:1.5em;"><i class="phone icon"></i>연락처<div style=";font-size:25px;"><c:out value="${mypageVO.tel}"/></div></div>
+                        <div style="font-size:1.5em;"><i class="phone icon"></i>연락처
+                            <div style=";font-size:25px;"><c:out value="${mypageVO.tel}"/></div>
+                        </div>
                     </div>
                 </div>
                 <div class="extra content">
                     <div style="display:flex; justify-content: space-evenly;">
-                        <button class="ui primary basic button" onclick="showModal()" style="font-weight:bold;font-family: 'Gowun Dodum';width:150px; height:50px;">수정하기</button>
-                        <button class="ui primary basic button" style="font-weight:bold;font-family: 'Gowun Dodum';width:150px; height:50px;">탈퇴하기</button>
+                        <button class="ui primary basic button" onclick="showModal()"
+                                style="font-weight:bold;font-family: 'Gowun Dodum';width:150px; height:50px;">수정하기
+                        </button>
+                        <button class="ui primary basic button"
+                                style="font-weight:bold;font-family: 'Gowun Dodum';width:150px; height:50px;">탈퇴하기
+                        </button>
                     </div>
                 </div>
             </div>
@@ -107,17 +122,29 @@
     <div class="ui form">
         <div class="field">
             <div class="field">
-                <div style="font-size: var(--font-size-lg);font-family: 'Gowun Dodum';font-weight: bold;padding:5px 0">주소</div>
-                <input type="text" class="has_width_full input_select" name="addr" id="sample5_address" style="font-family: 'Gowun Dodum';" placeholder="주소" onclick="sample5_execDaumPostcode()"/>
-                <div style="font-size: var(--font-size-lg);font-family: 'Gowun Dodum';font-weight: bold;padding:5px 0">상세주소</div>
-                <input type="text" id="addrdetail" maxlength="100" style="border: 1px solid lightblue">
-                <div style="font-size: var(--font-size-lg);font-family: 'Gowun Dodum';font-weight: bold;padding:5px 0">연락처</div>
-                <input type="text" id="tel" maxlength="30" style="border: 1px solid lightblue">
+                <div class="field">
+                    <div style="font-size: var(--font-size-lg);font-family: 'Gowun Dodum';font-weight: bold;padding:5px 0">
+                        주소
+                    </div>
+                    <input type="text" class="has_width_full input_select" name="addr"
+                           id="sample5_address" placeholder="주소"
+                           onclick="sample5_execDaumPostcode()"/>
+                    <div style="font-size: var(--font-size-lg);font-family: 'Gowun Dodum';font-weight: bold;padding:5px 0">
+                        상세주소
+                    </div>
+                    <input type="text" id="addrdetail" maxlength="100" style="border: 1px solid lightblue">
+                    <div style="font-size: var(--font-size-lg);font-family: 'Gowun Dodum';font-weight: bold;padding:5px 0">
+                        연락처
+                    </div>
+                    <input type="text" id="tel" maxlength="30" style="border: 1px solid lightblue">
+                </div>
             </div>
         </div>
     </div>
+    <<<<<<< HEAD
     <div class="actions" style="background-color:lightblue">
-        <div class="ui positive right labeled icon button" style="background-color:steelblue;font-family: 'Gowun Dodum';font-weight: bold;" onclick="hello()">
+        <div class="ui positive right labeled icon button"
+             style="background-color:steelblue;font-family: 'Gowun Dodum';font-weight: bold;" onclick="hello()">
             수정하기<i class="checkmark icon"></i>
         </div>
     </div>
@@ -125,12 +152,11 @@
 
 
 <script>
-    $(document).ready(function ()
-    {
-        $('.ui.segment').hover(function(){
-            $(this).css('background','#E7F0F0');
-        }, function() {
-            $(this).css('background','white');
+    $(document).ready(function () {
+        $('.ui.segment').hover(function () {
+            $(this).css('background', '#E7F0F0');
+        }, function () {
+            $(this).css('background', 'white');
         });
     });
 
@@ -150,7 +176,10 @@
     }
 
     <!--정보수정 모달창 띄우기-->
-    function modal() {document.getElementById("modaldiv")}
+    function modal() {
+        document.getElementById("modaldiv")
+    }
+
     push_changeInfo = function () {
         $(() => {
             let addr = document.getElementById("addr").value;
@@ -167,7 +196,9 @@
             });
         });
     };
-    showModal = function () {$('.ui.tiny.modal').modal('show');};
+    showModal = function () {
+        $('.ui.tiny.modal').modal('show');
+    };
     <!--모달창 띄우기 끝-->
 
     var mapContainer = document.getElementById('map'), // 지도를 표시할 div
@@ -201,6 +232,7 @@
         }).open();
     }
 </script>
+</main>
 <jsp:include page="../header_footer/footer.jsp"></jsp:include>
 </body>
 </html>
