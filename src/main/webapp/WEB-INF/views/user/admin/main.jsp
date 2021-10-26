@@ -67,7 +67,7 @@
                         <h3><c:out value="${adminVO.noticeNum}"/></h3>
                     </div>
                     <div class="w3-clear"></div>
-                    <h4 style="font-family: 'Gowun Dodum', sans-serif;" font-size: var(--font-size-base)">공지사항</h4>
+                    <h4 style="font-family: 'Gowun Dodum', sans-serif; font-size: var(--font-size-base)">공지사항</h4>
                 </div>
             </a>
         </div>
@@ -79,7 +79,7 @@
                         <h3><c:out value="${adminVO.questionNum}"/></h3>
                     </div>
                     <div class="w3-clear"></div>
-                    <h4 style="font-family: 'Gowun Dodum', sans-serif;" ;font-size: var(--font-size-base)">질문사항</h4>
+                    <h4 style="font-family: 'Gowun Dodum', sans-serif;font-size: var(--font-size-base)"/>질문사항</h4>
                 </div>
             </a>
         </div>
@@ -103,7 +103,7 @@
                         <h3><c:out value="${adminVO.memberNum}"/></h3>
                     </div>
                     <div class="w3-clear"></div>
-                    <h4 style="font-family: 'Gowun Dodum', sans-serif;" font-size: var(--font-size-base)">회원현황</h4>
+                    <h4 style="font-family: 'Gowun Dodum', sans-serif; font-size: var(--font-size-base)">회원현황</h4>
                 </div>
             </a>
         </div>
