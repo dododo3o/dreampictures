@@ -41,7 +41,7 @@
 </head>
 <body>
 <jsp:include page="../header_footer/header_login.jsp"></jsp:include>
-<main class="has_bg_harp" style="height: 100%;">
+<main class="has_bg_harp" style="height: auto;">
     <div id="container" class="container">
         <div class="has_flex_column" style="grid-column:1/3; gap:40px;padding-top: 30px;background-color: #a2b0b36e">
             <div class="ui vertical animated button" tabindex="0" onclick="showModal()">
@@ -105,9 +105,11 @@
                 </c:forEach>
             </div>
             <div>
-                <div class="container" style="display: flex;justify-content: center;margin-top:30px;padding-bottom: 30px;">
+                <div class="container"
+                     style="display: flex;justify-content: center;margin-top:30px;padding-bottom: 30px;">
                     <div style="margin-right: 40px;">
-                        <div class="ui animated button" tabindex="0" style="color:var(--color-white);background-color: var(--color-chathams-blue);">
+                        <div class="ui animated button" tabindex="0"
+                             style="color:var(--color-white);background-color: var(--color-chathams-blue);">
                             <div class="visible content">Perv</div>
                             <div class="hidden content"><i class="left arrow icon"></i></div>
                         </div>
