@@ -642,8 +642,6 @@
         </div>
     </div>
 </div>
-
-
 <script>
     var trigger = true;
     $('.girl').css('visibility', 'hidden');
