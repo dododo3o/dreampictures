@@ -33,7 +33,7 @@ public class SellController {
         Paintingtbl paintingtbl = new Paintingtbl(vo,ms.getNo_membership());
         paintingRepository.save(paintingtbl);
 
-        return "user/sell/sell";
+        return "user/buy/buy";
 
     }
 }

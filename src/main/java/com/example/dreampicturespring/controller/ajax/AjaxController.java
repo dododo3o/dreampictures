@@ -139,6 +139,7 @@ public class AjaxController {
 
 		Optional<Paintingtbl> PTBL = paintingRepository.findById(paint);
 		Paintingtbl paintingtbl = PTBL.get();
+		System.out.println(paintingtbl);
 		paintingtbl.setStatus(1);
 		paintingRepository.save(paintingtbl);
 

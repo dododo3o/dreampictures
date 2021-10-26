@@ -141,10 +141,14 @@ public class BuyController {
         return mv;
     }
     @RequestMapping(value = "/reply_delete",method = RequestMethod.GET, produces ="application/text;charset=UTF-8")
+    @ResponseBody
     public String reply_delete(Model model, HttpServletRequest request, Integer num) {
 
-        commentRepository.deleteById(num);
+        HttpSession session = request.getSession();
+        Membershiptbl membershipTBL = membershiptblRepository.findByemail((String) session.getAttribute("logEmail"));
+        if(membershipTBL.getNo_membership()!=num){ return "fail"; }
 
+        commentRepository.deleteById(num);
         List<Paintingtbl> paintingtbls = paintingRepository.findAll();
         List<Membershiptbl> membershiptbls = new ArrayList<>();
         List<CardVO> cardVOList = new ArrayList<>();
@@ -153,6 +157,6 @@ public class BuyController {
         for(int i=0;i<paintingtbls.size();i++){ CardVO vo = new CardVO(paintingtbls.get(i),membershiptbls.get(i));cardVOList.add(vo);}
         model.addAttribute("cardVOlist",cardVOList);
 
-        return "user/ajax/picture_find";
+        return "success";
     }
 }

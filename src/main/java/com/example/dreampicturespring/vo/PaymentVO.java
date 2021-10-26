@@ -3,6 +3,7 @@ import com.example.dreampicturespring.entity.Membershiptbl;
 import com.example.dreampicturespring.entity.Paintingtbl;
 import lombok.Data;
 
+import java.time.LocalDate;
 import java.util.Date;
 
 @Data
@@ -19,7 +20,7 @@ public class PaymentVO {
     public Integer price;
     public Integer dreampay;
     public String sum;
-    public String production;
+    public LocalDate production;
     public int width;
     public int height;
     public String exp;

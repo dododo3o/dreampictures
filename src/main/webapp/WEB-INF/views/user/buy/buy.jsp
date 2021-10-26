@@ -1473,7 +1473,6 @@
                 <rect class="babble2" width="19.6526" height="1" transform="matrix(-1 0 0 1 805.457 50.2797)" fill="#2FCC59" stroke="#2FCC59" stroke-width="0.805851"/>
                 <path class="babble2" d="M805.457 60.0717C805.457 70.9255 796.659 79.7243 785.805 79.7243V79.7243V51.2797H805.457V60.0717Z" fill="#2FCC59" stroke="#2FCC59" stroke-width="0.805851"/>
             </svg>
-
         </div>
     </div>
     <div class="container " id="container" style="display: grid;grid-template-columns: repeat(5,1fr);grid-gap:1rem;justify-content: space-around;flex-wrap: nowrap">
@@ -1577,8 +1576,13 @@
                 url: "/reply_delete",
                 data: "num=" + num,
                 success: function (result) {
-                    alert('댓글이 삭제되었습니다.');
-                    document.location.href = "/buy";
+                    if(result){
+                        alert('본인의 댓글만 삭제 가능합니다.')
+                    }
+                    else{
+                        alert('댓글이 삭제되었습니다.');
+                        document.location.href = "/buy";
+                    }
                 }
             });
         });
