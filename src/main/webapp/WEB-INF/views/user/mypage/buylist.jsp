@@ -90,9 +90,9 @@
                 </div>
             </div>
         </div>
-        <div style="grid-column: 3/13;display: flex;flex-direction: column;justify-content: space-between;align-items: center;justify-content: space-evenly">
+        <div style="grid-column: 3/13;display: flex;flex-direction: column;justify-content: space-between;align-items: center;justify-content: space-between">
             <!-- 추가요소 있으면 이 안에 넣기-->
-            <div style="color:var(--color-chathams-blue);font-size:var(--font-size-xll);padding-top: 30px;padding-bottom: 25px;">
+            <div style="color:var(--color-chathams-blue);font-size:var(--font-size-xll);padding-top:63px;padding-bottom: 25px;">
                 구매내역
             </div>
             <div style="display:flex;grid-template-columns: repeat(4,1fr); grid-gap: 1rem; width: 100%;flex-wrap: wrap">
@@ -107,12 +107,11 @@
                                 <span style="font-size: 1.5em;">${cardVOlist.nickname}</span>
                             </div>
                             <div class="image">
-                                <img src="${cardVOlist.paintingmimg}"
-                                     onclick="buypainting(${cardVOlist.no_painting});"
+                                <img src="${cardVOlist.paintingmimg}" onclick="buypainting(${cardVOlist.no_painting});"
                                      style="object-fit: cover; height: 250px">
                             </div>
                             <div class="content" style="display: flex;justify-content: center;">
-                                <span style="font-size: 1.5em">${cardVOlist.pname}</span><span></span>
+                                <span style="font-size: 1.5em">${cardVOlist.pname}</span>
                             </div>
                             <div class="extra content">
                                 <div class="ui large transparent left icon input" style="display: flex;">
@@ -201,7 +200,6 @@
                 </div>
             </div>
         </div>
-    </div>
 </main>
 <jsp:include page="../header_footer/footer.jsp"></jsp:include>
 </body>
