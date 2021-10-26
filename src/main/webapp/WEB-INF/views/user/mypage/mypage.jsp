@@ -141,7 +141,6 @@
             </div>
         </div>
     </div>
-    <<<<<<< HEAD
     <div class="actions" style="background-color:lightblue">
         <div class="ui positive right labeled icon button"
              style="background-color:steelblue;font-family: 'Gowun Dodum';font-weight: bold;" onclick="hello()">
@@ -149,8 +148,6 @@
         </div>
     </div>
 </div>
-
-
 <script>
     $(document).ready(function () {
         $('.ui.segment').hover(function () {
