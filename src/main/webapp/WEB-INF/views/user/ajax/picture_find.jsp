@@ -67,8 +67,7 @@
                     </div>
                 </c:forEach>
                </div>
-                <div class="ui button bottom attached collapsible"
-                     onclick="closeCard(${cardVOlist.no_painting})" id="close_btn">
+                <div class="ui button bottom attached collapsible" onclick="closeCard(${cardVOlist.no_painting})" id="close_btn">
                     <i class="large close icon icon"></i>
                 </div>
             </div>

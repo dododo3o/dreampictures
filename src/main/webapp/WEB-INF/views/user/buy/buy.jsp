@@ -63,6 +63,22 @@
             });
         };
 
+        pagantion = function (num) {
+            $(() => {
+                $.ajax({
+                    url: "/ajax_picture_finder",
+                    data: "pname=" + "all",
+                    success: function (result) {
+                        var container = document.getElementById("container");
+                        while (container.hasChildNodes()) {
+                            container.removeChild(container.firstChild);
+                        }
+                        $("#container").html(result);
+                    }
+                });
+            });
+        };
+
         addComment = function (no_painting) {
             $(() => {
                 let text = document.getElementById(no_painting).value;
@@ -111,9 +127,7 @@
                     <input type="text" class="has_width_full input_select" id="pname" style="font-family: 'Gowun Dodum';" placeholder="검색어를 입력해주세요."/>
                 </div>
             </form>
-            <button class=" ui blue icon button has_width_full" onclick="find_picture()"
-                    style="font-family: 'Gowun Dodum'"><i class="search icon"></i>찾기
-            </button>
+            <button class=" ui blue icon button has_width_full" onclick="find_picture()" style="font-family: 'Gowun Dodum'"><i class="search icon"></i>찾기</button>
             <div style="display: flex; gap: 90px;">
                 <select style="font-family: 'Gowun Dodum'; font-size: 1.5em;margin-right: 90px;" class="input_select has_width_half" id="style">
                     <option value="" selected>Style</option>
@@ -1509,8 +1523,7 @@
                             <span><i class="comment icon"></i>${cardVOlist.commentNumber}</span>
                         </div>
                     </div>
-                    <div class="ui comments flip-card-back"
-                         style="display: flex;user-select: auto;margin: 0;flex-direction: column;justify-content: space-between;">
+                    <div class="ui comments flip-card-back" style="display: flex;user-select: auto;margin: 0;flex-direction: column;justify-content: space-between;">
                         <div>
                             <c:forEach var="commentVOList" items="${cardVOlist.commentVOList}">
                                 <div style=" background-color:var(--color-albescent-white)">
@@ -1542,26 +1555,19 @@
     </div>
     <div class="container" style="display: flex;justify-content: center;margin-top:30px;padding-bottom: 30px;">
         <div>
-            <div class="ui animated button" tabindex="0"
-                 style="color:var(--color-white);background-color: var(--color-chathams-blue);">
+            <div class="ui animated button" tabindex="0" style="color:var(--color-white);background-color: var(--color-chathams-blue);">
                 <div class="visible content">Perv</div>
-                <div class="hidden content">
-                    <i class="left arrow icon"></i>
-                </div>
+                <div class="hidden content"><i class="left arrow icon"></i></div>
             </div>
             <c:forEach var="i" begin="1" end="${pageNum}">
-                <div class="ui animated button" tabindex="0"
-                     style="color:var(--color-white);background-color: var(--color-chathams-blue);">
+                <div class="ui animated button" tabindex="0" style="color:var(--color-white);background-color: var(--color-chathams-blue);">
                     <div class="visible content">${i}</div>
                     <div class="hidden content">${i}</div>
                 </div>
             </c:forEach>
-            <div class="ui animated button" tabindex="0"
-                 style="color:var(--color-white);background-color: var(--color-chathams-blue);">
+            <div class="ui animated button" tabindex="0" style="color:var(--color-white);background-color: var(--color-chathams-blue);">
                 <div class="visible content">Next</div>
-                <div class="hidden content">
-                    <i class="right arrow icon"></i>
-                </div>
+                <div class="hidden content"><i class="right arrow icon"></i></div>
             </div>
             <br>
         </div>

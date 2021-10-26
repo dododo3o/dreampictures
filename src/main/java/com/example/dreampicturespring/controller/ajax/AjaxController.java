@@ -62,31 +62,28 @@ public class AjaxController {
 		List<Paintingtbl> paintingtbls;
 		if(pname.equals("all")){ paintingtbls = paintingRepository.findAll(); }
 		else{ paintingtbls = paintingRepository.findPainting(makeNotNull(pname),makeNotNull(style),makeNotNull(theme),width,height,price); }
-		List<Membershiptbl> membershiptbls = new ArrayList<>();
-		List<CardVO> cardVOList = new ArrayList<>();
-		for(int i=0;i<paintingtbls.size();i++){ membershiptbls.add(membershiptblRepository.getById(paintingtbls.get(i).getNo_membership())); }
-		for(int i=0;i<paintingtbls.size();i++){ CardVO vo = new CardVO(paintingtbls.get(i),membershiptbls.get(i));cardVOList.add(vo);}
-		model.addAttribute("cardVOlist",cardVOList);
-/*
-		ModelAndView mv = new ModelAndView();
-		List<CommentVO> commentVOList = new ArrayList<>();
-		List<String> list = paintingRepository.findAllPainting_Desc();
-		for(String card : list){
-			List<String> obj = Arrays.asList(card.split(","));
-			CardVO cardVO = new CardVO();
-			cardVO.setNo_painting(obj.get(0));
-			cardVO.setAvatarimg(obj.get(1)+"/avatarimg/avatarimg.jpg");
-			cardVO.setPaintingmimg(obj.get(4));
-			cardVO.setNickname(obj.get(2));
-			cardVO.setPname(obj.get(3));
-			cardVO.setCommentNumber(commentRepository.countByno_painting(Integer.parseInt(obj.get(0))));
 
-			List<String> comments = commentRepository.findCommenttbl(Integer.parseInt(obj.get(0)));
+		List<CardVO> cardVOList = new ArrayList<>();
+		List<Membershiptbl> membershiptbls = new ArrayList<>();
+
+		for(int i=0;i<paintingtbls.size();i++){ membershiptbls.add(membershiptblRepository.getById(paintingtbls.get(i).getNo_membership())); }
+
+		int count = 0;
+		for(Paintingtbl paintingtbl : paintingtbls){
+			CardVO cardVO = new CardVO();
+			cardVO.setNo_painting(paintingtbl.getNo_painting().toString());
+			cardVO.setAvatarimg(membershiptbls.get(count).getImg());
+			cardVO.setPaintingmimg(paintingtbl.getUrl());
+			cardVO.setNickname(membershiptbls.get(count).getNickname());
+			cardVO.setPname(paintingtbl.getPname());
+			cardVO.setCommentNumber(commentRepository.countByno_painting(paintingtbl.getNo_painting()));
+
+			List<String> comments = commentRepository.findCommenttbl(paintingtbl.getNo_painting());
 			List<CommentVO> commentVOlist = new ArrayList<>();
 			for(String comment : comments){
 				List<String> comment_member = Arrays.asList(comment.split(","));
 				CommentVO commentVO = new CommentVO();
-				Integer no_comment = commentRepository.findByNo_comment(Integer.parseInt(comment_member.get(1)),Integer.parseInt(obj.get(0)));
+				Integer no_comment = commentRepository.findByNo_comment(Integer.parseInt(comment_member.get(1)),paintingtbl.getNo_painting());
 				Membershiptbl membershiptbl = membershiptblRepository.getById(Integer.parseInt(comment_member.get(1)));
 				commentVO.setNo_comment(no_comment);
 				commentVO.setAvatarimg(membershiptbl.getImg());
@@ -98,14 +95,9 @@ public class AjaxController {
 			}
 			cardVO.setCommentVOList(commentVOlist);
 			cardVOList.add(cardVO);
+			count++;
 		}
-		mv.setViewName("user/buy/buy");
-		mv.addObject("cardVOlist",cardVOList);
-
-
-*/
-
-
+		model.addAttribute("cardVOlist",cardVOList);
 		return "user/ajax/picture_find";
 	}
 
