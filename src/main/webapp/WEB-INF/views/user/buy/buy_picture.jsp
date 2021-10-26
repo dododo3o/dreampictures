@@ -68,7 +68,7 @@
 <% if (session.getAttribute("logStatus") == null) { %>
 <jsp:include page="../header_footer/header_not_login.jsp"></jsp:include>
 <% } %>
-<main class="has_bg_harp">
+<main class="has_bg_harp" style="height: 100%">
     <div class="container">
         <div style="display:flex;grid-column: 1/13; background-color: #F3F7F7;">
             <div class="has_flex_column" style="width: 40%;justify-content: center; gap:50px; ">
@@ -81,14 +81,17 @@
                         </h2>
                         <div class="ui vertical red animated button" tabindex="0" onclick="showModal()">
                             <div class="hidden content" style="user-select: auto;">신고하기</div>
-                            <div class="visible content" style="user-select: auto;"><i class="exclamation circle icon" style="user-select: auto;"></i></div>
+                            <div class="visible content" style="user-select: auto;"><i class="exclamation circle icon" style="user-select: auto;"></i>
+                            </div>
                         </div>
                     </div>
                 </div>
                 <a class="ui blue ribbon label">그림 제목</a>
-                <span style="font-size: 40px; margin: 0 auto;font-family: 'Gowun Dodum'"><c:out value="${paintingVO.pname}"/></span>
+                <span style="font-size: 40px; margin: 0 auto;font-family: 'Gowun Dodum'"><c:out
+                        value="${paintingVO.pname}"/></span>
                 <a class="ui teal ribbon label">그림 설명</a>
-                <div style="padding-left: 35px;padding-right: 35px; font-size: 20px;line-height:30px;"><c:out value="${paintingVO.exp}"/></div>
+                <div style="padding-left: 35px;padding-right: 35px; font-size: 20px;line-height:30px;"><c:out
+                        value="${paintingVO.exp}"/></div>
                 <div style="padding-left: 20px;">등록일 : <c:out value="${paintingVO.writedate}"/></div>
                 <div class="has_evenly" style="display: flex;">
                     <div class="ui animated button" tabindex="0" id="prev_btn" style="width: 200px;">
@@ -105,7 +108,8 @@
                         </div>
                     </div>
                     <div class="ui vertical animated button" tabindex="0" id="shop_btn" style="width: 200px;">
-                        <div class="hidden content" style="user-select: auto;"><a href="/buy_payment/<c:out value="${paintingVO.no_painting}"/>">바로구매</a></div>
+                        <div class="hidden content" style="user-select: auto;"><a
+                                href="/buy_payment/<c:out value="${paintingVO.no_painting}"/>">바로구매</a></div>
                         <div class="visible content" style="user-select: auto;">
                             <i class="black money bill alternate outline icon" style="user-select: auto;"></i>
                         </div>
@@ -115,7 +119,8 @@
             </div>
             <div class="has_flex_center" style="width: 60%;">
                 <div style="width: 80%; height: 80%;">
-                    <img src="<c:out value="${paintingVO.paintingimg}"/>"style="object-fit: cover; width: 100%; height: 100%;">
+                    <img src="<c:out value="${paintingVO.paintingimg}"/>"
+                         style="object-fit: cover; width: 100%; height: 100%;">
                 </div>
             </div>
         </div>
@@ -153,7 +158,8 @@
             </div>
         </div>
         <div class="actions" style="background-color: #95afc0">
-            <div class="ui positive right labeled icon button" style="font-family: 'Gowun Dodum';background-color: var(--color-metallic-blue)"
+            <div class="ui positive right labeled icon button"
+                 style="font-family: 'Gowun Dodum';background-color: var(--color-metallic-blue)"
                  onclick="report()">올리기<i class="checkmark icon"></i></div>
         </div>
     </div>

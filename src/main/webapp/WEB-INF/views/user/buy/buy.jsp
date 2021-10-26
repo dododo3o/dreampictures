@@ -1,3 +1,34 @@
+Skip to content
+Search or jump to…
+Pull requests
+Issues
+Marketplace
+Explore
+
+@Kim-Seong-Gyu
+joshua-legend
+/
+dreampicture_spring
+Public
+1
+00
+Code
+Issues
+Pull requests
+Actions
+Projects
+Wiki
+Security
+Insights
+dreampicture_spring/src/main/webapp/WEB-INF/views/user/buy/buy.jsp
+
+Mycatismylord Merge branch 'ba'
+Latest commit 0a51446 14 minutes ago
+History
+3 contributors
+@joshua-legend@Kim-Seong-Gyu@dododo3o
+1617 lines (1609 sloc)  298 KB
+
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <% String conPath = request.getContextPath(); %>
@@ -25,7 +56,6 @@
         function buypainting(num) {
             location.href = "http://localhost:8080/buy_picture/" + num;
         }
-
         find_picture = function () {
             $(() => {
                 let pname = document.getElementById("pname").value;
@@ -62,7 +92,6 @@
                 }
             });
         };
-
         pagantion = function (num) {
             $(() => {
                 $.ajax({
@@ -78,7 +107,6 @@
                 });
             });
         };
-
         addComment = function (no_painting) {
             $(() => {
                 let text = document.getElementById(no_painting).value;
@@ -95,16 +123,13 @@
                 });
             });
         };
-
         function flipCard(num) {
             $('#' + num).css("transform", "rotateY(180deg)");
             $(".ui.comments.flip-card-back").css('margin', '0');
         }
-
         function closeCard(num) {
             $('#' + num).css("transform", "rotateY(0deg)");
         }
-
     </script>
 </head>
 <body oncontextmenu="return false" onselectstart="return false">
@@ -1593,11 +1618,9 @@
             });
         });
     }
-
     $('#art_girl').css('visibility', 'hidden');
     $('#city1').css('visibility', 'hidden');
     $('#city2').css('visibility', 'hidden');
-
     $('#looking_boy').transition('pulse','2000ms').transition('vertical flip','500ms',function () {
         $('.babble').css('visibility', 'hidden');
         $('#city1').transition('fly left','1500ms',function () {

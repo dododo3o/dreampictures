@@ -46,6 +46,10 @@
         function closeCard(num) {
             $('#' + num).css("transform", "rotateY(0deg)");
         }
+
+        function buypainting(num) {
+            location.href = "http://localhost:8080/buy_picture/" + num;
+        }
     </script>
 </head>
 <body oncontextmenu="return false" onselectstart="return false">
