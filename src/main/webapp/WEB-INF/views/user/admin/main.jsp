@@ -11,14 +11,20 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Gowun+Dodum&display=swap" rel="stylesheet">
-    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.13/semantic.min.css">
+    <link rel="stylesheet" type="text/css"
+          href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.13/semantic.min.css">
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <style>html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}</style>
+    <style>html, body, h1, h2, h3, h4, h5 {
+        font-family: "Raleway", sans-serif
+    }</style>
     <script src="https://kit.fontawesome.com/b14e6f064f.js" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-    <script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"
+            integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ=="
+            crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://code.jquery.com/jquery-3.1.1.min.js"
+            integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.13/semantic.js"></script>
 </head>
 <body class="w3-light-grey">
@@ -36,17 +42,21 @@
     <hr>
     <div class="w3-container">
     </div>
-    <div class="w3-bar-block" >
-        <a href="#" class="w3-bar-item w3-button w3-padding-16 w3-hide-large w3-dark-grey w3-hover-black" onclick="w3_close()" title="close menu"><i class="fa fa-remove fa-fw"></i>  Close Menu</a>
-        <a href="/admin/main" class="w3-bar-item w3-button w3-padding w3-blue"><i class="fa fa-bullseye fa-fw"></i>  관리자 메인으로</a>
+    <div class="w3-bar-block">
+        <a href="#" class="w3-bar-item w3-button w3-padding-16 w3-hide-large w3-dark-grey w3-hover-black"
+           onclick="w3_close()" title="close menu"><i class="fa fa-remove fa-fw"></i>  Close Menu</a>
+        <a href="/admin/main" class="w3-bar-item w3-button w3-padding w3-blue"><i class="fa fa-bullseye fa-fw"></i>  관리자
+            메인으로</a>
         <a href="/admin/notice" class="w3-bar-item w3-button w3-padding"><i class="fa fa-bullseye fa-fw"></i>  공지사항</a>
         <a href="/admin/qa" class="w3-bar-item w3-button w3-padding"><i class="fa fa-bullseye fa-fw"></i>  질문사항</a>
-        <a href="/admin/salesHistory" class="w3-bar-item w3-button w3-padding"><i class="fa fa-bullseye fa-fw"></i>  거래현황</a>
+        <a href="/admin/salesHistory" class="w3-bar-item w3-button w3-padding"><i class="fa fa-bullseye fa-fw"></i> 
+            판매내역</a>
         <a href="/admin/report" class="w3-bar-item w3-button w3-padding"><i class="fa fa-bullseye fa-fw"></i>  신고내역</a>
         <a href="/admin/allmembers" class="w3-bar-item w3-button w3-padding"><i class="fa fa-bullseye fa-fw"></i>  회원현황</a><br><br>
     </div>
 </nav>
-<div class="w3-overlay w3-hide-large w3-animate-opacity" onclick="w3_close()" style="cursor:pointer" title="close side menu" id="myOverlay"></div>
+<div class="w3-overlay w3-hide-large w3-animate-opacity" onclick="w3_close()" style="cursor:pointer"
+     title="close side menu" id="myOverlay"></div>
 <div class="w3-main" style="margin-left:300px;margin-top:43px;">
     <div class="w3-row-padding w3-margin-bottom">
         <div class="w3-quarter">
@@ -57,7 +67,7 @@
                         <h3><c:out value="${adminVO.noticeNum}"/></h3>
                     </div>
                     <div class="w3-clear"></div>
-                    <h4 style="font-family: 'Gowun Dodum', sans-serif;"font-size: var(--font-size-base)">공지사항</h4>
+                    <h4 style="font-family: 'Gowun Dodum', sans-serif;" font-size: var(--font-size-base)">공지사항</h4>
                 </div>
             </a>
         </div>
@@ -69,7 +79,7 @@
                         <h3><c:out value="${adminVO.questionNum}"/></h3>
                     </div>
                     <div class="w3-clear"></div>
-                    <h4 style="font-family: 'Gowun Dodum', sans-serif;";font-size: var(--font-size-base)">질문사항</h4>
+                    <h4 style="font-family: 'Gowun Dodum', sans-serif;" ;font-size: var(--font-size-base)">질문사항</h4>
                 </div>
             </a>
         </div>
@@ -81,7 +91,7 @@
                         <h3><c:out value="${adminVO.registerNum}"/></h3>
                     </div>
                     <div class="w3-clear"></div>
-                    <h4 style="font-family: 'Gowun Dodum', sans-serif;font-size: var(--font-size-base)">등록현황</h4>
+                    <h4 style="font-family: 'Gowun Dodum', sans-serif;font-size: var(--font-size-base)">판매내역</h4>
                 </div>
             </a>
         </div>
@@ -93,7 +103,7 @@
                         <h3><c:out value="${adminVO.memberNum}"/></h3>
                     </div>
                     <div class="w3-clear"></div>
-                    <h4 style="font-family: 'Gowun Dodum', sans-serif;"font-size: var(--font-size-base)">회원현황</h4>
+                    <h4 style="font-family: 'Gowun Dodum', sans-serif;" font-size: var(--font-size-base)">회원현황</h4>
                 </div>
             </a>
         </div>
@@ -103,15 +113,21 @@
         <h5 style="font-family: 'Gowun Dodum', sans-serif;font-weight: bold;">주간 통계</h5>
         <p>1주일간 신규가입자수</p>
         <div class="w3-grey">
-            <div class="w3-container w3-center w3-padding w3-green" style="width:<c:out value="${adminVO.newMemberPercent}"/>%">+<c:out value="${adminVO.newMemberPercent}"/></div>
+            <div class="w3-container w3-center w3-padding w3-green"
+                 style="width:<c:out value="${adminVO.newMemberPercent}"/>%">+<c:out
+                    value="${adminVO.newMemberPercent}"/></div>
         </div>
         <p>1주일간 판매량</p>
         <div class="w3-grey">
-            <div class="w3-container w3-center w3-padding w3-orange" style="width:<c:out value="${adminVO.oneWeekSaleVolumePercent}"/>%"><c:out value="${adminVO.oneWeekSaleVolumePercent}"/></div>
+            <div class="w3-container w3-center w3-padding w3-orange"
+                 style="width:<c:out value="${adminVO.oneWeekSaleVolumePercent}"/>%"><c:out
+                    value="${adminVO.oneWeekSaleVolumePercent}"/></div>
         </div>
         <p>1주일간 작품 등록수</p>
         <div class="w3-grey">
-            <div class="w3-container w3-center w3-padding w3-red" style="width:<c:out value="${adminVO.oneWeekRegisterPercent}"/>%"><c:out value="${adminVO.oneWeekRegisterPercent}"/></div>
+            <div class="w3-container w3-center w3-padding w3-red"
+                 style="width:<c:out value="${adminVO.oneWeekRegisterPercent}"/>%"><c:out
+                    value="${adminVO.oneWeekRegisterPercent}"/></div>
         </div>
     </div>
     <hr>
@@ -146,7 +162,8 @@
                 <td>오브제</td>
                 <td><c:out value="${adminVO.objet}"/>개</td>
             </tr>
-        </table><br>
+        </table>
+        <br>
     </div>
     <hr>
     <div class="w3-container">
@@ -184,7 +201,8 @@
                 <td>과슈화</td>
                 <td><c:out value="${adminVO.gouache}"/>개</td>
             </tr>
-        </table><br>
+        </table>
+        <br>
     </div>
     <hr>
     <div class="w3-container">
@@ -210,6 +228,7 @@
 <script>
     var mySidebar = document.getElementById("mySidebar");
     var overlayBg = document.getElementById("myOverlay");
+
     function w3_open() {
         if (mySidebar.style.display === 'block') {
             mySidebar.style.display = 'none';
@@ -219,6 +238,7 @@
             overlayBg.style.display = "block";
         }
     }
+
     function w3_close() {
         mySidebar.style.display = "none";
         overlayBg.style.display = "none";

@@ -6,7 +6,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>거래현황</title>
+    <title>판매내역</title>
     <link rel="stylesheet" href="/resources/css/dreampicturesytle.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -54,7 +54,7 @@
         <a href="/admin/qa" class="w3-bar-item w3-button w3-padding"><i class="fa fa-bullseye fa-fw"></i>  질문사항</a>
         <a href="/admin/salesHistory" class="w3-bar-item w3-button w3-padding w3-blue"><i
                 class="fa fa-bullseye fa-fw"></i> 
-            거래현황</a>
+            판매내역</a>
         <a href="/admin/report" class="w3-bar-item w3-button w3-padding"><i class="fa fa-bullseye fa-fw"></i>  신고내역</a>
         <a href="/admin/blacklist" class="w3-bar-item w3-button w3-padding"><i class="fa fa-bullseye fa-fw"></i> 
             블랙리스트</a>
@@ -69,7 +69,7 @@
             <div style="border-bottom: 1px solid #BDBDBD; padding: 10px 0px;flex-direction:column;display:flex;gap:20px;justify-content:center;align-items: center;">
                 <div><h1
                         style="font-family: 'Gowun Dodum', sans-serif;font-weight: bold;color:var(--color-chathams-blue);">
-                    거래현황</h1></div>
+                    판매내역</h1></div>
                 <form action="">
                     <div style="display: flex;align-items: center;">
                         <div class="ui form">
