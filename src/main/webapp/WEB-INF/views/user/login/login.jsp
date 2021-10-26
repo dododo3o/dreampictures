@@ -50,7 +50,7 @@
         }
     </script>
 </head>
-<body>
+<body oncontextmenu="return false" onselectstart="return false">
 <jsp:include page="../header_footer/header_not_login.jsp"></jsp:include>
 <main class="has_bg_harp">
     <div class="ui tiny modal">

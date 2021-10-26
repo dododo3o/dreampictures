@@ -26,7 +26,7 @@
             integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.13/semantic.js"></script>
 </head>
-<body>
+<body oncontextmenu="return false" onselectstart="return false">
 <header class="has_bg_white">
     <div class="container">
         <div class="is_logo">

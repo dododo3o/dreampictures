@@ -59,7 +59,7 @@
         }
     </script>
 </head>
-<body>
+<body oncontextmenu="return false" onselectstart="return false">
 <% if (session.getAttribute("logStatus") == "Y") { %>
 <jsp:include page="../header_footer/header_login.jsp">
     <jsp:param name="user" value="${user}"/>

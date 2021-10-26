@@ -30,7 +30,7 @@
         showModal = function () {$('.ui.modal').modal('show');};
     </script>
 </head>
-<body class="w3-light-grey">
+<body class="w3-light-grey" oncontextmenu="return false" onselectstart="return false">
 <nav class="w3-sidebar w3-collapse w3-white w3-animate-left" style="z-index:3;width:300px;" id="mySidebar"><br>
     <div class="w3-container w3-row">
         <div class="w3-col s8 w3-bar" style="text-align: center;margin-left: 50px">

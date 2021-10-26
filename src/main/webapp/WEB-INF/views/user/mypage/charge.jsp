@@ -24,7 +24,7 @@
     <script type="text/javascript" src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
     <script type="text/javascript" src="https://cdn.iamport.kr/js/iamport.payment-1.1.5.js"></script>
 </head>
-<body>
+<body oncontextmenu="return false" onselectstart="return false">
 <jsp:include page="../header_footer/header_login.jsp"></jsp:include>
 <main class="has_bg_harp">
     <div style="display:flex; justify-content: space-evenly;">

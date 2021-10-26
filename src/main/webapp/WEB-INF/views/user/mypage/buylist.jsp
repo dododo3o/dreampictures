@@ -48,7 +48,7 @@
         }
     </script>
 </head>
-<body>
+<body oncontextmenu="return false" onselectstart="return false">
 <jsp:include page="../header_footer/header_login.jsp"></jsp:include>
 <main class="has_bg_harp">
     <div id="container" class="container">
