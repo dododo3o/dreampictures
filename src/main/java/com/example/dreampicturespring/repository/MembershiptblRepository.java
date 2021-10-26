@@ -1,5 +1,6 @@
 package com.example.dreampicturespring.repository;
 import com.example.dreampicturespring.entity.Membershiptbl;
+import com.example.dreampicturespring.entity.Paintingtbl;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
@@ -12,6 +13,7 @@ public interface MembershiptblRepository extends JpaRepository<Membershiptbl,Int
         Membershiptbl getById(Integer aInteger);
         Membershiptbl findByemail(String email);
         Membershiptbl findBypwd(String pwd);
+        Membershiptbl findBynickname(String nickname);
 
 //        Membershiptbl findByAllInfo(String email,String pwd);
 
@@ -29,4 +31,5 @@ public interface MembershiptblRepository extends JpaRepository<Membershiptbl,Int
 
         @Query(value = "select * from membershiptbl where membershiptbl.email = :email", nativeQuery = true)
         Membershiptbl email_pwd(@Param("email") String email);
+
 }

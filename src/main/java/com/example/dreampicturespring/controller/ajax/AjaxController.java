@@ -10,7 +10,6 @@ import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
@@ -261,5 +260,14 @@ public class AjaxController {
 	private String makeNotNull(String target){
 		if(StringUtils.isEmpty(target)) return target = null;
 		return target;
+	}
+
+
+	@RequestMapping(value = "/ajax_member_finder",method = RequestMethod.GET, produces ="application/text;charset=UTF-8")
+	public String ajax_member_finder(Model model, String nickname){
+		System.out.println(nickname);
+
+
+		return "user/ajax/picture_find";
 	}
 }

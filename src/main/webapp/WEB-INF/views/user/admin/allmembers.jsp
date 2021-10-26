@@ -42,22 +42,19 @@
             integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.13/semantic.js"></script>
     <script type="text/javascript">
-        showModal = function () {
-            $('.ui.modal').modal('show');
-        };
-        requestQA = function () {
-            $(() => {
-                let question = document.getElementById("question").value;
-                let status = 0; //0~4 까지 질문 종류
-                $.ajax({
-                    url: "/ajax_request_QA",
-                    data: "question=" + question + "&status=" + status,
-                    success: function (result) {
-                        document.location.href = "/notice";
-                    }
-                });
-            });
-        };
+       function find_member(){
+           $(()=>{
+               let nickname = document.getElementById("nickname").value;
+               $.ajax({
+                   url:"/ajax_member_finder",
+                   data:"nickname=" + nickname,
+                   success:function(result){
+
+                   }
+               })
+           });
+       }
+
     </script>
 </head>
 <body class="w3-light-grey">
@@ -98,10 +95,10 @@
                 <form action="">
                     <div style="display: flex;align-items: stretch;" class="has_flex_space">
                         <div class="ui input focus" style="margin-right: 20px">
-                            <input type="text" style="width:300px;font-family: 'Gowun Dodum', sans-serif;" placeholder=" 닉네임을 입력해주세요.">
+                            <input type="text" style="width:300px;font-family: 'Gowun Dodum', sans-serif;" placeholder=" 닉네임을 입력해주세요." id="nickname" name="nickname">
                         </div>
                         <button class="ui primary basic button"
-                                style="font-family: 'Gowun Dodum', sans-serif;font-weight:bold;width:120px;height:40px;font-size:15px">검색
+                               onclick="find_member()" style="font-family: 'Gowun Dodum', sans-serif;font-weight:bold;width:120px;height:40px;font-size:15px">검색
                         </button>
                     </div>
                 </form>
