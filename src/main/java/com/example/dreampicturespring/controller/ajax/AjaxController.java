@@ -111,7 +111,7 @@ public class AjaxController {
 
 	@RequestMapping(value = "/ajax_picture_finder_soldout",method = RequestMethod.GET, produces ="application/text;charset=UTF-8")
 	public String picture_find_soldout(Model model,String deadline){
-		System.out.println(deadline);
+		System.out.println("============="+deadline+"==========================");
 		List<Paintingtbl> paintingtbls = paintingRepository.findPainting_soldout_deadline(deadline);
 		List<Membershiptbl> membershiptbls = new ArrayList<>();
 		List<CardVO> cardVOList = new ArrayList<>();
@@ -119,7 +119,7 @@ public class AjaxController {
 		for(int i=0;i<paintingtbls.size();i++){ CardVO vo = new CardVO(paintingtbls.get(i),membershiptbls.get(i));cardVOList.add(vo);}
 		System.out.println(cardVOList);
 		model.addAttribute("cardVOlist",cardVOList);
-		return "user/ajax/picture_find_soldout";
+		return "user/ajax/picture_finder_soldout";
 	}
 
 

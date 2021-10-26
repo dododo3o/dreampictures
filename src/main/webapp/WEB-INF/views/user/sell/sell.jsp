@@ -161,7 +161,7 @@
                                     <textarea class="painting_input" id="contentVal" name="exp"
                                               placeholder="작품설명 200글자 내외로 입력해주세요" oninput="MaxLength(this)"
                                               maxlength="100"
-                                              style="font-family:'Gowun Dodum';resize: none; height: 60px;width: 100%;"></textarea>'
+                                              style="font-family:'Gowun Dodum';resize: none; height: 60px;width: 100%;"></textarea>
                                 </div>
                             </div>
                         </div>

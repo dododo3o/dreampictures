@@ -83,7 +83,7 @@
         <div style="height:100%;">
             <div style="border-bottom: 1px solid #BDBDBD;padding: 10px 0px;flex-direction:column;display:flex;gap:20px;justify-content:center;align-items: center;">
                 <div><h1 style="font-family: 'Gowun Dodum', sans-serif;font-weight: bold;color:var(--color-chathams-blue);">신고내역</h1></div>
-                <form action="">
+                <form action="<%=conPath%>/admin/report">
                     <div style="display: flex;align-items: center;">
                         <div class="ui form">
                             <div class="field" style="width:300px;margin-right: 40px;">
@@ -97,7 +97,7 @@
                                 </select>
                             </div>
                         </div>
-                        <button class="ui primary basic button"
+                        <button class="ui primary basic button" onclick="find_deadline()"
                                 style="font-family: 'Gowun Dodum', sans-serif;font-weight: bold;width:120px;height:40px;font-size:15px">검색
                         </button>
                     </div>
@@ -173,6 +173,8 @@
         mySidebar.style.display = "none";
         overlayBg.style.display = "none";
     }
+
+
 </script>
 </body>
 </html>
