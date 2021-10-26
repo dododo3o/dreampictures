@@ -23,15 +23,12 @@
     <div class="flip-card">
         <div class="flip-card-inner" id="${cardVOlist.no_painting}" style="border-radius: 5px;">
             <div class="ui card flip-card-front" style="height: 100%; margin: 0 auto;">
-                <div class="content"
-                     style=" display: flex; flex-direction: row; justify-content: space-evenly; align-items: center;">
-                    <img src="${cardVOlist.avatarimg}"
-                         style="border-radius: 50%; width: 3em;height: 3em;object-fit: cover;">
+                <div class="content" style=" display: flex; flex-direction: row; justify-content: space-evenly; align-items: center;">
+                    <img src="${cardVOlist.avatarimg}" style="border-radius: 50%; width: 3em;height: 3em;object-fit: cover;">
                     <span style="font-size: 2em;">${cardVOlist.nickname}</span>
                 </div>
                 <div class="image">
-                    <img src="${cardVOlist.paintingmimg}" onclick="buypainting(${cardVOlist.no_painting});"
-                         style="object-fit: cover; height: 250px">
+                    <img src="${cardVOlist.paintingmimg}" onclick="buypainting(${cardVOlist.no_painting});" style="object-fit: cover; height: 250px">
                 </div>
                 <div class="content" style="display: flex;justify-content: center;">
                     <span style="font-size: 1.5em">${cardVOlist.pname}</span>

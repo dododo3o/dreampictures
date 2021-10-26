@@ -57,7 +57,7 @@ public class AjaxController {
 	public String nickname_check(String nickname){return membershiptblRepository.existsBynickname(nickname) ? "N" : "Y"; }
 
 	@RequestMapping(value = "/ajax_picture_finder",method = RequestMethod.GET, produces ="application/text;charset=UTF-8")
-	public String picture_find(Model model, String pname, String style, String theme, Integer width, Integer height, Integer price, Integer status){
+	public String picture_find(Model model, String pname, String style, String theme, Integer width, Integer height, Integer price){
 		/* =======================comment 정보도 받아서 넘겨줘야할 것 같음.======================= */
 		List<Paintingtbl> paintingtbls = paintingRepository.findPainting(makeNotNull(pname),makeNotNull(style),makeNotNull(theme),width,height,price);
 		List<Membershiptbl> membershiptbls = new ArrayList<>();

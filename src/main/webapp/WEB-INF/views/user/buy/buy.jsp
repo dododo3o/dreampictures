@@ -34,10 +34,9 @@
                 let width = document.getElementById("width").value;
                 let height = document.getElementById("height").value;
                 let price = document.getElementById("price").value;
-                let status = document.getElementById("status").checked == true ? 1 : 0;
                 $.ajax({
                     url: "/ajax_picture_finder",
-                    data: "pname=" + pname + "&style=" + style + "&theme=" + theme + "&width=" + width + "&height=" + height + "&price=" + price + "&status=" + status,
+                    data: "pname=" + pname + "&style=" + style + "&theme=" + theme + "&width=" + width + "&height=" + height + "&price=" + price,
                     success: function (result) {
                         var container = document.getElementById("container");
                         while (container.hasChildNodes()) {
