@@ -56,18 +56,18 @@ public class AjaxController {
 	@ResponseBody
 	public String nickname_check(String nickname){return membershiptblRepository.existsBynickname(nickname) ? "N" : "Y"; }
 
+
 	@RequestMapping(value = "/ajax_picture_finder",method = RequestMethod.GET, produces ="application/text;charset=UTF-8")
-	public String picture_find(Model model, String pname, String style, String theme, Integer width, Integer height, Integer price, Integer status){
-		/* =======================comment 정보도 받아서 넘겨줘야할 것 같음.======================= */
-		List<Paintingtbl> paintingtbls = paintingRepository.findPainting(makeNotNull(pname),makeNotNull(style),makeNotNull(theme),width,height,price);
+	public String picture_find(Model model, String pname, String style, String theme, Integer width, Integer height, Integer price){
+		List<Paintingtbl> paintingtbls;
+		if(pname.equals("all")){ paintingtbls = paintingRepository.findAll(); }
+		else{ paintingtbls = paintingRepository.findPainting(makeNotNull(pname),makeNotNull(style),makeNotNull(theme),width,height,price); }
 		List<Membershiptbl> membershiptbls = new ArrayList<>();
 		List<CardVO> cardVOList = new ArrayList<>();
 		for(int i=0;i<paintingtbls.size();i++){ membershiptbls.add(membershiptblRepository.getById(paintingtbls.get(i).getNo_membership())); }
 		for(int i=0;i<paintingtbls.size();i++){ CardVO vo = new CardVO(paintingtbls.get(i),membershiptbls.get(i));cardVOList.add(vo);}
 		model.addAttribute("cardVOlist",cardVOList);
 /*
-
-
 		ModelAndView mv = new ModelAndView();
 		List<CommentVO> commentVOList = new ArrayList<>();
 		List<String> list = paintingRepository.findAllPainting_Desc();
