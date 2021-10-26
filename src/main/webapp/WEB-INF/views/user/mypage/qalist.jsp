@@ -87,7 +87,6 @@
                 <div>
                     <div>질문내역</div>
                 </div>
-
             </div>
             <div style="display:grid;grid-template-columns:repeat(3,1fr);grid-gap:1rem;width:100%;padding-top: 10px">
                 <c:forEach var="QaVOlist" items="${QaVOlist}">
