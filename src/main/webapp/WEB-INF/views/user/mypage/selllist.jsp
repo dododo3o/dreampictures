@@ -11,7 +11,7 @@
     <link rel="stylesheet" href="/resources/css/dreampicturesytle.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Gowun+Dodum&display=swap" rel="stylesheet">
     <link rel="stylesheet" type="text/css"
           href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.13/semantic.min.css">
     <script src="https://kit.fontawesome.com/b14e6f064f.js" crossorigin="anonymous"></script>
@@ -51,7 +51,7 @@
 </head>
 <body>
 <jsp:include page="../header_footer/header_login.jsp"></jsp:include>
-<main class="has_bg_harp">
+<main class="has_bg_harp" style="height: auto">
     <div id="container" class="container">
         <div class="has_flex_column" style="grid-column:1/3; gap:40px;padding-top: 30px;background-color: #a2b0b36e">
             <div class="ui vertical animated button" tabindex="0" onclick="showModal()">
@@ -93,7 +93,7 @@
         </div>
         <div style="grid-column: 3/13;display: flex;flex-direction: column;justify-content: space-between;align-items: center;">
             <!-- 추가요소 있으면 이 안에 넣기-->
-            <div style="color:var(--color-chathams-blue);font-size:var(--font-size-xll);padding-top:63px;padding-bottom: 25px;">
+            <div style="color:var(--color-chathams-blue);font-size:var(--font-size-xll);padding-top:60px;padding-bottom: 100px;">
                 전시내역
             </div>
             <div style="display:flex;grid-template-columns: repeat(4,1fr); grid-gap: 1rem; width: 100%;flex-wrap: wrap">
@@ -108,8 +108,7 @@
                                     <span style="font-size: 1.5em;">${cardVOlist.nickname}</span>
                                 </div>
                                 <div class="image">
-                                    <img src="${cardVOlist.paintingmimg}"
-                                         onclick="buypainting(${cardVOlist.paintingmimg})"
+                                    <img src="${cardVOlist.paintingmimg}" onclick="buypainting(${cardVOlist.paintingmimg})"
                                          style="object-fit: cover; height: 250px">
                                 </div>
                                 <div class="content" style="display: flex;justify-content: center;">
@@ -121,10 +120,11 @@
                                         <input type="text" maxlength="20" size="20" id="${cardVOlist.no_painting}"
                                                placeholder="글자수 20글자 내 작성" style="font-size: 0.8em"/>
                                     </div>
-                                    <button class="ui blue icon button" onclick="addComment(${cardVOlist.no_painting})" style="float: right; font-size: 0.8em;">Add</button>
-                                </h5>
+                                    <button class="ui blue icon button" onclick="addComment(${cardVOlist.no_painting})"
+                                            style="float: right; font-size: 0.8em;">Add
+                                    </button>
+                                    </h5>
                                 </div>
-
                                 <div class="ui bottom attached button collapsible"
                                      onclick="flipCard(${cardVOlist.no_painting})"
                                      style="z-index: 1;">

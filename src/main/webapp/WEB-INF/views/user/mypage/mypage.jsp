@@ -148,8 +148,6 @@
         </div>
     </div>
 </div>
-
-
 <script>
     $(document).ready(function () {
         $('.ui.segment').hover(function () {
