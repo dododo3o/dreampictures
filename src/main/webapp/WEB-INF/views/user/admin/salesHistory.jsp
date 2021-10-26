@@ -30,6 +30,7 @@
         function showModal() {
             $('.ui.modal').modal('show')
         }
+
     </script>
 </head>
 <body class="w3-light-grey">
