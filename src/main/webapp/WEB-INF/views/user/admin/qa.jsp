@@ -62,9 +62,9 @@
         };
     </script>
 </head>
-<body class="w3-light-grey">
+<body style="height: 100%" class="w3-light-grey" oncontextmenu="return false" onselectstart="return false">
 <nav class="w3-sidebar w3-collapse w3-white w3-animate-left" style="z-index:3;width:300px;" id="mySidebar"><br>
-    <div class="w3-container w3-row">
+    <div class="w3-container w3-row" >
         <div class="w3-col s8 w3-bar" style="text-align: center;margin-left: 50px">
             <span>Welcome, <strong>Master</strong></span><br>
             <form action="<%=conPath%>/admin/login" method="post">
@@ -92,7 +92,7 @@
 </nav>
 <div class="w3-overlay w3-hide-large w3-animate-opacity" onclick="w3_close()" style="cursor:pointer" title="close side menu" id="myOverlay"></div>
 <div class="w3-main" style="margin-left:300px; height: 100%">
-    <main class="has_bg_harp" style="height: 100%;display: flex;flex-direction: column; justify-content: space-between;">
+    <main class="has_bg_harp" style="height: auto;display: flex;flex-direction: column; justify-content: space-between;">
         <div>
             <div tabindex="0" style="display: flex;justify-content: center;border-bottom: 1px solid #BDBDBD"><h1 style="font-family: 'Gowun Dodum', sans-serif;font-weight: bold;padding: 10px 0px;color:var(--color-chathams-blue);">질문사항</h1></div>
             <div class="manager_card" style="display: grid;grid-template-columns:repeat(4,1fr);grid-gap:1rem;width: 100%;justify-items: center;padding-bottom: 30px">

@@ -39,9 +39,9 @@
         };
     </script>
 </head>
-<body>
+<body oncontextmenu="return false" onselectstart="return false">
 <jsp:include page="../header_footer/header_login.jsp"></jsp:include>
-<main class="has_bg_harp" style="height: auto;">
+<main class="has_bg_harp" style="height: 100%;">
     <div id="container" class="container">
         <div class="has_flex_column" style="grid-column:1/3; gap:40px;padding-top: 30px;background-color: #a2b0b36e">
             <div class="ui vertical animated button" tabindex="0" onclick="showModal()">
@@ -83,12 +83,13 @@
         </div>
         <div style="height:100%;grid-column: 3/13;display: flex;flex-direction: column;justify-content: space-between;align-items: center;padding-top:63px;padding-bottom: 25px;">
             <!-- 추가요소 있으면 이 안에 넣기-->
-            <div style="color:var(--color-chathams-blue);font-size:var(--font-size-xll);">
+            <div style="display: flex;flex-direction: column;">
+            <div style="color:var(--color-chathams-blue);font-size:var(--font-size-xll);padding-bottom: 30px;text-align: center;">
                 <div>
                     <div>질문내역</div>
                 </div>
             </div>
-            <div style="display:grid;grid-template-columns:repeat(3,1fr);grid-gap:1rem;width:100%;padding-top: 10px">
+            <div style="display:grid;grid-template-columns:repeat(3,1fr);grid-gap:1rem;width:100%;padding-top: 10px;">
                 <c:forEach var="QaVOlist" items="${QaVOlist}">
                     <div class="ui card" style="height: 100%; margin: 0 auto;">
                         <div class="content">
@@ -103,6 +104,8 @@
                     </div>
                 </c:forEach>
             </div>
+            </div>
+
             <div>
                 <div class="container"
                      style="display: flex;justify-content: center;margin-top:30px;padding-bottom: 30px;">

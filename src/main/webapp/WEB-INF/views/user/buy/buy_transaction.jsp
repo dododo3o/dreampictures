@@ -15,7 +15,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Gowun+Dodum&display=swap" rel="stylesheet">
     <script src="https://kit.fontawesome.com/b14e6f064f.js" crossorigin="anonymous"></script>
 </head>
-<body>
+<body oncontextmenu="return false" onselectstart="return false">
 <% if (session.getAttribute("logStatus") == "Y") { %>
 <jsp:include page="../header_footer/header_login.jsp">
     <jsp:param name="user" value="${user}"/>
