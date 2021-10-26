@@ -61,12 +61,9 @@ public class AjaxController {
 		List<Paintingtbl> paintingtbls;
 		if(pname.equals("all")){ paintingtbls = paintingRepository.findAll(); }
 		else{ paintingtbls = paintingRepository.findPainting(makeNotNull(pname),makeNotNull(style),makeNotNull(theme),width,height,price); }
-
 		List<CardVO> cardVOList = new ArrayList<>();
 		List<Membershiptbl> membershiptbls = new ArrayList<>();
-
 		for(int i=0;i<paintingtbls.size();i++){ membershiptbls.add(membershiptblRepository.getById(paintingtbls.get(i).getNo_membership())); }
-
 		int count = 0;
 		for(Paintingtbl paintingtbl : paintingtbls){
 			CardVO cardVO = new CardVO();
@@ -100,20 +97,56 @@ public class AjaxController {
 		return "user/ajax/picture_find";
 	}
 
+	@RequestMapping(value = "/ajax_buy_pagination",method = RequestMethod.GET, produces ="application/text;charset=UTF-8")
+	public String pagination(Model model, Integer num){
+		List<Paintingtbl> paintingtbls = paintingRepository.findpage(num,num-1);
+		List<CardVO> cardVOList = new ArrayList<>();
+		List<Membershiptbl> membershiptbls = new ArrayList<>();
+		for(int i=0;i<paintingtbls.size();i++){ membershiptbls.add(membershiptblRepository.getById(paintingtbls.get(i).getNo_membership())); }
+		int count = 0;
+		for(Paintingtbl paintingtbl : paintingtbls){
+			CardVO cardVO = new CardVO();
+			cardVO.setNo_painting(paintingtbl.getNo_painting().toString());
+			cardVO.setAvatarimg(membershiptbls.get(count).getImg());
+			cardVO.setPaintingmimg(paintingtbl.getUrl());
+			cardVO.setNickname(membershiptbls.get(count).getNickname());
+			cardVO.setPname(paintingtbl.getPname());
+			cardVO.setCommentNumber(commentRepository.countByno_painting(paintingtbl.getNo_painting()));
+
+			List<String> comments = commentRepository.findCommenttbl(paintingtbl.getNo_painting());
+			List<CommentVO> commentVOlist = new ArrayList<>();
+			for(String comment : comments){
+				List<String> comment_member = Arrays.asList(comment.split(","));
+				CommentVO commentVO = new CommentVO();
+				Integer no_comment = commentRepository.findByNo_comment(Integer.parseInt(comment_member.get(1)),paintingtbl.getNo_painting());
+				Membershiptbl membershiptbl = membershiptblRepository.getById(Integer.parseInt(comment_member.get(1)));
+				commentVO.setNo_comment(no_comment);
+				commentVO.setAvatarimg(membershiptbl.getImg());
+				commentVO.setAuthor(membershiptbl.getNickname());
+				commentVO.setDate("1H");
+				commentVO.setComments(comment_member.get(0));
+				commentVO.setNo_membership(membershiptbl.getNo_membership());
+				commentVOlist.add(commentVO);
+			}
+			cardVO.setCommentVOList(commentVOlist);
+			cardVOList.add(cardVO);
+			count++;
+		}
+		model.addAttribute("cardVOlist",cardVOList);
+		return "user/ajax/picture_find";
+	}
+
+
 	@RequestMapping(value = "/ajax_picture_finder_soldout",method = RequestMethod.GET, produces ="application/text;charset=UTF-8")
 	public String picture_find_soldout(Model model,String deadline){
-		System.out.println("============="+deadline+"==========================");
 		List<Paintingtbl> paintingtbls = paintingRepository.findPainting_soldout_deadline(deadline);
 		List<Membershiptbl> membershiptbls = new ArrayList<>();
 		List<CardVO> cardVOList = new ArrayList<>();
 		for(int i=0;i<paintingtbls.size();i++){ membershiptbls.add(membershiptblRepository.getById(paintingtbls.get(i).getNo_membership())); }
 		for(int i=0;i<paintingtbls.size();i++){ CardVO vo = new CardVO(paintingtbls.get(i),membershiptbls.get(i));cardVOList.add(vo);}
-		System.out.println(cardVOList);
 		model.addAttribute("cardVOlist",cardVOList);
 		return "user/ajax/picture_finder_soldout";
 	}
-
-
 
 	@RequestMapping(value = "/ajax_pay",method = RequestMethod.GET, produces ="application/text;charset=UTF-8")
 	@ResponseBody

@@ -1,4 +1,5 @@
 package com.example.dreampicturespring.repository;
+import com.example.dreampicturespring.entity.Membershiptbl;
 import com.example.dreampicturespring.entity.Paintingtbl;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
@@ -25,6 +26,10 @@ public interface PaintingRepository extends JpaRepository<Paintingtbl, Integer> 
     List<Paintingtbl> findPainting_soldout_deadline(@Param("deadline")String deadline);
 
 
+    @Query(value = "select * from paintingtbl where  15*:min <rownum and rownum < 15*:max order by paintingtbl.no_painting desc", nativeQuery = true)
+    List<Paintingtbl> findpage(@Param("max") Integer max, @Param("min") Integer min);
+
+
 
     @Query(value = "select count(*) from paintingtbl where paintingtbl.status = 1 ", nativeQuery = true)
     Integer countSold();
@@ -37,5 +42,7 @@ public interface PaintingRepository extends JpaRepository<Paintingtbl, Integer> 
 
     @Query(value = "select * from paintingtbl where paintingtbl.no_membership = :no_membership ", nativeQuery = true)
     List<Paintingtbl> findbyno_membership(@Param("no_membership") Integer no_membership);
+
+
 
 }

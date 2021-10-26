@@ -66,9 +66,7 @@ public class BuyController {
             cardVO.setCommentVOList(commentVOlist);
             cardVOList.add(cardVO);
         }
-
         cardNum = paintingRepository.count();
-
         pageNum = cardNum/CARDSPERPAGE+1;
         mv.setViewName("user/buy/buy");
         mv.addObject("cardVOlist",cardVOList);

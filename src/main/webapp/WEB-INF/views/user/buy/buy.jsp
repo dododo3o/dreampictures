@@ -63,11 +63,11 @@
             });
         };
 
-        pagantion = function (num) {
+        pagination = function (num) {
             $(() => {
                 $.ajax({
-                    url: "/ajax_picture_finder",
-                    data: "pname=" + "all",
+                    url: "/ajax_buy_pagination",
+                    data: "num=" + num,
                     success: function (result) {
                         var container = document.getElementById("container");
                         while (container.hasChildNodes()) {
@@ -1561,8 +1561,8 @@
             </div>
             <c:forEach var="i" begin="1" end="${pageNum}">
                 <div class="ui animated button" tabindex="0" style="color:var(--color-white);background-color: var(--color-chathams-blue);">
-                    <div class="visible content">${i}</div>
-                    <div class="hidden content">${i}</div>
+                    <div class="visible content" onclick="pagination(${i})">${i}</div>
+                    <div class="hidden content" onclick="pagination(${i})">${i}</div>
                 </div>
             </c:forEach>
             <div class="ui animated button" tabindex="0" style="color:var(--color-white);background-color: var(--color-chathams-blue);">
