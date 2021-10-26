@@ -70,8 +70,9 @@
         <a href="/admin/notice" class="w3-bar-item w3-button w3-padding"><i class="fa fa-bullseye fa-fw"></i>  공지사항</a>
         <a href="/admin/qa" class="w3-bar-item w3-button w3-padding"><i class="fa fa-bullseye fa-fw"></i>  질문사항</a>
         <a href="/admin/salesHistory" class="w3-bar-item w3-button w3-padding"><i class="fa fa-bullseye fa-fw"></i> 
-            판매현황</a>
-        <a href="/admin/report" class="w3-bar-item w3-button w3-padding w3-blue"><i class="fa fa-bullseye fa-fw"></i>  신고내역</a>
+            거래현황</a>
+        <a href="/admin/report" class="w3-bar-item w3-button w3-padding w3-blue"><i class="fa fa-bullseye fa-fw"></i> 
+            신고내역</a>
         <a href="/admin/allmembers" class="w3-bar-item w3-button w3-padding"><i class="fa fa-bullseye fa-fw"></i>  회원현황</a><br><br>
     </div>
 </nav>
@@ -82,7 +83,9 @@
     <div class="has_bg_harp" style="height:100%;flex-direction: column;justify-content: space-between;display: flex;">
         <div style="height:100%;">
             <div style="border-bottom: 1px solid #BDBDBD;padding: 10px 0px;flex-direction:column;display:flex;gap:20px;justify-content:center;align-items: center;">
-                <div><h1 style="font-family: 'Gowun Dodum', sans-serif;font-weight: bold;color:var(--color-chathams-blue);">신고내역</h1></div>
+                <div><h1
+                        style="font-family: 'Gowun Dodum', sans-serif;font-weight: bold;color:var(--color-chathams-blue);">
+                    신고내역</h1></div>
                 <form action="">
                     <div style="display: flex;align-items: center;">
                         <div class="ui form">
@@ -98,7 +101,8 @@
                             </div>
                         </div>
                         <button class="ui primary basic button"
-                                style="font-family: 'Gowun Dodum', sans-serif;font-weight: bold;width:120px;height:40px;font-size:15px">검색
+                                style="font-family: 'Gowun Dodum', sans-serif;font-weight: bold;width:120px;height:40px;font-size:15px">
+                            검색
                         </button>
                     </div>
                 </form>
