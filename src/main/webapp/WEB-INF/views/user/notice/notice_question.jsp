@@ -113,21 +113,21 @@
                         질문과 답변
                     </div>
                     <div tabindex="0" onclick="showModal()">
-                        <button class="ui primary basic button" style="font-size:1.2em;font-family:'Gowun Dodum';font-weight: bold;width:120px">질문하기</button>
+                        <button class="ui primary basic button"
+                                style="font-size:1.2em;font-family:'Gowun Dodum';font-weight: bold;width:120px">질문하기
+                        </button>
                     </div>
                 </div>
                 <div style="display:grid;grid-template-columns:repeat(3,1fr);grid-gap:1rem;width:100%;padding-top: 10px">
                     <c:forEach var="QaVOlist" items="${QaVOlist}">
                         <div class="ui card" style="height: 100%; margin: 0 auto;">
                             <div class="content">
-                                <div class="header"
-                                     style="font-family: 'Gowun Dodum', sans-serif;font-size: 1.5em">${QaVOlist.category}</div>
+                                <div class="header" style="font-family: 'Gowun Dodum', sans-serif;font-size: 1.5em">${QaVOlist.category}</div>
                             </div>
                             <div class="content">
-                                <div style="font-size: 1.3em">작성자 : ${QaVOlist.nickname}<br/>${QaVOlist.content}
-                                </div>
+                                <div style="font-size: 1.2em">작성자 : ${QaVOlist.nickname}<br/>${QaVOlist.content}</div>
                             </div>
-                            <div class="content" style="font-size: 1.3em">답변내용 : <br/>${QaVOlist.answer}</div>
+                            <div class="content" style="font-size: 1.2em">답변내용 : <br/>${QaVOlist.answer}</div>
                         </div>
                     </c:forEach>
                 </div>

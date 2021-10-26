@@ -113,7 +113,8 @@
                                 <span style="font-size: 1.5em">${cardVOlist.pname}</span>
                             </div>
                             <div class="extra content">
-                                <div class="ui large transparent left icon input" style="display: flex; justify-content: space-evenly">
+                                <div class="ui large transparent left icon input"
+                                     style="display: flex; justify-content: space-evenly">
                                     <span>구매 날짜<br>${cardVOlist.writedate}</span>
                                     <span>구매 가격<br>${cardVOlist.price}</span>
                                 </div>
