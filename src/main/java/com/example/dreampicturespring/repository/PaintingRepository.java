@@ -8,7 +8,7 @@ import java.util.List;
 
 @Repository
 public interface PaintingRepository extends JpaRepository<Paintingtbl, Integer> {
-    @Query(value = "select paintingtbl.no_painting,membershiptbl.img,membershiptbl.nickname,paintingtbl.pname,paintingtbl.url from paintingtbl, membershiptbl where paintingtbl.no_membership = membershiptbl.no_membership and paintingtbl.status =  0 ORDER BY no_painting DESC", nativeQuery = true)
+    @Query(value = "select paintingtbl.no_painting,membershiptbl.img,membershiptbl.nickname,paintingtbl.pname from paintingtbl, membershiptbl where paintingtbl.no_membership = membershiptbl.no_membership and paintingtbl.status =  0 ORDER BY no_painting DESC", nativeQuery = true)
     List<String> findAllPainting_Desc();
 
     @Query(value = "select paintingtbl.no_painting,membershiptbl.img,membershiptbl.nickname,paintingtbl.pname,paintingtbl.url from paintingtbl, membershiptbl where paintingtbl.no_membership = membershiptbl.no_membership and paintingtbl.status = 1", nativeQuery = true)
