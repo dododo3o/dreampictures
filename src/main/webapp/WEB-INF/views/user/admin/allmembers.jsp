@@ -24,16 +24,6 @@
             font-family: "Raleway", sans-serif
         }
     </style>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <style>
-        html, body, h1, h2, h3, h4, h5 {
-            font-family: "Raleway", sans-serif
-        }
-    </style>
     <script src="https://kit.fontawesome.com/b14e6f064f.js" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"
             integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ=="
@@ -100,9 +90,7 @@
                         <div class="ui input focus" style="margin-right: 20px">
                             <input type="text" style="width:300px;font-family: 'Gowun Dodum', sans-serif;" placeholder=" 닉네임을 입력해주세요.">
                         </div>
-                        <button class="ui primary basic button"
-                                style="font-family: 'Gowun Dodum', sans-serif;font-weight:bold;width:120px;height:40px;font-size:15px">검색
-                        </button>
+                        <button class="ui primary basic button" style="font-family: 'Gowun Dodum', sans-serif;font-weight:bold;width:120px;height:40px;font-size:15px">검색</button>
                     </div>
                 </form>
             </div>
