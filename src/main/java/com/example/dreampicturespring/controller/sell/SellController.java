@@ -27,14 +27,11 @@ public class SellController {
     public String sell() { return "user/sell/sell"; }
 
     @RequestMapping(value = "/sell_success",method = RequestMethod.POST, produces ="application/text;charset=UTF-8")
-    public ModelAndView sell_success(SellVO vo, HttpServletRequest req) {
+    public String sell_success(SellVO vo, HttpServletRequest req) {
         String user = req.getSession().getAttribute("logEmail").toString();
         Membershiptbl ms = membershiptblRepository.findByemail(user);
         Paintingtbl paintingtbl = new Paintingtbl(vo,ms.getNo_membership());
-        System.out.println(paintingtbl);
         paintingRepository.save(paintingtbl);
-        ModelAndView mv = new ModelAndView();
-        mv.setViewName("/sell/sell");
-        return mv;
+        return "user/sell/sell";
     }
 }
