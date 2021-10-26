@@ -78,9 +78,8 @@
                 </div>
             </div>
         </div>
-        <div style="height:100%;grid-column: 3/13;display: flex;flex-direction: column;justify-content: space-between;align-items: center;justify-content: space-between;flex-wrap: nowrap;">
+        <div style="grid-column: 3/13;display: flex;flex-direction: column;align-items: center;justify-content: space-between;">
             <!-- 추가요소 있으면 이 안에 넣기-->
-            <div style="display: flex;flex-direction: column;">
             <div style="color:var(--color-chathams-blue);font-size:var(--font-size-xll);padding-top:63px;padding-bottom: 25px;">
                 장바구니
             </div>
@@ -101,14 +100,13 @@
                                          style="object-fit: cover; height: 250px">
                                 </div>
                                 <div class="content" style="display: flex;justify-content: center;">
-                                    <span style="font-size: 1.5em">${cardVOlist.pname}</span><span></span>
+                                    <span style="font-size: 1.5em">${cardVOlist.pname}</span>
                                 </div>
                                 <div class="extra content">
                                     <div class="ui large transparent left icon input" style="display: flex;">
                                         <i class="pencil alternate icon"></i>
                                         <input type="text" maxlength="20" size="20" id="${cardVOlist.no_painting}"
-                                               placeholder="글자수 20글자 내 작성"
-                                               style="font-size: 0.8em"/>
+                                               placeholder="글자수 20글자 내 작성" style="font-size: 0.8em"/>
                                     </div>
                                     <button class="ui blue icon button" onclick="addComment(${cardVOlist.no_painting})"
                                             style="float: right; font-size: 0.8em;">Add
@@ -143,34 +141,33 @@
                         </div>
                     </div>
                 </c:forEach>
-            </div>
-            </div>
-            <div>
-                <div class="container"
-                     style="display: flex;justify-content: center;margin-top:30px;padding-bottom: 30px;">
-                    <div style="margin-right: 40px;">
-                        <div class="ui animated button" tabindex="0"
-                             style="color:var(--color-white);background-color: var(--color-chathams-blue);">
-                            <div class="visible content">Perv</div>
-                            <div class="hidden content">
-                                <i class="left arrow icon"></i>
-                            </div>
-                        </div>
-                        <c:forEach var="i" begin="1" end="${pageNum}">
+                <div>
+                    <div class="container"
+                         style="display: flex;justify-content: center;margin-top:30px;padding-bottom: 30px;">
+                        <div style="margin-right: 40px;">
                             <div class="ui animated button" tabindex="0"
                                  style="color:var(--color-white);background-color: var(--color-chathams-blue);">
-                                <div class="visible content">${i}</div>
-                                <div class="hidden content">${i}</div>
+                                <div class="visible content">Perv</div>
+                                <div class="hidden content">
+                                    <i class="left arrow icon"></i>
+                                </div>
                             </div>
-                        </c:forEach>
-                        <div class="ui animated button" tabindex="0"
-                             style="color:var(--color-white);background-color: var(--color-chathams-blue);">
-                            <div class="visible content">Next</div>
-                            <div class="hidden content">
-                                <i class="right arrow icon"></i>
+                            <c:forEach var="i" begin="1" end="${pageNum}">
+                                <div class="ui animated button" tabindex="0"
+                                     style="color:var(--color-white);background-color: var(--color-chathams-blue);">
+                                    <div class="visible content">${i}</div>
+                                    <div class="hidden content">${i}</div>
+                                </div>
+                            </c:forEach>
+                            <div class="ui animated button" tabindex="0"
+                                 style="color:var(--color-white);background-color: var(--color-chathams-blue);">
+                                <div class="visible content">Next</div>
+                                <div class="hidden content">
+                                    <i class="right arrow icon"></i>
+                                </div>
                             </div>
+                            <br>
                         </div>
-                        <br>
                     </div>
                 </div>
             </div>

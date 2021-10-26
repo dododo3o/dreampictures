@@ -101,7 +101,7 @@
                         <i class="red user circle icon"></i>
                     </div>
                 </div>
-                <div class="ui vertical animated button" tabindex="0" >
+                <div class="ui vertical animated button" tabindex="0">
                     <div class="hidden content"><a href="/buylist">구매내역</a></div>
                     <div class="visible content">
                         <i class="orange shipping fast icon"></i>
@@ -109,11 +109,13 @@
                 </div>
                 <div class="ui vertical animated button" tabindex="0" >
                     <div class="hidden content"><a href="/selllist">전시내역</a></div>
+                <div class="ui vertical animated button" tabindex="0">
+                    <div class="hidden content"><a href="/selllist">판매내역</a></div>
                     <div class="visible content">
                         <i class="orange shipping fast icon"></i>
                     </div>
                 </div>
-                <div class="ui vertical animated button" tabindex="0" >
+                <div class="ui vertical animated button" tabindex="0">
                     <div class="hidden content"><a href="/cart">장바구니</a></div>
                     <div class="visible content">
                         <i class="yellow shopping cart icon"></i>
@@ -134,8 +136,8 @@
             </div>
         </div>
         <div style="grid-column: 3/13;display: flex;flex-direction: column;justify-content: space-between;align-items: center;justify-content: space-evenly">
-            <div style="font-weight:bold;font-family:'Gowun Dodum';color:var(--color-chathams-blue);font-size:var(--font-size-xll);padding-top: 25px;">
-                MY PAGE
+            <div style="color:var(--color-chathams-blue);font-size:var(--font-size-xll);padding-top: 25px;">
+                My Page
             </div>
             <div class="ui card" style="width:500px;grid-column: 5/12;height: fit-content;">
                 <div class="content" style="display:flex;justify-content: space-evenly;align-items: center;">
