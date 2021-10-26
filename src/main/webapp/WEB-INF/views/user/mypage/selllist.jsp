@@ -132,17 +132,14 @@
                             <c:forEach var="commentVOList" items="${cardVOlist.commentVOList}">
                                 <h5 class="ui header" style="user-select: auto; margin: 10px;">
                                     <div style="display: flex;align-items: center;justify-content: space-between;">
-                                        <img src="${commentVOList.avatarimg}"
-                                             style="border-radius: 50%; height:40px; width:40px;object-fit: cover;">
-                                        <span class="author"
-                                              style="margin-left: 10px; font-size: 1.5em">${commentVOList.author}</span>
-                                        <button class="ui red icon button" onclick="" style="font-size: 0.5em">X
-                                        </button>
+                                        <img src="${commentVOList.avatarimg}" style="border-radius: 50%; height:40px; width:40px;object-fit: cover;">
+                                        <span class="author" style="margin-left: 10px; font-size: 1.5em">${commentVOList.author}</span>
+                                        <button class="ui red icon button" onclick="" style="font-size: 0.5em">X</button>
                                     </div>
-                                    <button class="ui blue icon button" onclick="addComment(${cardVOlist.no_painting})"
-                                            style="float: right; font-size: 0.8em;">Add
-                                    </button>
+                                    <button class="ui blue icon button" onclick="addComment(${cardVOlist.no_painting})" style="float: right; font-size: 0.8em;">Add</button>
+                                </h5>
                                 </div>
+
                                 <div class="ui bottom attached button collapsible"
                                      onclick="flipCard(${cardVOlist.no_painting})"
                                      style="z-index: 1;">

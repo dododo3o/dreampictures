@@ -138,10 +138,6 @@
                         type="range" class="width_slider"
                         id="price" min="0" max="100000" step="1000"
                         value="100000" oninput="document.getElementById('priceVal').innerHTML=this.value;"/></div>
-                <div class="checkbox" style="display: flex;">
-                    <input type="checkbox" id="status" style="margin-right:10px;"><label
-                        style="color: var(--color-chathams-blue);">거래완료 안보기</label>
-                </div>
             </div>
         </div>
     </div>
