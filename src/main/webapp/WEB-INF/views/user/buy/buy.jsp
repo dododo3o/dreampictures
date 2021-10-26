@@ -405,7 +405,7 @@
 
     $('#looking_boy').transition('tada','3000ms').transition('vertical flip','500ms',function () {
         $('#window_girl').transition('vertical flip','500ms',function (){
-            $('#leaf').transition()
+            $('#leaf').animate({left:'300px'}, '1000ms').animate({right:'300px'}, '1000ms')
         })
     })
 
