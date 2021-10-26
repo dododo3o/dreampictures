@@ -27,18 +27,13 @@
             <h1 class="has_font-xxl" style="margin-left:280px; margin-bottom: 40px;">구매완료</h1>
             <div style="display:flex;">
                 <div class="has_bg_puce is_buyer-card">
-                    <div class="is_seller-card-img" style="background:url("
-                    <c:out value="${transactionVO.paintingimg}"/>");">
-                </div>
+                    <div class="is_seller-card-img" style="background:url("<c:out value="${transactionVO.paintingimg}"/>");"></div>
                 <div class="has_font-xl "><c:out value="${transactionVO.pname}"/></div>
                 <div style="display:flex; margin-top: 20px;">
-                    <div class="is_round is_seller-face" style="background:url("
-                    <c:out value="${transactionVO.avatarimg}"/>");">
-                </div>
+                    <div class="is_round is_seller-face" style="background:url("<c:out value="${transactionVO.avatarimg}"/>");"><div>
                 <div class="has_font-xl"><c:out value="${transactionVO.nickname}"/></div>
             </div>
-            <p class="has_font-base" style="margin-top: 20px;"><c:out value="${transactionVO.transactionDate}"/></p>
-        </section>
+            <p class="has_font-base" style="margin-top: 20px;"><c:out value="${transactionVO.transactionDate}"/></p></section>
     </div>
     <div style="margin:0 70px;">
         <i style="font-size:120px; margin-top: 130px;" class="fas fa-hands-helping has_font-2xl"></i>
@@ -47,9 +42,7 @@
         </div>
     </div>
     <div class="has_bg_pink is_buyer-card">
-        <div class="is_buyer-card-img" style="background:url("
-        <c:out value="${transactionVO.buyer_avatarimg}"/>");">
-    </div>
+        <div class="is_buyer-card-img" style="background:url("<c:out value="${transactionVO.buyer_avatarimg}"/>");"></div>
     <div></div>
     <ul>
         <c:out value="${transactionVO.paintingimg}"/>

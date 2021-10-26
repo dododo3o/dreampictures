@@ -105,8 +105,7 @@
                                 <span style="font-size: 1.5em">${cardVOlist.pname}</span>
                                 <div class="content" style="font-size: 1.3em">답변내용 : <br/>${QaVOlist.answer}</div>
                                 </c:forEach>
-                                <div class="container"
-                                     style="display: flex;justify-content: center;margin-top:30px;padding-bottom: 30px;">
+                                <div class="container" style="display: flex;justify-content: center;margin-top:30px;padding-bottom: 30px;">
                                     <div style="margin-right: 40px;">
                                         <div class="ui animated button" tabindex="0"
                                              style="color:var(--color-white);background-color: var(--color-chathams-blue);">
@@ -130,7 +129,6 @@
                                         <br>
                                     </div>
                                 </div>
-                                <%--페이징--%>
                             </div>
                         </div>
                     </div>
