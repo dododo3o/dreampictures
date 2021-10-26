@@ -19,7 +19,7 @@ public class CardVO {
     private Integer commentNumber;
     private List<CommentVO> commentVOList;
 
-    public CardVO(){ }
+    public CardVO(){}
     public CardVO(String no_painting,String avatarimg,String paintingmimg,String nickname,String pname){
         this.no_painting = no_painting;
         this.avatarimg = avatarimg;

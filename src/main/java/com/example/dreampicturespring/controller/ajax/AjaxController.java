@@ -1,4 +1,5 @@
 package com.example.dreampicturespring.controller.ajax;
+
 import com.example.dreampicturespring.entity.*;
 import com.example.dreampicturespring.repository.*;
 import com.example.dreampicturespring.vo.CardVO;
@@ -209,82 +210,91 @@ public class AjaxController {
 		return "redirect:/mypage";
 	}
 
-
-	@RequestMapping(value = "/ajax_report",method = RequestMethod.GET, produces ="application/text;charset=UTF-8")
-	@ResponseBody
-	public String report(HttpServletRequest request,Integer reportNum,Integer no_painting ){
-		HttpSession session = request.getSession();
-		Membershiptbl membershipTBL = membershiptblRepository.findByemail((String) session.getAttribute("logEmail"));
-		if(membershipTBL == null){ return "not_login"; }
-		List<Integer> list = reportRepository.isOverlap(no_painting);
-		if(list.contains(membershipTBL.getNo_membership())){ return "overlap";}
-		Reporttbl reporttbl = new Reporttbl();
-		reporttbl.setNo_painting(no_painting);
-		reporttbl.setNo_membership(membershipTBL.getNo_membership());
-		reporttbl.parser(reportNum);
-		reportRepository.save(reporttbl);
-		return "user/buy/buy";
-	}
-
-
-	@RequestMapping(value = "/ajax_cart_add",method = RequestMethod.GET, produces ="application/text;charset=UTF-8")
-	@ResponseBody
-	public String cart_add(HttpServletRequest request,Integer no_painting){
-		HttpSession session = request.getSession();
-		Membershiptbl membershipTBL = membershiptblRepository.findByemail((String) session.getAttribute("logEmail"));
-		if(membershipTBL == null){ return "not_login";}
-		Carttbl carttbls = cartRepository.findByno_membership(membershipTBL.getNo_membership());
-		List<Cartpaintingtbl> cartpaintingtblList = cartpaintingRepository.findByno_cart(carttbls.getNo_cart());
-		for(Cartpaintingtbl cartpaintingtbl : cartpaintingtblList){ if(cartpaintingtbl.getNo_painting()==no_painting) return "has_already"; }
-		Cartpaintingtbl cartpaintingtbl = new Cartpaintingtbl();
-		cartpaintingtbl.setNo_cart(carttbls.getNo_cart());
-		cartpaintingtbl.setNo_painting(no_painting);
-		cartpaintingRepository.save(cartpaintingtbl);
-		return "success";
-	}
+    @RequestMapping(value = "/ajax_report", method = RequestMethod.GET, produces = "application/text;charset=UTF-8")
+    @ResponseBody
+    public String report(HttpServletRequest request, Integer reportNum, Integer no_painting) {
+        HttpSession session = request.getSession();
+        Membershiptbl membershipTBL = membershiptblRepository.findByemail((String) session.getAttribute("logEmail"));
+        if (membershipTBL == null) {
+            return "not_login";
+        }
+        List<Integer> list = reportRepository.isOverlap(no_painting);
+        if (list.contains(membershipTBL.getNo_membership())) {
+            return "overlap";
+        }
+        Reporttbl reporttbl = new Reporttbl();
+        reporttbl.setNo_painting(no_painting);
+        reporttbl.setNo_membership(membershipTBL.getNo_membership());
+        reporttbl.parser(reportNum);
+        reportRepository.save(reporttbl);
+        return "user/buy/buy";
+    }
 
 
-	@RequestMapping(value = "/ajax_comment_finder",method = RequestMethod.GET, produces ="application/text;charset=UTF-8")
-	public String comment_finder(Model model, Integer no_painting){
-		List<String> comments = commentRepository.findCommenttbl(no_painting);
-		List<CommentVO> commentVOlist = new ArrayList<>();
-		for(String comment : comments){
-			List<String> obj = Arrays.asList(comment.split(","));
-			Membershiptbl membershiptb = membershiptblRepository.getById(Integer.parseInt(obj.get(1)));
-			CommentVO commentVO = new CommentVO();
-			commentVO.setAvatarimg(membershiptb.getImg());
-			commentVO.setAuthor(membershiptb.getNickname());
-			commentVO.setDate("1H");
-			commentVO.setComments(obj.get(0));
-			commentVOlist.add(commentVO);
-		}
-		model.addAttribute("commentVOlist",commentVOlist);
-		return "user/ajax/comment_find";
-	}
+    @RequestMapping(value = "/ajax_cart_add", method = RequestMethod.GET, produces = "application/text;charset=UTF-8")
+    @ResponseBody
+    public String cart_add(HttpServletRequest request, Integer no_painting) {
+        HttpSession session = request.getSession();
+        Membershiptbl membershipTBL = membershiptblRepository.findByemail((String) session.getAttribute("logEmail"));
+        if (membershipTBL == null) {
+            return "not_login";
+        }
+        Carttbl carttbls = cartRepository.findByno_membership(membershipTBL.getNo_membership());
+        List<Cartpaintingtbl> cartpaintingtblList = cartpaintingRepository.findByno_cart(carttbls.getNo_cart());
+        for (Cartpaintingtbl cartpaintingtbl : cartpaintingtblList) {
+            if (cartpaintingtbl.getNo_painting() == no_painting) return "has_already";
+        }
+        Cartpaintingtbl cartpaintingtbl = new Cartpaintingtbl();
+        cartpaintingtbl.setNo_cart(carttbls.getNo_cart());
+        cartpaintingtbl.setNo_painting(no_painting);
+        cartpaintingRepository.save(cartpaintingtbl);
+        return "success";
+    }
 
-	@RequestMapping(value = "/ajax_comment_add",method = RequestMethod.GET, produces ="application/text;charset=UTF-8")
-	public String comment_add(Model model,HttpServletRequest request,String comment,Integer no_painting){
-		System.out.println(comment + no_painting+"ㅁㅁㅁㅁ");
-		HttpSession session =request.getSession();
 
-		Membershiptbl membershipTBL = membershiptblRepository.findByemail((String) session.getAttribute("logEmail"));
-		System.out.println(comment + no_painting);
-		if(membershipTBL == null){ return "user/redirect/not_login";}
+    @RequestMapping(value = "/ajax_comment_finder", method = RequestMethod.GET, produces = "application/text;charset=UTF-8")
+    public String comment_finder(Model model, Integer no_painting) {
+        List<String> comments = commentRepository.findCommenttbl(no_painting);
+        List<CommentVO> commentVOlist = new ArrayList<>();
+        for (String comment : comments) {
+            List<String> obj = Arrays.asList(comment.split(","));
+            Membershiptbl membershiptb = membershiptblRepository.getById(Integer.parseInt(obj.get(1)));
+            CommentVO commentVO = new CommentVO();
+            commentVO.setAvatarimg(membershiptb.getImg());
+            commentVO.setAuthor(membershiptb.getNickname());
+            commentVO.setDate("1H");
+            commentVO.setComments(obj.get(0));
+            commentVOlist.add(commentVO);
+        }
+        model.addAttribute("commentVOlist", commentVOlist);
+        return "user/ajax/comment_find";
+    }
 
-		System.out.println("=======3333====="+comment+"=============");
-		Commentstbl commentstbl = new Commentstbl();
-		commentstbl.setNo_membership(membershipTBL.getNo_membership());
-		System.out.println("=====2222======="+comment+"=============");
-		commentstbl.setComments(comment);
-		commentstbl.setNo_painting(no_painting);
-		commentRepository.save(commentstbl);
-		System.out.println("============"+comment+"=============");
+    @RequestMapping(value = "/ajax_comment_add", method = RequestMethod.GET, produces = "application/text;charset=UTF-8")
+    public String comment_add(Model model, HttpServletRequest request, String comment, Integer no_painting) {
+        System.out.println(comment + no_painting + "ㅁㅁㅁㅁ");
+        HttpSession session = request.getSession();
 
-		return "redirect:/buy";
-	}
+        Membershiptbl membershipTBL = membershiptblRepository.findByemail((String) session.getAttribute("logEmail"));
+        System.out.println(comment + no_painting);
+        if (membershipTBL == null) {
+            return "user/redirect/not_login";
+        }
 
-	private String makeNotNull(String target){
-		if(StringUtils.isEmpty(target)) return target = null;
-		return target;
-	}
+        System.out.println("=======3333=====" + comment + "=============");
+        Commentstbl commentstbl = new Commentstbl();
+        commentstbl.setNo_membership(membershipTBL.getNo_membership());
+        System.out.println("=====2222=======" + comment + "=============");
+        commentstbl.setComments(comment);
+        commentstbl.setNo_painting(no_painting);
+        commentRepository.save(commentstbl);
+        System.out.println("============" + comment + "=============");
+
+        return "redirect:/buy";
+    }
+
+    private String makeNotNull(String target) {
+        if (StringUtils.isEmpty(target)) return target = null;
+        return target;
+    }
 }

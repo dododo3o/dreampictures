@@ -67,7 +67,7 @@
                 </div>
             </div>
             <div class="ui vertical animated button" tabindex="0" onclick="showModal()">
-                <div class="hidden content"><a href="/selllist">판매내역</a></div>
+                <div class="hidden content"><a href="/selllist">전시내역</a></div>
                 <div class="visible content">
                     <i class="orange shipping fast icon"></i>
                 </div>
@@ -91,10 +91,10 @@
                 </div>
             </div>
         </div>
-        <div style="grid-column: 3/13;display: flex;flex-direction: column;justify-content: space-between;align-items: center;justify-content: space-evenly">
+        <div style="grid-column: 3/13;display: flex;flex-direction: column;justify-content: space-between;align-items: center;">
             <!-- 추가요소 있으면 이 안에 넣기-->
-            <div style="color:var(--color-chathams-blue);font-size:var(--font-size-xll);padding-top: 30px;padding-bottom: 25px;">
-                판매내역
+            <div style="color:var(--color-chathams-blue);font-size:var(--font-size-xll);padding-top:63px;padding-bottom: 25px;">
+                전시내역
             </div>
             <div style="display:flex;grid-template-columns: repeat(3,1fr); grid-gap: 1rem; width: 100%;flex-wrap: wrap">
             <c:forEach var="cardVOlist" items="${cardVOlist}">
@@ -139,48 +139,70 @@
                                         <button class="ui red icon button" onclick="" style="font-size: 0.5em">X
                                         </button>
                                     </div>
-                                    <div class="text" style="margin: 10px;">${commentVOList.comments}</div>
-                                </h5>
-                            </c:forEach>
-                            <div class="ui button bottom attached collapsible"
-                                 onclick="closeCard(${cardVOlist.no_painting})" id="close_btn">
-                                <i class="large close icon icon"></i>
+                                    <button class="ui blue icon button" onclick="addComment(${cardVOlist.no_painting})"
+                                            style="float: right; font-size: 0.8em;">Add
+                                    </button>
+                                </div>
+                                <div class="ui bottom attached button collapsible"
+                                     onclick="flipCard(${cardVOlist.no_painting})"
+                                     style="z-index: 1;">
+                                    <i class="add icon"></i>
+                                    <span><i class="comment icon"></i>${cardVOlist.commentNumber}</span>
+                                </div>
+                            </div>
+                            <div class="ui comments flip-card-back">
+                                <c:forEach var="commentVOList" items="${cardVOlist.commentVOList}">
+                                    <h5 class="ui header" style="user-select: auto; margin: 10px;">
+                                        <div style="display: flex;align-items: center;justify-content: space-between;">
+                                            <img src="${commentVOList.avatarimg}"
+                                                 style="border-radius: 50%; height:40px; width:40px;object-fit: cover;">
+                                            <span class="author"
+                                                  style="margin-left: 10px; font-size: 1.5em">${commentVOList.author}</span>
+                                            <button class="ui red icon button" onclick="" style="font-size: 0.5em">X
+                                            </button>
+                                        </div>
+                                        <div class="text" style="margin: 10px;">${commentVOList.comments}</div>
+                                    </h5>
+                                </c:forEach>
+                                <div class="ui button bottom attached collapsible"
+                                     onclick="closeCard(${cardVOlist.no_painting})" id="close_btn">
+                                    <i class="large close icon icon"></i>
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
-            </c:forEach>
-            <div>
-                <div class="container"
-                     style="display: flex;justify-content: center;margin-top:30px;padding-bottom: 30px;">
-                    <div style="margin-right: 40px;">
-                        <div class="ui animated button" tabindex="0"
-                             style="color:var(--color-white);background-color: var(--color-chathams-blue);">
-                            <div class="visible content">Perv</div>
-                            <div class="hidden content">
-                                <i class="left arrow icon"></i>
-                            </div>
-                        </div>
-                        <c:forEach var="i" begin="1" end="${pageNum}">
+                </c:forEach>
+                <div>
+                    <div class="container"
+                         style="display: flex;justify-content: center;margin-top:30px;padding-bottom: 30px;">
+                        <div style="margin-right: 40px;">
                             <div class="ui animated button" tabindex="0"
                                  style="color:var(--color-white);background-color: var(--color-chathams-blue);">
-                                <div class="visible content">${i}</div>
-                                <div class="hidden content">${i}</div>
+                                <div class="visible content">Perv</div>
+                                <div class="hidden content">
+                                    <i class="left arrow icon"></i>
+                                </div>
                             </div>
-                        </c:forEach>
-                        <div class="ui animated button" tabindex="0"
-                             style="color:var(--color-white);background-color: var(--color-chathams-blue);">
-                            <div class="visible content">Next</div>
-                            <div class="hidden content">
-                                <i class="right arrow icon"></i>
+                            <c:forEach var="i" begin="1" end="${pageNum}">
+                                <div class="ui animated button" tabindex="0"
+                                     style="color:var(--color-white);background-color: var(--color-chathams-blue);">
+                                    <div class="visible content">${i}</div>
+                                    <div class="hidden content">${i}</div>
+                                </div>
+                            </c:forEach>
+                            <div class="ui animated button" tabindex="0"
+                                 style="color:var(--color-white);background-color: var(--color-chathams-blue);">
+                                <div class="visible content">Next</div>
+                                <div class="hidden content">
+                                    <i class="right arrow icon"></i>
+                                </div>
                             </div>
+                            <br>
                         </div>
-                        <br>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
 </main>
 <jsp:include page="../header_footer/footer.jsp"></jsp:include>
 </body>

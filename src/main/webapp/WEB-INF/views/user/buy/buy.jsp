@@ -167,8 +167,7 @@
                             <div class="ui large transparent left icon input" style="display: flex;">
                                 <i class="pencil alternate icon"></i>
                                 <input type="text" maxlength="20" size="20" id="input${cardVOlist.no_painting}"
-                                       placeholder="글자수 20글자 내 작성"
-                                       style="font-size: 0.8em;font-family:'Gowun Dodum',sans-serif;font-weight:bold;"/>
+                                       placeholder="글자수 20글자 내 작성" style="font-size: 0.8em;font-family:'Gowun Dodum',sans-serif;font-weight:bold;"/>
                             </div>
                             <button class="ui blue icon button"
                                     onclick="addComment('input' + ${cardVOlist.no_painting})"

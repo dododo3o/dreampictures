@@ -36,7 +36,7 @@ public class LoginController {
     public ModelAndView login_check(LoginVO vo, HttpServletRequest request){
         ModelAndView mv = new ModelAndView();
         Membershiptbl membershiptbl = membershiptblRepository.findByemail(vo.getEmail());
-        membershiptblRepository.findBypwd(vo.getPwd());
+//        membershiptblRepository.findBypwd(vo.getPwd());
 
         if(membershiptbl == null){
             mv.setViewName("user/redirect/alert1");
