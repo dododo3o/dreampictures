@@ -55,12 +55,13 @@ public class Membershiptbl {
         this.dreampay = 0;
         if(StringUtils.isEmpty(startDate)){ this.startDate = LocalDate.now(ZoneId.of("Asia/Seoul"));}
     }
-    public Membershiptbl(String email, String pwd, String tel, String addr, String detatilAddr, String img){
+    public Membershiptbl(String email, String pwd, String tel, String addr, String detatilAddr, String nickname, String img){
         this.email = email;
         this.pwd = pwd;
         this.tel = tel;
         this.addr = addr;
         this.detailAddr = detatilAddr;
+        this.nickname = nickname;
         this.img = img;
         this.memberStatus = 0;
         this.reported = 0;
