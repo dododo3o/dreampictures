@@ -118,7 +118,6 @@
                 </div>
             </div>
         </div>
-
         <div style="display: flex;justify-content: center;padding-top:30px;padding-bottom: 30px;border-top: 1px solid #BDBDBD;">
             <div>
                 <div class="ui animated button" tabindex="0"

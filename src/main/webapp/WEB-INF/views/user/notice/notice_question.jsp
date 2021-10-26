@@ -29,6 +29,7 @@
     </script>
     <script type="text/javascript">
         let status = undefined; //0~4 까지 질문 종류
+        let beforeBtn = undefined;
         let actived = 0;
         showModal = function () {
             $('.ui.modal').modal('show');
@@ -37,6 +38,8 @@
             $(() => {
                 if (status == undefined) return;
                 let question = document.getElementById("question").value;
+                alert(status)
+                alert(question)
                 $.ajax({
                     url: "/ajax_request_QA",
                     data: "question=" + question + "&status=" + status,
@@ -54,9 +57,10 @@
                 // alert(buttonColor);
                 status = number
                 // if (buttonColor!='#c0c1c2') {//다른 버튼이 안눌려있는 상태일때만 가능
-                    $("#active" + number).css('color', 'white');
-                    $("#active" + number).css('background-color', '#c0c1c2');
-                    alert('ㅎㅎ' + number)
+                $(".btn").css('color', 'gray');
+                $(".btn").css('background-color','#E0E1E2');
+                $("#active" + number).css('color', 'white');
+                $("#active" + number).css('background-color', '#c0c1c2');
                 // } else {
                 //     alert('한가지 카테고리만 선택할 수 있습니다.')
                 // }
@@ -79,26 +83,25 @@
 <% if (session.getAttribute("logStatus") == null) { %>
 <jsp:include page="../header_footer/header_not_login.jsp"></jsp:include>
 <% } %>
-<main class="has_bg_harp">
+<main class="has_bg_harp" style="height: 100%;">
     <div class="ui modal">
         <div class="header" style="text-align:center;font-family: 'Gowun Dodum';">질문 사항</div>
         <div class="ui form">
             <div class="field">
                 <div class="five ui buttons">
-                    <button class="ui button" id="active0" onclick="selectedBtn(0)" name="btn" style="font-family: 'Gowun Dodum';">
-                        운영
-                        정책
+                    <button class="ui button" id="active0" onclick="selectedBtn(0)" class="btn" style="font-family: 'Gowun Dodum';">
+                        운영 정책
                     </button>
-                    <button class="ui button" id="active1" onclick="selectedBtn(1)" name="btn" style="font-family: 'Gowun Dodum';">
+                    <button class="ui button" id="active1" onclick="selectedBtn(1)" class="btn" style="font-family: 'Gowun Dodum';">
                         구매/판매
                     </button>
-                    <button class="ui button" id="active2" onclick="selectedBtn(2)" name="btn" style="font-family: 'Gowun Dodum';">
+                    <button class="ui button" id="active2" onclick="selectedBtn(2)" class="btn" style="font-family: 'Gowun Dodum';">
                         가격 정책
                     </button>
-                    <button class="ui button" id="active3" onclick="selectedBtn(3)" name="btn" style="font-family: 'Gowun Dodum';">
+                    <button class="ui button" id="active3" onclick="selectedBtn(3)" class="btn" style="font-family: 'Gowun Dodum';">
                         계정 인증
                     </button>
-                    <button class="ui button" id="active4" onclick="selectedBtn(4)" name="btn" style="font-family: 'Gowun Dodum';">
+                    <button class="ui button" id="active4" onclick="selectedBtn(4)" class="btn" style="font-family: 'Gowun Dodum';">
                         그 외 질문
                     </button>
                 </div>

@@ -250,8 +250,8 @@ public class AdminController {
                 List<String> obj = Arrays.asList(card.split(","));
                 CardVO cardVO = new CardVO();
                 cardVO.setNo_painting(obj.get(0));
-                cardVO.setAvatarimg(obj.get(1) + "/avatarimg/avatarimg.jpg");
-                cardVO.setPaintingmimg(obj.get(1) + "/paintingimg/" + obj.get(3) + "/0.jpg");
+                cardVO.setAvatarimg(obj.get(1));
+                cardVO.setPaintingmimg(obj.get(4));
                 cardVO.setNickname(obj.get(2));
                 cardVO.setPname(obj.get(3));
                 cardVO.setCommentNumber(commentRepository.countByno_painting(Integer.parseInt(obj.get(0))));
