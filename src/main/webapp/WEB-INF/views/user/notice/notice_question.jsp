@@ -49,30 +49,15 @@
                 });
             });
         };
-        //todo
-        //다른버튼 선택 안되도록 바꿔야함===================================================================================
         selectedBtn = function (number) {
-            // var buttonColor= $("#active" + number).css("background-color");
             $(() => {
-                // alert(buttonColor);
                 status = number
-                // if (buttonColor!='#c0c1c2') {//다른 버튼이 안눌려있는 상태일때만 가능
-                $(".btn").css('color', 'gray');
-                $(".btn").css('background-color','#E0E1E2');
                 $("#active" + number).css('color', 'white');
                 $("#active" + number).css('background-color', '#c0c1c2');
-                // } else {
-                //     alert('한가지 카테고리만 선택할 수 있습니다.')
-                // }
             });
         };
 
     </script>
-    <style>
-        .ui.button.jsActive:active {
-            color: #F9F9F9;
-        }
-    </style>
 </head>
 <body>
 <% if (session.getAttribute("logStatus") == "Y") { %>
@@ -117,7 +102,7 @@
         </div>
     </div>
     <div class="container">
-        <div class="has_flex_column" style="grid-column:1/3; gap:40px;padding-top: 30px; background-color: #a2b0b36e">
+        <div class="has_flex_column" style="grid-column:1/3; gap:40px;padding-top: 30px; background-color: #a2b0b36e;">
             <div class="ui vertical animated button" tabindex="0">
                 <div class="hidden content"><a href="/notice">공지사항</a></div>
                 <div class="visible content">
