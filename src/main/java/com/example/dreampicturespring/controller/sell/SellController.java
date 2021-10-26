@@ -34,7 +34,7 @@ public class SellController {
         System.out.println(paintingtbl);
         paintingRepository.save(paintingtbl);
         ModelAndView mv = new ModelAndView();
-        mv.setViewName("/sell/sell");
+        mv.setViewName("user/buy/buy");
         return mv;
     }
 }
