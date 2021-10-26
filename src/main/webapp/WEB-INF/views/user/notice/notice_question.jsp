@@ -46,13 +46,29 @@
                 });
             });
         };
+        //todo
+        //다른버튼 선택 안되도록 바꿔야함===================================================================================
         selectedBtn = function (number) {
-            // $("#")
+            // var buttonColor= $("#active" + number).css("background-color");
             $(() => {
+                // alert(buttonColor);
                 status = number
+                // if (buttonColor!='#c0c1c2') {//다른 버튼이 안눌려있는 상태일때만 가능
+                    $("#active" + number).css('color', 'white');
+                    $("#active" + number).css('background-color', '#c0c1c2');
+                    alert('ㅎㅎ' + number)
+                // } else {
+                //     alert('한가지 카테고리만 선택할 수 있습니다.')
+                // }
             });
         };
+
     </script>
+    <style>
+        .ui.button.jsActive:active {
+            color: #F9F9F9;
+        }
+    </style>
 </head>
 <body>
 <% if (session.getAttribute("logStatus") == "Y") { %>
@@ -69,16 +85,21 @@
         <div class="ui form">
             <div class="field">
                 <div class="five ui buttons">
-                    <button class="ui button active" onclick="selectedBtn(0)" style="font-family: 'Gowun Dodum';">운영
+                    <button class="ui button" id="active0" onclick="selectedBtn(0)" name="btn" style="font-family: 'Gowun Dodum';">
+                        운영
                         정책
                     </button>
-                    <button class="ui button" onclick="selectedBtn(1)" style="font-family: 'Gowun Dodum';">구매/판매
+                    <button class="ui button" id="active1" onclick="selectedBtn(1)" name="btn" style="font-family: 'Gowun Dodum';">
+                        구매/판매
                     </button>
-                    <button class="ui button" onclick="selectedBtn(2)" style="font-family: 'Gowun Dodum';">가격 정책
+                    <button class="ui button" id="active2" onclick="selectedBtn(2)" name="btn" style="font-family: 'Gowun Dodum';">
+                        가격 정책
                     </button>
-                    <button class="ui button" onclick="selectedBtn(3)" style="font-family: 'Gowun Dodum';">계정 인증
+                    <button class="ui button" id="active3" onclick="selectedBtn(3)" name="btn" style="font-family: 'Gowun Dodum';">
+                        계정 인증
                     </button>
-                    <button class="ui button" onclick="selectedBtn(4)" style="font-family: 'Gowun Dodum';">그 외 질문
+                    <button class="ui button" id="active4" onclick="selectedBtn(4)" name="btn" style="font-family: 'Gowun Dodum';">
+                        그 외 질문
                     </button>
                 </div>
                 <textarea id="question" style="font-family:'Gowun Dodum'"></textarea>
@@ -113,7 +134,9 @@
                         질문과 답변
                     </div>
                     <div tabindex="0" onclick="showModal()">
-                        <button class="ui primary basic button" style="font-size:1.2em;font-family:'Gowun Dodum';font-weight: bold;width:120px">질문하기</button>
+                        <button class="ui primary basic button"
+                                style="font-size:1.2em;font-family:'Gowun Dodum';font-weight: bold;width:120px">질문하기
+                        </button>
                     </div>
                 </div>
                 <div style="display:grid;grid-template-columns:repeat(3,1fr);grid-gap:1rem;width:100%;padding-top: 10px">
