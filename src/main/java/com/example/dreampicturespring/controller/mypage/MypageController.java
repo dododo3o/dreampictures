@@ -98,8 +98,8 @@ public class MypageController {
             CardVO cardVO = new CardVO();
             cardVO.setNo_painting(paintingtbl.getNo_painting().toString());
             Membershiptbl membershiptbl = membershiptblRepository.getById(paintingtbl.getNo_membership());
-            cardVO.setAvatarimg(membershiptbl.getImg() + "/avatarimg/avatarimg.jpg");
-            cardVO.setPaintingmimg(membershiptbl.getImg() + "/paintingimg/" + paintingtbl.getPname() + "/0.jpg");
+            cardVO.setAvatarimg(membershiptbl.getImg());
+            cardVO.setPaintingmimg(paintingtbl.getUrl());
             cardVO.setNickname(membershiptbl.getNickname());
             cardVO.setPname(paintingtbl.getPname());
             cardVO.setCommentNumber(commentRepository.countByno_painting(paintingtbl.getNo_painting()));
@@ -151,6 +151,8 @@ public class MypageController {
             cardVO.setPaintingmimg(paintingtbl.getUrl());
             cardVO.setNickname(mtbl.getNickname());
             cardVO.setPname(paintingtbl.getPname());
+            cardVO.setWritedate(paintingtbl.getWritedate());
+            cardVO.setPrice(paintingtbl.getPrice());
             cardVO.setCommentNumber(commentRepository.countByno_painting(paintingtbl.getNo_painting()));
             List<String> comments = commentRepository.findCommenttbl(paintingtbl.getNo_painting());
             List<CommentVO> commentVOlist = new ArrayList<>();
@@ -158,7 +160,7 @@ public class MypageController {
                 List<String> comment_member = Arrays.asList(comment.split(","));
                 Membershiptbl comment_membership = membershiptblRepository.getById(Integer.parseInt(comment_member.get(1)));
                 CommentVO commentVO = new CommentVO();
-                commentVO.setAvatarimg(comment_membership.getImg() + "/avatarimg/avatarimg.jpg");
+                commentVO.setAvatarimg(comment_membership.getImg());
                 commentVO.setAuthor(comment_membership.getNickname());
                 commentVO.setDate("1H");
                 commentVO.setComments(comment_member.get(0));
@@ -195,8 +197,6 @@ public class MypageController {
             System.out.println(paintingtbl.getUrl());
             cardVO.setNickname(mtbl.getNickname());
             cardVO.setPname(paintingtbl.getPname());
-            cardVO.setWritedate(paintingtbl.getWritedate());
-            cardVO.setPrice(paintingtbl.getPrice());
             cardVO.setCommentNumber(commentRepository.countByno_painting(paintingtbl.getNo_painting()));
             List<String> comments = commentRepository.findCommenttbl(paintingtbl.getNo_painting());
             List<CommentVO> commentVOlist = new ArrayList<>();

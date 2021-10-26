@@ -18,7 +18,7 @@ public interface PaintingRepository extends JpaRepository<Paintingtbl, Integer> 
     List<String> findAllPainting_Reported(@Param("no_painting") Integer no_painting);
 
 
-    @Query(value = "select * from paintingtbl where (:pname is null or paintingtbl.pname = :pname) and (:style is null or paintingtbl.style = :style) and (:theme is null or paintingtbl.theme = :theme) and paintingtbl.width<=:width and paintingtbl.height<=:height and paintingtbl.price<=:price ", nativeQuery = true)
+    @Query(value = "select * from paintingtbl where (:pname is null or paintingtbl.pname like %:pname%) and (:style is null or paintingtbl.style = :style) and (:theme is null or paintingtbl.theme = :theme) and paintingtbl.width<=:width and paintingtbl.height<=:height and paintingtbl.price<=:price ", nativeQuery = true)
     List<Paintingtbl> findPainting(@Param("pname") String pname, @Param("style") String style, @Param("theme") String theme, @Param("width") Integer width, @Param("height") Integer height, @Param("price") Integer price);
 
     @Query(value = "SELECT *  FROM paintingtbl WHERE paintingtbl.production > :deadline", nativeQuery = true)

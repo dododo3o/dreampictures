@@ -34,17 +34,32 @@
                 let width = document.getElementById("width").value;
                 let height = document.getElementById("height").value;
                 let price = document.getElementById("price").value;
-                $.ajax({
-                    url: "/ajax_picture_finder",
-                    data: "pname=" + pname + "&style=" + style + "&theme=" + theme + "&width=" + width + "&height=" + height + "&price=" + price,
-                    success: function (result) {
-                        var container = document.getElementById("container");
-                        while (container.hasChildNodes()) {
-                            container.removeChild(container.firstChild);
+                if(pname=='' && style==''&&theme==''&&width==200&&height==200&&price==100000){
+                    $.ajax({
+                        url: "/ajax_picture_finder",
+                        data: "pname=" + "all",
+                        success: function (result) {
+                            var container = document.getElementById("container");
+                            while (container.hasChildNodes()) {
+                                container.removeChild(container.firstChild);
+                            }
+                            $("#container").html(result);
                         }
-                        $("#container").html(result);
-                    }
-                });
+                    });
+                }
+                else{
+                    $.ajax({
+                        url: "/ajax_picture_finder",
+                        data: "pname=" + pname + "&style=" + style + "&theme=" + theme + "&width=" + width + "&height=" + height + "&price=" + price,
+                        success: function (result) {
+                            var container = document.getElementById("container");
+                            while (container.hasChildNodes()) {
+                                container.removeChild(container.firstChild);
+                            }
+                            $("#container").html(result);
+                        }
+                    });
+                }
             });
         };
 
@@ -99,10 +114,9 @@
             <button class=" ui blue icon button has_width_full" onclick="find_picture()"
                     style="font-family: 'Gowun Dodum'"><i class="search icon"></i>찾기
             </button>
-            <div style="display: flex; gap: 90px;">
-                <select style="font-family: 'Gowun Dodum'; font-size: 1.5em;" class="input_select has_width_half"
-                        style="margin-right: 90px;" id="style">
-                    <option value="" disabled selected>Style</option>
+            <div style="display: flex; gap: 90px; width: 75%">
+                <select style="font-family: 'Gowun Dodum'; font-size: 1.5em;margin-right: 90px;" class="input_select has_width_half" id="style">
+                    <option value="" selected>Style</option>
                     <option value="oils">유화</option>
                     <option value="water">수채화</option>
                     <option value="acrylic">아크릴화</option>
@@ -112,9 +126,8 @@
                     <option value="crayon">크레용화</option>
                     <option value="gouache">과슈화</option>
                 </select>
-                <select style="font-family: 'Gowun Dodum'; font-size: 1.5em;" class="input_select has_width_half"
-                        id="theme">
-                    <option value="" disabled selected>Theme</option>
+                <select style="font-family: 'Gowun Dodum'; font-size: 1.5em;" class="input_select has_width_half" id="theme">
+                    <option value="" selected>Theme</option>
                     <option value="scenery">풍경</option>
                     <option value="character">인물</option>
                     <option value="still">정물</option>
@@ -124,7 +137,7 @@
                     <option value="objet">오브제</option>
                 </select>
             </div>
-            <div style="display: flex;justify-content: space-between;grid-column:1/9;margin: 30px 0;">
+            <div style="display: flex;justify-content: space-between;grid-column:1/9;margin: 30px 0; width: 75%">
                 <div><span class="has_chathams-blue">최대너비  : <span id="widthVal">200</span>(CM)<br></span><input
                         type="range" class="width_slider"
                         id="width" min="0" max="200" step="10"
