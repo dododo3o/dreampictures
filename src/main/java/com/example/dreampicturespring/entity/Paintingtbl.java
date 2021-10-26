@@ -27,7 +27,7 @@ public class Paintingtbl {
     private String style;
     @Column(name="writedate")
     private LocalDate writedate;
-    private String production;
+    private LocalDate production;
     private String exp;
     private Integer status;
     private Integer no_membership;
