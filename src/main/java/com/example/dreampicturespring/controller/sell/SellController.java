@@ -1,6 +1,10 @@
 package com.example.dreampicturespring.controller.sell;
+import com.example.dreampicturespring.entity.Cartpaintingtbl;
+import com.example.dreampicturespring.entity.Carttbl;
 import com.example.dreampicturespring.entity.Membershiptbl;
 import com.example.dreampicturespring.entity.Paintingtbl;
+import com.example.dreampicturespring.repository.CartRepository;
+import com.example.dreampicturespring.repository.CartpaintingRepository;
 import com.example.dreampicturespring.repository.MembershiptblRepository;
 import com.example.dreampicturespring.repository.PaintingRepository;
 import com.example.dreampicturespring.vo.CardVO;
@@ -25,6 +29,10 @@ public class SellController {
     PaintingRepository paintingRepository;
     @Autowired
     MembershiptblRepository membershiptblRepository;
+    @Autowired
+    CartRepository cartRepository;
+    @Autowired
+    CartpaintingRepository cartpaintingRepository;
 
     @RequestMapping("/test")
     public String test() { return "user/test"; }
@@ -49,10 +57,12 @@ public class SellController {
 
         HttpSession session = request.getSession();
         Membershiptbl membershipTBL = membershiptblRepository.findByemail((String) session.getAttribute("logEmail"));
-        if(membershipTBL.getNo_membership()!=num){ return "fail"; }
-
+        if(membershipTBL.getNo_membership()==null){ return "fail"; }
+//        Carttbl carttbl = cartRepository.findByno_membership(membershipTBL.getNo_membership());
+//        System.out.println("asdasdsadsad");
+//        cartpaintingRepository.deleteByno_paint(num);
         paintingRepository.deleteById(num);
-
-        return "/selllist";
+//        System.out.println("-------------");
+        return "success";
     }
 }

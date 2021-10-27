@@ -12,4 +12,12 @@ import java.util.List;
 public interface CartpaintingRepository extends JpaRepository<Cartpaintingtbl,Integer> {
     @Query(value = "select * from Cartpaintingtbl where Cartpaintingtbl.no_cart = :no_cart", nativeQuery = true)
     List<Cartpaintingtbl> findByno_cart(@Param("no_cart") Integer no_cart);
+
+    @Query(value = "select * from cartpaintingtbl where cartpaintingtbl.no_painting = :num and cartpaintingtbl.no_cart = :cart", nativeQuery = true)
+    Cartpaintingtbl findBynum(@Param("num") Integer num,@Param("cart") Integer cart);
+
+    @Query(value = "delete from cartpaintingtbl where cartpaintingtbl.no_painting = :num", nativeQuery = true)
+    Cartpaintingtbl deleteByno_paint(@Param("num") Integer num);
+
+
 }
