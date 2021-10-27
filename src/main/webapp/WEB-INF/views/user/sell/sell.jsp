@@ -93,15 +93,14 @@
 <% } %>
 <main class="has_bg_harp">
     <div class="container">
-        <form action="<%=conPath%>/sell_success" method="post" onsubmit="return false" enctype="multipart/form-data"
-              id="frm" name="form">
+        <form action="<%=conPath%>/sell_success" method="post" onsubmit="return false" enctype="multipart/form-data" id="frm" name="form">
             <div style="background-color:var( --color-white);display:flex;grid-column: 1/13;height: 100%;">
                 <div style="border-right: 1px solid #ddd;width:50%;padding-left: 110px;padding-right: 100px;">
                     <div class="has_flex_column has_evenly"
                          style="flex-wrap: wrap;width:100%;height: 90%;padding-top: 100px;">
                         <a class="ui red tag label" style="display: none; margin-bottom: 10px;" id="point"><span>그림 정보를 모두 작성해주세요.😥</span></a>
-                        <button class="ui secondary button" style="font-family:'Gowun Dodum'" onclick="nextBtn_condition()"> 그림 등록</button>
-<%--                        <input type="submit" class="ui secondary button" style="font-family:'Gowun Dodum'" value="그림등록" onclick="nextBtn_condition()">--%>
+<%--                        <button class="ui secondary button" style="font-family:'Gowun Dodum'" onclick="nextBtn_condition()"> 그림 등록</button>--%>
+                        <input type="submit" class="ui secondary button" style="font-family:'Gowun Dodum'" value="그림등록" onclick="nextBtn_condition()">
                         <div class="ui horizontal divider" style="vertical-align: inherit;">Painting Infomation</div>
                         <div class="ui list has_flex_column has_font-base" style="display: flex; gap: 20px;">
                             <div style="display: flex;">

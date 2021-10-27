@@ -1597,7 +1597,6 @@
     $('#art_girl').css('visibility', 'hidden');
     $('#city1').css('visibility', 'hidden');
     $('#city2').css('visibility', 'hidden');
-
     $('#looking_boy').transition('pulse','2000ms').transition('vertical flip','500ms',function () {
         $('.babble').css('visibility', 'hidden');
         $('#city1').transition('fly left','1500ms',function () {
