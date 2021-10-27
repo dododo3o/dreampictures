@@ -11,7 +11,7 @@ public class SellVO {
     private Integer height;
     private Integer width;
     private Integer price;
-    private String production;
+    private LocalDate production;
     private String exp;
     private String url;
 

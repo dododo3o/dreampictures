@@ -20,7 +20,7 @@ public class PaymentVO {
     public Integer price;
     public Integer dreampay;
     public String sum;
-    public String production;
+    public LocalDate production;
     public int width;
     public int height;
     public String exp;

@@ -27,7 +27,7 @@ public class Paintingtbl {
     private String style;
     @Column(name="writedate")
     private LocalDate writedate;
-    private String production;
+    private LocalDate production;
     private String exp;
     private Integer status;
     private Integer no_membership;
@@ -48,7 +48,7 @@ public class Paintingtbl {
         if(StringUtils.isEmpty(writedate)){
             this.writedate = LocalDate.now(ZoneId.of("Asia/Seoul"));
         }
-        this.production = vo.getProduction().toString();
+        this.production = vo.getProduction();
         this.exp = vo.getExp();
         this.status = 0;
         this.no_membership = no_membership;
