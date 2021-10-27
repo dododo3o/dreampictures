@@ -99,7 +99,9 @@ public class AjaxController {
 
 	@RequestMapping(value = "/ajax_buy_pagination",method = RequestMethod.GET, produces ="application/text;charset=UTF-8")
 	public String pagination(Model model, Integer num){
-		List<Paintingtbl> paintingtbls = paintingRepository.findpage(num,num-1);
+		System.out.println(num);
+		List<Paintingtbl> paintingtbls = paintingRepository.findpage(num-1);
+		System.out.println(paintingtbls);
 		List<CardVO> cardVOList = new ArrayList<>();
 		List<Membershiptbl> membershiptbls = new ArrayList<>();
 		for(int i=0;i<paintingtbls.size();i++){ membershiptbls.add(membershiptblRepository.getById(paintingtbls.get(i).getNo_membership())); }
@@ -132,6 +134,7 @@ public class AjaxController {
 			cardVOList.add(cardVO);
 			count++;
 		}
+		System.out.println(cardVOList);
 		model.addAttribute("cardVOlist",cardVOList);
 		return "user/ajax/picture_find";
 	}

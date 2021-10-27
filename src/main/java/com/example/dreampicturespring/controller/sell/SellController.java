@@ -32,7 +32,6 @@ public class SellController {
         Membershiptbl ms = membershiptblRepository.findByemail(user);
         Paintingtbl paintingtbl = new Paintingtbl(vo,ms.getNo_membership());
         paintingRepository.save(paintingtbl);
-
         return "user/buy/buy";
 
     }

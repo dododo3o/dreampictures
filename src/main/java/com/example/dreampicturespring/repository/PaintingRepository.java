@@ -22,13 +22,12 @@ public interface PaintingRepository extends JpaRepository<Paintingtbl, Integer> 
     @Query(value = "select * from paintingtbl where (:pname is null or paintingtbl.pname like %:pname%) and (:style is null or paintingtbl.style = :style) and (:theme is null or paintingtbl.theme = :theme) and paintingtbl.width<=:width and paintingtbl.height<=:height and paintingtbl.price<=:price ", nativeQuery = true)
     List<Paintingtbl> findPainting(@Param("pname") String pname, @Param("style") String style, @Param("theme") String theme, @Param("width") Integer width, @Param("height") Integer height, @Param("price") Integer price);
 
-    @Query(value = "SELECT *  FROM paintingtbl WHERE paintingtbl.production > :deadline", nativeQuery = true)
+    @Query(value = "SELECT * FROM paintingtbl WHERE paintingtbl.production > :deadline", nativeQuery = true)
     List<Paintingtbl> findPainting_soldout_deadline(@Param("deadline")String deadline);
 
 
-    @Query(value = "select * from paintingtbl where  15*:min <rownum and rownum < 15*:max order by paintingtbl.no_painting desc", nativeQuery = true)
-    List<Paintingtbl> findpage(@Param("max") Integer max, @Param("min") Integer min);
-
+    @Query(value = "SELECT * FROM paintingtbl ORDER BY paintingtbl.no_painting DESC OFFSET :page*15 ROWS FETCH FIRST 15 ROWS ONLY", nativeQuery = true)
+    List<Paintingtbl> findpage(@Param("page") Integer page);
 
 
     @Query(value = "select count(*) from paintingtbl where paintingtbl.status = 1 ", nativeQuery = true)

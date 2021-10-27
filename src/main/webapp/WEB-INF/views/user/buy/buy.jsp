@@ -1524,17 +1524,11 @@
                                 <div style=" background-color:var(--color-albescent-white)">
                                     <h5 class="ui header" style="user-select: auto; margin: 10px;">
                                         <div style="display: flex;align-items: center;justify-content: space-between;">
-                                            <img src="${commentVOList.avatarimg}"
-                                                 style="border-radius: 50%; height:40px; width:40px;object-fit: cover;">
-                                            <span class="author"
-                                                  style="margin-left: 10px; font-size: 1.5em">${commentVOList.author}</span>
-                                            <button class="ui red icon button"
-                                                    onclick="reply_delete(${commentVOList.no_comment})"
-                                                    style="font-size: 0.5em;">X
-                                            </button>
+                                            <img src="${commentVOList.avatarimg}" style="border-radius: 50%; height:40px; width:40px;object-fit: cover;">
+                                            <span class="author" style="margin-left: 10px; font-size: 1.5em">${commentVOList.author}</span>
+                                            <button class="ui red icon button" onclick="reply_delete(${commentVOList.no_comment})" style="font-size: 0.5em;">X</button>
                                         </div>
-                                        <div class="text"
-                                             style="margin: 10px;">${commentVOList.comments}</div>
+                                        <div class="text" style="margin: 10px;">${commentVOList.comments}</div>
                                     </h5>
                                 </div>
                             </c:forEach>
