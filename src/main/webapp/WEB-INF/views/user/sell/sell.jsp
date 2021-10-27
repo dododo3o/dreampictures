@@ -97,26 +97,23 @@
         <form action="<%=conPath%>/sell_success" method="post" onsubmit="return false" enctype="multipart/form-data" id="frm" name="form">
             <div style="background-color:var( --color-white);display:flex;grid-column: 1/13;height: 100%;">
                 <div style="border-right: 1px solid #ddd;width:50%;padding-left: 110px;padding-right: 100px;">
-                    <div class="has_flex_column has_evenly"
-                         style="flex-wrap: wrap;width:100%;height: 90%;padding-top: 100px;">
+                    <div class="has_flex_column has_evenly" style="flex-wrap: wrap;width:100%;height: 90%;padding-top: 100px;">
                         <a class="ui red tag label" style="display: none; margin-bottom: 10px;" id="point"><span>그림 정보를 모두 작성해주세요.😥</span></a>
-<%--                        <button class="ui secondary button" style="font-family:'Gowun Dodum'" onclick="nextBtn_condition()"> 그림 등록</button>--%>
-                        <input type="submit" class="ui secondary button" style="font-family:'Gowun Dodum'" value="그림등록" onclick="nextBtn_condition()">
+                        <input id="submitBtn" type="submit" class="ui secondary button" style="font-family:'Gowun Dodum'" value="그림등록" onclick="nextBtn_condition()">
                         <div class="ui horizontal divider" style="vertical-align: inherit;">Painting Infomation</div>
                         <div class="ui list has_flex_column has_font-base" style="display: flex; gap: 20px;">
                             <div style="display: flex;">
-                                <i class="big edit outline icon" style="user-select: auto;"></i>
+                                <i id="pen" class="big edit outline icon" style="user-select: auto;"></i>
                                 <div class="content" style="display: flex;">
-                                    <input class="painting_input" id="pnameVal" name="pname" type="text"
-                                           style="font-family:'Gowun Dodum';width:200px" placeholder="작품명">
+                                    <input class="painting_input" onclick="move('pen')" id="pnameVal" name="pname" type="text" style="font-family:'Gowun Dodum';width:200px" placeholder="작품명">
                                 </div>
                             </div>
                         </div>
                         <div class="ui list has_flex_column has_font-base" style="display: flex; gap: 20px;">
                             <div style="user-select: auto; display: flex;">
-                                <i class="big long arrow alternate up icon" style="user-select: auto;"></i>
+                                <i id="up" class="big long arrow alternate up icon" style="user-select: auto;"></i>
                                 <div class="content" style="display: flex;">
-                                    <input class="painting_input" id="heightVal" name="height" type="number"
+                                    <input class="painting_input" onclick="move('up')" id="heightVal" name="height" type="number"
                                            oninput="heightMaxLength(this)" style="font-family:'Gowun Dodum';width:200px"
                                            placeholder="높이 (cm) 최대 200CM" max="200" maxlength="3">
                                 </div>
@@ -124,9 +121,9 @@
                         </div>
                         <div class="ui list has_flex_column has_font-base" style="display: flex; gap: 20px;">
                             <div style="user-select: auto; display: flex;">
-                                <i class="big long arrow alternate right icon" style="user-select: auto;"></i>
+                                <i id="right" class="big long arrow alternate right icon" style="user-select: auto;"></i>
                                 <div class="content" style="display: flex;">
-                                    <input class="painting_input" id="widthVal" name="width" type="number"
+                                    <input class="painting_input" onclick="move('right')" id="widthVal" name="width" type="number"
                                            oninput="widthMaxLength(this)" style="font-family:'Gowun Dodum';width:200px"
                                            placeholder="너비 (cm) 최대 200CM" max="200" maxlength="3">
                                 </div>
@@ -134,9 +131,9 @@
                         </div>
                         <div class="ui list has_flex_column has_font-base" style="display: flex; gap: 20px;">
                             <div style="display: flex;">
-                                <i class="big won sign icon" style="user-select: auto;"></i>
+                                <i id="won" class="big won sign icon" style="user-select: auto;"></i>
                                 <div class="content" style="display: flex;">
-                                    <input class="painting_input" id="priceVal" name="price" type="number"
+                                    <input class="painting_input" onclick="move('won')" id="priceVal" name="price" type="number"
                                            oninput="priceMaxLength(this)" style="font-family:'Gowun Dodum';width:200px"
                                            placeholder="가격 (원) 최대 10 만원" max="100000" maxlength="6">
                                 </div>
@@ -166,7 +163,7 @@
                             <option value="crayon">크레용화</option>
                             <option value="gouache">과슈화</option>
                         </select>
-                        <select style="font-family:'Gowun Dodum'; font-size:var(--font-size-sm)"
+                        <select style="font-family:'Gowun Dodum'; font-size:var(--font-size-sm)" onchange="change_button()"
                                 class="has_width_half sell_select" id="theme" name="theme">
                             <option value="" disabled selected>Theme</option>
                             <option value="scenery">풍경</option>
@@ -196,6 +193,17 @@
         </form>
     </div>
 </main>
+<script>
+    move =function (id) {$('#'+id).transition('tada', '1000ms');}
+
+    change_button = function () {
+        $("#submitBtn").css('backgroundColor','#A7D9DF');
+        $("#submitBtn").transition('set looping').transition('tada','3000ms');
+
+    }
+
+</script>
+
 <jsp:include page="../header_footer/footer.jsp"></jsp:include>
 </body>
 </html>
