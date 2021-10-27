@@ -85,25 +85,26 @@
             <!-- 추가요소 있으면 이 안에 넣기-->
             <div>
                 <div style="color:var(--color-chathams-blue);font-size:var(--font-size-xll);padding-top:60px;padding-bottom: 100px;text-align: center;">
-                        질문내역
+                    질문내역
                 </div>
-                <div style="display:grid;grid-template-columns:repeat(3,1fr);grid-gap:1rem;width:100%;">
+                <div style="display:grid;grid-template-columns:repeat(4,1fr);grid-gap:1rem;width:100%;">
                     <c:forEach var="QaVOlist" items="${QaVOlist}">
-                    <div class="ui card" style="height: 100%; margin: 0 auto;">
-                        <div class="content">
-                            <div class="header"
-                                 style="font-family: 'Gowun Dodum', sans-serif;font-size: 1.5em">${QaVOlist.category}</div>
-                        </div>
-                        <div class="content">
-                            <div style="font-size: 1.3em">작성자 : ${QaVOlist.nickname}<br/>${QaVOlist.content}
+                        <div class="ui card" style=" height: 100%;margin: 0 auto;">
+                            <div class="content">
+                                <div class="header"
+                                     style="font-family: 'Gowun Dodum', sans-serif;font-size: 1.5em">${QaVOlist.category}</div>
                             </div>
-                            <div class="content" style="font-size: 1.3em">답변내용 : <br/>${QaVOlist.answer}</div>
+                            <div class="content">
+                                <div style="font-size: 1.3em">작성자 : ${QaVOlist.nickname}<br/>${QaVOlist.content}
+                                </div>
+                                <div class="content" style="font-size: 1.3em">답변내용 : <br/>${QaVOlist.answer}</div>
+                            </div>
                         </div>
-                        </c:forEach>
-                    </div>
+                    </c:forEach>
                 </div>
             </div>
         </div>
+    </div>
     </div>
 </main>
 <jsp:include page="../header_footer/footer.jsp"></jsp:include>
