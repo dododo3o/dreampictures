@@ -39,7 +39,7 @@ public class NoticeController {
             noticeVOList.add(noticeVO);
         }
         cardNum = noticeRepository.count();
-        pageNum = cardNum/CARDSPERPAGE+1;
+        pageNum = cardNum/CARDSPERPAGE;
         mv.setViewName("user/notice/notice");
         mv.addObject("noticeVOList", noticeVOList);
         mv.addObject("pageNum",pageNum);

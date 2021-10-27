@@ -50,7 +50,7 @@
 </head>
 <body oncontextmenu="return false" onselectstart="return false">
 <jsp:include page="../header_footer/header_login.jsp"></jsp:include>
-<main class="has_bg_harp" style="height: 100%">
+<main class="has_bg_harp" style="height: 100%; ">
     <div id="container" class="container">
         <div class="has_flex_column" style="grid-column:1/3; gap:40px;padding-top: 30px;background-color: #a2b0b36e">
             <div class="ui vertical animated button" tabindex="0" onclick="showModal()">
@@ -141,9 +141,10 @@
                 url: "/painting_delete",
                 data: "num=" + num,
                 success: function (result) {
-                    if (result) {
-
-                    } else {
+                    if(result=="fail"){
+                        alert("실패");
+                    }
+                    else{
                         alert('그림이 삭제되었습니다.');
                         document.location.href = "/selllist";
                     }

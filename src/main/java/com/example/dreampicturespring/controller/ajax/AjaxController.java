@@ -214,6 +214,7 @@ public class AjaxController {
 		paymenttbl.setNo_membership(buyer);
 		paymenttbl.setNo_painting(paint);
 		paymentRepository.save(paymenttbl);
+		System.out.println("asjdlkasdjklsadklsajdkla");
 
 		return "success";
 	}

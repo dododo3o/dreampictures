@@ -1,6 +1,10 @@
 package com.example.dreampicturespring.controller.sell;
+import com.example.dreampicturespring.entity.Cartpaintingtbl;
+import com.example.dreampicturespring.entity.Carttbl;
 import com.example.dreampicturespring.entity.Membershiptbl;
 import com.example.dreampicturespring.entity.Paintingtbl;
+import com.example.dreampicturespring.repository.CartRepository;
+import com.example.dreampicturespring.repository.CartpaintingRepository;
 import com.example.dreampicturespring.repository.MembershiptblRepository;
 import com.example.dreampicturespring.repository.PaintingRepository;
 import com.example.dreampicturespring.vo.CardVO;
@@ -15,6 +19,7 @@ import org.springframework.web.servlet.ModelAndView;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -25,6 +30,10 @@ public class SellController {
     PaintingRepository paintingRepository;
     @Autowired
     MembershiptblRepository membershiptblRepository;
+    @Autowired
+    CartRepository cartRepository;
+    @Autowired
+    CartpaintingRepository cartpaintingRepository;
 
     @RequestMapping("/test")
     public String test() { return "user/test"; }
@@ -33,14 +42,14 @@ public class SellController {
     public String sell() { return "user/sell/sell"; }
 
     @RequestMapping(value = "/sell_success",method = RequestMethod.POST, produces ="application/text;charset=UTF-8")
-    public String sell_success(SellVO vo, HttpServletRequest req) {
+    public String sell_success(SellVO vo,String production, HttpServletRequest req) {
         String user = req.getSession().getAttribute("logEmail").toString();
         Membershiptbl ms = membershiptblRepository.findByemail(user);
-        Paintingtbl paintingtbl = new Paintingtbl(vo,ms.getNo_membership());
+        LocalDate productionLocalDate = LocalDate.parse(production);
+        Paintingtbl paintingtbl = new Paintingtbl(vo,ms.getNo_membership(),productionLocalDate);
         paintingRepository.save(paintingtbl);
 
-        return "user/buy/buy";
-
+        return "redirect:/buy";
     }
 
     @RequestMapping(value = "/painting_delete",method = RequestMethod.GET, produces ="application/text;charset=UTF-8")
@@ -49,10 +58,8 @@ public class SellController {
 
         HttpSession session = request.getSession();
         Membershiptbl membershipTBL = membershiptblRepository.findByemail((String) session.getAttribute("logEmail"));
-        if(membershipTBL.getNo_membership()!=num){ return "fail"; }
-
+        if(membershipTBL.getNo_membership()==null){ return "fail"; }
         paintingRepository.deleteById(num);
-
-        return "/selllist";
+        return "success";
     }
 }
