@@ -116,22 +116,25 @@
 </head>
 <body oncontextmenu="return false" onselectstart="return false">
 <jsp:include page="../header_footer/header_not_login.jsp"></jsp:include>
-<main class="has_bg_harp">
+<main class="has_bg_harp" style="height: 100%">
     <div class="container">
-        <div class="contents" style="grid-column: 5/9; margin-top: 50px; gap:30px; ">
+        <div class="contents" style="grid-column: 5/9; margin-top: 50px; gap:30px;">
             <form action="<%=conPath%>/register2" method="post" onsubmit="return false" id="frm">
-                <div style="display: flex;font-weight: bold; user-select: auto;flex-direction: column;align-items: center;justify-content: space-evenly;height: 650px;">
-                    <div class="title " style="margin-bottom: 35px;">회원 가입</div>
+                <div style="display: flex;font-weight: bold; user-select: auto;flex-direction: column;align-items: center;">
+                    <div class="title" style="margin-bottom: 35px;">회원 가입</div>
                     <div class="has_flex_left">이메일 *
                         <input type="text" class="input_select has_width_full" name="email" id="email"
                                required="required" style="font-family: 'Gowun Dodum';" placeholder="이메일"/></div>
+                    <br/>
                     <button id="email_btn" class='button is_primary' onclick="verifyEmail()"
-                            style="font-family: 'Gowun Dodum'">
+                            style="font-family: 'Gowun Dodum'">인증하기
                     </button>
-                    <div style="display:flex;">
-                        <div class="has_flex_left">인증번호 *<input type="text" class="input_select has_width_half" name="certified" id="certified" placeholder="인증번호"></div>
-                        <div style="display:flex;"><button class="button is_primary" id="certifiedbtn" onclick="" style="font-family: 'Gowun Dodum'">인증하기</button></div>
-                    </div>
+                    <div class="has_flex_left">인증번호 *
+                        <input type="text" class="input_select has_width_full" style="font-family: 'Gowun Dodum';"
+                               name="certified" id="certified" placeholder="인증번호"></div>
+                    <br/>
+                    <button class="button is_primary" id="certifiedbtn" onclick="" style="font-family: 'Gowun Dodum'">인증하기</button>
+                    <br/>
                     <div class="has_flex_left">
                         <div>비밀번호 *<span class="has_chathams-blue">(6~20 영문 대소문자, 숫자, 특수문자 꼭포함하여  6~20자)</span>
                         </div>
@@ -160,10 +163,11 @@
                         <input type="text" class="input_select has_width_full" name="tel" id="tel"
                                required="required" style="font-family: 'Gowun Dodum';" placeholder="핸드폰 번호"/>
                     </div>
+                    <br/>
                     <button id="tel_btn" class='button is_primary' style="font-family: 'Gowun Dodum'"
                             onclick="verifyTel()">인증하기
                     </button>
-
+                    <br/>
                     <input type="submit" onclick="nextBtn_condition()" id="submit_btn"
                            style="font-family: 'Gowun Dodum';background-color: white"
                            class='input_select is_login has_shadow has_flex_center has_width_full' value="다음 단계">

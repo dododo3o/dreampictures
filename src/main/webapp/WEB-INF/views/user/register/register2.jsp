@@ -134,18 +134,22 @@
 </head>
 <body oncontextmenu="return false" onselectstart="return false">
 <jsp:include page="../header_footer/header_not_login.jsp"></jsp:include>
-<main class="has_bg_harp">
+<main class="has_bg_harp" style="height: 100%">
     <div class="container">
         <div class="contents" style="grid-column: 5/9; margin-top: 50px;">
             <form action="<%=conPath%>/register_success" method="post" onsubmit="return false" enctype="multipart/form-data" id="frm">
-                <div style="display: flex;font-weight: bold; user-select: auto;flex-direction: column;align-items: center;justify-content: space-evenly;height: 650px;">
+                <div style="display: flex;font-weight: bold; user-select: auto;flex-direction: column;align-items: center;">
                     <div class="title" style="margin-bottom: 35px;">회원 가입</div>
                     <div class="has_flex_left">주소 *<input type="text" class="has_width_full input_select" name="addr" id="sample5_address" style="font-family: 'Gowun Dodum';" placeholder="주소" onclick="sample5_execDaumPostcode()"/></div>
+                    <br/>
                     <div class="has_flex_left">상세주소 *<input type="text" class="has_width_full input_select" id="detailAddr" name="detailAddr" style="font-family: 'Gowun Dodum';" placeholder="상세주소"/></div>
+                    <br/>
                     <div class="has_flex_left">닉네임 등록 * <input type="text" name="nickname" id="nickname" class="has_width_full input_select" style="font-family: 'Gowun Dodum';" placeholder="닉네임 등록"/></div>
+                    <br/>
                     <div>
                         <button id="nick_btn" class="button is_primary" onclick="verifyNick()" style="margin-top: 10px;margin-bottom: 10px;font-family: 'Gowun Dodum'">인증 확인</button>
                     </div>
+                    <br/>
                     <div class="has_flex_center" id="image_container;">
                         <div id="preview_image"><img src="/resources/css/photo/darth.jpg" class="avatar_img" id="default_img" style="margin: 0 auto; display: inline;"/></div>
                     </div>
