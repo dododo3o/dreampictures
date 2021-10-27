@@ -122,11 +122,16 @@
             <form action="<%=conPath%>/register2" method="post" onsubmit="return false" id="frm">
                 <div style="display: flex;font-weight: bold; user-select: auto;flex-direction: column;align-items: center;justify-content: space-evenly;height: 650px;">
                     <div class="title " style="margin-bottom: 35px;">회원 가입</div>
-                    <div class=" has_flex_left">이메일 *<input type="text" class="input_select has_width_full" name="email"
-                                                            id="email" required="required" style="font-family: 'Gowun Dodum';" placeholder="이메일"/></div>
+                    <div class="has_flex_left">이메일 *
+                        <input type="text" class="input_select has_width_full" name="email" id="email"
+                               required="required" style="font-family: 'Gowun Dodum';" placeholder="이메일"/></div>
                     <button id="email_btn" class='button is_primary' onclick="verifyEmail()"
-                            style="font-family: 'Gowun Dodum'">인증하기
+                            style="font-family: 'Gowun Dodum'">
                     </button>
+                    <div style="display:flex;">
+                        <div class="has_flex_left">인증번호 *<input type="text" class="input_select has_width_half" name="certified" id="certified" placeholder="인증번호"></div>
+                        <div style="display:flex;"><button class="button is_primary" id="certifiedbtn" onclick="" style="font-family: 'Gowun Dodum'">인증하기</button></div>
+                    </div>
                     <div class="has_flex_left">
                         <div>비밀번호 *<span class="has_chathams-blue">(6~20 영문 대소문자, 숫자, 특수문자 꼭포함하여  6~20자)</span>
                         </div>
