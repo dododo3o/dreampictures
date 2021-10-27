@@ -38,8 +38,6 @@
             $(() => {
                 if (status == undefined) return;
                 let question = document.getElementById("question").value;
-                alert(status)
-                alert(question)
                 $.ajax({
                     url: "/ajax_request_QA",
                     data: "question=" + question + "&status=" + status,
