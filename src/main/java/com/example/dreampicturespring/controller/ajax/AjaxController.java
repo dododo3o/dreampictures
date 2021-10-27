@@ -46,40 +46,29 @@ public class AjaxController {
     @Autowired
     QaRepository qaRepository;
 
-    @RequestMapping(value = "/ajax_email_check", method = RequestMethod.GET, produces = "application/text;charset=UTF-8")
+    @RequestMapping(value="/ajax_email_check",method=RequestMethod.GET, produces="application/text;charset=UTF-8")
     @ResponseBody
-    public String email_check(String email) {
-        return membershiptblRepository.existsByemail(email) ? "N" : "Y";
-    }
+    public String email_check(String email) { return membershiptblRepository.existsByemail(email) ? "N" : "Y"; }
 
-    @RequestMapping(value = "/ajax_tel_check", method = RequestMethod.GET, produces = "application/text;charset=UTF-8")
+    @RequestMapping(value="/ajax_tel_check",method=RequestMethod.GET, produces="application/text;charset=UTF-8")
     @ResponseBody
-    public String tel_check(String tel) {
-        return membershiptblRepository.existsBytel(tel) ? "N" : "Y";
-    }
+    public String tel_check(String tel) { return membershiptblRepository.existsBytel(tel) ? "N" : "Y"; }
 
-    @RequestMapping(value = "/ajax_nickname_check", method = RequestMethod.GET, produces = "application/text;charset=UTF-8")
+    @RequestMapping(value = "/ajax_nickname_check",method = RequestMethod.GET, produces ="application/text;charset=UTF-8")
     @ResponseBody
-    public String nickname_check(String nickname) {
-        return membershiptblRepository.existsBynickname(nickname) ? "N" : "Y";
-    }
+    public String nickname_check(String nickname){return membershiptblRepository.existsBynickname(nickname) ? "N" : "Y"; }
 
 
-    @RequestMapping(value = "/ajax_picture_finder", method = RequestMethod.GET, produces = "application/text;charset=UTF-8")
-    public String picture_find(Model model, String pname, String style, String theme, Integer width, Integer height, Integer price) {
+    @RequestMapping(value = "/ajax_picture_finder",method = RequestMethod.GET, produces ="application/text;charset=UTF-8")
+    public String picture_find(Model model, String pname, String style, String theme, Integer width, Integer height, Integer price){
         List<Paintingtbl> paintingtbls;
-        if (pname.equals("all")) {
-            paintingtbls = paintingRepository.findAll(Sort.by(Sort.Direction.DESC, "id"));
-        } else {
-            paintingtbls = paintingRepository.findPainting(makeNotNull(pname), makeNotNull(style), makeNotNull(theme), width, height, price);
-        }
+        if(pname.equals("all")){ paintingtbls = paintingRepository.findAll(Sort.by(Sort.Direction.DESC, "id")); }
+        else{ paintingtbls = paintingRepository.findPainting(makeNotNull(pname),makeNotNull(style),makeNotNull(theme),width,height,price); }
         List<CardVO> cardVOList = new ArrayList<>();
         List<Membershiptbl> membershiptbls = new ArrayList<>();
-        for (int i = 0; i < paintingtbls.size(); i++) {
-            membershiptbls.add(membershiptblRepository.getById(paintingtbls.get(i).getNo_membership()));
-        }
+        for(int i=0;i<paintingtbls.size();i++){ membershiptbls.add(membershiptblRepository.getById(paintingtbls.get(i).getNo_membership())); }
         int count = 0;
-        for (Paintingtbl paintingtbl : paintingtbls) {
+        for(Paintingtbl paintingtbl : paintingtbls){
             CardVO cardVO = new CardVO();
             cardVO.setNo_painting(paintingtbl.getNo_painting().toString());
             cardVO.setAvatarimg(membershiptbls.get(count).getImg());
@@ -89,10 +78,10 @@ public class AjaxController {
             cardVO.setCommentNumber(commentRepository.countByno_painting(paintingtbl.getNo_painting()));
             List<String> comments = commentRepository.findCommenttbl(paintingtbl.getNo_painting());
             List<CommentVO> commentVOlist = new ArrayList<>();
-            for (String comment : comments) {
+            for(String comment : comments){
                 List<String> comment_member = Arrays.asList(comment.split(","));
                 CommentVO commentVO = new CommentVO();
-                Integer no_comment = commentRepository.findByNo_comment(Integer.parseInt(comment_member.get(1)), paintingtbl.getNo_painting());
+                Integer no_comment = commentRepository.findByNo_comment(Integer.parseInt(comment_member.get(1)),paintingtbl.getNo_painting());
                 Membershiptbl membershiptbl = membershiptblRepository.getById(Integer.parseInt(comment_member.get(1)));
                 commentVO.setNo_comment(no_comment);
                 commentVO.setAvatarimg(membershiptbl.getImg());
@@ -106,20 +95,18 @@ public class AjaxController {
             cardVOList.add(cardVO);
             count++;
         }
-        model.addAttribute("cardVOlist", cardVOList);
+        model.addAttribute("cardVOlist",cardVOList);
         return "user/ajax/picture_find";
     }
 
-    @RequestMapping(value = "/ajax_buy_pagination", method = RequestMethod.GET, produces = "application/text;charset=UTF-8")
-    public String buy_pagination(Model model, Integer num) {
-        List<Paintingtbl> paintingtbls = paintingRepository.findpage(num - 1);
+    @RequestMapping(value = "/ajax_buy_pagination",method = RequestMethod.GET, produces ="application/text;charset=UTF-8")
+    public String buy_pagination(Model model, Integer num){
+        List<Paintingtbl> paintingtbls = paintingRepository.findpage(num-1);
         List<CardVO> cardVOList = new ArrayList<>();
         List<Membershiptbl> membershiptbls = new ArrayList<>();
-        for (int i = 0; i < paintingtbls.size(); i++) {
-            membershiptbls.add(membershiptblRepository.getById(paintingtbls.get(i).getNo_membership()));
-        }
+        for(int i=0;i<paintingtbls.size();i++){ membershiptbls.add(membershiptblRepository.getById(paintingtbls.get(i).getNo_membership())); }
         int count = 0;
-        for (Paintingtbl paintingtbl : paintingtbls) {
+        for(Paintingtbl paintingtbl : paintingtbls){
             CardVO cardVO = new CardVO();
             cardVO.setNo_painting(paintingtbl.getNo_painting().toString());
             cardVO.setAvatarimg(membershiptbls.get(count).getImg());
@@ -129,10 +116,10 @@ public class AjaxController {
             cardVO.setCommentNumber(commentRepository.countByno_painting(paintingtbl.getNo_painting()));
             List<String> comments = commentRepository.findCommenttbl(paintingtbl.getNo_painting());
             List<CommentVO> commentVOlist = new ArrayList<>();
-            for (String comment : comments) {
+            for(String comment : comments){
                 List<String> comment_member = Arrays.asList(comment.split(","));
                 CommentVO commentVO = new CommentVO();
-                Integer no_comment = commentRepository.findByNo_comment(Integer.parseInt(comment_member.get(1)), paintingtbl.getNo_painting());
+                Integer no_comment = commentRepository.findByNo_comment(Integer.parseInt(comment_member.get(1)),paintingtbl.getNo_painting());
                 Membershiptbl membershiptbl = membershiptblRepository.getById(Integer.parseInt(comment_member.get(1)));
                 commentVO.setNo_comment(no_comment);
                 commentVO.setAvatarimg(membershiptbl.getImg());
@@ -146,12 +133,12 @@ public class AjaxController {
             cardVOList.add(cardVO);
             count++;
         }
-        model.addAttribute("cardVOlist", cardVOList);
+        model.addAttribute("cardVOlist",cardVOList);
         return "user/ajax/picture_find";
     }
 
-    @RequestMapping(value = "/ajax_notice_pagination", method = RequestMethod.GET, produces = "application/text;charset=UTF-8")
-    public String notice_pagination(Model model, Integer num) {
+    @RequestMapping(value = "/ajax_notice_pagination",method = RequestMethod.GET, produces ="application/text;charset=UTF-8")
+    public String notice_pagination(Model model, Integer num){
         List<Noticetbl> noticetblList = noticeRepository.findpage_notice(num);
         List<NoticeVO> noticeVOList = new ArrayList<>();
         for (Noticetbl noticetbl : noticetblList) {
@@ -166,33 +153,28 @@ public class AjaxController {
     }
 
 
-    @RequestMapping(value = "/ajax_picture_finder_soldout", method = RequestMethod.GET, produces = "application/text;charset=UTF-8")
-    public String picture_find_soldout(Model model, String deadline) {
+    @RequestMapping(value = "/ajax_picture_finder_soldout",method = RequestMethod.GET, produces ="application/text;charset=UTF-8")
+    public String picture_find_soldout(Model model,String deadline){
         List<Paintingtbl> paintingtbls = paintingRepository.findPainting_soldout_deadline(deadline);
         List<Membershiptbl> membershiptbls = new ArrayList<>();
         List<CardVO> cardVOList = new ArrayList<>();
-        for (int i = 0; i < paintingtbls.size(); i++) {
-            membershiptbls.add(membershiptblRepository.getById(paintingtbls.get(i).getNo_membership()));
-        }
-        for (int i = 0; i < paintingtbls.size(); i++) {
-            CardVO vo = new CardVO(paintingtbls.get(i), membershiptbls.get(i));
-            cardVOList.add(vo);
-        }
-        model.addAttribute("cardVOlist", cardVOList);
+        for(int i=0;i<paintingtbls.size();i++){ membershiptbls.add(membershiptblRepository.getById(paintingtbls.get(i).getNo_membership())); }
+        for(int i=0;i<paintingtbls.size();i++){ CardVO vo = new CardVO(paintingtbls.get(i),membershiptbls.get(i));cardVOList.add(vo);}
+        model.addAttribute("cardVOlist",cardVOList);
         return "user/ajax/picture_finder_soldout";
     }
 
-    @RequestMapping(value = "/ajax_pay", method = RequestMethod.GET, produces = "application/text;charset=UTF-8")
+    @RequestMapping(value = "/ajax_pay",method = RequestMethod.GET, produces ="application/text;charset=UTF-8")
     @ResponseBody
-    public String pay(Model model, Integer point, Integer buyer, Integer seller, Integer paint) {
+    public String pay(Model model,Integer point,Integer buyer,Integer seller,Integer paint){
         Optional<Membershiptbl> MTBL_buyer = membershiptblRepository.findById(buyer);
-        Membershiptbl buyerTBL = MTBL_buyer.get();
-        buyerTBL.dreampayCal(point, false);
+        Membershiptbl buyerTBL =MTBL_buyer.get();
+        buyerTBL.dreampayCal(point,false);
         membershiptblRepository.save(buyerTBL);
 
         Optional<Membershiptbl> MTBL_seller = membershiptblRepository.findById(seller);
-        Membershiptbl sellerTBL = MTBL_seller.get();
-        sellerTBL.dreampayCal(point, true);
+        Membershiptbl sellerTBL =MTBL_seller.get();
+        sellerTBL.dreampayCal(point,true);
         membershiptblRepository.save(sellerTBL);
 
         Optional<Paintingtbl> PTBL = paintingRepository.findById(paint);
@@ -210,38 +192,36 @@ public class AjaxController {
         return "success";
     }
 
-    @RequestMapping(value = "/ajax_answer_QA", method = RequestMethod.GET, produces = "application/text;charset=UTF-8")
-    public String answer_QA(HttpServletRequest request, Integer no_qa, String answer) {
+    @RequestMapping(value = "/ajax_answer_QA",method = RequestMethod.GET, produces ="application/text;charset=UTF-8")
+    public String answer_QA(HttpServletRequest request, Integer no_qa, String answer){
         Optional<Qatbl> qatblOptional = qaRepository.findById(no_qa);
-        Qatbl qatbl = qatblOptional.get();
+        Qatbl qatbl =qatblOptional.get();
         qatbl.setAnswer(answer);
         qaRepository.save(qatbl);
         return "redirect:/notice";
     }
 
-    @RequestMapping(value = "/ajax_delete_QA", method = RequestMethod.GET, produces = "application/text;charset=UTF-8")
+    @RequestMapping(value = "/ajax_delete_QA",method = RequestMethod.GET, produces ="application/text;charset=UTF-8")
     @ResponseBody
-    public String delete_QA(HttpServletRequest request, Integer num) {
+    public String delete_QA(HttpServletRequest request,Integer num){
         qaRepository.deleteById(num);
         return "success";
     }
 
-    @RequestMapping(value = "/ajax_request_QA", method = RequestMethod.GET, produces = "application/text;charset=UTF-8")
-    public String request_Qa(Model model, HttpServletRequest request, String question, Integer category, Integer status) {
+    @RequestMapping(value = "/ajax_request_QA",method = RequestMethod.GET, produces ="application/text;charset=UTF-8")
+    public String request_Qa(Model model,HttpServletRequest request, String question, Integer category, Integer status){
         System.out.println(category);
         HttpSession session = request.getSession();
         Membershiptbl membershipTBL = membershiptblRepository.findByemail((String) session.getAttribute("logEmail"));
-        if (membershipTBL == null) {
-            return "user/redirect/not_login";
-        }
+        if(membershipTBL == null){ return "user/redirect/not_login"; }
         Qatbl qatbl = new Qatbl(membershipTBL, question, category, status);
         qaRepository.save(qatbl);
         return "redirect:/notice";
     }
 
-    @RequestMapping(value = "/ajax_push_notice", method = RequestMethod.GET, produces = "application/text;charset=UTF-8")
+    @RequestMapping(value = "/ajax_push_notice",method = RequestMethod.GET, produces ="application/text;charset=UTF-8")
     @ResponseBody
-    public String push_notice(HttpServletRequest request, String title, String question) {
+    public String push_notice(HttpServletRequest request,String title,String question){
         HttpSession session = request.getSession();
         Noticetbl noticetbl = new Noticetbl();
         noticetbl.setTitle(title);
@@ -252,16 +232,16 @@ public class AjaxController {
         return "redirect:/admin/notice";
     }
 
-    @RequestMapping(value = "/ajax_delete_notice", method = RequestMethod.GET, produces = "application/text;charset=UTF-8")
+    @RequestMapping(value = "/ajax_delete_notice",method = RequestMethod.GET, produces ="application/text;charset=UTF-8")
     @ResponseBody
-    public String delete_notice(HttpServletRequest request, Integer num) {
+    public String delete_notice(HttpServletRequest request,Integer num){
         noticeRepository.deleteById(num);
         return "success";
     }
 
-    @RequestMapping(value = "/ajax_push_changeInfo", method = RequestMethod.GET, produces = "application/text;charset=UTF-8")
+    @RequestMapping(value = "/ajax_push_changeInfo",method = RequestMethod.GET, produces ="application/text;charset=UTF-8")
     @ResponseBody
-    public String push_changeInfo(HttpServletRequest request, String addr, String addrDetail, String tel) {
+    public String push_changeInfo(HttpServletRequest request,String addr,String addrDetail,String tel){
         HttpSession session = request.getSession();
         Membershiptbl membershipTBL = membershiptblRepository.findByemail((String) session.getAttribute("logEmail"));
         membershipTBL.setAddr(addr);
@@ -291,6 +271,7 @@ public class AjaxController {
         reportRepository.save(reporttbl);
         return "user/buy/buy";
     }
+
 
     @RequestMapping(value = "/ajax_cart_add", method = RequestMethod.GET, produces = "application/text;charset=UTF-8")
     @ResponseBody

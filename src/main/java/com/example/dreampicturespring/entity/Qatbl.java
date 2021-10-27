@@ -31,9 +31,9 @@ public class Qatbl {
             this.writedate = LocalDate.now(ZoneId.of("Asia/Seoul"));
         }
     }
-    public Qatbl(Membershiptbl membershiptbl,String content,Integer status) {
+    public Qatbl(Membershiptbl membershiptbl,String content,Integer category, Integer status) {
         this.no_membership = membershiptbl.getNo_membership();
-        this.category = 0;
+        this.category = category;
         this.content = content;
         this.status = status;
         if(StringUtils.isEmpty(writedate)){

@@ -36,11 +36,12 @@
         };
         requestQA = function () {
             $(() => {
-                if (status == undefined) return;
+                if (category == undefined) return;
                 let question = document.getElementById("question").value;
+                let status = 0;
                 $.ajax({
                     url: "/ajax_request_QA",
-                    data: "question=" + question + "&status=" + status,
+                    data: "question=" + question + "&category=" + category + "&status=" + status,
                     success: function (result) {
                         document.location.href = "/notice_question";
                     }
@@ -49,7 +50,7 @@
         };
         selectedBtn = function (number) {
             $(() => {
-                status = number
+                category = number
                 $("#active" + number).css('color', 'white');
                 $("#active" + number).css('background-color', '#c0c1c2');
             });
@@ -67,7 +68,7 @@
 <jsp:include page="../header_footer/header_not_login.jsp"></jsp:include>
 <% } %>
 
-<main class="has_bg_harp" style="height: auto">
+<main class="has_bg_harp" style="height: 100%">
     <div class="ui modal">
         <div class="header" style="text-align:center;font-family: 'Gowun Dodum';">질문 사항</div>
         <div class="ui form">
