@@ -209,12 +209,12 @@ public class AjaxController {
 	}
 
 	@RequestMapping(value = "/ajax_request_QA",method = RequestMethod.GET, produces ="application/text;charset=UTF-8")
-	public String request_Qa(Model model,HttpServletRequest request, String question, Integer status){
-		System.out.println(status);
+	public String request_Qa(Model model,HttpServletRequest request, String question, Integer category, Integer status){
+		System.out.println(category);
 		HttpSession session = request.getSession();
 		Membershiptbl membershipTBL = membershiptblRepository.findByemail((String) session.getAttribute("logEmail"));
 		if(membershipTBL == null){ return "user/redirect/not_login"; }
-		Qatbl qatbl = new Qatbl(membershipTBL, question, status);
+		Qatbl qatbl = new Qatbl(membershipTBL, question, category, status);
 		qaRepository.save(qatbl);
 		return "redirect:/notice";
 	}
