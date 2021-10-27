@@ -91,7 +91,7 @@
     </div>
 </nav>
 <div class="w3-overlay w3-hide-large w3-animate-opacity" onclick="w3_close()" style="cursor:pointer" title="close side menu" id="myOverlay"></div>
-<div class="w3-main" style="margin-left:300px; height: 100%">
+<div class="w3-main" style="margin-left:300px; height: 100%;">
     <main class="has_bg_harp" style="height: auto;display: flex;flex-direction: column; justify-content: space-between;">
         <div>
             <div tabindex="0" style="display: flex;justify-content: center;border-bottom: 1px solid #BDBDBD"><h1 style="font-family: 'Gowun Dodum', sans-serif;font-weight: bold;padding: 10px 0px;color:var(--color-chathams-blue);">질문사항</h1></div>

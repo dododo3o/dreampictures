@@ -54,7 +54,7 @@
 </head>
 <body oncontextmenu="return false" onselectstart="return false">
 <jsp:include page="../header_footer/header_login.jsp"></jsp:include>
-<main class="has_bg_harp" style="height: auto">
+<main class="has_bg_harp" style="height: 100%">
     <div id="container" class="container">
         <div class="has_flex_column" style="grid-column:1/3; gap:40px;padding-top: 30px;background-color: #a2b0b36e">
             <div class="ui vertical animated button" tabindex="0" onclick="showModal()">
@@ -94,7 +94,7 @@
                 </div>
             </div>
         </div>
-        <div style="grid-column: 3/13;display: flex;flex-direction: column;justify-content: space-between;align-items: center;justify-content: space-between">
+        <div style="grid-column: 3/13;display: flex;flex-direction: column;align-items: center;">
             <!-- 추가요소 있으면 이 안에 넣기-->
             <div style="color:var(--color-chathams-blue);font-size:var(--font-size-xll);padding-top:60px;padding-bottom: 100px;">장바구니</div>
             <div style="display:flex;grid-template-columns: repeat(4,1fr); grid-gap: 1rem; width: 100%;flex-wrap: wrap">
