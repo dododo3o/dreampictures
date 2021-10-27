@@ -182,12 +182,10 @@
             let addr = document.getElementById("addr").value;
             let addrDetail = document.getElementsById("addrdetail").value;
             let tel = document.getElementById("tel").value;
-            alert(tel);
             $.ajax({
                 url: "/ajax_push_changeInfo",
                 data: "addr=" + addr + "&addrDetail=" + addrDetail + "&tel=" + tel,
                 success: function (result) {
-                    alert(result);
                     document.location.href = "/mypage";
                 }
             });

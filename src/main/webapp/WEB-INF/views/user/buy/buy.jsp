@@ -82,8 +82,6 @@
                 let text = document.getElementById(no_painting).value;
                 let no_paint = no_painting;
                 let real_no = no_paint.replace("input", "");
-                alert(text);
-                alert(real_no);
                 $.ajax({
                     url: "/ajax_comment_add",
                     data: "comment=" + text + "&no_painting=" + real_no,

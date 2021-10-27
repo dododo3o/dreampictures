@@ -58,7 +58,6 @@
         };
         pay = function (point,buyer,seller,paint) {
             $(() => {
-                alert(point);
                 $.ajax({
                     url: "/ajax_pay",
                     data: "point=" + point + "&buyer=" + buyer + "&seller=" + seller + "&paint=" + paint ,

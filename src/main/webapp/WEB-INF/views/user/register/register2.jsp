@@ -127,7 +127,7 @@
             if (addrVal != '' && detailAddrVal != '' && nickVal != '') {
                 document.getElementById('frm').submit();
             } else {
-                alert("정보를 모두 작성해주세요 !")
+                ("정보를 모두 작성해주세요 !")
             }
         }
     </script>
