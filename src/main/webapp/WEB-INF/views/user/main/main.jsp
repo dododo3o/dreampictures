@@ -30,7 +30,7 @@
                 <br>
                 <div>사고 팔고 싶어요.</div>
             </div>
-            <div style="font-size: 21px;">여러분의 그림을 사고 싶은분들이많이 계실거에요!</div>
+            <div style="font-size: 21px;">여러분의 그림을 사고 싶은분들이 많이 계실거에요!</div>
         </div>
         <div class="has_flex_center" style="grid-column: 6/13;">
             <svg id="darth" class="part" style="visibility: hidden" width="280" height="539" viewBox="0 0 280 539"
