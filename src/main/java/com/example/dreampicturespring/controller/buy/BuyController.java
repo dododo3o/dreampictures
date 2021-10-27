@@ -33,7 +33,7 @@ public class BuyController {
     @RequestMapping("/buy")
     public ModelAndView buy(){
         final int CARDSPERPAGE = 15;
-        Long cardNum,pageNum;
+        Long cardNum,pageNum;;
         ModelAndView mv = new ModelAndView();
         List<CardVO> cardVOList = new ArrayList<>();
         List<String> list = paintingRepository.findAllPainting_Desc();

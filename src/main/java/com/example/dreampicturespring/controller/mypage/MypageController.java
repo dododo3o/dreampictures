@@ -79,8 +79,6 @@ public class MypageController {
 
     @RequestMapping("/cart")
     public ModelAndView cart(HttpServletRequest request) {
-        final int CARDSPERPAGE = 15;
-        int cardNum = 0, pageNum;
         ModelAndView mv = new ModelAndView();
         mv.setViewName("user/mypage/cart");
         HttpSession session = request.getSession();
@@ -118,24 +116,19 @@ public class MypageController {
             }
             cardVO.setCommentVOList(commentVOlist);
             cardVOList.add(cardVO);
-            cardNum++;
+
         }
-        pageNum = cardNum / CARDSPERPAGE + 1;
         mv.setViewName("user/mypage/cart");
         mv.addObject("cardVOlist", cardVOList);
-        mv.addObject("pageNum", pageNum);
         return mv;
     }
 
     @RequestMapping("/buylist")
     public ModelAndView buylist(HttpServletRequest request) {
-        final int CARDSPERPAGE = 15;
-        int cardNum = 0, pageNum;
         ModelAndView mv = new ModelAndView();
         HttpSession session = request.getSession();
         Membershiptbl membershiptbl = membershiptblRepository.findByemail((String) session.getAttribute("logEmail"));
         List<Paymenttbl> paymenttbls = paymentRepository.findByno_membership(membershiptbl.getNo_membership());
-        System.out.println(paymenttbls);
         List<Paintingtbl> paintingtblList = new ArrayList<>();
         for (Paymenttbl paymenttbl : paymenttbls) {
             Optional<Paintingtbl> optional = paintingRepository.findById(paymenttbl.getNo_painting());
@@ -169,19 +162,15 @@ public class MypageController {
             }
             cardVO.setCommentVOList(commentVOlist);
             cardVOList.add(cardVO);
-            cardNum++;
+
         }
-        pageNum = cardNum / CARDSPERPAGE + 1;
         mv.setViewName("user/mypage/buylist");
         mv.addObject("cardVOlist", cardVOList);
-        mv.addObject("pageNum", pageNum);
         return mv;
     }
 
     @RequestMapping("/selllist")
     public ModelAndView selllist(HttpServletRequest request) {
-        final int CARDSPERPAGE = 15;
-        int cardNum = 0, pageNum;
         ModelAndView mv = new ModelAndView();
         HttpSession session = request.getSession();
         Membershiptbl membershiptbl = membershiptblRepository.findByemail((String) session.getAttribute("logEmail"));
@@ -213,23 +202,20 @@ public class MypageController {
             }
             cardVO.setCommentVOList(commentVOlist);
             cardVOList.add(cardVO);
-            cardNum++;
+
         }
-        pageNum = cardNum / CARDSPERPAGE + 1;
         mv.setViewName("user/mypage/selllist");
         mv.addObject("cardVOlist", cardVOList);
-        mv.addObject("pageNum", pageNum);
         return mv;
     }
+
     @RequestMapping("/qalist")
     public ModelAndView qalist(HttpServletRequest request) {
-
         ModelAndView mv = new ModelAndView();
         HttpSession session = request.getSession();
         Membershiptbl membershiptbl = membershiptblRepository.findByemail((String) session.getAttribute("logEmail"));
         List<Qatbl> qatblList = qaRepository.findbyno_membership(membershiptbl.getNo_membership());
         List<QaVO> QaVOlist = new ArrayList<>();
-
         for (Qatbl qatbl : qatblList) {
             QaVO vo = new QaVO();
             vo.parser(qatbl.getCategory());

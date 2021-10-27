@@ -27,7 +27,7 @@ public class NoticeController {
     @RequestMapping("/notice")
     public ModelAndView notice_notice() {
         final int CARDSPERPAGE = 15;
-        Long cardNum,pageNum;
+        Long cardNum,pageNum;;
         ModelAndView mv = new ModelAndView();
         List<Noticetbl> noticetblList = noticeRepository.findAll();
         List<NoticeVO> noticeVOList = new ArrayList<>();
@@ -48,7 +48,7 @@ public class NoticeController {
     @RequestMapping("/notice_question")
     public ModelAndView notice_question() {
         final int CARDSPERPAGE = 15;
-        int cardNum = 0, pageNum;
+        Long cardNum,pageNum;
 
         ModelAndView mv = new ModelAndView();
 

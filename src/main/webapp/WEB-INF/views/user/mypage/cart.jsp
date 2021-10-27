@@ -96,9 +96,7 @@
         </div>
         <div style="grid-column: 3/13;display: flex;flex-direction: column;justify-content: space-between;align-items: center;justify-content: space-between">
             <!-- 추가요소 있으면 이 안에 넣기-->
-            <div style="color:var(--color-chathams-blue);font-size:var(--font-size-xll);padding-top:60px;padding-bottom: 100px;">
-                장바구니
-            </div>
+            <div style="color:var(--color-chathams-blue);font-size:var(--font-size-xll);padding-top:60px;padding-bottom: 100px;">장바구니</div>
             <div style="display:flex;grid-template-columns: repeat(4,1fr); grid-gap: 1rem; width: 100%;flex-wrap: wrap">
                 <c:forEach var="cardVOlist" items="${cardVOlist}">
                     <div class="flip-card">
@@ -154,35 +152,6 @@
                         </div>
                     </div>
                 </c:forEach>
-                <div>
-                    <div class="container"
-                         style="display: flex;justify-content: center;margin-top:30px;padding-bottom: 30px;">
-                        <div style="margin-right: 40px;">
-                            <div class="ui animated button" tabindex="0"
-                                 style="color:var(--color-white);background-color: var(--color-chathams-blue);">
-                                <div class="visible content">Perv</div>
-                                <div class="hidden content">
-                                    <i class="left arrow icon"></i>
-                                </div>
-                            </div>
-                            <c:forEach var="i" begin="1" end="${pageNum}">
-                                <div class="ui animated button" tabindex="0"
-                                     style="color:var(--color-white);background-color: var(--color-chathams-blue);">
-                                    <div class="visible content">${i}</div>
-                                    <div class="hidden content">${i}</div>
-                                </div>
-                            </c:forEach>
-                            <div class="ui animated button" tabindex="0"
-                                 style="color:var(--color-white);background-color: var(--color-chathams-blue);">
-                                <div class="visible content">Next</div>
-                                <div class="hidden content">
-                                    <i class="right arrow icon"></i>
-                                </div>
-                            </div>
-                            <br>
-                        </div>
-                    </div>
-                </div>
             </div>
         </div>
     </div>

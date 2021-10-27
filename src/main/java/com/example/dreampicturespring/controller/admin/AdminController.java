@@ -141,7 +141,7 @@ public class AdminController {
     @RequestMapping("/admin/qa")
     public ModelAndView admin_qa() {
         final int CARDSPERPAGE = 15;
-        int cardNum = 0, pageNum;
+        Long cardNum,pageNum;
 
         ModelAndView mv = new ModelAndView();
         List<Qatbl> qatblList = qaRepository.findAll();
@@ -204,7 +204,7 @@ public class AdminController {
             }
             cardVO.setCommentVOList(commentVOlist);
             cardVOList.add(cardVO);
-            cardNum++;
+
         }
         pageNum = cardNum/CARDSPERPAGE+1;
         mv.setViewName("user/admin/salesHistory");
@@ -270,7 +270,7 @@ public class AdminController {
                 }
                 cardVO.setCommentVOList(commentVOlist);
                 cardVOList.add(cardVO);
-                cardNum++;
+
             }
         }
         pageNum = cardNum/CARDSPERPAGE+1;
