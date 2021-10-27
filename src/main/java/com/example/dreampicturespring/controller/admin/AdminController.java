@@ -121,10 +121,10 @@ public class AdminController {
     }
     @RequestMapping("/admin/notice")
     public ModelAndView admin_notice(Model model){
-        final int CARDSPERPAGE = 15;
+        final int CARDSPERPAGE = 16;
         Long cardNum,pageNum;
         ModelAndView mv = new ModelAndView();
-        List<Noticetbl> noticetblList =  noticeRepository.findAll();
+        List<Noticetbl> noticetblList =  noticeRepository.findpage_notice(0);
         List<NoticeVO> noticeVOList = new ArrayList<>();
         for(Noticetbl noticetbl :noticetblList){
             NoticeVO noticeVO = new NoticeVO();
@@ -144,10 +144,13 @@ public class AdminController {
 
     @RequestMapping("/admin/qa")
     public ModelAndView admin_qa() {
-        final int CARDSPERPAGE = 15;
+        final int CARDSPERPAGE = 16;
         Long cardNum,pageNum;
         ModelAndView mv = new ModelAndView();
-        List<Qatbl> qatblList = qaRepository.findAll();
+
+        List<Qatbl> qatblList = qaRepository.findpage_qa(0);
+
+
         List<QaVO> QaVOlist = new ArrayList<>();
         for (Qatbl qatbl : qatblList) {
             QaVO vo = new QaVO();

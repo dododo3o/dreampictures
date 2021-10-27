@@ -1,4 +1,5 @@
 package com.example.dreampicturespring.repository;
+import com.example.dreampicturespring.entity.Noticetbl;
 import com.example.dreampicturespring.entity.Qatbl;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
@@ -10,5 +11,8 @@ public interface QaRepository extends JpaRepository<Qatbl,Integer> {
 
     @Query(value = "select * from qatbl where qatbl.no_membership = :no_membership ", nativeQuery = true)
     List<Qatbl> findbyno_membership(@Param("no_membership") Integer no_membership);
+
+    @Query(value = "SELECT * FROM qatbl ORDER BY qatbl.no_qa DESC OFFSET :page*16 ROWS FETCH FIRST 16 ROWS ONLY", nativeQuery = true)
+    List<Qatbl> findpage_qa(@Param("page") Integer page);
 }
 

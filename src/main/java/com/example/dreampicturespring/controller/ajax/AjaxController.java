@@ -139,7 +139,7 @@ public class AjaxController {
 
 	@RequestMapping(value = "/ajax_notice_pagination",method = RequestMethod.GET, produces ="application/text;charset=UTF-8")
 	public String notice_pagination(Model model, Integer num){
-		List<Noticetbl> noticetblList = noticeRepository.findpage(num);
+		List<Noticetbl> noticetblList = noticeRepository.findpage_notice(num);
 		List<NoticeVO> noticeVOList = new ArrayList<>();
 		for (Noticetbl noticetbl : noticetblList) {
 			NoticeVO noticeVO = new NoticeVO();
