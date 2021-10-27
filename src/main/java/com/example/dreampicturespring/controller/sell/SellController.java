@@ -46,9 +46,7 @@ public class SellController {
         Membershiptbl ms = membershiptblRepository.findByemail(user);
         Paintingtbl paintingtbl = new Paintingtbl(vo,ms.getNo_membership());
         paintingRepository.save(paintingtbl);
-
         return "user/buy/buy";
-
     }
 
     @RequestMapping(value = "/painting_delete",method = RequestMethod.GET, produces ="application/text;charset=UTF-8")
