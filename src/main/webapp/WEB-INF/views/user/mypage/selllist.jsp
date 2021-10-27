@@ -115,40 +115,17 @@
                                     <span style="font-size: 1.5em">${cardVOlist.pname}</span>
                                 </div>
                                 <div class="extra content">
-                                    <div class="ui large transparent left icon input" style="display: flex;">
-                                        <i class="pencil alternate icon"></i>
-                                        <input type="text" maxlength="20" size="20" id="${cardVOlist.no_painting}"
-                                               placeholder="글자수 20글자 내 작성" style="font-size: 0.8em"/>
-                                    </div>
-                                    <button class="ui blue icon button" onclick="addComment(${cardVOlist.no_painting})"
-                                            style="float: right; font-size: 0.8em;">Add
+                                    <button class="ui red icon button"
+                                            onclick="painting_delete(${cardVOlist.no_painting})"
+                                            style="font-size: 0.5em; width: 80px; height: 35px;">
+                                        삭제하기
                                     </button>
-                                    </h5>
                                 </div>
                                 <div class="ui bottom attached button collapsible"
                                      onclick="flipCard(${cardVOlist.no_painting})"
                                      style="z-index: 1;">
                                     <i class="add icon"></i>
                                     <span><i class="comment icon"></i>${cardVOlist.commentNumber}</span>
-                                </div>
-                            </div>
-                            <div class="ui comments flip-card-back">
-                                <c:forEach var="commentVOList" items="${cardVOlist.commentVOList}">
-                                    <h5 class="ui header" style="user-select: auto; margin: 10px;">
-                                        <div style="display: flex;align-items: center;justify-content: space-between;">
-                                            <img src="${commentVOList.avatarimg}"
-                                                 style="border-radius: 50%; height:40px; width:40px;object-fit: cover;">
-                                            <span class="author"
-                                                  style="margin-left: 10px; font-size: 1.5em">${commentVOList.author}</span>
-                                            <button class="ui red icon button" onclick="" style="font-size: 0.5em">X
-                                            </button>
-                                        </div>
-                                        <div class="text" style="margin: 10px;">${commentVOList.comments}</div>
-                                    </h5>
-                                </c:forEach>
-                                <div class="ui button bottom attached collapsible"
-                                     onclick="closeCard(${cardVOlist.no_painting})" id="close_btn">
-                                    <i class="large close icon icon"></i>
                                 </div>
                             </div>
                         </div>
@@ -187,4 +164,22 @@
 </main>
 <jsp:include page="../header_footer/footer.jsp"></jsp:include>
 </body>
+<script>
+    function painting_delete(num) {
+        $(() => {
+            $.ajax({
+                url: "/painting_delete",
+                data: "num=" + num,
+                success: function (result) {
+                    if (result) {
+
+                    } else {
+                        alert('그림이 삭제되었습니다.');
+                        document.location.href = "/selllist";
+                    }
+                }
+            });
+        });
+    }
+</script>
 </html>
