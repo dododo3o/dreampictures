@@ -50,7 +50,7 @@
 </head>
 <body oncontextmenu="return false" onselectstart="return false">
 <jsp:include page="../header_footer/header_login.jsp"></jsp:include>
-<main class="has_bg_harp">
+<main class="has_bg_harp" style="height: auto">
     <div id="container" class="container">
         <div class="has_flex_column" style="grid-column:1/3; gap:40px;padding-top: 30px;background-color: #a2b0b36e">
             <div class="ui vertical animated button" tabindex="0" onclick="showModal()">
@@ -95,25 +95,28 @@
             <div style="display:flex;grid-template-columns: repeat(4,1fr); grid-gap: 1rem; width: 100%;flex-wrap: wrap">
                 <c:forEach var="cardVOlist" items="${cardVOlist}">
                     <div class="flip-card">
-                        <div class="ui card flip-card-front" style="height: 100%; margin: 0 auto;">
-                            <div class="content"
-                                 style=" display: flex; flex-direction: row; justify-content: space-evenly; align-items: center;">
-                                <img src="${cardVOlist.avatarimg}"
-                                     style="border-radius: 50%; width: 3em;height: 3em;object-fit: cover;">
-                                <span style="font-size: 1.5em;">${cardVOlist.nickname}</span>
-                            </div>
-                            <div class="image">
-                                <img src="${cardVOlist.paintingmimg}" onclick="buypainting(${cardVOlist.no_painting});"
-                                     style="object-fit: cover; height: 250px">
-                            </div>
-                            <div class="content" style="display: flex;justify-content: center;">
-                                <span style="font-size: 1.5em">${cardVOlist.pname}</span>
-                            </div>
-                            <div class="extra content">
-                                <div class="ui large transparent left icon input"
-                                     style="display: flex; justify-content: space-evenly">
-                                    <span>구매 날짜<br>${cardVOlist.writedate}</span>
-                                    <span>구매 가격<br>${cardVOlist.price}</span>
+                        <div class="flip-card-inner" id="${cardVOlist.no_painting}" style="border-radius: 5px;">
+                            <div class="ui card flip-card-front" style="height: 100%; margin: 0 auto;">
+                                <div class="content"
+                                     style=" display: flex; flex-direction: row; justify-content: space-evenly; align-items: center;">
+                                    <img src="${cardVOlist.avatarimg}"
+                                         style="border-radius: 50%; width: 3em;height: 3em;object-fit: cover;">
+                                    <span style="font-size: 1.5em;">${cardVOlist.nickname}</span>
+                                </div>
+                                <div class="image">
+                                    <img src="${cardVOlist.paintingmimg}"
+                                         onclick="buypainting(${cardVOlist.no_painting});"
+                                         style="object-fit: cover; height: 250px">
+                                </div>
+                                <div class="content" style="display: flex;justify-content: center;">
+                                    <span style="font-size: 1.5em">${cardVOlist.pname}</span>
+                                </div>
+                                <div class="extra content">
+                                    <div class="ui large transparent left icon input"
+                                         style="display: flex; justify-content: space-evenly">
+                                        <span>구매 날짜<br>${cardVOlist.writedate}</span>
+                                        <span>구매 가격<br>${cardVOlist.price}</span>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -121,7 +124,6 @@
                 </c:forEach>
             </div>
         </div>
-    </div>
     </div>
 </main>
 <jsp:include page="../header_footer/footer.jsp"></jsp:include>

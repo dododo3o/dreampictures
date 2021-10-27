@@ -41,14 +41,19 @@
             </a>
         </div>
         <div class="has_flex_space has_font-base" style="grid-column: 3/6;font-weight: bold">
-            <a href="#" class="has_aqua-island">회사 소개</a> <a href="#" class="has_albescent-white">팀원 소개</a>
+            <a href="https://www.bitcamp.co.kr/" target="_blank" class="has_aqua-island">회사
+                소개</a> <a href="https://jeongom.notion.site/jeongom/b968b5fea0ee4a90a7007d9b920b32c7" target="_blank"
+                          class="has_albescent-white">팀원 소개</a>
             <a href="/admin/login" class="has_aqua-island">관리자로그인</a>
         </div>
         <div class="has_flex_space" style="grid-column: 10/12">
-            <a href="#" class="has_white has_font-xl"><i class="fab fa-youtube"></i></a> <a href="#"
-                                                                                            class="has_white has_font-xl"><i
+            <a href="https://www.youtube.com/channel/UCFlgzli3_zFR883TwmzbPgQ" target="_blank"
+               class="has_white has_font-xl"><i class="fab fa-youtube"></i></a> <a href="https://www.facebook.com/"
+                                                                                   target="_blank"
+                                                                                   class="has_white has_font-xl"><i
                 class="fab fa-facebook-square"></i></a>
-            <a href="#" class="has_white has_font-xl"><i class="fab fa-instagram-square"></i></a>
+            <a href="https://www.instagram.com/?hl=ko" target="_blank" class="has_white has_font-xl"><i
+                    class="fab fa-instagram-square"></i></a>
         </div>
     </div>
 </footer>

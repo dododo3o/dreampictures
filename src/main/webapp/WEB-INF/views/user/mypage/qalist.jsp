@@ -41,7 +41,7 @@
 </head>
 <body oncontextmenu="return false" onselectstart="return false">
 <jsp:include page="../header_footer/header_login.jsp"></jsp:include>
-<main class="has_bg_harp" style="height: 100%;">
+<main class="has_bg_harp" style="height: 100%">
     <div id="container" class="container">
         <div class="has_flex_column" style="grid-column:1/3; gap:40px;padding-top: 30px;background-color: #a2b0b36e">
             <div class="ui vertical animated button" tabindex="0" onclick="showModal()">
@@ -81,12 +81,13 @@
                 </div>
             </div>
         </div>
-        <div style="height:100%;grid-column: 3/13;display: flex;flex-direction: column;justify-content: space-between;align-items: center;padding-top:63px;padding-bottom: 25px;">
+        <div style="grid-column: 3/13;display: flex;flex-direction: column;justify-content: space-between;align-items: center;justify-content: space-between">
             <!-- 추가요소 있으면 이 안에 넣기-->
             <div style="display: flex;flex-direction: column;">
-            <div style="color:var(--color-chathams-blue);font-size:var(--font-size-xll);padding-bottom: 30px;text-align: center;">
-                <div>
-                    <div>질문내역</div>
+                <div style="color:var(--color-chathams-blue);font-size:var(--font-size-xll);padding-top:100px;padding-bottom: 100px;text-align: center;">
+                    <div>
+                        질문내역
+                    </div>
                 </div>
             </div>
                 <div style="display:grid;grid-template-columns:repeat(3,1fr);grid-gap:1rem;width:100%;padding-top: 10px;">
@@ -99,11 +100,10 @@
                         <div class="content">
                             <div style="font-size: 1.3em">작성자 : ${QaVOlist.nickname}<br/>${QaVOlist.content}
                             </div>
+                            <div class="content" style="font-size: 1.3em">답변내용 : <br/>${QaVOlist.answer}</div>
                         </div>
-                        <div class="content" style="font-size: 1.3em">답변내용 : <br/>${QaVOlist.answer}</div>
-                    </div>
-                </c:forEach>
-            </div>
+                    </c:forEach>
+                </div>
             </div>
         </div>
     </div>
