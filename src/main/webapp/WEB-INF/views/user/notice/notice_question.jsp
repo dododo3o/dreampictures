@@ -68,7 +68,7 @@
 <jsp:include page="../header_footer/header_not_login.jsp"></jsp:include>
 <% } %>
 
-<main class="has_bg_harp" style="height: 100%">
+<main class="has_bg_harp" style="height:auto">
     <div class="ui modal">
         <div class="header" style="text-align:center;font-family: 'Gowun Dodum';">질문 사항</div>
         <div class="ui form">
