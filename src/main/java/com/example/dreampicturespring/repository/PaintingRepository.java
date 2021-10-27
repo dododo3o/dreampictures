@@ -26,7 +26,7 @@ public interface PaintingRepository extends JpaRepository<Paintingtbl, Integer> 
     List<Paintingtbl> findPainting_soldout_deadline(@Param("deadline")String deadline);
 
 
-    @Query(value = "SELECT * FROM paintingtbl ORDER BY paintingtbl.no_painting DESC OFFSET :page*15 ROWS FETCH FIRST 15 ROWS ONLY", nativeQuery = true)
+    @Query(value = "SELECT * FROM paintingtbl WHERE paintingtbl.status = 0 ORDER BY paintingtbl.no_painting DESC OFFSET :page*15 ROWS FETCH FIRST 15 ROWS ONLY", nativeQuery = true)
     List<Paintingtbl> findpage(@Param("page") Integer page);
 
 
