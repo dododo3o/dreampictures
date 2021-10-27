@@ -51,7 +51,6 @@ public class NoticeController {
         Long cardNum,pageNum;
 
         ModelAndView mv = new ModelAndView();
-
         List<Qatbl> qatblList = qaRepository.findAll();
         List<QaVO> QaVOlist = new ArrayList<>();
 
@@ -65,6 +64,7 @@ public class NoticeController {
             vo.setAnswer(qatbl.getAnswer());
             QaVOlist.add(vo);
         }
+        cardNum = qaRepository.count();
         pageNum = cardNum / CARDSPERPAGE + 1;
         mv.setViewName("user/notice/notice_question");
         mv.addObject("QaVOlist", QaVOlist);

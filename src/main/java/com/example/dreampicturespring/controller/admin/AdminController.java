@@ -121,9 +121,9 @@ public class AdminController {
     }
     @RequestMapping("/admin/notice")
     public ModelAndView admin_notice(Model model){
+        final int CARDSPERPAGE = 15;
+        Long cardNum,pageNum;
         ModelAndView mv = new ModelAndView();
-
-        mv.setViewName("user/admin/notice");
         List<Noticetbl> noticetblList =  noticeRepository.findAll();
         List<NoticeVO> noticeVOList = new ArrayList<>();
         for(Noticetbl noticetbl :noticetblList){
@@ -134,7 +134,11 @@ public class AdminController {
             noticeVO.setContent(noticetbl.getContent());
             noticeVOList.add(noticeVO);
         }
+        cardNum = noticeRepository.count();
+        pageNum = cardNum / CARDSPERPAGE + 1;
         mv.addObject("noticeVOList",noticeVOList);
+        mv.addObject("pageNum", pageNum);
+        mv.setViewName("user/admin/notice");
         return mv;
     }
 
@@ -142,7 +146,6 @@ public class AdminController {
     public ModelAndView admin_qa() {
         final int CARDSPERPAGE = 15;
         Long cardNum,pageNum;
-
         ModelAndView mv = new ModelAndView();
         List<Qatbl> qatblList = qaRepository.findAll();
         List<QaVO> QaVOlist = new ArrayList<>();
@@ -157,6 +160,7 @@ public class AdminController {
             vo.setNo_qa(qatbl.getNo_qa());
             QaVOlist.add(vo);
         }
+        cardNum = qaRepository.count();
         pageNum = cardNum / CARDSPERPAGE + 1;
         mv.setViewName("user/admin/qa");
         mv.addObject("QaVOlist", QaVOlist);
@@ -166,7 +170,6 @@ public class AdminController {
 
     @RequestMapping("/admin/blacklist")
     public ModelAndView admin_blacklist(Model model){
-
         ModelAndView mv = new ModelAndView();
         mv.setViewName("user/admin/blacklist");
         return mv;
@@ -175,7 +178,7 @@ public class AdminController {
     @RequestMapping("/admin/salesHistory")
     public ModelAndView admin_salesHistory(Model model){
         final int CARDSPERPAGE = 15;
-        int cardNum = 0,pageNum;
+        Long cardNum,pageNum;
         ModelAndView mv = new ModelAndView();
         List<CardVO> cardVOList = new ArrayList<>();
         List<String> list = paintingRepository.findAllPainting_SoldOut();
@@ -206,6 +209,7 @@ public class AdminController {
             cardVOList.add(cardVO);
 
         }
+        cardNum = Long.valueOf(paintingRepository.countSold());
         pageNum = cardNum/CARDSPERPAGE+1;
         mv.setViewName("user/admin/salesHistory");
         mv.addObject("cardVOlist",cardVOList);
@@ -215,8 +219,10 @@ public class AdminController {
 
     @RequestMapping("/admin/allmembers")
     public ModelAndView admin_allmembers(Model model){
+        final int CARDSPERPAGE = 15;
+        Long cardNum,pageNum;
         ModelAndView mv = new ModelAndView();
-        List<Membershiptbl> memberAllTBL = membershiptblRepository.findAll();
+        List<Membershiptbl> memberAllTBL = membershiptblRepository.findpage_member(0);
         List<MemberVO> memberVOList = new ArrayList<>();
         for(Membershiptbl members : memberAllTBL){
             MemberVO vo = new MemberVO();
@@ -230,7 +236,10 @@ public class AdminController {
             vo.setOutput_total(0);
             memberVOList.add(vo);
         }
+        cardNum = membershiptblRepository.count();
+        pageNum = cardNum/CARDSPERPAGE+1;
         mv.addObject("memberVOList",memberVOList);
+        mv.addObject("pageNum",pageNum);
         mv.setViewName("user/admin/allmembers");
         return mv;
     }
@@ -238,12 +247,10 @@ public class AdminController {
     @RequestMapping("/admin/report")
     public ModelAndView admin_report(Model model){
         final int CARDSPERPAGE = 15;
-        int cardNum = 0,pageNum;
+        Long cardNum,pageNum;
         ModelAndView mv = new ModelAndView();
         List<CardVO> cardVOList = new ArrayList<>();
-
         List<Integer> reportedList = reportRepository.findAllpaint();
-
         for(Integer no : reportedList) {
             List<String> list = paintingRepository.findAllPainting_Reported(no);
             for (String card : list) {
@@ -273,6 +280,7 @@ public class AdminController {
 
             }
         }
+        cardNum = reportRepository.count();
         pageNum = cardNum/CARDSPERPAGE+1;
         mv.setViewName("user/admin/report");
         mv.addObject("cardVOlist",cardVOList);

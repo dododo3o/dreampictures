@@ -19,6 +19,11 @@ public interface MembershiptblRepository extends JpaRepository<Membershiptbl,Int
         Boolean existsBytel(String tel);
         Boolean existsBynickname(String nickname);
 
+
+        @Query(value = "SELECT * FROM membershiptbl ORDER BY membershiptbl.no_membership DESC OFFSET :page*16 ROWS FETCH FIRST 16 ROWS ONLY", nativeQuery = true)
+        List<Membershiptbl> findpage_member(@Param("page") Integer page);
+
+
         @Transactional
         @Modifying(clearAutomatically = true)
         @Query(value = "UPDATE membershiptbl SET membershiptbl.dreampay = :money + membershiptbl.dreampay WHERE membershiptbl.no_membership = :no_membership", nativeQuery = true)
