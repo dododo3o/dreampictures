@@ -83,7 +83,7 @@ public class AdminController {
 
         adminVO.setNoticeNum(noticeRepository.findAll().size());
         adminVO.setQuestionNum(qaRepository.findAll().size());
-        adminVO.setRegisterNum(paintingRepository.findAll().size());
+        adminVO.setRegisterNum(paintingRepository.countSold());
         adminVO.setMemberNum(membershiptblRepository.findAll().size());
         adminVO.setNewMemberPercent(membershiptblRepository.findAll().size());
         adminVO.setOneWeekSaleVolumePercent(paintingRepository.countSold());
