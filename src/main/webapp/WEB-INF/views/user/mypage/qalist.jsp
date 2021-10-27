@@ -81,17 +81,14 @@
                 </div>
             </div>
         </div>
-        <div style="grid-column: 3/13;display: flex;flex-direction: column;justify-content: space-between;align-items: center;justify-content: space-between">
+        <div style="grid-column: 3/13;display: flex;flex-direction: column;justify-content: space-between;align-items: center;justify-content: space-between;">
             <!-- 추가요소 있으면 이 안에 넣기-->
-            <div style="display: flex;flex-direction: column;">
-                <div style="color:var(--color-chathams-blue);font-size:var(--font-size-xll);padding-top:100px;padding-bottom: 100px;text-align: center;">
-                    <div>
+            <div>
+                <div style="color:var(--color-chathams-blue);font-size:var(--font-size-xll);padding-top:60px;padding-bottom: 100px;text-align: center;">
                         질문내역
-                    </div>
                 </div>
-            </div>
-                <div style="display:grid;grid-template-columns:repeat(3,1fr);grid-gap:1rem;width:100%;padding-top: 10px;">
-                <c:forEach var="QaVOlist" items="${QaVOlist}">
+                <div style="display:grid;grid-template-columns:repeat(3,1fr);grid-gap:1rem;width:100%;">
+                    <c:forEach var="QaVOlist" items="${QaVOlist}">
                     <div class="ui card" style="height: 100%; margin: 0 auto;">
                         <div class="content">
                             <div class="header"
@@ -102,7 +99,8 @@
                             </div>
                             <div class="content" style="font-size: 1.3em">답변내용 : <br/>${QaVOlist.answer}</div>
                         </div>
-                    </c:forEach>
+                        </c:forEach>
+                    </div>
                 </div>
             </div>
         </div>
