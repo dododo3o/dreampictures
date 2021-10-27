@@ -41,7 +41,6 @@
         function flipCard(num) {
             $('#' + num).css("transform", "rotateY(180deg)");
             $(".ui.comments.flip-card-back").css('margin', '0');
-
         }
 
         function closeCard(num) {
@@ -108,7 +107,8 @@
                                     <span style="font-size: 1.5em;">${cardVOlist.nickname}</span>
                                 </div>
                                 <div class="image">
-                                    <img src="${cardVOlist.paintingmimg}" onclick="buypainting(${cardVOlist.paintingmimg})"
+                                    <img src="${cardVOlist.paintingmimg}"
+                                         onclick="buypainting(${cardVOlist.paintingmimg})"
                                          style="object-fit: cover; height: 250px">
                                 </div>
                                 <div class="content" style="display: flex;justify-content: center;">
