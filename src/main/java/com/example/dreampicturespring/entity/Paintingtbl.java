@@ -38,7 +38,7 @@ public class Paintingtbl {
             this.writedate = LocalDate.now(ZoneId.of("Asia/Seoul"));
         }
     }
-    public Paintingtbl(SellVO vo,Integer no_membership){
+    public Paintingtbl(SellVO vo,Integer no_membership,LocalDate production){
         this.pname = vo.getPname();
         this.theme = vo.getTheme();
         this.width = vo.getWidth();
@@ -48,7 +48,7 @@ public class Paintingtbl {
         if(StringUtils.isEmpty(writedate)){
             this.writedate = LocalDate.now(ZoneId.of("Asia/Seoul"));
         }
-        this.production = vo.getProduction();
+        this.production = production;
         this.exp = vo.getExp();
         this.status = 0;
         this.no_membership = no_membership;
