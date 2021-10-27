@@ -50,6 +50,21 @@
                 status = number
             });
         };
+        pagination_notice = function (num) {
+            $(() => {
+                $.ajax({
+                    url: "/ajax_notice_pagination",
+                    data: "num=" + num,
+                    success: function (result) {
+                        var container = document.getElementById("container");
+                        while (container.hasChildNodes()) {
+                            container.removeChild(container.firstChild);
+                        }
+                        $("#container").html(result);
+                    }
+                });
+            });
+        };
     </script>
 </head>
 <body oncontextmenu="return false" onselectstart="return false">
@@ -77,13 +92,10 @@
         </div>
         <div style="grid-column: 3/13;display: flex;flex-direction: column;align-items: center;display: flex;justify-content: space-between;">
             <div>
-                <div style="display: flex;    justify-content: center;">
-                    <div style="color:var(--color-chathams-blue);font-size:var(--font-size-xll);margin-top: 55px;padding-bottom: 30px;">
-                        공지사항
-                    </div>
+                <div style="display: flex;justify-content: center;">
+                    <div style="color:var(--color-chathams-blue);font-size:var(--font-size-xll);margin-top: 55px;padding-bottom: 30px;">공지사항</div>
                 </div>
-                <div class="manager_card"
-                     style="display: grid;grid-template-columns:repeat(3,1fr);grid-gap:1rem;width: 100%;">
+                <div class="manager_card" id="container" style="display: grid;grid-template-columns:repeat(3,1fr);grid-gap:1rem;width: 100%;">
                     <c:forEach var="noticeVOList" items="${noticeVOList}">
                         <div class="ui card" style="height: 100%; margin: 0 auto;">
                             <div class="content" style="height: 100%; margin: 0 auto;">
@@ -96,8 +108,7 @@
                 </div>
             </div>
             <div>
-                <div class="container"
-                     style="display: flex;justify-content: center;margin-top:30px;padding-bottom: 30px;">
+                <div class="container" style="display: flex;justify-content: center;margin-top:30px;padding-bottom: 30px;">
                     <div style="margin-right: 40px;">
                         <div class="ui animated button" tabindex="0"
                              style="color:var(--color-white);background-color: var(--color-chathams-blue);">

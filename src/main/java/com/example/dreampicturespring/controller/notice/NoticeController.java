@@ -26,9 +26,9 @@ public class NoticeController {
 
     @RequestMapping("/notice")
     public ModelAndView notice_notice() {
-
+        final int CARDSPERPAGE = 15;
+        Long cardNum,pageNum;
         ModelAndView mv = new ModelAndView();
-        mv.setViewName("user/notice/notice");
         List<Noticetbl> noticetblList = noticeRepository.findAll();
         List<NoticeVO> noticeVOList = new ArrayList<>();
         for (Noticetbl noticetbl : noticetblList) {
@@ -38,7 +38,11 @@ public class NoticeController {
             noticeVO.setContent(noticetbl.getContent());
             noticeVOList.add(noticeVO);
         }
+        cardNum = noticeRepository.count();
+        pageNum = cardNum/CARDSPERPAGE+1;
+        mv.setViewName("user/notice/notice");
         mv.addObject("noticeVOList", noticeVOList);
+        mv.addObject("pageNum",pageNum);
         return mv;
     }
     @RequestMapping("/notice_question")

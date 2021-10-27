@@ -4,13 +4,16 @@ import com.example.dreampicturespring.entity.*;
 import com.example.dreampicturespring.repository.*;
 import com.example.dreampicturespring.vo.CardVO;
 import com.example.dreampicturespring.vo.CommentVO;
+import com.example.dreampicturespring.vo.NoticeVO;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
@@ -59,7 +62,7 @@ public class AjaxController {
 	@RequestMapping(value = "/ajax_picture_finder",method = RequestMethod.GET, produces ="application/text;charset=UTF-8")
 	public String picture_find(Model model, String pname, String style, String theme, Integer width, Integer height, Integer price){
 		List<Paintingtbl> paintingtbls;
-		if(pname.equals("all")){ paintingtbls = paintingRepository.findAll(); }
+		if(pname.equals("all")){ paintingtbls = paintingRepository.findAll(Sort.by(Sort.Direction.DESC, "id")); }
 		else{ paintingtbls = paintingRepository.findPainting(makeNotNull(pname),makeNotNull(style),makeNotNull(theme),width,height,price); }
 		List<CardVO> cardVOList = new ArrayList<>();
 		List<Membershiptbl> membershiptbls = new ArrayList<>();
@@ -73,7 +76,6 @@ public class AjaxController {
 			cardVO.setNickname(membershiptbls.get(count).getNickname());
 			cardVO.setPname(paintingtbl.getPname());
 			cardVO.setCommentNumber(commentRepository.countByno_painting(paintingtbl.getNo_painting()));
-
 			List<String> comments = commentRepository.findCommenttbl(paintingtbl.getNo_painting());
 			List<CommentVO> commentVOlist = new ArrayList<>();
 			for(String comment : comments){
@@ -98,10 +100,8 @@ public class AjaxController {
 	}
 
 	@RequestMapping(value = "/ajax_buy_pagination",method = RequestMethod.GET, produces ="application/text;charset=UTF-8")
-	public String pagination(Model model, Integer num){
-		System.out.println(num);
+	public String buy_pagination(Model model, Integer num){
 		List<Paintingtbl> paintingtbls = paintingRepository.findpage(num-1);
-		System.out.println(paintingtbls);
 		List<CardVO> cardVOList = new ArrayList<>();
 		List<Membershiptbl> membershiptbls = new ArrayList<>();
 		for(int i=0;i<paintingtbls.size();i++){ membershiptbls.add(membershiptblRepository.getById(paintingtbls.get(i).getNo_membership())); }
@@ -114,7 +114,6 @@ public class AjaxController {
 			cardVO.setNickname(membershiptbls.get(count).getNickname());
 			cardVO.setPname(paintingtbl.getPname());
 			cardVO.setCommentNumber(commentRepository.countByno_painting(paintingtbl.getNo_painting()));
-
 			List<String> comments = commentRepository.findCommenttbl(paintingtbl.getNo_painting());
 			List<CommentVO> commentVOlist = new ArrayList<>();
 			for(String comment : comments){
@@ -134,9 +133,23 @@ public class AjaxController {
 			cardVOList.add(cardVO);
 			count++;
 		}
-		System.out.println(cardVOList);
 		model.addAttribute("cardVOlist",cardVOList);
 		return "user/ajax/picture_find";
+	}
+
+	@RequestMapping(value = "/ajax_notice_pagination",method = RequestMethod.GET, produces ="application/text;charset=UTF-8")
+	public String notice_pagination(Model model, Integer num){
+		List<Noticetbl> noticetblList = noticeRepository.findpage(num);
+		List<NoticeVO> noticeVOList = new ArrayList<>();
+		for (Noticetbl noticetbl : noticetblList) {
+			NoticeVO noticeVO = new NoticeVO();
+			noticeVO.setTitle(noticetbl.getTitle());
+			noticeVO.setWritedate(noticetbl.getWritedate());
+			noticeVO.setContent(noticetbl.getContent());
+			noticeVOList.add(noticeVO);
+		}
+		model.addAttribute("noticeVOList", noticeVOList);
+		return "user/ajax/notice_page";
 	}
 
 
