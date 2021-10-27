@@ -1,5 +1,6 @@
 package com.example.dreampicturespring.controller.ajax;
 
+import com.example.dreampicturespring.Interfacer.EmailUtil;
 import com.example.dreampicturespring.entity.*;
 import com.example.dreampicturespring.repository.*;
 import com.example.dreampicturespring.vo.CardVO;
@@ -46,10 +47,15 @@ public class AjaxController {
 	ReportRepository reportRepository;
 	@Autowired
 	QaRepository qaRepository;
+	@Autowired
+	private EmailUtil emailUtil;
+
 
 	@RequestMapping(value="/ajax_email_check",method=RequestMethod.GET, produces="application/text;charset=UTF-8")
 	@ResponseBody
-	public String email_check(String email) { return membershiptblRepository.existsByemail(email) ? "N" : "Y"; }
+	public String email_check(String email) {
+		emailUtil.sendEmail(email,"그림드림 인증코드 발송입니다.", "dream123!");
+		return membershiptblRepository.existsByemail(email) ? "N" : "Y"; }
 
 	@RequestMapping(value="/ajax_tel_check",method=RequestMethod.GET, produces="application/text;charset=UTF-8")
 	@ResponseBody
