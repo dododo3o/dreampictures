@@ -46,7 +46,7 @@ public class SellController {
         Membershiptbl ms = membershiptblRepository.findByemail(user);
         Paintingtbl paintingtbl = new Paintingtbl(vo,ms.getNo_membership());
         paintingRepository.save(paintingtbl);
-        return "user/buy/buy";
+        return "redirect:/buy";
     }
 
     @RequestMapping(value = "/painting_delete",method = RequestMethod.GET, produces ="application/text;charset=UTF-8")
@@ -56,11 +56,7 @@ public class SellController {
         HttpSession session = request.getSession();
         Membershiptbl membershipTBL = membershiptblRepository.findByemail((String) session.getAttribute("logEmail"));
         if(membershipTBL.getNo_membership()==null){ return "fail"; }
-//        Carttbl carttbl = cartRepository.findByno_membership(membershipTBL.getNo_membership());
-//        System.out.println("asdasdsadsad");
-//        cartpaintingRepository.deleteByno_paint(num);
         paintingRepository.deleteById(num);
-//        System.out.println("-------------");
         return "success";
     }
 }
