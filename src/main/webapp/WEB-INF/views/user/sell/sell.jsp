@@ -68,6 +68,7 @@
                 $("#point").css("display", "block");
             }
         }
+
         function heightMaxLength(e) {
             if (e.value.length > e.maxLength) {e.value = e.value.slice(0, e.maxLength);}
         }
@@ -82,7 +83,7 @@
         }
     </script>
 </head>
-<body>
+<body oncontextmenu="return false" onselectstart="return false">
 <% if (session.getAttribute("logStatus") == "Y") { %>
 <jsp:include page="../header_footer/header_login.jsp">
     <jsp:param name="user" value="${user}"/>

@@ -46,9 +46,13 @@
         function closeCard(num) {
             $('#' + num).css("transform", "rotateY(0deg)");
         }
+
+        function buypainting(num) {
+            location.href = "http://localhost:8080/buy_picture/" + num;
+        }
     </script>
 </head>
-<body>
+<body oncontextmenu="return false" onselectstart="return false">
 <jsp:include page="../header_footer/header_login.jsp"></jsp:include>
 <main class="has_bg_harp" style="height: auto">
     <div id="container" class="container">

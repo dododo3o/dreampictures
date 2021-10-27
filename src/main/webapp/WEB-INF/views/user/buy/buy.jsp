@@ -25,7 +25,6 @@
         function buypainting(num) {
             location.href = "http://localhost:8080/buy_picture/" + num;
         }
-
         find_picture = function () {
             $(() => {
                 let pname = document.getElementById("pname").value;
@@ -78,7 +77,6 @@
                 });
             });
         };
-
         addComment = function (no_painting) {
             $(() => {
                 let text = document.getElementById(no_painting).value;
@@ -95,19 +93,16 @@
                 });
             });
         };
-
         function flipCard(num) {
             $('#' + num).css("transform", "rotateY(180deg)");
             $(".ui.comments.flip-card-back").css('margin', '0');
         }
-
         function closeCard(num) {
             $('#' + num).css("transform", "rotateY(0deg)");
         }
-
     </script>
 </head>
-<body>
+<body oncontextmenu="return false" onselectstart="return false">
 <% if (session.getAttribute("logStatus") == "Y") { %>
 <jsp:include page="../header_footer/header_login.jsp">
     <jsp:param name="user" value="${user}"/>
@@ -1593,7 +1588,6 @@
             });
         });
     }
-
     $('#art_girl').css('visibility', 'hidden');
     $('#city1').css('visibility', 'hidden');
     $('#city2').css('visibility', 'hidden');

@@ -59,7 +59,7 @@
 
     </script>
 </head>
-<body>
+<body oncontextmenu="return false" onselectstart="return false">
 <% if (session.getAttribute("logStatus") == "Y") { %>
 <jsp:include page="../header_footer/header_login.jsp">
     <jsp:param name="user" value="${user}"/>
@@ -69,7 +69,7 @@
 <jsp:include page="../header_footer/header_not_login.jsp"></jsp:include>
 <% } %>
 
-<main class="has_bg_harp" style="height: 100%">
+<main class="has_bg_harp" style="height: auto">
     <div class="ui modal">
         <div class="header" style="text-align:center;font-family: 'Gowun Dodum';">질문 사항</div>
         <div class="ui form">
@@ -132,14 +132,12 @@
                     <c:forEach var="QaVOlist" items="${QaVOlist}">
                         <div class="ui card" style="height: 100%; margin: 0 auto;">
                             <div class="content">
-                                <div class="header"
-                                     style="font-family: 'Gowun Dodum', sans-serif;font-size: 1.5em">${QaVOlist.category}</div>
+                                <div class="header" style="font-family: 'Gowun Dodum', sans-serif;font-size: 1.5em">${QaVOlist.category}</div>
                             </div>
                             <div class="content">
-                                <div style="font-size: 1.3em">작성자 : ${QaVOlist.nickname}<br/>${QaVOlist.content}
-                                </div>
+                                <div style="font-size: 1.2em">작성자 : ${QaVOlist.nickname}<br/>${QaVOlist.content}</div>
                             </div>
-                            <div class="content" style="font-size: 1.3em">답변내용 : <br/>${QaVOlist.answer}</div>
+                            <div class="content" style="font-size: 1.2em">답변내용 : <br/>${QaVOlist.answer}</div>
                         </div>
                     </c:forEach>
                 </div>
