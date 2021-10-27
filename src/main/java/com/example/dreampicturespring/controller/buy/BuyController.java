@@ -68,7 +68,7 @@ public class BuyController {
             count++;
         }
         cardNum = paintingRepository.count();
-        pageNum = cardNum/CARDSPERPAGE+1;
+        pageNum = cardNum/CARDSPERPAGE;
         mv.setViewName("user/buy/buy");
         mv.addObject("cardVOlist",cardVOList);
         mv.addObject("pageNum",pageNum);

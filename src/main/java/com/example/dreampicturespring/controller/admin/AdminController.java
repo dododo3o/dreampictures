@@ -213,7 +213,7 @@ public class AdminController {
 
         }
         cardNum = Long.valueOf(paintingRepository.countSold());
-        pageNum = cardNum/CARDSPERPAGE+1;
+        pageNum = cardNum/CARDSPERPAGE;
         mv.setViewName("user/admin/salesHistory");
         mv.addObject("cardVOlist",cardVOList);
         mv.addObject("pageNum",pageNum);
@@ -240,7 +240,7 @@ public class AdminController {
             memberVOList.add(vo);
         }
         cardNum = membershiptblRepository.count();
-        pageNum = cardNum/CARDSPERPAGE+1;
+        pageNum = cardNum/CARDSPERPAGE;
         mv.addObject("memberVOList",memberVOList);
         mv.addObject("pageNum",pageNum);
         mv.setViewName("user/admin/allmembers");
@@ -284,7 +284,7 @@ public class AdminController {
             }
         }
         cardNum = reportRepository.count();
-        pageNum = cardNum/CARDSPERPAGE+1;
+        pageNum = cardNum/CARDSPERPAGE;
         mv.setViewName("user/admin/report");
         mv.addObject("cardVOlist",cardVOList);
         mv.addObject("pageNum",pageNum);
