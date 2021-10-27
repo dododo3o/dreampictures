@@ -92,7 +92,7 @@
         </div>
         <div style="grid-column: 3/13;display: flex;flex-direction: column;justify-content: space-between;align-items: center;">
             <!-- 추가요소 있으면 이 안에 넣기-->
-            <div style="color:var(--color-chathams-blue);font-size:var(--font-size-xll);padding-top:60px;padding-bottom: 100px;">
+            <div style="color:var(--color-chathams-blue);font-size:var(--font-size-xll);padding-top:100px;padding-bottom: 100px;">
                 전시내역
             </div>
             <div style="display:flex;grid-template-columns: repeat(4,1fr); grid-gap: 1rem; width: 100%;flex-wrap: wrap">

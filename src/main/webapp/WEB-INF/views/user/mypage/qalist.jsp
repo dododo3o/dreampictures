@@ -84,7 +84,7 @@
         <div style="grid-column: 3/13;display: flex;flex-direction: column;justify-content: space-between;align-items: center;justify-content: space-between">
             <!-- 추가요소 있으면 이 안에 넣기-->
             <div style="display: flex;flex-direction: column;">
-                <div style="color:var(--color-chathams-blue);font-size:var(--font-size-xll);padding-top:60px;padding-bottom: 100px;text-align: center;">
+                <div style="color:var(--color-chathams-blue);font-size:var(--font-size-xll);padding-top:100px;padding-bottom: 100px;text-align: center;">
                     <div>
                         질문내역
                     </div>
