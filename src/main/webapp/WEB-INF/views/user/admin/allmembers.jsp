@@ -44,6 +44,22 @@
                })
            });
        }
+       pagination_allmembers = function (num) {
+           $(() => {
+               $.ajax({
+                   url: "/ajax_allmembers_pagination",
+                   data: "num=" + num,
+                   success: function (result) {
+                       var container = document.getElementById("container");
+                       while (container.hasChildNodes()) {
+                           container.removeChild(container.firstChild);
+                       }
+                       $("#container").html(result);
+                   }
+               });
+           });
+       };
+
 
     </script>
 </head>
@@ -93,7 +109,7 @@
                     </div>
                 </form>
             </div>
-            <div style="font-family: 'Gowun Dodum',sans-serif;font-weight:bold;height: auto;border-bottom: 1px solid #BDBDBD;display: grid;grid-template-columns:repeat(4,1fr);grid-gap:1rem;align-items: baseline;justify-items: center;padding:0 0 20px 0;">
+            <div id="container" style="font-family: 'Gowun Dodum',sans-serif;font-weight:bold;height: auto;border-bottom: 1px solid #BDBDBD;display: grid;grid-template-columns:repeat(4,1fr);grid-gap:1rem;align-items: baseline;justify-items: center;padding:0 0 20px 0;">
                 <c:forEach var="memberVOList" items="${memberVOList}">
                     <div class="ui card">
                         <div class="content" >
@@ -111,7 +127,6 @@
                     </div>
                 </c:forEach>
             </div>
-
         </div>
         <div style="display: flex;justify-content: center;margin-top:30px;padding-bottom: 30px;">
             <div class="ui animated button" tabindex="0"
@@ -122,10 +137,9 @@
                 </div>
             </div>
             <c:forEach var="i" begin="1" end="${pageNum}">
-                <div class="ui animated button" tabindex="0"
-                     style="color:var(--color-white);background-color: var(--color-chathams-blue);">
-                    <div class="visible content">${i}</div>
-                    <div class="hidden content">${i}</div>
+                <div class="ui animated button" tabindex="0" style="color:var(--color-white);background-color: var(--color-chathams-blue);">
+                    <div class="visible content" onclick="pagination_allmembers(${i})">${i}</div>
+                    <div class="hidden content" onclick="pagination_allmembers(${i})">${i}</div>
                 </div>
             </c:forEach>
             <div class="ui animated button" tabindex="0"

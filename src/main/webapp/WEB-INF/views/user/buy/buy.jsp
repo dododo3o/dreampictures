@@ -55,6 +55,10 @@
                             while (container.hasChildNodes()) {
                                 container.removeChild(container.firstChild);
                             }
+                            var container_page = document.getElementById("container_page");
+                            while (container_page.hasChildNodes()) {
+                                container_page.removeChild(container_page.firstChild);
+                            }
                             $("#container").html(result);
                         }
                     });
@@ -1540,7 +1544,7 @@
             </div>
         </c:forEach>
     </div>
-    <div class="container" style="display: flex;justify-content: center;margin-top:30px;padding-bottom: 30px;">
+    <div class="container" id="container_page" style="display: flex;justify-content: center;margin-top:30px;padding-bottom: 30px;">
         <div>
             <div class="ui animated button" tabindex="0" style="color:var(--color-white);background-color: var(--color-chathams-blue);">
                 <div class="visible content">Perv</div>

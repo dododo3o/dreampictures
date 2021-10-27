@@ -63,11 +63,10 @@
 <div class="w3-overlay w3-hide-large w3-animate-opacity" onclick="w3_close()" style="cursor:pointer;"
      title="close side menu" id="myOverlay"></div>
 <div class="w3-main" style="margin-left:300px; height: 100%;">
-    <div class="has_bg_harp" style="height:100%;flex-direction: column;justify-content: space-between;display: flex;">
+    <main class="has_bg_harp" style="height:auto;flex-direction: column;justify-content: space-between;display: flex;">
         <div style="height:100%;border-bottom: 1px solid #BDBDBD;">
             <div style="border-bottom: 1px solid #BDBDBD; padding: 10px 0px;flex-direction:column;display:flex;gap:20px;justify-content:center;align-items: center;">
-                <div><h1
-                        style="font-family: 'Gowun Dodum', sans-serif;font-weight: bold;color:var(--color-chathams-blue);">
+                <div><h1 style="font-family: 'Gowun Dodum', sans-serif;font-weight: bold;color:var(--color-chathams-blue);">
                     판매내역</h1></div>
                 <form action="">
                     <div style="display: flex;align-items: center;">
@@ -135,7 +134,7 @@
             </div>
             <br>
         </div>
-    </div>
+    </main>
 </div>
 <script>
     find_deadline = function () {
