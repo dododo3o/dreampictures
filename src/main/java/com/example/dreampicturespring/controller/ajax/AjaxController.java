@@ -4,6 +4,7 @@ import com.example.dreampicturespring.entity.*;
 import com.example.dreampicturespring.repository.*;
 import com.example.dreampicturespring.vo.CardVO;
 import com.example.dreampicturespring.vo.CommentVO;
+import com.example.dreampicturespring.vo.MemberVO;
 import com.example.dreampicturespring.vo.NoticeVO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Sort;
@@ -137,6 +138,26 @@ public class AjaxController {
 		return "user/ajax/picture_find";
 	}
 
+	@RequestMapping(value = "/ajax_allmembers_pagination",method = RequestMethod.GET, produces ="application/text;charset=UTF-8")
+	public String allmembers_pagination(Model model, Integer num){
+		List<Membershiptbl> memberAllTBL = membershiptblRepository.findpage_member(num-1);
+		List<MemberVO> memberVOList = new ArrayList<>();
+		for(Membershiptbl members : memberAllTBL){
+			MemberVO vo = new MemberVO();
+			vo.setAvatarimg(members.getImg());
+			vo.setNickname(members.getNickname());
+			vo.setAddr(members.getAddr());
+			vo.setReported(members.getReported());
+			vo.setTel(members.getTel());
+			vo.setDreampay(members.getDreampay());
+			vo.setInput_total(0);
+			vo.setOutput_total(0);
+			memberVOList.add(vo);
+		}
+		model.addAttribute("memberVOList",memberVOList);
+		return "user/ajax/allmembers_page";
+	}
+
 	@RequestMapping(value = "/ajax_notice_pagination",method = RequestMethod.GET, produces ="application/text;charset=UTF-8")
 	public String notice_pagination(Model model, Integer num){
 		List<Noticetbl> noticetblList = noticeRepository.findpage_notice(num);
@@ -151,7 +172,6 @@ public class AjaxController {
 		model.addAttribute("noticeVOList", noticeVOList);
 		return "user/ajax/notice_page";
 	}
-
 
 	@RequestMapping(value = "/ajax_picture_finder_soldout",method = RequestMethod.GET, produces ="application/text;charset=UTF-8")
 	public String picture_find_soldout(Model model,String deadline){
@@ -272,7 +292,6 @@ public class AjaxController {
         return "user/buy/buy";
     }
 
-
     @RequestMapping(value = "/ajax_cart_add", method = RequestMethod.GET, produces = "application/text;charset=UTF-8")
     @ResponseBody
     public String cart_add(HttpServletRequest request, Integer no_painting) {
@@ -292,7 +311,6 @@ public class AjaxController {
         cartpaintingRepository.save(cartpaintingtbl);
         return "success";
     }
-
 
     @RequestMapping(value = "/ajax_comment_finder", method = RequestMethod.GET, produces = "application/text;charset=UTF-8")
     public String comment_finder(Model model, Integer no_painting) {
