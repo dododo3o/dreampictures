@@ -127,30 +127,6 @@
                 </c:forEach>
             </div>
         </div>
-        <div style="display: flex;justify-content: center;padding-top:30px;padding-bottom: 30px;border-top: 1px solid #BDBDBD;">
-            <div class="ui animated button" tabindex="0"
-                 style="color:var(--color-white);background-color: var(--color-chathams-blue);">
-                <div class="visible content">Perv</div>
-                <div class="hidden content">
-                    <i class="left arrow icon"></i>
-                </div>
-            </div>
-            <c:forEach var="i" begin="1" end="${pageNum}">
-                <div class="ui animated button" tabindex="0"
-                     style="color:var(--color-white);background-color: var(--color-chathams-blue);">
-                    <div class="visible content">${i}</div>
-                    <div class="hidden content">${i}</div>
-                </div>
-            </c:forEach>
-            <div class="ui animated button" tabindex="0"
-                 style="color:var(--color-white);background-color: var(--color-chathams-blue);">
-                <div class="visible content">Next</div>
-                <div class="hidden content">
-                    <i class="right arrow icon"></i>
-                </div>
-            </div>
-            <br>
-        </div>
     </div>
 </div>
 <script>

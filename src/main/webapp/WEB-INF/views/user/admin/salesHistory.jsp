@@ -90,7 +90,7 @@
                 </form>
             </div>
             <div id="container"
-                 style="padding:20px 0;display: grid;grid-template-columns: repeat(4,1fr);grid-gap:1rem;justify-content: space-around;">
+                 style="padding:20px 0 60px 0;display: grid;grid-template-columns: repeat(4,1fr);grid-gap:1rem;justify-content: space-around;">
                 <c:forEach var="cardVOlist" items="${cardVOlist}">
                     <div class="ui card" style="height: 100%; margin: 0 auto;">
                         <div class="content"
@@ -109,30 +109,6 @@
                     </div>
                 </c:forEach>
             </div>
-        </div>
-        <div style="display: flex;justify-content: center;margin-top:30px;padding-bottom: 30px;">
-            <div class="ui animated button" tabindex="0"
-                 style="color:var(--color-white);background-color: var(--color-chathams-blue);">
-                <div class="visible content">Perv</div>
-                <div class="hidden content">
-                    <i class="left arrow icon"></i>
-                </div>
-            </div>
-            <c:forEach var="i" begin="1" end="${pageNum}">
-                <div class="ui animated button" tabindex="0"
-                     style="color:var(--color-white);background-color: var(--color-chathams-blue);">
-                    <div class="visible content">${i}</div>
-                    <div class="hidden content">${i}</div>
-                </div>
-            </c:forEach>
-            <div class="ui animated button" tabindex="0"
-                 style="color:var(--color-white);background-color: var(--color-chathams-blue);">
-                <div class="visible content">Next</div>
-                <div class="hidden content">
-                    <i class="right arrow icon"></i>
-                </div>
-            </div>
-            <br>
         </div>
     </main>
 </div>

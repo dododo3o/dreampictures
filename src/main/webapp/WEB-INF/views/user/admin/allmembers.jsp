@@ -94,7 +94,7 @@
 <div class="w3-overlay w3-hide-large w3-animate-opacity" onclick="w3_close()" style="cursor:pointer;"
      title="close side menu" id="myOverlay"></div>
 <div class="w3-main" style="margin-left:300px;">
-    <div class="has_bg_harp" style="display: flex;flex-direction: column;justify-content: space-between;">
+    <div class="has_bg_harp" style="display: flex;flex-direction: column;justify-content: space-between;padding-bottom: 60px">
         <div style="">
             <div style="height:auto;padding: 10px 0px;flex-direction:column;display:flex;gap:20px;justify-content:center;align-items: center;border-bottom: 1px solid #BDBDBD;">
                 <div><h1 style="font-family: 'Gowun Dodum',sans-serif;font-weight:bold;color:var(--color-chathams-blue)">전체 회원목록</h1></div>
@@ -109,7 +109,7 @@
                     </div>
                 </form>
             </div>
-            <div id="container" style="font-family: 'Gowun Dodum',sans-serif;font-weight:bold;height: auto;border-bottom: 1px solid #BDBDBD;display: grid;grid-template-columns:repeat(4,1fr);grid-gap:1rem;align-items: baseline;justify-items: center;padding:0 0 20px 0;">
+            <div id="container" style="font-family: 'Gowun Dodum',sans-serif;font-weight:bold;height: auto;display: grid;grid-template-columns:repeat(4,1fr);grid-gap:1rem;align-items: baseline;justify-items: center;padding:0 0 20px 0;">
                 <c:forEach var="memberVOList" items="${memberVOList}">
                     <div class="ui card">
                         <div class="content" >
@@ -127,29 +127,6 @@
                     </div>
                 </c:forEach>
             </div>
-        </div>
-        <div style="display: flex;justify-content: center;margin-top:30px;padding-bottom: 30px;">
-            <div class="ui animated button" tabindex="0"
-                 style="color:var(--color-white);background-color: var(--color-chathams-blue);">
-                <div class="visible content">Perv</div>
-                <div class="hidden content">
-                    <i class="left arrow icon"></i>
-                </div>
-            </div>
-            <c:forEach var="i" begin="1" end="${pageNum}">
-                <div class="ui animated button" tabindex="0" style="color:var(--color-white);background-color: var(--color-chathams-blue);">
-                    <div class="visible content" onclick="pagination_allmembers(${i})">${i}</div>
-                    <div class="hidden content" onclick="pagination_allmembers(${i})">${i}</div>
-                </div>
-            </c:forEach>
-            <div class="ui animated button" tabindex="0"
-                 style="color:var(--color-white);background-color: var(--color-chathams-blue);">
-                <div class="visible content">Next</div>
-                <div class="hidden content">
-                    <i class="right arrow icon"></i>
-                </div>
-            </div>
-            <br>
         </div>
     </div>
 </div>
