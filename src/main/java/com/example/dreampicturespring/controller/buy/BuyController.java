@@ -149,6 +149,7 @@ public class BuyController {
         if(membershipTBL.getNo_membership()!=num){ return "fail"; }
 
         commentRepository.deleteById(num);
+
         List<Paintingtbl> paintingtbls = paintingRepository.findAll();
         List<Membershiptbl> membershiptbls = new ArrayList<>();
         List<CardVO> cardVOList = new ArrayList<>();
