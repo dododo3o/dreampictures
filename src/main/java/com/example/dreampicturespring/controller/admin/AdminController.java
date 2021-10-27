@@ -39,8 +39,6 @@ public class AdminController {
     @Autowired
     ReportRepository reportRepository;
 
-    @Autowired
-    private EmailUtil emailUtil;
 
     @RequestMapping("/admin/login")
     public String admin_login(Model model){ return "user/admin/login";}
@@ -111,9 +109,6 @@ public class AdminController {
         adminVO.setPerson2img(membershiptbls.get(1).getImg());
         adminVO.setPerson3(membershiptbls.get(2).getNickname());
         adminVO.setPerson3img(membershiptbls.get(2).getImg());
-
-
-//        emailUtil.sendEmail("tjdrb200@naver.com","스프링 연습이다 마!", "테스트확인");
 
         mv.addObject("adminVO",adminVO);
         mv.setViewName("user/admin/main");

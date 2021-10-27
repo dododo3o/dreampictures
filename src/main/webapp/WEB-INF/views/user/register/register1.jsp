@@ -12,15 +12,18 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Gowun+Dodum&display=swap" rel="stylesheet">
+    <link rel="stylesheet" type="text/css"
+          href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.13/semantic.min.css">
     <script src="https://kit.fontawesome.com/b14e6f064f.js" crossorigin="anonymous"></script>
     <script
             src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"
             integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ=="
             crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.13/semantic.js"></script>
     <script>
         let emailChecked = false;
         let telChecked = false;
-
+        let codeChecked = false;
         verifyEmail = function () {
             var emailVal = $("#email").val();
             // 검증에 사용할 정규식 변수 regExp에 저장
@@ -50,6 +53,22 @@
                 });
             }
         };
+
+        verifycode = function () {
+            var checkcode = $("#checkcode").val();
+            var code = "dream123!";
+            alert(checkcode)
+            if (checkcode == code) {
+                alert("인증이 완료했습니다.")
+                document.getElementById("checkcode_btn").innerText = "인증완료";
+                document.getElementById("checkcode_btn").setAttribute("disabled", true);
+                document.getElementById("checkcode_btn").style = "background-color:gray";
+                codeChecked = true;
+
+            } else {
+                alert("다시 인증코드를 확인해주세요.")
+            }
+        }
 
         verifyTel = function () {
             var telVal = $("#tel").val();
@@ -106,7 +125,7 @@
             var pwd1 = $("#pwd").val();
             var pwd2 = $("#pwdChk").val();
             var pwdRegExp = /^(?=.*[a-zA-Z])((?=.*\d)|(?=.*\W)).{6,20}$/;
-            if (telChecked === true && emailChecked === true && pwd1 === pwd2 && pwd2.match(pwdRegExp) != null) {
+            if (telChecked === true && emailChecked === true && codeChecked == true && pwd1 === pwd2 && pwd2.match(pwdRegExp) != null) {
                 document.getElementById('frm').submit();
             } else {
                 alert('모든 인증을 완료해주세요.')
@@ -124,23 +143,23 @@
                     <div class="title" style="margin-bottom: 35px;">회원 가입</div>
                     <div class="has_flex_left">이메일 *
                         <input type="text" class="input_select has_width_full" name="email" id="email"
-                               required="required" style="font-family: 'Gowun Dodum';" placeholder="이메일"/></div>
+                               required style="font-family:'Gowun Dodum';" placeholder="이메일"/></div>
                     <br/>
-                    <button id="email_btn" class='button is_primary' onclick="verifyEmail()"
-                            style="font-family: 'Gowun Dodum'">인증하기
+                    <button class='button is_primary' id="email_btn" onclick="verifyEmail()"
+                            style="font-family: 'Gowun Dodum';background-color: #1678c2;">인증하기
                     </button>
                     <div class="has_flex_left">인증번호 *
-                        <input type="text" class="input_select has_width_full" style="font-family: 'Gowun Dodum';"
-                               name="certified" id="certified" placeholder="인증번호"></div>
+                        <input type="text" class="input_select has_width_full" name="checkcode" id="checkcode"
+                               placeholder="인증번호" style="font-family: 'Gowun Dodum';"></div>
                     <br/>
-                    <button class="button is_primary" id="certifiedbtn" onclick="" style="font-family: 'Gowun Dodum'">인증하기</button>
+                    <button class="button is_primary" id="checkcode_btn" onclick="verifycode()"
+                            style="font-family: 'Gowun Dodum';background-color: #1678c2;">인증하기
+                    </button>
                     <br/>
                     <div class="has_flex_left">
-                        <div>비밀번호 *<span class="has_chathams-blue">(6~20 영문 대소문자, 숫자, 특수문자 꼭포함하여  6~20자)</span>
-                        </div>
+                        <div>비밀번호 *<span class="has_chathams-blue">(6~20 영문 대소문자, 숫자, 특수문자 꼭포함하여  6~20자)</span></div>
                         <input type="password" class="has_width_full input_select" id="pwd" name="pwd"
-                               placeholder="비밀번호" style="font-family: 'Gowun Dodum';"
-                               required="required"/>
+                               placeholder="비밀번호" style="font-family: 'Gowun Dodum';" required="required"/>
                     </div>
                     <div class="has_flex_left">
                         <div id="pwdTextChange">
@@ -164,12 +183,11 @@
                                required="required" style="font-family: 'Gowun Dodum';" placeholder="핸드폰 번호"/>
                     </div>
                     <br/>
-                    <button id="tel_btn" class='button is_primary' style="font-family: 'Gowun Dodum'"
+                    <button id="tel_btn" class='button is_primary' style="font-family: 'Gowun Dodum';background-color: #1678c2;"
                             onclick="verifyTel()">인증하기
                     </button>
                     <br/>
-                    <input type="submit" onclick="nextBtn_condition()" id="submit_btn"
-                           style="font-family: 'Gowun Dodum';background-color: white"
+                    <input type="submit" onclick="nextBtn_condition()" id="submit_btn" style="font-family: 'Gowun Dodum';background-color: white"
                            class='input_select is_login has_shadow has_flex_center has_width_full' value="다음 단계">
                 </div>
             </form>
