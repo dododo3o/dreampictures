@@ -107,10 +107,7 @@
                         </div>
                         <div class="extra content">
                             <div class="ui large transparent left icon input" style="display: flex;padding-bottom: 5px">
-                                <i class="pencil alternate icon"></i>
-                                <textarea type="text" maxlength="100" size="20" id="${QaVOlist.no_qa}" placeholder="답변하기..." style="font-size: 0.8em;font-weight:bold;font-family: 'Gowun Dodum';width:100%;height:60px;resize: none;border: none; "/>
-                                    ${QaVOlist.answer}
-                                </textarea>
+                                <textarea type="text" maxlength="100" size="20" id="${QaVOlist.no_qa}" placeholder="답변하기..." style="font-size: 0.8em;font-weight:bold;font-family: 'Gowun Dodum';width:100%;height:60px;resize: none;border: none; "/>${QaVOlist.answer}</textarea>
                             </div>
                             <button class="ui red basic button" onclick="deleteQA(${QaVOlist.no_qa})" style="font-weight:bold;font-family: 'Gowun Dodum';font-size: 0.8em;float:right;">삭제</button>
                             <button class="ui primary basic button" onclick="answerQA(${QaVOlist.no_qa})" style="font-weight:bold;font-family: 'Gowun Dodum';float:right;font-size: 0.8em" >답변하기</button>
