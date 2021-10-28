@@ -93,7 +93,7 @@
 <div class="w3-overlay w3-hide-large w3-animate-opacity" onclick="w3_close()" style="cursor:pointer" title="close side menu" id="myOverlay"></div>
 <div class="w3-main" style="margin-left:300px; height: 100%;">
     <main class="has_bg_harp" style="height: auto;display: flex;flex-direction: column; justify-content: space-between;">
-        <div >
+        <div style="padding-bottom: 60px">
             <div tabindex="0" style="display: flex;justify-content: center;border-bottom: 1px solid #BDBDBD"><h1 style="font-family: 'Gowun Dodum', sans-serif;font-weight: bold;padding: 10px 0px;color:var(--color-chathams-blue);">질문사항</h1></div>
             <div class="manager_card" style="display: grid;grid-template-columns:repeat(4,1fr);grid-gap:1rem;width: 100%;justify-items: center;padding-bottom: 30px">
                 <c:forEach var="QaVOlist" items="${QaVOlist}">
@@ -117,28 +117,6 @@
                         </div>
                     </div>
                 </c:forEach>
-            </div>
-        </div>
-        <div style="display: flex;justify-content: center;padding-top:30px;padding-bottom: 30px;border-top: 1px solid #BDBDBD;">
-            <div>
-                <div class="ui animated button" tabindex="0"
-                     style="color:var(--color-white);background-color: var(--color-chathams-blue);">
-                    <div class="visible content">Perv</div>
-                    <div class="hidden content"><i class="left arrow icon"></i></div>
-                </div>
-                <c:forEach var="i" begin="1" end="${pageNum}">
-                    <div class="ui animated button" tabindex="0"
-                         style="color:var(--color-white);background-color: var(--color-chathams-blue);">
-                        <div class="visible content">${i}</div>
-                        <div class="hidden content">${i}</div>
-                    </div>
-                </c:forEach>
-                <div class="ui animated button" tabindex="0"
-                     style="color:var(--color-white);background-color: var(--color-chathams-blue);">
-                    <div class="visible content">Next</div>
-                    <div class="hidden content"><i class="right arrow icon"></i></div>
-                </div>
-                <br>
             </div>
         </div>
     </main>
