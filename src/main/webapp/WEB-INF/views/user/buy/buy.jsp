@@ -23,7 +23,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.13/semantic.js"></script>
     <script>
         function buypainting(num) {
-            location.href = "http://localhost:8080/buy_picture/" + num;
+            location.href = "/buy_picture/" + num;
         }
         find_picture = function () {
             $(() => {
