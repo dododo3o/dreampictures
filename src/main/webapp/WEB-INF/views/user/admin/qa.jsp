@@ -92,7 +92,7 @@
 </nav>
 <div class="w3-overlay w3-hide-large w3-animate-opacity" onclick="w3_close()" style="cursor:pointer" title="close side menu" id="myOverlay"></div>
 <div class="w3-main" style="margin-left:300px; height: 100%;">
-    <main class="has_bg_harp" style="height: auto;display: flex;flex-direction: column; justify-content: space-between;">
+    <main class="has_bg_harp" style="height: 100%;display: flex;flex-direction: column; justify-content: space-between;">
         <div style="padding-bottom: 60px">
             <div tabindex="0" style="display: flex;justify-content: center;border-bottom: 1px solid #BDBDBD"><h1 style="font-family: 'Gowun Dodum', sans-serif;font-weight: bold;padding: 10px 0px;color:var(--color-chathams-blue);">질문사항</h1></div>
             <div class="manager_card" style="display: grid;grid-template-columns:repeat(4,1fr);grid-gap:1rem;width: 100%;justify-items: center;padding-bottom: 30px">
@@ -107,9 +107,7 @@
                         </div>
                         <div class="extra content">
                             <div class="ui large transparent left icon input" style="display: flex;padding-bottom: 5px">
-                                <i class="pencil alternate icon"></i>
-                                <textarea type="text" maxlength="100" size="20" id="${QaVOlist.no_qa}" placeholder="답변하기..." style="font-size: 0.8em;font-weight:bold;font-family: 'Gowun Dodum';width:100%;height:60px;resize: none;border: none; "/>
-                                    ${QaVOlist.answer}
+                                <textarea type="text" maxlength="100" size="20" id="${QaVOlist.no_qa}" placeholder="답변하기..." style="font-size: 0.8em;font-weight:bold;font-family: 'Gowun Dodum';width:100%;height:60px;resize: none;border: none; "/>${QaVOlist.answer}
                                 </textarea>
                             </div>
                             <button class="ui red basic button" onclick="deleteQA(${QaVOlist.no_qa})" style="font-weight:bold;font-family: 'Gowun Dodum';font-size: 0.8em;float:right;">삭제</button>

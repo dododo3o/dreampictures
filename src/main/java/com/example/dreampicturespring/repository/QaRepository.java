@@ -14,5 +14,8 @@ public interface QaRepository extends JpaRepository<Qatbl,Integer> {
 
     @Query(value = "SELECT * FROM qatbl ORDER BY qatbl.no_qa DESC OFFSET :page*16 ROWS FETCH FIRST 16 ROWS ONLY", nativeQuery = true)
     List<Qatbl> findpage_qa(@Param("page") Integer page);
+
+    @Query(value = "select * from qatbl order by qatbl.no_qa desc", nativeQuery = true)
+    List<Qatbl> find_sort();
 }
 
