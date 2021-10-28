@@ -51,7 +51,7 @@ public class NoticeController {
         Long cardNum,pageNum;
 
         ModelAndView mv = new ModelAndView();
-        List<Qatbl> qatblList = qaRepository.findAll();
+        List<Qatbl> qatblList = qaRepository.find_sort();
         List<QaVO> QaVOlist = new ArrayList<>();
 
         for (Qatbl qatbl : qatblList) {
