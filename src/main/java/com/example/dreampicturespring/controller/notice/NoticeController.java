@@ -30,7 +30,7 @@ public class NoticeController {
         final int CARDSPERPAGE = 15;
         Long cardNum,pageNum;;
         ModelAndView mv = new ModelAndView();
-        List<Noticetbl> noticetblList = noticeRepository.findAll(Sort.by(Sort.Direction.DESC, "id"));
+        List<Noticetbl> noticetblList = noticeRepository.findAll();
         List<NoticeVO> noticeVOList = new ArrayList<>();
         for (Noticetbl noticetbl : noticetblList) {
             NoticeVO noticeVO = new NoticeVO();
