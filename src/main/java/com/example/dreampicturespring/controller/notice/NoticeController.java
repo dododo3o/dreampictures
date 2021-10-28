@@ -8,6 +8,7 @@ import com.example.dreampicturespring.repository.QaRepository;
 import com.example.dreampicturespring.vo.NoticeVO;
 import com.example.dreampicturespring.vo.QaVO;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
@@ -29,7 +30,7 @@ public class NoticeController {
         final int CARDSPERPAGE = 15;
         Long cardNum,pageNum;;
         ModelAndView mv = new ModelAndView();
-        List<Noticetbl> noticetblList = noticeRepository.findAll();
+        List<Noticetbl> noticetblList = noticeRepository.findAll(Sort.by(Sort.Direction.DESC, "id"));
         List<NoticeVO> noticeVOList = new ArrayList<>();
         for (Noticetbl noticetbl : noticetblList) {
             NoticeVO noticeVO = new NoticeVO();
