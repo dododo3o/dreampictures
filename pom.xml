@@ -152,6 +152,7 @@
             <build>
                 <plugins>
                     <plugin>
+                        <artifactId/>
                         <executions>
                             <execution>
                                 <id>test-native</id>
